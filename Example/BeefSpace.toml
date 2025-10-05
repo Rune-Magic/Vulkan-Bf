@@ -1,0 +1,5 @@
+FileVersion = 1
+Projects = {"Vulkan.Example" = {Path = "."}, Vulkan = {Path = ".."}, glfw-beef = {Git = "https://github.com/MineGame159/glfw-beef"}}
+
+[Workspace]
+StartupProject = "Vulkan.Example"

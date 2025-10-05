@@ -1,0 +1,6 @@
+FileVersion = 1
+Projects = {"Vulkan.Setup" = {Path = "."}, BeefXml = {Git = "https://github.com/Rune-Magic/BeefXml"}}
+Unlocked = ["BeefXml"]
+
+[Workspace]
+StartupProject = "Vulkan.Setup"

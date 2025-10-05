@@ -1,0 +1,6 @@
+FileVersion = 1
+Dependencies = {corlib = "*", glfw-beef = {Git = "https://github.com/MineGame159/glfw-beef"}, Vulkan = "*"}
+
+[Project]
+Name = "Vulkan.Example"
+StartupObject = "Vulkan.Example.Program"

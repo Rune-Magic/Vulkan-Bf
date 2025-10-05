@@ -1,0 +1,6 @@
+FileVersion = 1
+Projects = {Vulkan = {Path = "."}}
+ExtraPlatforms = ["Linux32", "Linux64", "macOS"]
+
+[Workspace]
+StartupProject = "Vulkan"

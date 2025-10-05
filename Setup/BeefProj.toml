@@ -1,0 +1,6 @@
+FileVersion = 1
+Dependencies = {corlib = "*", BeefXml = {Git = "https://github.com/Rune-Magic/BeefXml"}}
+
+[Project]
+Name = "Vulkan.Setup"
+StartupObject = "Vulkan.Setup.Program"
