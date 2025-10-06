@@ -19,7 +19,8 @@ static
 
 	public static void CheckResult(VkResult result)
 	{
-		Runtime.Assert(result == .VkSuccess);
+		if (result != .VkSuccess)
+			Runtime.FatalError(result.ToString(..scope .()));
 	}
 
 	public static mixin TryResult(VkResult result)
@@ -47,6 +48,7 @@ static class Program
 
 	protected static
 	(
+		VkCommandBuffer cmd,
 		VkSemaphore imageAvaliable,
 		VkSemaphore renderFinished,
 		VkFence inFlight
@@ -160,7 +162,7 @@ static class Program
 		result = buffer.BindMemory(gDevice, allocation.deviceMem, 0);
 		return result;
 	}
-	public static VkResult TransferToBuffer(Span<uint8> data, VkBuffer dstBuffer, VkFence fence)
+	public static VkResult TransferToBuffer(Span<uint8> data, VkBuffer dstBuffer)
 	{
 		VkResult result = CreateBuffer(scope .(null, 0,
 			size: (.)data.Length,
@@ -186,7 +188,9 @@ static class Program
 		result = cmd.End();
 		TryResult!(result);
 
-		result = queue.Submit(.(.(null, pCommandBuffers: .(cmd)) {}), fence);
+		result = queue.Submit(.(.(null, commandBuffers: .(cmd)) {}), fence: null);
+		CheckResult(result);
+		result = queue.WaitIdle();
 		return result;
 	}
 
@@ -258,6 +262,7 @@ static class Program
 			if (queueFamilyIndex < 0) return .Err;
 			return Self()
 			{
+				device = device,
 				properties = properties,
 				memoryProperties = device.GetMemoryProperties(..?),
 				queueFamilyIndex = (.)queueFamilyIndex,
@@ -314,7 +319,7 @@ static class Program
 				imageArrayLayers = 1,
 				imageUsage = .ColorAttachment,
 				imageSharingMode = .Exclusive,
-				pQueueFamilyIndices = .(physicalDevice.queueFamilyIndex),
+				queueFamilyIndices = .(physicalDevice.queueFamilyIndex),
 				preTransform = physicalDevice.surfaceCapabilities.currentTransform,
 				compositeAlpha = .OpaqueKHR,
 				presentMode = .FifoKHR, //TODO
@@ -405,11 +410,18 @@ static class Program
 			}
 
 			result = vkCreateInstance(scope .(
+				pApplicationInfo: scope .(null,
+					pApplicationName: "Vulkan-Bf Example",
+					applicationVersion: VK_MAKE_VERSION(0, 0, 1),
+					pEngineName: null,
+					engineVersion: 0,
+					apiVersion: VK_API_VERSION_1_0
+				),
 #if DEBUG
 				pNext: debugMessengerCI,
-				ppEnabledLayerNames: .("VK_LAYER_KHRONOS_validation"),
+				enabledLayerNames: .("VK_LAYER_KHRONOS_validation"),
 #endif
-				ppEnabledExtensionNames: extensions
+				enabledExtensionNames: extensions
 			), gVkAlloc, out instance);
 			CheckResult(result);
 			VulkanLoader.LoadInstance(instance);
@@ -429,7 +441,7 @@ static class Program
 			Runtime.Assert(window != null);
 			defer:: Glfw.DestroyWindow(window);
 
-			Glfw.SetFramebufferSizeCallback(window, scope [&](window, width, height) =>
+			Glfw.SetFramebufferSizeCallback(window, new [&](window, width, height) =>
 			{
 				framebufferResized = true;
 			});
@@ -454,15 +466,19 @@ static class Program
 			deviceInfos.Sort();
 			physicalDevice = deviceInfos[0];
 			Console.WriteLine($"[Info] Selected GPU: {StringView(&physicalDevice.properties.deviceName)}");
+		}
 
-			result = physicalDevice.device.CreateDevice(scope .(null, 0,
-				VkDeviceQueueCreateInfo[?](.(null, 0,
-					physicalDevice.queueFamilyIndex,
-					.(1.f)
-				)),
-				ppEnabledExtensionNames: .(physicalDevice.extensionCount, &physicalDevice.extensionBuffer),
-				pEnabledFeatures: &physicalDevice.enabledFeatures
-			), gVkAlloc, out gDevice);
+		{
+			result = physicalDevice.device.CreateDevice(scope .()
+			{
+				queueCreateInfos = .(.()
+				{
+					queueFamilyIndex = physicalDevice.queueFamilyIndex,
+					queuePriorities = .(1.f),
+				}),
+				enabledExtensionNames = .(physicalDevice.extensionCount, &physicalDevice.extensionBuffer),
+				pEnabledFeatures = &physicalDevice.enabledFeatures,
+			}, gVkAlloc, out gDevice);
 			CheckResult(result);
 			VulkanLoader.LoadDevice(gDevice);
 			gDevice.GetQueue(physicalDevice.queueFamilyIndex, 0, out queue);
@@ -471,7 +487,7 @@ static class Program
 
 		{
 			result = gDevice.CreateRenderPass(scope .(null, 0,
-				pAttachments: .(.()
+				attachments: .(.()
 				{
 					format = physicalDevice.surfaceFormat.format,
 					samples = .VK_1,
@@ -482,12 +498,12 @@ static class Program
 					initialLayout = .Undefined,
 					finalLayout = .PresentSrcKHR,
 				}),
-				pSubpasses: .(.()
+				subpasses: .(.()
 				{
 					pipelineBindPoint = .Graphics,
-					pColorAttachments_pResolveAttachments = .(.(.(0, .ColorAttachmentOptimal) {}), .()),
+					colorAttachments_resolveAttachments = .(.(.(0, .ColorAttachmentOptimal) {}), .()),
 				}),
-				pDependencies: .(.()
+				dependencies: .(.()
 				{
 					srcSubpass = VK_SUBPASS_EXTERNAL,
 					dstSubpass = 0,
@@ -513,22 +529,31 @@ static class Program
 
 			result = gDevice.CreatePipelineLayout(scope .()
 			{
-				pPushConstantRanges = .(.(.Vertex, 0, sizeof(PushConstants)) {})
+				pushConstantRanges = .(.(.Vertex, 0, sizeof(PushConstants)) {})
 			}, gVkAlloc, out pipelineLayout);
 			CheckResult(result);
 			defer:: pipelineLayout.Destroy(gDevice, gVkAlloc);
 
-			result = vkCreateGraphicsPipelines(gDevice, null, .(.()
+			result = vkCreateGraphicsPipelines(gDevice, null, 1, scope .()
 			{
-				pStages = .(
-					.(null, 0, .Vertex, shaderModule, "vertexShader") {},
-					.(null, 0, .Fragment, shaderModule, "fragmentShader")),
+				stages = .(
+					.(null, 0, .Vertex, shaderModule, "vertMain") {},
+					.(null, 0, .Fragment, shaderModule, "fragMain")
+				),
 				pVertexInputState = scope .(null, 0,
-					pVertexBindingDescriptions: .(.(0, sizeof(Vertex), .Vertex) {}),
-					pVertexAttributeDescriptions: .(
-						.(0, 0, .R32G32B32_SFLOAT, 0) {},
-						.(1, 0, .R32G32B32_SFLOAT, sizeof(Vertex))
+					vertexBindingDescriptions: .(.(0, sizeof(Vertex), .Vertex) {}),
+					vertexAttributeDescriptions: .(
+						.(0, 0, .R32G32B32_SFLOAT, offsetof(Vertex, pos)) {},
+						.(1, 0, .R32G32B32_SFLOAT, offsetof(Vertex, color))
 					)
+				),
+				pInputAssemblyState = scope .(null, 0,
+					topology: .TriangleList,
+					primitiveRestartEnable: false
+				),
+				pViewportState = scope .(null, 0,
+					viewports: .(.(0, 0, swapchain.extent.width, swapchain.extent.height, 0f, 1f) {}),
+					scissors: .(.(.(0, 0), swapchain.extent) {})
 				),
 				pRasterizationState = scope .()
 				{
@@ -544,10 +569,11 @@ static class Program
 				{
 					rasterizationSamples = .VK_1,
 				},
+
 				pColorBlendState = scope .()
 				{
 					logicOpEnable = false,
-					pAttachments = .(.()
+					attachments = .(.()
 					{
 						blendEnable = true,
 						srcColorBlendFactor = .SrcAlpha,
@@ -558,33 +584,32 @@ static class Program
 						alphaBlendOp = .Add,
 					})
 				},
-				pDynamicState = scope .(null, 0, VkDynamicState[?](.Viewport, .Scissor)),
+				pDynamicState = scope .(null, 0, .(VkDynamicState.Viewport, .Scissor)),
 				layout = pipelineLayout,
 				renderPass = renderPass,
 				subpass = 0,
-			}), gVkAlloc, out pipeline);
+			}, gVkAlloc, out pipeline);
 			CheckResult(result);
 			defer:: pipeline.Destroy(gDevice, gVkAlloc);
 		}
 
-		VkCommandBuffer cmd;
 		{
 			result = gDevice.CreateCommandPool(
 				scope .(null, .ResetCommandBuffer, physicalDevice.queueFamilyIndex), gVkAlloc, out commandPool);
 			CheckResult(result);
 			defer:: commandPool.Destroy(gDevice, gVkAlloc);
 
+			VkCommandBuffer[frames.Count] commandBuffers = default;
 			result = gDevice.AllocateCommandBuffers(
-				scope .(null, commandPool, .Primary, 1), out cmd);
+				scope .(null, commandPool, .Primary, commandBuffers.Count), out commandBuffers[0]);
 			CheckResult(result);
-			defer:: commandPool.FreeCommandBuffers(gDevice, .(cmd));
-		}
+			defer:: commandPool.FreeCommandBuffers(gDevice, commandBuffers);
 
-		{
 			VkSemaphoreCreateInfo* semaphoreCI = scope .(null, 0);
 			VkFenceCreateInfo* fenceCI = scope .(null, .Signaled);
 			for (var frame in ref frames)
 			{
+				frame.cmd = commandBuffers[@frame];
 				CheckResult(gDevice.CreateSemaphore(semaphoreCI, gVkAlloc, out frame.imageAvaliable));
 				CheckResult(gDevice.CreateSemaphore(semaphoreCI, gVkAlloc, out frame.renderFinished));
 				CheckResult(gDevice.CreateFence(fenceCI, gVkAlloc, out frame.inFlight));
@@ -609,7 +634,9 @@ static class Program
 				sharingMode: .Exclusive
 			), .DeviceLocal, out vertexBuffer, let vertexBufferAlloc);
 			CheckResult(result);
-			result = TransferToBuffer(((Span<Vertex>)vertices).ToRawData(), vertexBuffer, null);
+			defer:: vertexBuffer.Destroy(gDevice, gVkAlloc);
+			defer:: vertexBufferAlloc.Destroy();
+			result = TransferToBuffer(((Span<Vertex>)vertices).ToRawData(), vertexBuffer);
 			CheckResult(result);
 
 			result = CreateBuffer(scope .(null, 0,
@@ -618,14 +645,10 @@ static class Program
 				sharingMode: .Exclusive
 			), .DeviceLocal, out indexBuffer, let indexBufferAlloc);
 			CheckResult(result);
-			result = TransferToBuffer(((Span<uint32>)indices).ToRawData(), indexBuffer, null);
-			CheckResult(result);
-
-			result = queue.WaitIdle();
-			CheckResult(result);
-
-			defer:: vertexBuffer.Destroy(gDevice, gVkAlloc);
 			defer:: indexBuffer.Destroy(gDevice, gVkAlloc);
+			defer:: indexBufferAlloc.Destroy();
+			result = TransferToBuffer(((Span<uint32>)indices).ToRawData(), indexBuffer);
+			CheckResult(result);
 		}
 
 		PushConstants pushConsts = default;
@@ -662,16 +685,17 @@ static class Program
 			result = swapchain.swapchain.AcquireNextImageKHR(gDevice, gTimeout, frame.imageAvaliable, null, let imageIndex);
 			RebuildSwapchain!(result);
 
+			let cmd = frame.cmd;
 			result = cmd.Reset(0); CheckResult(result);
 			result = cmd.Begin(scope .(null, 0, null)); CheckResult(result);
 			cmd.CmdBeginRenderPass(scope .(null, renderPass, swapchain.framebuffers[imageIndex].framebuffer,
-				renderArea: .(.(0, 0), swapchain.extent), pClearValues: .(gClearValue)),
+				renderArea: .(.(0, 0), swapchain.extent), clearValues: .(gClearValue)),
 				VkSubpassContents.Inline);
 			{
+				cmd.CmdBindPipeline(.Graphics, pipeline);
 				cmd.CmdSetViewport(0, .(.(0, 0, swapchain.extent.width, swapchain.extent.height, 0f, 1f) {}));
 				cmd.CmdSetScissor(0, .(.(.(0, 0), swapchain.extent) {}));
-				cmd.CmdPushConstants(pipelineLayout, .Vertex, 0, .(sizeof(PushConstants), &pushConsts));
-				cmd.CmdBindPipeline(.Graphics, pipeline);
+				cmd.CmdPushConstants(pipelineLayout, .Vertex, 0, sizeof(PushConstants), &pushConsts);
 				cmd.CmdBindVertexBuffers(0, .( .(vertexBuffer), .(0) ));
 				cmd.CmdBindIndexBuffer(indexBuffer, 0, .Uint32);
 				cmd.CmdDrawIndexed(indices.Count, 1, 0, 0, 0);
@@ -684,15 +708,15 @@ static class Program
 			CheckResult(result);
 			result = queue.Submit(.(.()
 			{
-				pWaitSemaphores_pWaitDstStageMask = .(.(frame.imageAvaliable), .(VkPipelineStageFlags.ColorAttachmentOutput)),
-				pCommandBuffers = .(cmd),
-				pSignalSemaphores = .(frame.renderFinished)
+				waitSemaphores_waitDstStageMask = .(.(frame.imageAvaliable), .(VkPipelineStageFlags.ColorAttachmentOutput)), 
+				commandBuffers = .(cmd),
+				signalSemaphores = .(frame.renderFinished)
 			}), frame.inFlight);
 			CheckResult(result);
 
 			result = queue.PresentKHR(scope .(null,
-				pWaitSemaphores: .(frame.imageAvaliable),
-				pSwapchains_pImageIndices_pResults: .( .(swapchain.swapchain), .(imageIndex), .() )));
+				waitSemaphores: .(frame.renderFinished),
+				swapchains_imageIndices_results: .( .(swapchain.swapchain), .(imageIndex), .() )));
 			RebuildSwapchain!(result);
 
 			frameIndex = (frameIndex + 1) % frames.Count;

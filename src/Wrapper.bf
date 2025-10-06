@@ -16,7 +16,7 @@ namespace Vulkan
 #endif
 	}
 
-	[CRepr] struct VulkanSpan<T> : this(uint32 count, T* ptr)
+	struct VulkanSpan<T> : this(uint32 count, T* ptr)
 	{
 		public this()
 		{
@@ -40,7 +40,7 @@ namespace Vulkan
 		public static operator Self(List<T> list) => .((.)list.Count, list.Ptr);
 	}
 
-	[CRepr] struct VulkanDuoSpan<T1, T2> : this(uint32 count, T1* ptr1, T2* ptr2)
+	struct VulkanDuoSpan<T1, T2> : this(uint32 count, T1* ptr1, T2* ptr2)
 	{
 		public this()
 		{
@@ -63,7 +63,7 @@ namespace Vulkan
 		public VulkanSpan<T2> Span2 => .(count, ptr2);
 	}
 
-	[CRepr] struct VulkanTrioSpan<T1, T2, T3> : this(uint32 count, T1* ptr1, T2* ptr2, T3* ptr3)
+	struct VulkanTrioSpan<T1, T2, T3> : this(uint32 count, T1* ptr1, T2* ptr2, T3* ptr3)
 	{
 		public this()
 		{
@@ -95,7 +95,7 @@ namespace Vulkan
 		public VulkanSpan<T3> Span3 => .(count, ptr3);
 	}
 
-	[CRepr] struct VulkanQuadSpan<T1, T2, T3, T4> : this(uint32 count, T1* ptr1, T2* ptr2, T3* ptr3, T4* ptr4)
+	struct VulkanQuadSpan<T1, T2, T3, T4> : this(uint32 count, T1* ptr1, T2* ptr2, T3* ptr3, T4* ptr4)
 	{
 		public this()
 		{

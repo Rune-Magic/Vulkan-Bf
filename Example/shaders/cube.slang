@@ -12,14 +12,14 @@ struct PushConstants
 [push_constant] PushConstants consts;
 
 [shader("vertex")]
-Vertex vertexShader(Vertex v)
+Vertex vertMain(Vertex v)
 {
     v.pos = mul(v.pos, consts.cubeMVP);
     return v;
 }
 
 [shader("fragment")]
-float4 fragmentShader(Vertex v)
+float4 fragMain(Vertex v) : SV_Target
 {
     return v.color;
 }

@@ -539,20 +539,14 @@ class Program
 					Compiler.Identifier.GetSourceName(command.value.parameters[handleIdx].name, str);
 					for (let param in command.value.parameters)
 					{
-						if (@param.Index == handleIdx) continue;
+						if (@param.Index == handleIdx || param.flags.HasFlag(.ExcludeFromPrettyCall)) continue;
 						str.Append(", ", param.type, " ");
 						Compiler.Identifier.GetSourceName(param.name, str);
 						if (param.flags.HasFlag(.Optional))
 							WriteOptional(param.type, str);
 					}
 					str.Append(") => ", command.value.name, "(");
-					let parameters = command.value.parameters;
-					for (let param in parameters)
-					{
-						if (@param.Index != 0) str.Append(", ");
-						if (param.flags.HasFlag(.OutParam)) str.Append("out ");
-						Compiler.Identifier.GetSourceName(param.name, str);
-					}
+					command.value.WritePFNInvoke(str);
 					str.Append(");\n");
 					loader.Write(str);
 				}
@@ -605,13 +599,12 @@ class Program
 						scopeAlloc..Clear()..Append("\tpublic ", staticStr, "mixin ", name, "_Scope(");
 						newAlloc..Clear()..Append("\tpublic ", staticStr, "mixin ", name, "_New(");
 						newCustomAlloc..Clear()..Append("\tpublic ", staticStr, "mixin ", name, "_New(");
-						//if (isHandle) AppendAll("this ");
 					}
 					{
 						bool first = true;
 						for (let param in command.value.parameters)
 						{
-							if (isHandle && @param.Index == 0) continue;
+							if ((isHandle && @param.Index == 0) || param.flags.HasFlag(.ExcludeFromPrettyCall)) continue;
 							if (param.flags.HasFlag(.OutArray))
 							{
 								if (param.type.EndsWith('*'))
@@ -644,7 +637,9 @@ class Program
 								AppendAll("var ", param.name);
 							continue;
 						}
-						AppendAll(param.name);
+						CommandEntry.WritePFNInvokeParam(param, scopeAlloc);
+						CommandEntry.WritePFNInvokeParam(param, newAlloc);
+						CommandEntry.WritePFNInvokeParam(param, newCustomAlloc);
 					}
 					AppendAll(");\n");
 					StringView tab;
@@ -1462,7 +1457,7 @@ class Program
 	{
 		public StringView name;
 		public append String returnType;
-		public enum ParamFlags { None = 0, Optional = 1, Span = 2, Const = 4, OutParam = 8, OutArray = 16 }
+		public enum ParamFlags { None = 0, Optional = 1, Span = 2, Const = 4, OutParam = 8, OutArray = 16, ExcludeFromPrettyCall = 32, ExcludeFromPFN = 64 }
 		public typealias Param = (String type, StringView name, ParamFlags flags, int spanMulti, StringView lenParam);
 		public append List<Param> parameters;
 		public
@@ -1483,16 +1478,48 @@ class Program
 			String pfn = scope .(256);
 			WriteAttrs(writer, true);
 			pfn.Append("CallingConvention(VKAPI_PTR)] function ", returnType, " PFN_", name, "(");
-			for (let param in parameters)
-			{
-				if (@param.Index != 0) pfn.Append(", ");
-				pfn.Append(param.type, " ");
-				Compiler.Identifier.GetSourceName(param.name, pfn);
-				if (param.flags.HasFlag(.Optional))
-					WriteOptional(param.type, pfn);
-			}
+			WriteParamList(pfn, .ExcludeFromPFN);
 			writer.Write(pfn..Append(");"));
 			return true;
+		}
+
+		public void WriteParamList(String outString, ParamFlags excludeFlag)
+		{
+			for (let param in parameters)
+			{
+				if (param.flags.HasFlag(excludeFlag)) continue;
+				if (@param.Index != 0) outString.Append(", ");
+				outString.Append(param.type, " ");
+				Compiler.Identifier.GetSourceName(param.name, outString);
+				if (param.flags.HasFlag(.Optional))
+					WriteOptional(param.type, outString);
+			}
+		}
+
+		public void WritePFNInvoke(String outString)
+		{
+			for (let param in parameters)
+			{
+				if (param.flags.HasFlag(.ExcludeFromPrettyCall)) continue;
+				if (@param.Index != 0) outString.Append(", ");
+				WritePFNInvokeParam(param, outString);
+			}
+		}
+
+		public static void WritePFNInvokeParam(in Param param, String outString)
+		{
+			if (param.flags.HasFlag(.OutParam))
+				outString.Append("out ");
+			Compiler.Identifier.GetSourceName(param.name, outString);
+			if (param.flags.HasFlag(.Span))
+			{
+				outString.Append(".count");
+				for (let i < param.spanMulti)
+				{
+					outString.Append(", ", param.name, ".ptr");
+					if (param.spanMulti > 1) (i+1).ToString(outString);
+				}
+			}
 		}
 	}
 
@@ -1842,24 +1869,31 @@ class Program
 			case .ClosingTag("param"):
 				if (curParam.flags.HasFlag(.Span)) do
 				{
-					if (!curParam.type.EndsWith('*') && (curParam.type == "void*" && curParam.spanMulti == 1))
+					if (!curParam.flags.HasFlag(.Const) || !curParam.type.EndsWith('*') || (curParam.type == "void*" && curParam.spanMulti == 1))
 					{
 						curParam.flags ^= .Span;
+						curParam.lenParam = null;
+						curParam.spanMulti = 0;
 						break;
 					}
-					curParam.type.RemoveFromEnd(1);
 
-					do
-					{
-						if (!curCommand.parameters.Back.flags.HasFlag(.Span)) break;
-						String newName = new:Alloc .(curCommand.parameters.Back.name.Length + 1 + curParam.name.Length);
-						newName..Append(curCommand.parameters.Back.name)..Append('_')..Append(curParam.name);
-						curParam.name = newName;
-					}
+					CommandEntry.Param rawPointer = (
+						new:Alloc String(curParam.type),
+						curParam.name,
+						(curParam.flags & ((.Span | .ExcludeFromPFN) ^ (.)~0)) | .ExcludeFromPrettyCall,
+						curParam.spanMulti,
+						curParam.lenParam
+					);
+					curParam.type.RemoveFromEnd(1);
+					curParam.flags |= .ExcludeFromPFN;
+
 					switch (curParam.spanMulti)
 					{
 					case 1:
 						curParam.type.Insert(0, "VulkanSpan<");
+						for (var param in ref curCommand.parameters)
+							if (param.name == curParam.lenParam)
+								param.flags |= .ExcludeFromPrettyCall;
 					case 2:
 						StringView lastType = .(curCommand.parameters.Back.type);
 						lastType..RemoveFromStart("VulkanSpan<".Length)..RemoveFromEnd(1);
@@ -1882,18 +1916,30 @@ class Program
 						Runtime.FatalError();
 					}
 					curParam.type.Append('>');
-					curCommand.parameters.PopBack();
+
+					String newName = new:Alloc .(16);
+					if (curCommand.parameters.Back.flags.HasFlag(.Span))
+						newName..Append(curCommand.parameters.Back.name)..Append('_');
+					int i = 0;
+					while (curParam.name[i] == 'p') i++;
+					newName..Append(curParam.name[i].ToLower)..Append(curParam.name[(i+1)...]);
+					curParam.name = newName;
+
+					if (curParam.spanMulti > 1)
+						curCommand.parameters.PopBack();
+					curCommand.parameters.Add(rawPointer);
 				}
 				curCommand.parameters.Add(curParam);
 			case .Attribute("optional", "true"): curParam.flags |= .Optional;
 			case .Attribute("len", let value):
 				if (curCommand.parameters.Count < 1 || !(
-						(value.StartsWith(curCommand.parameters.Back.name) && curCommand.parameters.Back.type == "uint32") ||
-						(!curCommand.parameters.Back.lenParam.IsNull && value.StartsWith(curCommand.parameters.Back.lenParam))
+						(value.StartsWith(curCommand.parameters.Back.name) && curCommand.parameters.Back.type == "uint32" ?
+							{ curParam.lenParam = curCommand.parameters.Back.name; true } : false) ||
+						(!curCommand.parameters.Back.lenParam.IsNull && value.StartsWith(curCommand.parameters.Back.lenParam) ?
+							{ curParam.lenParam = curCommand.parameters.Back.lenParam; true } : false)
 					)) break;
 				curParam.flags |= curCommand.parameters.Back.flags | .Span;
 				curParam.spanMulti = curCommand.parameters.Back.spanMulti + 1;
-				curParam.lenParam = value;
 			case .CharacterData(let data):
 				switch (TagDepth.Back)
 				{
@@ -2043,8 +2089,8 @@ class Program
 	{
 		enum { None, InStruct = 1, Union = 2, ReturnedOnly = 4 } flags = .None;
 		StringView name = null, comment = null, alias = null;
-		enum MemberFlags { None, Optional = 1, Bitfield = 2, Span = 4, CommentOnly = 8 }
-		append List<(StringView name, String type, MemberFlags flags, int bitfield, StringView comment, StringView values, int spanMulti, StringView spanLengthMember)> members = .(8);
+		enum MemberFlags { None, Optional = 1, Bitfield = 2, Span = 4, CommentOnly = 8, ExcludeFromCtor = 16, Property = 32 }
+		append List<(StringView name, String type, MemberFlags flags, int bitfield, StringView comment, StringView values, int spanMulti, StringView spanLengthMember, StringView[4] spanPtrMembers)> members = .(8);
 
 		public override XmlVisitor.Options Flags => .None;
 		public override XmlVisitor.Action Visit(ref XmlVisitable node)
@@ -2091,7 +2137,7 @@ class Program
 						output.Append("Union, ");
 					output.Append("CRepr] struct ", name, "\n{\n");
 					int totalBitfieldBits = 0;
-					bool hasBitfields = false;
+					bool hasBitfields = false, hasProperties = false;
 					for (let member in members)
 					{
 						if (member.flags.HasFlag(.CommentOnly))
@@ -2151,9 +2197,27 @@ class Program
 						output.Append("\tpublic ");
 						output..Append(member.type)..Append(' ');
 						Compiler.Identifier.GetSourceName(member.name, output);
-						if (!member.values.IsNull)
-							output.Append(" = SType");
-						output.Append(';');
+						if (member.flags.HasFlag(.Property))
+						{
+							output.Append("\n\t{\n\t\t[Inline] get => .(", member.spanLengthMember);
+							for (let i < member.spanMulti)
+								output.Append(", ", member.spanPtrMembers[i]);
+							output.Append(");\n\t\t[Inline] set mut { ", member.spanLengthMember, " = value.count; ");
+							for (let i < member.spanMulti)
+							{
+								output.Append(member.spanPtrMembers[i], " = value.ptr");
+								if (member.spanMulti > 1) (i+1).ToString(output);
+								output.Append("; ");
+							}
+							output.Append("}\n\t}");
+							hasProperties = true;
+						}
+						else
+						{
+							if (!member.values.IsNull)
+								output.Append(" = SType");
+							output.Append(';');
+						}
 					}
 					if (totalBitfieldBits > 0)
 					{
@@ -2173,7 +2237,7 @@ class Program
 						bool comma = false;
 						for (let member in members)
 						{
-							if (member.flags.HasFlag(.CommentOnly) || !member.values.IsNull) continue;
+							if (member.flags.HasFlag(.CommentOnly) || member.flags.HasFlag(.ExcludeFromCtor) || !member.values.IsNull) continue;
 							if (comma) output.Append(", ");
 							comma = true;
 							output.Append(member.type, " ");
@@ -2182,11 +2246,11 @@ class Program
 								WriteOptional(member.type, output);
 						}
 						output.Append(')');
-						if (hasBitfields) output.Append(" : this()");
+						if (hasBitfields || hasProperties) output.Append(" : this()");
 						output.Append("\n\t{\n");
 						for (let member in members)
 						{
-							if (member.flags.HasFlag(.CommentOnly) || !member.values.IsNull) continue;
+							if (member.flags.HasFlag(.CommentOnly) || member.flags.HasFlag(.ExcludeFromCtor) || !member.values.IsNull) continue;
 							output.Append("\t\tthis.");
 							Compiler.Identifier.GetSourceName(member.name, output);
 							output.Append(" = ");
@@ -2215,7 +2279,7 @@ class Program
 
 			switch (node)
 			{
-			case .OpeningTag("member"): members.Add((null, new:Alloc .(16), .None, -1, null, null, 0, null));
+			case .OpeningTag("member"): members.Add((null, new:Alloc .(16), .None, -1, null, null, 0, null, default));
 			case .Attribute("api", let apis): if (NotVulkan(apis)) members.PopBack();
 			case .Attribute("optional", "true"): members.Back.flags |= .Optional;
 			case .Attribute("values", out members.Back.values):
@@ -2228,12 +2292,14 @@ class Program
 						break;
 					}
 				if (last == null || !(
-						(value.StartsWith(last.name) && last.type == "uint32") ||
-						(!last.spanLengthMember.IsEmpty && value.StartsWith(last.spanLengthMember))
+						(value.StartsWith(last.name) && last.type == "uint32" ?
+							{ members.Back.spanLengthMember = last.name; true } : false) ||
+						(!last.spanLengthMember.IsEmpty && value.StartsWith(last.spanLengthMember) ?
+							{ members.Back.spanLengthMember = last.spanLengthMember; true } : false)
 					)) break;
-				members.Back.flags |= last.flags | .Span;
+				members.Back.flags |= (last.flags & (.Property ^ (.)~0)) | .Span;
 				members.Back.spanMulti = last.spanMulti + 1;
-				members.Back.spanLengthMember = value;
+				members.Back.spanPtrMembers = last.spanPtrMembers;
 			case .CharacterData(String string):
 				StringView data = .(string)..Trim();
 				switch (TagDepth.Back)
@@ -2244,7 +2310,7 @@ class Program
 					if (TagDepth[^2] == "member")
 						members.Back.comment = data;
 					else
-						members.Add((null, null, .CommentOnly, -1, data, null, -1, null));
+						members.Add((null, null, .CommentOnly, -1, data, null, -1, null, default));
 				case "enum":
 					members.Back.type.Append(data);
 				case "member":
@@ -2272,50 +2338,73 @@ class Program
 						members.Back.flags ^= .Span;
 						break;
 					}
-					members.Back.type.RemoveFromEnd(1);
+					members.Insert(members.Count - 1, (
+						members.Back.name,
+						new:Alloc String(members.Back.type),
+						members.Back.flags | .ExcludeFromCtor,
+						members.Back.bitfield,
+						members.Back.comment,
+						members.Back.values,
+						members.Back.spanMulti,
+						members.Back.spanLengthMember,
+						members.Back.spanPtrMembers
+					));
 
 					decltype(members[0])* last = null;
 					int i;
-					for (i = members.Count-2 ;; i--)
-						if (!members[i].flags.HasFlag(.CommentOnly))
+					for (i = members.Count-3 ; i >= 0; i--)
+						if (members[i].flags.HasFlag(.Property))
 						{
 							last = &members[i];
 							break;
 						}
-					do
-					{
-						if (!last.flags.HasFlag(.Span)) break;
-						String newName = new:Alloc .(last.name.Length + 1 + members.Back.name.Length);
-							newName..Append(last.name)..Append('_')..Append(members.Back.name);
-						members.Back.name = newName;
-					}
+					members.Back.flags |= .Property;
+					members.Back.type.RemoveFromEnd(1);
+
 					switch (members.Back.spanMulti)
 					{
 					case 1:
 						members.Back.type.Insert(0, "VulkanSpan<");
+						for (var member in ref members)
+							if (member.name == members.Back.spanLengthMember)
+								member.flags |= .ExcludeFromCtor;
 					case 2:
 						StringView lastType = .(last.type);
 						lastType..RemoveFromStart("VulkanSpan<".Length)..RemoveFromEnd(1);
 						members.Back.type.Insert(0, ", ");
 						members.Back.type.Insert(0, lastType);
 						members.Back.type.Insert(0, "VulkanDuoSpan<");
+						members.RemoveAt(i);
 					case 3:
 						StringView lastType = .(last.type);
 						lastType..RemoveFromStart("VulkanDuoSpan<".Length)..RemoveFromEnd(1);
 						members.Back.type.Insert(0, ", ");
 						members.Back.type.Insert(0, lastType);
 						members.Back.type.Insert(0, "VulkanTrioSpan<");
+						members.RemoveAt(i);
 					case 4:
 						StringView lastType = .(last.type);
 						lastType..RemoveFromStart("VulkanTrioSpan<".Length)..RemoveFromEnd(1);
 						members.Back.type.Insert(0, ", ");
 						members.Back.type.Insert(0, lastType);
 						members.Back.type.Insert(0, "VulkanQuadSpan<");
+						members.RemoveAt(i);
 					default:
 						Runtime.FatalError();
 					}
 					members.Back.type.Append('>');
-					members.RemoveAt(i);
+					members.Back.spanPtrMembers[members.Back.spanMulti-1] = members.Back.name;
+
+					String newName = new:Alloc .(16);
+					for (let ii < members.Back.spanMulti)
+					{
+						if (ii != 0) newName.Append('_');
+						let name = members.Back.spanPtrMembers[ii];
+						int iii = 0;
+						while (name[iii] == 'p') iii++;
+						newName..Append(name[iii].ToLower)..Append(name[(iii+1)...]);
+					}
+					members.Back.name = newName;
 				}
 			default:
 			}

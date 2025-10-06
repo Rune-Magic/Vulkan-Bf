@@ -2131,16 +2131,28 @@ typealias VkInstanceCreateFlags = VkInstanceCreateFlagBits;
 	public void* pNext;
 	public VkInstanceCreateFlags flags;
 	public VkApplicationInfo* pApplicationInfo;
-	public VulkanSpan<c_char*> ppEnabledLayerNames; // Ordered list of layer names to be enabled
-	public VulkanSpan<c_char*> ppEnabledExtensionNames; // Extension names to be enabled
+	public uint32 enabledLayerCount;
+	public c_char** ppEnabledLayerNames; // Ordered list of layer names to be enabled
+	public VulkanSpan<c_char*> enabledLayerNames
+	{
+		[Inline] get => .(enabledLayerCount, ppEnabledLayerNames);
+		[Inline] set mut { enabledLayerCount = value.count; ppEnabledLayerNames = value.ptr; }
+	} // Ordered list of layer names to be enabled
+	public uint32 enabledExtensionCount;
+	public c_char** ppEnabledExtensionNames; // Extension names to be enabled
+	public VulkanSpan<c_char*> enabledExtensionNames
+	{
+		[Inline] get => .(enabledExtensionCount, ppEnabledExtensionNames);
+		[Inline] set mut { enabledExtensionCount = value.count; ppEnabledExtensionNames = value.ptr; }
+	} // Extension names to be enabled
 
-	public this(void* pNext = null, VkInstanceCreateFlags flags = 0, VkApplicationInfo* pApplicationInfo = null, VulkanSpan<c_char*> ppEnabledLayerNames = .(), VulkanSpan<c_char*> ppEnabledExtensionNames = .())
+	public this(void* pNext = null, VkInstanceCreateFlags flags = 0, VkApplicationInfo* pApplicationInfo = null, VulkanSpan<c_char*> enabledLayerNames = .(), VulkanSpan<c_char*> enabledExtensionNames = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.pApplicationInfo = pApplicationInfo;
-		this.ppEnabledLayerNames = ppEnabledLayerNames;
-		this.ppEnabledExtensionNames = ppEnabledExtensionNames;
+		this.enabledLayerNames = enabledLayerNames;
+		this.enabledExtensionNames = enabledExtensionNames;
 	}
 
 	public this()
@@ -2541,18 +2553,36 @@ typealias VkDeviceCreateFlags = VkFlags;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkDeviceCreateFlags flags;
-	public VulkanSpan<VkDeviceQueueCreateInfo> pQueueCreateInfos;
-	public VulkanSpan<c_char*> ppEnabledLayerNames; // Ordered list of layer names to be enabled
-	public VulkanSpan<c_char*> ppEnabledExtensionNames;
+	public uint32 queueCreateInfoCount;
+	public VkDeviceQueueCreateInfo* pQueueCreateInfos;
+	public VulkanSpan<VkDeviceQueueCreateInfo> queueCreateInfos
+	{
+		[Inline] get => .(queueCreateInfoCount, pQueueCreateInfos);
+		[Inline] set mut { queueCreateInfoCount = value.count; pQueueCreateInfos = value.ptr; }
+	}
+	public uint32 enabledLayerCount;
+	public c_char** ppEnabledLayerNames; // Ordered list of layer names to be enabled
+	public VulkanSpan<c_char*> enabledLayerNames
+	{
+		[Inline] get => .(enabledLayerCount, ppEnabledLayerNames);
+		[Inline] set mut { enabledLayerCount = value.count; ppEnabledLayerNames = value.ptr; }
+	} // Ordered list of layer names to be enabled
+	public uint32 enabledExtensionCount;
+	public c_char** ppEnabledExtensionNames;
+	public VulkanSpan<c_char*> enabledExtensionNames
+	{
+		[Inline] get => .(enabledExtensionCount, ppEnabledExtensionNames);
+		[Inline] set mut { enabledExtensionCount = value.count; ppEnabledExtensionNames = value.ptr; }
+	}
 	public VkPhysicalDeviceFeatures* pEnabledFeatures;
 
-	public this(void* pNext, VkDeviceCreateFlags flags, VulkanSpan<VkDeviceQueueCreateInfo> pQueueCreateInfos, VulkanSpan<c_char*> ppEnabledLayerNames = .(), VulkanSpan<c_char*> ppEnabledExtensionNames = .(), VkPhysicalDeviceFeatures* pEnabledFeatures = null)
+	public this(void* pNext, VkDeviceCreateFlags flags, VulkanSpan<VkDeviceQueueCreateInfo> queueCreateInfos, VulkanSpan<c_char*> enabledLayerNames = .(), VulkanSpan<c_char*> enabledExtensionNames = .(), VkPhysicalDeviceFeatures* pEnabledFeatures = null) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pQueueCreateInfos = pQueueCreateInfos;
-		this.ppEnabledLayerNames = ppEnabledLayerNames;
-		this.ppEnabledExtensionNames = ppEnabledExtensionNames;
+		this.queueCreateInfos = queueCreateInfos;
+		this.enabledLayerNames = enabledLayerNames;
+		this.enabledExtensionNames = enabledExtensionNames;
 		this.pEnabledFeatures = pEnabledFeatures;
 	}
 
@@ -2572,14 +2602,20 @@ typealias VkDeviceQueueCreateFlags = VkDeviceQueueCreateFlagBits;
 	public void* pNext;
 	public VkDeviceQueueCreateFlags flags;
 	public uint32 queueFamilyIndex;
-	public VulkanSpan<float> pQueuePriorities;
+	public uint32 queueCount;
+	public float* pQueuePriorities;
+	public VulkanSpan<float> queuePriorities
+	{
+		[Inline] get => .(queueCount, pQueuePriorities);
+		[Inline] set mut { queueCount = value.count; pQueuePriorities = value.ptr; }
+	}
 
-	public this(void* pNext, VkDeviceQueueCreateFlags flags, uint32 queueFamilyIndex, VulkanSpan<float> pQueuePriorities)
+	public this(void* pNext, VkDeviceQueueCreateFlags flags, uint32 queueFamilyIndex, VulkanSpan<float> queuePriorities) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.queueFamilyIndex = queueFamilyIndex;
-		this.pQueuePriorities = pQueuePriorities;
+		this.queuePriorities = queuePriorities;
 	}
 
 	public this()
@@ -2662,16 +2698,35 @@ class VkQueue { private this() { } }
 	public const VkStructureType SType = .VkSubmitInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanDuoSpan<VkSemaphore, VkPipelineStageFlags> pWaitSemaphores_pWaitDstStageMask;
-	public VulkanSpan<VkCommandBuffer> pCommandBuffers;
-	public VulkanSpan<VkSemaphore> pSignalSemaphores;
+	public uint32 waitSemaphoreCount;
+	public VkSemaphore* pWaitSemaphores;
+	public VkPipelineStageFlags* pWaitDstStageMask;
+	public VulkanDuoSpan<VkSemaphore, VkPipelineStageFlags> waitSemaphores_waitDstStageMask
+	{
+		[Inline] get => .(waitSemaphoreCount, pWaitSemaphores, pWaitDstStageMask);
+		[Inline] set mut { waitSemaphoreCount = value.count; pWaitSemaphores = value.ptr1; pWaitDstStageMask = value.ptr2; }
+	}
+	public uint32 commandBufferCount;
+	public VkCommandBuffer* pCommandBuffers;
+	public VulkanSpan<VkCommandBuffer> commandBuffers
+	{
+		[Inline] get => .(commandBufferCount, pCommandBuffers);
+		[Inline] set mut { commandBufferCount = value.count; pCommandBuffers = value.ptr; }
+	}
+	public uint32 signalSemaphoreCount;
+	public VkSemaphore* pSignalSemaphores;
+	public VulkanSpan<VkSemaphore> signalSemaphores
+	{
+		[Inline] get => .(signalSemaphoreCount, pSignalSemaphores);
+		[Inline] set mut { signalSemaphoreCount = value.count; pSignalSemaphores = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanDuoSpan<VkSemaphore, VkPipelineStageFlags> pWaitSemaphores_pWaitDstStageMask = .(), VulkanSpan<VkCommandBuffer> pCommandBuffers = .(), VulkanSpan<VkSemaphore> pSignalSemaphores = .())
+	public this(void* pNext = null, VulkanDuoSpan<VkSemaphore, VkPipelineStageFlags> waitSemaphores_waitDstStageMask = .(), VulkanSpan<VkCommandBuffer> commandBuffers = .(), VulkanSpan<VkSemaphore> signalSemaphores = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pWaitSemaphores_pWaitDstStageMask = pWaitSemaphores_pWaitDstStageMask;
-		this.pCommandBuffers = pCommandBuffers;
-		this.pSignalSemaphores = pSignalSemaphores;
+		this.waitSemaphores_waitDstStageMask = waitSemaphores_waitDstStageMask;
+		this.commandBuffers = commandBuffers;
+		this.signalSemaphores = signalSemaphores;
 	}
 
 	public this()
@@ -2682,7 +2737,7 @@ class VkQueue { private this() { } }
 }
 
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetDeviceQueue(VkDevice device, uint32 queueFamilyIndex, uint32 queueIndex, out VkQueue pQueue);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkQueueSubmit(VkQueue queue, VulkanSpan<VkSubmitInfo> pSubmits = .(), VkFence fence = null);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkQueueSubmit(VkQueue queue, uint32 submitCount = 0, VkSubmitInfo* pSubmits = null, VkFence fence = null);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkQueueWaitIdle(VkQueue queue);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkDeviceWaitIdle(VkDevice device);
 
@@ -2744,8 +2799,8 @@ typealias VkMemoryMapFlags = VkMemoryMapFlagBits;
 [CallingConvention(VKAPI_PTR)] function void PFN_vkFreeMemory(VkDevice device, VkDeviceMemory memory = null, VkAllocationCallbacks* pAllocator = null);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkMapMemory(VkDevice device, VkDeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, out void* ppData);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkUnmapMemory(VkDevice device, VkDeviceMemory memory);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkFlushMappedMemoryRanges(VkDevice device, VulkanSpan<VkMappedMemoryRange> pMemoryRanges);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkInvalidateMappedMemoryRanges(VkDevice device, VulkanSpan<VkMappedMemoryRange> pMemoryRanges);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkFlushMappedMemoryRanges(VkDevice device, uint32 memoryRangeCount, VkMappedMemoryRange* pMemoryRanges);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkInvalidateMappedMemoryRanges(VkDevice device, uint32 memoryRangeCount, VkMappedMemoryRange* pMemoryRanges);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetDeviceMemoryCommitment(VkDevice device, VkDeviceMemory memory, out VkDeviceSize pCommittedMemoryInBytes);
 
 // Memory management API commands
@@ -2769,20 +2824,50 @@ class VkDeviceMemory { private this() { } }
 	public const VkStructureType SType = .VkBindSparseInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkSemaphore> pWaitSemaphores;
-	public VulkanSpan<VkSparseBufferMemoryBindInfo> pBufferBinds;
-	public VulkanSpan<VkSparseImageOpaqueMemoryBindInfo> pImageOpaqueBinds;
-	public VulkanSpan<VkSparseImageMemoryBindInfo> pImageBinds;
-	public VulkanSpan<VkSemaphore> pSignalSemaphores;
+	public uint32 waitSemaphoreCount;
+	public VkSemaphore* pWaitSemaphores;
+	public VulkanSpan<VkSemaphore> waitSemaphores
+	{
+		[Inline] get => .(waitSemaphoreCount, pWaitSemaphores);
+		[Inline] set mut { waitSemaphoreCount = value.count; pWaitSemaphores = value.ptr; }
+	}
+	public uint32 bufferBindCount;
+	public VkSparseBufferMemoryBindInfo* pBufferBinds;
+	public VulkanSpan<VkSparseBufferMemoryBindInfo> bufferBinds
+	{
+		[Inline] get => .(bufferBindCount, pBufferBinds);
+		[Inline] set mut { bufferBindCount = value.count; pBufferBinds = value.ptr; }
+	}
+	public uint32 imageOpaqueBindCount;
+	public VkSparseImageOpaqueMemoryBindInfo* pImageOpaqueBinds;
+	public VulkanSpan<VkSparseImageOpaqueMemoryBindInfo> imageOpaqueBinds
+	{
+		[Inline] get => .(imageOpaqueBindCount, pImageOpaqueBinds);
+		[Inline] set mut { imageOpaqueBindCount = value.count; pImageOpaqueBinds = value.ptr; }
+	}
+	public uint32 imageBindCount;
+	public VkSparseImageMemoryBindInfo* pImageBinds;
+	public VulkanSpan<VkSparseImageMemoryBindInfo> imageBinds
+	{
+		[Inline] get => .(imageBindCount, pImageBinds);
+		[Inline] set mut { imageBindCount = value.count; pImageBinds = value.ptr; }
+	}
+	public uint32 signalSemaphoreCount;
+	public VkSemaphore* pSignalSemaphores;
+	public VulkanSpan<VkSemaphore> signalSemaphores
+	{
+		[Inline] get => .(signalSemaphoreCount, pSignalSemaphores);
+		[Inline] set mut { signalSemaphoreCount = value.count; pSignalSemaphores = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkSemaphore> pWaitSemaphores = .(), VulkanSpan<VkSparseBufferMemoryBindInfo> pBufferBinds = .(), VulkanSpan<VkSparseImageOpaqueMemoryBindInfo> pImageOpaqueBinds = .(), VulkanSpan<VkSparseImageMemoryBindInfo> pImageBinds = .(), VulkanSpan<VkSemaphore> pSignalSemaphores = .())
+	public this(void* pNext = null, VulkanSpan<VkSemaphore> waitSemaphores = .(), VulkanSpan<VkSparseBufferMemoryBindInfo> bufferBinds = .(), VulkanSpan<VkSparseImageOpaqueMemoryBindInfo> imageOpaqueBinds = .(), VulkanSpan<VkSparseImageMemoryBindInfo> imageBinds = .(), VulkanSpan<VkSemaphore> signalSemaphores = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pWaitSemaphores = pWaitSemaphores;
-		this.pBufferBinds = pBufferBinds;
-		this.pImageOpaqueBinds = pImageOpaqueBinds;
-		this.pImageBinds = pImageBinds;
-		this.pSignalSemaphores = pSignalSemaphores;
+		this.waitSemaphores = waitSemaphores;
+		this.bufferBinds = bufferBinds;
+		this.imageOpaqueBinds = imageOpaqueBinds;
+		this.imageBinds = imageBinds;
+		this.signalSemaphores = signalSemaphores;
 	}
 
 	public this()
@@ -2836,12 +2921,18 @@ typealias VkImageAspectFlags = VkImageAspectFlagBits;
 [CRepr] struct VkSparseBufferMemoryBindInfo
 {
 	public VkBuffer buffer;
-	public VulkanSpan<VkSparseMemoryBind> pBinds;
+	public uint32 bindCount;
+	public VkSparseMemoryBind* pBinds;
+	public VulkanSpan<VkSparseMemoryBind> binds
+	{
+		[Inline] get => .(bindCount, pBinds);
+		[Inline] set mut { bindCount = value.count; pBinds = value.ptr; }
+	}
 
-	public this(VkBuffer buffer, VulkanSpan<VkSparseMemoryBind> pBinds)
+	public this(VkBuffer buffer, VulkanSpan<VkSparseMemoryBind> binds) : this()
 	{
 		this.buffer = buffer;
-		this.pBinds = pBinds;
+		this.binds = binds;
 	}
 
 	public this()
@@ -2894,12 +2985,18 @@ typealias VkSparseImageFormatFlags = VkSparseImageFormatFlagBits;
 [CRepr] struct VkSparseImageMemoryBindInfo
 {
 	public VkImage image;
-	public VulkanSpan<VkSparseImageMemoryBind> pBinds;
+	public uint32 bindCount;
+	public VkSparseImageMemoryBind* pBinds;
+	public VulkanSpan<VkSparseImageMemoryBind> binds
+	{
+		[Inline] get => .(bindCount, pBinds);
+		[Inline] set mut { bindCount = value.count; pBinds = value.ptr; }
+	}
 
-	public this(VkImage image, VulkanSpan<VkSparseImageMemoryBind> pBinds)
+	public this(VkImage image, VulkanSpan<VkSparseImageMemoryBind> binds) : this()
 	{
 		this.image = image;
-		this.pBinds = pBinds;
+		this.binds = binds;
 	}
 
 	public this()
@@ -2920,12 +3017,18 @@ typealias VkSparseImageFormatFlags = VkSparseImageFormatFlagBits;
 [CRepr] struct VkSparseImageOpaqueMemoryBindInfo
 {
 	public VkImage image;
-	public VulkanSpan<VkSparseMemoryBind> pBinds;
+	public uint32 bindCount;
+	public VkSparseMemoryBind* pBinds;
+	public VulkanSpan<VkSparseMemoryBind> binds
+	{
+		[Inline] get => .(bindCount, pBinds);
+		[Inline] set mut { bindCount = value.count; pBinds = value.ptr; }
+	}
 
-	public this(VkImage image, VulkanSpan<VkSparseMemoryBind> pBinds)
+	public this(VkImage image, VulkanSpan<VkSparseMemoryBind> binds) : this()
 	{
 		this.image = image;
-		this.pBinds = pBinds;
+		this.binds = binds;
 	}
 
 	public this()
@@ -2966,7 +3069,7 @@ typealias VkSparseMemoryBindFlags = VkSparseMemoryBindFlagBits;
 
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetImageSparseMemoryRequirements(VkDevice device, VkImage image, out uint32 pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements* pSparseMemoryRequirements = null);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetPhysicalDeviceSparseImageFormatProperties(VkPhysicalDevice physicalDevice, VkFormat format, VkImageType type, VkSampleCountFlagBits samples, VkImageUsageFlags usage, VkImageTiling tiling, out uint32 pPropertyCount, VkSparseImageFormatProperties* pProperties = null);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkQueueBindSparse(VkQueue queue, VulkanSpan<VkBindSparseInfo> pBindInfo = .(), VkFence fence = null);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkQueueBindSparse(VkQueue queue, uint32 bindInfoCount = 0, VkBindSparseInfo* pBindInfo = null, VkFence fence = null);
 
 // Fence commands
 class VkFence { private this() { } }
@@ -3000,9 +3103,9 @@ typealias VkFenceCreateFlags = VkFenceCreateFlagBits;
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateFence(VkDevice device, VkFenceCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkFence pFence);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyFence(VkDevice device, VkFence fence = null, VkAllocationCallbacks* pAllocator = null);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkResetFences(VkDevice device, VulkanSpan<VkFence> pFences);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkResetFences(VkDevice device, uint32 fenceCount, VkFence* pFences);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetFenceStatus(VkDevice device, VkFence fence);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkWaitForFences(VkDevice device, VulkanSpan<VkFence> pFences, VkBool32 waitAll, uint64 timeout);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkWaitForFences(VkDevice device, uint32 fenceCount, VkFence* pFences, VkBool32 waitAll, uint64 timeout);
 
 // Queue semaphore commands
 class VkSemaphore { private this() { } }
@@ -3183,16 +3286,22 @@ typealias VkBufferCreateFlags = VkBufferCreateFlagBits;
 	public VkDeviceSize size; // Specified in bytes
 	public VkBufferUsageFlags usage; // Buffer usage flags
 	public VkSharingMode sharingMode;
-	public VulkanSpan<uint32> pQueueFamilyIndices;
+	public uint32 queueFamilyIndexCount;
+	public uint32* pQueueFamilyIndices;
+	public VulkanSpan<uint32> queueFamilyIndices
+	{
+		[Inline] get => .(queueFamilyIndexCount, pQueueFamilyIndices);
+		[Inline] set mut { queueFamilyIndexCount = value.count; pQueueFamilyIndices = value.ptr; }
+	}
 
-	public this(void* pNext, VkBufferCreateFlags flags, VkDeviceSize size, VkBufferUsageFlags usage, VkSharingMode sharingMode, VulkanSpan<uint32> pQueueFamilyIndices = .())
+	public this(void* pNext, VkBufferCreateFlags flags, VkDeviceSize size, VkBufferUsageFlags usage, VkSharingMode sharingMode, VulkanSpan<uint32> queueFamilyIndices = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.size = size;
 		this.usage = usage;
 		this.sharingMode = sharingMode;
-		this.pQueueFamilyIndices = pQueueFamilyIndices;
+		this.queueFamilyIndices = queueFamilyIndices;
 	}
 
 	public this()
@@ -3299,10 +3408,16 @@ class VkImage { private this() { } }
 	public VkImageTiling tiling;
 	public VkImageUsageFlags usage; // Image usage flags
 	public VkSharingMode sharingMode; // Cross-queue-family sharing mode
-	public VulkanSpan<uint32> pQueueFamilyIndices; // Array of queue family indices to share across
+	public uint32 queueFamilyIndexCount; // Number of queue families to share across
+	public uint32* pQueueFamilyIndices; // Array of queue family indices to share across
+	public VulkanSpan<uint32> queueFamilyIndices
+	{
+		[Inline] get => .(queueFamilyIndexCount, pQueueFamilyIndices);
+		[Inline] set mut { queueFamilyIndexCount = value.count; pQueueFamilyIndices = value.ptr; }
+	} // Array of queue family indices to share across
 	public VkImageLayout initialLayout; // Initial image layout for all subresources
 
-	public this(void* pNext, VkImageCreateFlags flags, VkImageType imageType, VkFormat format, VkExtent3D extent, uint32 mipLevels, uint32 arrayLayers, VkSampleCountFlagBits samples, VkImageTiling tiling, VkImageUsageFlags usage, VkSharingMode sharingMode, VulkanSpan<uint32> pQueueFamilyIndices, VkImageLayout initialLayout)
+	public this(void* pNext, VkImageCreateFlags flags, VkImageType imageType, VkFormat format, VkExtent3D extent, uint32 mipLevels, uint32 arrayLayers, VkSampleCountFlagBits samples, VkImageTiling tiling, VkImageUsageFlags usage, VkSharingMode sharingMode, VulkanSpan<uint32> queueFamilyIndices, VkImageLayout initialLayout) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
@@ -3315,7 +3430,7 @@ class VkImage { private this() { } }
 		this.tiling = tiling;
 		this.usage = usage;
 		this.sharingMode = sharingMode;
-		this.pQueueFamilyIndices = pQueueFamilyIndices;
+		this.queueFamilyIndices = queueFamilyIndices;
 		this.initialLayout = initialLayout;
 	}
 
@@ -3572,7 +3687,7 @@ typealias VkPipelineCacheCreateFlags = VkPipelineCacheCreateFlagBits;
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreatePipelineCache(VkDevice device, VkPipelineCacheCreateInfo* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkPipelineCache pPipelineCache);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyPipelineCache(VkDevice device, VkPipelineCache pipelineCache = null, VkAllocationCallbacks* pAllocator = null);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetPipelineCacheData(VkDevice device, VkPipelineCache pipelineCache, out c_size pDataSize, out void pData);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkMergePipelineCaches(VkDevice device, VkPipelineCache dstCache, VulkanSpan<VkPipelineCache> pSrcCaches);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkMergePipelineCaches(VkDevice device, VkPipelineCache dstCache, uint32 srcCacheCount, VkPipelineCache* pSrcCaches);
 
 // Pipeline commands
 [AllowDuplicates] enum VkBlendFactor : int32
@@ -3819,7 +3934,13 @@ typealias VkCullModeFlags = VkCullModeFlagBits;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkPipelineCreateFlags flags; // Pipeline creation flags
-	public VulkanSpan<VkPipelineShaderStageCreateInfo> pStages; // One entry for each active shader stage
+	public uint32 stageCount;
+	public VkPipelineShaderStageCreateInfo* pStages; // One entry for each active shader stage
+	public VulkanSpan<VkPipelineShaderStageCreateInfo> stages
+	{
+		[Inline] get => .(stageCount, pStages);
+		[Inline] set mut { stageCount = value.count; pStages = value.ptr; }
+	} // One entry for each active shader stage
 	public VkPipelineVertexInputStateCreateInfo* pVertexInputState;
 	public VkPipelineInputAssemblyStateCreateInfo* pInputAssemblyState;
 	public VkPipelineTessellationStateCreateInfo* pTessellationState;
@@ -3835,11 +3956,11 @@ typealias VkCullModeFlags = VkCullModeFlagBits;
 	public VkPipeline basePipelineHandle; // If VK_PIPELINE_CREATE_DERIVATIVE_BIT is set and this value is nonzero, it specifies the handle of the base pipeline this is a derivative of
 	public int32 basePipelineIndex; // If VK_PIPELINE_CREATE_DERIVATIVE_BIT is set and this value is not -1, it specifies an index into pCreateInfos of the base pipeline this is a derivative of
 
-	public this(void* pNext, VkPipelineCreateFlags flags, VulkanSpan<VkPipelineShaderStageCreateInfo> pStages, VkPipelineVertexInputStateCreateInfo* pVertexInputState, VkPipelineInputAssemblyStateCreateInfo* pInputAssemblyState, VkPipelineTessellationStateCreateInfo* pTessellationState, VkPipelineViewportStateCreateInfo* pViewportState, VkPipelineRasterizationStateCreateInfo* pRasterizationState, VkPipelineMultisampleStateCreateInfo* pMultisampleState, VkPipelineDepthStencilStateCreateInfo* pDepthStencilState, VkPipelineColorBlendStateCreateInfo* pColorBlendState, VkPipelineDynamicStateCreateInfo* pDynamicState, VkPipelineLayout layout, VkRenderPass renderPass, uint32 subpass, VkPipeline basePipelineHandle, int32 basePipelineIndex)
+	public this(void* pNext, VkPipelineCreateFlags flags, VulkanSpan<VkPipelineShaderStageCreateInfo> stages, VkPipelineVertexInputStateCreateInfo* pVertexInputState, VkPipelineInputAssemblyStateCreateInfo* pInputAssemblyState, VkPipelineTessellationStateCreateInfo* pTessellationState, VkPipelineViewportStateCreateInfo* pViewportState, VkPipelineRasterizationStateCreateInfo* pRasterizationState, VkPipelineMultisampleStateCreateInfo* pMultisampleState, VkPipelineDepthStencilStateCreateInfo* pDepthStencilState, VkPipelineColorBlendStateCreateInfo* pColorBlendState, VkPipelineDynamicStateCreateInfo* pDynamicState, VkPipelineLayout layout, VkRenderPass renderPass, uint32 subpass, VkPipeline basePipelineHandle, int32 basePipelineIndex) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pStages = pStages;
+		this.stages = stages;
 		this.pVertexInputState = pVertexInputState;
 		this.pInputAssemblyState = pInputAssemblyState;
 		this.pTessellationState = pTessellationState;
@@ -3924,16 +4045,22 @@ typealias VkPipelineColorBlendStateCreateFlags = VkPipelineColorBlendStateCreate
 	public VkPipelineColorBlendStateCreateFlags flags;
 	public VkBool32 logicOpEnable;
 	public VkLogicOp logicOp;
-	public VulkanSpan<VkPipelineColorBlendAttachmentState> pAttachments;
+	public uint32 attachmentCount; // # of pAttachments
+	public VkPipelineColorBlendAttachmentState* pAttachments;
+	public VulkanSpan<VkPipelineColorBlendAttachmentState> attachments
+	{
+		[Inline] get => .(attachmentCount, pAttachments);
+		[Inline] set mut { attachmentCount = value.count; pAttachments = value.ptr; }
+	}
 	public float[4] blendConstants;
 
-	public this(void* pNext, VkPipelineColorBlendStateCreateFlags flags, VkBool32 logicOpEnable, VkLogicOp logicOp, VulkanSpan<VkPipelineColorBlendAttachmentState> pAttachments, float[4] blendConstants)
+	public this(void* pNext, VkPipelineColorBlendStateCreateFlags flags, VkBool32 logicOpEnable, VkLogicOp logicOp, VulkanSpan<VkPipelineColorBlendAttachmentState> attachments, float[4] blendConstants) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.logicOpEnable = logicOpEnable;
 		this.logicOp = logicOp;
-		this.pAttachments = pAttachments;
+		this.attachments = attachments;
 		this.blendConstants = blendConstants;
 	}
 
@@ -4035,13 +4162,19 @@ typealias VkPipelineDynamicStateCreateFlags = VkFlags;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkPipelineDynamicStateCreateFlags flags;
-	public VulkanSpan<VkDynamicState> pDynamicStates;
+	public uint32 dynamicStateCount;
+	public VkDynamicState* pDynamicStates;
+	public VulkanSpan<VkDynamicState> dynamicStates
+	{
+		[Inline] get => .(dynamicStateCount, pDynamicStates);
+		[Inline] set mut { dynamicStateCount = value.count; pDynamicStates = value.ptr; }
+	}
 
-	public this(void* pNext = null, VkPipelineDynamicStateCreateFlags flags = 0, VulkanSpan<VkDynamicState> pDynamicStates = .())
+	public this(void* pNext = null, VkPipelineDynamicStateCreateFlags flags = 0, VulkanSpan<VkDynamicState> dynamicStates = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pDynamicStates = pDynamicStates;
+		this.dynamicStates = dynamicStates;
 	}
 
 	public this()
@@ -4224,15 +4357,27 @@ typealias VkPipelineVertexInputStateCreateFlags = VkFlags;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkPipelineVertexInputStateCreateFlags flags;
-	public VulkanSpan<VkVertexInputBindingDescription> pVertexBindingDescriptions;
-	public VulkanSpan<VkVertexInputAttributeDescription> pVertexAttributeDescriptions;
+	public uint32 vertexBindingDescriptionCount; // number of bindings
+	public VkVertexInputBindingDescription* pVertexBindingDescriptions;
+	public VulkanSpan<VkVertexInputBindingDescription> vertexBindingDescriptions
+	{
+		[Inline] get => .(vertexBindingDescriptionCount, pVertexBindingDescriptions);
+		[Inline] set mut { vertexBindingDescriptionCount = value.count; pVertexBindingDescriptions = value.ptr; }
+	}
+	public uint32 vertexAttributeDescriptionCount; // number of attributes
+	public VkVertexInputAttributeDescription* pVertexAttributeDescriptions;
+	public VulkanSpan<VkVertexInputAttributeDescription> vertexAttributeDescriptions
+	{
+		[Inline] get => .(vertexAttributeDescriptionCount, pVertexAttributeDescriptions);
+		[Inline] set mut { vertexAttributeDescriptionCount = value.count; pVertexAttributeDescriptions = value.ptr; }
+	}
 
-	public this(void* pNext = null, VkPipelineVertexInputStateCreateFlags flags = 0, VulkanSpan<VkVertexInputBindingDescription> pVertexBindingDescriptions = .(), VulkanSpan<VkVertexInputAttributeDescription> pVertexAttributeDescriptions = .())
+	public this(void* pNext = null, VkPipelineVertexInputStateCreateFlags flags = 0, VulkanSpan<VkVertexInputBindingDescription> vertexBindingDescriptions = .(), VulkanSpan<VkVertexInputAttributeDescription> vertexAttributeDescriptions = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pVertexBindingDescriptions = pVertexBindingDescriptions;
-		this.pVertexAttributeDescriptions = pVertexAttributeDescriptions;
+		this.vertexBindingDescriptions = vertexBindingDescriptions;
+		this.vertexAttributeDescriptions = vertexAttributeDescriptions;
 	}
 
 	public this()
@@ -4250,15 +4395,27 @@ typealias VkPipelineViewportStateCreateFlags = VkFlags;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkPipelineViewportStateCreateFlags flags;
-	public VulkanSpan<VkViewport> pViewports;
-	public VulkanSpan<VkRect2D> pScissors;
+	public uint32 viewportCount;
+	public VkViewport* pViewports;
+	public VulkanSpan<VkViewport> viewports
+	{
+		[Inline] get => .(viewportCount, pViewports);
+		[Inline] set mut { viewportCount = value.count; pViewports = value.ptr; }
+	}
+	public uint32 scissorCount;
+	public VkRect2D* pScissors;
+	public VulkanSpan<VkRect2D> scissors
+	{
+		[Inline] get => .(scissorCount, pScissors);
+		[Inline] set mut { scissorCount = value.count; pScissors = value.ptr; }
+	}
 
-	public this(void* pNext = null, VkPipelineViewportStateCreateFlags flags = 0, VulkanSpan<VkViewport> pViewports = .(), VulkanSpan<VkRect2D> pScissors = .())
+	public this(void* pNext = null, VkPipelineViewportStateCreateFlags flags = 0, VulkanSpan<VkViewport> viewports = .(), VulkanSpan<VkRect2D> scissors = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pViewports = pViewports;
-		this.pScissors = pScissors;
+		this.viewports = viewports;
+		this.scissors = scissors;
 	}
 
 	public this()
@@ -4325,13 +4482,19 @@ typealias VkShaderStageFlags = VkShaderStageFlagBits;
 
 [CRepr] struct VkSpecializationInfo
 {
-	public VulkanSpan<VkSpecializationMapEntry> pMapEntries; // Array of map entries
+	public uint32 mapEntryCount; // Number of entries in the map
+	public VkSpecializationMapEntry* pMapEntries; // Array of map entries
+	public VulkanSpan<VkSpecializationMapEntry> mapEntries
+	{
+		[Inline] get => .(mapEntryCount, pMapEntries);
+		[Inline] set mut { mapEntryCount = value.count; pMapEntries = value.ptr; }
+	} // Array of map entries
 	public c_size dataSize; // Size in bytes of pData
 	public void* pData; // Pointer to SpecConstant data
 
-	public this(VulkanSpan<VkSpecializationMapEntry> pMapEntries, c_size dataSize, void* pData)
+	public this(VulkanSpan<VkSpecializationMapEntry> mapEntries, c_size dataSize, void* pData) : this()
 	{
-		this.pMapEntries = pMapEntries;
+		this.mapEntries = mapEntries;
 		this.dataSize = dataSize;
 		this.pData = pData;
 	}
@@ -4471,8 +4634,8 @@ typealias VkShaderStageFlags = VkShaderStageFlagBits;
 	}
 }
 
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateGraphicsPipelines(VkDevice device, VkPipelineCache pipelineCache, VulkanSpan<VkGraphicsPipelineCreateInfo> pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateComputePipelines(VkDevice device, VkPipelineCache pipelineCache, VulkanSpan<VkComputePipelineCreateInfo> pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateGraphicsPipelines(VkDevice device, VkPipelineCache pipelineCache, uint32 createInfoCount, VkGraphicsPipelineCreateInfo* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateComputePipelines(VkDevice device, VkPipelineCache pipelineCache, uint32 createInfoCount, VkComputePipelineCreateInfo* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyPipeline(VkDevice device, VkPipeline pipeline = null, VkAllocationCallbacks* pAllocator = null);
 
 // Pipeline layout commands
@@ -4484,15 +4647,27 @@ class VkPipelineLayout { private this() { } }
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkPipelineLayoutCreateFlags flags;
-	public VulkanSpan<VkDescriptorSetLayout> pSetLayouts; // Array of setCount number of descriptor set layout objects defining the layout of the
-	public VulkanSpan<VkPushConstantRange> pPushConstantRanges; // Array of pushConstantRangeCount number of ranges used by various shader stages
+	public uint32 setLayoutCount; // Number of descriptor sets interfaced by the pipeline
+	public VkDescriptorSetLayout* pSetLayouts; // Array of setCount number of descriptor set layout objects defining the layout of the
+	public VulkanSpan<VkDescriptorSetLayout> setLayouts
+	{
+		[Inline] get => .(setLayoutCount, pSetLayouts);
+		[Inline] set mut { setLayoutCount = value.count; pSetLayouts = value.ptr; }
+	} // Array of setCount number of descriptor set layout objects defining the layout of the
+	public uint32 pushConstantRangeCount; // Number of push-constant ranges used by the pipeline
+	public VkPushConstantRange* pPushConstantRanges; // Array of pushConstantRangeCount number of ranges used by various shader stages
+	public VulkanSpan<VkPushConstantRange> pushConstantRanges
+	{
+		[Inline] get => .(pushConstantRangeCount, pPushConstantRanges);
+		[Inline] set mut { pushConstantRangeCount = value.count; pPushConstantRanges = value.ptr; }
+	} // Array of pushConstantRangeCount number of ranges used by various shader stages
 
-	public this(void* pNext = null, VkPipelineLayoutCreateFlags flags = 0, VulkanSpan<VkDescriptorSetLayout> pSetLayouts = .(), VulkanSpan<VkPushConstantRange> pPushConstantRanges = .())
+	public this(void* pNext = null, VkPipelineLayoutCreateFlags flags = 0, VulkanSpan<VkDescriptorSetLayout> setLayouts = .(), VulkanSpan<VkPushConstantRange> pushConstantRanges = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pSetLayouts = pSetLayouts;
-		this.pPushConstantRanges = pPushConstantRanges;
+		this.setLayouts = setLayouts;
+		this.pushConstantRanges = pushConstantRanges;
 	}
 
 	public this()
@@ -4720,14 +4895,20 @@ typealias VkDescriptorPoolCreateFlags = VkDescriptorPoolCreateFlagBits;
 	public void* pNext;
 	public VkDescriptorPoolCreateFlags flags;
 	public uint32 maxSets;
-	public VulkanSpan<VkDescriptorPoolSize> pPoolSizes;
+	public uint32 poolSizeCount;
+	public VkDescriptorPoolSize* pPoolSizes;
+	public VulkanSpan<VkDescriptorPoolSize> poolSizes
+	{
+		[Inline] get => .(poolSizeCount, pPoolSizes);
+		[Inline] set mut { poolSizeCount = value.count; pPoolSizes = value.ptr; }
+	}
 
-	public this(void* pNext, VkDescriptorPoolCreateFlags flags, uint32 maxSets, VulkanSpan<VkDescriptorPoolSize> pPoolSizes = .())
+	public this(void* pNext, VkDescriptorPoolCreateFlags flags, uint32 maxSets, VulkanSpan<VkDescriptorPoolSize> poolSizes = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.maxSets = maxSets;
-		this.pPoolSizes = pPoolSizes;
+		this.poolSizes = poolSizes;
 	}
 
 	public this()
@@ -4764,13 +4945,19 @@ class VkDescriptorSet { private this() { } }
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkDescriptorPool descriptorPool;
-	public VulkanSpan<VkDescriptorSetLayout> pSetLayouts;
+	public uint32 descriptorSetCount;
+	public VkDescriptorSetLayout* pSetLayouts;
+	public VulkanSpan<VkDescriptorSetLayout> setLayouts
+	{
+		[Inline] get => .(descriptorSetCount, pSetLayouts);
+		[Inline] set mut { descriptorSetCount = value.count; pSetLayouts = value.ptr; }
+	}
 
-	public this(void* pNext, VkDescriptorPool descriptorPool, VulkanSpan<VkDescriptorSetLayout> pSetLayouts)
+	public this(void* pNext, VkDescriptorPool descriptorPool, VulkanSpan<VkDescriptorSetLayout> setLayouts) : this()
 	{
 		this.pNext = pNext;
 		this.descriptorPool = descriptorPool;
-		this.pSetLayouts = pSetLayouts;
+		this.setLayouts = setLayouts;
 	}
 
 	public this()
@@ -4827,13 +5014,19 @@ typealias VkDescriptorSetLayoutCreateFlags = VkDescriptorSetLayoutCreateFlagBits
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkDescriptorSetLayoutCreateFlags flags;
-	public VulkanSpan<VkDescriptorSetLayoutBinding> pBindings; // Array of descriptor set layout bindings
+	public uint32 bindingCount; // Number of bindings in the descriptor set layout
+	public VkDescriptorSetLayoutBinding* pBindings; // Array of descriptor set layout bindings
+	public VulkanSpan<VkDescriptorSetLayoutBinding> bindings
+	{
+		[Inline] get => .(bindingCount, pBindings);
+		[Inline] set mut { bindingCount = value.count; pBindings = value.ptr; }
+	} // Array of descriptor set layout bindings
 
-	public this(void* pNext = null, VkDescriptorSetLayoutCreateFlags flags = 0, VulkanSpan<VkDescriptorSetLayoutBinding> pBindings = .())
+	public this(void* pNext = null, VkDescriptorSetLayoutCreateFlags flags = 0, VulkanSpan<VkDescriptorSetLayoutBinding> bindings = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pBindings = pBindings;
+		this.bindings = bindings;
 	}
 
 	public this()
@@ -4906,8 +5099,8 @@ typealias VkDescriptorSetLayoutCreateFlags = VkDescriptorSetLayoutCreateFlagBits
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyDescriptorPool(VkDevice device, VkDescriptorPool descriptorPool = null, VkAllocationCallbacks* pAllocator = null);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkResetDescriptorPool(VkDevice device, VkDescriptorPool descriptorPool, VkDescriptorPoolResetFlags flags = 0);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkAllocateDescriptorSets(VkDevice device, VkDescriptorSetAllocateInfo* pAllocateInfo, out VkDescriptorSet pDescriptorSets);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkFreeDescriptorSets(VkDevice device, VkDescriptorPool descriptorPool, VulkanSpan<VkDescriptorSet> pDescriptorSets);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkUpdateDescriptorSets(VkDevice device, VulkanSpan<VkWriteDescriptorSet> pDescriptorWrites = .(), VulkanSpan<VkCopyDescriptorSet> pDescriptorCopies = .());
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkFreeDescriptorSets(VkDevice device, VkDescriptorPool descriptorPool, uint32 descriptorSetCount, VkDescriptorSet* pDescriptorSets);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkUpdateDescriptorSets(VkDevice device, uint32 descriptorWriteCount = 0, VkWriteDescriptorSet* pDescriptorWrites = null, uint32 descriptorCopyCount = 0, VkCopyDescriptorSet* pDescriptorCopies = null);
 
 // Pass commands
 [AllowDuplicates] enum VkAccessFlagBits : int32
@@ -5055,17 +5248,23 @@ typealias VkFramebufferCreateFlags = VkFramebufferCreateFlagBits;
 	public void* pNext;
 	public VkFramebufferCreateFlags flags;
 	public VkRenderPass renderPass;
-	public VulkanSpan<VkImageView> pAttachments;
+	public uint32 attachmentCount;
+	public VkImageView* pAttachments;
+	public VulkanSpan<VkImageView> attachments
+	{
+		[Inline] get => .(attachmentCount, pAttachments);
+		[Inline] set mut { attachmentCount = value.count; pAttachments = value.ptr; }
+	}
 	public uint32 width;
 	public uint32 height;
 	public uint32 layers;
 
-	public this(void* pNext, VkFramebufferCreateFlags flags, VkRenderPass renderPass, VulkanSpan<VkImageView> pAttachments, uint32 width, uint32 height, uint32 layers)
+	public this(void* pNext, VkFramebufferCreateFlags flags, VkRenderPass renderPass, VulkanSpan<VkImageView> attachments, uint32 width, uint32 height, uint32 layers) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.renderPass = renderPass;
-		this.pAttachments = pAttachments;
+		this.attachments = attachments;
 		this.width = width;
 		this.height = height;
 		this.layers = layers;
@@ -5102,17 +5301,35 @@ typealias VkRenderPassCreateFlags = VkRenderPassCreateFlagBits;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkRenderPassCreateFlags flags;
-	public VulkanSpan<VkAttachmentDescription> pAttachments;
-	public VulkanSpan<VkSubpassDescription> pSubpasses;
-	public VulkanSpan<VkSubpassDependency> pDependencies;
+	public uint32 attachmentCount;
+	public VkAttachmentDescription* pAttachments;
+	public VulkanSpan<VkAttachmentDescription> attachments
+	{
+		[Inline] get => .(attachmentCount, pAttachments);
+		[Inline] set mut { attachmentCount = value.count; pAttachments = value.ptr; }
+	}
+	public uint32 subpassCount;
+	public VkSubpassDescription* pSubpasses;
+	public VulkanSpan<VkSubpassDescription> subpasses
+	{
+		[Inline] get => .(subpassCount, pSubpasses);
+		[Inline] set mut { subpassCount = value.count; pSubpasses = value.ptr; }
+	}
+	public uint32 dependencyCount;
+	public VkSubpassDependency* pDependencies;
+	public VulkanSpan<VkSubpassDependency> dependencies
+	{
+		[Inline] get => .(dependencyCount, pDependencies);
+		[Inline] set mut { dependencyCount = value.count; pDependencies = value.ptr; }
+	}
 
-	public this(void* pNext, VkRenderPassCreateFlags flags, VulkanSpan<VkAttachmentDescription> pAttachments, VulkanSpan<VkSubpassDescription> pSubpasses, VulkanSpan<VkSubpassDependency> pDependencies = .())
+	public this(void* pNext, VkRenderPassCreateFlags flags, VulkanSpan<VkAttachmentDescription> attachments, VulkanSpan<VkSubpassDescription> subpasses, VulkanSpan<VkSubpassDependency> dependencies = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pAttachments = pAttachments;
-		this.pSubpasses = pSubpasses;
-		this.pDependencies = pDependencies;
+		this.attachments = attachments;
+		this.subpasses = subpasses;
+		this.dependencies = dependencies;
 	}
 
 	public this()
@@ -5153,19 +5370,38 @@ typealias VkRenderPassCreateFlags = VkRenderPassCreateFlagBits;
 {
 	public VkSubpassDescriptionFlags flags;
 	public VkPipelineBindPoint pipelineBindPoint; // Must be VK_PIPELINE_BIND_POINT_GRAPHICS for now
-	public VulkanSpan<VkAttachmentReference> pInputAttachments;
-	public VulkanDuoSpan<VkAttachmentReference, VkAttachmentReference> pColorAttachments_pResolveAttachments;
+	public uint32 inputAttachmentCount;
+	public VkAttachmentReference* pInputAttachments;
+	public VulkanSpan<VkAttachmentReference> inputAttachments
+	{
+		[Inline] get => .(inputAttachmentCount, pInputAttachments);
+		[Inline] set mut { inputAttachmentCount = value.count; pInputAttachments = value.ptr; }
+	}
+	public uint32 colorAttachmentCount;
+	public VkAttachmentReference* pColorAttachments;
+	public VkAttachmentReference* pResolveAttachments;
+	public VulkanDuoSpan<VkAttachmentReference, VkAttachmentReference> colorAttachments_resolveAttachments
+	{
+		[Inline] get => .(colorAttachmentCount, pColorAttachments, pResolveAttachments);
+		[Inline] set mut { colorAttachmentCount = value.count; pColorAttachments = value.ptr1; pResolveAttachments = value.ptr2; }
+	}
 	public VkAttachmentReference* pDepthStencilAttachment;
-	public VulkanSpan<uint32> pPreserveAttachments;
+	public uint32 preserveAttachmentCount;
+	public uint32* pPreserveAttachments;
+	public VulkanSpan<uint32> preserveAttachments
+	{
+		[Inline] get => .(preserveAttachmentCount, pPreserveAttachments);
+		[Inline] set mut { preserveAttachmentCount = value.count; pPreserveAttachments = value.ptr; }
+	}
 
-	public this(VkSubpassDescriptionFlags flags, VkPipelineBindPoint pipelineBindPoint, VulkanSpan<VkAttachmentReference> pInputAttachments = .(), VulkanDuoSpan<VkAttachmentReference, VkAttachmentReference> pColorAttachments_pResolveAttachments = .(), VkAttachmentReference* pDepthStencilAttachment = null, VulkanSpan<uint32> pPreserveAttachments = .())
+	public this(VkSubpassDescriptionFlags flags, VkPipelineBindPoint pipelineBindPoint, VulkanSpan<VkAttachmentReference> inputAttachments = .(), VulkanDuoSpan<VkAttachmentReference, VkAttachmentReference> colorAttachments_resolveAttachments = .(), VkAttachmentReference* pDepthStencilAttachment = null, VulkanSpan<uint32> preserveAttachments = .()) : this()
 	{
 		this.flags = flags;
 		this.pipelineBindPoint = pipelineBindPoint;
-		this.pInputAttachments = pInputAttachments;
-		this.pColorAttachments_pResolveAttachments = pColorAttachments_pResolveAttachments;
+		this.inputAttachments = inputAttachments;
+		this.colorAttachments_resolveAttachments = colorAttachments_resolveAttachments;
 		this.pDepthStencilAttachment = pDepthStencilAttachment;
-		this.pPreserveAttachments = pPreserveAttachments;
+		this.preserveAttachments = preserveAttachments;
 	}
 
 	public this()
@@ -5351,7 +5587,7 @@ typealias VkCommandBufferUsageFlags = VkCommandBufferUsageFlagBits;
 typealias VkQueryControlFlags = VkQueryControlFlagBits;
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkAllocateCommandBuffers(VkDevice device, VkCommandBufferAllocateInfo* pAllocateInfo, out VkCommandBuffer pCommandBuffers);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkFreeCommandBuffers(VkDevice device, VkCommandPool commandPool, VulkanSpan<VkCommandBuffer> pCommandBuffers);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkFreeCommandBuffers(VkDevice device, VkCommandPool commandPool, uint32 commandBufferCount, VkCommandBuffer* pCommandBuffers);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBeginCommandBuffer(VkCommandBuffer commandBuffer, VkCommandBufferBeginInfo* pBeginInfo);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkEndCommandBuffer(VkCommandBuffer commandBuffer);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkResetCommandBuffer(VkCommandBuffer commandBuffer, VkCommandBufferResetFlags flags = 0);
@@ -5578,15 +5814,21 @@ typealias VkQueryControlFlags = VkQueryControlFlagBits;
 	public VkRenderPass renderPass;
 	public VkFramebuffer framebuffer;
 	public VkRect2D renderArea;
-	public VulkanSpan<VkClearValue> pClearValues;
+	public uint32 clearValueCount;
+	public VkClearValue* pClearValues;
+	public VulkanSpan<VkClearValue> clearValues
+	{
+		[Inline] get => .(clearValueCount, pClearValues);
+		[Inline] set mut { clearValueCount = value.count; pClearValues = value.ptr; }
+	}
 
-	public this(void* pNext, VkRenderPass renderPass, VkFramebuffer framebuffer, VkRect2D renderArea, VulkanSpan<VkClearValue> pClearValues = .())
+	public this(void* pNext, VkRenderPass renderPass, VkFramebuffer framebuffer, VkRect2D renderArea, VulkanSpan<VkClearValue> clearValues = .()) : this()
 	{
 		this.pNext = pNext;
 		this.renderPass = renderPass;
 		this.framebuffer = framebuffer;
 		this.renderArea = renderArea;
-		this.pClearValues = pClearValues;
+		this.clearValues = clearValues;
 	}
 
 	public this()
@@ -5615,8 +5857,8 @@ typealias VkStencilFaceFlags = VkStencilFaceFlagBits;
 }
 
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindPipeline(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewport(VkCommandBuffer commandBuffer, uint32 firstViewport, VulkanSpan<VkViewport> pViewports);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetScissor(VkCommandBuffer commandBuffer, uint32 firstScissor, VulkanSpan<VkRect2D> pScissors);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewport(VkCommandBuffer commandBuffer, uint32 firstViewport, uint32 viewportCount, VkViewport* pViewports);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetScissor(VkCommandBuffer commandBuffer, uint32 firstScissor, uint32 scissorCount, VkRect2D* pScissors);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetLineWidth(VkCommandBuffer commandBuffer, float lineWidth);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDepthBias(VkCommandBuffer commandBuffer, float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetBlendConstants(VkCommandBuffer commandBuffer, float[4] blendConstants);
@@ -5624,40 +5866,40 @@ typealias VkStencilFaceFlags = VkStencilFaceFlagBits;
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetStencilCompareMask(VkCommandBuffer commandBuffer, VkStencilFaceFlags faceMask, uint32 compareMask);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetStencilWriteMask(VkCommandBuffer commandBuffer, VkStencilFaceFlags faceMask, uint32 writeMask);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetStencilReference(VkCommandBuffer commandBuffer, VkStencilFaceFlags faceMask, uint32 reference);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32 firstSet, VulkanSpan<VkDescriptorSet> pDescriptorSets, VulkanSpan<uint32> pDynamicOffsets = .());
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindDescriptorSets(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32 firstSet, uint32 descriptorSetCount, VkDescriptorSet* pDescriptorSets, uint32 dynamicOffsetCount = 0, uint32* pDynamicOffsets = null);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindIndexBuffer(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkIndexType indexType);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, uint32 firstBinding, VulkanDuoSpan<VkBuffer, VkDeviceSize> pBuffers_pOffsets);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, uint32 firstBinding, uint32 bindingCount, VkBuffer* pBuffers, VkDeviceSize* pOffsets);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDraw(VkCommandBuffer commandBuffer, uint32 vertexCount, uint32 instanceCount, uint32 firstVertex, uint32 firstInstance);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDrawIndexed(VkCommandBuffer commandBuffer, uint32 indexCount, uint32 instanceCount, uint32 firstIndex, int32 vertexOffset, uint32 firstInstance);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDrawIndirect(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, uint32 drawCount, uint32 stride);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDrawIndexedIndirect(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, uint32 drawCount, uint32 stride);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDispatch(VkCommandBuffer commandBuffer, uint32 groupCountX, uint32 groupCountY, uint32 groupCountZ);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDispatchIndirect(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyBuffer(VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkBuffer dstBuffer, VulkanSpan<VkBufferCopy> pRegions);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageCopy> pRegions);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBlitImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageBlit> pRegions, VkFilter filter);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkBufferImageCopy> pRegions);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkBuffer dstBuffer, VulkanSpan<VkBufferImageCopy> pRegions);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyBuffer(VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkBuffer dstBuffer, uint32 regionCount, VkBufferCopy* pRegions);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, uint32 regionCount, VkImageCopy* pRegions);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBlitImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, uint32 regionCount, VkImageBlit* pRegions, VkFilter filter);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyBufferToImage(VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkImage dstImage, VkImageLayout dstImageLayout, uint32 regionCount, VkBufferImageCopy* pRegions);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyImageToBuffer(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkBuffer dstBuffer, uint32 regionCount, VkBufferImageCopy* pRegions);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdUpdateBuffer(VkCommandBuffer commandBuffer, VkBuffer dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, void* pData);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdFillBuffer(VkCommandBuffer commandBuffer, VkBuffer dstBuffer, VkDeviceSize dstOffset, VkDeviceSize size, uint32 data);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdClearColorImage(VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, VkClearColorValue* pColor, VulkanSpan<VkImageSubresourceRange> pRanges);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, VkClearDepthStencilValue* pDepthStencil, VulkanSpan<VkImageSubresourceRange> pRanges);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdClearAttachments(VkCommandBuffer commandBuffer, VulkanSpan<VkClearAttachment> pAttachments, VulkanSpan<VkClearRect> pRects);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdResolveImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageResolve> pRegions);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdClearColorImage(VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, VkClearColorValue* pColor, uint32 rangeCount, VkImageSubresourceRange* pRanges);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdClearDepthStencilImage(VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, VkClearDepthStencilValue* pDepthStencil, uint32 rangeCount, VkImageSubresourceRange* pRanges);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdClearAttachments(VkCommandBuffer commandBuffer, uint32 attachmentCount, VkClearAttachment* pAttachments, uint32 rectCount, VkClearRect* pRects);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdResolveImage(VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, uint32 regionCount, VkImageResolve* pRegions);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetEvent(VkCommandBuffer commandBuffer, VkEvent event, VkPipelineStageFlags stageMask = 0);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdResetEvent(VkCommandBuffer commandBuffer, VkEvent event, VkPipelineStageFlags stageMask = 0);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWaitEvents(VkCommandBuffer commandBuffer, VulkanSpan<VkEvent> pEvents, VkPipelineStageFlags srcStageMask = 0, VkPipelineStageFlags dstStageMask = 0, VulkanSpan<VkMemoryBarrier> pMemoryBarriers = .(), VulkanSpan<VkBufferMemoryBarrier> pBufferMemoryBarriers = .(), VulkanSpan<VkImageMemoryBarrier> pImageMemoryBarriers = .());
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdPipelineBarrier(VkCommandBuffer commandBuffer, VkPipelineStageFlags srcStageMask = 0, VkPipelineStageFlags dstStageMask = 0, VkDependencyFlags dependencyFlags = 0, VulkanSpan<VkMemoryBarrier> pMemoryBarriers = .(), VulkanSpan<VkBufferMemoryBarrier> pBufferMemoryBarriers = .(), VulkanSpan<VkImageMemoryBarrier> pImageMemoryBarriers = .());
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWaitEvents(VkCommandBuffer commandBuffer, uint32 eventCount, VkEvent* pEvents, VkPipelineStageFlags srcStageMask = 0, VkPipelineStageFlags dstStageMask = 0, uint32 memoryBarrierCount = 0, VkMemoryBarrier* pMemoryBarriers = null, uint32 bufferMemoryBarrierCount = 0, VkBufferMemoryBarrier* pBufferMemoryBarriers = null, uint32 imageMemoryBarrierCount = 0, VkImageMemoryBarrier* pImageMemoryBarriers = null);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdPipelineBarrier(VkCommandBuffer commandBuffer, VkPipelineStageFlags srcStageMask = 0, VkPipelineStageFlags dstStageMask = 0, VkDependencyFlags dependencyFlags = 0, uint32 memoryBarrierCount = 0, VkMemoryBarrier* pMemoryBarriers = null, uint32 bufferMemoryBarrierCount = 0, VkBufferMemoryBarrier* pBufferMemoryBarriers = null, uint32 imageMemoryBarrierCount = 0, VkImageMemoryBarrier* pImageMemoryBarriers = null);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBeginQuery(VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32 query, VkQueryControlFlags flags = 0);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdEndQuery(VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32 query);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdResetQueryPool(VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32 firstQuery, uint32 queryCount);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWriteTimestamp(VkCommandBuffer commandBuffer, VkPipelineStageFlagBits pipelineStage, VkQueryPool queryPool, uint32 query);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyQueryPoolResults(VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32 firstQuery, uint32 queryCount, VkBuffer dstBuffer, VkDeviceSize dstOffset, VkDeviceSize stride, VkQueryResultFlags flags = 0);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdPushConstants(VkCommandBuffer commandBuffer, VkPipelineLayout layout, VkShaderStageFlags stageFlags, uint32 offset, VulkanSpan<void> pValues);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdPushConstants(VkCommandBuffer commandBuffer, VkPipelineLayout layout, VkShaderStageFlags stageFlags, uint32 offset, uint32 size, void* pValues);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBeginRenderPass(VkCommandBuffer commandBuffer, VkRenderPassBeginInfo* pRenderPassBegin, VkSubpassContents contents);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdNextSubpass(VkCommandBuffer commandBuffer, VkSubpassContents contents);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdEndRenderPass(VkCommandBuffer commandBuffer);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdExecuteCommands(VkCommandBuffer commandBuffer, VulkanSpan<VkCommandBuffer> pCommandBuffers);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdExecuteCommands(VkCommandBuffer commandBuffer, uint32 commandBufferCount, VkCommandBuffer* pCommandBuffers);
 
 static { public const uint32 VK_API_VERSION_1_1 = VK_MAKE_API_VERSION(0, 1, 1, 0)/* Patch version should always be set to 0 */; }
 
@@ -5698,8 +5940,8 @@ typealias VkSubgroupFeatureFlags = VkSubgroupFeatureFlagBits;
 }
 
 // Promoted from VK_KHR_bind_memory2
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBindBufferMemory2(VkDevice device, VulkanSpan<VkBindBufferMemoryInfo> pBindInfos);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBindImageMemory2(VkDevice device, VulkanSpan<VkBindImageMemoryInfo> pBindInfos);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBindBufferMemory2(VkDevice device, uint32 bindInfoCount, VkBindBufferMemoryInfo* pBindInfos);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBindImageMemory2(VkDevice device, uint32 bindInfoCount, VkBindImageMemoryInfo* pBindInfos);
 
 [CRepr] struct VkBindBufferMemoryInfo
 {
@@ -5863,13 +6105,19 @@ typealias VkMemoryAllocateFlags = VkMemoryAllocateFlagBits;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public uint32 deviceMask;
-	public VulkanSpan<VkRect2D> pDeviceRenderAreas;
+	public uint32 deviceRenderAreaCount;
+	public VkRect2D* pDeviceRenderAreas;
+	public VulkanSpan<VkRect2D> deviceRenderAreas
+	{
+		[Inline] get => .(deviceRenderAreaCount, pDeviceRenderAreas);
+		[Inline] set mut { deviceRenderAreaCount = value.count; pDeviceRenderAreas = value.ptr; }
+	}
 
-	public this(void* pNext, uint32 deviceMask, VulkanSpan<VkRect2D> pDeviceRenderAreas = .())
+	public this(void* pNext, uint32 deviceMask, VulkanSpan<VkRect2D> deviceRenderAreas = .()) : this()
 	{
 		this.pNext = pNext;
 		this.deviceMask = deviceMask;
-		this.pDeviceRenderAreas = pDeviceRenderAreas;
+		this.deviceRenderAreas = deviceRenderAreas;
 	}
 
 	public this()
@@ -5904,16 +6152,34 @@ typealias VkMemoryAllocateFlags = VkMemoryAllocateFlagBits;
 	public const VkStructureType SType = .VkDeviceGroupSubmitInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint32> pWaitSemaphoreDeviceIndices;
-	public VulkanSpan<uint32> pCommandBufferDeviceMasks;
-	public VulkanSpan<uint32> pSignalSemaphoreDeviceIndices;
+	public uint32 waitSemaphoreCount;
+	public uint32* pWaitSemaphoreDeviceIndices;
+	public VulkanSpan<uint32> waitSemaphoreDeviceIndices
+	{
+		[Inline] get => .(waitSemaphoreCount, pWaitSemaphoreDeviceIndices);
+		[Inline] set mut { waitSemaphoreCount = value.count; pWaitSemaphoreDeviceIndices = value.ptr; }
+	}
+	public uint32 commandBufferCount;
+	public uint32* pCommandBufferDeviceMasks;
+	public VulkanSpan<uint32> commandBufferDeviceMasks
+	{
+		[Inline] get => .(commandBufferCount, pCommandBufferDeviceMasks);
+		[Inline] set mut { commandBufferCount = value.count; pCommandBufferDeviceMasks = value.ptr; }
+	}
+	public uint32 signalSemaphoreCount;
+	public uint32* pSignalSemaphoreDeviceIndices;
+	public VulkanSpan<uint32> signalSemaphoreDeviceIndices
+	{
+		[Inline] get => .(signalSemaphoreCount, pSignalSemaphoreDeviceIndices);
+		[Inline] set mut { signalSemaphoreCount = value.count; pSignalSemaphoreDeviceIndices = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<uint32> pWaitSemaphoreDeviceIndices = .(), VulkanSpan<uint32> pCommandBufferDeviceMasks = .(), VulkanSpan<uint32> pSignalSemaphoreDeviceIndices = .())
+	public this(void* pNext = null, VulkanSpan<uint32> waitSemaphoreDeviceIndices = .(), VulkanSpan<uint32> commandBufferDeviceMasks = .(), VulkanSpan<uint32> signalSemaphoreDeviceIndices = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pWaitSemaphoreDeviceIndices = pWaitSemaphoreDeviceIndices;
-		this.pCommandBufferDeviceMasks = pCommandBufferDeviceMasks;
-		this.pSignalSemaphoreDeviceIndices = pSignalSemaphoreDeviceIndices;
+		this.waitSemaphoreDeviceIndices = waitSemaphoreDeviceIndices;
+		this.commandBufferDeviceMasks = commandBufferDeviceMasks;
+		this.signalSemaphoreDeviceIndices = signalSemaphoreDeviceIndices;
 	}
 
 	public this()
@@ -5955,12 +6221,18 @@ typealias VkMemoryAllocateFlags = VkMemoryAllocateFlagBits;
 	public const VkStructureType SType = .VkBindBufferMemoryDeviceGroupInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint32> pDeviceIndices;
+	public uint32 deviceIndexCount;
+	public uint32* pDeviceIndices;
+	public VulkanSpan<uint32> deviceIndices
+	{
+		[Inline] get => .(deviceIndexCount, pDeviceIndices);
+		[Inline] set mut { deviceIndexCount = value.count; pDeviceIndices = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<uint32> pDeviceIndices = .())
+	public this(void* pNext = null, VulkanSpan<uint32> deviceIndices = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pDeviceIndices = pDeviceIndices;
+		this.deviceIndices = deviceIndices;
 	}
 
 	public this()
@@ -5975,14 +6247,26 @@ typealias VkMemoryAllocateFlags = VkMemoryAllocateFlagBits;
 	public const VkStructureType SType = .VkBindImageMemoryDeviceGroupInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint32> pDeviceIndices;
-	public VulkanSpan<VkRect2D> pSplitInstanceBindRegions;
+	public uint32 deviceIndexCount;
+	public uint32* pDeviceIndices;
+	public VulkanSpan<uint32> deviceIndices
+	{
+		[Inline] get => .(deviceIndexCount, pDeviceIndices);
+		[Inline] set mut { deviceIndexCount = value.count; pDeviceIndices = value.ptr; }
+	}
+	public uint32 splitInstanceBindRegionCount;
+	public VkRect2D* pSplitInstanceBindRegions;
+	public VulkanSpan<VkRect2D> splitInstanceBindRegions
+	{
+		[Inline] get => .(splitInstanceBindRegionCount, pSplitInstanceBindRegions);
+		[Inline] set mut { splitInstanceBindRegionCount = value.count; pSplitInstanceBindRegions = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<uint32> pDeviceIndices = .(), VulkanSpan<VkRect2D> pSplitInstanceBindRegions = .())
+	public this(void* pNext = null, VulkanSpan<uint32> deviceIndices = .(), VulkanSpan<VkRect2D> splitInstanceBindRegions = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pDeviceIndices = pDeviceIndices;
-		this.pSplitInstanceBindRegions = pSplitInstanceBindRegions;
+		this.deviceIndices = deviceIndices;
+		this.splitInstanceBindRegions = splitInstanceBindRegions;
 	}
 
 	public this()
@@ -6010,12 +6294,18 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkDeviceGroupDeviceCreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPhysicalDevice> pPhysicalDevices;
+	public uint32 physicalDeviceCount;
+	public VkPhysicalDevice* pPhysicalDevices;
+	public VulkanSpan<VkPhysicalDevice> physicalDevices
+	{
+		[Inline] get => .(physicalDeviceCount, pPhysicalDevices);
+		[Inline] set mut { physicalDeviceCount = value.count; pPhysicalDevices = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkPhysicalDevice> pPhysicalDevices = .())
+	public this(void* pNext = null, VulkanSpan<VkPhysicalDevice> physicalDevices = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pPhysicalDevices = pPhysicalDevices;
+		this.physicalDevices = physicalDevices;
 	}
 
 	public this()
@@ -6268,12 +6558,18 @@ typealias VkCommandPoolTrimFlags = VkFlags;
 	public const VkStructureType SType = .VkRenderPassInputAttachmentAspectCreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkInputAttachmentAspectReference> pAspectReferences;
+	public uint32 aspectReferenceCount;
+	public VkInputAttachmentAspectReference* pAspectReferences;
+	public VulkanSpan<VkInputAttachmentAspectReference> aspectReferences
+	{
+		[Inline] get => .(aspectReferenceCount, pAspectReferences);
+		[Inline] set mut { aspectReferenceCount = value.count; pAspectReferences = value.ptr; }
+	}
 
-	public this(void* pNext, VulkanSpan<VkInputAttachmentAspectReference> pAspectReferences)
+	public this(void* pNext, VulkanSpan<VkInputAttachmentAspectReference> aspectReferences) : this()
 	{
 		this.pNext = pNext;
-		this.pAspectReferences = pAspectReferences;
+		this.aspectReferences = aspectReferences;
 	}
 
 	public this()
@@ -6356,16 +6652,34 @@ typealias VkCommandPoolTrimFlags = VkFlags;
 	public const VkStructureType SType = .VkRenderPassMultiviewCreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint32> pViewMasks;
-	public VulkanSpan<int32> pViewOffsets;
-	public VulkanSpan<uint32> pCorrelationMasks;
+	public uint32 subpassCount;
+	public uint32* pViewMasks;
+	public VulkanSpan<uint32> viewMasks
+	{
+		[Inline] get => .(subpassCount, pViewMasks);
+		[Inline] set mut { subpassCount = value.count; pViewMasks = value.ptr; }
+	}
+	public uint32 dependencyCount;
+	public int32* pViewOffsets;
+	public VulkanSpan<int32> viewOffsets
+	{
+		[Inline] get => .(dependencyCount, pViewOffsets);
+		[Inline] set mut { dependencyCount = value.count; pViewOffsets = value.ptr; }
+	}
+	public uint32 correlationMaskCount;
+	public uint32* pCorrelationMasks;
+	public VulkanSpan<uint32> correlationMasks
+	{
+		[Inline] get => .(correlationMaskCount, pCorrelationMasks);
+		[Inline] set mut { correlationMaskCount = value.count; pCorrelationMasks = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<uint32> pViewMasks = .(), VulkanSpan<int32> pViewOffsets = .(), VulkanSpan<uint32> pCorrelationMasks = .())
+	public this(void* pNext = null, VulkanSpan<uint32> viewMasks = .(), VulkanSpan<int32> viewOffsets = .(), VulkanSpan<uint32> correlationMasks = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pViewMasks = pViewMasks;
-		this.pViewOffsets = pViewOffsets;
-		this.pCorrelationMasks = pCorrelationMasks;
+		this.viewMasks = viewMasks;
+		this.viewOffsets = viewOffsets;
+		this.correlationMasks = correlationMasks;
 	}
 
 	public this()
@@ -6719,18 +7033,24 @@ typealias VkDescriptorUpdateTemplateCreateFlags = VkFlags;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkDescriptorUpdateTemplateCreateFlags flags;
-	public VulkanSpan<VkDescriptorUpdateTemplateEntry> pDescriptorUpdateEntries; // Descriptor update entries for the template
+	public uint32 descriptorUpdateEntryCount; // Number of descriptor update entries to use for the update template
+	public VkDescriptorUpdateTemplateEntry* pDescriptorUpdateEntries; // Descriptor update entries for the template
+	public VulkanSpan<VkDescriptorUpdateTemplateEntry> descriptorUpdateEntries
+	{
+		[Inline] get => .(descriptorUpdateEntryCount, pDescriptorUpdateEntries);
+		[Inline] set mut { descriptorUpdateEntryCount = value.count; pDescriptorUpdateEntries = value.ptr; }
+	} // Descriptor update entries for the template
 	public VkDescriptorUpdateTemplateType templateType;
 	public VkDescriptorSetLayout descriptorSetLayout;
 	public VkPipelineBindPoint pipelineBindPoint;
 	public VkPipelineLayout pipelineLayout; // If used for push descriptors, this is the only allowed layout
 	public uint32 set;
 
-	public this(void* pNext, VkDescriptorUpdateTemplateCreateFlags flags, VulkanSpan<VkDescriptorUpdateTemplateEntry> pDescriptorUpdateEntries, VkDescriptorUpdateTemplateType templateType, VkDescriptorSetLayout descriptorSetLayout, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout pipelineLayout, uint32 set)
+	public this(void* pNext, VkDescriptorUpdateTemplateCreateFlags flags, VulkanSpan<VkDescriptorUpdateTemplateEntry> descriptorUpdateEntries, VkDescriptorUpdateTemplateType templateType, VkDescriptorSetLayout descriptorSetLayout, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout pipelineLayout, uint32 set) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pDescriptorUpdateEntries = pDescriptorUpdateEntries;
+		this.descriptorUpdateEntries = descriptorUpdateEntries;
 		this.templateType = templateType;
 		this.descriptorSetLayout = descriptorSetLayout;
 		this.pipelineBindPoint = pipelineBindPoint;
@@ -7389,12 +7709,18 @@ static { public const uint32 VK_API_VERSION_1_2 = VK_MAKE_API_VERSION(0, 1, 2, 0
 	public const VkStructureType SType = .VkImageFormatListCreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkFormat> pViewFormats;
+	public uint32 viewFormatCount;
+	public VkFormat* pViewFormats;
+	public VulkanSpan<VkFormat> viewFormats
+	{
+		[Inline] get => .(viewFormatCount, pViewFormats);
+		[Inline] set mut { viewFormatCount = value.count; pViewFormats = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkFormat> pViewFormats = .())
+	public this(void* pNext = null, VulkanSpan<VkFormat> viewFormats = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pViewFormats = pViewFormats;
+		this.viewFormats = viewFormats;
 	}
 
 	public this()
@@ -7421,19 +7747,43 @@ static { public const uint32 VK_API_VERSION_1_2 = VK_MAKE_API_VERSION(0, 1, 2, 0
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkRenderPassCreateFlags flags;
-	public VulkanSpan<VkAttachmentDescription2> pAttachments;
-	public VulkanSpan<VkSubpassDescription2> pSubpasses;
-	public VulkanSpan<VkSubpassDependency2> pDependencies;
-	public VulkanSpan<uint32> pCorrelatedViewMasks;
+	public uint32 attachmentCount;
+	public VkAttachmentDescription2* pAttachments;
+	public VulkanSpan<VkAttachmentDescription2> attachments
+	{
+		[Inline] get => .(attachmentCount, pAttachments);
+		[Inline] set mut { attachmentCount = value.count; pAttachments = value.ptr; }
+	}
+	public uint32 subpassCount;
+	public VkSubpassDescription2* pSubpasses;
+	public VulkanSpan<VkSubpassDescription2> subpasses
+	{
+		[Inline] get => .(subpassCount, pSubpasses);
+		[Inline] set mut { subpassCount = value.count; pSubpasses = value.ptr; }
+	}
+	public uint32 dependencyCount;
+	public VkSubpassDependency2* pDependencies;
+	public VulkanSpan<VkSubpassDependency2> dependencies
+	{
+		[Inline] get => .(dependencyCount, pDependencies);
+		[Inline] set mut { dependencyCount = value.count; pDependencies = value.ptr; }
+	}
+	public uint32 correlatedViewMaskCount;
+	public uint32* pCorrelatedViewMasks;
+	public VulkanSpan<uint32> correlatedViewMasks
+	{
+		[Inline] get => .(correlatedViewMaskCount, pCorrelatedViewMasks);
+		[Inline] set mut { correlatedViewMaskCount = value.count; pCorrelatedViewMasks = value.ptr; }
+	}
 
-	public this(void* pNext, VkRenderPassCreateFlags flags, VulkanSpan<VkAttachmentDescription2> pAttachments, VulkanSpan<VkSubpassDescription2> pSubpasses, VulkanSpan<VkSubpassDependency2> pDependencies = .(), VulkanSpan<uint32> pCorrelatedViewMasks = .())
+	public this(void* pNext, VkRenderPassCreateFlags flags, VulkanSpan<VkAttachmentDescription2> attachments, VulkanSpan<VkSubpassDescription2> subpasses, VulkanSpan<VkSubpassDependency2> dependencies = .(), VulkanSpan<uint32> correlatedViewMasks = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pAttachments = pAttachments;
-		this.pSubpasses = pSubpasses;
-		this.pDependencies = pDependencies;
-		this.pCorrelatedViewMasks = pCorrelatedViewMasks;
+		this.attachments = attachments;
+		this.subpasses = subpasses;
+		this.dependencies = dependencies;
+		this.correlatedViewMasks = correlatedViewMasks;
 	}
 
 	public this()
@@ -7511,21 +7861,40 @@ static { public const uint32 VK_API_VERSION_1_2 = VK_MAKE_API_VERSION(0, 1, 2, 0
 	public VkSubpassDescriptionFlags flags;
 	public VkPipelineBindPoint pipelineBindPoint;
 	public uint32 viewMask;
-	public VulkanSpan<VkAttachmentReference2> pInputAttachments;
-	public VulkanDuoSpan<VkAttachmentReference2, VkAttachmentReference2> pColorAttachments_pResolveAttachments;
+	public uint32 inputAttachmentCount;
+	public VkAttachmentReference2* pInputAttachments;
+	public VulkanSpan<VkAttachmentReference2> inputAttachments
+	{
+		[Inline] get => .(inputAttachmentCount, pInputAttachments);
+		[Inline] set mut { inputAttachmentCount = value.count; pInputAttachments = value.ptr; }
+	}
+	public uint32 colorAttachmentCount;
+	public VkAttachmentReference2* pColorAttachments;
+	public VkAttachmentReference2* pResolveAttachments;
+	public VulkanDuoSpan<VkAttachmentReference2, VkAttachmentReference2> colorAttachments_resolveAttachments
+	{
+		[Inline] get => .(colorAttachmentCount, pColorAttachments, pResolveAttachments);
+		[Inline] set mut { colorAttachmentCount = value.count; pColorAttachments = value.ptr1; pResolveAttachments = value.ptr2; }
+	}
 	public VkAttachmentReference2* pDepthStencilAttachment;
-	public VulkanSpan<uint32> pPreserveAttachments;
+	public uint32 preserveAttachmentCount;
+	public uint32* pPreserveAttachments;
+	public VulkanSpan<uint32> preserveAttachments
+	{
+		[Inline] get => .(preserveAttachmentCount, pPreserveAttachments);
+		[Inline] set mut { preserveAttachmentCount = value.count; pPreserveAttachments = value.ptr; }
+	}
 
-	public this(void* pNext, VkSubpassDescriptionFlags flags, VkPipelineBindPoint pipelineBindPoint, uint32 viewMask, VulkanSpan<VkAttachmentReference2> pInputAttachments = .(), VulkanDuoSpan<VkAttachmentReference2, VkAttachmentReference2> pColorAttachments_pResolveAttachments = .(), VkAttachmentReference2* pDepthStencilAttachment = null, VulkanSpan<uint32> pPreserveAttachments = .())
+	public this(void* pNext, VkSubpassDescriptionFlags flags, VkPipelineBindPoint pipelineBindPoint, uint32 viewMask, VulkanSpan<VkAttachmentReference2> inputAttachments = .(), VulkanDuoSpan<VkAttachmentReference2, VkAttachmentReference2> colorAttachments_resolveAttachments = .(), VkAttachmentReference2* pDepthStencilAttachment = null, VulkanSpan<uint32> preserveAttachments = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.pipelineBindPoint = pipelineBindPoint;
 		this.viewMask = viewMask;
-		this.pInputAttachments = pInputAttachments;
-		this.pColorAttachments_pResolveAttachments = pColorAttachments_pResolveAttachments;
+		this.inputAttachments = inputAttachments;
+		this.colorAttachments_resolveAttachments = colorAttachments_resolveAttachments;
 		this.pDepthStencilAttachment = pDepthStencilAttachment;
-		this.pPreserveAttachments = pPreserveAttachments;
+		this.preserveAttachments = preserveAttachments;
 	}
 
 	public this()
@@ -7798,12 +8167,18 @@ static { public const uint32 VK_MAX_DRIVER_INFO_SIZE = 256; }
 	public const VkStructureType SType = .VkDescriptorSetLayoutBindingFlagsCreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkDescriptorBindingFlags> pBindingFlags;
+	public uint32 bindingCount;
+	public VkDescriptorBindingFlags* pBindingFlags;
+	public VulkanSpan<VkDescriptorBindingFlags> bindingFlags
+	{
+		[Inline] get => .(bindingCount, pBindingFlags);
+		[Inline] set mut { bindingCount = value.count; pBindingFlags = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkDescriptorBindingFlags> pBindingFlags = .())
+	public this(void* pNext = null, VulkanSpan<VkDescriptorBindingFlags> bindingFlags = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pBindingFlags = pBindingFlags;
+		this.bindingFlags = bindingFlags;
 	}
 
 	public this()
@@ -7906,12 +8281,18 @@ static { public const uint32 VK_MAX_DRIVER_INFO_SIZE = 256; }
 	public const VkStructureType SType = .VkDescriptorSetVariableDescriptorCountAllocateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint32> pDescriptorCounts;
+	public uint32 descriptorSetCount;
+	public uint32* pDescriptorCounts;
+	public VulkanSpan<uint32> descriptorCounts
+	{
+		[Inline] get => .(descriptorSetCount, pDescriptorCounts);
+		[Inline] set mut { descriptorSetCount = value.count; pDescriptorCounts = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<uint32> pDescriptorCounts = .())
+	public this(void* pNext = null, VulkanSpan<uint32> descriptorCounts = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pDescriptorCounts = pDescriptorCounts;
+		this.descriptorCounts = descriptorCounts;
 	}
 
 	public this()
@@ -8130,12 +8511,18 @@ typealias VkResolveModeFlags = VkResolveModeFlagBits;
 	public const VkStructureType SType = .VkFramebufferAttachmentsCreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkFramebufferAttachmentImageInfo> pAttachmentImageInfos;
+	public uint32 attachmentImageInfoCount;
+	public VkFramebufferAttachmentImageInfo* pAttachmentImageInfos;
+	public VulkanSpan<VkFramebufferAttachmentImageInfo> attachmentImageInfos
+	{
+		[Inline] get => .(attachmentImageInfoCount, pAttachmentImageInfos);
+		[Inline] set mut { attachmentImageInfoCount = value.count; pAttachmentImageInfos = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkFramebufferAttachmentImageInfo> pAttachmentImageInfos = .())
+	public this(void* pNext = null, VulkanSpan<VkFramebufferAttachmentImageInfo> attachmentImageInfos = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pAttachmentImageInfos = pAttachmentImageInfos;
+		this.attachmentImageInfos = attachmentImageInfos;
 	}
 
 	public this()
@@ -8155,9 +8542,15 @@ typealias VkResolveModeFlags = VkResolveModeFlagBits;
 	public uint32 width;
 	public uint32 height;
 	public uint32 layerCount;
-	public VulkanSpan<VkFormat> pViewFormats;
+	public uint32 viewFormatCount;
+	public VkFormat* pViewFormats;
+	public VulkanSpan<VkFormat> viewFormats
+	{
+		[Inline] get => .(viewFormatCount, pViewFormats);
+		[Inline] set mut { viewFormatCount = value.count; pViewFormats = value.ptr; }
+	}
 
-	public this(void* pNext, VkImageCreateFlags flags, VkImageUsageFlags usage, uint32 width, uint32 height, uint32 layerCount, VulkanSpan<VkFormat> pViewFormats = .())
+	public this(void* pNext, VkImageCreateFlags flags, VkImageUsageFlags usage, uint32 width, uint32 height, uint32 layerCount, VulkanSpan<VkFormat> viewFormats = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
@@ -8165,7 +8558,7 @@ typealias VkResolveModeFlags = VkResolveModeFlagBits;
 		this.width = width;
 		this.height = height;
 		this.layerCount = layerCount;
-		this.pViewFormats = pViewFormats;
+		this.viewFormats = viewFormats;
 	}
 
 	public this()
@@ -8180,12 +8573,18 @@ typealias VkResolveModeFlags = VkResolveModeFlagBits;
 	public const VkStructureType SType = .VkRenderPassAttachmentBeginInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkImageView> pAttachments;
+	public uint32 attachmentCount;
+	public VkImageView* pAttachments;
+	public VulkanSpan<VkImageView> attachments
+	{
+		[Inline] get => .(attachmentCount, pAttachments);
+		[Inline] set mut { attachmentCount = value.count; pAttachments = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkImageView> pAttachments = .())
+	public this(void* pNext = null, VulkanSpan<VkImageView> attachments = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pAttachments = pAttachments;
+		this.attachments = attachments;
 	}
 
 	public this()
@@ -8388,14 +8787,26 @@ typealias VkResolveModeFlags = VkResolveModeFlagBits;
 	public const VkStructureType SType = .VkTimelineSemaphoreSubmitInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint64> pWaitSemaphoreValues;
-	public VulkanSpan<uint64> pSignalSemaphoreValues;
+	public uint32 waitSemaphoreValueCount;
+	public uint64* pWaitSemaphoreValues;
+	public VulkanSpan<uint64> waitSemaphoreValues
+	{
+		[Inline] get => .(waitSemaphoreValueCount, pWaitSemaphoreValues);
+		[Inline] set mut { waitSemaphoreValueCount = value.count; pWaitSemaphoreValues = value.ptr; }
+	}
+	public uint32 signalSemaphoreValueCount;
+	public uint64* pSignalSemaphoreValues;
+	public VulkanSpan<uint64> signalSemaphoreValues
+	{
+		[Inline] get => .(signalSemaphoreValueCount, pSignalSemaphoreValues);
+		[Inline] set mut { signalSemaphoreValueCount = value.count; pSignalSemaphoreValues = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<uint64> pWaitSemaphoreValues = .(), VulkanSpan<uint64> pSignalSemaphoreValues = .())
+	public this(void* pNext = null, VulkanSpan<uint64> waitSemaphoreValues = .(), VulkanSpan<uint64> signalSemaphoreValues = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pWaitSemaphoreValues = pWaitSemaphoreValues;
-		this.pSignalSemaphoreValues = pSignalSemaphoreValues;
+		this.waitSemaphoreValues = waitSemaphoreValues;
+		this.signalSemaphoreValues = signalSemaphoreValues;
 	}
 
 	public this()
@@ -8419,13 +8830,20 @@ typealias VkSemaphoreWaitFlags = VkSemaphoreWaitFlagBits;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkSemaphoreWaitFlags flags;
-	public VulkanDuoSpan<VkSemaphore, uint64> pSemaphores_pValues;
+	public uint32 semaphoreCount;
+	public VkSemaphore* pSemaphores;
+	public uint64* pValues;
+	public VulkanDuoSpan<VkSemaphore, uint64> semaphores_values
+	{
+		[Inline] get => .(semaphoreCount, pSemaphores, pValues);
+		[Inline] set mut { semaphoreCount = value.count; pSemaphores = value.ptr1; pValues = value.ptr2; }
+	}
 
-	public this(void* pNext, VkSemaphoreWaitFlags flags, VulkanDuoSpan<VkSemaphore, uint64> pSemaphores_pValues)
+	public this(void* pNext, VkSemaphoreWaitFlags flags, VulkanDuoSpan<VkSemaphore, uint64> semaphores_values) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pSemaphores_pValues = pSemaphores_pValues;
+		this.semaphores_values = semaphores_values;
 	}
 
 	public this()
@@ -8691,13 +9109,19 @@ typealias VkPipelineCreationFeedbackFlags = VkPipelineCreationFeedbackFlagBits;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkPipelineCreationFeedback* pPipelineCreationFeedback; // Output pipeline creation feedback.
-	public VulkanSpan<VkPipelineCreationFeedback> pPipelineStageCreationFeedbacks; // One entry for each shader stage specified in the parent Vk*PipelineCreateInfo struct
+	public uint32 pipelineStageCreationFeedbackCount;
+	public VkPipelineCreationFeedback* pPipelineStageCreationFeedbacks; // One entry for each shader stage specified in the parent Vk*PipelineCreateInfo struct
+	public VulkanSpan<VkPipelineCreationFeedback> pipelineStageCreationFeedbacks
+	{
+		[Inline] get => .(pipelineStageCreationFeedbackCount, pPipelineStageCreationFeedbacks);
+		[Inline] set mut { pipelineStageCreationFeedbackCount = value.count; pPipelineStageCreationFeedbacks = value.ptr; }
+	} // One entry for each shader stage specified in the parent Vk*PipelineCreateInfo struct
 
-	public this(void* pNext, VkPipelineCreationFeedback* pPipelineCreationFeedback, VulkanSpan<VkPipelineCreationFeedback> pPipelineStageCreationFeedbacks = .())
+	public this(void* pNext, VkPipelineCreationFeedback* pPipelineCreationFeedback, VulkanSpan<VkPipelineCreationFeedback> pipelineStageCreationFeedbacks = .()) : this()
 	{
 		this.pNext = pNext;
 		this.pPipelineCreationFeedback = pPipelineCreationFeedback;
-		this.pPipelineStageCreationFeedbacks = pPipelineStageCreationFeedbacks;
+		this.pipelineStageCreationFeedbacks = pipelineStageCreationFeedbacks;
 	}
 
 	public this()
@@ -9144,17 +9568,35 @@ typealias VkAccessFlags2 = VkAccessFlagBits2;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkDependencyFlags dependencyFlags;
-	public VulkanSpan<VkMemoryBarrier2> pMemoryBarriers;
-	public VulkanSpan<VkBufferMemoryBarrier2> pBufferMemoryBarriers;
-	public VulkanSpan<VkImageMemoryBarrier2> pImageMemoryBarriers;
+	public uint32 memoryBarrierCount;
+	public VkMemoryBarrier2* pMemoryBarriers;
+	public VulkanSpan<VkMemoryBarrier2> memoryBarriers
+	{
+		[Inline] get => .(memoryBarrierCount, pMemoryBarriers);
+		[Inline] set mut { memoryBarrierCount = value.count; pMemoryBarriers = value.ptr; }
+	}
+	public uint32 bufferMemoryBarrierCount;
+	public VkBufferMemoryBarrier2* pBufferMemoryBarriers;
+	public VulkanSpan<VkBufferMemoryBarrier2> bufferMemoryBarriers
+	{
+		[Inline] get => .(bufferMemoryBarrierCount, pBufferMemoryBarriers);
+		[Inline] set mut { bufferMemoryBarrierCount = value.count; pBufferMemoryBarriers = value.ptr; }
+	}
+	public uint32 imageMemoryBarrierCount;
+	public VkImageMemoryBarrier2* pImageMemoryBarriers;
+	public VulkanSpan<VkImageMemoryBarrier2> imageMemoryBarriers
+	{
+		[Inline] get => .(imageMemoryBarrierCount, pImageMemoryBarriers);
+		[Inline] set mut { imageMemoryBarrierCount = value.count; pImageMemoryBarriers = value.ptr; }
+	}
 
-	public this(void* pNext = null, VkDependencyFlags dependencyFlags = 0, VulkanSpan<VkMemoryBarrier2> pMemoryBarriers = .(), VulkanSpan<VkBufferMemoryBarrier2> pBufferMemoryBarriers = .(), VulkanSpan<VkImageMemoryBarrier2> pImageMemoryBarriers = .())
+	public this(void* pNext = null, VkDependencyFlags dependencyFlags = 0, VulkanSpan<VkMemoryBarrier2> memoryBarriers = .(), VulkanSpan<VkBufferMemoryBarrier2> bufferMemoryBarriers = .(), VulkanSpan<VkImageMemoryBarrier2> imageMemoryBarriers = .()) : this()
 	{
 		this.pNext = pNext;
 		this.dependencyFlags = dependencyFlags;
-		this.pMemoryBarriers = pMemoryBarriers;
-		this.pBufferMemoryBarriers = pBufferMemoryBarriers;
-		this.pImageMemoryBarriers = pImageMemoryBarriers;
+		this.memoryBarriers = memoryBarriers;
+		this.bufferMemoryBarriers = bufferMemoryBarriers;
+		this.imageMemoryBarriers = imageMemoryBarriers;
 	}
 
 	public this()
@@ -9170,17 +9612,35 @@ typealias VkAccessFlags2 = VkAccessFlagBits2;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkSubmitFlags flags;
-	public VulkanSpan<VkSemaphoreSubmitInfo> pWaitSemaphoreInfos;
-	public VulkanSpan<VkCommandBufferSubmitInfo> pCommandBufferInfos;
-	public VulkanSpan<VkSemaphoreSubmitInfo> pSignalSemaphoreInfos;
+	public uint32 waitSemaphoreInfoCount;
+	public VkSemaphoreSubmitInfo* pWaitSemaphoreInfos;
+	public VulkanSpan<VkSemaphoreSubmitInfo> waitSemaphoreInfos
+	{
+		[Inline] get => .(waitSemaphoreInfoCount, pWaitSemaphoreInfos);
+		[Inline] set mut { waitSemaphoreInfoCount = value.count; pWaitSemaphoreInfos = value.ptr; }
+	}
+	public uint32 commandBufferInfoCount;
+	public VkCommandBufferSubmitInfo* pCommandBufferInfos;
+	public VulkanSpan<VkCommandBufferSubmitInfo> commandBufferInfos
+	{
+		[Inline] get => .(commandBufferInfoCount, pCommandBufferInfos);
+		[Inline] set mut { commandBufferInfoCount = value.count; pCommandBufferInfos = value.ptr; }
+	}
+	public uint32 signalSemaphoreInfoCount;
+	public VkSemaphoreSubmitInfo* pSignalSemaphoreInfos;
+	public VulkanSpan<VkSemaphoreSubmitInfo> signalSemaphoreInfos
+	{
+		[Inline] get => .(signalSemaphoreInfoCount, pSignalSemaphoreInfos);
+		[Inline] set mut { signalSemaphoreInfoCount = value.count; pSignalSemaphoreInfos = value.ptr; }
+	}
 
-	public this(void* pNext = null, VkSubmitFlags flags = 0, VulkanSpan<VkSemaphoreSubmitInfo> pWaitSemaphoreInfos = .(), VulkanSpan<VkCommandBufferSubmitInfo> pCommandBufferInfos = .(), VulkanSpan<VkSemaphoreSubmitInfo> pSignalSemaphoreInfos = .())
+	public this(void* pNext = null, VkSubmitFlags flags = 0, VulkanSpan<VkSemaphoreSubmitInfo> waitSemaphoreInfos = .(), VulkanSpan<VkCommandBufferSubmitInfo> commandBufferInfos = .(), VulkanSpan<VkSemaphoreSubmitInfo> signalSemaphoreInfos = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pWaitSemaphoreInfos = pWaitSemaphoreInfos;
-		this.pCommandBufferInfos = pCommandBufferInfos;
-		this.pSignalSemaphoreInfos = pSignalSemaphoreInfos;
+		this.waitSemaphoreInfos = waitSemaphoreInfos;
+		this.commandBufferInfos = commandBufferInfos;
+		this.signalSemaphoreInfos = signalSemaphoreInfos;
 	}
 
 	public this()
@@ -9268,10 +9728,10 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetEvent2(VkCommandBuffer commandBuffer, VkEvent event, VkDependencyInfo* pDependencyInfo);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdResetEvent2(VkCommandBuffer commandBuffer, VkEvent event, VkPipelineStageFlags2 stageMask = 0);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWaitEvents2(VkCommandBuffer commandBuffer, VulkanDuoSpan<VkEvent, VkDependencyInfo> pEvents_pDependencyInfos);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWaitEvents2(VkCommandBuffer commandBuffer, uint32 eventCount, VkEvent* pEvents, VkDependencyInfo* pDependencyInfos);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdPipelineBarrier2(VkCommandBuffer commandBuffer, VkDependencyInfo* pDependencyInfo);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWriteTimestamp2(VkCommandBuffer commandBuffer, VkPipelineStageFlags2 stage, VkQueryPool queryPool, uint32 query);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkQueueSubmit2(VkQueue queue, VulkanSpan<VkSubmitInfo2> pSubmits = .(), VkFence fence = null);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkQueueSubmit2(VkQueue queue, uint32 submitCount = 0, VkSubmitInfo2* pSubmits = null, VkFence fence = null);
 
 // Promoted from VK_KHR_zero_initialize_workgroup_memory (extension 326)
 [CRepr] struct VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures
@@ -9323,14 +9783,20 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 	public void* pNext;
 	public VkBuffer srcBuffer;
 	public VkBuffer dstBuffer;
-	public VulkanSpan<VkBufferCopy2> pRegions;
+	public uint32 regionCount;
+	public VkBufferCopy2* pRegions;
+	public VulkanSpan<VkBufferCopy2> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 
-	public this(void* pNext, VkBuffer srcBuffer, VkBuffer dstBuffer, VulkanSpan<VkBufferCopy2> pRegions)
+	public this(void* pNext, VkBuffer srcBuffer, VkBuffer dstBuffer, VulkanSpan<VkBufferCopy2> regions) : this()
 	{
 		this.pNext = pNext;
 		this.srcBuffer = srcBuffer;
 		this.dstBuffer = dstBuffer;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -9349,16 +9815,22 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 	public VkImageLayout srcImageLayout;
 	public VkImage dstImage;
 	public VkImageLayout dstImageLayout;
-	public VulkanSpan<VkImageCopy2> pRegions;
+	public uint32 regionCount;
+	public VkImageCopy2* pRegions;
+	public VulkanSpan<VkImageCopy2> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 
-	public this(void* pNext, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageCopy2> pRegions)
+	public this(void* pNext, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageCopy2> regions) : this()
 	{
 		this.pNext = pNext;
 		this.srcImage = srcImage;
 		this.srcImageLayout = srcImageLayout;
 		this.dstImage = dstImage;
 		this.dstImageLayout = dstImageLayout;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -9376,15 +9848,21 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 	public VkBuffer srcBuffer;
 	public VkImage dstImage;
 	public VkImageLayout dstImageLayout;
-	public VulkanSpan<VkBufferImageCopy2> pRegions;
+	public uint32 regionCount;
+	public VkBufferImageCopy2* pRegions;
+	public VulkanSpan<VkBufferImageCopy2> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 
-	public this(void* pNext, VkBuffer srcBuffer, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkBufferImageCopy2> pRegions)
+	public this(void* pNext, VkBuffer srcBuffer, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkBufferImageCopy2> regions) : this()
 	{
 		this.pNext = pNext;
 		this.srcBuffer = srcBuffer;
 		this.dstImage = dstImage;
 		this.dstImageLayout = dstImageLayout;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -9402,15 +9880,21 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 	public VkImage srcImage;
 	public VkImageLayout srcImageLayout;
 	public VkBuffer dstBuffer;
-	public VulkanSpan<VkBufferImageCopy2> pRegions;
+	public uint32 regionCount;
+	public VkBufferImageCopy2* pRegions;
+	public VulkanSpan<VkBufferImageCopy2> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 
-	public this(void* pNext, VkImage srcImage, VkImageLayout srcImageLayout, VkBuffer dstBuffer, VulkanSpan<VkBufferImageCopy2> pRegions)
+	public this(void* pNext, VkImage srcImage, VkImageLayout srcImageLayout, VkBuffer dstBuffer, VulkanSpan<VkBufferImageCopy2> regions) : this()
 	{
 		this.pNext = pNext;
 		this.srcImage = srcImage;
 		this.srcImageLayout = srcImageLayout;
 		this.dstBuffer = dstBuffer;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -9429,17 +9913,23 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 	public VkImageLayout srcImageLayout;
 	public VkImage dstImage;
 	public VkImageLayout dstImageLayout;
-	public VulkanSpan<VkImageBlit2> pRegions;
+	public uint32 regionCount;
+	public VkImageBlit2* pRegions;
+	public VulkanSpan<VkImageBlit2> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 	public VkFilter filter;
 
-	public this(void* pNext, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageBlit2> pRegions, VkFilter filter)
+	public this(void* pNext, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageBlit2> regions, VkFilter filter) : this()
 	{
 		this.pNext = pNext;
 		this.srcImage = srcImage;
 		this.srcImageLayout = srcImageLayout;
 		this.dstImage = dstImage;
 		this.dstImageLayout = dstImageLayout;
-		this.pRegions = pRegions;
+		this.regions = regions;
 		this.filter = filter;
 	}
 
@@ -9459,16 +9949,22 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 	public VkImageLayout srcImageLayout;
 	public VkImage dstImage;
 	public VkImageLayout dstImageLayout;
-	public VulkanSpan<VkImageResolve2> pRegions;
+	public uint32 regionCount;
+	public VkImageResolve2* pRegions;
+	public VulkanSpan<VkImageResolve2> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 
-	public this(void* pNext, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageResolve2> pRegions)
+	public this(void* pNext, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageResolve2> regions) : this()
 	{
 		this.pNext = pNext;
 		this.srcImage = srcImage;
 		this.srcImageLayout = srcImageLayout;
 		this.dstImage = dstImage;
 		this.dstImageLayout = dstImageLayout;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -9776,18 +10272,24 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 	public VkRect2D renderArea;
 	public uint32 layerCount;
 	public uint32 viewMask;
-	public VulkanSpan<VkRenderingAttachmentInfo> pColorAttachments;
+	public uint32 colorAttachmentCount;
+	public VkRenderingAttachmentInfo* pColorAttachments;
+	public VulkanSpan<VkRenderingAttachmentInfo> colorAttachments
+	{
+		[Inline] get => .(colorAttachmentCount, pColorAttachments);
+		[Inline] set mut { colorAttachmentCount = value.count; pColorAttachments = value.ptr; }
+	}
 	public VkRenderingAttachmentInfo* pDepthAttachment;
 	public VkRenderingAttachmentInfo* pStencilAttachment;
 
-	public this(void* pNext, VkRenderingFlags flags, VkRect2D renderArea, uint32 layerCount, uint32 viewMask, VulkanSpan<VkRenderingAttachmentInfo> pColorAttachments = .(), VkRenderingAttachmentInfo* pDepthAttachment = null, VkRenderingAttachmentInfo* pStencilAttachment = null)
+	public this(void* pNext, VkRenderingFlags flags, VkRect2D renderArea, uint32 layerCount, uint32 viewMask, VulkanSpan<VkRenderingAttachmentInfo> colorAttachments = .(), VkRenderingAttachmentInfo* pDepthAttachment = null, VkRenderingAttachmentInfo* pStencilAttachment = null) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.renderArea = renderArea;
 		this.layerCount = layerCount;
 		this.viewMask = viewMask;
-		this.pColorAttachments = pColorAttachments;
+		this.colorAttachments = colorAttachments;
 		this.pDepthAttachment = pDepthAttachment;
 		this.pStencilAttachment = pStencilAttachment;
 	}
@@ -9839,15 +10341,21 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public uint32 viewMask;
-	public VulkanSpan<VkFormat> pColorAttachmentFormats;
+	public uint32 colorAttachmentCount;
+	public VkFormat* pColorAttachmentFormats;
+	public VulkanSpan<VkFormat> colorAttachmentFormats
+	{
+		[Inline] get => .(colorAttachmentCount, pColorAttachmentFormats);
+		[Inline] set mut { colorAttachmentCount = value.count; pColorAttachmentFormats = value.ptr; }
+	}
 	public VkFormat depthAttachmentFormat;
 	public VkFormat stencilAttachmentFormat;
 
-	public this(void* pNext, uint32 viewMask, VulkanSpan<VkFormat> pColorAttachmentFormats, VkFormat depthAttachmentFormat, VkFormat stencilAttachmentFormat)
+	public this(void* pNext, uint32 viewMask, VulkanSpan<VkFormat> colorAttachmentFormats, VkFormat depthAttachmentFormat, VkFormat stencilAttachmentFormat) : this()
 	{
 		this.pNext = pNext;
 		this.viewMask = viewMask;
-		this.pColorAttachmentFormats = pColorAttachmentFormats;
+		this.colorAttachmentFormats = colorAttachmentFormats;
 		this.depthAttachmentFormat = depthAttachmentFormat;
 		this.stencilAttachmentFormat = stencilAttachmentFormat;
 	}
@@ -9886,17 +10394,23 @@ typealias VkSubmitFlags = VkSubmitFlagBits;
 	public void* pNext;
 	public VkRenderingFlags flags;
 	public uint32 viewMask;
-	public VulkanSpan<VkFormat> pColorAttachmentFormats;
+	public uint32 colorAttachmentCount;
+	public VkFormat* pColorAttachmentFormats;
+	public VulkanSpan<VkFormat> colorAttachmentFormats
+	{
+		[Inline] get => .(colorAttachmentCount, pColorAttachmentFormats);
+		[Inline] set mut { colorAttachmentCount = value.count; pColorAttachmentFormats = value.ptr; }
+	}
 	public VkFormat depthAttachmentFormat;
 	public VkFormat stencilAttachmentFormat;
 	public VkSampleCountFlagBits rasterizationSamples;
 
-	public this(void* pNext, VkRenderingFlags flags, uint32 viewMask, VulkanSpan<VkFormat> pColorAttachmentFormats, VkFormat depthAttachmentFormat, VkFormat stencilAttachmentFormat, VkSampleCountFlagBits rasterizationSamples = 0)
+	public this(void* pNext, VkRenderingFlags flags, uint32 viewMask, VulkanSpan<VkFormat> colorAttachmentFormats, VkFormat depthAttachmentFormat, VkFormat stencilAttachmentFormat, VkSampleCountFlagBits rasterizationSamples = 0) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.viewMask = viewMask;
-		this.pColorAttachmentFormats = pColorAttachmentFormats;
+		this.colorAttachmentFormats = colorAttachmentFormats;
 		this.depthAttachmentFormat = depthAttachmentFormat;
 		this.stencilAttachmentFormat = stencilAttachmentFormat;
 		this.rasterizationSamples = rasterizationSamples;
@@ -9928,9 +10442,9 @@ typealias VkRenderingFlags = VkRenderingFlagBits;
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCullMode(VkCommandBuffer commandBuffer, VkCullModeFlags cullMode = 0);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetFrontFace(VkCommandBuffer commandBuffer, VkFrontFace frontFace);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetPrimitiveTopology(VkCommandBuffer commandBuffer, VkPrimitiveTopology primitiveTopology);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewportWithCount(VkCommandBuffer commandBuffer, VulkanSpan<VkViewport> pViewports);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetScissorWithCount(VkCommandBuffer commandBuffer, VulkanSpan<VkRect2D> pScissors);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindVertexBuffers2(VkCommandBuffer commandBuffer, uint32 firstBinding, VulkanQuadSpan<VkBuffer, VkDeviceSize, VkDeviceSize, VkDeviceSize> pBuffers_pOffsets_pSizes_pStrides = .());
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewportWithCount(VkCommandBuffer commandBuffer, uint32 viewportCount, VkViewport* pViewports);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetScissorWithCount(VkCommandBuffer commandBuffer, uint32 scissorCount, VkRect2D* pScissors);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindVertexBuffers2(VkCommandBuffer commandBuffer, uint32 firstBinding, uint32 bindingCount, VkBuffer* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes = null, VkDeviceSize* pStrides = null);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDepthTestEnable(VkCommandBuffer commandBuffer, VkBool32 depthTestEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDepthWriteEnable(VkCommandBuffer commandBuffer, VkBool32 depthWriteEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDepthCompareOp(VkCommandBuffer commandBuffer, VkCompareOp depthCompareOp);
@@ -10264,8 +10778,20 @@ static { public const uint32 VK_API_VERSION_1_4 = VK_MAKE_API_VERSION(0, 1, 4, 0
 	public VkPipelineRobustnessBufferBehavior defaultRobustnessUniformBuffers;
 	public VkPipelineRobustnessBufferBehavior defaultRobustnessVertexInputs;
 	public VkPipelineRobustnessImageBehavior defaultRobustnessImages;
-	public VulkanSpan<VkImageLayout> pCopySrcLayouts;
-	public VulkanSpan<VkImageLayout> pCopyDstLayouts;
+	public uint32 copySrcLayoutCount;
+	public VkImageLayout* pCopySrcLayouts;
+	public VulkanSpan<VkImageLayout> copySrcLayouts
+	{
+		[Inline] get => .(copySrcLayoutCount, pCopySrcLayouts);
+		[Inline] set mut { copySrcLayoutCount = value.count; pCopySrcLayouts = value.ptr; }
+	}
+	public uint32 copyDstLayoutCount;
+	public VkImageLayout* pCopyDstLayouts;
+	public VulkanSpan<VkImageLayout> copyDstLayouts
+	{
+		[Inline] get => .(copyDstLayoutCount, pCopyDstLayouts);
+		[Inline] set mut { copyDstLayoutCount = value.count; pCopyDstLayouts = value.ptr; }
+	}
 	public uint8[VK_UUID_SIZE] optimalTilingLayoutUUID;
 	public VkBool32 identicalMemoryTypeRequirements;
 }
@@ -10522,12 +11048,18 @@ static { public const uint32 VK_MAX_GLOBAL_PRIORITY_SIZE = 16; }
 	public const VkStructureType SType = .VkPipelineVertexInputDivisorStateCreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkVertexInputBindingDivisorDescription> pVertexBindingDivisors;
+	public uint32 vertexBindingDivisorCount;
+	public VkVertexInputBindingDivisorDescription* pVertexBindingDivisors;
+	public VulkanSpan<VkVertexInputBindingDivisorDescription> vertexBindingDivisors
+	{
+		[Inline] get => .(vertexBindingDivisorCount, pVertexBindingDivisors);
+		[Inline] set mut { vertexBindingDivisorCount = value.count; pVertexBindingDivisors = value.ptr; }
+	}
 
-	public this(void* pNext, VulkanSpan<VkVertexInputBindingDivisorDescription> pVertexBindingDivisors)
+	public this(void* pNext, VulkanSpan<VkVertexInputBindingDivisorDescription> vertexBindingDivisors) : this()
 	{
 		this.pNext = pNext;
-		this.pVertexBindingDivisors = pVertexBindingDivisors;
+		this.vertexBindingDivisors = vertexBindingDivisors;
 	}
 
 	public this()
@@ -10682,15 +11214,21 @@ typealias VkMemoryUnmapFlags = VkMemoryUnmapFlagBits;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public uint32 viewMask;
-	public VulkanSpan<VkFormat> pColorAttachmentFormats;
+	public uint32 colorAttachmentCount;
+	public VkFormat* pColorAttachmentFormats;
+	public VulkanSpan<VkFormat> colorAttachmentFormats
+	{
+		[Inline] get => .(colorAttachmentCount, pColorAttachmentFormats);
+		[Inline] set mut { colorAttachmentCount = value.count; pColorAttachmentFormats = value.ptr; }
+	}
 	public VkFormat depthAttachmentFormat;
 	public VkFormat stencilAttachmentFormat;
 
-	public this(void* pNext, uint32 viewMask, VulkanSpan<VkFormat> pColorAttachmentFormats, VkFormat depthAttachmentFormat, VkFormat stencilAttachmentFormat)
+	public this(void* pNext, uint32 viewMask, VulkanSpan<VkFormat> colorAttachmentFormats, VkFormat depthAttachmentFormat, VkFormat stencilAttachmentFormat) : this()
 	{
 		this.pNext = pNext;
 		this.viewMask = viewMask;
-		this.pColorAttachmentFormats = pColorAttachmentFormats;
+		this.colorAttachmentFormats = colorAttachmentFormats;
 		this.depthAttachmentFormat = depthAttachmentFormat;
 		this.stencilAttachmentFormat = stencilAttachmentFormat;
 	}
@@ -10889,7 +11427,7 @@ typealias VkBufferUsageFlags2 = VkBufferUsageFlagBits2;
 
 // Promoted as an interaction between VK_KHR_maintenance5 (extension 471) 'Roadmap 2024' and VK_EXT_pipeline_protected_access (extension 467) 'additional functionality'
 // Promoted from VK_KHR_push_descriptor (extension 81) 'Roadmap 2024'
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdPushDescriptorSet(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32 set, VulkanSpan<VkWriteDescriptorSet> pDescriptorWrites);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdPushDescriptorSet(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32 set, uint32 descriptorWriteCount, VkWriteDescriptorSet* pDescriptorWrites);
 
 [CRepr] struct VkPhysicalDevicePushDescriptorProperties
 {
@@ -10930,12 +11468,18 @@ typealias VkBufferUsageFlags2 = VkBufferUsageFlagBits2;
 	public const VkStructureType SType = .VkRenderingAttachmentLocationInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint32> pColorAttachmentLocations;
+	public uint32 colorAttachmentCount;
+	public uint32* pColorAttachmentLocations;
+	public VulkanSpan<uint32> colorAttachmentLocations
+	{
+		[Inline] get => .(colorAttachmentCount, pColorAttachmentLocations);
+		[Inline] set mut { colorAttachmentCount = value.count; pColorAttachmentLocations = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<uint32> pColorAttachmentLocations = .())
+	public this(void* pNext = null, VulkanSpan<uint32> colorAttachmentLocations = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pColorAttachmentLocations = pColorAttachmentLocations;
+		this.colorAttachmentLocations = colorAttachmentLocations;
 	}
 
 	public this()
@@ -10950,14 +11494,20 @@ typealias VkBufferUsageFlags2 = VkBufferUsageFlagBits2;
 	public const VkStructureType SType = .VkRenderingInputAttachmentIndexInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint32> pColorAttachmentInputIndices;
+	public uint32 colorAttachmentCount;
+	public uint32* pColorAttachmentInputIndices;
+	public VulkanSpan<uint32> colorAttachmentInputIndices
+	{
+		[Inline] get => .(colorAttachmentCount, pColorAttachmentInputIndices);
+		[Inline] set mut { colorAttachmentCount = value.count; pColorAttachmentInputIndices = value.ptr; }
+	}
 	public uint32* pDepthInputAttachmentIndex;
 	public uint32* pStencilInputAttachmentIndex;
 
-	public this(void* pNext = null, VulkanSpan<uint32> pColorAttachmentInputIndices = .(), uint32* pDepthInputAttachmentIndex = null, uint32* pStencilInputAttachmentIndex = null)
+	public this(void* pNext = null, VulkanSpan<uint32> colorAttachmentInputIndices = .(), uint32* pDepthInputAttachmentIndex = null, uint32* pStencilInputAttachmentIndex = null) : this()
 	{
 		this.pNext = pNext;
-		this.pColorAttachmentInputIndices = pColorAttachmentInputIndices;
+		this.colorAttachmentInputIndices = colorAttachmentInputIndices;
 		this.pDepthInputAttachmentIndex = pDepthInputAttachmentIndex;
 		this.pStencilInputAttachmentIndex = pStencilInputAttachmentIndex;
 	}
@@ -11028,17 +11578,29 @@ typealias VkBufferUsageFlags2 = VkBufferUsageFlagBits2;
 	public VkShaderStageFlags stageFlags;
 	public VkPipelineLayout layout;
 	public uint32 firstSet;
-	public VulkanSpan<VkDescriptorSet> pDescriptorSets;
-	public VulkanSpan<uint32> pDynamicOffsets;
+	public uint32 descriptorSetCount;
+	public VkDescriptorSet* pDescriptorSets;
+	public VulkanSpan<VkDescriptorSet> descriptorSets
+	{
+		[Inline] get => .(descriptorSetCount, pDescriptorSets);
+		[Inline] set mut { descriptorSetCount = value.count; pDescriptorSets = value.ptr; }
+	}
+	public uint32 dynamicOffsetCount;
+	public uint32* pDynamicOffsets;
+	public VulkanSpan<uint32> dynamicOffsets
+	{
+		[Inline] get => .(dynamicOffsetCount, pDynamicOffsets);
+		[Inline] set mut { dynamicOffsetCount = value.count; pDynamicOffsets = value.ptr; }
+	}
 
-	public this(void* pNext, VkShaderStageFlags stageFlags, VkPipelineLayout layout, uint32 firstSet, VulkanSpan<VkDescriptorSet> pDescriptorSets, VulkanSpan<uint32> pDynamicOffsets = .())
+	public this(void* pNext, VkShaderStageFlags stageFlags, VkPipelineLayout layout, uint32 firstSet, VulkanSpan<VkDescriptorSet> descriptorSets, VulkanSpan<uint32> dynamicOffsets = .()) : this()
 	{
 		this.pNext = pNext;
 		this.stageFlags = stageFlags;
 		this.layout = layout;
 		this.firstSet = firstSet;
-		this.pDescriptorSets = pDescriptorSets;
-		this.pDynamicOffsets = pDynamicOffsets;
+		this.descriptorSets = descriptorSets;
+		this.dynamicOffsets = dynamicOffsets;
 	}
 
 	public this()
@@ -11087,15 +11649,21 @@ typealias VkBufferUsageFlags2 = VkBufferUsageFlagBits2;
 	public VkShaderStageFlags stageFlags;
 	public VkPipelineLayout layout;
 	public uint32 set;
-	public VulkanSpan<VkWriteDescriptorSet> pDescriptorWrites;
+	public uint32 descriptorWriteCount;
+	public VkWriteDescriptorSet* pDescriptorWrites;
+	public VulkanSpan<VkWriteDescriptorSet> descriptorWrites
+	{
+		[Inline] get => .(descriptorWriteCount, pDescriptorWrites);
+		[Inline] set mut { descriptorWriteCount = value.count; pDescriptorWrites = value.ptr; }
+	}
 
-	public this(void* pNext, VkShaderStageFlags stageFlags, VkPipelineLayout layout, uint32 set, VulkanSpan<VkWriteDescriptorSet> pDescriptorWrites)
+	public this(void* pNext, VkShaderStageFlags stageFlags, VkPipelineLayout layout, uint32 set, VulkanSpan<VkWriteDescriptorSet> descriptorWrites) : this()
 	{
 		this.pNext = pNext;
 		this.stageFlags = stageFlags;
 		this.layout = layout;
 		this.set = set;
-		this.pDescriptorWrites = pDescriptorWrites;
+		this.descriptorWrites = descriptorWrites;
 	}
 
 	public this()
@@ -11263,16 +11831,28 @@ typealias VkBufferUsageFlags2 = VkBufferUsageFlagBits2;
 	public const VkStructureType SType = .VkPhysicalDeviceHostImageCopyProperties;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkImageLayout> pCopySrcLayouts;
-	public VulkanSpan<VkImageLayout> pCopyDstLayouts;
+	public uint32 copySrcLayoutCount;
+	public VkImageLayout* pCopySrcLayouts;
+	public VulkanSpan<VkImageLayout> copySrcLayouts
+	{
+		[Inline] get => .(copySrcLayoutCount, pCopySrcLayouts);
+		[Inline] set mut { copySrcLayoutCount = value.count; pCopySrcLayouts = value.ptr; }
+	}
+	public uint32 copyDstLayoutCount;
+	public VkImageLayout* pCopyDstLayouts;
+	public VulkanSpan<VkImageLayout> copyDstLayouts
+	{
+		[Inline] get => .(copyDstLayoutCount, pCopyDstLayouts);
+		[Inline] set mut { copyDstLayoutCount = value.count; pCopyDstLayouts = value.ptr; }
+	}
 	public uint8[VK_UUID_SIZE] optimalTilingLayoutUUID;
 	public VkBool32 identicalMemoryTypeRequirements;
 
-	public this(void* pNext, VulkanSpan<VkImageLayout> pCopySrcLayouts, VulkanSpan<VkImageLayout> pCopyDstLayouts, uint8[VK_UUID_SIZE] optimalTilingLayoutUUID, VkBool32 identicalMemoryTypeRequirements)
+	public this(void* pNext, VulkanSpan<VkImageLayout> copySrcLayouts, VulkanSpan<VkImageLayout> copyDstLayouts, uint8[VK_UUID_SIZE] optimalTilingLayoutUUID, VkBool32 identicalMemoryTypeRequirements) : this()
 	{
 		this.pNext = pNext;
-		this.pCopySrcLayouts = pCopySrcLayouts;
-		this.pCopyDstLayouts = pCopyDstLayouts;
+		this.copySrcLayouts = copySrcLayouts;
+		this.copyDstLayouts = copyDstLayouts;
 		this.optimalTilingLayoutUUID = optimalTilingLayoutUUID;
 		this.identicalMemoryTypeRequirements = identicalMemoryTypeRequirements;
 	}
@@ -11360,15 +11940,21 @@ typealias VkHostImageCopyFlags = VkHostImageCopyFlagBits;
 	public VkHostImageCopyFlags flags;
 	public VkImage dstImage;
 	public VkImageLayout dstImageLayout;
-	public VulkanSpan<VkMemoryToImageCopy> pRegions;
+	public uint32 regionCount;
+	public VkMemoryToImageCopy* pRegions;
+	public VulkanSpan<VkMemoryToImageCopy> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 
-	public this(void* pNext, VkHostImageCopyFlags flags, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkMemoryToImageCopy> pRegions)
+	public this(void* pNext, VkHostImageCopyFlags flags, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkMemoryToImageCopy> regions) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.dstImage = dstImage;
 		this.dstImageLayout = dstImageLayout;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -11386,15 +11972,21 @@ typealias VkHostImageCopyFlags = VkHostImageCopyFlagBits;
 	public VkHostImageCopyFlags flags;
 	public VkImage srcImage;
 	public VkImageLayout srcImageLayout;
-	public VulkanSpan<VkImageToMemoryCopy> pRegions;
+	public uint32 regionCount;
+	public VkImageToMemoryCopy* pRegions;
+	public VulkanSpan<VkImageToMemoryCopy> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 
-	public this(void* pNext, VkHostImageCopyFlags flags, VkImage srcImage, VkImageLayout srcImageLayout, VulkanSpan<VkImageToMemoryCopy> pRegions)
+	public this(void* pNext, VkHostImageCopyFlags flags, VkImage srcImage, VkImageLayout srcImageLayout, VulkanSpan<VkImageToMemoryCopy> regions) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.srcImage = srcImage;
 		this.srcImageLayout = srcImageLayout;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -11414,9 +12006,15 @@ typealias VkHostImageCopyFlags = VkHostImageCopyFlagBits;
 	public VkImageLayout srcImageLayout;
 	public VkImage dstImage;
 	public VkImageLayout dstImageLayout;
-	public VulkanSpan<VkImageCopy2> pRegions;
+	public uint32 regionCount;
+	public VkImageCopy2* pRegions;
+	public VulkanSpan<VkImageCopy2> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 
-	public this(void* pNext, VkHostImageCopyFlags flags, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageCopy2> pRegions)
+	public this(void* pNext, VkHostImageCopyFlags flags, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, VulkanSpan<VkImageCopy2> regions) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
@@ -11424,7 +12022,7 @@ typealias VkHostImageCopyFlags = VkHostImageCopyFlagBits;
 		this.srcImageLayout = srcImageLayout;
 		this.dstImage = dstImage;
 		this.dstImageLayout = dstImageLayout;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -11480,7 +12078,7 @@ typealias VkHostImageCopyFlags = VkHostImageCopyFlagBits;
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCopyMemoryToImage(VkDevice device, VkCopyMemoryToImageInfo* pCopyMemoryToImageInfo);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCopyImageToMemory(VkDevice device, VkCopyImageToMemoryInfo* pCopyImageToMemoryInfo);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCopyImageToImage(VkDevice device, VkCopyImageToImageInfo* pCopyImageToImageInfo);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkTransitionImageLayout(VkDevice device, VulkanSpan<VkHostImageLayoutTransitionInfo> pTransitions);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkTransitionImageLayout(VkDevice device, uint32 transitionCount, VkHostImageLayoutTransitionInfo* pTransitions);
 
 static { public const uint32 VK_KHR_SURFACE_SPEC_VERSION = 25; }
 static { public const c_char* VK_KHR_SURFACE_EXTENSION_NAME = "VK_KHR_surface"; }
@@ -11596,14 +12194,20 @@ typealias VkSwapchainCreateFlagsKHR = VkSwapchainCreateFlagBitsKHR;
 	public uint32 imageArrayLayers; // Determines the number of views for multiview/stereo presentation
 	public VkImageUsageFlags imageUsage; // Bits indicating how the presentation images will be used
 	public VkSharingMode imageSharingMode; // Sharing mode used for the presentation images
-	public VulkanSpan<uint32> pQueueFamilyIndices; // Array of queue family indices having access to the images in case of concurrent sharing mode
+	public uint32 queueFamilyIndexCount; // Number of queue families having access to the images in case of concurrent sharing mode
+	public uint32* pQueueFamilyIndices; // Array of queue family indices having access to the images in case of concurrent sharing mode
+	public VulkanSpan<uint32> queueFamilyIndices
+	{
+		[Inline] get => .(queueFamilyIndexCount, pQueueFamilyIndices);
+		[Inline] set mut { queueFamilyIndexCount = value.count; pQueueFamilyIndices = value.ptr; }
+	} // Array of queue family indices having access to the images in case of concurrent sharing mode
 	public VkSurfaceTransformFlagBitsKHR preTransform; // The transform, relative to the device's natural orientation, applied to the image content prior to presentation
 	public VkCompositeAlphaFlagBitsKHR compositeAlpha; // The alpha blending mode used when compositing this surface with other surfaces in the window system
 	public VkPresentModeKHR presentMode; // Which presentation mode to use for presents on this swap chain
 	public VkBool32 clipped; // Specifies whether presentable images may be affected by window clip regions
 	public VkSwapchainKHR oldSwapchain; // Existing swap chain to replace, if any
 
-	public this(void* pNext, VkSwapchainCreateFlagsKHR flags, VkSurfaceKHR surface, uint32 minImageCount, VkFormat imageFormat, VkColorSpaceKHR imageColorSpace, VkExtent2D imageExtent, uint32 imageArrayLayers, VkImageUsageFlags imageUsage, VkSharingMode imageSharingMode, VulkanSpan<uint32> pQueueFamilyIndices, VkSurfaceTransformFlagBitsKHR preTransform, VkCompositeAlphaFlagBitsKHR compositeAlpha, VkPresentModeKHR presentMode, VkBool32 clipped, VkSwapchainKHR oldSwapchain = null)
+	public this(void* pNext, VkSwapchainCreateFlagsKHR flags, VkSurfaceKHR surface, uint32 minImageCount, VkFormat imageFormat, VkColorSpaceKHR imageColorSpace, VkExtent2D imageExtent, uint32 imageArrayLayers, VkImageUsageFlags imageUsage, VkSharingMode imageSharingMode, VulkanSpan<uint32> queueFamilyIndices, VkSurfaceTransformFlagBitsKHR preTransform, VkCompositeAlphaFlagBitsKHR compositeAlpha, VkPresentModeKHR presentMode, VkBool32 clipped, VkSwapchainKHR oldSwapchain = null) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
@@ -11615,7 +12219,7 @@ typealias VkSwapchainCreateFlagsKHR = VkSwapchainCreateFlagBitsKHR;
 		this.imageArrayLayers = imageArrayLayers;
 		this.imageUsage = imageUsage;
 		this.imageSharingMode = imageSharingMode;
-		this.pQueueFamilyIndices = pQueueFamilyIndices;
+		this.queueFamilyIndices = queueFamilyIndices;
 		this.preTransform = preTransform;
 		this.compositeAlpha = compositeAlpha;
 		this.presentMode = presentMode;
@@ -11637,14 +12241,28 @@ class VkSwapchainKHR { private this() { } }
 	public const VkStructureType SType = .VkPresentInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkSemaphore> pWaitSemaphores; // Semaphores to wait for before presenting
-	public VulkanTrioSpan<VkSwapchainKHR, uint32, VkResult> pSwapchains_pImageIndices_pResults; // Optional (i.e. if non-NULL) VkResult for each swapchain
+	public uint32 waitSemaphoreCount; // Number of semaphores to wait for before presenting
+	public VkSemaphore* pWaitSemaphores; // Semaphores to wait for before presenting
+	public VulkanSpan<VkSemaphore> waitSemaphores
+	{
+		[Inline] get => .(waitSemaphoreCount, pWaitSemaphores);
+		[Inline] set mut { waitSemaphoreCount = value.count; pWaitSemaphores = value.ptr; }
+	} // Semaphores to wait for before presenting
+	public uint32 swapchainCount; // Number of swapchains to present in this call
+	public VkSwapchainKHR* pSwapchains; // Swapchains to present an image from
+	public uint32* pImageIndices; // Indices of which presentable images to present
+	public VkResult* pResults; // Optional (i.e. if non-NULL) VkResult for each swapchain
+	public VulkanTrioSpan<VkSwapchainKHR, uint32, VkResult> swapchains_imageIndices_results
+	{
+		[Inline] get => .(swapchainCount, pSwapchains, pImageIndices, pResults);
+		[Inline] set mut { swapchainCount = value.count; pSwapchains = value.ptr1; pImageIndices = value.ptr2; pResults = value.ptr3; }
+	} // Optional (i.e. if non-NULL) VkResult for each swapchain
 
-	public this(void* pNext = null, VulkanSpan<VkSemaphore> pWaitSemaphores = .(), VulkanTrioSpan<VkSwapchainKHR, uint32, VkResult> pSwapchains_pImageIndices_pResults = .())
+	public this(void* pNext, VulkanSpan<VkSemaphore> waitSemaphores, VulkanTrioSpan<VkSwapchainKHR, uint32, VkResult> swapchains_imageIndices_results = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pWaitSemaphores = pWaitSemaphores;
-		this.pSwapchains_pImageIndices_pResults = pSwapchains_pImageIndices_pResults;
+		this.waitSemaphores = waitSemaphores;
+		this.swapchains_imageIndices_results = swapchains_imageIndices_results;
 	}
 
 	public this()
@@ -11754,13 +12372,19 @@ typealias VkDeviceGroupPresentModeFlagsKHR = VkDeviceGroupPresentModeFlagBitsKHR
 	public const VkStructureType SType = .VkDeviceGroupPresentInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint32> pDeviceMasks;
+	public uint32 swapchainCount;
+	public uint32* pDeviceMasks;
+	public VulkanSpan<uint32> deviceMasks
+	{
+		[Inline] get => .(swapchainCount, pDeviceMasks);
+		[Inline] set mut { swapchainCount = value.count; pDeviceMasks = value.ptr; }
+	}
 	public VkDeviceGroupPresentModeFlagBitsKHR mode;
 
-	public this(void* pNext, VulkanSpan<uint32> pDeviceMasks, VkDeviceGroupPresentModeFlagBitsKHR mode)
+	public this(void* pNext, VulkanSpan<uint32> deviceMasks, VkDeviceGroupPresentModeFlagBitsKHR mode) : this()
 	{
 		this.pNext = pNext;
-		this.pDeviceMasks = pDeviceMasks;
+		this.deviceMasks = deviceMasks;
 		this.mode = mode;
 	}
 
@@ -11963,7 +12587,7 @@ static { public const c_char* VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME = "VK_KHR_
 	}
 }
 
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateSharedSwapchainsKHR(VkDevice device, VulkanSpan<VkSwapchainCreateInfoKHR> pCreateInfos, VkAllocationCallbacks* pAllocator, out VkSwapchainKHR pSwapchains);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateSharedSwapchainsKHR(VkDevice device, uint32 swapchainCount, VkSwapchainCreateInfoKHR* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkSwapchainKHR pSwapchains);
 
 static { public const uint32 VK_EXT_DEBUG_REPORT_SPEC_VERSION = 10; }
 static { public const c_char* VK_EXT_DEBUG_REPORT_EXTENSION_NAME = "VK_EXT_debug_report"; }
@@ -12309,12 +12933,18 @@ typealias VkVideoCodingControlFlagsKHR = VkVideoCodingControlFlagBitsKHR;
 	public const VkStructureType SType = .VkVideoProfileListInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkVideoProfileInfoKHR> pProfiles;
+	public uint32 profileCount;
+	public VkVideoProfileInfoKHR* pProfiles;
+	public VulkanSpan<VkVideoProfileInfoKHR> profiles
+	{
+		[Inline] get => .(profileCount, pProfiles);
+		[Inline] set mut { profileCount = value.count; pProfiles = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkVideoProfileInfoKHR> pProfiles = .())
+	public this(void* pNext = null, VulkanSpan<VkVideoProfileInfoKHR> profiles = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pProfiles = pProfiles;
+		this.profiles = profiles;
 	}
 
 	public this()
@@ -12544,15 +13174,21 @@ typealias VkVideoCodingControlFlagsKHR = VkVideoCodingControlFlagBitsKHR;
 	public VkVideoBeginCodingFlagsKHR flags;
 	public VkVideoSessionKHR videoSession;
 	public VkVideoSessionParametersKHR videoSessionParameters;
-	public VulkanSpan<VkVideoReferenceSlotInfoKHR> pReferenceSlots;
+	public uint32 referenceSlotCount;
+	public VkVideoReferenceSlotInfoKHR* pReferenceSlots;
+	public VulkanSpan<VkVideoReferenceSlotInfoKHR> referenceSlots
+	{
+		[Inline] get => .(referenceSlotCount, pReferenceSlots);
+		[Inline] set mut { referenceSlotCount = value.count; pReferenceSlots = value.ptr; }
+	}
 
-	public this(void* pNext, VkVideoBeginCodingFlagsKHR flags, VkVideoSessionKHR videoSession, VkVideoSessionParametersKHR videoSessionParameters = null, VulkanSpan<VkVideoReferenceSlotInfoKHR> pReferenceSlots = .())
+	public this(void* pNext, VkVideoBeginCodingFlagsKHR flags, VkVideoSessionKHR videoSession, VkVideoSessionParametersKHR videoSessionParameters = null, VulkanSpan<VkVideoReferenceSlotInfoKHR> referenceSlots = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.videoSession = videoSession;
 		this.videoSessionParameters = videoSessionParameters;
-		this.pReferenceSlots = pReferenceSlots;
+		this.referenceSlots = referenceSlots;
 	}
 
 	public this()
@@ -12607,7 +13243,7 @@ typealias VkVideoCodingControlFlagsKHR = VkVideoCodingControlFlagBitsKHR;
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateVideoSessionKHR(VkDevice device, VkVideoSessionCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkVideoSessionKHR pVideoSession);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyVideoSessionKHR(VkDevice device, VkVideoSessionKHR videoSession = null, VkAllocationCallbacks* pAllocator = null);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetVideoSessionMemoryRequirementsKHR(VkDevice device, VkVideoSessionKHR videoSession, out uint32 pMemoryRequirementsCount, VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements = null);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBindVideoSessionMemoryKHR(VkDevice device, VkVideoSessionKHR videoSession, VulkanSpan<VkBindVideoSessionMemoryInfoKHR> pBindSessionMemoryInfos);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBindVideoSessionMemoryKHR(VkDevice device, VkVideoSessionKHR videoSession, uint32 bindSessionMemoryInfoCount, VkBindVideoSessionMemoryInfoKHR* pBindSessionMemoryInfos);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateVideoSessionParametersKHR(VkDevice device, VkVideoSessionParametersCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkVideoSessionParametersKHR pVideoSessionParameters);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkUpdateVideoSessionParametersKHR(VkDevice device, VkVideoSessionParametersKHR videoSessionParameters, VkVideoSessionParametersUpdateInfoKHR* pUpdateInfo);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyVideoSessionParametersKHR(VkDevice device, VkVideoSessionParametersKHR videoSessionParameters = null, VkAllocationCallbacks* pAllocator = null);
@@ -12677,9 +13313,15 @@ typealias VkVideoDecodeFlagsKHR = VkFlags;
 	public VkDeviceSize srcBufferRange;
 	public VkVideoPictureResourceInfoKHR dstPictureResource;
 	public VkVideoReferenceSlotInfoKHR* pSetupReferenceSlot;
-	public VulkanSpan<VkVideoReferenceSlotInfoKHR> pReferenceSlots;
+	public uint32 referenceSlotCount;
+	public VkVideoReferenceSlotInfoKHR* pReferenceSlots;
+	public VulkanSpan<VkVideoReferenceSlotInfoKHR> referenceSlots
+	{
+		[Inline] get => .(referenceSlotCount, pReferenceSlots);
+		[Inline] set mut { referenceSlotCount = value.count; pReferenceSlots = value.ptr; }
+	}
 
-	public this(void* pNext, VkVideoDecodeFlagsKHR flags, VkBuffer srcBuffer, VkDeviceSize srcBufferOffset, VkDeviceSize srcBufferRange, VkVideoPictureResourceInfoKHR dstPictureResource, VkVideoReferenceSlotInfoKHR* pSetupReferenceSlot = null, VulkanSpan<VkVideoReferenceSlotInfoKHR> pReferenceSlots = .())
+	public this(void* pNext, VkVideoDecodeFlagsKHR flags, VkBuffer srcBuffer, VkDeviceSize srcBufferOffset, VkDeviceSize srcBufferRange, VkVideoPictureResourceInfoKHR dstPictureResource, VkVideoReferenceSlotInfoKHR* pSetupReferenceSlot = null, VulkanSpan<VkVideoReferenceSlotInfoKHR> referenceSlots = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
@@ -12688,7 +13330,7 @@ typealias VkVideoDecodeFlagsKHR = VkFlags;
 		this.srcBufferRange = srcBufferRange;
 		this.dstPictureResource = dstPictureResource;
 		this.pSetupReferenceSlot = pSetupReferenceSlot;
-		this.pReferenceSlots = pReferenceSlots;
+		this.referenceSlots = referenceSlots;
 	}
 
 	public this()
@@ -12770,9 +13412,9 @@ static { public const c_char* VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME = "VK_NV
 static { public const uint32 VK_EXT_TRANSFORM_FEEDBACK_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_TRANSFORM_FEEDBACK_EXTENSION_NAME = "VK_EXT_transform_feedback"; }
 
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindTransformFeedbackBuffersEXT(VkCommandBuffer commandBuffer, uint32 firstBinding, VulkanTrioSpan<VkBuffer, VkDeviceSize, VkDeviceSize> pBuffers_pOffsets_pSizes = .());
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBeginTransformFeedbackEXT(VkCommandBuffer commandBuffer, uint32 firstCounterBuffer, VulkanDuoSpan<VkBuffer, VkDeviceSize> pCounterBuffers_pCounterBufferOffsets = .());
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdEndTransformFeedbackEXT(VkCommandBuffer commandBuffer, uint32 firstCounterBuffer, VulkanDuoSpan<VkBuffer, VkDeviceSize> pCounterBuffers_pCounterBufferOffsets = .());
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindTransformFeedbackBuffersEXT(VkCommandBuffer commandBuffer, uint32 firstBinding, uint32 bindingCount, VkBuffer* pBuffers, VkDeviceSize* pOffsets, VkDeviceSize* pSizes = null);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBeginTransformFeedbackEXT(VkCommandBuffer commandBuffer, uint32 firstCounterBuffer, uint32 counterBufferCount = 0, VkBuffer* pCounterBuffers = null, VkDeviceSize* pCounterBufferOffsets = null);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdEndTransformFeedbackEXT(VkCommandBuffer commandBuffer, uint32 firstCounterBuffer, uint32 counterBufferCount = 0, VkBuffer* pCounterBuffers = null, VkDeviceSize* pCounterBufferOffsets = null);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBeginQueryIndexedEXT(VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32 query, VkQueryControlFlags flags, uint32 index);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdEndQueryIndexedEXT(VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32 query, uint32 index);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDrawIndirectByteCountEXT(VkCommandBuffer commandBuffer, uint32 instanceCount, uint32 firstInstance, VkBuffer counterBuffer, VkDeviceSize counterBufferOffset, uint32 counterOffset, uint32 vertexStride);
@@ -13138,14 +13780,26 @@ typealias VkVideoEncodeH264StdFlagsKHR = VkVideoEncodeH264StdFlagBitsKHR;
 	public const VkStructureType SType = .VkVideoEncodeH264SessionParametersAddInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<StdVideoH264SequenceParameterSet> pStdSPSs;
-	public VulkanSpan<StdVideoH264PictureParameterSet> pStdPPSs; // List of Picture Parameters associated with the spsStd, above
+	public uint32 stdSPSCount;
+	public StdVideoH264SequenceParameterSet* pStdSPSs;
+	public VulkanSpan<StdVideoH264SequenceParameterSet> stdSPSs
+	{
+		[Inline] get => .(stdSPSCount, pStdSPSs);
+		[Inline] set mut { stdSPSCount = value.count; pStdSPSs = value.ptr; }
+	}
+	public uint32 stdPPSCount;
+	public StdVideoH264PictureParameterSet* pStdPPSs; // List of Picture Parameters associated with the spsStd, above
+	public VulkanSpan<StdVideoH264PictureParameterSet> stdPPSs
+	{
+		[Inline] get => .(stdPPSCount, pStdPPSs);
+		[Inline] set mut { stdPPSCount = value.count; pStdPPSs = value.ptr; }
+	} // List of Picture Parameters associated with the spsStd, above
 
-	public this(void* pNext = null, VulkanSpan<StdVideoH264SequenceParameterSet> pStdSPSs = .(), VulkanSpan<StdVideoH264PictureParameterSet> pStdPPSs = .())
+	public this(void* pNext = null, VulkanSpan<StdVideoH264SequenceParameterSet> stdSPSs = .(), VulkanSpan<StdVideoH264PictureParameterSet> stdPPSs = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pStdSPSs = pStdSPSs;
-		this.pStdPPSs = pStdPPSs;
+		this.stdSPSs = stdSPSs;
+		this.stdPPSs = stdPPSs;
 	}
 
 	public this()
@@ -13195,14 +13849,20 @@ typealias VkVideoEncodeH264StdFlagsKHR = VkVideoEncodeH264StdFlagBitsKHR;
 	public const VkStructureType SType = .VkVideoEncodeH264PictureInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkVideoEncodeH264NaluSliceInfoKHR> pNaluSliceEntries;
+	public uint32 naluSliceEntryCount;
+	public VkVideoEncodeH264NaluSliceInfoKHR* pNaluSliceEntries;
+	public VulkanSpan<VkVideoEncodeH264NaluSliceInfoKHR> naluSliceEntries
+	{
+		[Inline] get => .(naluSliceEntryCount, pNaluSliceEntries);
+		[Inline] set mut { naluSliceEntryCount = value.count; pNaluSliceEntries = value.ptr; }
+	}
 	public StdVideoEncodeH264PictureInfo* pStdPictureInfo;
 	public VkBool32 generatePrefixNalu;
 
-	public this(void* pNext, VulkanSpan<VkVideoEncodeH264NaluSliceInfoKHR> pNaluSliceEntries, StdVideoEncodeH264PictureInfo* pStdPictureInfo, VkBool32 generatePrefixNalu)
+	public this(void* pNext, VulkanSpan<VkVideoEncodeH264NaluSliceInfoKHR> naluSliceEntries, StdVideoEncodeH264PictureInfo* pStdPictureInfo, VkBool32 generatePrefixNalu) : this()
 	{
 		this.pNext = pNext;
-		this.pNaluSliceEntries = pNaluSliceEntries;
+		this.naluSliceEntries = naluSliceEntries;
 		this.pStdPictureInfo = pStdPictureInfo;
 		this.generatePrefixNalu = generatePrefixNalu;
 	}
@@ -13566,16 +14226,34 @@ typealias VkVideoEncodeH265TransformBlockSizeFlagsKHR = VkVideoEncodeH265Transfo
 	public const VkStructureType SType = .VkVideoEncodeH265SessionParametersAddInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<StdVideoH265VideoParameterSet> pStdVPSs;
-	public VulkanSpan<StdVideoH265SequenceParameterSet> pStdSPSs;
-	public VulkanSpan<StdVideoH265PictureParameterSet> pStdPPSs; // List of Picture Parameters associated with the spsStd, above
+	public uint32 stdVPSCount;
+	public StdVideoH265VideoParameterSet* pStdVPSs;
+	public VulkanSpan<StdVideoH265VideoParameterSet> stdVPSs
+	{
+		[Inline] get => .(stdVPSCount, pStdVPSs);
+		[Inline] set mut { stdVPSCount = value.count; pStdVPSs = value.ptr; }
+	}
+	public uint32 stdSPSCount;
+	public StdVideoH265SequenceParameterSet* pStdSPSs;
+	public VulkanSpan<StdVideoH265SequenceParameterSet> stdSPSs
+	{
+		[Inline] get => .(stdSPSCount, pStdSPSs);
+		[Inline] set mut { stdSPSCount = value.count; pStdSPSs = value.ptr; }
+	}
+	public uint32 stdPPSCount;
+	public StdVideoH265PictureParameterSet* pStdPPSs; // List of Picture Parameters associated with the spsStd, above
+	public VulkanSpan<StdVideoH265PictureParameterSet> stdPPSs
+	{
+		[Inline] get => .(stdPPSCount, pStdPPSs);
+		[Inline] set mut { stdPPSCount = value.count; pStdPPSs = value.ptr; }
+	} // List of Picture Parameters associated with the spsStd, above
 
-	public this(void* pNext = null, VulkanSpan<StdVideoH265VideoParameterSet> pStdVPSs = .(), VulkanSpan<StdVideoH265SequenceParameterSet> pStdSPSs = .(), VulkanSpan<StdVideoH265PictureParameterSet> pStdPPSs = .())
+	public this(void* pNext = null, VulkanSpan<StdVideoH265VideoParameterSet> stdVPSs = .(), VulkanSpan<StdVideoH265SequenceParameterSet> stdSPSs = .(), VulkanSpan<StdVideoH265PictureParameterSet> stdPPSs = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pStdVPSs = pStdVPSs;
-		this.pStdSPSs = pStdSPSs;
-		this.pStdPPSs = pStdPPSs;
+		this.stdVPSs = stdVPSs;
+		this.stdSPSs = stdSPSs;
+		this.stdPPSs = stdPPSs;
 	}
 
 	public this()
@@ -13630,13 +14308,19 @@ typealias VkVideoEncodeH265TransformBlockSizeFlagsKHR = VkVideoEncodeH265Transfo
 	public const VkStructureType SType = .VkVideoEncodeH265PictureInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkVideoEncodeH265NaluSliceSegmentInfoKHR> pNaluSliceSegmentEntries;
+	public uint32 naluSliceSegmentEntryCount;
+	public VkVideoEncodeH265NaluSliceSegmentInfoKHR* pNaluSliceSegmentEntries;
+	public VulkanSpan<VkVideoEncodeH265NaluSliceSegmentInfoKHR> naluSliceSegmentEntries
+	{
+		[Inline] get => .(naluSliceSegmentEntryCount, pNaluSliceSegmentEntries);
+		[Inline] set mut { naluSliceSegmentEntryCount = value.count; pNaluSliceSegmentEntries = value.ptr; }
+	}
 	public StdVideoEncodeH265PictureInfo* pStdPictureInfo;
 
-	public this(void* pNext, VulkanSpan<VkVideoEncodeH265NaluSliceSegmentInfoKHR> pNaluSliceSegmentEntries, StdVideoEncodeH265PictureInfo* pStdPictureInfo)
+	public this(void* pNext, VulkanSpan<VkVideoEncodeH265NaluSliceSegmentInfoKHR> naluSliceSegmentEntries, StdVideoEncodeH265PictureInfo* pStdPictureInfo) : this()
 	{
 		this.pNext = pNext;
-		this.pNaluSliceSegmentEntries = pNaluSliceSegmentEntries;
+		this.naluSliceSegmentEntries = naluSliceSegmentEntries;
 		this.pStdPictureInfo = pStdPictureInfo;
 	}
 
@@ -13914,14 +14598,26 @@ typealias VkVideoDecodeH264PictureLayoutFlagsKHR = VkVideoDecodeH264PictureLayou
 	public const VkStructureType SType = .VkVideoDecodeH264SessionParametersAddInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<StdVideoH264SequenceParameterSet> pStdSPSs;
-	public VulkanSpan<StdVideoH264PictureParameterSet> pStdPPSs; // List of Picture Parameters associated with the spsStd, above
+	public uint32 stdSPSCount;
+	public StdVideoH264SequenceParameterSet* pStdSPSs;
+	public VulkanSpan<StdVideoH264SequenceParameterSet> stdSPSs
+	{
+		[Inline] get => .(stdSPSCount, pStdSPSs);
+		[Inline] set mut { stdSPSCount = value.count; pStdSPSs = value.ptr; }
+	}
+	public uint32 stdPPSCount;
+	public StdVideoH264PictureParameterSet* pStdPPSs; // List of Picture Parameters associated with the spsStd, above
+	public VulkanSpan<StdVideoH264PictureParameterSet> stdPPSs
+	{
+		[Inline] get => .(stdPPSCount, pStdPPSs);
+		[Inline] set mut { stdPPSCount = value.count; pStdPPSs = value.ptr; }
+	} // List of Picture Parameters associated with the spsStd, above
 
-	public this(void* pNext = null, VulkanSpan<StdVideoH264SequenceParameterSet> pStdSPSs = .(), VulkanSpan<StdVideoH264PictureParameterSet> pStdPPSs = .())
+	public this(void* pNext = null, VulkanSpan<StdVideoH264SequenceParameterSet> stdSPSs = .(), VulkanSpan<StdVideoH264PictureParameterSet> stdPPSs = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pStdSPSs = pStdSPSs;
-		this.pStdPPSs = pStdPPSs;
+		this.stdSPSs = stdSPSs;
+		this.stdPPSs = stdPPSs;
 	}
 
 	public this()
@@ -13937,13 +14633,19 @@ typealias VkVideoDecodeH264PictureLayoutFlagsKHR = VkVideoDecodeH264PictureLayou
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public StdVideoDecodeH264PictureInfo* pStdPictureInfo;
-	public VulkanSpan<uint32> pSliceOffsets;
+	public uint32 sliceCount;
+	public uint32* pSliceOffsets;
+	public VulkanSpan<uint32> sliceOffsets
+	{
+		[Inline] get => .(sliceCount, pSliceOffsets);
+		[Inline] set mut { sliceCount = value.count; pSliceOffsets = value.ptr; }
+	}
 
-	public this(void* pNext, StdVideoDecodeH264PictureInfo* pStdPictureInfo, VulkanSpan<uint32> pSliceOffsets)
+	public this(void* pNext, StdVideoDecodeH264PictureInfo* pStdPictureInfo, VulkanSpan<uint32> sliceOffsets) : this()
 	{
 		this.pNext = pNext;
 		this.pStdPictureInfo = pStdPictureInfo;
-		this.pSliceOffsets = pSliceOffsets;
+		this.sliceOffsets = sliceOffsets;
 	}
 
 	public this()
@@ -14169,12 +14871,18 @@ static { public const c_char* VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME = "VK_EXT_v
 	public const VkStructureType SType = .VkValidationFlagsEXT;
 	public VkStructureType sType = SType; // Must be VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT
 	public void* pNext;
-	public VulkanSpan<VkValidationCheckEXT> pDisabledValidationChecks; // Validation checks to disable
+	public uint32 disabledValidationCheckCount; // Number of validation checks to disable
+	public VkValidationCheckEXT* pDisabledValidationChecks; // Validation checks to disable
+	public VulkanSpan<VkValidationCheckEXT> disabledValidationChecks
+	{
+		[Inline] get => .(disabledValidationCheckCount, pDisabledValidationChecks);
+		[Inline] set mut { disabledValidationCheckCount = value.count; pDisabledValidationChecks = value.ptr; }
+	} // Validation checks to disable
 
-	public this(void* pNext, VulkanSpan<VkValidationCheckEXT> pDisabledValidationChecks)
+	public this(void* pNext, VulkanSpan<VkValidationCheckEXT> disabledValidationChecks) : this()
 	{
 		this.pNext = pNext;
-		this.pDisabledValidationChecks = pDisabledValidationChecks;
+		this.disabledValidationChecks = disabledValidationChecks;
 	}
 
 	public this()
@@ -14512,12 +15220,18 @@ static { public const c_char* VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME = "VK_KH
 	public const VkStructureType SType = .VkPresentRegionsKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPresentRegionKHR> pRegions; // The regions that have changed
+	public uint32 swapchainCount; // Copy of VkPresentInfoKHR::swapchainCount
+	public VkPresentRegionKHR* pRegions; // The regions that have changed
+	public VulkanSpan<VkPresentRegionKHR> regions
+	{
+		[Inline] get => .(swapchainCount, pRegions);
+		[Inline] set mut { swapchainCount = value.count; pRegions = value.ptr; }
+	} // The regions that have changed
 
-	public this(void* pNext = null, VulkanSpan<VkPresentRegionKHR> pRegions = .())
+	public this(void* pNext, VulkanSpan<VkPresentRegionKHR> regions = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -14529,11 +15243,17 @@ static { public const c_char* VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME = "VK_KH
 
 [CRepr] struct VkPresentRegionKHR
 {
-	public VulkanSpan<VkRectLayerKHR> pRectangles; // Array of rectangles that have changed in a swapchain's image(s)
-
-	public this(VulkanSpan<VkRectLayerKHR> pRectangles = .())
+	public uint32 rectangleCount; // Number of rectangles in pRectangles
+	public VkRectLayerKHR* pRectangles; // Array of rectangles that have changed in a swapchain's image(s)
+	public VulkanSpan<VkRectLayerKHR> rectangles
 	{
-		this.pRectangles = pRectangles;
+		[Inline] get => .(rectangleCount, pRectangles);
+		[Inline] set mut { rectangleCount = value.count; pRectangles = value.ptr; }
+	} // Array of rectangles that have changed in a swapchain's image(s)
+
+	public this(VulkanSpan<VkRectLayerKHR> rectangles = .()) : this()
+	{
+		this.rectangles = rectangles;
 	}
 
 	public this()
@@ -14594,13 +15314,19 @@ static { public const c_char* VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME = "VK_NV
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkBool32 viewportWScalingEnable;
-	public VulkanSpan<VkViewportWScalingNV> pViewportWScalings;
+	public uint32 viewportCount;
+	public VkViewportWScalingNV* pViewportWScalings;
+	public VulkanSpan<VkViewportWScalingNV> viewportWScalings
+	{
+		[Inline] get => .(viewportCount, pViewportWScalings);
+		[Inline] set mut { viewportCount = value.count; pViewportWScalings = value.ptr; }
+	}
 
-	public this(void* pNext, VkBool32 viewportWScalingEnable, VulkanSpan<VkViewportWScalingNV> pViewportWScalings = .())
+	public this(void* pNext, VkBool32 viewportWScalingEnable, VulkanSpan<VkViewportWScalingNV> viewportWScalings = .()) : this()
 	{
 		this.pNext = pNext;
 		this.viewportWScalingEnable = viewportWScalingEnable;
-		this.pViewportWScalings = pViewportWScalings;
+		this.viewportWScalings = viewportWScalings;
 	}
 
 	public this()
@@ -14610,7 +15336,7 @@ static { public const c_char* VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME = "VK_NV
 	}
 }
 
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, uint32 firstViewport, VulkanSpan<VkViewportWScalingNV> pViewportWScalings);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewportWScalingNV(VkCommandBuffer commandBuffer, uint32 firstViewport, uint32 viewportCount, VkViewportWScalingNV* pViewportWScalings);
 
 static { public const uint32 VK_EXT_DIRECT_MODE_DISPLAY_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME = "VK_EXT_direct_mode_display"; }
@@ -14774,12 +15500,18 @@ static { public const c_char* VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME = "VK_GOOG
 	public const VkStructureType SType = .VkPresentTimesInfoGOOGLE;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPresentTimeGOOGLE> pTimes; // The earliest times to present images
+	public uint32 swapchainCount; // Copy of VkPresentInfoKHR::swapchainCount
+	public VkPresentTimeGOOGLE* pTimes; // The earliest times to present images
+	public VulkanSpan<VkPresentTimeGOOGLE> times
+	{
+		[Inline] get => .(swapchainCount, pTimes);
+		[Inline] set mut { swapchainCount = value.count; pTimes = value.ptr; }
+	} // The earliest times to present images
 
-	public this(void* pNext = null, VulkanSpan<VkPresentTimeGOOGLE> pTimes = .())
+	public this(void* pNext, VulkanSpan<VkPresentTimeGOOGLE> times = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pTimes = pTimes;
+		this.times = times;
 	}
 
 	public this()
@@ -14892,13 +15624,19 @@ static { public const c_char* VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME = "VK_NV_vie
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkPipelineViewportSwizzleStateCreateFlagsNV flags;
-	public VulkanSpan<VkViewportSwizzleNV> pViewportSwizzles;
+	public uint32 viewportCount;
+	public VkViewportSwizzleNV* pViewportSwizzles;
+	public VulkanSpan<VkViewportSwizzleNV> viewportSwizzles
+	{
+		[Inline] get => .(viewportCount, pViewportSwizzles);
+		[Inline] set mut { viewportCount = value.count; pViewportSwizzles = value.ptr; }
+	}
 
-	public this(void* pNext, VkPipelineViewportSwizzleStateCreateFlagsNV flags, VulkanSpan<VkViewportSwizzleNV> pViewportSwizzles)
+	public this(void* pNext, VkPipelineViewportSwizzleStateCreateFlagsNV flags, VulkanSpan<VkViewportSwizzleNV> viewportSwizzles) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pViewportSwizzles = pViewportSwizzles;
+		this.viewportSwizzles = viewportSwizzles;
 	}
 
 	public this()
@@ -14928,14 +15666,20 @@ static { public const c_char* VK_EXT_DISCARD_RECTANGLES_EXTENSION_NAME = "VK_EXT
 	public void* pNext;
 	public VkPipelineDiscardRectangleStateCreateFlagsEXT flags;
 	public VkDiscardRectangleModeEXT discardRectangleMode;
-	public VulkanSpan<VkRect2D> pDiscardRectangles;
+	public uint32 discardRectangleCount;
+	public VkRect2D* pDiscardRectangles;
+	public VulkanSpan<VkRect2D> discardRectangles
+	{
+		[Inline] get => .(discardRectangleCount, pDiscardRectangles);
+		[Inline] set mut { discardRectangleCount = value.count; pDiscardRectangles = value.ptr; }
+	}
 
-	public this(void* pNext, VkPipelineDiscardRectangleStateCreateFlagsEXT flags, VkDiscardRectangleModeEXT discardRectangleMode, VulkanSpan<VkRect2D> pDiscardRectangles = .())
+	public this(void* pNext, VkPipelineDiscardRectangleStateCreateFlagsEXT flags, VkDiscardRectangleModeEXT discardRectangleMode, VulkanSpan<VkRect2D> discardRectangles = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.discardRectangleMode = discardRectangleMode;
-		this.pDiscardRectangles = pDiscardRectangles;
+		this.discardRectangles = discardRectangles;
 	}
 
 	public this()
@@ -14953,7 +15697,7 @@ typealias VkPipelineDiscardRectangleStateCreateFlagsEXT = VkFlags;
 	ExclusiveEXT = 1,
 }
 
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDiscardRectangleEXT(VkCommandBuffer commandBuffer, uint32 firstDiscardRectangle, VulkanSpan<VkRect2D> pDiscardRectangles);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDiscardRectangleEXT(VkCommandBuffer commandBuffer, uint32 firstDiscardRectangle, uint32 discardRectangleCount, VkRect2D* pDiscardRectangles);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDiscardRectangleEnableEXT(VkCommandBuffer commandBuffer, VkBool32 discardRectangleEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDiscardRectangleModeEXT(VkCommandBuffer commandBuffer, VkDiscardRectangleModeEXT discardRectangleMode);
 
@@ -15115,7 +15859,7 @@ static { public const c_char* VK_EXT_HDR_METADATA_EXTENSION_NAME = "VK_EXT_hdr_m
 	}
 }
 
-[CallingConvention(VKAPI_PTR)] function void PFN_vkSetHdrMetadataEXT(VkDevice device, VulkanDuoSpan<VkSwapchainKHR, VkHdrMetadataEXT> pSwapchains_pMetadata);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkSetHdrMetadataEXT(VkDevice device, uint32 swapchainCount, VkSwapchainKHR* pSwapchains, VkHdrMetadataEXT* pMetadata);
 
 static { public const uint32 VK_KHR_IMAGELESS_FRAMEBUFFER_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_IMAGELESS_FRAMEBUFFER_EXTENSION_NAME = "VK_KHR_imageless_framebuffer"; }
@@ -15307,13 +16051,19 @@ typealias VkPerformanceCounterDescriptionFlagsKHR = VkPerformanceCounterDescript
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public uint32 queueFamilyIndex;
-	public VulkanSpan<uint32> pCounterIndices;
+	public uint32 counterIndexCount;
+	public uint32* pCounterIndices;
+	public VulkanSpan<uint32> counterIndices
+	{
+		[Inline] get => .(counterIndexCount, pCounterIndices);
+		[Inline] set mut { counterIndexCount = value.count; pCounterIndices = value.ptr; }
+	}
 
-	public this(void* pNext, uint32 queueFamilyIndex, VulkanSpan<uint32> pCounterIndices)
+	public this(void* pNext, uint32 queueFamilyIndex, VulkanSpan<uint32> counterIndices) : this()
 	{
 		this.pNext = pNext;
 		this.queueFamilyIndex = queueFamilyIndex;
-		this.pCounterIndices = pCounterIndices;
+		this.counterIndices = counterIndices;
 	}
 
 	public this()
@@ -15612,20 +16362,38 @@ typealias VkDebugUtilsMessageTypeFlagsEXT = VkDebugUtilsMessageTypeFlagBitsEXT;
 	public c_char* pMessageIdName;
 	public int32 messageIdNumber;
 	public c_char* pMessage;
-	public VulkanSpan<VkDebugUtilsLabelEXT> pQueueLabels;
-	public VulkanSpan<VkDebugUtilsLabelEXT> pCmdBufLabels;
-	public VulkanSpan<VkDebugUtilsObjectNameInfoEXT> pObjects;
+	public uint32 queueLabelCount;
+	public VkDebugUtilsLabelEXT* pQueueLabels;
+	public VulkanSpan<VkDebugUtilsLabelEXT> queueLabels
+	{
+		[Inline] get => .(queueLabelCount, pQueueLabels);
+		[Inline] set mut { queueLabelCount = value.count; pQueueLabels = value.ptr; }
+	}
+	public uint32 cmdBufLabelCount;
+	public VkDebugUtilsLabelEXT* pCmdBufLabels;
+	public VulkanSpan<VkDebugUtilsLabelEXT> cmdBufLabels
+	{
+		[Inline] get => .(cmdBufLabelCount, pCmdBufLabels);
+		[Inline] set mut { cmdBufLabelCount = value.count; pCmdBufLabels = value.ptr; }
+	}
+	public uint32 objectCount;
+	public VkDebugUtilsObjectNameInfoEXT* pObjects;
+	public VulkanSpan<VkDebugUtilsObjectNameInfoEXT> objects
+	{
+		[Inline] get => .(objectCount, pObjects);
+		[Inline] set mut { objectCount = value.count; pObjects = value.ptr; }
+	}
 
-	public this(void* pNext, VkDebugUtilsMessengerCallbackDataFlagsEXT flags, c_char* pMessageIdName, int32 messageIdNumber, c_char* pMessage = null, VulkanSpan<VkDebugUtilsLabelEXT> pQueueLabels = .(), VulkanSpan<VkDebugUtilsLabelEXT> pCmdBufLabels = .(), VulkanSpan<VkDebugUtilsObjectNameInfoEXT> pObjects = .())
+	public this(void* pNext, VkDebugUtilsMessengerCallbackDataFlagsEXT flags, c_char* pMessageIdName, int32 messageIdNumber, c_char* pMessage = null, VulkanSpan<VkDebugUtilsLabelEXT> queueLabels = .(), VulkanSpan<VkDebugUtilsLabelEXT> cmdBufLabels = .(), VulkanSpan<VkDebugUtilsObjectNameInfoEXT> objects = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.pMessageIdName = pMessageIdName;
 		this.messageIdNumber = messageIdNumber;
 		this.pMessage = pMessage;
-		this.pQueueLabels = pQueueLabels;
-		this.pCmdBufLabels = pCmdBufLabels;
-		this.pObjects = pObjects;
+		this.queueLabels = queueLabels;
+		this.cmdBufLabels = cmdBufLabels;
+		this.objects = objects;
 	}
 
 	public this()
@@ -15751,13 +16519,19 @@ static { public const c_char* VK_AMD_MIXED_ATTACHMENT_SAMPLES_EXTENSION_NAME = "
 	public const VkStructureType SType = .VkAttachmentSampleCountInfoAMD;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkSampleCountFlagBits> pColorAttachmentSamples;
+	public uint32 colorAttachmentCount;
+	public VkSampleCountFlagBits* pColorAttachmentSamples;
+	public VulkanSpan<VkSampleCountFlagBits> colorAttachmentSamples
+	{
+		[Inline] get => .(colorAttachmentCount, pColorAttachmentSamples);
+		[Inline] set mut { colorAttachmentCount = value.count; pColorAttachmentSamples = value.ptr; }
+	}
 	public VkSampleCountFlagBits depthStencilAttachmentSamples;
 
-	public this(void* pNext = null, VulkanSpan<VkSampleCountFlagBits> pColorAttachmentSamples = .(), VkSampleCountFlagBits depthStencilAttachmentSamples = 0)
+	public this(void* pNext = null, VulkanSpan<VkSampleCountFlagBits> colorAttachmentSamples = .(), VkSampleCountFlagBits depthStencilAttachmentSamples = 0) : this()
 	{
 		this.pNext = pNext;
-		this.pColorAttachmentSamples = pColorAttachmentSamples;
+		this.colorAttachmentSamples = colorAttachmentSamples;
 		this.depthStencilAttachmentSamples = depthStencilAttachmentSamples;
 	}
 
@@ -15807,14 +16581,20 @@ static { public const c_char* VK_EXT_SAMPLE_LOCATIONS_EXTENSION_NAME = "VK_EXT_s
 	public void* pNext;
 	public VkSampleCountFlagBits sampleLocationsPerPixel;
 	public VkExtent2D sampleLocationGridSize;
-	public VulkanSpan<VkSampleLocationEXT> pSampleLocations;
+	public uint32 sampleLocationsCount;
+	public VkSampleLocationEXT* pSampleLocations;
+	public VulkanSpan<VkSampleLocationEXT> sampleLocations
+	{
+		[Inline] get => .(sampleLocationsCount, pSampleLocations);
+		[Inline] set mut { sampleLocationsCount = value.count; pSampleLocations = value.ptr; }
+	}
 
-	public this(void* pNext, VkSampleCountFlagBits sampleLocationsPerPixel, VkExtent2D sampleLocationGridSize, VulkanSpan<VkSampleLocationEXT> pSampleLocations = .())
+	public this(void* pNext, VkSampleCountFlagBits sampleLocationsPerPixel, VkExtent2D sampleLocationGridSize, VulkanSpan<VkSampleLocationEXT> sampleLocations = .()) : this()
 	{
 		this.pNext = pNext;
 		this.sampleLocationsPerPixel = sampleLocationsPerPixel;
 		this.sampleLocationGridSize = sampleLocationGridSize;
-		this.pSampleLocations = pSampleLocations;
+		this.sampleLocations = sampleLocations;
 	}
 
 	public this()
@@ -15863,14 +16643,26 @@ static { public const c_char* VK_EXT_SAMPLE_LOCATIONS_EXTENSION_NAME = "VK_EXT_s
 	public const VkStructureType SType = .VkRenderPassSampleLocationsBeginInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkAttachmentSampleLocationsEXT> pAttachmentInitialSampleLocations;
-	public VulkanSpan<VkSubpassSampleLocationsEXT> pPostSubpassSampleLocations;
+	public uint32 attachmentInitialSampleLocationsCount;
+	public VkAttachmentSampleLocationsEXT* pAttachmentInitialSampleLocations;
+	public VulkanSpan<VkAttachmentSampleLocationsEXT> attachmentInitialSampleLocations
+	{
+		[Inline] get => .(attachmentInitialSampleLocationsCount, pAttachmentInitialSampleLocations);
+		[Inline] set mut { attachmentInitialSampleLocationsCount = value.count; pAttachmentInitialSampleLocations = value.ptr; }
+	}
+	public uint32 postSubpassSampleLocationsCount;
+	public VkSubpassSampleLocationsEXT* pPostSubpassSampleLocations;
+	public VulkanSpan<VkSubpassSampleLocationsEXT> postSubpassSampleLocations
+	{
+		[Inline] get => .(postSubpassSampleLocationsCount, pPostSubpassSampleLocations);
+		[Inline] set mut { postSubpassSampleLocationsCount = value.count; pPostSubpassSampleLocations = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkAttachmentSampleLocationsEXT> pAttachmentInitialSampleLocations = .(), VulkanSpan<VkSubpassSampleLocationsEXT> pPostSubpassSampleLocations = .())
+	public this(void* pNext = null, VulkanSpan<VkAttachmentSampleLocationsEXT> attachmentInitialSampleLocations = .(), VulkanSpan<VkSubpassSampleLocationsEXT> postSubpassSampleLocations = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pAttachmentInitialSampleLocations = pAttachmentInitialSampleLocations;
-		this.pPostSubpassSampleLocations = pPostSubpassSampleLocations;
+		this.attachmentInitialSampleLocations = attachmentInitialSampleLocations;
+		this.postSubpassSampleLocations = postSubpassSampleLocations;
 	}
 
 	public this()
@@ -16164,10 +16956,17 @@ static { public const c_char* VK_KHR_ACCELERATION_STRUCTURE_EXTENSION_NAME = "VK
 	public VkBuildAccelerationStructureModeKHR mode;
 	public VkAccelerationStructureKHR srcAccelerationStructure;
 	public VkAccelerationStructureKHR dstAccelerationStructure;
-	public VulkanDuoSpan<VkAccelerationStructureGeometryKHR, VkAccelerationStructureGeometryKHR*> pGeometries_ppGeometries;
+	public uint32 geometryCount;
+	public VkAccelerationStructureGeometryKHR* pGeometries;
+	public VkAccelerationStructureGeometryKHR** ppGeometries;
+	public VulkanDuoSpan<VkAccelerationStructureGeometryKHR, VkAccelerationStructureGeometryKHR*> geometries_geometries
+	{
+		[Inline] get => .(geometryCount, pGeometries, ppGeometries);
+		[Inline] set mut { geometryCount = value.count; pGeometries = value.ptr1; ppGeometries = value.ptr2; }
+	}
 	public VkDeviceOrHostAddressKHR scratchData;
 
-	public this(void* pNext, VkAccelerationStructureTypeKHR type, VkBuildAccelerationStructureFlagsKHR flags, VkBuildAccelerationStructureModeKHR mode, VkAccelerationStructureKHR srcAccelerationStructure, VkAccelerationStructureKHR dstAccelerationStructure, VulkanDuoSpan<VkAccelerationStructureGeometryKHR, VkAccelerationStructureGeometryKHR*> pGeometries_ppGeometries, VkDeviceOrHostAddressKHR scratchData)
+	public this(void* pNext, VkAccelerationStructureTypeKHR type, VkBuildAccelerationStructureFlagsKHR flags, VkBuildAccelerationStructureModeKHR mode, VkAccelerationStructureKHR srcAccelerationStructure, VkAccelerationStructureKHR dstAccelerationStructure, VulkanDuoSpan<VkAccelerationStructureGeometryKHR, VkAccelerationStructureGeometryKHR*> geometries_geometries, VkDeviceOrHostAddressKHR scratchData) : this()
 	{
 		this.pNext = pNext;
 		this.type = type;
@@ -16175,7 +16974,7 @@ static { public const c_char* VK_KHR_ACCELERATION_STRUCTURE_EXTENSION_NAME = "VK
 		this.mode = mode;
 		this.srcAccelerationStructure = srcAccelerationStructure;
 		this.dstAccelerationStructure = dstAccelerationStructure;
-		this.pGeometries_ppGeometries = pGeometries_ppGeometries;
+		this.geometries_geometries = geometries_geometries;
 		this.scratchData = scratchData;
 	}
 
@@ -16399,12 +17198,18 @@ typealias VkBuildAccelerationStructureFlagsKHR = VkBuildAccelerationStructureFla
 	public const VkStructureType SType = .VkWriteDescriptorSetAccelerationStructureKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkAccelerationStructureKHR> pAccelerationStructures;
+	public uint32 accelerationStructureCount;
+	public VkAccelerationStructureKHR* pAccelerationStructures;
+	public VulkanSpan<VkAccelerationStructureKHR> accelerationStructures
+	{
+		[Inline] get => .(accelerationStructureCount, pAccelerationStructures);
+		[Inline] set mut { accelerationStructureCount = value.count; pAccelerationStructures = value.ptr; }
+	}
 
-	public this(void* pNext, VulkanSpan<VkAccelerationStructureKHR> pAccelerationStructures)
+	public this(void* pNext, VulkanSpan<VkAccelerationStructureKHR> accelerationStructures) : this()
 	{
 		this.pNext = pNext;
-		this.pAccelerationStructures = pAccelerationStructures;
+		this.accelerationStructures = accelerationStructures;
 	}
 
 	public this()
@@ -16602,18 +17407,18 @@ typealias VkAccelerationStructureCreateFlagsKHR = VkAccelerationStructureCreateF
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateAccelerationStructureKHR(VkDevice device, VkAccelerationStructureCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkAccelerationStructureKHR pAccelerationStructure);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyAccelerationStructureKHR(VkDevice device, VkAccelerationStructureKHR accelerationStructure = null, VkAllocationCallbacks* pAllocator = null);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBuildAccelerationStructuresKHR(VkCommandBuffer commandBuffer, VulkanDuoSpan<VkAccelerationStructureBuildGeometryInfoKHR, VkAccelerationStructureBuildRangeInfoKHR> pInfos_ppBuildRangeInfos);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBuildAccelerationStructuresIndirectKHR(VkCommandBuffer commandBuffer, VulkanQuadSpan<VkAccelerationStructureBuildGeometryInfoKHR, VkDeviceAddress, uint32, uint32> pInfos_pIndirectDeviceAddresses_pIndirectStrides_ppMaxPrimitiveCounts);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBuildAccelerationStructuresKHR(VkDevice device, VkDeferredOperationKHR deferredOperation, VulkanDuoSpan<VkAccelerationStructureBuildGeometryInfoKHR, VkAccelerationStructureBuildRangeInfoKHR> pInfos_ppBuildRangeInfos);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBuildAccelerationStructuresKHR(VkCommandBuffer commandBuffer, uint32 infoCount, VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkAccelerationStructureBuildRangeInfoKHR* ppBuildRangeInfos);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBuildAccelerationStructuresIndirectKHR(VkCommandBuffer commandBuffer, uint32 infoCount, VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkDeviceAddress* pIndirectDeviceAddresses, uint32* pIndirectStrides, uint32* ppMaxPrimitiveCounts);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBuildAccelerationStructuresKHR(VkDevice device, VkDeferredOperationKHR deferredOperation, uint32 infoCount, VkAccelerationStructureBuildGeometryInfoKHR* pInfos, VkAccelerationStructureBuildRangeInfoKHR* ppBuildRangeInfos);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCopyAccelerationStructureKHR(VkDevice device, VkDeferredOperationKHR deferredOperation, VkCopyAccelerationStructureInfoKHR* pInfo);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCopyAccelerationStructureToMemoryKHR(VkDevice device, VkDeferredOperationKHR deferredOperation, VkCopyAccelerationStructureToMemoryInfoKHR* pInfo);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCopyMemoryToAccelerationStructureKHR(VkDevice device, VkDeferredOperationKHR deferredOperation, VkCopyMemoryToAccelerationStructureInfoKHR* pInfo);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkWriteAccelerationStructuresPropertiesKHR(VkDevice device, VulkanSpan<VkAccelerationStructureKHR> pAccelerationStructures, VkQueryType queryType, c_size dataSize, out void pData, c_size stride);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkWriteAccelerationStructuresPropertiesKHR(VkDevice device, uint32 accelerationStructureCount, VkAccelerationStructureKHR* pAccelerationStructures, VkQueryType queryType, c_size dataSize, out void pData, c_size stride);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyAccelerationStructureKHR(VkCommandBuffer commandBuffer, VkCopyAccelerationStructureInfoKHR* pInfo);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyAccelerationStructureToMemoryKHR(VkCommandBuffer commandBuffer, VkCopyAccelerationStructureToMemoryInfoKHR* pInfo);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyMemoryToAccelerationStructureKHR(VkCommandBuffer commandBuffer, VkCopyMemoryToAccelerationStructureInfoKHR* pInfo);
 [CallingConvention(VKAPI_PTR)] function VkDeviceAddress PFN_vkGetAccelerationStructureDeviceAddressKHR(VkDevice device, VkAccelerationStructureDeviceAddressInfoKHR* pInfo);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWriteAccelerationStructuresPropertiesKHR(VkCommandBuffer commandBuffer, VulkanSpan<VkAccelerationStructureKHR> pAccelerationStructures, VkQueryType queryType, VkQueryPool queryPool, uint32 firstQuery);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWriteAccelerationStructuresPropertiesKHR(VkCommandBuffer commandBuffer, uint32 accelerationStructureCount, VkAccelerationStructureKHR* pAccelerationStructures, VkQueryType queryType, VkQueryPool queryPool, uint32 firstQuery);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetDeviceAccelerationStructureCompatibilityKHR(VkDevice device, VkAccelerationStructureVersionInfoKHR* pVersionInfo, out VkAccelerationStructureCompatibilityKHR pCompatibility);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetAccelerationStructureBuildSizesKHR(VkDevice device, VkAccelerationStructureBuildTypeKHR buildType, VkAccelerationStructureBuildGeometryInfoKHR* pBuildInfo, uint32* pMaxPrimitiveCounts, out VkAccelerationStructureBuildSizesInfoKHR pSizeInfo);
 
@@ -16667,8 +17472,20 @@ static { public const uint32 VK_SHADER_UNUSED_KHR = (.)(~0U); }
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkPipelineCreateFlags flags; // Pipeline creation flags
-	public VulkanSpan<VkPipelineShaderStageCreateInfo> pStages; // One entry for each active shader stage
-	public VulkanSpan<VkRayTracingShaderGroupCreateInfoKHR> pGroups;
+	public uint32 stageCount;
+	public VkPipelineShaderStageCreateInfo* pStages; // One entry for each active shader stage
+	public VulkanSpan<VkPipelineShaderStageCreateInfo> stages
+	{
+		[Inline] get => .(stageCount, pStages);
+		[Inline] set mut { stageCount = value.count; pStages = value.ptr; }
+	} // One entry for each active shader stage
+	public uint32 groupCount;
+	public VkRayTracingShaderGroupCreateInfoKHR* pGroups;
+	public VulkanSpan<VkRayTracingShaderGroupCreateInfoKHR> groups
+	{
+		[Inline] get => .(groupCount, pGroups);
+		[Inline] set mut { groupCount = value.count; pGroups = value.ptr; }
+	}
 	public uint32 maxPipelineRayRecursionDepth;
 	public VkPipelineLibraryCreateInfoKHR* pLibraryInfo;
 	public VkRayTracingPipelineInterfaceCreateInfoKHR* pLibraryInterface;
@@ -16677,12 +17494,12 @@ static { public const uint32 VK_SHADER_UNUSED_KHR = (.)(~0U); }
 	public VkPipeline basePipelineHandle; // If VK_PIPELINE_CREATE_DERIVATIVE_BIT is set and this value is nonzero, it specifies the handle of the base pipeline this is a derivative of
 	public int32 basePipelineIndex; // If VK_PIPELINE_CREATE_DERIVATIVE_BIT is set and this value is not -1, it specifies an index into pCreateInfos of the base pipeline this is a derivative of
 
-	public this(void* pNext, VkPipelineCreateFlags flags, VulkanSpan<VkPipelineShaderStageCreateInfo> pStages, VulkanSpan<VkRayTracingShaderGroupCreateInfoKHR> pGroups, uint32 maxPipelineRayRecursionDepth, VkPipelineLibraryCreateInfoKHR* pLibraryInfo, VkRayTracingPipelineInterfaceCreateInfoKHR* pLibraryInterface, VkPipelineDynamicStateCreateInfo* pDynamicState, VkPipelineLayout layout, VkPipeline basePipelineHandle, int32 basePipelineIndex)
+	public this(void* pNext, VkPipelineCreateFlags flags, VulkanSpan<VkPipelineShaderStageCreateInfo> stages, VulkanSpan<VkRayTracingShaderGroupCreateInfoKHR> groups, uint32 maxPipelineRayRecursionDepth, VkPipelineLibraryCreateInfoKHR* pLibraryInfo, VkRayTracingPipelineInterfaceCreateInfoKHR* pLibraryInterface, VkPipelineDynamicStateCreateInfo* pDynamicState, VkPipelineLayout layout, VkPipeline basePipelineHandle, int32 basePipelineIndex) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pStages = pStages;
-		this.pGroups = pGroups;
+		this.stages = stages;
+		this.groups = groups;
 		this.maxPipelineRayRecursionDepth = maxPipelineRayRecursionDepth;
 		this.pLibraryInfo = pLibraryInfo;
 		this.pLibraryInterface = pLibraryInterface;
@@ -16811,7 +17628,7 @@ static { public const uint32 VK_SHADER_UNUSED_KHR = (.)(~0U); }
 }
 
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdTraceRaysKHR(VkCommandBuffer commandBuffer, VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, uint32 width, uint32 height, uint32 depth);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateRayTracingPipelinesKHR(VkDevice device, VkDeferredOperationKHR deferredOperation, VkPipelineCache pipelineCache, VulkanSpan<VkRayTracingPipelineCreateInfoKHR> pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateRayTracingPipelinesKHR(VkDevice device, VkDeferredOperationKHR deferredOperation, VkPipelineCache pipelineCache, uint32 createInfoCount, VkRayTracingPipelineCreateInfoKHR* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetRayTracingShaderGroupHandlesKHR(VkDevice device, VkPipeline pipeline, uint32 firstGroup, uint32 groupCount, c_size dataSize, out void pData);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(VkDevice device, VkPipeline pipeline, uint32 firstGroup, uint32 groupCount, c_size dataSize, out void pData);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdTraceRaysIndirectKHR(VkCommandBuffer commandBuffer, VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, VkDeviceAddress indirectDeviceAddress);
@@ -16852,15 +17669,21 @@ static { public const c_char* VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME = "
 	public VkPipelineCoverageModulationStateCreateFlagsNV flags;
 	public VkCoverageModulationModeNV coverageModulationMode;
 	public VkBool32 coverageModulationTableEnable;
-	public VulkanSpan<float> pCoverageModulationTable;
+	public uint32 coverageModulationTableCount;
+	public float* pCoverageModulationTable;
+	public VulkanSpan<float> coverageModulationTable
+	{
+		[Inline] get => .(coverageModulationTableCount, pCoverageModulationTable);
+		[Inline] set mut { coverageModulationTableCount = value.count; pCoverageModulationTable = value.ptr; }
+	}
 
-	public this(void* pNext, VkPipelineCoverageModulationStateCreateFlagsNV flags, VkCoverageModulationModeNV coverageModulationMode, VkBool32 coverageModulationTableEnable, VulkanSpan<float> pCoverageModulationTable = .())
+	public this(void* pNext, VkPipelineCoverageModulationStateCreateFlagsNV flags, VkCoverageModulationModeNV coverageModulationMode, VkBool32 coverageModulationTableEnable, VulkanSpan<float> coverageModulationTable = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.coverageModulationMode = coverageModulationMode;
 		this.coverageModulationTableEnable = coverageModulationTableEnable;
-		this.pCoverageModulationTable = pCoverageModulationTable;
+		this.coverageModulationTable = coverageModulationTable;
 	}
 
 	public this()
@@ -16945,7 +17768,13 @@ static { public const c_char* VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME = 
 	public const VkStructureType SType = .VkDrmFormatModifierPropertiesListEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkDrmFormatModifierPropertiesEXT> pDrmFormatModifierProperties;
+	public uint32 drmFormatModifierCount;
+	public VkDrmFormatModifierPropertiesEXT* pDrmFormatModifierProperties;
+	public VulkanSpan<VkDrmFormatModifierPropertiesEXT> drmFormatModifierProperties
+	{
+		[Inline] get => .(drmFormatModifierCount, pDrmFormatModifierProperties);
+		[Inline] set mut { drmFormatModifierCount = value.count; pDrmFormatModifierProperties = value.ptr; }
+	}
 }
 
 [CRepr] struct VkDrmFormatModifierPropertiesEXT
@@ -16962,14 +17791,20 @@ static { public const c_char* VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME = 
 	public void* pNext;
 	public uint64 drmFormatModifier;
 	public VkSharingMode sharingMode;
-	public VulkanSpan<uint32> pQueueFamilyIndices;
+	public uint32 queueFamilyIndexCount;
+	public uint32* pQueueFamilyIndices;
+	public VulkanSpan<uint32> queueFamilyIndices
+	{
+		[Inline] get => .(queueFamilyIndexCount, pQueueFamilyIndices);
+		[Inline] set mut { queueFamilyIndexCount = value.count; pQueueFamilyIndices = value.ptr; }
+	}
 
-	public this(void* pNext, uint64 drmFormatModifier, VkSharingMode sharingMode, VulkanSpan<uint32> pQueueFamilyIndices = .())
+	public this(void* pNext, uint64 drmFormatModifier, VkSharingMode sharingMode, VulkanSpan<uint32> queueFamilyIndices = .()) : this()
 	{
 		this.pNext = pNext;
 		this.drmFormatModifier = drmFormatModifier;
 		this.sharingMode = sharingMode;
-		this.pQueueFamilyIndices = pQueueFamilyIndices;
+		this.queueFamilyIndices = queueFamilyIndices;
 	}
 
 	public this()
@@ -16984,12 +17819,18 @@ static { public const c_char* VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME = 
 	public const VkStructureType SType = .VkImageDrmFormatModifierListCreateInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint64> pDrmFormatModifiers;
+	public uint32 drmFormatModifierCount;
+	public uint64* pDrmFormatModifiers;
+	public VulkanSpan<uint64> drmFormatModifiers
+	{
+		[Inline] get => .(drmFormatModifierCount, pDrmFormatModifiers);
+		[Inline] set mut { drmFormatModifierCount = value.count; pDrmFormatModifiers = value.ptr; }
+	}
 
-	public this(void* pNext, VulkanSpan<uint64> pDrmFormatModifiers)
+	public this(void* pNext, VulkanSpan<uint64> drmFormatModifiers) : this()
 	{
 		this.pNext = pNext;
-		this.pDrmFormatModifiers = pDrmFormatModifiers;
+		this.drmFormatModifiers = drmFormatModifiers;
 	}
 
 	public this()
@@ -17005,13 +17846,19 @@ static { public const c_char* VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME = 
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public uint64 drmFormatModifier;
-	public VulkanSpan<VkSubresourceLayout> pPlaneLayouts;
+	public uint32 drmFormatModifierPlaneCount;
+	public VkSubresourceLayout* pPlaneLayouts;
+	public VulkanSpan<VkSubresourceLayout> planeLayouts
+	{
+		[Inline] get => .(drmFormatModifierPlaneCount, pPlaneLayouts);
+		[Inline] set mut { drmFormatModifierPlaneCount = value.count; pPlaneLayouts = value.ptr; }
+	}
 
-	public this(void* pNext, uint64 drmFormatModifier, VulkanSpan<VkSubresourceLayout> pPlaneLayouts)
+	public this(void* pNext, uint64 drmFormatModifier, VulkanSpan<VkSubresourceLayout> planeLayouts) : this()
 	{
 		this.pNext = pNext;
 		this.drmFormatModifier = drmFormatModifier;
-		this.pPlaneLayouts = pPlaneLayouts;
+		this.planeLayouts = planeLayouts;
 	}
 
 	public this()
@@ -17036,7 +17883,13 @@ static { public const c_char* VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME = 
 	public const VkStructureType SType = .VkDrmFormatModifierPropertiesList2EXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkDrmFormatModifierProperties2EXT> pDrmFormatModifierProperties;
+	public uint32 drmFormatModifierCount;
+	public VkDrmFormatModifierProperties2EXT* pDrmFormatModifierProperties;
+	public VulkanSpan<VkDrmFormatModifierProperties2EXT> drmFormatModifierProperties
+	{
+		[Inline] get => .(drmFormatModifierCount, pDrmFormatModifierProperties);
+		[Inline] set mut { drmFormatModifierCount = value.count; pDrmFormatModifierProperties = value.ptr; }
+	}
 }
 
 [CRepr] struct VkDrmFormatModifierProperties2EXT
@@ -17104,7 +17957,7 @@ typealias VkValidationCacheCreateFlagsEXT = VkFlags;
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateValidationCacheEXT(VkDevice device, VkValidationCacheCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkValidationCacheEXT pValidationCache);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyValidationCacheEXT(VkDevice device, VkValidationCacheEXT validationCache = null, VkAllocationCallbacks* pAllocator = null);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkMergeValidationCachesEXT(VkDevice device, VkValidationCacheEXT dstCache, VulkanSpan<VkValidationCacheEXT> pSrcCaches);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkMergeValidationCachesEXT(VkDevice device, VkValidationCacheEXT dstCache, uint32 srcCacheCount, VkValidationCacheEXT* pSrcCaches);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetValidationCacheDataEXT(VkDevice device, VkValidationCacheEXT validationCache, out c_size pDataSize, out void pData);
 
 static { public const uint32 VK_EXT_DESCRIPTOR_INDEXING_SPEC_VERSION = 2; }
@@ -17140,11 +17993,17 @@ static { public const c_char* VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME = "VK_NV_s
 
 [CRepr] struct VkShadingRatePaletteNV
 {
-	public VulkanSpan<VkShadingRatePaletteEntryNV> pShadingRatePaletteEntries;
-
-	public this(VulkanSpan<VkShadingRatePaletteEntryNV> pShadingRatePaletteEntries)
+	public uint32 shadingRatePaletteEntryCount;
+	public VkShadingRatePaletteEntryNV* pShadingRatePaletteEntries;
+	public VulkanSpan<VkShadingRatePaletteEntryNV> shadingRatePaletteEntries
 	{
-		this.pShadingRatePaletteEntries = pShadingRatePaletteEntries;
+		[Inline] get => .(shadingRatePaletteEntryCount, pShadingRatePaletteEntries);
+		[Inline] set mut { shadingRatePaletteEntryCount = value.count; pShadingRatePaletteEntries = value.ptr; }
+	}
+
+	public this(VulkanSpan<VkShadingRatePaletteEntryNV> shadingRatePaletteEntries) : this()
+	{
+		this.shadingRatePaletteEntries = shadingRatePaletteEntries;
 	}
 
 	public this()
@@ -17159,13 +18018,19 @@ static { public const c_char* VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME = "VK_NV_s
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkBool32 shadingRateImageEnable;
-	public VulkanSpan<VkShadingRatePaletteNV> pShadingRatePalettes;
+	public uint32 viewportCount;
+	public VkShadingRatePaletteNV* pShadingRatePalettes;
+	public VulkanSpan<VkShadingRatePaletteNV> shadingRatePalettes
+	{
+		[Inline] get => .(viewportCount, pShadingRatePalettes);
+		[Inline] set mut { viewportCount = value.count; pShadingRatePalettes = value.ptr; }
+	}
 
-	public this(void* pNext, VkBool32 shadingRateImageEnable, VulkanSpan<VkShadingRatePaletteNV> pShadingRatePalettes = .())
+	public this(void* pNext, VkBool32 shadingRateImageEnable, VulkanSpan<VkShadingRatePaletteNV> shadingRatePalettes = .()) : this()
 	{
 		this.pNext = pNext;
 		this.shadingRateImageEnable = shadingRateImageEnable;
-		this.pShadingRatePalettes = pShadingRatePalettes;
+		this.shadingRatePalettes = shadingRatePalettes;
 	}
 
 	public this()
@@ -17230,13 +18095,19 @@ static { public const c_char* VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME = "VK_NV_s
 {
 	public VkShadingRatePaletteEntryNV shadingRate;
 	public uint32 sampleCount;
-	public VulkanSpan<VkCoarseSampleLocationNV> pSampleLocations;
+	public uint32 sampleLocationCount;
+	public VkCoarseSampleLocationNV* pSampleLocations;
+	public VulkanSpan<VkCoarseSampleLocationNV> sampleLocations
+	{
+		[Inline] get => .(sampleLocationCount, pSampleLocations);
+		[Inline] set mut { sampleLocationCount = value.count; pSampleLocations = value.ptr; }
+	}
 
-	public this(VkShadingRatePaletteEntryNV shadingRate, uint32 sampleCount, VulkanSpan<VkCoarseSampleLocationNV> pSampleLocations)
+	public this(VkShadingRatePaletteEntryNV shadingRate, uint32 sampleCount, VulkanSpan<VkCoarseSampleLocationNV> sampleLocations) : this()
 	{
 		this.shadingRate = shadingRate;
 		this.sampleCount = sampleCount;
-		this.pSampleLocations = pSampleLocations;
+		this.sampleLocations = sampleLocations;
 	}
 
 	public this()
@@ -17251,13 +18122,19 @@ static { public const c_char* VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME = "VK_NV_s
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkCoarseSampleOrderTypeNV sampleOrderType;
-	public VulkanSpan<VkCoarseSampleOrderCustomNV> pCustomSampleOrders;
+	public uint32 customSampleOrderCount;
+	public VkCoarseSampleOrderCustomNV* pCustomSampleOrders;
+	public VulkanSpan<VkCoarseSampleOrderCustomNV> customSampleOrders
+	{
+		[Inline] get => .(customSampleOrderCount, pCustomSampleOrders);
+		[Inline] set mut { customSampleOrderCount = value.count; pCustomSampleOrders = value.ptr; }
+	}
 
-	public this(void* pNext, VkCoarseSampleOrderTypeNV sampleOrderType, VulkanSpan<VkCoarseSampleOrderCustomNV> pCustomSampleOrders = .())
+	public this(void* pNext, VkCoarseSampleOrderTypeNV sampleOrderType, VulkanSpan<VkCoarseSampleOrderCustomNV> customSampleOrders = .()) : this()
 	{
 		this.pNext = pNext;
 		this.sampleOrderType = sampleOrderType;
-		this.pCustomSampleOrders = pCustomSampleOrders;
+		this.customSampleOrders = customSampleOrders;
 	}
 
 	public this()
@@ -17276,8 +18153,8 @@ static { public const c_char* VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME = "VK_NV_s
 }
 
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindShadingRateImageNV(VkCommandBuffer commandBuffer, VkImageView imageView, VkImageLayout imageLayout);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewportShadingRatePaletteNV(VkCommandBuffer commandBuffer, uint32 firstViewport, VulkanSpan<VkShadingRatePaletteNV> pShadingRatePalettes);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCoarseSampleOrderNV(VkCommandBuffer commandBuffer, VkCoarseSampleOrderTypeNV sampleOrderType, VulkanSpan<VkCoarseSampleOrderCustomNV> pCustomSampleOrders = .());
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewportShadingRatePaletteNV(VkCommandBuffer commandBuffer, uint32 firstViewport, uint32 viewportCount, VkShadingRatePaletteNV* pShadingRatePalettes);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCoarseSampleOrderNV(VkCommandBuffer commandBuffer, VkCoarseSampleOrderTypeNV sampleOrderType, uint32 customSampleOrderCount = 0, VkCoarseSampleOrderCustomNV* pCustomSampleOrders = null);
 
 static { public const uint32 VK_NV_RAY_TRACING_SPEC_VERSION = 3; }
 static { public const c_char* VK_NV_RAY_TRACING_EXTENSION_NAME = "VK_NV_ray_tracing"; }
@@ -17319,19 +18196,31 @@ typealias VkRayTracingShaderGroupTypeNV = VkRayTracingShaderGroupTypeKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkPipelineCreateFlags flags; // Pipeline creation flags
-	public VulkanSpan<VkPipelineShaderStageCreateInfo> pStages; // One entry for each active shader stage
-	public VulkanSpan<VkRayTracingShaderGroupCreateInfoNV> pGroups;
+	public uint32 stageCount;
+	public VkPipelineShaderStageCreateInfo* pStages; // One entry for each active shader stage
+	public VulkanSpan<VkPipelineShaderStageCreateInfo> stages
+	{
+		[Inline] get => .(stageCount, pStages);
+		[Inline] set mut { stageCount = value.count; pStages = value.ptr; }
+	} // One entry for each active shader stage
+	public uint32 groupCount;
+	public VkRayTracingShaderGroupCreateInfoNV* pGroups;
+	public VulkanSpan<VkRayTracingShaderGroupCreateInfoNV> groups
+	{
+		[Inline] get => .(groupCount, pGroups);
+		[Inline] set mut { groupCount = value.count; pGroups = value.ptr; }
+	}
 	public uint32 maxRecursionDepth;
 	public VkPipelineLayout layout; // Interface layout of the pipeline
 	public VkPipeline basePipelineHandle; // If VK_PIPELINE_CREATE_DERIVATIVE_BIT is set and this value is nonzero, it specifies the handle of the base pipeline this is a derivative of
 	public int32 basePipelineIndex; // If VK_PIPELINE_CREATE_DERIVATIVE_BIT is set and this value is not -1, it specifies an index into pCreateInfos of the base pipeline this is a derivative of
 
-	public this(void* pNext, VkPipelineCreateFlags flags, VulkanSpan<VkPipelineShaderStageCreateInfo> pStages, VulkanSpan<VkRayTracingShaderGroupCreateInfoNV> pGroups, uint32 maxRecursionDepth, VkPipelineLayout layout, VkPipeline basePipelineHandle, int32 basePipelineIndex)
+	public this(void* pNext, VkPipelineCreateFlags flags, VulkanSpan<VkPipelineShaderStageCreateInfo> stages, VulkanSpan<VkRayTracingShaderGroupCreateInfoNV> groups, uint32 maxRecursionDepth, VkPipelineLayout layout, VkPipeline basePipelineHandle, int32 basePipelineIndex) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pStages = pStages;
-		this.pGroups = pGroups;
+		this.stages = stages;
+		this.groups = groups;
 		this.maxRecursionDepth = maxRecursionDepth;
 		this.layout = layout;
 		this.basePipelineHandle = basePipelineHandle;
@@ -17466,15 +18355,21 @@ typealias VkGeometryInstanceFlagBitsNV = VkGeometryInstanceFlagBitsKHR;
 	public VkAccelerationStructureTypeNV type;
 	public VkBuildAccelerationStructureFlagsNV flags;
 	public uint32 instanceCount;
-	public VulkanSpan<VkGeometryNV> pGeometries;
+	public uint32 geometryCount;
+	public VkGeometryNV* pGeometries;
+	public VulkanSpan<VkGeometryNV> geometries
+	{
+		[Inline] get => .(geometryCount, pGeometries);
+		[Inline] set mut { geometryCount = value.count; pGeometries = value.ptr; }
+	}
 
-	public this(void* pNext, VkAccelerationStructureTypeNV type, VkBuildAccelerationStructureFlagsNV flags = 0, uint32 instanceCount = 0, VulkanSpan<VkGeometryNV> pGeometries = .())
+	public this(void* pNext, VkAccelerationStructureTypeNV type, VkBuildAccelerationStructureFlagsNV flags = 0, uint32 instanceCount = 0, VulkanSpan<VkGeometryNV> geometries = .()) : this()
 	{
 		this.pNext = pNext;
 		this.type = type;
 		this.flags = flags;
 		this.instanceCount = instanceCount;
-		this.pGeometries = pGeometries;
+		this.geometries = geometries;
 	}
 
 	public this()
@@ -17519,15 +18414,21 @@ typealias VkCopyAccelerationStructureModeNV = VkCopyAccelerationStructureModeKHR
 	public VkAccelerationStructureNV accelerationStructure;
 	public VkDeviceMemory memory;
 	public VkDeviceSize memoryOffset;
-	public VulkanSpan<uint32> pDeviceIndices;
+	public uint32 deviceIndexCount;
+	public uint32* pDeviceIndices;
+	public VulkanSpan<uint32> deviceIndices
+	{
+		[Inline] get => .(deviceIndexCount, pDeviceIndices);
+		[Inline] set mut { deviceIndexCount = value.count; pDeviceIndices = value.ptr; }
+	}
 
-	public this(void* pNext, VkAccelerationStructureNV accelerationStructure, VkDeviceMemory memory, VkDeviceSize memoryOffset, VulkanSpan<uint32> pDeviceIndices = .())
+	public this(void* pNext, VkAccelerationStructureNV accelerationStructure, VkDeviceMemory memory, VkDeviceSize memoryOffset, VulkanSpan<uint32> deviceIndices = .()) : this()
 	{
 		this.pNext = pNext;
 		this.accelerationStructure = accelerationStructure;
 		this.memory = memory;
 		this.memoryOffset = memoryOffset;
-		this.pDeviceIndices = pDeviceIndices;
+		this.deviceIndices = deviceIndices;
 	}
 
 	public this()
@@ -17542,12 +18443,18 @@ typealias VkCopyAccelerationStructureModeNV = VkCopyAccelerationStructureModeKHR
 	public const VkStructureType SType = .VkWriteDescriptorSetAccelerationStructureNV;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkAccelerationStructureNV> pAccelerationStructures;
+	public uint32 accelerationStructureCount;
+	public VkAccelerationStructureNV* pAccelerationStructures;
+	public VulkanSpan<VkAccelerationStructureNV> accelerationStructures
+	{
+		[Inline] get => .(accelerationStructureCount, pAccelerationStructures);
+		[Inline] set mut { accelerationStructureCount = value.count; pAccelerationStructures = value.ptr; }
+	}
 
-	public this(void* pNext, VulkanSpan<VkAccelerationStructureNV> pAccelerationStructures)
+	public this(void* pNext, VulkanSpan<VkAccelerationStructureNV> accelerationStructures) : this()
 	{
 		this.pNext = pNext;
-		this.pAccelerationStructures = pAccelerationStructures;
+		this.accelerationStructures = accelerationStructures;
 	}
 
 	public this()
@@ -17608,13 +18515,13 @@ typealias VkAccelerationStructureInstanceNV = VkAccelerationStructureInstanceKHR
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateAccelerationStructureNV(VkDevice device, VkAccelerationStructureCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkAccelerationStructureNV pAccelerationStructure);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyAccelerationStructureNV(VkDevice device, VkAccelerationStructureNV accelerationStructure = null, VkAllocationCallbacks* pAllocator = null);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetAccelerationStructureMemoryRequirementsNV(VkDevice device, VkAccelerationStructureMemoryRequirementsInfoNV* pInfo, out VkMemoryRequirements2KHR pMemoryRequirements);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBindAccelerationStructureMemoryNV(VkDevice device, VulkanSpan<VkBindAccelerationStructureMemoryInfoNV> pBindInfos);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBindAccelerationStructureMemoryNV(VkDevice device, uint32 bindInfoCount, VkBindAccelerationStructureMemoryInfoNV* pBindInfos);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBuildAccelerationStructureNV(VkCommandBuffer commandBuffer, VkAccelerationStructureInfoNV* pInfo, VkBuffer instanceData, VkDeviceSize instanceOffset, VkBool32 update, VkAccelerationStructureNV dst, VkAccelerationStructureNV src, VkBuffer scratch, VkDeviceSize scratchOffset);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyAccelerationStructureNV(VkCommandBuffer commandBuffer, VkAccelerationStructureNV dst, VkAccelerationStructureNV src, VkCopyAccelerationStructureModeKHR mode);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdTraceRaysNV(VkCommandBuffer commandBuffer, VkBuffer raygenShaderBindingTableBuffer, VkDeviceSize raygenShaderBindingOffset, VkBuffer missShaderBindingTableBuffer, VkDeviceSize missShaderBindingOffset, VkDeviceSize missShaderBindingStride, VkBuffer hitShaderBindingTableBuffer, VkDeviceSize hitShaderBindingOffset, VkDeviceSize hitShaderBindingStride, VkBuffer callableShaderBindingTableBuffer, VkDeviceSize callableShaderBindingOffset, VkDeviceSize callableShaderBindingStride, uint32 width, uint32 height, uint32 depth);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateRayTracingPipelinesNV(VkDevice device, VkPipelineCache pipelineCache, VulkanSpan<VkRayTracingPipelineCreateInfoNV> pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateRayTracingPipelinesNV(VkDevice device, VkPipelineCache pipelineCache, uint32 createInfoCount, VkRayTracingPipelineCreateInfoNV* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetAccelerationStructureHandleNV(VkDevice device, VkAccelerationStructureNV accelerationStructure, c_size dataSize, out void pData);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWriteAccelerationStructuresPropertiesNV(VkCommandBuffer commandBuffer, VulkanSpan<VkAccelerationStructureNV> pAccelerationStructures, VkQueryType queryType, VkQueryPool queryPool, uint32 firstQuery);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWriteAccelerationStructuresPropertiesNV(VkCommandBuffer commandBuffer, uint32 accelerationStructureCount, VkAccelerationStructureNV* pAccelerationStructures, VkQueryType queryType, VkQueryPool queryPool, uint32 firstQuery);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCompileDeferredNV(VkDevice device, VkPipeline pipeline, uint32 shader);
 
 static { public const uint32 VK_NV_REPRESENTATIVE_FRAGMENT_TEST_SPEC_VERSION = 2; }
@@ -17920,16 +18827,34 @@ static { public const c_char* VK_KHR_VIDEO_DECODE_H265_EXTENSION_NAME = "VK_KHR_
 	public const VkStructureType SType = .VkVideoDecodeH265SessionParametersAddInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<StdVideoH265VideoParameterSet> pStdVPSs;
-	public VulkanSpan<StdVideoH265SequenceParameterSet> pStdSPSs;
-	public VulkanSpan<StdVideoH265PictureParameterSet> pStdPPSs; // List of Picture Parameters associated with the spsStd, above
+	public uint32 stdVPSCount;
+	public StdVideoH265VideoParameterSet* pStdVPSs;
+	public VulkanSpan<StdVideoH265VideoParameterSet> stdVPSs
+	{
+		[Inline] get => .(stdVPSCount, pStdVPSs);
+		[Inline] set mut { stdVPSCount = value.count; pStdVPSs = value.ptr; }
+	}
+	public uint32 stdSPSCount;
+	public StdVideoH265SequenceParameterSet* pStdSPSs;
+	public VulkanSpan<StdVideoH265SequenceParameterSet> stdSPSs
+	{
+		[Inline] get => .(stdSPSCount, pStdSPSs);
+		[Inline] set mut { stdSPSCount = value.count; pStdSPSs = value.ptr; }
+	}
+	public uint32 stdPPSCount;
+	public StdVideoH265PictureParameterSet* pStdPPSs; // List of Picture Parameters associated with the spsStd, above
+	public VulkanSpan<StdVideoH265PictureParameterSet> stdPPSs
+	{
+		[Inline] get => .(stdPPSCount, pStdPPSs);
+		[Inline] set mut { stdPPSCount = value.count; pStdPPSs = value.ptr; }
+	} // List of Picture Parameters associated with the spsStd, above
 
-	public this(void* pNext = null, VulkanSpan<StdVideoH265VideoParameterSet> pStdVPSs = .(), VulkanSpan<StdVideoH265SequenceParameterSet> pStdSPSs = .(), VulkanSpan<StdVideoH265PictureParameterSet> pStdPPSs = .())
+	public this(void* pNext = null, VulkanSpan<StdVideoH265VideoParameterSet> stdVPSs = .(), VulkanSpan<StdVideoH265SequenceParameterSet> stdSPSs = .(), VulkanSpan<StdVideoH265PictureParameterSet> stdPPSs = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pStdVPSs = pStdVPSs;
-		this.pStdSPSs = pStdSPSs;
-		this.pStdPPSs = pStdPPSs;
+		this.stdVPSs = stdVPSs;
+		this.stdSPSs = stdSPSs;
+		this.stdPPSs = stdPPSs;
 	}
 
 	public this()
@@ -17945,13 +18870,19 @@ static { public const c_char* VK_KHR_VIDEO_DECODE_H265_EXTENSION_NAME = "VK_KHR_
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public StdVideoDecodeH265PictureInfo* pStdPictureInfo;
-	public VulkanSpan<uint32> pSliceSegmentOffsets;
+	public uint32 sliceSegmentCount;
+	public uint32* pSliceSegmentOffsets;
+	public VulkanSpan<uint32> sliceSegmentOffsets
+	{
+		[Inline] get => .(sliceSegmentCount, pSliceSegmentOffsets);
+		[Inline] set mut { sliceSegmentCount = value.count; pSliceSegmentOffsets = value.ptr; }
+	}
 
-	public this(void* pNext, StdVideoDecodeH265PictureInfo* pStdPictureInfo, VulkanSpan<uint32> pSliceSegmentOffsets)
+	public this(void* pNext, StdVideoDecodeH265PictureInfo* pStdPictureInfo, VulkanSpan<uint32> sliceSegmentOffsets) : this()
 	{
 		this.pNext = pNext;
 		this.pStdPictureInfo = pStdPictureInfo;
-		this.pSliceSegmentOffsets = pSliceSegmentOffsets;
+		this.sliceSegmentOffsets = sliceSegmentOffsets;
 	}
 
 	public this()
@@ -18176,12 +19107,18 @@ static { public const c_char* VK_NV_SCISSOR_EXCLUSIVE_EXTENSION_NAME = "VK_NV_sc
 	public const VkStructureType SType = .VkPipelineViewportExclusiveScissorStateCreateInfoNV;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkRect2D> pExclusiveScissors;
+	public uint32 exclusiveScissorCount;
+	public VkRect2D* pExclusiveScissors;
+	public VulkanSpan<VkRect2D> exclusiveScissors
+	{
+		[Inline] get => .(exclusiveScissorCount, pExclusiveScissors);
+		[Inline] set mut { exclusiveScissorCount = value.count; pExclusiveScissors = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkRect2D> pExclusiveScissors = .())
+	public this(void* pNext = null, VulkanSpan<VkRect2D> exclusiveScissors = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pExclusiveScissors = pExclusiveScissors;
+		this.exclusiveScissors = exclusiveScissors;
 	}
 
 	public this()
@@ -18211,8 +19148,8 @@ static { public const c_char* VK_NV_SCISSOR_EXCLUSIVE_EXTENSION_NAME = "VK_NV_sc
 	}
 }
 
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetExclusiveScissorEnableNV(VkCommandBuffer commandBuffer, uint32 firstExclusiveScissor, VulkanSpan<VkBool32> pExclusiveScissorEnables);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetExclusiveScissorNV(VkCommandBuffer commandBuffer, uint32 firstExclusiveScissor, VulkanSpan<VkRect2D> pExclusiveScissors);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetExclusiveScissorEnableNV(VkCommandBuffer commandBuffer, uint32 firstExclusiveScissor, uint32 exclusiveScissorCount, VkBool32* pExclusiveScissorEnables);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetExclusiveScissorNV(VkCommandBuffer commandBuffer, uint32 firstExclusiveScissor, uint32 exclusiveScissorCount, VkRect2D* pExclusiveScissors);
 
 static { public const uint32 VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_SPEC_VERSION = 2; }
 static { public const c_char* VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_EXTENSION_NAME = "VK_NV_device_diagnostic_checkpoints"; }
@@ -19037,14 +19974,26 @@ static { public const c_char* VK_EXT_VALIDATION_FEATURES_EXTENSION_NAME = "VK_EX
 	public const VkStructureType SType = .VkValidationFeaturesEXT;
 	public VkStructureType sType = SType; // Must be VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT
 	public void* pNext;
-	public VulkanSpan<VkValidationFeatureEnableEXT> pEnabledValidationFeatures; // Validation features to enable
-	public VulkanSpan<VkValidationFeatureDisableEXT> pDisabledValidationFeatures; // Validation features to disable
+	public uint32 enabledValidationFeatureCount; // Number of validation features to enable
+	public VkValidationFeatureEnableEXT* pEnabledValidationFeatures; // Validation features to enable
+	public VulkanSpan<VkValidationFeatureEnableEXT> enabledValidationFeatures
+	{
+		[Inline] get => .(enabledValidationFeatureCount, pEnabledValidationFeatures);
+		[Inline] set mut { enabledValidationFeatureCount = value.count; pEnabledValidationFeatures = value.ptr; }
+	} // Validation features to enable
+	public uint32 disabledValidationFeatureCount; // Number of validation features to disable
+	public VkValidationFeatureDisableEXT* pDisabledValidationFeatures; // Validation features to disable
+	public VulkanSpan<VkValidationFeatureDisableEXT> disabledValidationFeatures
+	{
+		[Inline] get => .(disabledValidationFeatureCount, pDisabledValidationFeatures);
+		[Inline] set mut { disabledValidationFeatureCount = value.count; pDisabledValidationFeatures = value.ptr; }
+	} // Validation features to disable
 
-	public this(void* pNext = null, VulkanSpan<VkValidationFeatureEnableEXT> pEnabledValidationFeatures = .(), VulkanSpan<VkValidationFeatureDisableEXT> pDisabledValidationFeatures = .())
+	public this(void* pNext = null, VulkanSpan<VkValidationFeatureEnableEXT> enabledValidationFeatures = .(), VulkanSpan<VkValidationFeatureDisableEXT> disabledValidationFeatures = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pEnabledValidationFeatures = pEnabledValidationFeatures;
-		this.pDisabledValidationFeatures = pDisabledValidationFeatures;
+		this.enabledValidationFeatures = enabledValidationFeatures;
+		this.disabledValidationFeatures = disabledValidationFeatures;
 	}
 
 	public this()
@@ -19768,12 +20717,18 @@ typealias VkPresentGravityFlagsEXT = VkPresentGravityFlagBitsEXT;
 	public const VkStructureType SType = .VkSurfacePresentModeCompatibilityEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPresentModeKHR> pPresentModes; // Output list of present modes compatible with the one specified in VkSurfacePresentModeEXT
+	public uint32 presentModeCount;
+	public VkPresentModeKHR* pPresentModes; // Output list of present modes compatible with the one specified in VkSurfacePresentModeEXT
+	public VulkanSpan<VkPresentModeKHR> presentModes
+	{
+		[Inline] get => .(presentModeCount, pPresentModes);
+		[Inline] set mut { presentModeCount = value.count; pPresentModes = value.ptr; }
+	} // Output list of present modes compatible with the one specified in VkSurfacePresentModeEXT
 
-	public this(void* pNext = null, VulkanSpan<VkPresentModeKHR> pPresentModes = .())
+	public this(void* pNext = null, VulkanSpan<VkPresentModeKHR> presentModes = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pPresentModes = pPresentModes;
+		this.presentModes = presentModes;
 	}
 
 	public this()
@@ -19811,12 +20766,18 @@ static { public const c_char* VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME = "V
 	public const VkStructureType SType = .VkSwapchainPresentFenceInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkFence> pFences; // Fence to signal for each swapchain
+	public uint32 swapchainCount; // Copy of VkPresentInfoKHR::swapchainCount
+	public VkFence* pFences; // Fence to signal for each swapchain
+	public VulkanSpan<VkFence> fences
+	{
+		[Inline] get => .(swapchainCount, pFences);
+		[Inline] set mut { swapchainCount = value.count; pFences = value.ptr; }
+	} // Fence to signal for each swapchain
 
-	public this(void* pNext, VulkanSpan<VkFence> pFences)
+	public this(void* pNext, VulkanSpan<VkFence> fences) : this()
 	{
 		this.pNext = pNext;
-		this.pFences = pFences;
+		this.fences = fences;
 	}
 
 	public this()
@@ -19831,14 +20792,20 @@ static { public const c_char* VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME = "V
 	public const VkStructureType SType = .VkSwapchainPresentModesCreateInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
+	public uint32 presentModeCount;
 	// Length of the pPresentModes array
-	public VulkanSpan<VkPresentModeKHR> pPresentModes;
+	public VkPresentModeKHR* pPresentModes;
+	public VulkanSpan<VkPresentModeKHR> presentModes
+	{
+		[Inline] get => .(presentModeCount, pPresentModes);
+		[Inline] set mut { presentModeCount = value.count; pPresentModes = value.ptr; }
+	}
 	// Presentation modes which will be usable with this swapchain
 
-	public this(void* pNext, VulkanSpan<VkPresentModeKHR> pPresentModes)
+	public this(void* pNext, VulkanSpan<VkPresentModeKHR> presentModes) : this()
 	{
 		this.pNext = pNext;
-		this.pPresentModes = pPresentModes;
+		this.presentModes = presentModes;
 	}
 
 	public this()
@@ -19853,12 +20820,18 @@ static { public const c_char* VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME = "V
 	public const VkStructureType SType = .VkSwapchainPresentModeInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPresentModeKHR> pPresentModes; // Presentation mode for each swapchain
+	public uint32 swapchainCount; // Copy of VkPresentInfoKHR::swapchainCount
+	public VkPresentModeKHR* pPresentModes; // Presentation mode for each swapchain
+	public VulkanSpan<VkPresentModeKHR> presentModes
+	{
+		[Inline] get => .(swapchainCount, pPresentModes);
+		[Inline] set mut { swapchainCount = value.count; pPresentModes = value.ptr; }
+	} // Presentation mode for each swapchain
 
-	public this(void* pNext, VulkanSpan<VkPresentModeKHR> pPresentModes)
+	public this(void* pNext, VulkanSpan<VkPresentModeKHR> presentModes) : this()
 	{
 		this.pNext = pNext;
-		this.pPresentModes = pPresentModes;
+		this.presentModes = presentModes;
 	}
 
 	public this()
@@ -19898,13 +20871,19 @@ static { public const c_char* VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME = "V
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkSwapchainKHR swapchain; // Swapchain for which images are being released
-	public VulkanSpan<uint32> pImageIndices; // Indices of which presentable images to release
+	public uint32 imageIndexCount; // Number of indices to release
+	public uint32* pImageIndices; // Indices of which presentable images to release
+	public VulkanSpan<uint32> imageIndices
+	{
+		[Inline] get => .(imageIndexCount, pImageIndices);
+		[Inline] set mut { imageIndexCount = value.count; pImageIndices = value.ptr; }
+	} // Indices of which presentable images to release
 
-	public this(void* pNext, VkSwapchainKHR swapchain, VulkanSpan<uint32> pImageIndices)
+	public this(void* pNext, VkSwapchainKHR swapchain, VulkanSpan<uint32> imageIndices) : this()
 	{
 		this.pNext = pNext;
 		this.swapchain = swapchain;
-		this.pImageIndices = pImageIndices;
+		this.imageIndices = imageIndices;
 	}
 
 	public this()
@@ -19965,14 +20944,20 @@ static { public const c_char* VK_NV_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME = "
 	public const VkStructureType SType = .VkGraphicsShaderGroupCreateInfoNV;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPipelineShaderStageCreateInfo> pStages;
+	public uint32 stageCount;
+	public VkPipelineShaderStageCreateInfo* pStages;
+	public VulkanSpan<VkPipelineShaderStageCreateInfo> stages
+	{
+		[Inline] get => .(stageCount, pStages);
+		[Inline] set mut { stageCount = value.count; pStages = value.ptr; }
+	}
 	public VkPipelineVertexInputStateCreateInfo* pVertexInputState;
 	public VkPipelineTessellationStateCreateInfo* pTessellationState;
 
-	public this(void* pNext, VulkanSpan<VkPipelineShaderStageCreateInfo> pStages, VkPipelineVertexInputStateCreateInfo* pVertexInputState = null, VkPipelineTessellationStateCreateInfo* pTessellationState = null)
+	public this(void* pNext, VulkanSpan<VkPipelineShaderStageCreateInfo> stages, VkPipelineVertexInputStateCreateInfo* pVertexInputState = null, VkPipelineTessellationStateCreateInfo* pTessellationState = null) : this()
 	{
 		this.pNext = pNext;
-		this.pStages = pStages;
+		this.stages = stages;
 		this.pVertexInputState = pVertexInputState;
 		this.pTessellationState = pTessellationState;
 	}
@@ -19989,14 +20974,26 @@ static { public const c_char* VK_NV_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME = "
 	public const VkStructureType SType = .VkGraphicsPipelineShaderGroupsCreateInfoNV;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkGraphicsShaderGroupCreateInfoNV> pGroups;
-	public VulkanSpan<VkPipeline> pPipelines;
+	public uint32 groupCount;
+	public VkGraphicsShaderGroupCreateInfoNV* pGroups;
+	public VulkanSpan<VkGraphicsShaderGroupCreateInfoNV> groups
+	{
+		[Inline] get => .(groupCount, pGroups);
+		[Inline] set mut { groupCount = value.count; pGroups = value.ptr; }
+	}
+	public uint32 pipelineCount;
+	public VkPipeline* pPipelines;
+	public VulkanSpan<VkPipeline> pipelines
+	{
+		[Inline] get => .(pipelineCount, pPipelines);
+		[Inline] set mut { pipelineCount = value.count; pPipelines = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkGraphicsShaderGroupCreateInfoNV> pGroups = .(), VulkanSpan<VkPipeline> pPipelines = .())
+	public this(void* pNext = null, VulkanSpan<VkGraphicsShaderGroupCreateInfoNV> groups = .(), VulkanSpan<VkPipeline> pipelines = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pGroups = pGroups;
-		this.pPipelines = pPipelines;
+		this.groups = groups;
+		this.pipelines = pipelines;
 	}
 
 	public this()
@@ -20139,9 +21136,16 @@ typealias VkIndirectCommandsLayoutUsageFlagsNV = VkIndirectCommandsLayoutUsageFl
 	public uint32 pushconstantOffset;
 	public uint32 pushconstantSize;
 	public VkIndirectStateFlagsNV indirectStateFlags;
-	public VulkanDuoSpan<VkIndexType, uint32> pIndexTypes_pIndexTypeValues;
+	public uint32 indexTypeCount;
+	public VkIndexType* pIndexTypes;
+	public uint32* pIndexTypeValues;
+	public VulkanDuoSpan<VkIndexType, uint32> indexTypes_indexTypeValues
+	{
+		[Inline] get => .(indexTypeCount, pIndexTypes, pIndexTypeValues);
+		[Inline] set mut { indexTypeCount = value.count; pIndexTypes = value.ptr1; pIndexTypeValues = value.ptr2; }
+	}
 
-	public this(void* pNext, VkIndirectCommandsTokenTypeNV tokenType, uint32 stream, uint32 offset, uint32 vertexBindingUnit, VkBool32 vertexDynamicStride, VkPipelineLayout pushconstantPipelineLayout, VkShaderStageFlags pushconstantShaderStageFlags, uint32 pushconstantOffset, uint32 pushconstantSize, VkIndirectStateFlagsNV indirectStateFlags = 0, VulkanDuoSpan<VkIndexType, uint32> pIndexTypes_pIndexTypeValues = .())
+	public this(void* pNext, VkIndirectCommandsTokenTypeNV tokenType, uint32 stream, uint32 offset, uint32 vertexBindingUnit, VkBool32 vertexDynamicStride, VkPipelineLayout pushconstantPipelineLayout, VkShaderStageFlags pushconstantShaderStageFlags, uint32 pushconstantOffset, uint32 pushconstantSize, VkIndirectStateFlagsNV indirectStateFlags = 0, VulkanDuoSpan<VkIndexType, uint32> indexTypes_indexTypeValues = .()) : this()
 	{
 		this.pNext = pNext;
 		this.tokenType = tokenType;
@@ -20154,7 +21158,7 @@ typealias VkIndirectCommandsLayoutUsageFlagsNV = VkIndirectCommandsLayoutUsageFl
 		this.pushconstantOffset = pushconstantOffset;
 		this.pushconstantSize = pushconstantSize;
 		this.indirectStateFlags = indirectStateFlags;
-		this.pIndexTypes_pIndexTypeValues = pIndexTypes_pIndexTypeValues;
+		this.indexTypes_indexTypeValues = indexTypes_indexTypeValues;
 	}
 
 	public this()
@@ -20171,16 +21175,28 @@ typealias VkIndirectCommandsLayoutUsageFlagsNV = VkIndirectCommandsLayoutUsageFl
 	public void* pNext;
 	public VkIndirectCommandsLayoutUsageFlagsNV flags;
 	public VkPipelineBindPoint pipelineBindPoint;
-	public VulkanSpan<VkIndirectCommandsLayoutTokenNV> pTokens;
-	public VulkanSpan<uint32> pStreamStrides;
+	public uint32 tokenCount;
+	public VkIndirectCommandsLayoutTokenNV* pTokens;
+	public VulkanSpan<VkIndirectCommandsLayoutTokenNV> tokens
+	{
+		[Inline] get => .(tokenCount, pTokens);
+		[Inline] set mut { tokenCount = value.count; pTokens = value.ptr; }
+	}
+	public uint32 streamCount;
+	public uint32* pStreamStrides;
+	public VulkanSpan<uint32> streamStrides
+	{
+		[Inline] get => .(streamCount, pStreamStrides);
+		[Inline] set mut { streamCount = value.count; pStreamStrides = value.ptr; }
+	}
 
-	public this(void* pNext, VkIndirectCommandsLayoutUsageFlagsNV flags, VkPipelineBindPoint pipelineBindPoint, VulkanSpan<VkIndirectCommandsLayoutTokenNV> pTokens, VulkanSpan<uint32> pStreamStrides)
+	public this(void* pNext, VkIndirectCommandsLayoutUsageFlagsNV flags, VkPipelineBindPoint pipelineBindPoint, VulkanSpan<VkIndirectCommandsLayoutTokenNV> tokens, VulkanSpan<uint32> streamStrides) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.pipelineBindPoint = pipelineBindPoint;
-		this.pTokens = pTokens;
-		this.pStreamStrides = pStreamStrides;
+		this.tokens = tokens;
+		this.streamStrides = streamStrides;
 	}
 
 	public this()
@@ -20198,7 +21214,13 @@ typealias VkIndirectCommandsLayoutUsageFlagsNV = VkIndirectCommandsLayoutUsageFl
 	public VkPipelineBindPoint pipelineBindPoint;
 	public VkPipeline pipeline;
 	public VkIndirectCommandsLayoutNV indirectCommandsLayout;
-	public VulkanSpan<VkIndirectCommandsStreamNV> pStreams;
+	public uint32 streamCount;
+	public VkIndirectCommandsStreamNV* pStreams;
+	public VulkanSpan<VkIndirectCommandsStreamNV> streams
+	{
+		[Inline] get => .(streamCount, pStreams);
+		[Inline] set mut { streamCount = value.count; pStreams = value.ptr; }
+	}
 	public uint32 sequencesCount;
 	public VkBuffer preprocessBuffer;
 	public VkDeviceSize preprocessOffset;
@@ -20208,13 +21230,13 @@ typealias VkIndirectCommandsLayoutUsageFlagsNV = VkIndirectCommandsLayoutUsageFl
 	public VkBuffer sequencesIndexBuffer;
 	public VkDeviceSize sequencesIndexOffset;
 
-	public this(void* pNext, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline, VkIndirectCommandsLayoutNV indirectCommandsLayout, VulkanSpan<VkIndirectCommandsStreamNV> pStreams, uint32 sequencesCount, VkBuffer preprocessBuffer, VkDeviceSize preprocessOffset, VkDeviceSize preprocessSize, VkBuffer sequencesCountBuffer, VkDeviceSize sequencesCountOffset, VkBuffer sequencesIndexBuffer, VkDeviceSize sequencesIndexOffset)
+	public this(void* pNext, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline, VkIndirectCommandsLayoutNV indirectCommandsLayout, VulkanSpan<VkIndirectCommandsStreamNV> streams, uint32 sequencesCount, VkBuffer preprocessBuffer, VkDeviceSize preprocessOffset, VkDeviceSize preprocessSize, VkBuffer sequencesCountBuffer, VkDeviceSize sequencesCountOffset, VkBuffer sequencesIndexBuffer, VkDeviceSize sequencesIndexOffset) : this()
 	{
 		this.pNext = pNext;
 		this.pipelineBindPoint = pipelineBindPoint;
 		this.pipeline = pipeline;
 		this.indirectCommandsLayout = indirectCommandsLayout;
-		this.pStreams = pStreams;
+		this.streams = streams;
 		this.sequencesCount = sequencesCount;
 		this.preprocessBuffer = preprocessBuffer;
 		this.preprocessOffset = preprocessOffset;
@@ -20653,12 +21675,18 @@ static { public const c_char* VK_KHR_PIPELINE_LIBRARY_EXTENSION_NAME = "VK_KHR_p
 	public const VkStructureType SType = .VkPipelineLibraryCreateInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPipeline> pLibraries;
+	public uint32 libraryCount;
+	public VkPipeline* pLibraries;
+	public VulkanSpan<VkPipeline> libraries
+	{
+		[Inline] get => .(libraryCount, pLibraries);
+		[Inline] set mut { libraryCount = value.count; pLibraries = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkPipeline> pLibraries = .())
+	public this(void* pNext = null, VulkanSpan<VkPipeline> libraries = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pLibraries = pLibraries;
+		this.libraries = libraries;
 	}
 
 	public this()
@@ -20729,12 +21757,18 @@ static { public const c_char* VK_KHR_PRESENT_ID_EXTENSION_NAME = "VK_KHR_present
 	public const VkStructureType SType = .VkPresentIdKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint64> pPresentIds; // Present ID values for each swapchain
+	public uint32 swapchainCount; // Copy of VkPresentInfoKHR::swapchainCount
+	public uint64* pPresentIds; // Present ID values for each swapchain
+	public VulkanSpan<uint64> presentIds
+	{
+		[Inline] get => .(swapchainCount, pPresentIds);
+		[Inline] set mut { swapchainCount = value.count; pPresentIds = value.ptr; }
+	} // Present ID values for each swapchain
 
-	public this(void* pNext = null, VulkanSpan<uint64> pPresentIds = .())
+	public this(void* pNext, VulkanSpan<uint64> presentIds = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pPresentIds = pPresentIds;
+		this.presentIds = presentIds;
 	}
 
 	public this()
@@ -20798,10 +21832,16 @@ typealias VkVideoEncodeFlagsKHR = VkVideoEncodeFlagBitsKHR;
 	public VkDeviceSize dstBufferRange;
 	public VkVideoPictureResourceInfoKHR srcPictureResource;
 	public VkVideoReferenceSlotInfoKHR* pSetupReferenceSlot;
-	public VulkanSpan<VkVideoReferenceSlotInfoKHR> pReferenceSlots;
+	public uint32 referenceSlotCount;
+	public VkVideoReferenceSlotInfoKHR* pReferenceSlots;
+	public VulkanSpan<VkVideoReferenceSlotInfoKHR> referenceSlots
+	{
+		[Inline] get => .(referenceSlotCount, pReferenceSlots);
+		[Inline] set mut { referenceSlotCount = value.count; pReferenceSlots = value.ptr; }
+	}
 	public uint32 precedingExternallyEncodedBytes;
 
-	public this(void* pNext, VkVideoEncodeFlagsKHR flags, VkBuffer dstBuffer, VkDeviceSize dstBufferOffset, VkDeviceSize dstBufferRange, VkVideoPictureResourceInfoKHR srcPictureResource, VkVideoReferenceSlotInfoKHR* pSetupReferenceSlot, VulkanSpan<VkVideoReferenceSlotInfoKHR> pReferenceSlots, uint32 precedingExternallyEncodedBytes)
+	public this(void* pNext, VkVideoEncodeFlagsKHR flags, VkBuffer dstBuffer, VkDeviceSize dstBufferOffset, VkDeviceSize dstBufferRange, VkVideoPictureResourceInfoKHR srcPictureResource, VkVideoReferenceSlotInfoKHR* pSetupReferenceSlot, VulkanSpan<VkVideoReferenceSlotInfoKHR> referenceSlots, uint32 precedingExternallyEncodedBytes) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
@@ -20810,7 +21850,7 @@ typealias VkVideoEncodeFlagsKHR = VkVideoEncodeFlagBitsKHR;
 		this.dstBufferRange = dstBufferRange;
 		this.srcPictureResource = srcPictureResource;
 		this.pSetupReferenceSlot = pSetupReferenceSlot;
-		this.pReferenceSlots = pReferenceSlots;
+		this.referenceSlots = referenceSlots;
 		this.precedingExternallyEncodedBytes = precedingExternallyEncodedBytes;
 	}
 
@@ -20947,16 +21987,22 @@ typealias VkVideoEncodeRateControlModeFlagsKHR = VkVideoEncodeRateControlModeFla
 	public void* pNext;
 	public VkVideoEncodeRateControlFlagsKHR flags;
 	public VkVideoEncodeRateControlModeFlagBitsKHR rateControlMode;
-	public VulkanSpan<VkVideoEncodeRateControlLayerInfoKHR> pLayers;
+	public uint32 layerCount;
+	public VkVideoEncodeRateControlLayerInfoKHR* pLayers;
+	public VulkanSpan<VkVideoEncodeRateControlLayerInfoKHR> layers
+	{
+		[Inline] get => .(layerCount, pLayers);
+		[Inline] set mut { layerCount = value.count; pLayers = value.ptr; }
+	}
 	public uint32 virtualBufferSizeInMs;
 	public uint32 initialVirtualBufferSizeInMs;
 
-	public this(void* pNext, VkVideoEncodeRateControlFlagsKHR flags, VkVideoEncodeRateControlModeFlagBitsKHR rateControlMode, VulkanSpan<VkVideoEncodeRateControlLayerInfoKHR> pLayers, uint32 virtualBufferSizeInMs, uint32 initialVirtualBufferSizeInMs)
+	public this(void* pNext, VkVideoEncodeRateControlFlagsKHR flags, VkVideoEncodeRateControlModeFlagBitsKHR rateControlMode, VulkanSpan<VkVideoEncodeRateControlLayerInfoKHR> layers, uint32 virtualBufferSizeInMs, uint32 initialVirtualBufferSizeInMs) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.rateControlMode = rateControlMode;
-		this.pLayers = pLayers;
+		this.layers = layers;
 		this.virtualBufferSizeInMs = virtualBufferSizeInMs;
 		this.initialVirtualBufferSizeInMs = initialVirtualBufferSizeInMs;
 	}
@@ -21581,8 +22627,8 @@ static { public const c_char* VK_EXT_DESCRIPTOR_BUFFER_EXTENSION_NAME = "VK_EXT_
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetDescriptorSetLayoutSizeEXT(VkDevice device, VkDescriptorSetLayout layout, out VkDeviceSize pLayoutSizeInBytes);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetDescriptorSetLayoutBindingOffsetEXT(VkDevice device, VkDescriptorSetLayout layout, uint32 binding, out VkDeviceSize pOffset);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetDescriptorEXT(VkDevice device, VkDescriptorGetInfoEXT* pDescriptorInfo, c_size dataSize, out void pDescriptor);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindDescriptorBuffersEXT(VkCommandBuffer commandBuffer, VulkanSpan<VkDescriptorBufferBindingInfoEXT> pBindingInfos);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDescriptorBufferOffsetsEXT(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32 firstSet, VulkanDuoSpan<uint32, VkDeviceSize> pBufferIndices_pOffsets);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindDescriptorBuffersEXT(VkCommandBuffer commandBuffer, uint32 bufferCount, VkDescriptorBufferBindingInfoEXT* pBindingInfos);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDescriptorBufferOffsetsEXT(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32 firstSet, uint32 setCount, uint32* pBufferIndices, VkDeviceSize* pOffsets);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32 set);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT(VkDevice device, VkBufferCaptureDescriptorDataInfoEXT* pInfo, out void pData);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetImageOpaqueCaptureDescriptorDataEXT(VkDevice device, VkImageCaptureDescriptorDataInfoEXT* pInfo, out void pData);
@@ -22326,13 +23372,19 @@ static { public const c_char* VK_EXT_IMAGE_COMPRESSION_CONTROL_EXTENSION_NAME = 
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkImageCompressionFlagsEXT flags;
-	public VulkanSpan<VkImageCompressionFixedRateFlagsEXT> pFixedRateFlags;
+	public uint32 compressionControlPlaneCount;
+	public VkImageCompressionFixedRateFlagsEXT* pFixedRateFlags;
+	public VulkanSpan<VkImageCompressionFixedRateFlagsEXT> fixedRateFlags
+	{
+		[Inline] get => .(compressionControlPlaneCount, pFixedRateFlags);
+		[Inline] set mut { compressionControlPlaneCount = value.count; pFixedRateFlags = value.ptr; }
+	}
 
-	public this(void* pNext, VkImageCompressionFlagsEXT flags, VulkanSpan<VkImageCompressionFixedRateFlagsEXT> pFixedRateFlags = .())
+	public this(void* pNext, VkImageCompressionFlagsEXT flags, VulkanSpan<VkImageCompressionFixedRateFlagsEXT> fixedRateFlags = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pFixedRateFlags = pFixedRateFlags;
+		this.fixedRateFlags = fixedRateFlags;
 	}
 
 	public this()
@@ -22702,7 +23754,7 @@ static { public const c_char* VK_EXT_VERTEX_INPUT_DYNAMIC_STATE_EXTENSION_NAME =
 	}
 }
 
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetVertexInputEXT(VkCommandBuffer commandBuffer, VulkanSpan<VkVertexInputBindingDescription2EXT> pVertexBindingDescriptions = .(), VulkanSpan<VkVertexInputAttributeDescription2EXT> pVertexAttributeDescriptions = .());
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetVertexInputEXT(VkCommandBuffer commandBuffer, uint32 vertexBindingDescriptionCount = 0, VkVertexInputBindingDescription2EXT* pVertexBindingDescriptions = null, uint32 vertexAttributeDescriptionCount = 0, VkVertexInputAttributeDescription2EXT* pVertexAttributeDescriptions = null);
 
 static { public const uint32 VK_EXT_PHYSICAL_DEVICE_DRM_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_PHYSICAL_DEVICE_DRM_EXTENSION_NAME = "VK_EXT_physical_device_drm"; }
@@ -23072,19 +24124,31 @@ static { public const c_char* VK_EXT_FRAME_BOUNDARY_EXTENSION_NAME = "VK_EXT_fra
 	public void* pNext;
 	public VkFrameBoundaryFlagsEXT flags;
 	public uint64 frameID;
-	public VulkanSpan<VkImage> pImages;
-	public VulkanSpan<VkBuffer> pBuffers;
+	public uint32 imageCount;
+	public VkImage* pImages;
+	public VulkanSpan<VkImage> images
+	{
+		[Inline] get => .(imageCount, pImages);
+		[Inline] set mut { imageCount = value.count; pImages = value.ptr; }
+	}
+	public uint32 bufferCount;
+	public VkBuffer* pBuffers;
+	public VulkanSpan<VkBuffer> buffers
+	{
+		[Inline] get => .(bufferCount, pBuffers);
+		[Inline] set mut { bufferCount = value.count; pBuffers = value.ptr; }
+	}
 	public uint64 tagName;
 	public c_size tagSize;
 	public void* pTag;
 
-	public this(void* pNext, VkFrameBoundaryFlagsEXT flags, uint64 frameID, VulkanSpan<VkImage> pImages = .(), VulkanSpan<VkBuffer> pBuffers = .(), uint64 tagName = 0, c_size tagSize = 0, void* pTag = null)
+	public this(void* pNext, VkFrameBoundaryFlagsEXT flags, uint64 frameID, VulkanSpan<VkImage> images = .(), VulkanSpan<VkBuffer> buffers = .(), uint64 tagName = 0, c_size tagSize = 0, void* pTag = null) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.frameID = frameID;
-		this.pImages = pImages;
-		this.pBuffers = pBuffers;
+		this.images = images;
+		this.buffers = buffers;
 		this.tagName = tagName;
 		this.tagSize = tagSize;
 		this.pTag = pTag;
@@ -23215,12 +24279,18 @@ static { public const c_char* VK_EXT_COLOR_WRITE_ENABLE_EXTENSION_NAME = "VK_EXT
 	public const VkStructureType SType = .VkPipelineColorWriteCreateInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkBool32> pColorWriteEnables;
+	public uint32 attachmentCount; // # of pAttachments
+	public VkBool32* pColorWriteEnables;
+	public VulkanSpan<VkBool32> colorWriteEnables
+	{
+		[Inline] get => .(attachmentCount, pColorWriteEnables);
+		[Inline] set mut { attachmentCount = value.count; pColorWriteEnables = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkBool32> pColorWriteEnables = .())
+	public this(void* pNext = null, VulkanSpan<VkBool32> colorWriteEnables = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pColorWriteEnables = pColorWriteEnables;
+		this.colorWriteEnables = colorWriteEnables;
 	}
 
 	public this()
@@ -23230,7 +24300,7 @@ static { public const c_char* VK_EXT_COLOR_WRITE_ENABLE_EXTENSION_NAME = "VK_EXT
 	}
 }
 
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorWriteEnableEXT(VkCommandBuffer commandBuffer, VulkanSpan<VkBool32> pColorWriteEnables);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorWriteEnableEXT(VkCommandBuffer commandBuffer, uint32 attachmentCount, VkBool32* pColorWriteEnables);
 
 static { public const uint32 VK_EXT_PRIMITIVES_GENERATED_QUERY_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_PRIMITIVES_GENERATED_QUERY_EXTENSION_NAME = "VK_EXT_primitives_generated_query"; }
@@ -23408,8 +24478,8 @@ static { public const c_char* VK_EXT_MULTI_DRAW_EXTENSION_NAME = "VK_EXT_multi_d
 	public uint32 maxMultiDrawCount;
 }
 
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDrawMultiEXT(VkCommandBuffer commandBuffer, VulkanSpan<VkMultiDrawInfoEXT> pVertexInfo, uint32 instanceCount, uint32 firstInstance, uint32 stride);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDrawMultiIndexedEXT(VkCommandBuffer commandBuffer, VulkanSpan<VkMultiDrawIndexedInfoEXT> pIndexInfo, uint32 instanceCount, uint32 firstInstance, uint32 stride, int32* pVertexOffset = null);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDrawMultiEXT(VkCommandBuffer commandBuffer, uint32 drawCount, VkMultiDrawInfoEXT* pVertexInfo, uint32 instanceCount, uint32 firstInstance, uint32 stride);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDrawMultiIndexedEXT(VkCommandBuffer commandBuffer, uint32 drawCount, VkMultiDrawIndexedInfoEXT* pIndexInfo, uint32 instanceCount, uint32 firstInstance, uint32 stride, int32* pVertexOffset = null);
 
 [CRepr] struct VkMultiDrawInfoEXT
 {
@@ -23528,20 +24598,27 @@ static { public const c_char* VK_EXT_OPACITY_MICROMAP_EXTENSION_NAME = "VK_EXT_o
 	public VkBuildMicromapFlagsEXT flags;
 	public VkBuildMicromapModeEXT mode;
 	public VkMicromapEXT dstMicromap;
-	public VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> pUsageCounts_ppUsageCounts;
+	public uint32 usageCountsCount;
+	public VkMicromapUsageEXT* pUsageCounts;
+	public VkMicromapUsageEXT** ppUsageCounts;
+	public VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> usageCounts_usageCounts
+	{
+		[Inline] get => .(usageCountsCount, pUsageCounts, ppUsageCounts);
+		[Inline] set mut { usageCountsCount = value.count; pUsageCounts = value.ptr1; ppUsageCounts = value.ptr2; }
+	}
 	public VkDeviceOrHostAddressConstKHR data;
 	public VkDeviceOrHostAddressKHR scratchData;
 	public VkDeviceOrHostAddressConstKHR triangleArray;
 	public VkDeviceSize triangleArrayStride;
 
-	public this(void* pNext, VkMicromapTypeEXT type, VkBuildMicromapFlagsEXT flags, VkBuildMicromapModeEXT mode, VkMicromapEXT dstMicromap, VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> pUsageCounts_ppUsageCounts, VkDeviceOrHostAddressConstKHR data, VkDeviceOrHostAddressKHR scratchData, VkDeviceOrHostAddressConstKHR triangleArray, VkDeviceSize triangleArrayStride)
+	public this(void* pNext, VkMicromapTypeEXT type, VkBuildMicromapFlagsEXT flags, VkBuildMicromapModeEXT mode, VkMicromapEXT dstMicromap, VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> usageCounts_usageCounts, VkDeviceOrHostAddressConstKHR data, VkDeviceOrHostAddressKHR scratchData, VkDeviceOrHostAddressConstKHR triangleArray, VkDeviceSize triangleArrayStride) : this()
 	{
 		this.pNext = pNext;
 		this.type = type;
 		this.flags = flags;
 		this.mode = mode;
 		this.dstMicromap = dstMicromap;
-		this.pUsageCounts_ppUsageCounts = pUsageCounts_ppUsageCounts;
+		this.usageCounts_usageCounts = usageCounts_usageCounts;
 		this.data = data;
 		this.scratchData = scratchData;
 		this.triangleArray = triangleArray;
@@ -23799,17 +24876,24 @@ typealias VkMicromapCreateFlagsEXT = VkMicromapCreateFlagBitsEXT;
 	public VkDeviceOrHostAddressConstKHR indexBuffer;
 	public VkDeviceSize indexStride;
 	public uint32 baseTriangle;
-	public VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> pUsageCounts_ppUsageCounts;
+	public uint32 usageCountsCount;
+	public VkMicromapUsageEXT* pUsageCounts;
+	public VkMicromapUsageEXT** ppUsageCounts;
+	public VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> usageCounts_usageCounts
+	{
+		[Inline] get => .(usageCountsCount, pUsageCounts, ppUsageCounts);
+		[Inline] set mut { usageCountsCount = value.count; pUsageCounts = value.ptr1; ppUsageCounts = value.ptr2; }
+	}
 	public VkMicromapEXT micromap;
 
-	public this(void* pNext, VkIndexType indexType, VkDeviceOrHostAddressConstKHR indexBuffer, VkDeviceSize indexStride, uint32 baseTriangle, VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> pUsageCounts_ppUsageCounts = .(), VkMicromapEXT micromap = null)
+	public this(void* pNext, VkIndexType indexType, VkDeviceOrHostAddressConstKHR indexBuffer, VkDeviceSize indexStride, uint32 baseTriangle, VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> usageCounts_usageCounts = .(), VkMicromapEXT micromap = null) : this()
 	{
 		this.pNext = pNext;
 		this.indexType = indexType;
 		this.indexBuffer = indexBuffer;
 		this.indexStride = indexStride;
 		this.baseTriangle = baseTriangle;
-		this.pUsageCounts_ppUsageCounts = pUsageCounts_ppUsageCounts;
+		this.usageCounts_usageCounts = usageCounts_usageCounts;
 		this.micromap = micromap;
 	}
 
@@ -23849,16 +24933,16 @@ typealias VkMicromapCreateFlagsEXT = VkMicromapCreateFlagBitsEXT;
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateMicromapEXT(VkDevice device, VkMicromapCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkMicromapEXT pMicromap);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyMicromapEXT(VkDevice device, VkMicromapEXT micromap = null, VkAllocationCallbacks* pAllocator = null);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBuildMicromapsEXT(VkCommandBuffer commandBuffer, VulkanSpan<VkMicromapBuildInfoEXT> pInfos);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBuildMicromapsEXT(VkDevice device, VkDeferredOperationKHR deferredOperation, VulkanSpan<VkMicromapBuildInfoEXT> pInfos);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBuildMicromapsEXT(VkCommandBuffer commandBuffer, uint32 infoCount, VkMicromapBuildInfoEXT* pInfos);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkBuildMicromapsEXT(VkDevice device, VkDeferredOperationKHR deferredOperation, uint32 infoCount, VkMicromapBuildInfoEXT* pInfos);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCopyMicromapEXT(VkDevice device, VkDeferredOperationKHR deferredOperation, VkCopyMicromapInfoEXT* pInfo);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCopyMicromapToMemoryEXT(VkDevice device, VkDeferredOperationKHR deferredOperation, VkCopyMicromapToMemoryInfoEXT* pInfo);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCopyMemoryToMicromapEXT(VkDevice device, VkDeferredOperationKHR deferredOperation, VkCopyMemoryToMicromapInfoEXT* pInfo);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkWriteMicromapsPropertiesEXT(VkDevice device, VulkanSpan<VkMicromapEXT> pMicromaps, VkQueryType queryType, c_size dataSize, out void pData, c_size stride);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkWriteMicromapsPropertiesEXT(VkDevice device, uint32 micromapCount, VkMicromapEXT* pMicromaps, VkQueryType queryType, c_size dataSize, out void pData, c_size stride);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyMicromapEXT(VkCommandBuffer commandBuffer, VkCopyMicromapInfoEXT* pInfo);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyMicromapToMemoryEXT(VkCommandBuffer commandBuffer, VkCopyMicromapToMemoryInfoEXT* pInfo);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCopyMemoryToMicromapEXT(VkCommandBuffer commandBuffer, VkCopyMemoryToMicromapInfoEXT* pInfo);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWriteMicromapsPropertiesEXT(VkCommandBuffer commandBuffer, VulkanSpan<VkMicromapEXT> pMicromaps, VkQueryType queryType, VkQueryPool queryPool, uint32 firstQuery);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWriteMicromapsPropertiesEXT(VkCommandBuffer commandBuffer, uint32 micromapCount, VkMicromapEXT* pMicromaps, VkQueryType queryType, VkQueryPool queryPool, uint32 firstQuery);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetDeviceMicromapCompatibilityEXT(VkDevice device, VkMicromapVersionInfoEXT* pVersionInfo, out VkAccelerationStructureCompatibilityKHR pCompatibility);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetMicromapBuildSizesEXT(VkDevice device, VkAccelerationStructureBuildTypeKHR buildType, VkMicromapBuildInfoEXT* pBuildInfo, out VkMicromapBuildSizesInfoEXT pSizeInfo);
 
@@ -24290,12 +25374,18 @@ static { public const c_char* VK_ARM_RENDER_PASS_STRIPED_EXTENSION_NAME = "VK_AR
 	public const VkStructureType SType = .VkRenderPassStripeBeginInfoARM;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkRenderPassStripeInfoARM> pStripeInfos;
+	public uint32 stripeInfoCount;
+	public VkRenderPassStripeInfoARM* pStripeInfos;
+	public VulkanSpan<VkRenderPassStripeInfoARM> stripeInfos
+	{
+		[Inline] get => .(stripeInfoCount, pStripeInfos);
+		[Inline] set mut { stripeInfoCount = value.count; pStripeInfos = value.ptr; }
+	}
 
-	public this(void* pNext, VulkanSpan<VkRenderPassStripeInfoARM> pStripeInfos)
+	public this(void* pNext, VulkanSpan<VkRenderPassStripeInfoARM> stripeInfos) : this()
 	{
 		this.pNext = pNext;
-		this.pStripeInfos = pStripeInfos;
+		this.stripeInfos = stripeInfos;
 	}
 
 	public this()
@@ -24330,12 +25420,18 @@ static { public const c_char* VK_ARM_RENDER_PASS_STRIPED_EXTENSION_NAME = "VK_AR
 	public const VkStructureType SType = .VkRenderPassStripeSubmitInfoARM;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkSemaphoreSubmitInfo> pStripeSemaphoreInfos;
+	public uint32 stripeSemaphoreInfoCount;
+	public VkSemaphoreSubmitInfo* pStripeSemaphoreInfos;
+	public VulkanSpan<VkSemaphoreSubmitInfo> stripeSemaphoreInfos
+	{
+		[Inline] get => .(stripeSemaphoreInfoCount, pStripeSemaphoreInfos);
+		[Inline] set mut { stripeSemaphoreInfoCount = value.count; pStripeSemaphoreInfos = value.ptr; }
+	}
 
-	public this(void* pNext, VulkanSpan<VkSemaphoreSubmitInfo> pStripeSemaphoreInfos)
+	public this(void* pNext, VulkanSpan<VkSemaphoreSubmitInfo> stripeSemaphoreInfos) : this()
 	{
 		this.pNext = pNext;
-		this.pStripeSemaphoreInfos = pStripeSemaphoreInfos;
+		this.stripeSemaphoreInfos = stripeSemaphoreInfos;
 	}
 
 	public this()
@@ -24381,12 +25477,18 @@ static { public const c_char* VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_EXTENSION_NAME
 	public const VkStructureType SType = .VkSubpassFragmentDensityMapOffsetEndInfoQCOM;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkOffset2D> pFragmentDensityOffsets;
+	public uint32 fragmentDensityOffsetCount;
+	public VkOffset2D* pFragmentDensityOffsets;
+	public VulkanSpan<VkOffset2D> fragmentDensityOffsets
+	{
+		[Inline] get => .(fragmentDensityOffsetCount, pFragmentDensityOffsets);
+		[Inline] set mut { fragmentDensityOffsetCount = value.count; pFragmentDensityOffsets = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkOffset2D> pFragmentDensityOffsets = .())
+	public this(void* pNext = null, VulkanSpan<VkOffset2D> fragmentDensityOffsets = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pFragmentDensityOffsets = pFragmentDensityOffsets;
+		this.fragmentDensityOffsets = fragmentDensityOffsets;
 	}
 
 	public this()
@@ -24536,7 +25638,7 @@ typealias VkMemoryDecompressionMethodFlagsNV = VkMemoryDecompressionMethodFlagBi
 	public uint64 maxDecompressionIndirectCount;
 }
 
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDecompressMemoryNV(VkCommandBuffer commandBuffer, VulkanSpan<VkDecompressMemoryRegionNV> pDecompressMemoryRegions);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDecompressMemoryNV(VkCommandBuffer commandBuffer, uint32 decompressRegionCount, VkDecompressMemoryRegionNV* pDecompressMemoryRegions);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDecompressMemoryIndirectCountNV(VkCommandBuffer commandBuffer, VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint32 stride);
 
 static { public const uint32 VK_NV_DEVICE_GENERATED_COMMANDS_COMPUTE_SPEC_VERSION = 2; }
@@ -24992,27 +26094,27 @@ static { public const c_char* VK_EXT_EXTENDED_DYNAMIC_STATE_3_EXTENSION_NAME = "
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetAlphaToCoverageEnableEXT(VkCommandBuffer commandBuffer, VkBool32 alphaToCoverageEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetAlphaToOneEnableEXT(VkCommandBuffer commandBuffer, VkBool32 alphaToOneEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetLogicOpEnableEXT(VkCommandBuffer commandBuffer, VkBool32 logicOpEnable);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorBlendEnableEXT(VkCommandBuffer commandBuffer, uint32 firstAttachment, VulkanSpan<VkBool32> pColorBlendEnables);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorBlendEquationEXT(VkCommandBuffer commandBuffer, uint32 firstAttachment, VulkanSpan<VkColorBlendEquationEXT> pColorBlendEquations);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorWriteMaskEXT(VkCommandBuffer commandBuffer, uint32 firstAttachment, VulkanSpan<VkColorComponentFlags> pColorWriteMasks);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorBlendEnableEXT(VkCommandBuffer commandBuffer, uint32 firstAttachment, uint32 attachmentCount, VkBool32* pColorBlendEnables);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorBlendEquationEXT(VkCommandBuffer commandBuffer, uint32 firstAttachment, uint32 attachmentCount, VkColorBlendEquationEXT* pColorBlendEquations);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorWriteMaskEXT(VkCommandBuffer commandBuffer, uint32 firstAttachment, uint32 attachmentCount, VkColorComponentFlags* pColorWriteMasks);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetTessellationDomainOriginEXT(VkCommandBuffer commandBuffer, VkTessellationDomainOrigin domainOrigin);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetRasterizationStreamEXT(VkCommandBuffer commandBuffer, uint32 rasterizationStream);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetConservativeRasterizationModeEXT(VkCommandBuffer commandBuffer, VkConservativeRasterizationModeEXT conservativeRasterizationMode);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT(VkCommandBuffer commandBuffer, float extraPrimitiveOverestimationSize);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDepthClipEnableEXT(VkCommandBuffer commandBuffer, VkBool32 depthClipEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetSampleLocationsEnableEXT(VkCommandBuffer commandBuffer, VkBool32 sampleLocationsEnable);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorBlendAdvancedEXT(VkCommandBuffer commandBuffer, uint32 firstAttachment, VulkanSpan<VkColorBlendAdvancedEXT> pColorBlendAdvanced);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetColorBlendAdvancedEXT(VkCommandBuffer commandBuffer, uint32 firstAttachment, uint32 attachmentCount, VkColorBlendAdvancedEXT* pColorBlendAdvanced);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetProvokingVertexModeEXT(VkCommandBuffer commandBuffer, VkProvokingVertexModeEXT provokingVertexMode);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetLineRasterizationModeEXT(VkCommandBuffer commandBuffer, VkLineRasterizationModeEXT lineRasterizationMode);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetLineStippleEnableEXT(VkCommandBuffer commandBuffer, VkBool32 stippledLineEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDepthClipNegativeOneToOneEXT(VkCommandBuffer commandBuffer, VkBool32 negativeOneToOne);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewportWScalingEnableNV(VkCommandBuffer commandBuffer, VkBool32 viewportWScalingEnable);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewportSwizzleNV(VkCommandBuffer commandBuffer, uint32 firstViewport, VulkanSpan<VkViewportSwizzleNV> pViewportSwizzles);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetViewportSwizzleNV(VkCommandBuffer commandBuffer, uint32 firstViewport, uint32 viewportCount, VkViewportSwizzleNV* pViewportSwizzles);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCoverageToColorEnableNV(VkCommandBuffer commandBuffer, VkBool32 coverageToColorEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCoverageToColorLocationNV(VkCommandBuffer commandBuffer, uint32 coverageToColorLocation);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCoverageModulationModeNV(VkCommandBuffer commandBuffer, VkCoverageModulationModeNV coverageModulationMode);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCoverageModulationTableEnableNV(VkCommandBuffer commandBuffer, VkBool32 coverageModulationTableEnable);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCoverageModulationTableNV(VkCommandBuffer commandBuffer, VulkanSpan<float> pCoverageModulationTable);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCoverageModulationTableNV(VkCommandBuffer commandBuffer, uint32 coverageModulationTableCount, float* pCoverageModulationTable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetShadingRateImageEnableNV(VkCommandBuffer commandBuffer, VkBool32 shadingRateImageEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetRepresentativeFragmentTestEnableNV(VkCommandBuffer commandBuffer, VkBool32 representativeFragmentTestEnable);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetCoverageReductionModeNV(VkCommandBuffer commandBuffer, VkCoverageReductionModeNV coverageReductionMode);
@@ -25169,13 +26271,19 @@ typealias VkDirectDriverLoadingFlagsLUNARG = VkFlags;
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkDirectDriverLoadingModeLUNARG mode;
-	public VulkanSpan<VkDirectDriverLoadingInfoLUNARG> pDrivers;
+	public uint32 driverCount;
+	public VkDirectDriverLoadingInfoLUNARG* pDrivers;
+	public VulkanSpan<VkDirectDriverLoadingInfoLUNARG> drivers
+	{
+		[Inline] get => .(driverCount, pDrivers);
+		[Inline] set mut { driverCount = value.count; pDrivers = value.ptr; }
+	}
 
-	public this(void* pNext, VkDirectDriverLoadingModeLUNARG mode, VulkanSpan<VkDirectDriverLoadingInfoLUNARG> pDrivers)
+	public this(void* pNext, VkDirectDriverLoadingModeLUNARG mode, VulkanSpan<VkDirectDriverLoadingInfoLUNARG> drivers) : this()
 	{
 		this.pNext = pNext;
 		this.mode = mode;
-		this.pDrivers = pDrivers;
+		this.drivers = drivers;
 	}
 
 	public this()
@@ -25224,12 +26332,18 @@ static { public const uint32 VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT = 32; }
 	public const VkStructureType SType = .VkPipelineShaderStageModuleIdentifierCreateInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<uint8> pIdentifier;
+	public uint32 identifierSize;
+	public uint8* pIdentifier;
+	public VulkanSpan<uint8> identifier
+	{
+		[Inline] get => .(identifierSize, pIdentifier);
+		[Inline] set mut { identifierSize = value.count; pIdentifier = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<uint8> pIdentifier = .())
+	public this(void* pNext = null, VulkanSpan<uint8> identifier = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pIdentifier = pIdentifier;
+		this.identifier = identifier;
 	}
 
 	public this()
@@ -25491,13 +26605,19 @@ class VkOpticalFlowSessionNV { private this() { } }
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkOpticalFlowExecuteFlagsNV flags;
-	public VulkanSpan<VkRect2D> pRegions;
+	public uint32 regionCount;
+	public VkRect2D* pRegions;
+	public VulkanSpan<VkRect2D> regions
+	{
+		[Inline] get => .(regionCount, pRegions);
+		[Inline] set mut { regionCount = value.count; pRegions = value.ptr; }
+	}
 
-	public this(void* pNext = null, VkOpticalFlowExecuteFlagsNV flags = 0, VulkanSpan<VkRect2D> pRegions = .())
+	public this(void* pNext = null, VkOpticalFlowExecuteFlagsNV flags = 0, VulkanSpan<VkRect2D> regions = .()) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
-		this.pRegions = pRegions;
+		this.regions = regions;
 	}
 
 	public this()
@@ -25730,11 +26850,23 @@ typealias VkShaderCreateFlagsEXT = VkShaderCreateFlagBitsEXT;
 	public c_size codeSize;
 	public void* pCode;
 	public c_char* pName;
-	public VulkanSpan<VkDescriptorSetLayout> pSetLayouts;
-	public VulkanSpan<VkPushConstantRange> pPushConstantRanges;
+	public uint32 setLayoutCount;
+	public VkDescriptorSetLayout* pSetLayouts;
+	public VulkanSpan<VkDescriptorSetLayout> setLayouts
+	{
+		[Inline] get => .(setLayoutCount, pSetLayouts);
+		[Inline] set mut { setLayoutCount = value.count; pSetLayouts = value.ptr; }
+	}
+	public uint32 pushConstantRangeCount;
+	public VkPushConstantRange* pPushConstantRanges;
+	public VulkanSpan<VkPushConstantRange> pushConstantRanges
+	{
+		[Inline] get => .(pushConstantRangeCount, pPushConstantRanges);
+		[Inline] set mut { pushConstantRangeCount = value.count; pPushConstantRanges = value.ptr; }
+	}
 	public VkSpecializationInfo* pSpecializationInfo;
 
-	public this(void* pNext, VkShaderCreateFlagsEXT flags, VkShaderStageFlagBits stage, VkShaderStageFlags nextStage, VkShaderCodeTypeEXT codeType, c_size codeSize, void* pCode, c_char* pName = null, VulkanSpan<VkDescriptorSetLayout> pSetLayouts = .(), VulkanSpan<VkPushConstantRange> pPushConstantRanges = .(), VkSpecializationInfo* pSpecializationInfo = null)
+	public this(void* pNext, VkShaderCreateFlagsEXT flags, VkShaderStageFlagBits stage, VkShaderStageFlags nextStage, VkShaderCodeTypeEXT codeType, c_size codeSize, void* pCode, c_char* pName = null, VulkanSpan<VkDescriptorSetLayout> setLayouts = .(), VulkanSpan<VkPushConstantRange> pushConstantRanges = .(), VkSpecializationInfo* pSpecializationInfo = null) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
@@ -25744,8 +26876,8 @@ typealias VkShaderCreateFlagsEXT = VkShaderCreateFlagBitsEXT;
 		this.codeSize = codeSize;
 		this.pCode = pCode;
 		this.pName = pName;
-		this.pSetLayouts = pSetLayouts;
-		this.pPushConstantRanges = pPushConstantRanges;
+		this.setLayouts = setLayouts;
+		this.pushConstantRanges = pushConstantRanges;
 		this.pSpecializationInfo = pSpecializationInfo;
 	}
 
@@ -25758,10 +26890,10 @@ typealias VkShaderCreateFlagsEXT = VkShaderCreateFlagBitsEXT;
 
 typealias VkShaderRequiredSubgroupSizeCreateInfoEXT = VkPipelineShaderStageRequiredSubgroupSizeCreateInfo;
 
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateShadersEXT(VkDevice device, VulkanSpan<VkShaderCreateInfoEXT> pCreateInfos, VkAllocationCallbacks* pAllocator, out VkShaderEXT pShaders);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateShadersEXT(VkDevice device, uint32 createInfoCount, VkShaderCreateInfoEXT* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkShaderEXT pShaders);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyShaderEXT(VkDevice device, VkShaderEXT shader = null, VkAllocationCallbacks* pAllocator = null);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetShaderBinaryDataEXT(VkDevice device, VkShaderEXT shader, out c_size pDataSize, out void pData);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindShadersEXT(VkCommandBuffer commandBuffer, VulkanDuoSpan<VkShaderStageFlagBits, VkShaderEXT> pStages_pShaders);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdBindShadersEXT(VkCommandBuffer commandBuffer, uint32 stageCount, VkShaderStageFlagBits* pStages, VkShaderEXT* pShaders);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetDepthClampRangeEXT(VkCommandBuffer commandBuffer, VkDepthClampModeEXT depthClampMode, VkDepthClampRangeEXT* pDepthClampRange = null);
 
 static { public const uint32 VK_KHR_PIPELINE_BINARY_SPEC_VERSION = 1; }
@@ -25879,11 +27011,18 @@ class VkPipelineBinaryKHR { private this() { } }
 
 [CRepr] struct VkPipelineBinaryKeysAndDataKHR
 {
-	public VulkanDuoSpan<VkPipelineBinaryKeyKHR, VkPipelineBinaryDataKHR> pPipelineBinaryKeys_pPipelineBinaryData;
-
-	public this(VulkanDuoSpan<VkPipelineBinaryKeyKHR, VkPipelineBinaryDataKHR> pPipelineBinaryKeys_pPipelineBinaryData)
+	public uint32 binaryCount;
+	public VkPipelineBinaryKeyKHR* pPipelineBinaryKeys;
+	public VkPipelineBinaryDataKHR* pPipelineBinaryData;
+	public VulkanDuoSpan<VkPipelineBinaryKeyKHR, VkPipelineBinaryDataKHR> pipelineBinaryKeys_pipelineBinaryData
 	{
-		this.pPipelineBinaryKeys_pPipelineBinaryData = pPipelineBinaryKeys_pPipelineBinaryData;
+		[Inline] get => .(binaryCount, pPipelineBinaryKeys, pPipelineBinaryData);
+		[Inline] set mut { binaryCount = value.count; pPipelineBinaryKeys = value.ptr1; pPipelineBinaryData = value.ptr2; }
+	}
+
+	public this(VulkanDuoSpan<VkPipelineBinaryKeyKHR, VkPipelineBinaryDataKHR> pipelineBinaryKeys_pipelineBinaryData) : this()
+	{
+		this.pipelineBinaryKeys_pipelineBinaryData = pipelineBinaryKeys_pipelineBinaryData;
 	}
 
 	public this()
@@ -25921,12 +27060,18 @@ class VkPipelineBinaryKHR { private this() { } }
 	public const VkStructureType SType = .VkPipelineBinaryInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPipelineBinaryKHR> pPipelineBinaries;
+	public uint32 binaryCount;
+	public VkPipelineBinaryKHR* pPipelineBinaries;
+	public VulkanSpan<VkPipelineBinaryKHR> pipelineBinaries
+	{
+		[Inline] get => .(binaryCount, pPipelineBinaries);
+		[Inline] set mut { binaryCount = value.count; pPipelineBinaries = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkPipelineBinaryKHR> pPipelineBinaries = .())
+	public this(void* pNext = null, VulkanSpan<VkPipelineBinaryKHR> pipelineBinaries = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pPipelineBinaries = pPipelineBinaries;
+		this.pipelineBinaries = pipelineBinaries;
 	}
 
 	public this()
@@ -25999,12 +27144,18 @@ class VkPipelineBinaryKHR { private this() { } }
 	public const VkStructureType SType = .VkPipelineBinaryHandlesInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPipelineBinaryKHR> pPipelineBinaries;
+	public uint32 pipelineBinaryCount;
+	public VkPipelineBinaryKHR* pPipelineBinaries;
+	public VulkanSpan<VkPipelineBinaryKHR> pipelineBinaries
+	{
+		[Inline] get => .(pipelineBinaryCount, pPipelineBinaries);
+		[Inline] set mut { pipelineBinaryCount = value.count; pPipelineBinaries = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkPipelineBinaryKHR> pPipelineBinaries = .())
+	public this(void* pNext, VulkanSpan<VkPipelineBinaryKHR> pipelineBinaries = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pPipelineBinaries = pPipelineBinaries;
+		this.pipelineBinaries = pipelineBinaries;
 	}
 
 	public this()
@@ -26233,11 +27384,17 @@ static { public const c_char* VK_EXT_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME = "V
 
 [CRepr] struct VkMutableDescriptorTypeListEXT
 {
-	public VulkanSpan<VkDescriptorType> pDescriptorTypes;
-
-	public this(VulkanSpan<VkDescriptorType> pDescriptorTypes = .())
+	public uint32 descriptorTypeCount;
+	public VkDescriptorType* pDescriptorTypes;
+	public VulkanSpan<VkDescriptorType> descriptorTypes
 	{
-		this.pDescriptorTypes = pDescriptorTypes;
+		[Inline] get => .(descriptorTypeCount, pDescriptorTypes);
+		[Inline] set mut { descriptorTypeCount = value.count; pDescriptorTypes = value.ptr; }
+	}
+
+	public this(VulkanSpan<VkDescriptorType> descriptorTypes = .()) : this()
+	{
+		this.descriptorTypes = descriptorTypes;
 	}
 
 	public this()
@@ -26251,12 +27408,18 @@ static { public const c_char* VK_EXT_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME = "V
 	public const VkStructureType SType = .VkMutableDescriptorTypeCreateInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkMutableDescriptorTypeListEXT> pMutableDescriptorTypeLists;
+	public uint32 mutableDescriptorTypeListCount;
+	public VkMutableDescriptorTypeListEXT* pMutableDescriptorTypeLists;
+	public VulkanSpan<VkMutableDescriptorTypeListEXT> mutableDescriptorTypeLists
+	{
+		[Inline] get => .(mutableDescriptorTypeListCount, pMutableDescriptorTypeLists);
+		[Inline] set mut { mutableDescriptorTypeListCount = value.count; pMutableDescriptorTypeLists = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkMutableDescriptorTypeListEXT> pMutableDescriptorTypeLists = .())
+	public this(void* pNext = null, VulkanSpan<VkMutableDescriptorTypeListEXT> mutableDescriptorTypeLists = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pMutableDescriptorTypeLists = pMutableDescriptorTypeLists;
+		this.mutableDescriptorTypeLists = mutableDescriptorTypeLists;
 	}
 
 	public this()
@@ -26317,12 +27480,18 @@ static { public const c_char* VK_EXT_LAYER_SETTINGS_EXTENSION_NAME = "VK_EXT_lay
 	public const VkStructureType SType = .VkLayerSettingsCreateInfoEXT;
 	public VkStructureType sType = SType; // Must be VK_STRUCTURE_TYPE_LAYER_SETTINGS_CREATE_INFO_EXT
 	public void* pNext;
-	public VulkanSpan<VkLayerSettingEXT> pSettings; // Validation features to enable
+	public uint32 settingCount; // Number of settings to configure
+	public VkLayerSettingEXT* pSettings; // Validation features to enable
+	public VulkanSpan<VkLayerSettingEXT> settings
+	{
+		[Inline] get => .(settingCount, pSettings);
+		[Inline] set mut { settingCount = value.count; pSettings = value.ptr; }
+	} // Validation features to enable
 
-	public this(void* pNext = null, VulkanSpan<VkLayerSettingEXT> pSettings = .())
+	public this(void* pNext = null, VulkanSpan<VkLayerSettingEXT> settings = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pSettings = pSettings;
+		this.settings = settings;
 	}
 
 	public this()
@@ -26522,12 +27691,18 @@ static { public const c_char* VK_NV_LOW_LATENCY_2_EXTENSION_NAME = "VK_NV_low_la
 	public const VkStructureType SType = .VkGetLatencyMarkerInfoNV;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkLatencyTimingsFrameReportNV> pTimings;
+	public uint32 timingCount;
+	public VkLatencyTimingsFrameReportNV* pTimings;
+	public VulkanSpan<VkLatencyTimingsFrameReportNV> timings
+	{
+		[Inline] get => .(timingCount, pTimings);
+		[Inline] set mut { timingCount = value.count; pTimings = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkLatencyTimingsFrameReportNV> pTimings = .())
+	public this(void* pNext = null, VulkanSpan<VkLatencyTimingsFrameReportNV> timings = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pTimings = pTimings;
+		this.timings = timings;
 	}
 
 	public this()
@@ -26645,12 +27820,18 @@ static { public const c_char* VK_NV_LOW_LATENCY_2_EXTENSION_NAME = "VK_NV_low_la
 	public const VkStructureType SType = .VkLatencySurfaceCapabilitiesNV;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPresentModeKHR> pPresentModes;
+	public uint32 presentModeCount;
+	public VkPresentModeKHR* pPresentModes;
+	public VulkanSpan<VkPresentModeKHR> presentModes
+	{
+		[Inline] get => .(presentModeCount, pPresentModes);
+		[Inline] set mut { presentModeCount = value.count; pPresentModes = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkPresentModeKHR> pPresentModes = .())
+	public this(void* pNext = null, VulkanSpan<VkPresentModeKHR> presentModes = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pPresentModes = pPresentModes;
+		this.presentModes = presentModes;
 	}
 
 	public this()
@@ -26783,12 +27964,18 @@ static { public const c_char* VK_QCOM_MULTIVIEW_PER_VIEW_RENDER_AREAS_EXTENSION_
 	public const VkStructureType SType = .VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkRect2D> pPerViewRenderAreas;
+	public uint32 perViewRenderAreaCount;
+	public VkRect2D* pPerViewRenderAreas;
+	public VulkanSpan<VkRect2D> perViewRenderAreas
+	{
+		[Inline] get => .(perViewRenderAreaCount, pPerViewRenderAreas);
+		[Inline] set mut { perViewRenderAreaCount = value.count; pPerViewRenderAreas = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkRect2D> pPerViewRenderAreas = .())
+	public this(void* pNext = null, VulkanSpan<VkRect2D> perViewRenderAreas = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pPerViewRenderAreas = pPerViewRenderAreas;
+		this.perViewRenderAreas = perViewRenderAreas;
 	}
 
 	public this()
@@ -26893,15 +28080,22 @@ static { public const uint32 VK_MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR = 7; }
 	public StdVideoDecodeAV1PictureInfo* pStdPictureInfo;
 	public int32[VK_MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR] referenceNameSlotIndices;
 	public uint32 frameHeaderOffset;
-	public VulkanDuoSpan<uint32, uint32> pTileOffsets_pTileSizes;
+	public uint32 tileCount;
+	public uint32* pTileOffsets;
+	public uint32* pTileSizes;
+	public VulkanDuoSpan<uint32, uint32> tileOffsets_tileSizes
+	{
+		[Inline] get => .(tileCount, pTileOffsets, pTileSizes);
+		[Inline] set mut { tileCount = value.count; pTileOffsets = value.ptr1; pTileSizes = value.ptr2; }
+	}
 
-	public this(void* pNext, StdVideoDecodeAV1PictureInfo* pStdPictureInfo, int32[VK_MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR] referenceNameSlotIndices, uint32 frameHeaderOffset, VulkanDuoSpan<uint32, uint32> pTileOffsets_pTileSizes)
+	public this(void* pNext, StdVideoDecodeAV1PictureInfo* pStdPictureInfo, int32[VK_MAX_VIDEO_AV1_REFERENCES_PER_FRAME_KHR] referenceNameSlotIndices, uint32 frameHeaderOffset, VulkanDuoSpan<uint32, uint32> tileOffsets_tileSizes) : this()
 	{
 		this.pNext = pNext;
 		this.pStdPictureInfo = pStdPictureInfo;
 		this.referenceNameSlotIndices = referenceNameSlotIndices;
 		this.frameHeaderOffset = frameHeaderOffset;
-		this.pTileOffsets_pTileSizes = pTileOffsets_pTileSizes;
+		this.tileOffsets_tileSizes = tileOffsets_tileSizes;
 	}
 
 	public this()
@@ -27079,14 +28273,20 @@ typealias VkVideoEncodeAV1SuperblockSizeFlagsKHR = VkVideoEncodeAV1SuperblockSiz
 	public void* pNext;
 	public StdVideoAV1SequenceHeader* pStdSequenceHeader;
 	public StdVideoEncodeAV1DecoderModelInfo* pStdDecoderModelInfo;
-	public VulkanSpan<StdVideoEncodeAV1OperatingPointInfo> pStdOperatingPoints;
+	public uint32 stdOperatingPointCount;
+	public StdVideoEncodeAV1OperatingPointInfo* pStdOperatingPoints;
+	public VulkanSpan<StdVideoEncodeAV1OperatingPointInfo> stdOperatingPoints
+	{
+		[Inline] get => .(stdOperatingPointCount, pStdOperatingPoints);
+		[Inline] set mut { stdOperatingPointCount = value.count; pStdOperatingPoints = value.ptr; }
+	}
 
-	public this(void* pNext, StdVideoAV1SequenceHeader* pStdSequenceHeader, StdVideoEncodeAV1DecoderModelInfo* pStdDecoderModelInfo = null, VulkanSpan<StdVideoEncodeAV1OperatingPointInfo> pStdOperatingPoints = .())
+	public this(void* pNext, StdVideoAV1SequenceHeader* pStdSequenceHeader, StdVideoEncodeAV1DecoderModelInfo* pStdDecoderModelInfo = null, VulkanSpan<StdVideoEncodeAV1OperatingPointInfo> stdOperatingPoints = .()) : this()
 	{
 		this.pNext = pNext;
 		this.pStdSequenceHeader = pStdSequenceHeader;
 		this.pStdDecoderModelInfo = pStdDecoderModelInfo;
-		this.pStdOperatingPoints = pStdOperatingPoints;
+		this.stdOperatingPoints = stdOperatingPoints;
 	}
 
 	public this()
@@ -27676,7 +28876,7 @@ static { public const c_char* VK_KHR_CALIBRATED_TIMESTAMPS_EXTENSION_NAME = "VK_
 }
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR(VkPhysicalDevice physicalDevice, out uint32 pTimeDomainCount, VkTimeDomainKHR* pTimeDomains = null);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetCalibratedTimestampsKHR(VkDevice device, VulkanDuoSpan<VkCalibratedTimestampInfoKHR, uint64> pTimestampInfos_pTimestamps, out uint64 pMaxDeviation);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetCalibratedTimestampsKHR(VkDevice device, uint32 timestampCount, VkCalibratedTimestampInfoKHR* pTimestampInfos, uint64* pTimestamps, out uint64 pMaxDeviation);
 
 static { public const uint32 VK_KHR_SHADER_EXPECT_ASSUME_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_SHADER_EXPECT_ASSUME_EXTENSION_NAME = "VK_KHR_shader_expect_assume"; }
@@ -27702,15 +28902,22 @@ typealias VkPushDescriptorSetWithTemplateInfoKHR = VkPushDescriptorSetWithTempla
 	public VkShaderStageFlags stageFlags;
 	public VkPipelineLayout layout;
 	public uint32 firstSet;
-	public VulkanDuoSpan<uint32, VkDeviceSize> pBufferIndices_pOffsets;
+	public uint32 setCount;
+	public uint32* pBufferIndices;
+	public VkDeviceSize* pOffsets;
+	public VulkanDuoSpan<uint32, VkDeviceSize> bufferIndices_offsets
+	{
+		[Inline] get => .(setCount, pBufferIndices, pOffsets);
+		[Inline] set mut { setCount = value.count; pBufferIndices = value.ptr1; pOffsets = value.ptr2; }
+	}
 
-	public this(void* pNext, VkShaderStageFlags stageFlags, VkPipelineLayout layout, uint32 firstSet, VulkanDuoSpan<uint32, VkDeviceSize> pBufferIndices_pOffsets)
+	public this(void* pNext, VkShaderStageFlags stageFlags, VkPipelineLayout layout, uint32 firstSet, VulkanDuoSpan<uint32, VkDeviceSize> bufferIndices_offsets) : this()
 	{
 		this.pNext = pNext;
 		this.stageFlags = stageFlags;
 		this.layout = layout;
 		this.firstSet = firstSet;
-		this.pBufferIndices_pOffsets = pBufferIndices_pOffsets;
+		this.bufferIndices_offsets = bufferIndices_offsets;
 	}
 
 	public this()
@@ -28057,12 +29264,18 @@ static { public const c_char* VK_KHR_MAINTENANCE_7_EXTENSION_NAME = "VK_KHR_main
 	public const VkStructureType SType = .VkPhysicalDeviceLayeredApiPropertiesListKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkPhysicalDeviceLayeredApiPropertiesKHR> pLayeredApis; // Output list of layered implementations underneath the physical device
+	public uint32 layeredApiCount;
+	public VkPhysicalDeviceLayeredApiPropertiesKHR* pLayeredApis; // Output list of layered implementations underneath the physical device
+	public VulkanSpan<VkPhysicalDeviceLayeredApiPropertiesKHR> layeredApis
+	{
+		[Inline] get => .(layeredApiCount, pLayeredApis);
+		[Inline] set mut { layeredApiCount = value.count; pLayeredApis = value.ptr; }
+	} // Output list of layered implementations underneath the physical device
 
-	public this(void* pNext = null, VulkanSpan<VkPhysicalDeviceLayeredApiPropertiesKHR> pLayeredApis = .())
+	public this(void* pNext = null, VulkanSpan<VkPhysicalDeviceLayeredApiPropertiesKHR> layeredApis = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pLayeredApis = pLayeredApis;
+		this.layeredApis = layeredApis;
 	}
 
 	public this()
@@ -28294,16 +29507,29 @@ static { public const c_char* VK_EXT_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME = 
 	public const VkStructureType SType = .VkIndirectExecutionSetShaderInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanDuoSpan<VkShaderEXT, VkIndirectExecutionSetShaderLayoutInfoEXT> pInitialShaders_pSetLayoutInfos;
+	public uint32 shaderCount;
+	public VkShaderEXT* pInitialShaders;
+	public VkIndirectExecutionSetShaderLayoutInfoEXT* pSetLayoutInfos;
+	public VulkanDuoSpan<VkShaderEXT, VkIndirectExecutionSetShaderLayoutInfoEXT> initialShaders_setLayoutInfos
+	{
+		[Inline] get => .(shaderCount, pInitialShaders, pSetLayoutInfos);
+		[Inline] set mut { shaderCount = value.count; pInitialShaders = value.ptr1; pSetLayoutInfos = value.ptr2; }
+	}
 	public uint32 maxShaderCount;
-	public VulkanSpan<VkPushConstantRange> pPushConstantRanges;
+	public uint32 pushConstantRangeCount;
+	public VkPushConstantRange* pPushConstantRanges;
+	public VulkanSpan<VkPushConstantRange> pushConstantRanges
+	{
+		[Inline] get => .(pushConstantRangeCount, pPushConstantRanges);
+		[Inline] set mut { pushConstantRangeCount = value.count; pPushConstantRanges = value.ptr; }
+	}
 
-	public this(void* pNext, VulkanDuoSpan<VkShaderEXT, VkIndirectExecutionSetShaderLayoutInfoEXT> pInitialShaders_pSetLayoutInfos, uint32 maxShaderCount, VulkanSpan<VkPushConstantRange> pPushConstantRanges = .())
+	public this(void* pNext, VulkanDuoSpan<VkShaderEXT, VkIndirectExecutionSetShaderLayoutInfoEXT> initialShaders_setLayoutInfos, uint32 maxShaderCount, VulkanSpan<VkPushConstantRange> pushConstantRanges = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pInitialShaders_pSetLayoutInfos = pInitialShaders_pSetLayoutInfos;
+		this.initialShaders_setLayoutInfos = initialShaders_setLayoutInfos;
 		this.maxShaderCount = maxShaderCount;
-		this.pPushConstantRanges = pPushConstantRanges;
+		this.pushConstantRanges = pushConstantRanges;
 	}
 
 	public this()
@@ -28382,16 +29608,22 @@ static { public const c_char* VK_EXT_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME = 
 	public VkShaderStageFlags shaderStages;
 	public uint32 indirectStride;
 	public VkPipelineLayout pipelineLayout;
-	public VulkanSpan<VkIndirectCommandsLayoutTokenEXT> pTokens;
+	public uint32 tokenCount;
+	public VkIndirectCommandsLayoutTokenEXT* pTokens;
+	public VulkanSpan<VkIndirectCommandsLayoutTokenEXT> tokens
+	{
+		[Inline] get => .(tokenCount, pTokens);
+		[Inline] set mut { tokenCount = value.count; pTokens = value.ptr; }
+	}
 
-	public this(void* pNext, VkIndirectCommandsLayoutUsageFlagsEXT flags, VkShaderStageFlags shaderStages, uint32 indirectStride, VkPipelineLayout pipelineLayout, VulkanSpan<VkIndirectCommandsLayoutTokenEXT> pTokens)
+	public this(void* pNext, VkIndirectCommandsLayoutUsageFlagsEXT flags, VkShaderStageFlags shaderStages, uint32 indirectStride, VkPipelineLayout pipelineLayout, VulkanSpan<VkIndirectCommandsLayoutTokenEXT> tokens) : this()
 	{
 		this.pNext = pNext;
 		this.flags = flags;
 		this.shaderStages = shaderStages;
 		this.indirectStride = indirectStride;
 		this.pipelineLayout = pipelineLayout;
-		this.pTokens = pTokens;
+		this.tokens = tokens;
 	}
 
 	public this()
@@ -28601,12 +29833,18 @@ typealias VkIndirectCommandsInputModeFlagsEXT = VkIndirectCommandsInputModeFlagB
 	public const VkStructureType SType = .VkIndirectExecutionSetShaderLayoutInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkDescriptorSetLayout> pSetLayouts;
+	public uint32 setLayoutCount;
+	public VkDescriptorSetLayout* pSetLayouts;
+	public VulkanSpan<VkDescriptorSetLayout> setLayouts
+	{
+		[Inline] get => .(setLayoutCount, pSetLayouts);
+		[Inline] set mut { setLayoutCount = value.count; pSetLayouts = value.ptr; }
+	}
 
-	public this(void* pNext = null, VulkanSpan<VkDescriptorSetLayout> pSetLayouts = .())
+	public this(void* pNext = null, VulkanSpan<VkDescriptorSetLayout> setLayouts = .()) : this()
 	{
 		this.pNext = pNext;
-		this.pSetLayouts = pSetLayouts;
+		this.setLayouts = setLayouts;
 	}
 
 	public this()
@@ -28641,12 +29879,18 @@ typealias VkIndirectCommandsInputModeFlagsEXT = VkIndirectCommandsInputModeFlagB
 	public const VkStructureType SType = .VkGeneratedCommandsShaderInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VulkanSpan<VkShaderEXT> pShaders;
+	public uint32 shaderCount;
+	public VkShaderEXT* pShaders;
+	public VulkanSpan<VkShaderEXT> shaders
+	{
+		[Inline] get => .(shaderCount, pShaders);
+		[Inline] set mut { shaderCount = value.count; pShaders = value.ptr; }
+	}
 
-	public this(void* pNext, VulkanSpan<VkShaderEXT> pShaders)
+	public this(void* pNext, VulkanSpan<VkShaderEXT> shaders) : this()
 	{
 		this.pNext = pNext;
-		this.pShaders = pShaders;
+		this.shaders = shaders;
 	}
 
 	public this()
@@ -28663,8 +29907,8 @@ typealias VkIndirectCommandsInputModeFlagsEXT = VkIndirectCommandsInputModeFlagB
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyIndirectCommandsLayoutEXT(VkDevice device, VkIndirectCommandsLayoutEXT indirectCommandsLayout = null, VkAllocationCallbacks* pAllocator = null);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateIndirectExecutionSetEXT(VkDevice device, VkIndirectExecutionSetCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkIndirectExecutionSetEXT pIndirectExecutionSet);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyIndirectExecutionSetEXT(VkDevice device, VkIndirectExecutionSetEXT indirectExecutionSet = null, VkAllocationCallbacks* pAllocator = null);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkUpdateIndirectExecutionSetPipelineEXT(VkDevice device, VkIndirectExecutionSetEXT indirectExecutionSet, VulkanSpan<VkWriteIndirectExecutionSetPipelineEXT> pExecutionSetWrites);
-[CallingConvention(VKAPI_PTR)] function void PFN_vkUpdateIndirectExecutionSetShaderEXT(VkDevice device, VkIndirectExecutionSetEXT indirectExecutionSet, VulkanSpan<VkWriteIndirectExecutionSetShaderEXT> pExecutionSetWrites);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkUpdateIndirectExecutionSetPipelineEXT(VkDevice device, VkIndirectExecutionSetEXT indirectExecutionSet, uint32 executionSetWriteCount, VkWriteIndirectExecutionSetPipelineEXT* pExecutionSetWrites);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkUpdateIndirectExecutionSetShaderEXT(VkDevice device, VkIndirectExecutionSetEXT indirectExecutionSet, uint32 executionSetWriteCount, VkWriteIndirectExecutionSetShaderEXT* pExecutionSetWrites);
 
 [CRepr] struct VkWriteIndirectExecutionSetShaderEXT
 {
