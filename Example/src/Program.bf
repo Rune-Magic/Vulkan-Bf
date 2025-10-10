@@ -87,17 +87,6 @@ static class Program
 	    0, 0, -1, -0.2f,
 	    0, 0, -1, 0
 	);
-	/*static void MultiplyMatrices(float[16] a, float[16] b, out float[16] result)
-	{
-		result = default;
-	    for (int i = 0; i < 4; i++)
-	        for (int j = 0; j < 4; j++)
-			{
-	            result[i * 4 + j] = 0;
-	            for (int k = 0; k < 4; k++)
-	                result[i * 4 + j] += a[i * 4 + k] * b[k * 4 + j];
-	        }
-	}*/
 
 	public struct Allocation
 	{
@@ -637,38 +626,6 @@ static class Program
 		{
 			Glfw.PollEvents();
 			rotationAngle += (.)deltaWatch.Elapsed.TotalSeconds;
-
-			/*{
-				Vector cameraPosition = (2 * Math.Cos(rotationAngle), 2, -5 * Math.Sin(rotationAngle));
-				Vector upVector = (0, 1, 0);
-
-				Vector zDir = cameraPosition;
-				float zDirLength = Math.Sqrt(zDir.x * zDir.x + zDir.y * zDir.y + zDir.z * zDir.z);
-				zDir = (zDir.x / zDirLength, zDir.y / zDirLength, zDir.z / zDirLength); // Normalize
-
-				Vector xDir = ((upVector.y * zDir.z - upVector.z * zDir.y),
-				               (upVector.z * zDir.x - upVector.x * zDir.z),
-				               (upVector.x * zDir.y - upVector.y * zDir.x));
-				float xDirLength = Math.Sqrt(xDir.x * xDir.x + xDir.y * xDir.y + xDir.z * xDir.z);
-				xDir = (xDir.x / xDirLength, xDir.y / xDirLength, xDir.z / xDirLength); // Normalize
-
-				Vector yDir = ((zDir.y * xDir.z - zDir.z * xDir.y),
-				               (zDir.z * xDir.x - zDir.x * xDir.z),
-				               (zDir.x * xDir.y - zDir.y * xDir.x));
-				float yDirLength = Math.Sqrt(yDir.x * yDir.x + yDir.y * yDir.y + yDir.z * yDir.z);
-				yDir = (yDir.x / yDirLength, yDir.y / yDirLength, yDir.z / yDirLength); // Normalize
-
-				pushConsts.view = .
-				(
-				    xDir.x, yDir.x, -zDir.x, 0,
-				    xDir.y, yDir.y, -zDir.y, 0,
-				    xDir.z, yDir.z, -zDir.z, 0,
-				    -(xDir.x * cameraPosition.x + xDir.y * cameraPosition.y + xDir.z * cameraPosition.z),
-				    -(yDir.x * cameraPosition.x + yDir.y * cameraPosition.y + yDir.z * cameraPosition.z),
-				    zDir.x * cameraPosition.x + zDir.y * cameraPosition.y + zDir.z * cameraPosition.z, 1
-				);
-			}*/
-
 			pushConsts.view = .
 			(
 			    Math.Cos(rotationAngle), 0, Math.Sin(rotationAngle), 0,
