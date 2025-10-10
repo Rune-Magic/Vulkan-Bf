@@ -51,73 +51,43 @@ static class Program
 		VkCommandBuffer cmd,
 		VkSemaphore imageAvaliable,
 		VkSemaphore renderFinished,
-		VkFence inFlight
+		VkFence presented
 	)[4] frames;
 	protected static int frameIndex;
 
 	typealias Vector = (float x, float y, float z);
 	typealias Vertex = (Vector pos, Vector color);
-	public const Vertex[?] vertices = .
+	public const Vertex[8] vertices = .
 	(
-		// Front face
-		((0, 0, 0), (1, 0, 0)), // v0
-		((1, 0, 0), (1, 0, 0)), // v1
-		((1, 1, 0), (1, 0, 0)), // v2
-		((0, 1, 0), (1, 0, 0)), // v3
-
-		// Back face
-		((0, 0, 1), (0, 1, 0)), // v4
-		((1, 0, 1), (0, 1, 0)), // v5
-		((1, 1, 1), (0, 1, 0)), // v6
-		((0, 1, 1), (0, 1, 0)), // v7
+	    // Define vertices for the cube
+	    ((-1, -1, -1), (1, 0, 0)),  // Bottom-left-back (Red)
+		(( 1, -1, -1), (0, 1, 0)),  // Bottom-right-back (Green)
+		(( 1,  1, -1), (0, 0, 1)),  // Top-right-back (Blue)
+		((-1,  1, -1), (1, 1, 0)),  // Top-left-back (Yellow)
+		((-1, -1,  1), (1, 0, 1)),  // Bottom-left-front (Cyan)
+		(( 1, -1,  1), (0, 1, 1)),  // Bottom-right-front (Magenta)
+		(( 1,  1,  1), (1, 0.5f, 0)), // Top-right-front (Orange)
+		((-1,  1,  1), (0.5f, 0, 0.5f)) // Top-left-front (Purple)
 	);
-	public const uint32[?] indices = .
+	public const uint32[36] indices = .
 	(
-		// Front face
-		0, 1, 2, // First triangle
-		0, 2, 3, // Second triangle
-
-		// Back face
-		4, 5, 6, // First triangle
-		4, 6, 7, // Second triangle
-
-		// Left face
-		0, 3, 7, // First triangle
-		0, 7, 4, // Second triangle
-
-		// Right face
-		1, 2, 6, // First triangle
-		1, 6, 5, // Second triangle
-
-		// Top face
-		3, 2, 6, // First triangle
-		3, 6, 7, // Second triangle
-
-		// Bottom face
-		0, 1, 5, // First triangle
-		0, 5, 4, // Second triangle
+	    0, 1, 2, 0, 2, 3, // Back face (clockwise)
+		4, 7, 6, 4, 6, 5, // Front face (clockwise)
+		0, 3, 7, 0, 7, 4, // Left face (clockwise)
+		1, 2, 6, 1, 6, 5, // Right face (clockwise)
+		0, 1, 5, 0, 5, 4, // Bottom face (clockwise)
+		2, 3, 7, 2, 7, 6  // Top face (clockwise)
 	);
 
-	public typealias PushConstants = (float[16] cubeMvp, void);
-	const float[16] modelMatrix = .(
-	    1, 0, 0, 0,
-	    0, 1, 0, 0,
-	    0, 0, 1, 0,
-	    0, 0, 0, 1
-	);
-	const float[16] viewMatrix = .(
-	    0.894427191f, 0, -0.447213595f, 0,
-	    0, 1, 0, 0,
-	    0.447213595f, 0, 0.894427191f, 0,
-	    0, -2, -3, 1
-	);
-	const float[16] projectionMatrix = .(
-	    1.41421356f, 0, 0, 0,
-	    0, 1.41421356f, 0, 0,
-	    0, 0, -1.02020202f, -1.02020202f,
+	public typealias PushConstants = (float[16] view, float[16] projection);
+	const float[16] projectionMatrix = .
+	(
+	    2, 0, 0, 0,
+	    0, 2, 0, 0,
+	    0, 0, -1, -0.2f,
 	    0, 0, -1, 0
 	);
-	static void MultiplyMatrices(float[16] a, float[16] b, out float[16] result)
+	/*static void MultiplyMatrices(float[16] a, float[16] b, out float[16] result)
 	{
 		result = default;
 	    for (int i = 0; i < 4; i++)
@@ -127,7 +97,7 @@ static class Program
 	            for (int k = 0; k < 4; k++)
 	                result[i * 4 + j] += a[i * 4 + k] * b[k * 4 + j];
 	        }
-	}
+	}*/
 
 	public struct Allocation
 	{
@@ -196,7 +166,7 @@ static class Program
 
 	public struct PhysicalDeviceInfo
 	{
-		public const VulkanExtension[?] requiredExtensions = .(.VK_KHR_swapchain);
+		public const VulkanExtension[?] requiredExtensions = .(.VK_KHR_swapchain, .VK_EXT_swapchain_maintenance1);
 
 		public VkPhysicalDevice device;
 		public VkPhysicalDeviceProperties properties;
@@ -208,7 +178,8 @@ static class Program
 
 		public char8*[requiredExtensions.Count] extensionBuffer;
 		public uint32 extensionCount;
-		public VkPhysicalDeviceFeatures enabledFeatures = .(); // no features are required
+		public VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT swapchainMaintenace1Features = .(null, swapchainMaintenance1: true);
+		public VkPhysicalDeviceFeatures2 enabledFeatures = .(null, .());
 
 		public static Result<Self> GetFor(VkPhysicalDevice device)
 		{
@@ -386,7 +357,9 @@ static class Program
 				char8** exts = Glfw.[Friend]glfwGetRequiredInstanceExtensions(&count);
 				for (let i < count) extensions.Add(exts[i]);
 			}
-
+			extensions.Add(VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME);
+			extensions.Add(VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME);
+			extensions.Add(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME); //TODO: helper struct
 #if DEBUG
 			extensions.Add(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
 			VkDebugUtilsMessengerCreateInfoEXT* debugMessengerCI = scope .(null, 0,
@@ -437,7 +410,7 @@ static class Program
 		bool framebufferResized;
 		{
 			Glfw.WindowHint(.ClientApi, Glfw.ClientApi.NoApi);
-			window = Glfw.CreateWindow(1024, 800, "Vulkan Example", null, null);
+			window = Glfw.CreateWindow(1024, 800, "Vulkan-Bf Example", null, null);
 			Runtime.Assert(window != null);
 			defer:: Glfw.DestroyWindow(window);
 
@@ -469,15 +442,16 @@ static class Program
 		}
 
 		{
+			physicalDevice.enabledFeatures.pNext = &physicalDevice.swapchainMaintenace1Features; //TODO: proper way of doing this
 			result = physicalDevice.device.CreateDevice(scope .()
 			{
+				pNext = &physicalDevice.enabledFeatures,
 				queueCreateInfos = .(.()
 				{
 					queueFamilyIndex = physicalDevice.queueFamilyIndex,
 					queuePriorities = .(1.f),
 				}),
 				enabledExtensionNames = .(physicalDevice.extensionCount, &physicalDevice.extensionBuffer),
-				pEnabledFeatures = &physicalDevice.enabledFeatures,
 			}, gVkAlloc, out gDevice);
 			CheckResult(result);
 			VulkanLoader.LoadDevice(gDevice);
@@ -522,11 +496,15 @@ static class Program
 		defer swapchain.Dispose();
 
 		{
-			uint8[?] cubeSpv = Compiler.ReadBinary("shaders/cube.spv");
-			result = gDevice.CreateShaderModule(scope .(null, 0, cubeSpv.Count, (.)&cubeSpv), gVkAlloc, let shaderModule);
+			uint8[?] vertSpv = Compiler.ReadBinary("shaders/cube.vert.spv");
+			uint8[?] fragSpv = Compiler.ReadBinary("shaders/cube.frag.spv");
+			result = gDevice.CreateShaderModule(scope .(null, 0, vertSpv.Count, (.)&vertSpv), gVkAlloc, let vertModule);
 			CheckResult(result);
-			defer:: shaderModule.Destroy(gDevice, gVkAlloc);
-
+			defer:: vertModule.Destroy(gDevice, gVkAlloc);
+			result = gDevice.CreateShaderModule(scope .(null, 0, fragSpv.Count, (.)&fragSpv), gVkAlloc, let fragModule);
+			CheckResult(result);
+			defer:: fragModule.Destroy(gDevice, gVkAlloc);
+			
 			result = gDevice.CreatePipelineLayout(scope .()
 			{
 				pushConstantRanges = .(.(.Vertex, 0, sizeof(PushConstants)) {})
@@ -537,8 +515,8 @@ static class Program
 			result = vkCreateGraphicsPipelines(gDevice, null, 1, scope .()
 			{
 				stages = .(
-					.(null, 0, .Vertex, shaderModule, "vertMain") {},
-					.(null, 0, .Fragment, shaderModule, "fragMain")
+					.(null, 0, .Vertex, vertModule, "main") {},
+					.(null, 0, .Fragment, fragModule, "main")
 				),
 				pVertexInputState = scope .(null, 0,
 					vertexBindingDescriptions: .(.(0, sizeof(Vertex), .Vertex) {}),
@@ -559,9 +537,9 @@ static class Program
 				{
 					depthClampEnable = false,
 					rasterizerDiscardEnable = false,
-					polygonMode = .Fill,
-					cullMode = .Back,
-					frontFace = .Clockwise,
+					polygonMode = .Line,
+					cullMode = .None,
+					frontFace = .CounterClockwise,
 					depthBiasEnable = false,
 					lineWidth = 1f
 				},
@@ -569,7 +547,6 @@ static class Program
 				{
 					rasterizationSamples = .VK_1,
 				},
-
 				pColorBlendState = scope .()
 				{
 					logicOpEnable = false,
@@ -582,7 +559,8 @@ static class Program
 						srcAlphaBlendFactor = .One,
 						dstAlphaBlendFactor = .Zero,
 						alphaBlendOp = .Add,
-					})
+						colorWriteMask = .R | .G | .B | .A
+					}),
 				},
 				pDynamicState = scope .(null, 0, .(VkDynamicState.Viewport, .Scissor)),
 				layout = pipelineLayout,
@@ -612,7 +590,7 @@ static class Program
 				frame.cmd = commandBuffers[@frame];
 				CheckResult(gDevice.CreateSemaphore(semaphoreCI, gVkAlloc, out frame.imageAvaliable));
 				CheckResult(gDevice.CreateSemaphore(semaphoreCI, gVkAlloc, out frame.renderFinished));
-				CheckResult(gDevice.CreateFence(fenceCI, gVkAlloc, out frame.inFlight));
+				CheckResult(gDevice.CreateFence(fenceCI, gVkAlloc, out frame.presented));
 			}
 
 			defer::
@@ -621,7 +599,7 @@ static class Program
 				{
 					frame.imageAvaliable.Destroy(gDevice, gVkAlloc);
 					frame.renderFinished.Destroy(gDevice, gVkAlloc);
-					frame.inFlight.Destroy(gDevice, gVkAlloc);
+					frame.presented.Destroy(gDevice, gVkAlloc);
 				}
 			}
 		}
@@ -651,17 +629,57 @@ static class Program
 			CheckResult(result);
 		}
 
-		PushConstants pushConsts = default;
-		{
-			MultiplyMatrices(modelMatrix, viewMatrix, let tempMatrix);
-			MultiplyMatrices(tempMatrix, projectionMatrix, out pushConsts.cubeMvp);
-		}
+		PushConstants pushConsts = (default, projectionMatrix);
+		float rotationAngle = 0;
+		Stopwatch deltaWatch = scope .();
 
 		while (!Glfw.WindowShouldClose(window))
 		{
 			Glfw.PollEvents();
+			rotationAngle += (.)deltaWatch.Elapsed.TotalSeconds;
+
+			/*{
+				Vector cameraPosition = (2 * Math.Cos(rotationAngle), 2, -5 * Math.Sin(rotationAngle));
+				Vector upVector = (0, 1, 0);
+
+				Vector zDir = cameraPosition;
+				float zDirLength = Math.Sqrt(zDir.x * zDir.x + zDir.y * zDir.y + zDir.z * zDir.z);
+				zDir = (zDir.x / zDirLength, zDir.y / zDirLength, zDir.z / zDirLength); // Normalize
+
+				Vector xDir = ((upVector.y * zDir.z - upVector.z * zDir.y),
+				               (upVector.z * zDir.x - upVector.x * zDir.z),
+				               (upVector.x * zDir.y - upVector.y * zDir.x));
+				float xDirLength = Math.Sqrt(xDir.x * xDir.x + xDir.y * xDir.y + xDir.z * xDir.z);
+				xDir = (xDir.x / xDirLength, xDir.y / xDirLength, xDir.z / xDirLength); // Normalize
+
+				Vector yDir = ((zDir.y * xDir.z - zDir.z * xDir.y),
+				               (zDir.z * xDir.x - zDir.x * xDir.z),
+				               (zDir.x * xDir.y - zDir.y * xDir.x));
+				float yDirLength = Math.Sqrt(yDir.x * yDir.x + yDir.y * yDir.y + yDir.z * yDir.z);
+				yDir = (yDir.x / yDirLength, yDir.y / yDirLength, yDir.z / yDirLength); // Normalize
+
+				pushConsts.view = .
+				(
+				    xDir.x, yDir.x, -zDir.x, 0,
+				    xDir.y, yDir.y, -zDir.y, 0,
+				    xDir.z, yDir.z, -zDir.z, 0,
+				    -(xDir.x * cameraPosition.x + xDir.y * cameraPosition.y + xDir.z * cameraPosition.z),
+				    -(yDir.x * cameraPosition.x + yDir.y * cameraPosition.y + yDir.z * cameraPosition.z),
+				    zDir.x * cameraPosition.x + zDir.y * cameraPosition.y + zDir.z * cameraPosition.z, 1
+				);
+			}*/
+
+			pushConsts.view = .
+			(
+			    Math.Cos(rotationAngle), 0, Math.Sin(rotationAngle), 0,
+			    0, 1, 0, 0,
+			    -Math.Sin(rotationAngle), 0, Math.Cos(rotationAngle), -5,
+			    0, 0, 0, 1
+			);
+			deltaWatch.Restart();
+
 			var frame = ref frames[frameIndex];
-			result = gDevice.WaitForFences(.(frame.inFlight), true, gTimeout);
+			result = gDevice.WaitForFences(.(frame.presented), true, gTimeout);
 			CheckResult(result);
 
 			if (framebufferResized)
@@ -704,17 +722,18 @@ static class Program
 			result = cmd.End();
 			CheckResult(result);
 
-			result = gDevice.ResetFences(.(frame.inFlight));
+			result = gDevice.ResetFences(.(frame.presented));
 			CheckResult(result);
 			result = queue.Submit(.(.()
 			{
 				waitSemaphores_waitDstStageMask = .(.(frame.imageAvaliable), .(VkPipelineStageFlags.ColorAttachmentOutput)), 
 				commandBuffers = .(cmd),
 				signalSemaphores = .(frame.renderFinished)
-			}), frame.inFlight);
+			}), null);
 			CheckResult(result);
 
-			result = queue.PresentKHR(scope .(null,
+			result = queue.PresentKHR(scope .(
+				pNext: scope VkSwapchainPresentFenceInfoEXT(null, .(frame.presented)),
 				waitSemaphores: .(frame.renderFinished),
 				swapchains_imageIndices_results: .( .(swapchain.swapchain), .(imageIndex), .() )));
 			RebuildSwapchain!(result);
