@@ -2236,6 +2236,313 @@ static { public const c_char* VK_STD_VULKAN_VIDEO_CODEC_H265_ENCODE_EXTENSION_NA
 	}
 }
 
+static { public const uint32 STD_VIDEO_VP9_NUM_REF_FRAMES = 8; }
+static { public const uint32 STD_VIDEO_VP9_REFS_PER_FRAME = 3; }
+static { public const uint32 STD_VIDEO_VP9_MAX_REF_FRAMES = 4; }
+static { public const uint32 STD_VIDEO_VP9_LOOP_FILTER_ADJUSTMENTS = 2; }
+static { public const uint32 STD_VIDEO_VP9_MAX_SEGMENTS = 8; }
+static { public const uint32 STD_VIDEO_VP9_SEG_LVL_MAX = 4; }
+static { public const uint32 STD_VIDEO_VP9_MAX_SEGMENTATION_TREE_PROBS = 7; }
+static { public const uint32 STD_VIDEO_VP9_MAX_SEGMENTATION_PRED_PROB = 3; }
+
+[AllowDuplicates] enum StdVideoVP9Profile : int32
+{
+	StdVideoVp9Profile0 = 0,
+	StdVideoVp9Profile1 = 1,
+	StdVideoVp9Profile2 = 2,
+	StdVideoVp9Profile3 = 3,
+	StdVideoVp9ProfileInvalid = 0x7FFFFFFF,
+}
+
+[AllowDuplicates] enum StdVideoVP9Level : int32
+{
+	StdVideoVp9Level10 = 0,
+	StdVideoVp9Level11 = 1,
+	StdVideoVp9Level20 = 2,
+	StdVideoVp9Level21 = 3,
+	StdVideoVp9Level30 = 4,
+	StdVideoVp9Level31 = 5,
+	StdVideoVp9Level40 = 6,
+	StdVideoVp9Level41 = 7,
+	StdVideoVp9Level50 = 8,
+	StdVideoVp9Level51 = 9,
+	StdVideoVp9Level52 = 10,
+	StdVideoVp9Level60 = 11,
+	StdVideoVp9Level61 = 12,
+	StdVideoVp9Level62 = 13,
+	StdVideoVp9LevelInvalid = 0x7FFFFFFF,
+}
+
+[AllowDuplicates] enum StdVideoVP9FrameType : int32
+{
+	StdVideoVp9FrameTypeKey = 0,
+	StdVideoVp9FrameTypeNonKey = 1,
+	StdVideoVp9FrameTypeInvalid = 0x7FFFFFFF,
+}
+
+[AllowDuplicates] enum StdVideoVP9ReferenceName : int32
+{
+	StdVideoVp9ReferenceNameIntraFrame = 0,
+	StdVideoVp9ReferenceNameLastFrame = 1,
+	StdVideoVp9ReferenceNameGoldenFrame = 2,
+	StdVideoVp9ReferenceNameAltrefFrame = 3,
+	StdVideoVp9ReferenceNameInvalid = 0x7FFFFFFF,
+}
+
+[AllowDuplicates] enum StdVideoVP9InterpolationFilter : int32
+{
+	StdVideoVp9InterpolationFilterEighttap = 0,
+	StdVideoVp9InterpolationFilterEighttapSmooth = 1,
+	StdVideoVp9InterpolationFilterEighttapSharp = 2,
+	StdVideoVp9InterpolationFilterBilinear = 3,
+	StdVideoVp9InterpolationFilterSwitchable = 4,
+	StdVideoVp9InterpolationFilterInvalid = 0x7FFFFFFF,
+}
+
+[AllowDuplicates] enum StdVideoVP9ColorSpace : int32
+{
+	StdVideoVp9ColorSpaceUnknown = 0,
+	StdVideoVp9ColorSpaceBt601 = 1,
+	StdVideoVp9ColorSpaceBt709 = 2,
+	StdVideoVp9ColorSpaceSmpte170 = 3,
+	StdVideoVp9ColorSpaceSmpte240 = 4,
+	StdVideoVp9ColorSpaceBt2020 = 5,
+	StdVideoVp9ColorSpaceReserved = 6,
+	StdVideoVp9ColorSpaceRgb = 7,
+	StdVideoVp9ColorSpaceInvalid = 0x7FFFFFFF,
+}
+
+[CRepr] struct StdVideoVP9ColorConfigFlags
+{
+	// Syntax defined in section 6.2.2, semantics defined in section 7.2.2
+	[Bitfield(.Public, .Bits(1), "color_range")]
+	[Bitfield(.Public, .Bits(31), "reserved")]
+	private uint32 __bitfields_reserved;
+
+	public this(uint32 color_range, uint32 reserved) : this()
+	{
+		this.color_range = color_range;
+		this.reserved = reserved;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
+[CRepr] struct StdVideoVP9ColorConfig
+{
+	// Syntax defined in section 6.2.2, semantics defined in section 7.2.2
+	public StdVideoVP9ColorConfigFlags flags;
+	public uint8 BitDepth;
+	public uint8 subsampling_x;
+	public uint8 subsampling_y;
+	public uint8 reserved1; // Reserved for future use and must be initialized with 0.
+	public StdVideoVP9ColorSpace color_space;
+
+	public this(StdVideoVP9ColorConfigFlags flags, uint8 BitDepth, uint8 subsampling_x, uint8 subsampling_y, uint8 reserved1, StdVideoVP9ColorSpace color_space)
+	{
+		this.flags = flags;
+		this.BitDepth = BitDepth;
+		this.subsampling_x = subsampling_x;
+		this.subsampling_y = subsampling_y;
+		this.reserved1 = reserved1;
+		this.color_space = color_space;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
+[CRepr] struct StdVideoVP9LoopFilterFlags
+{
+	// Syntax defined in section 6.2.8, semantics defined in section 7.2.8
+	[Bitfield(.Public, .Bits(1), "loop_filter_delta_enabled")]
+	[Bitfield(.Public, .Bits(1), "loop_filter_delta_update")]
+	[Bitfield(.Public, .Bits(30), "reserved")]
+	private uint32 __bitfields_reserved;
+
+	public this(uint32 loop_filter_delta_enabled, uint32 loop_filter_delta_update, uint32 reserved) : this()
+	{
+		this.loop_filter_delta_enabled = loop_filter_delta_enabled;
+		this.loop_filter_delta_update = loop_filter_delta_update;
+		this.reserved = reserved;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
+[CRepr] struct StdVideoVP9LoopFilter
+{
+	// Syntax defined in section 6.2.8, semantics defined in section 7.2.8
+	public StdVideoVP9LoopFilterFlags flags;
+	public uint8 loop_filter_level;
+	public uint8 loop_filter_sharpness;
+	public uint8 update_ref_delta;
+	public int8[STD_VIDEO_VP9_MAX_REF_FRAMES] loop_filter_ref_deltas;
+	public uint8 update_mode_delta;
+	public int8[STD_VIDEO_VP9_LOOP_FILTER_ADJUSTMENTS] loop_filter_mode_deltas;
+
+	public this(StdVideoVP9LoopFilterFlags flags, uint8 loop_filter_level, uint8 loop_filter_sharpness, uint8 update_ref_delta, int8[STD_VIDEO_VP9_MAX_REF_FRAMES] loop_filter_ref_deltas, uint8 update_mode_delta, int8[STD_VIDEO_VP9_LOOP_FILTER_ADJUSTMENTS] loop_filter_mode_deltas)
+	{
+		this.flags = flags;
+		this.loop_filter_level = loop_filter_level;
+		this.loop_filter_sharpness = loop_filter_sharpness;
+		this.update_ref_delta = update_ref_delta;
+		this.loop_filter_ref_deltas = loop_filter_ref_deltas;
+		this.update_mode_delta = update_mode_delta;
+		this.loop_filter_mode_deltas = loop_filter_mode_deltas;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
+[CRepr] struct StdVideoVP9SegmentationFlags
+{
+	// Syntax defined in section 6.2.11, semantics defined in section 7.2.10
+	[Bitfield(.Public, .Bits(1), "segmentation_update_map")]
+	[Bitfield(.Public, .Bits(1), "segmentation_temporal_update")]
+	[Bitfield(.Public, .Bits(1), "segmentation_update_data")]
+	[Bitfield(.Public, .Bits(1), "segmentation_abs_or_delta_update")]
+	[Bitfield(.Public, .Bits(28), "reserved")]
+	private uint32 __bitfields_reserved;
+
+	public this(uint32 segmentation_update_map, uint32 segmentation_temporal_update, uint32 segmentation_update_data, uint32 segmentation_abs_or_delta_update, uint32 reserved) : this()
+	{
+		this.segmentation_update_map = segmentation_update_map;
+		this.segmentation_temporal_update = segmentation_temporal_update;
+		this.segmentation_update_data = segmentation_update_data;
+		this.segmentation_abs_or_delta_update = segmentation_abs_or_delta_update;
+		this.reserved = reserved;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
+[CRepr] struct StdVideoVP9Segmentation
+{
+	// Syntax defined in section 6.2.11, semantics defined in section 7.2.10
+	public StdVideoVP9SegmentationFlags flags;
+	public uint8[STD_VIDEO_VP9_MAX_SEGMENTATION_TREE_PROBS] segmentation_tree_probs;
+	public uint8[STD_VIDEO_VP9_MAX_SEGMENTATION_PRED_PROB] segmentation_pred_prob;
+	public uint8[STD_VIDEO_VP9_MAX_SEGMENTS] FeatureEnabled;
+	// Each element contains 4 (SEG_LVL_MAX) bits, one bit for each feature within the segment
+	public int16[STD_VIDEO_VP9_MAX_SEGMENTS][STD_VIDEO_VP9_SEG_LVL_MAX] FeatureData;
+
+	public this(StdVideoVP9SegmentationFlags flags, uint8[STD_VIDEO_VP9_MAX_SEGMENTATION_TREE_PROBS] segmentation_tree_probs, uint8[STD_VIDEO_VP9_MAX_SEGMENTATION_PRED_PROB] segmentation_pred_prob, uint8[STD_VIDEO_VP9_MAX_SEGMENTS] FeatureEnabled, int16[STD_VIDEO_VP9_MAX_SEGMENTS][STD_VIDEO_VP9_SEG_LVL_MAX] FeatureData)
+	{
+		this.flags = flags;
+		this.segmentation_tree_probs = segmentation_tree_probs;
+		this.segmentation_pred_prob = segmentation_pred_prob;
+		this.FeatureEnabled = FeatureEnabled;
+		this.FeatureData = FeatureData;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
+static { public const uint32 VK_STD_VULKAN_VIDEO_CODEC_VP9_DECODE_API_VERSION_1_0_0 = VK_MAKE_VIDEO_STD_VERSION(1, 0, 0); }
+static { public const uint32 VK_STD_VULKAN_VIDEO_CODEC_VP9_DECODE_SPEC_VERSION = VK_STD_VULKAN_VIDEO_CODEC_VP9_DECODE_API_VERSION_1_0_0; }
+static { public const c_char* VK_STD_VULKAN_VIDEO_CODEC_VP9_DECODE_EXTENSION_NAME = "VK_STD_vulkan_video_codec_vp9_decode"; }
+
+[CRepr] struct StdVideoDecodeVP9PictureInfoFlags
+{
+	// Syntax defined in section 6.2, semantics defined in section 7.2
+	[Bitfield(.Public, .Bits(1), "error_resilient_mode")]
+	[Bitfield(.Public, .Bits(1), "intra_only")]
+	[Bitfield(.Public, .Bits(1), "allow_high_precision_mv")]
+	[Bitfield(.Public, .Bits(1), "refresh_frame_context")]
+	[Bitfield(.Public, .Bits(1), "frame_parallel_decoding_mode")]
+	[Bitfield(.Public, .Bits(1), "segmentation_enabled")]
+	[Bitfield(.Public, .Bits(1), "show_frame")]
+	[Bitfield(.Public, .Bits(1), "UsePrevFrameMvs")]
+	[Bitfield(.Public, .Bits(24), "reserved")]
+	private uint32 __bitfields_reserved;
+
+	public this(uint32 error_resilient_mode, uint32 intra_only, uint32 allow_high_precision_mv, uint32 refresh_frame_context, uint32 frame_parallel_decoding_mode, uint32 segmentation_enabled, uint32 show_frame, uint32 UsePrevFrameMvs, uint32 reserved) : this()
+	{
+		this.error_resilient_mode = error_resilient_mode;
+		this.intra_only = intra_only;
+		this.allow_high_precision_mv = allow_high_precision_mv;
+		this.refresh_frame_context = refresh_frame_context;
+		this.frame_parallel_decoding_mode = frame_parallel_decoding_mode;
+		this.segmentation_enabled = segmentation_enabled;
+		this.show_frame = show_frame;
+		this.UsePrevFrameMvs = UsePrevFrameMvs;
+		this.reserved = reserved;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
+[CRepr] struct StdVideoDecodeVP9PictureInfo
+{
+	// Syntax defined in section 6.2, semantics defined in section 7.2
+	public StdVideoDecodeVP9PictureInfoFlags flags;
+	public StdVideoVP9Profile profile;
+	public StdVideoVP9FrameType frame_type;
+	public uint8 frame_context_idx;
+	public uint8 reset_frame_context;
+	public uint8 refresh_frame_flags;
+	public uint8 ref_frame_sign_bias_mask;
+	public StdVideoVP9InterpolationFilter interpolation_filter;
+	public uint8 base_q_idx;
+	public int8 delta_q_y_dc;
+	public int8 delta_q_uv_dc;
+	public int8 delta_q_uv_ac;
+	public uint8 tile_cols_log2;
+	public uint8 tile_rows_log2;
+	public uint16[3] reserved1; // Reserved for future use and must be initialized with 0.
+	public StdVideoVP9ColorConfig* pColorConfig;
+	public StdVideoVP9LoopFilter* pLoopFilter;
+	public StdVideoVP9Segmentation* pSegmentation;
+
+	public this(StdVideoDecodeVP9PictureInfoFlags flags, StdVideoVP9Profile profile, StdVideoVP9FrameType frame_type, uint8 frame_context_idx, uint8 reset_frame_context, uint8 refresh_frame_flags, uint8 ref_frame_sign_bias_mask, StdVideoVP9InterpolationFilter interpolation_filter, uint8 base_q_idx, int8 delta_q_y_dc, int8 delta_q_uv_dc, int8 delta_q_uv_ac, uint8 tile_cols_log2, uint8 tile_rows_log2, uint16[3] reserved1, StdVideoVP9ColorConfig* pColorConfig, StdVideoVP9LoopFilter* pLoopFilter, StdVideoVP9Segmentation* pSegmentation)
+	{
+		this.flags = flags;
+		this.profile = profile;
+		this.frame_type = frame_type;
+		this.frame_context_idx = frame_context_idx;
+		this.reset_frame_context = reset_frame_context;
+		this.refresh_frame_flags = refresh_frame_flags;
+		this.ref_frame_sign_bias_mask = ref_frame_sign_bias_mask;
+		this.interpolation_filter = interpolation_filter;
+		this.base_q_idx = base_q_idx;
+		this.delta_q_y_dc = delta_q_y_dc;
+		this.delta_q_uv_dc = delta_q_uv_dc;
+		this.delta_q_uv_ac = delta_q_uv_ac;
+		this.tile_cols_log2 = tile_cols_log2;
+		this.tile_rows_log2 = tile_rows_log2;
+		this.reserved1 = reserved1;
+		this.pColorConfig = pColorConfig;
+		this.pLoopFilter = pLoopFilter;
+		this.pSegmentation = pSegmentation;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
 static { public const uint32 STD_VIDEO_AV1_NUM_REF_FRAMES = 8; }
 static { public const uint32 STD_VIDEO_AV1_REFS_PER_FRAME = 7; }
 static { public const uint32 STD_VIDEO_AV1_TOTAL_REFS_PER_FRAME = 8; }

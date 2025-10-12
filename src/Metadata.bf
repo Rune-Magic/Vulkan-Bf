@@ -118,6 +118,7 @@ enum VulkanExtension
 	case VK_AMD_shader_fragment_mask = 138;
 	case VK_EXT_inline_uniform_block = 139;
 	case VK_EXT_shader_stencil_export = 141;
+	case VK_KHR_shader_bfloat16 = 142;
 	case VK_EXT_sample_locations = 144;
 	case VK_KHR_relaxed_block_layout = 145;
 	case VK_KHR_get_memory_requirements2 = 147;
@@ -241,7 +242,7 @@ enum VulkanExtension
 	case VK_KHR_video_encode_queue = 300;
 	case VK_NV_device_diagnostics_config = 301;
 	case VK_QCOM_render_pass_store_ops = 302;
-	case VK_NV_cuda_kernel_launch = 308;
+	case VK_QCOM_tile_shading = 310;
 	case VK_NV_low_latency = 311;
 	case VK_KHR_synchronization2 = 315;
 	case VK_EXT_descriptor_buffer = 317;
@@ -307,6 +308,7 @@ enum VulkanExtension
 	case VK_NV_copy_memory_indirect = 427;
 	case VK_NV_memory_decompression = 428;
 	case VK_NV_device_generated_commands_compute = 429;
+	case VK_NV_ray_tracing_linear_swept_spheres = 430;
 	case VK_NV_linear_color_attachment = 431;
 	case VK_GOOGLE_surfaceless_query = 434;
 	case VK_KHR_shader_maximal_reconvergence = 435;
@@ -317,6 +319,7 @@ enum VulkanExtension
 	case VK_EXT_extended_dynamic_state3 = 456;
 	case VK_EXT_subpass_merge_feedback = 459;
 	case VK_LUNARG_direct_driver_loading = 460;
+	case VK_ARM_tensors = 461;
 	case VK_EXT_shader_module_identifier = 463;
 	case VK_EXT_rasterization_order_attachment_access = 464;
 	case VK_NV_optical_flow = 465;
@@ -324,13 +327,18 @@ enum VulkanExtension
 	case VK_EXT_pipeline_protected_access = 467;
 	case VK_KHR_maintenance5 = 471;
 	case VK_AMD_anti_lag = 477;
+	case VK_KHR_present_id2 = 480;
+	case VK_KHR_present_wait2 = 481;
 	case VK_KHR_ray_tracing_position_fetch = 482;
 	case VK_EXT_shader_object = 483;
 	case VK_KHR_pipeline_binary = 484;
 	case VK_QCOM_tile_properties = 485;
 	case VK_SEC_amigo_profiling = 486;
+	case VK_KHR_surface_maintenance1 = 487;
+	case VK_KHR_swapchain_maintenance1 = 488;
 	case VK_QCOM_multiview_per_view_viewports = 489;
 	case VK_NV_ray_tracing_invocation_reorder = 491;
+	case VK_NV_cooperative_vector = 492;
 	case VK_NV_extended_sparse_address_space = 493;
 	case VK_EXT_mutable_descriptor_type = 495;
 	case VK_EXT_legacy_vertex_attributes = 496;
@@ -340,10 +348,12 @@ enum VulkanExtension
 	case VK_EXT_dynamic_rendering_unused_attachments = 500;
 	case VK_NV_low_latency2 = 506;
 	case VK_KHR_cooperative_matrix = 507;
+	case VK_ARM_data_graph = 508;
 	case VK_QCOM_multiview_per_view_render_areas = 511;
 	case VK_KHR_compute_shader_derivatives = 512;
 	case VK_KHR_video_decode_av1 = 513;
 	case VK_KHR_video_encode_av1 = 514;
+	case VK_KHR_video_decode_vp9 = 515;
 	case VK_KHR_video_maintenance1 = 516;
 	case VK_NV_per_stage_descriptor_set = 517;
 	case VK_QCOM_image_processing2 = 519;
@@ -353,6 +363,7 @@ enum VulkanExtension
 	case VK_EXT_attachment_feedback_loop_dynamic_state = 525;
 	case VK_KHR_vertex_attribute_divisor = 526;
 	case VK_KHR_load_store_op_none = 527;
+	case VK_KHR_unified_image_layouts = 528;
 	case VK_KHR_shader_float_controls2 = 529;
 	case VK_MSFT_layered_driver = 531;
 	case VK_KHR_index_type_uint8 = 534;
@@ -361,21 +372,39 @@ enum VulkanExtension
 	case VK_KHR_shader_expect_assume = 545;
 	case VK_KHR_maintenance6 = 546;
 	case VK_NV_descriptor_pool_overallocation = 547;
+	case VK_QCOM_tile_memory_heap = 548;
 	case VK_NV_display_stereo = 552;
+	case VK_KHR_video_encode_intra_refresh = 553;
 	case VK_KHR_video_encode_quantization_map = 554;
 	case VK_NV_raw_access_chains = 556;
+	case VK_NV_external_compute_queue = 557;
 	case VK_KHR_shader_relaxed_extended_instruction = 559;
 	case VK_NV_command_buffer_inheritance = 560;
 	case VK_KHR_maintenance7 = 563;
 	case VK_NV_shader_atomic_float16_vector = 564;
 	case VK_EXT_shader_replicated_composites = 565;
+	case VK_EXT_shader_float8 = 568;
 	case VK_NV_ray_tracing_validation = 569;
+	case VK_NV_cluster_acceleration_structure = 570;
+	case VK_NV_partitioned_acceleration_structure = 571;
 	case VK_EXT_device_generated_commands = 573;
+	case VK_KHR_maintenance8 = 575;
 	case VK_MESA_image_alignment_control = 576;
 	case VK_EXT_depth_clamp_control = 583;
+	case VK_KHR_maintenance9 = 585;
+	case VK_KHR_video_maintenance2 = 587;
 	case VK_HUAWEI_hdr_vivid = 591;
 	case VK_NV_cooperative_matrix2 = 594;
+	case VK_ARM_pipeline_opacity_micromap = 597;
+	case VK_KHR_depth_clamp_zero_one = 605;
 	case VK_EXT_vertex_attribute_robustness = 609;
+	case VK_ARM_format_pack = 610;
+	case VK_VALVE_fragment_density_map_layered = 612;
+	case VK_KHR_robustness2 = 613;
+	case VK_EXT_fragment_density_map_offset = 620;
+	case VK_EXT_zero_initialize_device_memory = 621;
+	case VK_KHR_present_mode_fifo_latest_ready = 622;
+	case VK_SEC_pipeline_cache_incremental_mode = 638;
 
 	public char8* Name
 	{
@@ -480,6 +509,7 @@ enum VulkanExtension
 			case .VK_AMD_shader_fragment_mask: return nameof(VK_AMD_shader_fragment_mask);
 			case .VK_EXT_inline_uniform_block: return nameof(VK_EXT_inline_uniform_block);
 			case .VK_EXT_shader_stencil_export: return nameof(VK_EXT_shader_stencil_export);
+			case .VK_KHR_shader_bfloat16: return nameof(VK_KHR_shader_bfloat16);
 			case .VK_EXT_sample_locations: return nameof(VK_EXT_sample_locations);
 			case .VK_KHR_relaxed_block_layout: return nameof(VK_KHR_relaxed_block_layout);
 			case .VK_KHR_get_memory_requirements2: return nameof(VK_KHR_get_memory_requirements2);
@@ -603,7 +633,7 @@ enum VulkanExtension
 			case .VK_KHR_video_encode_queue: return nameof(VK_KHR_video_encode_queue);
 			case .VK_NV_device_diagnostics_config: return nameof(VK_NV_device_diagnostics_config);
 			case .VK_QCOM_render_pass_store_ops: return nameof(VK_QCOM_render_pass_store_ops);
-			case .VK_NV_cuda_kernel_launch: return nameof(VK_NV_cuda_kernel_launch);
+			case .VK_QCOM_tile_shading: return nameof(VK_QCOM_tile_shading);
 			case .VK_NV_low_latency: return nameof(VK_NV_low_latency);
 			case .VK_KHR_synchronization2: return nameof(VK_KHR_synchronization2);
 			case .VK_EXT_descriptor_buffer: return nameof(VK_EXT_descriptor_buffer);
@@ -669,6 +699,7 @@ enum VulkanExtension
 			case .VK_NV_copy_memory_indirect: return nameof(VK_NV_copy_memory_indirect);
 			case .VK_NV_memory_decompression: return nameof(VK_NV_memory_decompression);
 			case .VK_NV_device_generated_commands_compute: return nameof(VK_NV_device_generated_commands_compute);
+			case .VK_NV_ray_tracing_linear_swept_spheres: return nameof(VK_NV_ray_tracing_linear_swept_spheres);
 			case .VK_NV_linear_color_attachment: return nameof(VK_NV_linear_color_attachment);
 			case .VK_GOOGLE_surfaceless_query: return nameof(VK_GOOGLE_surfaceless_query);
 			case .VK_KHR_shader_maximal_reconvergence: return nameof(VK_KHR_shader_maximal_reconvergence);
@@ -679,6 +710,7 @@ enum VulkanExtension
 			case .VK_EXT_extended_dynamic_state3: return nameof(VK_EXT_extended_dynamic_state3);
 			case .VK_EXT_subpass_merge_feedback: return nameof(VK_EXT_subpass_merge_feedback);
 			case .VK_LUNARG_direct_driver_loading: return nameof(VK_LUNARG_direct_driver_loading);
+			case .VK_ARM_tensors: return nameof(VK_ARM_tensors);
 			case .VK_EXT_shader_module_identifier: return nameof(VK_EXT_shader_module_identifier);
 			case .VK_EXT_rasterization_order_attachment_access: return nameof(VK_EXT_rasterization_order_attachment_access);
 			case .VK_NV_optical_flow: return nameof(VK_NV_optical_flow);
@@ -686,13 +718,18 @@ enum VulkanExtension
 			case .VK_EXT_pipeline_protected_access: return nameof(VK_EXT_pipeline_protected_access);
 			case .VK_KHR_maintenance5: return nameof(VK_KHR_maintenance5);
 			case .VK_AMD_anti_lag: return nameof(VK_AMD_anti_lag);
+			case .VK_KHR_present_id2: return nameof(VK_KHR_present_id2);
+			case .VK_KHR_present_wait2: return nameof(VK_KHR_present_wait2);
 			case .VK_KHR_ray_tracing_position_fetch: return nameof(VK_KHR_ray_tracing_position_fetch);
 			case .VK_EXT_shader_object: return nameof(VK_EXT_shader_object);
 			case .VK_KHR_pipeline_binary: return nameof(VK_KHR_pipeline_binary);
 			case .VK_QCOM_tile_properties: return nameof(VK_QCOM_tile_properties);
 			case .VK_SEC_amigo_profiling: return nameof(VK_SEC_amigo_profiling);
+			case .VK_KHR_surface_maintenance1: return nameof(VK_KHR_surface_maintenance1);
+			case .VK_KHR_swapchain_maintenance1: return nameof(VK_KHR_swapchain_maintenance1);
 			case .VK_QCOM_multiview_per_view_viewports: return nameof(VK_QCOM_multiview_per_view_viewports);
 			case .VK_NV_ray_tracing_invocation_reorder: return nameof(VK_NV_ray_tracing_invocation_reorder);
+			case .VK_NV_cooperative_vector: return nameof(VK_NV_cooperative_vector);
 			case .VK_NV_extended_sparse_address_space: return nameof(VK_NV_extended_sparse_address_space);
 			case .VK_EXT_mutable_descriptor_type: return nameof(VK_EXT_mutable_descriptor_type);
 			case .VK_EXT_legacy_vertex_attributes: return nameof(VK_EXT_legacy_vertex_attributes);
@@ -702,10 +739,12 @@ enum VulkanExtension
 			case .VK_EXT_dynamic_rendering_unused_attachments: return nameof(VK_EXT_dynamic_rendering_unused_attachments);
 			case .VK_NV_low_latency2: return nameof(VK_NV_low_latency2);
 			case .VK_KHR_cooperative_matrix: return nameof(VK_KHR_cooperative_matrix);
+			case .VK_ARM_data_graph: return nameof(VK_ARM_data_graph);
 			case .VK_QCOM_multiview_per_view_render_areas: return nameof(VK_QCOM_multiview_per_view_render_areas);
 			case .VK_KHR_compute_shader_derivatives: return nameof(VK_KHR_compute_shader_derivatives);
 			case .VK_KHR_video_decode_av1: return nameof(VK_KHR_video_decode_av1);
 			case .VK_KHR_video_encode_av1: return nameof(VK_KHR_video_encode_av1);
+			case .VK_KHR_video_decode_vp9: return nameof(VK_KHR_video_decode_vp9);
 			case .VK_KHR_video_maintenance1: return nameof(VK_KHR_video_maintenance1);
 			case .VK_NV_per_stage_descriptor_set: return nameof(VK_NV_per_stage_descriptor_set);
 			case .VK_QCOM_image_processing2: return nameof(VK_QCOM_image_processing2);
@@ -715,6 +754,7 @@ enum VulkanExtension
 			case .VK_EXT_attachment_feedback_loop_dynamic_state: return nameof(VK_EXT_attachment_feedback_loop_dynamic_state);
 			case .VK_KHR_vertex_attribute_divisor: return nameof(VK_KHR_vertex_attribute_divisor);
 			case .VK_KHR_load_store_op_none: return nameof(VK_KHR_load_store_op_none);
+			case .VK_KHR_unified_image_layouts: return nameof(VK_KHR_unified_image_layouts);
 			case .VK_KHR_shader_float_controls2: return nameof(VK_KHR_shader_float_controls2);
 			case .VK_MSFT_layered_driver: return nameof(VK_MSFT_layered_driver);
 			case .VK_KHR_index_type_uint8: return nameof(VK_KHR_index_type_uint8);
@@ -723,21 +763,39 @@ enum VulkanExtension
 			case .VK_KHR_shader_expect_assume: return nameof(VK_KHR_shader_expect_assume);
 			case .VK_KHR_maintenance6: return nameof(VK_KHR_maintenance6);
 			case .VK_NV_descriptor_pool_overallocation: return nameof(VK_NV_descriptor_pool_overallocation);
+			case .VK_QCOM_tile_memory_heap: return nameof(VK_QCOM_tile_memory_heap);
 			case .VK_NV_display_stereo: return nameof(VK_NV_display_stereo);
+			case .VK_KHR_video_encode_intra_refresh: return nameof(VK_KHR_video_encode_intra_refresh);
 			case .VK_KHR_video_encode_quantization_map: return nameof(VK_KHR_video_encode_quantization_map);
 			case .VK_NV_raw_access_chains: return nameof(VK_NV_raw_access_chains);
+			case .VK_NV_external_compute_queue: return nameof(VK_NV_external_compute_queue);
 			case .VK_KHR_shader_relaxed_extended_instruction: return nameof(VK_KHR_shader_relaxed_extended_instruction);
 			case .VK_NV_command_buffer_inheritance: return nameof(VK_NV_command_buffer_inheritance);
 			case .VK_KHR_maintenance7: return nameof(VK_KHR_maintenance7);
 			case .VK_NV_shader_atomic_float16_vector: return nameof(VK_NV_shader_atomic_float16_vector);
 			case .VK_EXT_shader_replicated_composites: return nameof(VK_EXT_shader_replicated_composites);
+			case .VK_EXT_shader_float8: return nameof(VK_EXT_shader_float8);
 			case .VK_NV_ray_tracing_validation: return nameof(VK_NV_ray_tracing_validation);
+			case .VK_NV_cluster_acceleration_structure: return nameof(VK_NV_cluster_acceleration_structure);
+			case .VK_NV_partitioned_acceleration_structure: return nameof(VK_NV_partitioned_acceleration_structure);
 			case .VK_EXT_device_generated_commands: return nameof(VK_EXT_device_generated_commands);
+			case .VK_KHR_maintenance8: return nameof(VK_KHR_maintenance8);
 			case .VK_MESA_image_alignment_control: return nameof(VK_MESA_image_alignment_control);
 			case .VK_EXT_depth_clamp_control: return nameof(VK_EXT_depth_clamp_control);
+			case .VK_KHR_maintenance9: return nameof(VK_KHR_maintenance9);
+			case .VK_KHR_video_maintenance2: return nameof(VK_KHR_video_maintenance2);
 			case .VK_HUAWEI_hdr_vivid: return nameof(VK_HUAWEI_hdr_vivid);
 			case .VK_NV_cooperative_matrix2: return nameof(VK_NV_cooperative_matrix2);
+			case .VK_ARM_pipeline_opacity_micromap: return nameof(VK_ARM_pipeline_opacity_micromap);
+			case .VK_KHR_depth_clamp_zero_one: return nameof(VK_KHR_depth_clamp_zero_one);
 			case .VK_EXT_vertex_attribute_robustness: return nameof(VK_EXT_vertex_attribute_robustness);
+			case .VK_ARM_format_pack: return nameof(VK_ARM_format_pack);
+			case .VK_VALVE_fragment_density_map_layered: return nameof(VK_VALVE_fragment_density_map_layered);
+			case .VK_KHR_robustness2: return nameof(VK_KHR_robustness2);
+			case .VK_EXT_fragment_density_map_offset: return nameof(VK_EXT_fragment_density_map_offset);
+			case .VK_EXT_zero_initialize_device_memory: return nameof(VK_EXT_zero_initialize_device_memory);
+			case .VK_KHR_present_mode_fifo_latest_ready: return nameof(VK_KHR_present_mode_fifo_latest_ready);
+			case .VK_SEC_pipeline_cache_incremental_mode: return nameof(VK_SEC_pipeline_cache_incremental_mode);
 			}
 		}
 	}
@@ -845,6 +903,7 @@ enum VulkanExtension
 			case .VK_AMD_shader_fragment_mask: return .Device;
 			case .VK_EXT_inline_uniform_block: return .Device;
 			case .VK_EXT_shader_stencil_export: return .Device;
+			case .VK_KHR_shader_bfloat16: return .Device;
 			case .VK_EXT_sample_locations: return .Device;
 			case .VK_KHR_relaxed_block_layout: return .Device;
 			case .VK_KHR_get_memory_requirements2: return .Device;
@@ -968,7 +1027,7 @@ enum VulkanExtension
 			case .VK_KHR_video_encode_queue: return .Device;
 			case .VK_NV_device_diagnostics_config: return .Device;
 			case .VK_QCOM_render_pass_store_ops: return .Device;
-			case .VK_NV_cuda_kernel_launch: return .Device;
+			case .VK_QCOM_tile_shading: return .Device;
 			case .VK_NV_low_latency: return .Device;
 			case .VK_KHR_synchronization2: return .Device;
 			case .VK_EXT_descriptor_buffer: return .Device;
@@ -1034,6 +1093,7 @@ enum VulkanExtension
 			case .VK_NV_copy_memory_indirect: return .Device;
 			case .VK_NV_memory_decompression: return .Device;
 			case .VK_NV_device_generated_commands_compute: return .Device;
+			case .VK_NV_ray_tracing_linear_swept_spheres: return .Device;
 			case .VK_NV_linear_color_attachment: return .Device;
 			case .VK_GOOGLE_surfaceless_query: return .Instance;
 			case .VK_KHR_shader_maximal_reconvergence: return .Device;
@@ -1044,6 +1104,7 @@ enum VulkanExtension
 			case .VK_EXT_extended_dynamic_state3: return .Device;
 			case .VK_EXT_subpass_merge_feedback: return .Device;
 			case .VK_LUNARG_direct_driver_loading: return .Instance;
+			case .VK_ARM_tensors: return .Device;
 			case .VK_EXT_shader_module_identifier: return .Device;
 			case .VK_EXT_rasterization_order_attachment_access: return .Device;
 			case .VK_NV_optical_flow: return .Device;
@@ -1051,13 +1112,18 @@ enum VulkanExtension
 			case .VK_EXT_pipeline_protected_access: return .Device;
 			case .VK_KHR_maintenance5: return .Device;
 			case .VK_AMD_anti_lag: return .Device;
+			case .VK_KHR_present_id2: return .Device;
+			case .VK_KHR_present_wait2: return .Device;
 			case .VK_KHR_ray_tracing_position_fetch: return .Device;
 			case .VK_EXT_shader_object: return .Device;
 			case .VK_KHR_pipeline_binary: return .Device;
 			case .VK_QCOM_tile_properties: return .Device;
 			case .VK_SEC_amigo_profiling: return .Device;
+			case .VK_KHR_surface_maintenance1: return .Instance;
+			case .VK_KHR_swapchain_maintenance1: return .Device;
 			case .VK_QCOM_multiview_per_view_viewports: return .Device;
 			case .VK_NV_ray_tracing_invocation_reorder: return .Device;
+			case .VK_NV_cooperative_vector: return .Device;
 			case .VK_NV_extended_sparse_address_space: return .Device;
 			case .VK_EXT_mutable_descriptor_type: return .Device;
 			case .VK_EXT_legacy_vertex_attributes: return .Device;
@@ -1067,10 +1133,12 @@ enum VulkanExtension
 			case .VK_EXT_dynamic_rendering_unused_attachments: return .Device;
 			case .VK_NV_low_latency2: return .Device;
 			case .VK_KHR_cooperative_matrix: return .Device;
+			case .VK_ARM_data_graph: return .Device;
 			case .VK_QCOM_multiview_per_view_render_areas: return .Device;
 			case .VK_KHR_compute_shader_derivatives: return .Device;
 			case .VK_KHR_video_decode_av1: return .Device;
 			case .VK_KHR_video_encode_av1: return .Device;
+			case .VK_KHR_video_decode_vp9: return .Device;
 			case .VK_KHR_video_maintenance1: return .Device;
 			case .VK_NV_per_stage_descriptor_set: return .Device;
 			case .VK_QCOM_image_processing2: return .Device;
@@ -1080,6 +1148,7 @@ enum VulkanExtension
 			case .VK_EXT_attachment_feedback_loop_dynamic_state: return .Device;
 			case .VK_KHR_vertex_attribute_divisor: return .Device;
 			case .VK_KHR_load_store_op_none: return .Device;
+			case .VK_KHR_unified_image_layouts: return .Device;
 			case .VK_KHR_shader_float_controls2: return .Device;
 			case .VK_MSFT_layered_driver: return .Device;
 			case .VK_KHR_index_type_uint8: return .Device;
@@ -1088,21 +1157,39 @@ enum VulkanExtension
 			case .VK_KHR_shader_expect_assume: return .Device;
 			case .VK_KHR_maintenance6: return .Device;
 			case .VK_NV_descriptor_pool_overallocation: return .Device;
+			case .VK_QCOM_tile_memory_heap: return .Device;
 			case .VK_NV_display_stereo: return .Instance;
+			case .VK_KHR_video_encode_intra_refresh: return .Device;
 			case .VK_KHR_video_encode_quantization_map: return .Device;
 			case .VK_NV_raw_access_chains: return .Device;
+			case .VK_NV_external_compute_queue: return .Device;
 			case .VK_KHR_shader_relaxed_extended_instruction: return .Device;
 			case .VK_NV_command_buffer_inheritance: return .Device;
 			case .VK_KHR_maintenance7: return .Device;
 			case .VK_NV_shader_atomic_float16_vector: return .Device;
 			case .VK_EXT_shader_replicated_composites: return .Device;
+			case .VK_EXT_shader_float8: return .Device;
 			case .VK_NV_ray_tracing_validation: return .Device;
+			case .VK_NV_cluster_acceleration_structure: return .Device;
+			case .VK_NV_partitioned_acceleration_structure: return .Device;
 			case .VK_EXT_device_generated_commands: return .Device;
+			case .VK_KHR_maintenance8: return .Device;
 			case .VK_MESA_image_alignment_control: return .Device;
 			case .VK_EXT_depth_clamp_control: return .Device;
+			case .VK_KHR_maintenance9: return .Device;
+			case .VK_KHR_video_maintenance2: return .Device;
 			case .VK_HUAWEI_hdr_vivid: return .Device;
 			case .VK_NV_cooperative_matrix2: return .Device;
+			case .VK_ARM_pipeline_opacity_micromap: return .Device;
+			case .VK_KHR_depth_clamp_zero_one: return .Device;
 			case .VK_EXT_vertex_attribute_robustness: return .Device;
+			case .VK_ARM_format_pack: return .Device;
+			case .VK_VALVE_fragment_density_map_layered: return .Device;
+			case .VK_KHR_robustness2: return .Device;
+			case .VK_EXT_fragment_density_map_offset: return .Device;
+			case .VK_EXT_zero_initialize_device_memory: return .Device;
+			case .VK_KHR_present_mode_fifo_latest_ready: return .Device;
+			case .VK_SEC_pipeline_cache_incremental_mode: return .Device;
 			}
 		}
 	}
@@ -1210,6 +1297,7 @@ enum VulkanExtension
 			case .VK_AMD_shader_fragment_mask: return "AMD";
 			case .VK_EXT_inline_uniform_block: return "EXT";
 			case .VK_EXT_shader_stencil_export: return "EXT";
+			case .VK_KHR_shader_bfloat16: return "KHR";
 			case .VK_EXT_sample_locations: return "AMD";
 			case .VK_KHR_relaxed_block_layout: return "KHR";
 			case .VK_KHR_get_memory_requirements2: return "KHR";
@@ -1333,7 +1421,7 @@ enum VulkanExtension
 			case .VK_KHR_video_encode_queue: return "KHR";
 			case .VK_NV_device_diagnostics_config: return "NV";
 			case .VK_QCOM_render_pass_store_ops: return "QCOM";
-			case .VK_NV_cuda_kernel_launch: return "NV";
+			case .VK_QCOM_tile_shading: return "QCOM";
 			case .VK_NV_low_latency: return "NV";
 			case .VK_KHR_synchronization2: return "KHR";
 			case .VK_EXT_descriptor_buffer: return "EXT";
@@ -1399,6 +1487,7 @@ enum VulkanExtension
 			case .VK_NV_copy_memory_indirect: return "NV";
 			case .VK_NV_memory_decompression: return "NV";
 			case .VK_NV_device_generated_commands_compute: return "NV";
+			case .VK_NV_ray_tracing_linear_swept_spheres: return "NV";
 			case .VK_NV_linear_color_attachment: return "NVIDIA";
 			case .VK_GOOGLE_surfaceless_query: return "GOOGLE";
 			case .VK_KHR_shader_maximal_reconvergence: return "KHR";
@@ -1409,6 +1498,7 @@ enum VulkanExtension
 			case .VK_EXT_extended_dynamic_state3: return "NV";
 			case .VK_EXT_subpass_merge_feedback: return "EXT";
 			case .VK_LUNARG_direct_driver_loading: return "LUNARG";
+			case .VK_ARM_tensors: return "ARM";
 			case .VK_EXT_shader_module_identifier: return "EXT";
 			case .VK_EXT_rasterization_order_attachment_access: return "ARM";
 			case .VK_NV_optical_flow: return "NV";
@@ -1416,13 +1506,18 @@ enum VulkanExtension
 			case .VK_EXT_pipeline_protected_access: return "EXT";
 			case .VK_KHR_maintenance5: return "KHR";
 			case .VK_AMD_anti_lag: return "AMD";
+			case .VK_KHR_present_id2: return "KHR";
+			case .VK_KHR_present_wait2: return "KHR";
 			case .VK_KHR_ray_tracing_position_fetch: return "KHR";
 			case .VK_EXT_shader_object: return "EXT";
 			case .VK_KHR_pipeline_binary: return "KHR";
 			case .VK_QCOM_tile_properties: return "QCOM";
 			case .VK_SEC_amigo_profiling: return "SEC";
+			case .VK_KHR_surface_maintenance1: return "KHR";
+			case .VK_KHR_swapchain_maintenance1: return "KHR";
 			case .VK_QCOM_multiview_per_view_viewports: return "QCOM";
 			case .VK_NV_ray_tracing_invocation_reorder: return "NV";
+			case .VK_NV_cooperative_vector: return "NV";
 			case .VK_NV_extended_sparse_address_space: return "NV";
 			case .VK_EXT_mutable_descriptor_type: return "EXT";
 			case .VK_EXT_legacy_vertex_attributes: return "EXT";
@@ -1432,10 +1527,12 @@ enum VulkanExtension
 			case .VK_EXT_dynamic_rendering_unused_attachments: return "EXT";
 			case .VK_NV_low_latency2: return "NV";
 			case .VK_KHR_cooperative_matrix: return "KHR";
+			case .VK_ARM_data_graph: return "ARM";
 			case .VK_QCOM_multiview_per_view_render_areas: return "QCOM";
 			case .VK_KHR_compute_shader_derivatives: return "KHR";
 			case .VK_KHR_video_decode_av1: return "KHR";
 			case .VK_KHR_video_encode_av1: return "KHR";
+			case .VK_KHR_video_decode_vp9: return "KHR";
 			case .VK_KHR_video_maintenance1: return "KHR";
 			case .VK_NV_per_stage_descriptor_set: return "NV";
 			case .VK_QCOM_image_processing2: return "QCOM";
@@ -1445,6 +1542,7 @@ enum VulkanExtension
 			case .VK_EXT_attachment_feedback_loop_dynamic_state: return "EXT";
 			case .VK_KHR_vertex_attribute_divisor: return "KHR";
 			case .VK_KHR_load_store_op_none: return "KHR";
+			case .VK_KHR_unified_image_layouts: return "KHR";
 			case .VK_KHR_shader_float_controls2: return "KHR";
 			case .VK_MSFT_layered_driver: return "MSFT";
 			case .VK_KHR_index_type_uint8: return "KHR";
@@ -1453,132 +1551,157 @@ enum VulkanExtension
 			case .VK_KHR_shader_expect_assume: return "KHR";
 			case .VK_KHR_maintenance6: return "KHR";
 			case .VK_NV_descriptor_pool_overallocation: return "NV";
+			case .VK_QCOM_tile_memory_heap: return "QCOM";
 			case .VK_NV_display_stereo: return "NV";
+			case .VK_KHR_video_encode_intra_refresh: return "KHR";
 			case .VK_KHR_video_encode_quantization_map: return "KHR";
 			case .VK_NV_raw_access_chains: return "NV";
+			case .VK_NV_external_compute_queue: return "NV";
 			case .VK_KHR_shader_relaxed_extended_instruction: return "KHR";
 			case .VK_NV_command_buffer_inheritance: return "NV";
 			case .VK_KHR_maintenance7: return "KHR";
 			case .VK_NV_shader_atomic_float16_vector: return "NV";
 			case .VK_EXT_shader_replicated_composites: return "EXT";
+			case .VK_EXT_shader_float8: return "EXT";
 			case .VK_NV_ray_tracing_validation: return "NV";
+			case .VK_NV_cluster_acceleration_structure: return "NV";
+			case .VK_NV_partitioned_acceleration_structure: return "NV";
 			case .VK_EXT_device_generated_commands: return "EXT";
+			case .VK_KHR_maintenance8: return "KHR";
 			case .VK_MESA_image_alignment_control: return "MESA";
 			case .VK_EXT_depth_clamp_control: return "EXT";
+			case .VK_KHR_maintenance9: return "KHR";
+			case .VK_KHR_video_maintenance2: return "KHR";
 			case .VK_HUAWEI_hdr_vivid: return "HUAWEI";
 			case .VK_NV_cooperative_matrix2: return "NV";
+			case .VK_ARM_pipeline_opacity_micromap: return "ARM";
+			case .VK_KHR_depth_clamp_zero_one: return "KHR";
 			case .VK_EXT_vertex_attribute_robustness: return "EXT";
+			case .VK_ARM_format_pack: return "ARM";
+			case .VK_VALVE_fragment_density_map_layered: return "VALVE";
+			case .VK_KHR_robustness2: return "KHR";
+			case .VK_EXT_fragment_density_map_offset: return "EXT";
+			case .VK_EXT_zero_initialize_device_memory: return "EXT";
+			case .VK_KHR_present_mode_fifo_latest_ready: return "KHR";
+			case .VK_SEC_pipeline_cache_incremental_mode: return "SEC";
 			}
 		}
 	}
 
-	public VulkanFeature? PromotedTo
+	public VulkanApi? PromotedTo
 	{
 		get
 		{
 			switch (this)
 			{
-			case .VK_KHR_sampler_mirror_clamp_to_edge: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_EXT_debug_marker: return VulkanFeature.Extension(.VK_EXT_debug_utils);
-			case .VK_AMD_draw_indirect_count: return VulkanFeature.Extension(.VK_KHR_draw_indirect_count);
-			case .VK_KHR_dynamic_rendering: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_multiview: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_get_physical_device_properties2: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_device_group: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_shader_draw_parameters: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_EXT_shader_subgroup_ballot: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_EXT_shader_subgroup_vote: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_EXT_texture_compression_astc_hdr: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_pipeline_robustness: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_maintenance1: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_device_group_creation: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_external_memory_capabilities: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_external_memory: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_external_semaphore_capabilities: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_external_semaphore: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_push_descriptor: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_shader_float16_int8: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_16bit_storage: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_descriptor_update_template: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_imageless_framebuffer: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_create_renderpass2: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_external_fence_capabilities: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_external_fence: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_maintenance2: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_variable_pointers: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_dedicated_allocation: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_EXT_sampler_filter_minmax: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_storage_buffer_storage_class: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_EXT_inline_uniform_block: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_relaxed_block_layout: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_get_memory_requirements2: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_image_format_list: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_sampler_ycbcr_conversion: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_bind_memory2: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_EXT_descriptor_indexing: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_EXT_shader_viewport_index_layer: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_maintenance3: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case .VK_KHR_draw_indirect_count: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_EXT_global_priority: return VulkanFeature.Extension(.VK_KHR_global_priority);
-			case .VK_KHR_shader_subgroup_extended_types: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_8bit_storage: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_shader_atomic_int64: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_EXT_calibrated_timestamps: return VulkanFeature.Extension(.VK_KHR_calibrated_timestamps);
-			case .VK_KHR_global_priority: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_EXT_vertex_attribute_divisor: return VulkanFeature.Extension(.VK_KHR_vertex_attribute_divisor);
-			case .VK_EXT_pipeline_creation_feedback: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_driver_properties: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_shader_float_controls: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_depth_stencil_resolve: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_NV_compute_shader_derivatives: return VulkanFeature.Extension(.VK_KHR_compute_shader_derivatives);
-			case .VK_NV_fragment_shader_barycentric: return VulkanFeature.Extension(.VK_KHR_fragment_shader_barycentric);
-			case .VK_KHR_timeline_semaphore: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_vulkan_memory_model: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_shader_terminate_invocation: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_scalar_block_layout: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_EXT_subgroup_size_control: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_dynamic_rendering_local_read: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_spirv_1_4: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_separate_depth_stencil_layouts: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_EXT_tooling_info: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_separate_stencil_usage: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_uniform_buffer_standard_layout: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_KHR_buffer_device_address: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_EXT_line_rasterization: return VulkanFeature.Extension(.VK_KHR_line_rasterization);
-			case .VK_EXT_host_query_reset: return VulkanFeature.ApiVersion(.VK_VERSION_1_2);
-			case .VK_EXT_index_type_uint8: return VulkanFeature.Extension(.VK_KHR_index_type_uint8);
-			case .VK_EXT_extended_dynamic_state: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_host_image_copy: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_map_memory2: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_EXT_shader_demote_to_helper_invocation: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_shader_integer_dot_product: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_texel_buffer_alignment: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_shader_non_semantic_info: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_private_data: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_pipeline_creation_cache_control: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_synchronization2: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_zero_initialize_workgroup_memory: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_ycbcr_2plane_444_formats: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_image_robustness: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_copy_commands2: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_4444_formats: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_ARM_rasterization_order_attachment_access: return VulkanFeature.Extension(.VK_EXT_rasterization_order_attachment_access);
-			case .VK_VALVE_mutable_descriptor_type: return VulkanFeature.Extension(.VK_EXT_mutable_descriptor_type);
-			case .VK_KHR_format_feature_flags2: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_extended_dynamic_state2: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_EXT_global_priority_query: return VulkanFeature.Extension(.VK_KHR_global_priority);
-			case .VK_EXT_load_store_op_none: return VulkanFeature.Extension(.VK_KHR_load_store_op_none);
-			case .VK_KHR_maintenance4: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
-			case .VK_KHR_shader_subgroup_rotate: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_EXT_pipeline_protected_access: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_maintenance5: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_vertex_attribute_divisor: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_load_store_op_none: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_shader_float_controls2: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_index_type_uint8: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_line_rasterization: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_shader_expect_assume: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
-			case .VK_KHR_maintenance6: return VulkanFeature.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_sampler_mirror_clamp_to_edge: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_EXT_debug_marker: return VulkanApi.Extension(.VK_EXT_debug_utils);
+			case .VK_AMD_draw_indirect_count: return VulkanApi.Extension(.VK_KHR_draw_indirect_count);
+			case .VK_KHR_dynamic_rendering: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_KHR_multiview: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_get_physical_device_properties2: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_device_group: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_shader_draw_parameters: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_EXT_shader_subgroup_ballot: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_EXT_shader_subgroup_vote: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_EXT_texture_compression_astc_hdr: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_pipeline_robustness: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_maintenance1: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_device_group_creation: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_external_memory_capabilities: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_external_memory: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_external_semaphore_capabilities: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_external_semaphore: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_push_descriptor: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_shader_float16_int8: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_16bit_storage: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_descriptor_update_template: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_imageless_framebuffer: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_create_renderpass2: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_external_fence_capabilities: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_external_fence: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_maintenance2: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_variable_pointers: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_dedicated_allocation: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_EXT_sampler_filter_minmax: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_storage_buffer_storage_class: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_EXT_inline_uniform_block: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_KHR_relaxed_block_layout: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_get_memory_requirements2: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_image_format_list: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_sampler_ycbcr_conversion: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_bind_memory2: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_EXT_descriptor_indexing: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_EXT_shader_viewport_index_layer: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_maintenance3: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_KHR_draw_indirect_count: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_EXT_global_priority: return VulkanApi.Extension(.VK_KHR_global_priority);
+			case .VK_KHR_shader_subgroup_extended_types: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_8bit_storage: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_shader_atomic_int64: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_EXT_calibrated_timestamps: return VulkanApi.Extension(.VK_KHR_calibrated_timestamps);
+			case .VK_KHR_global_priority: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_EXT_vertex_attribute_divisor: return VulkanApi.Extension(.VK_KHR_vertex_attribute_divisor);
+			case .VK_EXT_pipeline_creation_feedback: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_KHR_driver_properties: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_shader_float_controls: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_depth_stencil_resolve: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_NV_compute_shader_derivatives: return VulkanApi.Extension(.VK_KHR_compute_shader_derivatives);
+			case .VK_NV_fragment_shader_barycentric: return VulkanApi.Extension(.VK_KHR_fragment_shader_barycentric);
+			case .VK_KHR_timeline_semaphore: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_vulkan_memory_model: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_shader_terminate_invocation: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_scalar_block_layout: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_EXT_subgroup_size_control: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_KHR_dynamic_rendering_local_read: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_spirv_1_4: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_separate_depth_stencil_layouts: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_EXT_tooling_info: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_separate_stencil_usage: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_uniform_buffer_standard_layout: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_KHR_buffer_device_address: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_EXT_line_rasterization: return VulkanApi.Extension(.VK_KHR_line_rasterization);
+			case .VK_EXT_host_query_reset: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case .VK_EXT_index_type_uint8: return VulkanApi.Extension(.VK_KHR_index_type_uint8);
+			case .VK_EXT_extended_dynamic_state: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_host_image_copy: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_map_memory2: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_EXT_surface_maintenance1: return VulkanApi.Extension(.VK_KHR_surface_maintenance1);
+			case .VK_EXT_swapchain_maintenance1: return VulkanApi.Extension(.VK_KHR_swapchain_maintenance1);
+			case .VK_EXT_shader_demote_to_helper_invocation: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_KHR_shader_integer_dot_product: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_texel_buffer_alignment: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_robustness2: return VulkanApi.Extension(.VK_KHR_robustness2);
+			case .VK_KHR_shader_non_semantic_info: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_private_data: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_pipeline_creation_cache_control: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_KHR_synchronization2: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_KHR_zero_initialize_workgroup_memory: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_ycbcr_2plane_444_formats: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_image_robustness: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_KHR_copy_commands2: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_4444_formats: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_ARM_rasterization_order_attachment_access: return VulkanApi.Extension(.VK_EXT_rasterization_order_attachment_access);
+			case .VK_VALVE_mutable_descriptor_type: return VulkanApi.Extension(.VK_EXT_mutable_descriptor_type);
+			case .VK_KHR_format_feature_flags2: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_present_mode_fifo_latest_ready: return VulkanApi.Extension(.VK_KHR_present_mode_fifo_latest_ready);
+			case .VK_EXT_extended_dynamic_state2: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_EXT_global_priority_query: return VulkanApi.Extension(.VK_KHR_global_priority);
+			case .VK_EXT_load_store_op_none: return VulkanApi.Extension(.VK_KHR_load_store_op_none);
+			case .VK_KHR_maintenance4: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case .VK_KHR_shader_subgroup_rotate: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_EXT_depth_clamp_zero_one: return VulkanApi.Extension(.VK_KHR_depth_clamp_zero_one);
+			case .VK_QCOM_fragment_density_map_offset: return VulkanApi.Extension(.VK_EXT_fragment_density_map_offset);
+			case .VK_EXT_pipeline_protected_access: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_maintenance5: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_vertex_attribute_divisor: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_load_store_op_none: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_shader_float_controls2: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_index_type_uint8: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_line_rasterization: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_shader_expect_assume: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_KHR_maintenance6: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case .VK_EXT_vertex_attribute_robustness: return VulkanApi.Extension(.VK_KHR_maintenance9);
 			default: return null;
 			}
 		}
@@ -1635,6 +1758,7 @@ enum VulkanExtension
 			case .VK_AMD_gpu_shader_int16: return "SPV_AMD_gpu_shader_int16";
 			case .VK_AMD_shader_fragment_mask: return "SPV_AMD_shader_fragment_mask";
 			case .VK_EXT_shader_stencil_export: return "SPV_EXT_shader_stencil_export";
+			case .VK_KHR_shader_bfloat16: return "SPV_KHR_bfloat16";
 			case .VK_KHR_ray_tracing_pipeline: return "SPV_KHR_ray_tracing";
 			case .VK_KHR_ray_query: return "SPV_KHR_ray_query";
 			case .VK_NV_shader_sm_builtins: return "SPV_NV_shader_sm_builtins";
@@ -1670,6 +1794,7 @@ enum VulkanExtension
 			case .VK_KHR_shader_integer_dot_product: return "SPV_KHR_integer_dot_product";
 			case .VK_GOOGLE_user_type: return "SPV_GOOGLE_user_type";
 			case .VK_KHR_shader_non_semantic_info: return "SPV_KHR_non_semantic_info";
+			case .VK_QCOM_tile_shading: return "SPV_QCOM_tile_shading";
 			case .VK_AMD_shader_early_and_late_fragment_tests: return "SPV_AMD_shader_early_and_late_fragment_tests";
 			case .VK_KHR_fragment_shader_barycentric: return "SPV_KHR_fragment_shader_barycentric";
 			case .VK_KHR_shader_subgroup_uniform_control_flow: return "SPV_KHR_subgroup_uniform_control_flow";
@@ -1682,12 +1807,16 @@ enum VulkanExtension
 			case .VK_EXT_opacity_micromap: return "SPV_EXT_opacity_micromap";
 			case .VK_HUAWEI_cluster_culling_shader: return "SPV_HUAWEI_cluster_culling_shader";
 			case .VK_KHR_shader_subgroup_rotate: return "SPV_KHR_subgroup_rotate";
+			case .VK_NV_ray_tracing_linear_swept_spheres: return "SPV_NV_linear_swept_spheres";
 			case .VK_KHR_shader_maximal_reconvergence: return "SPV_KHR_maximal_reconvergence";
 			case .VK_QCOM_image_processing: return "SPV_QCOM_image_processing";
+			case .VK_ARM_tensors: return "SPV_ARM_tensors";
 			case .VK_KHR_ray_tracing_position_fetch: return "SPV_KHR_ray_tracing_position_fetch";
 			case .VK_NV_ray_tracing_invocation_reorder: return "SPV_NV_shader_invocation_reorder";
+			case .VK_NV_cooperative_vector: return "SPV_NV_cooperative_vector";
 			case .VK_ARM_shader_core_builtins: return "SPV_ARM_core_builtins";
 			case .VK_KHR_cooperative_matrix: return "SPV_KHR_cooperative_matrix";
+			case .VK_ARM_data_graph: return "SPV_ARM_graph";
 			case .VK_KHR_compute_shader_derivatives: return "SPV_KHR_compute_shader_derivatives";
 			case .VK_QCOM_image_processing2: return "SPV_QCOM_image_processing2";
 			case .VK_KHR_shader_float_controls2: return "SPV_KHR_float_controls2";
@@ -1696,6 +1825,8 @@ enum VulkanExtension
 			case .VK_KHR_shader_relaxed_extended_instruction: return "SPV_KHR_relaxed_extended_instruction";
 			case .VK_NV_shader_atomic_float16_vector: return "SPV_NV_shader_atomic_fp16_vector";
 			case .VK_EXT_shader_replicated_composites: return "SPV_EXT_replicated_composites";
+			case .VK_EXT_shader_float8: return "SPV_EXT_float8";
+			case .VK_NV_cluster_acceleration_structure: return "SPV_NV_cluster_acceleration_structure";
 			case .VK_NV_cooperative_matrix2: return "SPV_NV_tensor_addressing";
 			default: return null;
 			}
@@ -1729,6 +1860,7 @@ enum VulkanExtension
 		case -1330403930211020129 when spirvExtension == "SPV_AMD_gpu_shader_int16": return VK_AMD_gpu_shader_int16;
 		case 1800713547621171110 when spirvExtension == "SPV_AMD_shader_fragment_mask": return VK_AMD_shader_fragment_mask;
 		case 8142135915646196216 when spirvExtension == "SPV_EXT_shader_stencil_export": return VK_EXT_shader_stencil_export;
+		case -4374577291123316518 when spirvExtension == "SPV_KHR_bfloat16": return VK_KHR_shader_bfloat16;
 		case -6418196440321592522 when spirvExtension == "SPV_KHR_ray_tracing": return VK_KHR_ray_tracing_pipeline;
 		case 6678244492218520214 when spirvExtension == "SPV_KHR_ray_query": return VK_KHR_ray_query;
 		case 6178148494314338521 when spirvExtension == "SPV_NV_shader_sm_builtins": return VK_NV_shader_sm_builtins;
@@ -1764,6 +1896,7 @@ enum VulkanExtension
 		case -5919115207591959584 when spirvExtension == "SPV_KHR_integer_dot_product": return VK_KHR_shader_integer_dot_product;
 		case 4599950423718421768 when spirvExtension == "SPV_GOOGLE_user_type": return VK_GOOGLE_user_type;
 		case -8182227334327661562 when spirvExtension == "SPV_KHR_non_semantic_info": return VK_KHR_shader_non_semantic_info;
+		case -6459846786130516213 when spirvExtension == "SPV_QCOM_tile_shading": return VK_QCOM_tile_shading;
 		case -2687254198240773469 when spirvExtension == "SPV_AMD_shader_early_and_late_fragment_tests": return VK_AMD_shader_early_and_late_fragment_tests;
 		case -6804737987158284922 when spirvExtension == "SPV_KHR_fragment_shader_barycentric": return VK_KHR_fragment_shader_barycentric;
 		case 6376106423490267151 when spirvExtension == "SPV_KHR_subgroup_uniform_control_flow": return VK_KHR_shader_subgroup_uniform_control_flow;
@@ -1776,12 +1909,16 @@ enum VulkanExtension
 		case 5853447062041999879 when spirvExtension == "SPV_EXT_opacity_micromap": return VK_EXT_opacity_micromap;
 		case -1371409709764441838 when spirvExtension == "SPV_HUAWEI_cluster_culling_shader": return VK_HUAWEI_cluster_culling_shader;
 		case 2318582324280597719 when spirvExtension == "SPV_KHR_subgroup_rotate": return VK_KHR_shader_subgroup_rotate;
+		case 3580348601921840321 when spirvExtension == "SPV_NV_linear_swept_spheres": return VK_NV_ray_tracing_linear_swept_spheres;
 		case -1504433725478369850 when spirvExtension == "SPV_KHR_maximal_reconvergence": return VK_KHR_shader_maximal_reconvergence;
 		case -1132285373050108054 when spirvExtension == "SPV_QCOM_image_processing": return VK_QCOM_image_processing;
+		case 2545740386476198669 when spirvExtension == "SPV_ARM_tensors": return VK_ARM_tensors;
 		case -4977056365570695192 when spirvExtension == "SPV_KHR_ray_tracing_position_fetch": return VK_KHR_ray_tracing_position_fetch;
 		case 5280783401519523963 when spirvExtension == "SPV_NV_shader_invocation_reorder": return VK_NV_ray_tracing_invocation_reorder;
+		case -2681342609181889554 when spirvExtension == "SPV_NV_cooperative_vector": return VK_NV_cooperative_vector;
 		case -6357969829631605625 when spirvExtension == "SPV_ARM_core_builtins": return VK_ARM_shader_core_builtins;
 		case 7476455058448592299 when spirvExtension == "SPV_KHR_cooperative_matrix": return VK_KHR_cooperative_matrix;
+		case -8808022673372580787 when spirvExtension == "SPV_ARM_graph": return VK_ARM_data_graph;
 		case -993891013320677953 when spirvExtension == "SPV_KHR_compute_shader_derivatives": return VK_KHR_compute_shader_derivatives;
 		case 1792641582865752982 when spirvExtension == "SPV_QCOM_image_processing2": return VK_QCOM_image_processing2;
 		case 4822302025772603874 when spirvExtension == "SPV_KHR_float_controls2": return VK_KHR_shader_float_controls2;
@@ -1790,6 +1927,8 @@ enum VulkanExtension
 		case -1224030135683479351 when spirvExtension == "SPV_KHR_relaxed_extended_instruction": return VK_KHR_shader_relaxed_extended_instruction;
 		case 825034983689393814 when spirvExtension == "SPV_NV_shader_atomic_fp16_vector": return VK_NV_shader_atomic_float16_vector;
 		case 3755238009648166387 when spirvExtension == "SPV_EXT_replicated_composites": return VK_EXT_shader_replicated_composites;
+		case 753110955097932179 when spirvExtension == "SPV_EXT_float8": return VK_EXT_shader_float8;
+		case -7671461325270328867 when spirvExtension == "SPV_NV_cluster_acceleration_structure": return VK_NV_cluster_acceleration_structure;
 		case -5977891045829627448 when spirvExtension == "SPV_NV_tensor_addressing": return VK_NV_cooperative_matrix2;
 		default: return null;
 		}
@@ -1857,6 +1996,7 @@ enum VulkanExtension
 			case .VK_KHR_dedicated_allocation: return 1;
 			case .VK_EXT_sampler_filter_minmax: return 1;
 			case .VK_EXT_inline_uniform_block: return 2;
+			case .VK_KHR_shader_bfloat16: return 1;
 			case .VK_EXT_sample_locations: return 1;
 			case .VK_EXT_blend_operation_advanced: return 1;
 			case .VK_KHR_acceleration_structure: return 4;
@@ -1949,6 +2089,7 @@ enum VulkanExtension
 			case .VK_EXT_pipeline_creation_cache_control: return 1;
 			case .VK_KHR_video_encode_queue: return 2;
 			case .VK_NV_device_diagnostics_config: return 1;
+			case .VK_QCOM_tile_shading: return 1;
 			case .VK_KHR_synchronization2: return 1;
 			case .VK_EXT_descriptor_buffer: return 4;
 			case .VK_EXT_graphics_pipeline_library: return 2;
@@ -2009,6 +2150,7 @@ enum VulkanExtension
 			case .VK_NV_copy_memory_indirect: return 2;
 			case .VK_NV_memory_decompression: return 2;
 			case .VK_NV_device_generated_commands_compute: return 1;
+			case .VK_NV_ray_tracing_linear_swept_spheres: return 1;
 			case .VK_NV_linear_color_attachment: return 1;
 			case .VK_GOOGLE_surfaceless_query: return 1;
 			case .VK_KHR_shader_maximal_reconvergence: return 1;
@@ -2018,17 +2160,22 @@ enum VulkanExtension
 			case .VK_EXT_external_memory_acquire_unmodified: return 1;
 			case .VK_EXT_extended_dynamic_state3: return 1;
 			case .VK_EXT_subpass_merge_feedback: return 1;
+			case .VK_ARM_tensors: return 1;
 			case .VK_EXT_shader_module_identifier: return 2;
 			case .VK_EXT_rasterization_order_attachment_access: return 1;
 			case .VK_NV_optical_flow: return 3;
 			case .VK_EXT_legacy_dithering: return 1;
 			case .VK_EXT_pipeline_protected_access: return 1;
 			case .VK_KHR_maintenance5: return 2;
+			case .VK_KHR_present_id2: return 3;
+			case .VK_KHR_present_wait2: return 4;
 			case .VK_KHR_ray_tracing_position_fetch: return 1;
 			case .VK_EXT_shader_object: return 2;
 			case .VK_KHR_pipeline_binary: return 1;
 			case .VK_QCOM_tile_properties: return 1;
 			case .VK_SEC_amigo_profiling: return 1;
+			case .VK_KHR_surface_maintenance1: return 1;
+			case .VK_KHR_swapchain_maintenance1: return 1;
 			case .VK_QCOM_multiview_per_view_viewports: return 1;
 			case .VK_NV_ray_tracing_invocation_reorder: return 1;
 			case .VK_EXT_mutable_descriptor_type: return 1;
@@ -2036,11 +2183,13 @@ enum VulkanExtension
 			case .VK_ARM_shader_core_builtins: return 1;
 			case .VK_EXT_pipeline_library_group_handles: return 2;
 			case .VK_EXT_dynamic_rendering_unused_attachments: return 2;
-			case .VK_NV_low_latency2: return 1;
+			case .VK_NV_low_latency2: return 2;
 			case .VK_KHR_cooperative_matrix: return 1;
+			case .VK_ARM_data_graph: return 3;
 			case .VK_KHR_compute_shader_derivatives: return 1;
 			case .VK_KHR_video_decode_av1: return 1;
 			case .VK_KHR_video_encode_av1: return 1;
+			case .VK_KHR_video_decode_vp9: return 1;
 			case .VK_KHR_video_maintenance1: return 1;
 			case .VK_NV_per_stage_descriptor_set: return 1;
 			case .VK_QCOM_image_processing2: return 1;
@@ -2056,1952 +2205,2147 @@ enum VulkanExtension
 			case .VK_KHR_shader_expect_assume: return 1;
 			case .VK_KHR_maintenance6: return 1;
 			case .VK_NV_descriptor_pool_overallocation: return 1;
+			case .VK_QCOM_tile_memory_heap: return 2;
 			case .VK_NV_display_stereo: return 2;
+			case .VK_KHR_video_encode_intra_refresh: return 1;
 			case .VK_KHR_video_encode_quantization_map: return 2;
 			case .VK_KHR_maintenance7: return 1;
+			case .VK_NV_cluster_acceleration_structure: return 1;
+			case .VK_NV_partitioned_acceleration_structure: return 1;
 			case .VK_EXT_device_generated_commands: return 2;
+			case .VK_KHR_maintenance8: return 1;
 			case .VK_MESA_image_alignment_control: return 1;
 			case .VK_EXT_depth_clamp_control: return 1;
+			case .VK_KHR_maintenance9: return 1;
+			case .VK_KHR_video_maintenance2: return 1;
 			case .VK_HUAWEI_hdr_vivid: return 3;
 			case .VK_NV_cooperative_matrix2: return 1;
+			case .VK_ARM_pipeline_opacity_micromap: return 1;
+			case .VK_KHR_depth_clamp_zero_one: return 1;
 			case .VK_EXT_vertex_attribute_robustness: return 1;
+			case .VK_VALVE_fragment_density_map_layered: return 2;
+			case .VK_KHR_robustness2: return 1;
+			case .VK_EXT_fragment_density_map_offset: return 4;
+			case .VK_EXT_zero_initialize_device_memory: return 1;
+			case .VK_KHR_present_mode_fifo_latest_ready: return 1;
 			default: return 0;
 			}
 		}
 	}
 
-	public VulkanFeature GetDependency(int idx)
+	public VulkanApi GetDependency(int idx)
 	{
 		switch (this)
 		{
 		case .VK_KHR_swapchain:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_surface);
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_display:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_surface);
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_display_swapchain:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
-			case 1: return VulkanFeature.Extension(.VK_KHR_display);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 1: return VulkanApi.Extension(.VK_KHR_display);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_debug_marker:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_debug_report);
+			case 0: return VulkanApi.Extension(.VK_EXT_debug_report);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_queue:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_synchronization2);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case 1: return VulkanApi.Extension(.VK_KHR_synchronization2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_decode_queue:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_queue);
-			case 1: return VulkanFeature.Extension(.VK_KHR_synchronization2);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_queue);
+			case 1: return VulkanApi.Extension(.VK_KHR_synchronization2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_transform_feedback:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_encode_h264:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_encode_queue);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_encode_queue);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_encode_h265:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_encode_queue);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_encode_queue);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_decode_h264:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_decode_queue);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_decode_queue);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_AMD_texture_gather_bias_lod:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_dynamic_rendering:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_depth_stencil_resolve);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_depth_stencil_resolve);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_corner_sampled_image:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_multiview:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_external_memory:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_NV_external_memory_capabilities);
+			case 0: return VulkanApi.Extension(.VK_NV_external_memory_capabilities);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_device_group:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_device_group_creation);
+			case 0: return VulkanApi.Extension(.VK_KHR_device_group_creation);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_texture_compression_astc_hdr:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_astc_decode_mode:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_pipeline_robustness:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_external_memory_capabilities:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_external_memory:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_memory_capabilities);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory_capabilities);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_external_memory_fd:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_memory);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_external_semaphore_capabilities:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_external_semaphore:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_semaphore_capabilities);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_semaphore_capabilities);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_external_semaphore_fd:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_semaphore);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_semaphore);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_push_descriptor:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_conditional_rendering:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_float16_int8:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_16bit_storage:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_storage_buffer_storage_class);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_storage_buffer_storage_class);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_incremental_present:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_direct_mode_display:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_display);
+			case 0: return VulkanApi.Extension(.VK_KHR_display);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_display_surface_counter:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_display);
+			case 0: return VulkanApi.Extension(.VK_KHR_display);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_display_control:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_display_surface_counter);
-			case 1: return VulkanFeature.Extension(.VK_KHR_swapchain);
+			case 0: return VulkanApi.Extension(.VK_EXT_display_surface_counter);
+			case 1: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_GOOGLE_display_timing:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NVX_multiview_per_view_attributes:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_multiview);
+			case 0: return VulkanApi.Extension(.VK_KHR_multiview);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_discard_rectangles:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_conservative_rasterization:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_depth_clip_enable:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_swapchain_colorspace:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_surface);
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_hdr_metadata:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_imageless_framebuffer:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_maintenance2);
-			case 2: return VulkanFeature.Extension(.VK_KHR_image_format_list);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_maintenance2);
+			case 2: return VulkanApi.Extension(.VK_KHR_image_format_list);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_create_renderpass2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_multiview);
-			case 1: return VulkanFeature.Extension(.VK_KHR_maintenance2);
+			case 0: return VulkanApi.Extension(.VK_KHR_multiview);
+			case 1: return VulkanApi.Extension(.VK_KHR_maintenance2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_IMG_relaxed_line_rasterization:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shared_presentable_image:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_surface_capabilities2);
-			case 2: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_surface_capabilities2);
+			case 2: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_external_fence_capabilities:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_external_fence:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_fence_capabilities);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_fence_capabilities);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_external_fence_fd:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_fence);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_fence);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_performance_query:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_get_surface_capabilities2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_surface);
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_variable_pointers:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_storage_buffer_storage_class);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_storage_buffer_storage_class);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_get_display_properties2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_display);
+			case 0: return VulkanApi.Extension(.VK_KHR_display);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_external_memory_dma_buf:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_memory_fd);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory_fd);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_queue_family_foreign:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_memory);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_dedicated_allocation:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_memory_requirements2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_memory_requirements2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_sampler_filter_minmax:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_inline_uniform_block:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_maintenance1);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_maintenance1);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_shader_bfloat16:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_sample_locations:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_blend_operation_advanced:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_acceleration_structure:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case 1: return VulkanFeature.Extension(.VK_EXT_descriptor_indexing);
-			case 2: return VulkanFeature.Extension(.VK_KHR_buffer_device_address);
-			case 3: return VulkanFeature.Extension(.VK_KHR_deferred_host_operations);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case 1: return VulkanApi.Extension(.VK_EXT_descriptor_indexing);
+			case 2: return VulkanApi.Extension(.VK_KHR_buffer_device_address);
+			case 3: return VulkanApi.Extension(.VK_KHR_deferred_host_operations);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_ray_tracing_pipeline:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_spirv_1_4);
-			case 1: return VulkanFeature.Extension(.VK_KHR_acceleration_structure);
+			case 0: return VulkanApi.Extension(.VK_KHR_spirv_1_4);
+			case 1: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_ray_query:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_spirv_1_4);
-			case 1: return VulkanFeature.Extension(.VK_KHR_acceleration_structure);
+			case 0: return VulkanApi.Extension(.VK_KHR_spirv_1_4);
+			case 1: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_shader_sm_builtins:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_sampler_ycbcr_conversion:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_maintenance1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_bind_memory2);
-			case 2: return VulkanFeature.Extension(.VK_KHR_get_memory_requirements2);
-			case 3: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_maintenance1);
+			case 1: return VulkanApi.Extension(.VK_KHR_bind_memory2);
+			case 2: return VulkanApi.Extension(.VK_KHR_get_memory_requirements2);
+			case 3: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_image_drm_format_modifier:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_bind_memory2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 2: return VulkanFeature.Extension(.VK_KHR_sampler_ycbcr_conversion);
-			case 3: return VulkanFeature.Extension(.VK_KHR_image_format_list);
+			case 0: return VulkanApi.Extension(.VK_KHR_bind_memory2);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 2: return VulkanApi.Extension(.VK_KHR_sampler_ycbcr_conversion);
+			case 3: return VulkanApi.Extension(.VK_KHR_image_format_list);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_descriptor_indexing:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_maintenance3);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_maintenance3);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_shading_rate_image:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_ray_tracing:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_memory_requirements2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_memory_requirements2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_representative_fragment_test:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_maintenance3:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_subgroup_extended_types:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_8bit_storage:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_storage_buffer_storage_class);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_storage_buffer_storage_class);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_external_memory_host:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_memory);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_atomic_int64:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_clock:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_calibrated_timestamps:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_AMD_shader_core_properties:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_decode_h265:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_decode_queue);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_decode_queue);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_global_priority:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_vertex_attribute_divisor:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_driver_properties:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_float_controls:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_shader_subgroup_partitioned:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_depth_stencil_resolve:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_create_renderpass2);
+			case 0: return VulkanApi.Extension(.VK_KHR_create_renderpass2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_swapchain_mutable_format:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
-			case 1: return VulkanFeature.Extension(.VK_KHR_maintenance2);
-			case 2: return VulkanFeature.Extension(.VK_KHR_image_format_list);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 1: return VulkanApi.Extension(.VK_KHR_maintenance2);
+			case 2: return VulkanApi.Extension(.VK_KHR_image_format_list);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_compute_shader_derivatives:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_mesh_shader:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_fragment_shader_barycentric:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_shader_image_footprint:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_scissor_exclusive:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_device_diagnostic_checkpoints:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_timeline_semaphore:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_INTEL_shader_integer_functions2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_vulkan_memory_model:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_pci_bus_info:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_AMD_display_native_hdr:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_surface_capabilities2);
-			case 2: return VulkanFeature.Extension(.VK_KHR_swapchain);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_surface_capabilities2);
+			case 2: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_terminate_invocation:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_fragment_density_map:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_scalar_block_layout:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_subgroup_size_control:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_fragment_shading_rate:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_create_renderpass2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_create_renderpass2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_AMD_shader_core_properties2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_AMD_shader_core_properties);
+			case 0: return VulkanApi.Extension(.VK_AMD_shader_core_properties);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_AMD_device_coherent_memory:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_dynamic_rendering_local_read:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_dynamic_rendering);
+			case 0: return VulkanApi.Extension(.VK_KHR_dynamic_rendering);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_shader_image_atomic_int64:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_quad_control:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_vulkan_memory_model);
-			case 2: return VulkanFeature.Extension(.VK_KHR_shader_maximal_reconvergence);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case 1: return VulkanApi.Extension(.VK_KHR_vulkan_memory_model);
+			case 2: return VulkanApi.Extension(.VK_KHR_shader_maximal_reconvergence);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_spirv_1_4:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_shader_float_controls);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case 1: return VulkanApi.Extension(.VK_KHR_shader_float_controls);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_memory_budget:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_memory_priority:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_surface_protected_capabilities:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_surface_capabilities2);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_surface_capabilities2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_dedicated_allocation_image_aliasing:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_dedicated_allocation);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_dedicated_allocation);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_separate_depth_stencil_layouts:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_create_renderpass2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_create_renderpass2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_buffer_device_address:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_present_wait:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
-			case 1: return VulkanFeature.Extension(.VK_KHR_present_id);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 1: return VulkanApi.Extension(.VK_KHR_present_id);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_cooperative_matrix:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_coverage_reduction_mode:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_NV_framebuffer_mixed_samples);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_NV_framebuffer_mixed_samples);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_fragment_shader_interlock:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_ycbcr_image_arrays:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_sampler_ycbcr_conversion);
+			case 0: return VulkanApi.Extension(.VK_KHR_sampler_ycbcr_conversion);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_uniform_buffer_standard_layout:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_provoking_vertex:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_headless_surface:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_surface);
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_buffer_device_address:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_device_group);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_device_group);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_line_rasterization:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_shader_atomic_float:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_host_query_reset:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_index_type_uint8:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_extended_dynamic_state:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_pipeline_executable_properties:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_host_image_copy:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_copy_commands2);
-			case 2: return VulkanFeature.Extension(.VK_KHR_format_feature_flags2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_copy_commands2);
+			case 2: return VulkanApi.Extension(.VK_KHR_format_feature_flags2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_map_memory_placed:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_map_memory2);
+			case 0: return VulkanApi.Extension(.VK_KHR_map_memory2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_shader_atomic_float2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_shader_atomic_float);
+			case 0: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_surface_maintenance1:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_surface);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_surface_capabilities2);
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_surface_capabilities2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_swapchain_maintenance1:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
-			case 1: return VulkanFeature.Extension(.VK_EXT_surface_maintenance1);
-			case 2: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 1: return VulkanApi.Extension(.VK_EXT_surface_maintenance1);
+			case 2: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_shader_demote_to_helper_invocation:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_device_generated_commands:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_buffer_device_address);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case 1: return VulkanApi.Extension(.VK_KHR_buffer_device_address);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_inherited_viewport_scissor:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_integer_dot_product:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_texel_buffer_alignment:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_depth_bias_control:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_device_memory_report:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_acquire_drm_display:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_direct_mode_display);
+			case 0: return VulkanApi.Extension(.VK_EXT_direct_mode_display);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_robustness2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_custom_border_color:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_present_barrier:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_surface);
-			case 2: return VulkanFeature.Extension(.VK_KHR_get_surface_capabilities2);
-			case 3: return VulkanFeature.Extension(.VK_KHR_swapchain);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_surface);
+			case 2: return VulkanApi.Extension(.VK_KHR_get_surface_capabilities2);
+			case 3: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_present_id:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_private_data:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_pipeline_creation_cache_control:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_encode_queue:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_queue);
-			case 1: return VulkanFeature.Extension(.VK_KHR_synchronization2);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_queue);
+			case 1: return VulkanApi.Extension(.VK_KHR_synchronization2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_device_diagnostics_config:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_QCOM_tile_shading:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_QCOM_tile_properties);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_synchronization2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_descriptor_buffer:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_buffer_device_address);
-			case 2: return VulkanFeature.Extension(.VK_EXT_descriptor_indexing);
-			case 3: return VulkanFeature.Extension(.VK_KHR_synchronization2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_buffer_device_address);
+			case 2: return VulkanApi.Extension(.VK_EXT_descriptor_indexing);
+			case 3: return VulkanApi.Extension(.VK_KHR_synchronization2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_graphics_pipeline_library:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_pipeline_library);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_pipeline_library);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_AMD_shader_early_and_late_fragment_tests:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_fragment_shader_barycentric:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_subgroup_uniform_control_flow:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_zero_initialize_workgroup_memory:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_fragment_shading_rate_enums:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_fragment_shading_rate);
+			case 0: return VulkanApi.Extension(.VK_KHR_fragment_shading_rate);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_ray_tracing_motion_blur:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_ray_tracing_pipeline);
+			case 0: return VulkanApi.Extension(.VK_KHR_ray_tracing_pipeline);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_mesh_shader:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_spirv_1_4);
+			case 0: return VulkanApi.Extension(.VK_KHR_spirv_1_4);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_ycbcr_2plane_444_formats:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_sampler_ycbcr_conversion);
+			case 0: return VulkanApi.Extension(.VK_KHR_sampler_ycbcr_conversion);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_fragment_density_map2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_fragment_density_map);
+			case 0: return VulkanApi.Extension(.VK_EXT_fragment_density_map);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_QCOM_rotated_copy_commands:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_copy_commands2);
+			case 0: return VulkanApi.Extension(.VK_KHR_copy_commands2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_image_robustness:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_workgroup_memory_explicit_layout:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_copy_commands2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_image_compression_control:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_attachment_feedback_loop_layout:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_4444_formats:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_device_fault:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_ARM_rasterization_order_attachment_access:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_rgba10x6_formats:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_sampler_ycbcr_conversion);
+			case 0: return VulkanApi.Extension(.VK_KHR_sampler_ycbcr_conversion);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_VALVE_mutable_descriptor_type:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_maintenance3);
+			case 0: return VulkanApi.Extension(.VK_KHR_maintenance3);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_vertex_input_dynamic_state:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_physical_device_drm:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_device_address_binding_report:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_EXT_debug_utils);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_EXT_debug_utils);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_depth_clip_control:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_primitive_topology_list_restart:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_format_feature_flags2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_present_mode_fifo_latest_ready:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_swapchain);
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_HUAWEI_subpass_shading:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_create_renderpass2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_synchronization2);
+			case 0: return VulkanApi.Extension(.VK_KHR_create_renderpass2);
+			case 1: return VulkanApi.Extension(.VK_KHR_synchronization2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_HUAWEI_invocation_mask:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_ray_tracing_pipeline);
-			case 1: return VulkanFeature.Extension(.VK_KHR_synchronization2);
+			case 0: return VulkanApi.Extension(.VK_KHR_ray_tracing_pipeline);
+			case 1: return VulkanApi.Extension(.VK_KHR_synchronization2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_external_memory_rdma:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_memory);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_pipeline_properties:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_multisampled_render_to_single_sampled:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_create_renderpass2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_depth_stencil_resolve);
+			case 0: return VulkanApi.Extension(.VK_KHR_create_renderpass2);
+			case 1: return VulkanApi.Extension(.VK_KHR_depth_stencil_resolve);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_extended_dynamic_state2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_color_write_enable:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_primitives_generated_query:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_transform_feedback);
+			case 0: return VulkanApi.Extension(.VK_EXT_transform_feedback);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_ray_tracing_maintenance1:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_acceleration_structure);
+			case 0: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_global_priority_query:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_global_priority);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_EXT_global_priority);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_image_view_min_lod:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_multi_draw:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_image_2d_view_of_3d:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_maintenance1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_maintenance1);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_shader_tile_image:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_3);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_opacity_micromap:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_acceleration_structure);
-			case 1: return VulkanFeature.Extension(.VK_KHR_synchronization2);
+			case 0: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
+			case 1: return VulkanApi.Extension(.VK_KHR_synchronization2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_HUAWEI_cluster_culling_shader:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_border_color_swizzle:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_custom_border_color);
+			case 0: return VulkanApi.Extension(.VK_EXT_custom_border_color);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_pageable_device_local_memory:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_memory_priority);
+			case 0: return VulkanApi.Extension(.VK_EXT_memory_priority);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_maintenance4:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_ARM_shader_core_properties:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_ARM_scheduling_controls:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_ARM_shader_core_builtins);
+			case 0: return VulkanApi.Extension(.VK_ARM_shader_core_builtins);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_image_sliced_view_of_3d:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_maintenance1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_maintenance1);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_VALVE_descriptor_set_host_mapping:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_depth_clamp_zero_one:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_non_seamless_cube_map:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_ARM_render_pass_striped:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_synchronization2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_synchronization2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_QCOM_fragment_density_map_offset:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_EXT_fragment_density_map);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_EXT_fragment_density_map);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_copy_memory_indirect:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_buffer_device_address);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_buffer_device_address);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_memory_decompression:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_buffer_device_address);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_buffer_device_address);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_device_generated_commands_compute:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_NV_device_generated_commands);
+			case 0: return VulkanApi.Extension(.VK_NV_device_generated_commands);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_NV_ray_tracing_linear_swept_spheres:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_ray_tracing_pipeline);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_linear_color_attachment:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_GOOGLE_surfaceless_query:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_surface);
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_maximal_reconvergence:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_image_compression_control_swapchain:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_image_compression_control);
+			case 0: return VulkanApi.Extension(.VK_EXT_image_compression_control);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_QCOM_image_processing:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_format_feature_flags2);
+			case 0: return VulkanApi.Extension(.VK_KHR_format_feature_flags2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_nested_command_buffer:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_external_memory_acquire_unmodified:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_external_memory);
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_extended_dynamic_state3:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_subpass_merge_feedback:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_ARM_tensors:
+			switch (idx)
+			{
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_shader_module_identifier:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_EXT_pipeline_creation_cache_control);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_EXT_pipeline_creation_cache_control);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_rasterization_order_attachment_access:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_optical_flow:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_format_feature_flags2);
-			case 2: return VulkanFeature.Extension(.VK_KHR_synchronization2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_format_feature_flags2);
+			case 2: return VulkanApi.Extension(.VK_KHR_synchronization2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_legacy_dithering:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_pipeline_protected_access:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_maintenance5:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_dynamic_rendering);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case 1: return VulkanApi.Extension(.VK_KHR_dynamic_rendering);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_present_id2:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_surface_capabilities2);
+			case 1: return VulkanApi.Extension(.VK_KHR_surface);
+			case 2: return VulkanApi.Extension(.VK_KHR_swapchain);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_present_wait2:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_surface_capabilities2);
+			case 1: return VulkanApi.Extension(.VK_KHR_surface);
+			case 2: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 3: return VulkanApi.Extension(.VK_KHR_present_id2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_ray_tracing_position_fetch:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_acceleration_structure);
+			case 0: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_shader_object:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_dynamic_rendering);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_dynamic_rendering);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_pipeline_binary:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_maintenance5);
+			case 0: return VulkanApi.Extension(.VK_KHR_maintenance5);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_QCOM_tile_properties:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_SEC_amigo_profiling:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_surface_maintenance1:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_swapchain_maintenance1:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_QCOM_multiview_per_view_viewports:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_ray_tracing_invocation_reorder:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_ray_tracing_pipeline);
+			case 0: return VulkanApi.Extension(.VK_KHR_ray_tracing_pipeline);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_mutable_descriptor_type:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_maintenance3);
+			case 0: return VulkanApi.Extension(.VK_KHR_maintenance3);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_legacy_vertex_attributes:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_vertex_input_dynamic_state);
+			case 0: return VulkanApi.Extension(.VK_EXT_vertex_input_dynamic_state);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_ARM_shader_core_builtins:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_pipeline_library_group_handles:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_ray_tracing_pipeline);
-			case 1: return VulkanFeature.Extension(.VK_KHR_pipeline_library);
+			case 0: return VulkanApi.Extension(.VK_KHR_ray_tracing_pipeline);
+			case 1: return VulkanApi.Extension(.VK_KHR_pipeline_library);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_dynamic_rendering_unused_attachments:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_dynamic_rendering);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_dynamic_rendering);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_low_latency2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_timeline_semaphore);
+			case 0: return VulkanApi.Extension(.VK_KHR_timeline_semaphore);
+			case 1: return VulkanApi.Extension(.VK_KHR_present_id);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_cooperative_matrix:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_ARM_data_graph:
+			switch (idx)
+			{
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case 1: return VulkanApi.Extension(.VK_KHR_maintenance5);
+			case 2: return VulkanApi.Extension(.VK_KHR_deferred_host_operations);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_compute_shader_derivatives:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_decode_av1:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_decode_queue);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_decode_queue);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_encode_av1:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_encode_queue);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_encode_queue);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_video_decode_vp9:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_video_decode_queue);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_maintenance1:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_queue);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_queue);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_per_stage_descriptor_set:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_maintenance6);
+			case 0: return VulkanApi.Extension(.VK_KHR_maintenance6);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_QCOM_image_processing2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_QCOM_image_processing);
+			case 0: return VulkanApi.Extension(.VK_QCOM_image_processing);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_QCOM_filter_cubic_weights:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_filter_cubic);
+			case 0: return VulkanApi.Extension(.VK_EXT_filter_cubic);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_QCOM_filter_cubic_clamp:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_EXT_filter_cubic);
-			case 1: return VulkanFeature.Extension(.VK_EXT_sampler_filter_minmax);
+			case 0: return VulkanApi.Extension(.VK_EXT_filter_cubic);
+			case 1: return VulkanApi.Extension(.VK_EXT_sampler_filter_minmax);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_attachment_feedback_loop_dynamic_state:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_EXT_attachment_feedback_loop_layout);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_EXT_attachment_feedback_loop_layout);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_vertex_attribute_divisor:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_float_controls2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
-			case 1: return VulkanFeature.Extension(.VK_KHR_shader_float_controls);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case 1: return VulkanApi.Extension(.VK_KHR_shader_float_controls);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_MSFT_layered_driver:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_index_type_uint8:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_line_rasterization:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_calibrated_timestamps:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_shader_expect_assume:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_maintenance6:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_descriptor_pool_overallocation:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_QCOM_tile_memory_heap:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_memory_requirements2);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_display_stereo:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_display);
-			case 1: return VulkanFeature.Extension(.VK_KHR_get_display_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_display);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_display_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_video_encode_intra_refresh:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_video_encode_queue);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_video_encode_quantization_map:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_video_encode_queue);
-			case 1: return VulkanFeature.Extension(.VK_KHR_format_feature_flags2);
+			case 0: return VulkanApi.Extension(.VK_KHR_video_encode_queue);
+			case 1: return VulkanApi.Extension(.VK_KHR_format_feature_flags2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_KHR_maintenance7:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.ApiVersion(.VK_VERSION_1_1);
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_NV_cluster_acceleration_structure:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_NV_partitioned_acceleration_structure:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_device_generated_commands:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_buffer_device_address);
-			case 1: return VulkanFeature.Extension(.VK_KHR_maintenance5);
+			case 0: return VulkanApi.Extension(.VK_KHR_buffer_device_address);
+			case 1: return VulkanApi.Extension(.VK_KHR_maintenance5);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_maintenance8:
+			switch (idx)
+			{
+			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_MESA_image_alignment_control:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_depth_clamp_control:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_maintenance9:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_video_maintenance2:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_video_queue);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_HUAWEI_hdr_vivid:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
-			case 1: return VulkanFeature.Extension(.VK_KHR_swapchain);
-			case 2: return VulkanFeature.Extension(.VK_EXT_hdr_metadata);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 2: return VulkanApi.Extension(.VK_EXT_hdr_metadata);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_NV_cooperative_matrix2:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_cooperative_matrix);
+			case 0: return VulkanApi.Extension(.VK_KHR_cooperative_matrix);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_ARM_pipeline_opacity_micromap:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_EXT_opacity_micromap);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_depth_clamp_zero_one:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
 		case .VK_EXT_vertex_attribute_robustness:
 			switch (idx)
 			{
-			case 0: return VulkanFeature.Extension(.VK_KHR_get_physical_device_properties2);
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_VALVE_fragment_density_map_layered:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_maintenance5);
+			case 1: return VulkanApi.Extension(.VK_EXT_fragment_density_map);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_robustness2:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_EXT_fragment_density_map_offset:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_EXT_fragment_density_map);
+			case 2: return VulkanApi.Extension(.VK_KHR_create_renderpass2);
+			case 3: return VulkanApi.Extension(.VK_KHR_dynamic_rendering);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_EXT_zero_initialize_device_memory:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_present_mode_fifo_latest_ready:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -4100,6 +4444,9 @@ extension VkFormat
 		VK_10BIT_2PLANE_444,
 		VK_12BIT_2PLANE_444,
 		VK_16BIT_2PLANE_444,
+		VK_64BIT_R14G14B14A14,
+		VK_14BIT_2PLANE_420,
+		VK_14BIT_2PLANE_422,
 	}
 
 	public enum CompressionMode
@@ -4368,6 +4715,21 @@ extension VkFormat
 		case .A4R4G4B4_UNORM_PACK16: return .(.VK_16BIT, 2, 1, .(/**/ 1,1,1), -1, .NONE, -1);
 		case .A4B4G4R4_UNORM_PACK16: return .(.VK_16BIT, 2, 1, .(/**/ 1,1,1), -1, .NONE, -1);
 		case .R16G16_SFIXED5_NV: return .(.VK_32BIT, 4, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R10X6_UINT_PACK16_ARM: return .(.VK_16BIT, 2, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R10X6G10X6_UINT_2PACK16_ARM: return .(.VK_32BIT, 4, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM: return .(.VK_64BIT_R10G10B10A10, 8, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R12X4_UINT_PACK16_ARM: return .(.VK_16BIT, 2, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R12X4G12X4_UINT_2PACK16_ARM: return .(.VK_32BIT, 4, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM: return .(.VK_64BIT_R12G12B12A12, 8, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R14X2_UINT_PACK16_ARM: return .(.VK_16BIT, 2, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R14X2G14X2_UINT_2PACK16_ARM: return .(.VK_32BIT, 4, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM: return .(.VK_64BIT_R14G14B14A14, 8, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R14X2_UNORM_PACK16_ARM: return .(.VK_16BIT, 2, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R14X2G14X2_UNORM_2PACK16_ARM: return .(.VK_32BIT, 4, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM: return .(.VK_64BIT_R14G14B14A14, 8, 1, .(/**/ 1,1,1), -1, .NONE, -1);
+		case .G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM: return .(.VK_14BIT_2PLANE_420, 6, 1, .(/**/ 1,1,1), -1, .NONE, 420);
+		case .G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM: return .(.VK_14BIT_2PLANE_422, 6, 1, .(/**/ 1,1,1), -1, .NONE, 422);
+		case .R8_BOOL_ARM: return .(.VK_8BIT, 1, 1, .(/**/ 1,1,1), -1, .NONE, -1);
 		}
 	}
 
@@ -4388,6 +4750,7 @@ extension VkFormat
 		VK_24 = 24,
 		COMPRESSED = 2147483648,
 		VK_12 = 12,
+		VK_14 = 14,
 	}
 
 	public enum NumericFormat
@@ -4402,6 +4765,7 @@ extension VkFormat
 		SFLOAT,
 		UFLOAT,
 		SFIXED5,
+		BOOL,
 	}
 
 	public int ComponentCount
@@ -4660,6 +5024,21 @@ extension VkFormat
 			case .A4R4G4B4_UNORM_PACK16: return 4;
 			case .A4B4G4R4_UNORM_PACK16: return 4;
 			case .R16G16_SFIXED5_NV: return 2;
+			case .R10X6_UINT_PACK16_ARM: return 1;
+			case .R10X6G10X6_UINT_2PACK16_ARM: return 2;
+			case .R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM: return 4;
+			case .R12X4_UINT_PACK16_ARM: return 1;
+			case .R12X4G12X4_UINT_2PACK16_ARM: return 2;
+			case .R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM: return 4;
+			case .R14X2_UINT_PACK16_ARM: return 1;
+			case .R14X2G14X2_UINT_2PACK16_ARM: return 2;
+			case .R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM: return 4;
+			case .R14X2_UNORM_PACK16_ARM: return 1;
+			case .R14X2G14X2_UNORM_2PACK16_ARM: return 2;
+			case .R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM: return 4;
+			case .G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM: return 3;
+			case .G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM: return 3;
+			case .R8_BOOL_ARM: return 1;
 			}
 		}
 	}
@@ -5015,7 +5394,7 @@ extension VkFormat
 			case 0: return .('R', .VK_8, .SRGB, -1);
 			case 1: return .('G', .VK_8, .SRGB, -1);
 			case 2: return .('B', .VK_8, .SRGB, -1);
-			case 3: return .('A', .VK_8, .SRGB, -1);
+			case 3: return .('A', .VK_8, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .B8G8R8A8_UNORM:
@@ -5078,7 +5457,7 @@ extension VkFormat
 			case 0: return .('B', .VK_8, .SRGB, -1);
 			case 1: return .('G', .VK_8, .SRGB, -1);
 			case 2: return .('R', .VK_8, .SRGB, -1);
-			case 3: return .('A', .VK_8, .SRGB, -1);
+			case 3: return .('A', .VK_8, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .A8B8G8R8_UNORM_PACK32:
@@ -5138,7 +5517,7 @@ extension VkFormat
 		case .A8B8G8R8_SRGB_PACK32:
 			switch (idx)
 			{
-			case 0: return .('A', .VK_8, .SRGB, -1);
+			case 0: return .('A', .VK_8, .UNORM, -1);
 			case 1: return .('B', .VK_8, .SRGB, -1);
 			case 2: return .('G', .VK_8, .SRGB, -1);
 			case 3: return .('R', .VK_8, .SRGB, -1);
@@ -5734,7 +6113,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .BC2_UNORM_BLOCK:
@@ -5752,7 +6131,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .BC3_UNORM_BLOCK:
@@ -5770,7 +6149,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .BC4_UNORM_BLOCK:
@@ -5830,7 +6209,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ETC2_R8G8B8_UNORM_BLOCK:
@@ -5864,7 +6243,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ETC2_R8G8B8A8_UNORM_BLOCK:
@@ -5882,7 +6261,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .EAC_R11_UNORM_BLOCK:
@@ -5926,7 +6305,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_5x4_UNORM_BLOCK:
@@ -5944,7 +6323,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_5x5_UNORM_BLOCK:
@@ -5962,7 +6341,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_6x5_UNORM_BLOCK:
@@ -5980,7 +6359,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_6x6_UNORM_BLOCK:
@@ -5998,7 +6377,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_8x5_UNORM_BLOCK:
@@ -6016,7 +6395,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_8x6_UNORM_BLOCK:
@@ -6034,7 +6413,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_8x8_UNORM_BLOCK:
@@ -6052,7 +6431,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_10x5_UNORM_BLOCK:
@@ -6070,7 +6449,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_10x6_UNORM_BLOCK:
@@ -6088,7 +6467,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_10x8_UNORM_BLOCK:
@@ -6106,7 +6485,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_10x10_UNORM_BLOCK:
@@ -6124,7 +6503,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_12x10_UNORM_BLOCK:
@@ -6142,7 +6521,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_12x12_UNORM_BLOCK:
@@ -6160,7 +6539,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .G8B8G8R8_422_UNORM:
@@ -6481,7 +6860,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .PVRTC1_4BPP_SRGB_BLOCK_IMG:
@@ -6490,7 +6869,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .PVRTC2_2BPP_SRGB_BLOCK_IMG:
@@ -6499,7 +6878,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .PVRTC2_4BPP_SRGB_BLOCK_IMG:
@@ -6508,7 +6887,7 @@ extension VkFormat
 			case 0: return .('R', .COMPRESSED, .SRGB, -1);
 			case 1: return .('G', .COMPRESSED, .SRGB, -1);
 			case 2: return .('B', .COMPRESSED, .SRGB, -1);
-			case 3: return .('A', .COMPRESSED, .SRGB, -1);
+			case 3: return .('A', .COMPRESSED, .UNORM, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		case .ASTC_4x4_SFLOAT_BLOCK:
@@ -6692,6 +7071,116 @@ extension VkFormat
 			{
 			case 0: return .('R', .VK_16, .SFIXED5, -1);
 			case 1: return .('G', .VK_16, .SFIXED5, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R10X6_UINT_PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_10, .UINT, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R10X6G10X6_UINT_2PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_10, .UINT, -1);
+			case 1: return .('G', .VK_10, .UINT, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_10, .UINT, -1);
+			case 1: return .('G', .VK_10, .UINT, -1);
+			case 2: return .('B', .VK_10, .UINT, -1);
+			case 3: return .('A', .VK_10, .UINT, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R12X4_UINT_PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_12, .UINT, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R12X4G12X4_UINT_2PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_12, .UINT, -1);
+			case 1: return .('G', .VK_12, .UINT, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_12, .UINT, -1);
+			case 1: return .('G', .VK_12, .UINT, -1);
+			case 2: return .('B', .VK_12, .UINT, -1);
+			case 3: return .('A', .VK_12, .UINT, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R14X2_UINT_PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_14, .UINT, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R14X2G14X2_UINT_2PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_14, .UINT, -1);
+			case 1: return .('G', .VK_14, .UINT, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_14, .UINT, -1);
+			case 1: return .('G', .VK_14, .UINT, -1);
+			case 2: return .('B', .VK_14, .UINT, -1);
+			case 3: return .('A', .VK_14, .UINT, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R14X2_UNORM_PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_14, .UNORM, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R14X2G14X2_UNORM_2PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_14, .UNORM, -1);
+			case 1: return .('G', .VK_14, .UNORM, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_14, .UNORM, -1);
+			case 1: return .('G', .VK_14, .UNORM, -1);
+			case 2: return .('B', .VK_14, .UNORM, -1);
+			case 3: return .('A', .VK_14, .UNORM, -1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('G', .VK_14, .UNORM, 0);
+			case 1: return .('B', .VK_14, .UNORM, 1);
+			case 2: return .('R', .VK_14, .UNORM, 1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .('G', .VK_14, .UNORM, 0);
+			case 1: return .('B', .VK_14, .UNORM, 1);
+			case 2: return .('R', .VK_14, .UNORM, 1);
+			default: Runtime.FatalError("No such component");
+			}
+		case .R8_BOOL_ARM:
+			switch (idx)
+			{
+			case 0: return .('R', .VK_8, .BOOL, -1);
 			default: Runtime.FatalError("No such component");
 			}
 		}
@@ -8719,6 +9208,116 @@ extension VkFormat
 			case 'G': return [Inline]GetComponent(1);
 			default: Runtime.FatalError("Index out of range");
 			}
+		case .R10X6_UINT_PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R10X6G10X6_UINT_2PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			case 'G': return [Inline]GetComponent(1);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			case 'G': return [Inline]GetComponent(1);
+			case 'B': return [Inline]GetComponent(2);
+			case 'A': return [Inline]GetComponent(3);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R12X4_UINT_PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R12X4G12X4_UINT_2PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			case 'G': return [Inline]GetComponent(1);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			case 'G': return [Inline]GetComponent(1);
+			case 'B': return [Inline]GetComponent(2);
+			case 'A': return [Inline]GetComponent(3);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R14X2_UINT_PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R14X2G14X2_UINT_2PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			case 'G': return [Inline]GetComponent(1);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			case 'G': return [Inline]GetComponent(1);
+			case 'B': return [Inline]GetComponent(2);
+			case 'A': return [Inline]GetComponent(3);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R14X2_UNORM_PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R14X2G14X2_UNORM_2PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			case 'G': return [Inline]GetComponent(1);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			case 'G': return [Inline]GetComponent(1);
+			case 'B': return [Inline]GetComponent(2);
+			case 'A': return [Inline]GetComponent(3);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM:
+			switch (name)
+			{
+			case 'G': return [Inline]GetComponent(0);
+			case 'B': return [Inline]GetComponent(1);
+			case 'R': return [Inline]GetComponent(2);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM:
+			switch (name)
+			{
+			case 'G': return [Inline]GetComponent(0);
+			case 'B': return [Inline]GetComponent(1);
+			case 'R': return [Inline]GetComponent(2);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .R8_BOOL_ARM:
+			switch (name)
+			{
+			case 'R': return [Inline]GetComponent(0);
+			default: Runtime.FatalError("Index out of range");
+			}
 		}
 	}
 
@@ -8753,6 +9352,8 @@ extension VkFormat
 			case .G10X6_B10X6R10X6_2PLANE_444_UNORM_3PACK16: return 2;
 			case .G12X4_B12X4R12X4_2PLANE_444_UNORM_3PACK16: return 2;
 			case .G16_B16R16_2PLANE_444_UNORM: return 2;
+			case .G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM: return 2;
+			case .G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM: return 2;
 			default: return 0;
 			}
 		}
@@ -8941,6 +9542,20 @@ extension VkFormat
 			{
 			case 0: return .(idx, 1, 1, .R16_UNORM);
 			case 1: return .(idx, 1, 1, .R16G16_UNORM);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .(idx, 1, 1, .R14X2_UNORM_PACK16_ARM);
+			case 1: return .(idx, 2, 2, .R14X2G14X2_UNORM_2PACK16_ARM);
+			default: Runtime.FatalError("Index out of range");
+			}
+		case .G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM:
+			switch (idx)
+			{
+			case 0: return .(idx, 1, 1, .R14X2_UNORM_PACK16_ARM);
+			case 1: return .(idx, 2, 1, .R14X2G14X2_UNORM_2PACK16_ARM);
 			default: Runtime.FatalError("Index out of range");
 			}
 		default: Runtime.FatalError("Index out of range");
@@ -9188,7 +9803,7 @@ static class VulkanCommandMetadata
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkResetCommandBuffer => vkResetCommandBuffer__successcodes;
 	private static VkResult[?] vkResetCommandBuffer__errorcodes = .(.VkErrorOutOfDeviceMemory);
 	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkResetCommandBuffer => vkResetCommandBuffer__errorcodes;
-	private static VkQueueFlags vkCmdBindPipeline__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdBindPipeline__queues = .Graphics | .Compute | .DataGraphARM;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindPipeline => vkCmdBindPipeline__queues;
 	private static RenderPassLocation vkCmdBindPipeline__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindPipeline => vkCmdBindPipeline__renderpass;
@@ -9276,7 +9891,7 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetStencilReference => vkCmdSetStencilReference__cmdbufferlevel;
 	private static Task vkCmdSetStencilReference__tasks = .State;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetStencilReference => vkCmdSetStencilReference__tasks;
-	private static VkQueueFlags vkCmdBindDescriptorSets__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdBindDescriptorSets__queues = .Graphics | .Compute | .DataGraphARM;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindDescriptorSets => vkCmdBindDescriptorSets__queues;
 	private static RenderPassLocation vkCmdBindDescriptorSets__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindDescriptorSets => vkCmdBindDescriptorSets__renderpass;
@@ -9350,7 +9965,7 @@ static class VulkanCommandMetadata
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawIndexedIndirect => vkCmdDrawIndexedIndirect__tasks;
 	private static VkQueueFlags vkCmdDispatch__queues = .Compute;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatch => vkCmdDispatch__queues;
-	private static RenderPassLocation vkCmdDispatch__renderpass = .Outside;
+	private static RenderPassLocation vkCmdDispatch__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatch => vkCmdDispatch__renderpass;
 	private static CmdBufferLevel vkCmdDispatch__cmdbufferlevel = .Primary | .Secondary;
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatch => vkCmdDispatch__cmdbufferlevel;
@@ -9358,7 +9973,7 @@ static class VulkanCommandMetadata
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDispatch => vkCmdDispatch__tasks;
 	private static VkQueueFlags vkCmdDispatchIndirect__queues = .Compute;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatchIndirect => vkCmdDispatchIndirect__queues;
-	private static RenderPassLocation vkCmdDispatchIndirect__renderpass = .Outside;
+	private static RenderPassLocation vkCmdDispatchIndirect__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatchIndirect => vkCmdDispatchIndirect__renderpass;
 	private static CmdBufferLevel vkCmdDispatchIndirect__cmdbufferlevel = .Primary | .Secondary;
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatchIndirect => vkCmdDispatchIndirect__cmdbufferlevel;
@@ -9704,7 +10319,7 @@ static class VulkanCommandMetadata
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkDebugMarkerSetObjectTagEXT => vkDebugMarkerSetObjectTagEXT__successcodes;
 	private static VkResult[?] vkDebugMarkerSetObjectTagEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
 	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkDebugMarkerSetObjectTagEXT => vkDebugMarkerSetObjectTagEXT__errorcodes;
-	private static VkQueueFlags vkCmdDebugMarkerBeginEXT__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdDebugMarkerBeginEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDebugMarkerBeginEXT => vkCmdDebugMarkerBeginEXT__queues;
 	private static RenderPassLocation vkCmdDebugMarkerBeginEXT__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDebugMarkerBeginEXT => vkCmdDebugMarkerBeginEXT__renderpass;
@@ -9712,7 +10327,7 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDebugMarkerBeginEXT => vkCmdDebugMarkerBeginEXT__cmdbufferlevel;
 	private static Task vkCmdDebugMarkerBeginEXT__tasks = .Action;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDebugMarkerBeginEXT => vkCmdDebugMarkerBeginEXT__tasks;
-	private static VkQueueFlags vkCmdDebugMarkerEndEXT__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdDebugMarkerEndEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDebugMarkerEndEXT => vkCmdDebugMarkerEndEXT__queues;
 	private static RenderPassLocation vkCmdDebugMarkerEndEXT__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDebugMarkerEndEXT => vkCmdDebugMarkerEndEXT__renderpass;
@@ -9720,7 +10335,7 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDebugMarkerEndEXT => vkCmdDebugMarkerEndEXT__cmdbufferlevel;
 	private static Task vkCmdDebugMarkerEndEXT__tasks = .Action;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDebugMarkerEndEXT => vkCmdDebugMarkerEndEXT__tasks;
-	private static VkQueueFlags vkCmdDebugMarkerInsertEXT__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdDebugMarkerInsertEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDebugMarkerInsertEXT => vkCmdDebugMarkerInsertEXT__queues;
 	private static RenderPassLocation vkCmdDebugMarkerInsertEXT__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDebugMarkerInsertEXT => vkCmdDebugMarkerInsertEXT__renderpass;
@@ -9880,7 +10495,7 @@ static class VulkanCommandMetadata
 	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkAcquireNextImage2KHR => vkAcquireNextImage2KHR__errorcodes;
 	private static VkQueueFlags vkCmdDispatchBase__queues = .Compute;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatchBase => vkCmdDispatchBase__queues;
-	private static RenderPassLocation vkCmdDispatchBase__renderpass = .Outside;
+	private static RenderPassLocation vkCmdDispatchBase__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatchBase => vkCmdDispatchBase__renderpass;
 	private static CmdBufferLevel vkCmdDispatchBase__cmdbufferlevel = .Primary | .Secondary;
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatchBase => vkCmdDispatchBase__cmdbufferlevel;
@@ -10014,7 +10629,7 @@ static class VulkanCommandMetadata
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkSetDebugUtilsObjectTagEXT => vkSetDebugUtilsObjectTagEXT__successcodes;
 	private static VkResult[?] vkSetDebugUtilsObjectTagEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
 	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkSetDebugUtilsObjectTagEXT => vkSetDebugUtilsObjectTagEXT__errorcodes;
-	private static VkQueueFlags vkCmdBeginDebugUtilsLabelEXT__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdBeginDebugUtilsLabelEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginDebugUtilsLabelEXT => vkCmdBeginDebugUtilsLabelEXT__queues;
 	private static RenderPassLocation vkCmdBeginDebugUtilsLabelEXT__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginDebugUtilsLabelEXT => vkCmdBeginDebugUtilsLabelEXT__renderpass;
@@ -10022,7 +10637,7 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginDebugUtilsLabelEXT => vkCmdBeginDebugUtilsLabelEXT__cmdbufferlevel;
 	private static Task vkCmdBeginDebugUtilsLabelEXT__tasks = .Action | .State;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginDebugUtilsLabelEXT => vkCmdBeginDebugUtilsLabelEXT__tasks;
-	private static VkQueueFlags vkCmdEndDebugUtilsLabelEXT__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdEndDebugUtilsLabelEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndDebugUtilsLabelEXT => vkCmdEndDebugUtilsLabelEXT__queues;
 	private static RenderPassLocation vkCmdEndDebugUtilsLabelEXT__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndDebugUtilsLabelEXT => vkCmdEndDebugUtilsLabelEXT__renderpass;
@@ -10030,7 +10645,7 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndDebugUtilsLabelEXT => vkCmdEndDebugUtilsLabelEXT__cmdbufferlevel;
 	private static Task vkCmdEndDebugUtilsLabelEXT__tasks = .Action | .State;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndDebugUtilsLabelEXT => vkCmdEndDebugUtilsLabelEXT__tasks;
-	private static VkQueueFlags vkCmdInsertDebugUtilsLabelEXT__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdInsertDebugUtilsLabelEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdInsertDebugUtilsLabelEXT => vkCmdInsertDebugUtilsLabelEXT__queues;
 	private static RenderPassLocation vkCmdInsertDebugUtilsLabelEXT__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdInsertDebugUtilsLabelEXT => vkCmdInsertDebugUtilsLabelEXT__renderpass;
@@ -10402,6 +11017,14 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdTraceRaysIndirect2KHR => vkCmdTraceRaysIndirect2KHR__cmdbufferlevel;
 	private static Task vkCmdTraceRaysIndirect2KHR__tasks = .Action;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdTraceRaysIndirect2KHR => vkCmdTraceRaysIndirect2KHR__tasks;
+	private static VkQueueFlags vkCmdBuildClusterAccelerationStructureIndirectNV__queues = .Compute;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBuildClusterAccelerationStructureIndirectNV => vkCmdBuildClusterAccelerationStructureIndirectNV__queues;
+	private static RenderPassLocation vkCmdBuildClusterAccelerationStructureIndirectNV__renderpass = .Outside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBuildClusterAccelerationStructureIndirectNV => vkCmdBuildClusterAccelerationStructureIndirectNV__renderpass;
+	private static CmdBufferLevel vkCmdBuildClusterAccelerationStructureIndirectNV__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBuildClusterAccelerationStructureIndirectNV => vkCmdBuildClusterAccelerationStructureIndirectNV__cmdbufferlevel;
+	private static Task vkCmdBuildClusterAccelerationStructureIndirectNV__tasks = .Action;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBuildClusterAccelerationStructureIndirectNV => vkCmdBuildClusterAccelerationStructureIndirectNV__tasks;
 	private static VkQueueFlags vkCmdSetRayTracingPipelineStackSizeKHR__queues = .Compute;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetRayTracingPipelineStackSizeKHR => vkCmdSetRayTracingPipelineStackSizeKHR__queues;
 	private static RenderPassLocation vkCmdSetRayTracingPipelineStackSizeKHR__renderpass = .Outside;
@@ -11190,6 +11813,14 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDecompressMemoryIndirectCountNV => vkCmdDecompressMemoryIndirectCountNV__cmdbufferlevel;
 	private static Task vkCmdDecompressMemoryIndirectCountNV__tasks = .Action;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDecompressMemoryIndirectCountNV => vkCmdDecompressMemoryIndirectCountNV__tasks;
+	private static VkQueueFlags vkCmdBuildPartitionedAccelerationStructuresNV__queues = .Compute;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBuildPartitionedAccelerationStructuresNV => vkCmdBuildPartitionedAccelerationStructuresNV__queues;
+	private static RenderPassLocation vkCmdBuildPartitionedAccelerationStructuresNV__renderpass = .Outside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBuildPartitionedAccelerationStructuresNV => vkCmdBuildPartitionedAccelerationStructuresNV__renderpass;
+	private static CmdBufferLevel vkCmdBuildPartitionedAccelerationStructuresNV__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBuildPartitionedAccelerationStructuresNV => vkCmdBuildPartitionedAccelerationStructuresNV__cmdbufferlevel;
+	private static Task vkCmdBuildPartitionedAccelerationStructuresNV__tasks = .Action;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBuildPartitionedAccelerationStructuresNV => vkCmdBuildPartitionedAccelerationStructuresNV__tasks;
 	private static VkResult[?] vkCreateCuModuleNVX__successcodes = .(.VkSuccess);
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateCuModuleNVX => vkCreateCuModuleNVX__successcodes;
 	private static VkResult[?] vkCreateCuModuleNVX__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInitializationFailed);
@@ -11206,7 +11837,7 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCuLaunchKernelNVX => vkCmdCuLaunchKernelNVX__cmdbufferlevel;
 	private static Task vkCmdCuLaunchKernelNVX__tasks = .Action;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCuLaunchKernelNVX => vkCmdCuLaunchKernelNVX__tasks;
-	private static VkQueueFlags vkCmdBindDescriptorBuffersEXT__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdBindDescriptorBuffersEXT__queues = .Graphics | .Compute | .DataGraphARM;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindDescriptorBuffersEXT => vkCmdBindDescriptorBuffersEXT__queues;
 	private static RenderPassLocation vkCmdBindDescriptorBuffersEXT__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindDescriptorBuffersEXT => vkCmdBindDescriptorBuffersEXT__renderpass;
@@ -11214,7 +11845,7 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindDescriptorBuffersEXT => vkCmdBindDescriptorBuffersEXT__cmdbufferlevel;
 	private static Task vkCmdBindDescriptorBuffersEXT__tasks = .State;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindDescriptorBuffersEXT => vkCmdBindDescriptorBuffersEXT__tasks;
-	private static VkQueueFlags vkCmdSetDescriptorBufferOffsetsEXT__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdSetDescriptorBufferOffsetsEXT__queues = .Graphics | .Compute | .DataGraphARM;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDescriptorBufferOffsetsEXT => vkCmdSetDescriptorBufferOffsetsEXT__queues;
 	private static RenderPassLocation vkCmdSetDescriptorBufferOffsetsEXT__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDescriptorBufferOffsetsEXT => vkCmdSetDescriptorBufferOffsetsEXT__renderpass;
@@ -11258,30 +11889,14 @@ static class VulkanCommandMetadata
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDrmDisplayEXT => vkGetDrmDisplayEXT__successcodes;
 	private static VkResult[?] vkGetDrmDisplayEXT__errorcodes = .(.VkErrorInitializationFailed, .VkErrorOutOfHostMemory);
 	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDrmDisplayEXT => vkGetDrmDisplayEXT__errorcodes;
+	private static VkResult[?] vkWaitForPresent2KHR__successcodes = .(.VkSuccess, .VkTimeout, .VkSuboptimalKHR);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkWaitForPresent2KHR => vkWaitForPresent2KHR__successcodes;
+	private static VkResult[?] vkWaitForPresent2KHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR, .VkErrorSurfaceLostKHR);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkWaitForPresent2KHR => vkWaitForPresent2KHR__errorcodes;
 	private static VkResult[?] vkWaitForPresentKHR__successcodes = .(.VkSuccess, .VkTimeout, .VkSuboptimalKHR);
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkWaitForPresentKHR => vkWaitForPresentKHR__successcodes;
 	private static VkResult[?] vkWaitForPresentKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR, .VkErrorSurfaceLostKHR);
 	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkWaitForPresentKHR => vkWaitForPresentKHR__errorcodes;
-	private static VkResult[?] vkCreateCudaModuleNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateCudaModuleNV => vkCreateCudaModuleNV__successcodes;
-	private static VkResult[?] vkCreateCudaModuleNV__errorcodes = .(.VkErrorInitializationFailed, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateCudaModuleNV => vkCreateCudaModuleNV__errorcodes;
-	private static VkResult[?] vkGetCudaModuleCacheNV__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetCudaModuleCacheNV => vkGetCudaModuleCacheNV__successcodes;
-	private static VkResult[?] vkGetCudaModuleCacheNV__errorcodes = .(.VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetCudaModuleCacheNV => vkGetCudaModuleCacheNV__errorcodes;
-	private static VkResult[?] vkCreateCudaFunctionNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateCudaFunctionNV => vkCreateCudaFunctionNV__successcodes;
-	private static VkResult[?] vkCreateCudaFunctionNV__errorcodes = .(.VkErrorInitializationFailed, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateCudaFunctionNV => vkCreateCudaFunctionNV__errorcodes;
-	private static VkQueueFlags vkCmdCudaLaunchKernelNV__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCudaLaunchKernelNV => vkCmdCudaLaunchKernelNV__queues;
-	private static RenderPassLocation vkCmdCudaLaunchKernelNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCudaLaunchKernelNV => vkCmdCudaLaunchKernelNV__renderpass;
-	private static CmdBufferLevel vkCmdCudaLaunchKernelNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCudaLaunchKernelNV => vkCmdCudaLaunchKernelNV__cmdbufferlevel;
-	private static Task vkCmdCudaLaunchKernelNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCudaLaunchKernelNV => vkCmdCudaLaunchKernelNV__tasks;
 	private static VkQueueFlags vkCmdBeginRendering__queues = .Graphics;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginRendering => vkCmdBeginRendering__queues;
 	private static RenderPassLocation vkCmdBeginRendering__renderpass = .Outside;
@@ -11298,6 +11913,14 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndRendering => vkCmdEndRendering__cmdbufferlevel;
 	private static Task vkCmdEndRendering__tasks = .Action | .State;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndRendering => vkCmdEndRendering__tasks;
+	private static VkQueueFlags vkCmdEndRendering2EXT__queues = .Graphics;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndRendering2EXT => vkCmdEndRendering2EXT__queues;
+	private static RenderPassLocation vkCmdEndRendering2EXT__renderpass = .Inside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndRendering2EXT => vkCmdEndRendering2EXT__renderpass;
+	private static CmdBufferLevel vkCmdEndRendering2EXT__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndRendering2EXT => vkCmdEndRendering2EXT__cmdbufferlevel;
+	private static Task vkCmdEndRendering2EXT__tasks = .Action | .State;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndRendering2EXT => vkCmdEndRendering2EXT__tasks;
 	private static VkResult[?] vkCreateMicromapEXT__successcodes = .(.VkSuccess);
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateMicromapEXT => vkCreateMicromapEXT__successcodes;
 	private static VkResult[?] vkCreateMicromapEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInvalidOpaqueCaptureAddressKHR);
@@ -11366,6 +11989,14 @@ static class VulkanCommandMetadata
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPipelinePropertiesEXT => vkGetPipelinePropertiesEXT__successcodes;
 	private static VkResult[?] vkGetPipelinePropertiesEXT__errorcodes = .(.VkErrorOutOfHostMemory);
 	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPipelinePropertiesEXT => vkGetPipelinePropertiesEXT__errorcodes;
+	private static VkQueueFlags vkCmdBindTileMemoryQCOM__queues = .Graphics | .Compute;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindTileMemoryQCOM => vkCmdBindTileMemoryQCOM__queues;
+	private static RenderPassLocation vkCmdBindTileMemoryQCOM__renderpass = .Outside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindTileMemoryQCOM => vkCmdBindTileMemoryQCOM__renderpass;
+	private static CmdBufferLevel vkCmdBindTileMemoryQCOM__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindTileMemoryQCOM => vkCmdBindTileMemoryQCOM__cmdbufferlevel;
+	private static Task vkCmdBindTileMemoryQCOM__tasks = .State;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindTileMemoryQCOM => vkCmdBindTileMemoryQCOM__tasks;
 	private static VkResult[?] vkGetFramebufferTilePropertiesQCOM__successcodes = .(.VkSuccess, .VkIncomplete);
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetFramebufferTilePropertiesQCOM => vkGetFramebufferTilePropertiesQCOM__successcodes;
 	private static VkResult[?] vkGetDynamicRenderingTilePropertiesQCOM__successcodes = .(.VkSuccess);
@@ -11402,10 +12033,10 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthBias2EXT => vkCmdSetDepthBias2EXT__cmdbufferlevel;
 	private static Task vkCmdSetDepthBias2EXT__tasks = .State;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthBias2EXT => vkCmdSetDepthBias2EXT__tasks;
-	private static VkResult[?] vkReleaseSwapchainImagesEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkReleaseSwapchainImagesEXT => vkReleaseSwapchainImagesEXT__successcodes;
-	private static VkResult[?] vkReleaseSwapchainImagesEXT__errorcodes = .(.VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkReleaseSwapchainImagesEXT => vkReleaseSwapchainImagesEXT__errorcodes;
+	private static VkResult[?] vkReleaseSwapchainImagesKHR__successcodes = .(.VkSuccess);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkReleaseSwapchainImagesKHR => vkReleaseSwapchainImagesKHR__successcodes;
+	private static VkResult[?] vkReleaseSwapchainImagesKHR__errorcodes = .(.VkErrorSurfaceLostKHR);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkReleaseSwapchainImagesKHR => vkReleaseSwapchainImagesKHR__errorcodes;
 	private static VkResult[?] vkMapMemory2__successcodes = .(.VkSuccess);
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkMapMemory2 => vkMapMemory2__successcodes;
 	private static VkResult[?] vkMapMemory2__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorMemoryMapFailed);
@@ -11466,7 +12097,7 @@ static class VulkanCommandMetadata
 	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate2 => vkCmdPushDescriptorSetWithTemplate2__cmdbufferlevel;
 	private static Task vkCmdPushDescriptorSetWithTemplate2__tasks = .State;
 	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate2 => vkCmdPushDescriptorSetWithTemplate2__tasks;
-	private static VkQueueFlags vkCmdSetDescriptorBufferOffsets2EXT__queues = .Graphics | .Compute;
+	private static VkQueueFlags vkCmdSetDescriptorBufferOffsets2EXT__queues = .Graphics | .Compute | .DataGraphARM;
 	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDescriptorBufferOffsets2EXT => vkCmdSetDescriptorBufferOffsets2EXT__queues;
 	private static RenderPassLocation vkCmdSetDescriptorBufferOffsets2EXT__renderpass = .Both;
 	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDescriptorBufferOffsets2EXT => vkCmdSetDescriptorBufferOffsets2EXT__renderpass;
@@ -11516,4 +12147,112 @@ static class VulkanCommandMetadata
 	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV => vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV__successcodes;
 	private static VkResult[?] vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
 	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV => vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV__errorcodes;
+	private static VkResult[?] vkGetPhysicalDeviceCooperativeVectorPropertiesNV__successcodes = .(.VkSuccess, .VkIncomplete);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV => vkGetPhysicalDeviceCooperativeVectorPropertiesNV__successcodes;
+	private static VkResult[?] vkGetPhysicalDeviceCooperativeVectorPropertiesNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV => vkGetPhysicalDeviceCooperativeVectorPropertiesNV__errorcodes;
+	private static VkResult[?] vkConvertCooperativeVectorMatrixNV__successcodes = .(.VkSuccess, .VkIncomplete);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkConvertCooperativeVectorMatrixNV => vkConvertCooperativeVectorMatrixNV__successcodes;
+	private static VkResult[?] vkConvertCooperativeVectorMatrixNV__errorcodes = .(.VkErrorOutOfHostMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkConvertCooperativeVectorMatrixNV => vkConvertCooperativeVectorMatrixNV__errorcodes;
+	private static VkQueueFlags vkCmdConvertCooperativeVectorMatrixNV__queues = .Graphics | .Compute;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdConvertCooperativeVectorMatrixNV => vkCmdConvertCooperativeVectorMatrixNV__queues;
+	private static RenderPassLocation vkCmdConvertCooperativeVectorMatrixNV__renderpass = .Outside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdConvertCooperativeVectorMatrixNV => vkCmdConvertCooperativeVectorMatrixNV__renderpass;
+	private static CmdBufferLevel vkCmdConvertCooperativeVectorMatrixNV__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdConvertCooperativeVectorMatrixNV => vkCmdConvertCooperativeVectorMatrixNV__cmdbufferlevel;
+	private static Task vkCmdConvertCooperativeVectorMatrixNV__tasks = .Action;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdConvertCooperativeVectorMatrixNV => vkCmdConvertCooperativeVectorMatrixNV__tasks;
+	private static VkQueueFlags vkCmdDispatchTileQCOM__queues = .Compute;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatchTileQCOM => vkCmdDispatchTileQCOM__queues;
+	private static RenderPassLocation vkCmdDispatchTileQCOM__renderpass = .Inside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatchTileQCOM => vkCmdDispatchTileQCOM__renderpass;
+	private static CmdBufferLevel vkCmdDispatchTileQCOM__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatchTileQCOM => vkCmdDispatchTileQCOM__cmdbufferlevel;
+	private static Task vkCmdDispatchTileQCOM__tasks = .Action;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDispatchTileQCOM => vkCmdDispatchTileQCOM__tasks;
+	private static VkQueueFlags vkCmdBeginPerTileExecutionQCOM__queues = .Graphics | .Compute;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginPerTileExecutionQCOM => vkCmdBeginPerTileExecutionQCOM__queues;
+	private static RenderPassLocation vkCmdBeginPerTileExecutionQCOM__renderpass = .Inside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginPerTileExecutionQCOM => vkCmdBeginPerTileExecutionQCOM__renderpass;
+	private static CmdBufferLevel vkCmdBeginPerTileExecutionQCOM__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginPerTileExecutionQCOM => vkCmdBeginPerTileExecutionQCOM__cmdbufferlevel;
+	private static Task vkCmdBeginPerTileExecutionQCOM__tasks = .State;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginPerTileExecutionQCOM => vkCmdBeginPerTileExecutionQCOM__tasks;
+	private static VkQueueFlags vkCmdEndPerTileExecutionQCOM__queues = .Graphics | .Compute;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndPerTileExecutionQCOM => vkCmdEndPerTileExecutionQCOM__queues;
+	private static RenderPassLocation vkCmdEndPerTileExecutionQCOM__renderpass = .Inside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndPerTileExecutionQCOM => vkCmdEndPerTileExecutionQCOM__renderpass;
+	private static CmdBufferLevel vkCmdEndPerTileExecutionQCOM__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndPerTileExecutionQCOM => vkCmdEndPerTileExecutionQCOM__cmdbufferlevel;
+	private static Task vkCmdEndPerTileExecutionQCOM__tasks = .State;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndPerTileExecutionQCOM => vkCmdEndPerTileExecutionQCOM__tasks;
+	private static VkResult[?] vkCreateExternalComputeQueueNV__successcodes = .(.VkSuccess);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateExternalComputeQueueNV => vkCreateExternalComputeQueueNV__successcodes;
+	private static VkResult[?] vkCreateExternalComputeQueueNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorTooManyObjects);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateExternalComputeQueueNV => vkCreateExternalComputeQueueNV__errorcodes;
+	private static VkResult[?] vkCreateTensorARM__successcodes = .(.VkSuccess);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateTensorARM => vkCreateTensorARM__successcodes;
+	private static VkResult[?] vkCreateTensorARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateTensorARM => vkCreateTensorARM__errorcodes;
+	private static VkResult[?] vkCreateTensorViewARM__successcodes = .(.VkSuccess);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateTensorViewARM => vkCreateTensorViewARM__successcodes;
+	private static VkResult[?] vkCreateTensorViewARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateTensorViewARM => vkCreateTensorViewARM__errorcodes;
+	private static VkResult[?] vkBindTensorMemoryARM__successcodes = .(.VkSuccess);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindTensorMemoryARM => vkBindTensorMemoryARM__successcodes;
+	private static VkResult[?] vkBindTensorMemoryARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindTensorMemoryARM => vkBindTensorMemoryARM__errorcodes;
+	private static VkQueueFlags vkCmdCopyTensorARM__queues = .Transfer | .Graphics | .Compute;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyTensorARM => vkCmdCopyTensorARM__queues;
+	private static RenderPassLocation vkCmdCopyTensorARM__renderpass = .Outside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyTensorARM => vkCmdCopyTensorARM__renderpass;
+	private static CmdBufferLevel vkCmdCopyTensorARM__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyTensorARM => vkCmdCopyTensorARM__cmdbufferlevel;
+	private static Task vkCmdCopyTensorARM__tasks = .Action;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyTensorARM => vkCmdCopyTensorARM__tasks;
+	private static VkResult[?] vkGetTensorOpaqueCaptureDescriptorDataARM__successcodes = .(.VkSuccess);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetTensorOpaqueCaptureDescriptorDataARM => vkGetTensorOpaqueCaptureDescriptorDataARM__successcodes;
+	private static VkResult[?] vkGetTensorOpaqueCaptureDescriptorDataARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetTensorOpaqueCaptureDescriptorDataARM => vkGetTensorOpaqueCaptureDescriptorDataARM__errorcodes;
+	private static VkResult[?] vkGetTensorViewOpaqueCaptureDescriptorDataARM__successcodes = .(.VkSuccess);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM => vkGetTensorViewOpaqueCaptureDescriptorDataARM__successcodes;
+	private static VkResult[?] vkGetTensorViewOpaqueCaptureDescriptorDataARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM => vkGetTensorViewOpaqueCaptureDescriptorDataARM__errorcodes;
+	private static VkResult[?] vkCreateDataGraphPipelinesARM__successcodes = .(.VkSuccess, .VkPipelineCompileRequiredEXT);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDataGraphPipelinesARM => vkCreateDataGraphPipelinesARM__successcodes;
+	private static VkResult[?] vkCreateDataGraphPipelinesARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDataGraphPipelinesARM => vkCreateDataGraphPipelinesARM__errorcodes;
+	private static VkResult[?] vkCreateDataGraphPipelineSessionARM__successcodes = .(.VkSuccess);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDataGraphPipelineSessionARM => vkCreateDataGraphPipelineSessionARM__successcodes;
+	private static VkResult[?] vkCreateDataGraphPipelineSessionARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDataGraphPipelineSessionARM => vkCreateDataGraphPipelineSessionARM__errorcodes;
+	private static VkResult[?] vkGetDataGraphPipelineSessionBindPointRequirementsARM__successcodes = .(.VkSuccess, .VkIncomplete);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDataGraphPipelineSessionBindPointRequirementsARM => vkGetDataGraphPipelineSessionBindPointRequirementsARM__successcodes;
+	private static VkResult[?] vkGetDataGraphPipelineSessionBindPointRequirementsARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDataGraphPipelineSessionBindPointRequirementsARM => vkGetDataGraphPipelineSessionBindPointRequirementsARM__errorcodes;
+	private static VkResult[?] vkBindDataGraphPipelineSessionMemoryARM__successcodes = .(.VkSuccess);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindDataGraphPipelineSessionMemoryARM => vkBindDataGraphPipelineSessionMemoryARM__successcodes;
+	private static VkResult[?] vkBindDataGraphPipelineSessionMemoryARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindDataGraphPipelineSessionMemoryARM => vkBindDataGraphPipelineSessionMemoryARM__errorcodes;
+	private static VkQueueFlags vkCmdDispatchDataGraphARM__queues = .DataGraphARM;
+	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatchDataGraphARM => vkCmdDispatchDataGraphARM__queues;
+	private static RenderPassLocation vkCmdDispatchDataGraphARM__renderpass = .Outside;
+	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatchDataGraphARM => vkCmdDispatchDataGraphARM__renderpass;
+	private static CmdBufferLevel vkCmdDispatchDataGraphARM__cmdbufferlevel = .Primary | .Secondary;
+	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatchDataGraphARM => vkCmdDispatchDataGraphARM__cmdbufferlevel;
+	private static Task vkCmdDispatchDataGraphARM__tasks = .Action;
+	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDispatchDataGraphARM => vkCmdDispatchDataGraphARM__tasks;
+	private static VkResult[?] vkGetDataGraphPipelineAvailablePropertiesARM__successcodes = .(.VkSuccess, .VkIncomplete);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDataGraphPipelineAvailablePropertiesARM => vkGetDataGraphPipelineAvailablePropertiesARM__successcodes;
+	private static VkResult[?] vkGetDataGraphPipelineAvailablePropertiesARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDataGraphPipelineAvailablePropertiesARM => vkGetDataGraphPipelineAvailablePropertiesARM__errorcodes;
+	private static VkResult[?] vkGetDataGraphPipelinePropertiesARM__successcodes = .(.VkSuccess, .VkIncomplete);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDataGraphPipelinePropertiesARM => vkGetDataGraphPipelinePropertiesARM__successcodes;
+	private static VkResult[?] vkGetDataGraphPipelinePropertiesARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDataGraphPipelinePropertiesARM => vkGetDataGraphPipelinePropertiesARM__errorcodes;
+	private static VkResult[?] vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM__successcodes = .(.VkSuccess, .VkIncomplete);
+	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM => vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM__successcodes;
+	private static VkResult[?] vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
+	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM => vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM__errorcodes;
 }

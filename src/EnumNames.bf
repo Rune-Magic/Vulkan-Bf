@@ -149,6 +149,17 @@ extension VkFramebufferCreateFlagBits
 	}
 }
 
+extension VkQueryPoolCreateFlagBits
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ResetKHR: strBuffer.Append("VK_QUERY_POOL_CREATE_RESET_BIT_KHR");
+		}
+	}
+}
+
 extension VkRenderPassCreateFlagBits
 {
 	public override void ToString(String strBuffer)
@@ -156,6 +167,7 @@ extension VkRenderPassCreateFlagBits
 		switch (this)
 		{
 		case .TransformQCOM: strBuffer.Append("VK_RENDER_PASS_CREATE_TRANSFORM_BIT_QCOM");
+		case .PerLayerFragmentDensityVALVE: strBuffer.Append("VK_RENDER_PASS_CREATE_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE");
 		}
 	}
 }
@@ -193,6 +205,7 @@ extension VkPipelineCacheCreateFlagBits
 		switch (this)
 		{
 		case .ExternallySynchronized: strBuffer.Append("VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT");
+		case .InternallySynchronizedMergeKHR: strBuffer.Append("VK_PIPELINE_CACHE_CREATE_INTERNALLY_SYNCHRONIZED_MERGE_BIT_KHR");
 		}
 	}
 }
@@ -296,6 +309,7 @@ extension VkBufferUsageFlagBits
 		case .PushDescriptorsDescriptorBufferEXT: strBuffer.Append("VK_BUFFER_USAGE_PUSH_DESCRIPTORS_DESCRIPTOR_BUFFER_BIT_EXT");
 		case .MicromapBuildInputReadOnlyEXT: strBuffer.Append("VK_BUFFER_USAGE_MICROMAP_BUILD_INPUT_READ_ONLY_BIT_EXT");
 		case .MicromapStorageEXT: strBuffer.Append("VK_BUFFER_USAGE_MICROMAP_STORAGE_BIT_EXT");
+		case .TileMemoryQCOM: strBuffer.Append("VK_BUFFER_USAGE_TILE_MEMORY_BIT_QCOM");
 		}
 	}
 }
@@ -445,7 +459,9 @@ extension VkDescriptorType
 		case .AccelerationStructureNV: strBuffer.Append("VK_DESCRIPTOR_TYPE_ACCELERATION_STRUCTURE_NV");
 		case .SampleWeightImageQCOM: strBuffer.Append("VK_DESCRIPTOR_TYPE_SAMPLE_WEIGHT_IMAGE_QCOM");
 		case .BlockMatchImageQCOM: strBuffer.Append("VK_DESCRIPTOR_TYPE_BLOCK_MATCH_IMAGE_QCOM");
+		case .TensorARM: strBuffer.Append("VK_DESCRIPTOR_TYPE_TENSOR_ARM");
 		case .MutableEXT: strBuffer.Append("VK_DESCRIPTOR_TYPE_MUTABLE_EXT");
+		case .PartitionedAccelerationStructureNV: strBuffer.Append("VK_DESCRIPTOR_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_NV");
 		}
 	}
 }
@@ -813,7 +829,22 @@ extension VkFormat
 		case .PVRTC1_4BPP_SRGB_BLOCK_IMG: strBuffer.Append("VK_FORMAT_PVRTC1_4BPP_SRGB_BLOCK_IMG");
 		case .PVRTC2_2BPP_SRGB_BLOCK_IMG: strBuffer.Append("VK_FORMAT_PVRTC2_2BPP_SRGB_BLOCK_IMG");
 		case .PVRTC2_4BPP_SRGB_BLOCK_IMG: strBuffer.Append("VK_FORMAT_PVRTC2_4BPP_SRGB_BLOCK_IMG");
+		case .R8_BOOL_ARM: strBuffer.Append("VK_FORMAT_R8_BOOL_ARM");
 		case .R16G16_SFIXED5_NV: strBuffer.Append("VK_FORMAT_R16G16_SFIXED5_NV");
+		case .R10X6_UINT_PACK16_ARM: strBuffer.Append("VK_FORMAT_R10X6_UINT_PACK16_ARM");
+		case .R10X6G10X6_UINT_2PACK16_ARM: strBuffer.Append("VK_FORMAT_R10X6G10X6_UINT_2PACK16_ARM");
+		case .R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM: strBuffer.Append("VK_FORMAT_R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM");
+		case .R12X4_UINT_PACK16_ARM: strBuffer.Append("VK_FORMAT_R12X4_UINT_PACK16_ARM");
+		case .R12X4G12X4_UINT_2PACK16_ARM: strBuffer.Append("VK_FORMAT_R12X4G12X4_UINT_2PACK16_ARM");
+		case .R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM: strBuffer.Append("VK_FORMAT_R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM");
+		case .R14X2_UINT_PACK16_ARM: strBuffer.Append("VK_FORMAT_R14X2_UINT_PACK16_ARM");
+		case .R14X2G14X2_UINT_2PACK16_ARM: strBuffer.Append("VK_FORMAT_R14X2G14X2_UINT_2PACK16_ARM");
+		case .R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM: strBuffer.Append("VK_FORMAT_R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM");
+		case .R14X2_UNORM_PACK16_ARM: strBuffer.Append("VK_FORMAT_R14X2_UNORM_PACK16_ARM");
+		case .R14X2G14X2_UNORM_2PACK16_ARM: strBuffer.Append("VK_FORMAT_R14X2G14X2_UNORM_2PACK16_ARM");
+		case .R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM: strBuffer.Append("VK_FORMAT_R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM");
+		case .G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM: strBuffer.Append("VK_FORMAT_G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM");
+		case .G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM: strBuffer.Append("VK_FORMAT_G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM");
 		}
 	}
 }
@@ -928,8 +959,8 @@ extension VkImageCreateFlagBits
 		case .DescriptorBufferCaptureReplayEXT: strBuffer.Append("VK_IMAGE_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_EXT");
 		case .MultisampledRenderToSingleSampledEXT: strBuffer.Append("VK_IMAGE_CREATE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_BIT_EXT");
 		case .VK_2dViewCompatibleEXT: strBuffer.Append("VK_IMAGE_CREATE_2D_VIEW_COMPATIBLE_BIT_EXT");
-		case .FragmentDensityMapOffsetQCOM: strBuffer.Append("VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_QCOM");
 		case .VideoProfileIndependentKHR: strBuffer.Append("VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR");
+		case .FragmentDensityMapOffsetEXT: strBuffer.Append("VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT");
 		}
 	}
 }
@@ -969,7 +1000,9 @@ extension VkImageLayout
 		case .VideoEncodeSrcKHR: strBuffer.Append("VK_IMAGE_LAYOUT_VIDEO_ENCODE_SRC_KHR");
 		case .VideoEncodeDpbKHR: strBuffer.Append("VK_IMAGE_LAYOUT_VIDEO_ENCODE_DPB_KHR");
 		case .AttachmentFeedbackLoopOptimalEXT: strBuffer.Append("VK_IMAGE_LAYOUT_ATTACHMENT_FEEDBACK_LOOP_OPTIMAL_EXT");
+		case .TensorAliasingARM: strBuffer.Append("VK_IMAGE_LAYOUT_TENSOR_ALIASING_ARM");
 		case .VideoEncodeQuantizationMapKHR: strBuffer.Append("VK_IMAGE_LAYOUT_VIDEO_ENCODE_QUANTIZATION_MAP_KHR");
+		case .ZeroInitializedEXT: strBuffer.Append("VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT");
 		}
 	}
 }
@@ -1027,6 +1060,8 @@ extension VkImageUsageFlagBits
 		case .InvocationMaskHUAWEI: strBuffer.Append("VK_IMAGE_USAGE_INVOCATION_MASK_BIT_HUAWEI");
 		case .SampleWeightQCOM: strBuffer.Append("VK_IMAGE_USAGE_SAMPLE_WEIGHT_BIT_QCOM");
 		case .SampleBlockMatchQCOM: strBuffer.Append("VK_IMAGE_USAGE_SAMPLE_BLOCK_MATCH_BIT_QCOM");
+		case .TensorAliasingARM: strBuffer.Append("VK_IMAGE_USAGE_TENSOR_ALIASING_BIT_ARM");
+		case .TileMemoryQCOM: strBuffer.Append("VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM");
 		case .VideoEncodeQuantizationDeltaMapKHR: strBuffer.Append("VK_IMAGE_USAGE_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR");
 		case .VideoEncodeEmphasisMapKHR: strBuffer.Append("VK_IMAGE_USAGE_VIDEO_ENCODE_EMPHASIS_MAP_BIT_KHR");
 		}
@@ -1148,6 +1183,7 @@ extension VkMemoryHeapFlagBits
 		{
 		case .DeviceLocal: strBuffer.Append("VK_MEMORY_HEAP_DEVICE_LOCAL_BIT");
 		case .MultiInstance: strBuffer.Append("VK_MEMORY_HEAP_MULTI_INSTANCE_BIT");
+		case .TileMemoryQCOM: strBuffer.Append("VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM");
 		}
 	}
 }
@@ -1185,8 +1221,8 @@ extension VkAccessFlagBits
 		case .AccelerationStructureWriteKHR: strBuffer.Append("VK_ACCESS_ACCELERATION_STRUCTURE_WRITE_BIT_KHR");
 		case .FragmentDensityMapReadEXT: strBuffer.Append("VK_ACCESS_FRAGMENT_DENSITY_MAP_READ_BIT_EXT");
 		case .FragmentShadingRateAttachmentReadKHR: strBuffer.Append("VK_ACCESS_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR");
-		case .CommandPreprocessReadNV: strBuffer.Append("VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_NV");
-		case .CommandPreprocessWriteNV: strBuffer.Append("VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_NV");
+		case .CommandPreprocessReadEXT: strBuffer.Append("VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_EXT");
+		case .CommandPreprocessWriteEXT: strBuffer.Append("VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_EXT");
 		}
 	}
 }
@@ -1235,6 +1271,7 @@ extension VkPipelineBindPoint
 		case .Compute: strBuffer.Append("VK_PIPELINE_BIND_POINT_COMPUTE");
 		case .RayTracingKHR: strBuffer.Append("VK_PIPELINE_BIND_POINT_RAY_TRACING_KHR");
 		case .SubpassShadingHUAWEI: strBuffer.Append("VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI");
+		case .DataGraphARM: strBuffer.Append("VK_PIPELINE_BIND_POINT_DATA_GRAPH_ARM");
 		}
 	}
 }
@@ -1391,6 +1428,7 @@ extension VkQueueFlagBits
 		case .VideoDecodeKHR: strBuffer.Append("VK_QUEUE_VIDEO_DECODE_BIT_KHR");
 		case .VideoEncodeKHR: strBuffer.Append("VK_QUEUE_VIDEO_ENCODE_BIT_KHR");
 		case .OpticalFlowNV: strBuffer.Append("VK_QUEUE_OPTICAL_FLOW_BIT_NV");
+		case .DataGraphARM: strBuffer.Append("VK_QUEUE_DATA_GRAPH_BIT_ARM");
 		}
 	}
 }
@@ -1948,6 +1986,7 @@ extension VkStructureType
 		case .VkDebugUtilsMessengerCallbackDataEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CALLBACK_DATA_EXT");
 		case .VkDebugUtilsMessengerCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT");
 		case .VkAttachmentSampleCountInfoAMD: strBuffer.Append("VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD");
+		case .VkPhysicalDeviceShaderBfloat16FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_BFLOAT16_FEATURES_KHR");
 		case .VkSampleLocationsInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SAMPLE_LOCATIONS_INFO_EXT");
 		case .VkRenderPassSampleLocationsBeginInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_SAMPLE_LOCATIONS_BEGIN_INFO_EXT");
 		case .VkPipelineSampleLocationsStateCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO_EXT");
@@ -2088,15 +2127,6 @@ extension VkStructureType
 		case .VkPhysicalDeviceMapMemoryPlacedPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAP_MEMORY_PLACED_PROPERTIES_EXT");
 		case .VkMemoryMapPlacedInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_MAP_PLACED_INFO_EXT");
 		case .VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT");
-		case .VkSurfacePresentModeEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_EXT");
-		case .VkSurfacePresentScalingCapabilitiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_EXT");
-		case .VkSurfacePresentModeCompatibilityEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_EXT");
-		case .VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_EXT");
-		case .VkSwapchainPresentFenceInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT");
-		case .VkSwapchainPresentModesCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODES_CREATE_INFO_EXT");
-		case .VkSwapchainPresentModeInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODE_INFO_EXT");
-		case .VkSwapchainPresentScalingCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_EXT");
-		case .VkReleaseSwapchainImagesInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_RELEASE_SWAPCHAIN_IMAGES_INFO_EXT");
 		case .VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_NV");
 		case .VkGraphicsShaderGroupCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_GRAPHICS_SHADER_GROUP_CREATE_INFO_NV");
 		case .VkGraphicsPipelineShaderGroupsCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO_NV");
@@ -2116,8 +2146,6 @@ extension VkStructureType
 		case .VkPhysicalDeviceDeviceMemoryReportFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT");
 		case .VkDeviceDeviceMemoryReportCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO_EXT");
 		case .VkDeviceMemoryReportCallbackDataEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEVICE_MEMORY_REPORT_CALLBACK_DATA_EXT");
-		case .VkPhysicalDeviceRobustness2FeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT");
-		case .VkPhysicalDeviceRobustness2PropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT");
 		case .VkSamplerCustomBorderColorCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO_EXT");
 		case .VkPhysicalDeviceCustomBorderColorPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES_EXT");
 		case .VkPhysicalDeviceCustomBorderColorFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES_EXT");
@@ -2140,11 +2168,12 @@ extension VkStructureType
 		case .VkVideoEncodeSessionParametersFeedbackInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_PARAMETERS_FEEDBACK_INFO_KHR");
 		case .VkPhysicalDeviceDiagnosticsConfigFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV");
 		case .VkDeviceDiagnosticsConfigCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV");
-		case .VkCudaModuleCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_CUDA_MODULE_CREATE_INFO_NV");
-		case .VkCudaFunctionCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_CUDA_FUNCTION_CREATE_INFO_NV");
-		case .VkCudaLaunchInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_CUDA_LAUNCH_INFO_NV");
-		case .VkPhysicalDeviceCudaKernelLaunchFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES_NV");
-		case .VkPhysicalDeviceCudaKernelLaunchPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES_NV");
+		case .VkPhysicalDeviceTileShadingFeaturesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_FEATURES_QCOM");
+		case .VkPhysicalDeviceTileShadingPropertiesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES_QCOM");
+		case .VkRenderPassTileShadingCreateInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_TILE_SHADING_CREATE_INFO_QCOM");
+		case .VkPerTileBeginInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PER_TILE_BEGIN_INFO_QCOM");
+		case .VkPerTileEndInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PER_TILE_END_INFO_QCOM");
+		case .VkDispatchTileInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_DISPATCH_TILE_INFO_QCOM");
 		case .VkQueryLowLatencySupportNV: strBuffer.Append("VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV");
 		case .VkPhysicalDeviceDescriptorBufferPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES_EXT");
 		case .VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT");
@@ -2197,7 +2226,6 @@ extension VkStructureType
 		case .VkPhysicalDeviceDepthClipControlFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT");
 		case .VkPipelineViewportDepthClipControlCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT");
 		case .VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT");
-		case .VkPhysicalDevicePresentModeFifoLatestReadyFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_EXT");
 		case .VkSubpassShadingPipelineCreateInfoHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI");
 		case .VkPhysicalDeviceSubpassShadingFeaturesHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI");
 		case .VkPhysicalDeviceSubpassShadingPropertiesHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI");
@@ -2248,16 +2276,12 @@ extension VkStructureType
 		case .VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES_VALVE");
 		case .VkDescriptorSetBindingReferenceVALVE: strBuffer.Append("VK_STRUCTURE_TYPE_DESCRIPTOR_SET_BINDING_REFERENCE_VALVE");
 		case .VkDescriptorSetLayoutHostMappingInfoVALVE: strBuffer.Append("VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO_VALVE");
-		case .VkPhysicalDeviceDepthClampZeroOneFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_EXT");
 		case .VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES_EXT");
 		case .VkPhysicalDeviceRenderPassStripedFeaturesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RENDER_PASS_STRIPED_FEATURES_ARM");
 		case .VkPhysicalDeviceRenderPassStripedPropertiesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RENDER_PASS_STRIPED_PROPERTIES_ARM");
 		case .VkRenderPassStripeBeginInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_BEGIN_INFO_ARM");
 		case .VkRenderPassStripeInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_INFO_ARM");
 		case .VkRenderPassStripeSubmitInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_STRIPE_SUBMIT_INFO_ARM");
-		case .VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_QCOM");
-		case .VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_QCOM");
-		case .VkSubpassFragmentDensityMapOffsetEndInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_QCOM");
 		case .VkPhysicalDeviceCopyMemoryIndirectFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_NV");
 		case .VkPhysicalDeviceCopyMemoryIndirectPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV");
 		case .VkPhysicalDeviceMemoryDecompressionFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_NV");
@@ -2265,6 +2289,9 @@ extension VkStructureType
 		case .VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV");
 		case .VkComputePipelineIndirectBufferInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO_NV");
 		case .VkPipelineIndirectDeviceAddressInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_INDIRECT_DEVICE_ADDRESS_INFO_NV");
+		case .VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_LINEAR_SWEPT_SPHERES_FEATURES_NV");
+		case .VkAccelerationStructureGeometryLinearSweptSpheresDataNV: strBuffer.Append("VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_LINEAR_SWEPT_SPHERES_DATA_NV");
+		case .VkAccelerationStructureGeometrySpheresDataNV: strBuffer.Append("VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_SPHERES_DATA_NV");
 		case .VkPhysicalDeviceLinearColorAttachmentFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES_NV");
 		case .VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MAXIMAL_RECONVERGENCE_FEATURES_KHR");
 		case .VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES_EXT");
@@ -2282,6 +2309,30 @@ extension VkStructureType
 		case .VkRenderPassSubpassFeedbackCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO_EXT");
 		case .VkDirectDriverLoadingInfoLUNARG: strBuffer.Append("VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_INFO_LUNARG");
 		case .VkDirectDriverLoadingListLUNARG: strBuffer.Append("VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_LIST_LUNARG");
+		case .VkTensorCreateInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_CREATE_INFO_ARM");
+		case .VkTensorViewCreateInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_VIEW_CREATE_INFO_ARM");
+		case .VkBindTensorMemoryInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_BIND_TENSOR_MEMORY_INFO_ARM");
+		case .VkWriteDescriptorSetTensorARM: strBuffer.Append("VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_TENSOR_ARM");
+		case .VkPhysicalDeviceTensorPropertiesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TENSOR_PROPERTIES_ARM");
+		case .VkTensorFormatPropertiesARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_FORMAT_PROPERTIES_ARM");
+		case .VkTensorDescriptionARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_DESCRIPTION_ARM");
+		case .VkTensorMemoryRequirementsInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_MEMORY_REQUIREMENTS_INFO_ARM");
+		case .VkTensorMemoryBarrierARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_MEMORY_BARRIER_ARM");
+		case .VkPhysicalDeviceTensorFeaturesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TENSOR_FEATURES_ARM");
+		case .VkDeviceTensorMemoryRequirementsARM: strBuffer.Append("VK_STRUCTURE_TYPE_DEVICE_TENSOR_MEMORY_REQUIREMENTS_ARM");
+		case .VkCopyTensorInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_COPY_TENSOR_INFO_ARM");
+		case .VkTensorCopyARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_COPY_ARM");
+		case .VkTensorDependencyInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_DEPENDENCY_INFO_ARM");
+		case .VkMemoryDedicatedAllocateInfoTensorARM: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO_TENSOR_ARM");
+		case .VkPhysicalDeviceExternalTensorInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_TENSOR_INFO_ARM");
+		case .VkExternalTensorPropertiesARM: strBuffer.Append("VK_STRUCTURE_TYPE_EXTERNAL_TENSOR_PROPERTIES_ARM");
+		case .VkExternalMemoryTensorCreateInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_TENSOR_CREATE_INFO_ARM");
+		case .VkPhysicalDeviceDescriptorBufferTensorFeaturesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_FEATURES_ARM");
+		case .VkPhysicalDeviceDescriptorBufferTensorPropertiesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_TENSOR_PROPERTIES_ARM");
+		case .VkDescriptorGetTensorInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DESCRIPTOR_GET_TENSOR_INFO_ARM");
+		case .VkTensorCaptureDescriptorDataInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_CAPTURE_DESCRIPTOR_DATA_INFO_ARM");
+		case .VkTensorViewCaptureDescriptorDataInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_TENSOR_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_ARM");
+		case .VkFrameBoundaryTensorsARM: strBuffer.Append("VK_STRUCTURE_TYPE_FRAME_BOUNDARY_TENSORS_ARM");
 		case .VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES_EXT");
 		case .VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES_EXT");
 		case .VkPipelineShaderStageModuleIdentifierCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO_EXT");
@@ -2298,6 +2349,12 @@ extension VkStructureType
 		case .VkPhysicalDeviceAntiLagFeaturesAMD: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ANTI_LAG_FEATURES_AMD");
 		case .VkAntiLagDataAMD: strBuffer.Append("VK_STRUCTURE_TYPE_ANTI_LAG_DATA_AMD");
 		case .VkAntiLagPresentationInfoAMD: strBuffer.Append("VK_STRUCTURE_TYPE_ANTI_LAG_PRESENTATION_INFO_AMD");
+		case .VkSurfaceCapabilitiesPresentId2KHR: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_ID_2_KHR");
+		case .VkPresentId2KHR: strBuffer.Append("VK_STRUCTURE_TYPE_PRESENT_ID_2_KHR");
+		case .VkPhysicalDevicePresentId2FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_2_FEATURES_KHR");
+		case .VkSurfaceCapabilitiesPresentWait2KHR: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_WAIT_2_KHR");
+		case .VkPhysicalDevicePresentWait2FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_2_FEATURES_KHR");
+		case .VkPresentWait2InfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PRESENT_WAIT_2_INFO_KHR");
 		case .VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES_KHR");
 		case .VkPhysicalDeviceShaderObjectFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT");
 		case .VkPhysicalDeviceShaderObjectPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT");
@@ -2316,9 +2373,22 @@ extension VkStructureType
 		case .VkTilePropertiesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_TILE_PROPERTIES_QCOM");
 		case .VkPhysicalDeviceAmigoProfilingFeaturesSEC: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC");
 		case .VkAmigoProfilingSubmitInfoSEC: strBuffer.Append("VK_STRUCTURE_TYPE_AMIGO_PROFILING_SUBMIT_INFO_SEC");
+		case .VkSurfacePresentModeKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_KHR");
+		case .VkSurfacePresentScalingCapabilitiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_KHR");
+		case .VkSurfacePresentModeCompatibilityKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_KHR");
+		case .VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_KHR");
+		case .VkSwapchainPresentFenceInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_KHR");
+		case .VkSwapchainPresentModesCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODES_CREATE_INFO_KHR");
+		case .VkSwapchainPresentModeInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODE_INFO_KHR");
+		case .VkSwapchainPresentScalingCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_KHR");
+		case .VkReleaseSwapchainImagesInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_RELEASE_SWAPCHAIN_IMAGES_INFO_KHR");
 		case .VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM");
 		case .VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV");
 		case .VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV");
+		case .VkPhysicalDeviceCooperativeVectorFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_VECTOR_FEATURES_NV");
+		case .VkPhysicalDeviceCooperativeVectorPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_VECTOR_PROPERTIES_NV");
+		case .VkCooperativeVectorPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_COOPERATIVE_VECTOR_PROPERTIES_NV");
+		case .VkConvertCooperativeVectorMatrixInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_CONVERT_COOPERATIVE_VECTOR_MATRIX_INFO_NV");
 		case .VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES_NV");
 		case .VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_PROPERTIES_NV");
 		case .VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT");
@@ -2342,6 +2412,26 @@ extension VkStructureType
 		case .VkPhysicalDeviceCooperativeMatrixFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_KHR");
 		case .VkCooperativeMatrixPropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_KHR");
 		case .VkPhysicalDeviceCooperativeMatrixPropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_KHR");
+		case .VkDataGraphPipelineCreateInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CREATE_INFO_ARM");
+		case .VkDataGraphPipelineSessionCreateInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_CREATE_INFO_ARM");
+		case .VkDataGraphPipelineResourceInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_RESOURCE_INFO_ARM");
+		case .VkDataGraphPipelineConstantARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CONSTANT_ARM");
+		case .VkDataGraphPipelineSessionMemoryRequirementsInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_MEMORY_REQUIREMENTS_INFO_ARM");
+		case .VkBindDataGraphPipelineSessionMemoryInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_BIND_DATA_GRAPH_PIPELINE_SESSION_MEMORY_INFO_ARM");
+		case .VkPhysicalDeviceDataGraphFeaturesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DATA_GRAPH_FEATURES_ARM");
+		case .VkDataGraphPipelineShaderModuleCreateInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SHADER_MODULE_CREATE_INFO_ARM");
+		case .VkDataGraphPipelinePropertyQueryResultARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_PROPERTY_QUERY_RESULT_ARM");
+		case .VkDataGraphPipelineInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_INFO_ARM");
+		case .VkDataGraphPipelineCompilerControlCreateInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_COMPILER_CONTROL_CREATE_INFO_ARM");
+		case .VkDataGraphPipelineSessionBindPointRequirementsInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENTS_INFO_ARM");
+		case .VkDataGraphPipelineSessionBindPointRequirementARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_REQUIREMENT_ARM");
+		case .VkDataGraphPipelineIdentifierCreateInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_IDENTIFIER_CREATE_INFO_ARM");
+		case .VkDataGraphPipelineDispatchInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_DISPATCH_INFO_ARM");
+		case .VkDataGraphProcessingEngineCreateInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PROCESSING_ENGINE_CREATE_INFO_ARM");
+		case .VkQueueFamilyDataGraphProcessingEnginePropertiesARM: strBuffer.Append("VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_PROPERTIES_ARM");
+		case .VkQueueFamilyDataGraphPropertiesARM: strBuffer.Append("VK_STRUCTURE_TYPE_QUEUE_FAMILY_DATA_GRAPH_PROPERTIES_ARM");
+		case .VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_QUEUE_FAMILY_DATA_GRAPH_PROCESSING_ENGINE_INFO_ARM");
+		case .VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM: strBuffer.Append("VK_STRUCTURE_TYPE_DATA_GRAPH_PIPELINE_CONSTANT_TENSOR_SEMI_STRUCTURED_SPARSITY_INFO_ARM");
 		case .VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES_QCOM");
 		case .VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO_QCOM");
 		case .VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_KHR");
@@ -2362,6 +2452,10 @@ extension VkStructureType
 		case .VkVideoEncodeAv1QualityLevelPropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_QUALITY_LEVEL_PROPERTIES_KHR");
 		case .VkVideoEncodeAv1SessionCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_SESSION_CREATE_INFO_KHR");
 		case .VkVideoEncodeAv1GopRemainingFrameInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_GOP_REMAINING_FRAME_INFO_KHR");
+		case .VkPhysicalDeviceVideoDecodeVp9FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_DECODE_VP9_FEATURES_KHR");
+		case .VkVideoDecodeVp9CapabilitiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_CAPABILITIES_KHR");
+		case .VkVideoDecodeVp9PictureInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_PICTURE_INFO_KHR");
+		case .VkVideoDecodeVp9ProfileInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_VP9_PROFILE_INFO_KHR");
 		case .VkPhysicalDeviceVideoMaintenance1FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_MAINTENANCE_1_FEATURES_KHR");
 		case .VkVideoInlineQueryInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_INLINE_QUERY_INFO_KHR");
 		case .VkPhysicalDevicePerStageDescriptorSetFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PER_STAGE_DESCRIPTOR_SET_FEATURES_NV");
@@ -2375,13 +2469,25 @@ extension VkStructureType
 		case .VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO_QCOM");
 		case .VkPhysicalDeviceCubicClampFeaturesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES_QCOM");
 		case .VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES_EXT");
+		case .VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES_KHR");
+		case .VkAttachmentFeedbackLoopInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_ATTACHMENT_FEEDBACK_LOOP_INFO_EXT");
 		case .VkPhysicalDeviceLayeredDriverPropertiesMSFT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT");
 		case .VkCalibratedTimestampInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_KHR");
 		case .VkSetDescriptorBufferOffsetsInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SET_DESCRIPTOR_BUFFER_OFFSETS_INFO_EXT");
 		case .VkBindDescriptorBufferEmbeddedSamplersInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_BIND_DESCRIPTOR_BUFFER_EMBEDDED_SAMPLERS_INFO_EXT");
 		case .VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES_NV");
+		case .VkPhysicalDeviceTileMemoryHeapFeaturesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_FEATURES_QCOM");
+		case .VkPhysicalDeviceTileMemoryHeapPropertiesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_MEMORY_HEAP_PROPERTIES_QCOM");
+		case .VkTileMemoryRequirementsQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_TILE_MEMORY_REQUIREMENTS_QCOM");
+		case .VkTileMemoryBindInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_TILE_MEMORY_BIND_INFO_QCOM");
+		case .VkTileMemorySizeInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_TILE_MEMORY_SIZE_INFO_QCOM");
 		case .VkDisplaySurfaceStereoCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_DISPLAY_SURFACE_STEREO_CREATE_INFO_NV");
 		case .VkDisplayModeStereoPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_DISPLAY_MODE_STEREO_PROPERTIES_NV");
+		case .VkVideoEncodeIntraRefreshCapabilitiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_INTRA_REFRESH_CAPABILITIES_KHR");
+		case .VkVideoEncodeSessionIntraRefreshCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_INTRA_REFRESH_CREATE_INFO_KHR");
+		case .VkVideoEncodeIntraRefreshInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_INTRA_REFRESH_INFO_KHR");
+		case .VkVideoReferenceIntraRefreshInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_REFERENCE_INTRA_REFRESH_INFO_KHR");
+		case .VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_ENCODE_INTRA_REFRESH_FEATURES_KHR");
 		case .VkVideoEncodeQuantizationMapCapabilitiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_CAPABILITIES_KHR");
 		case .VkVideoFormatQuantizationMapPropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_FORMAT_QUANTIZATION_MAP_PROPERTIES_KHR");
 		case .VkVideoEncodeQuantizationMapInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_QUANTIZATION_MAP_INFO_KHR");
@@ -2393,6 +2499,10 @@ extension VkStructureType
 		case .VkVideoEncodeAv1QuantizationMapCapabilitiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_AV1_QUANTIZATION_MAP_CAPABILITIES_KHR");
 		case .VkVideoFormatAv1QuantizationMapPropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_FORMAT_AV1_QUANTIZATION_MAP_PROPERTIES_KHR");
 		case .VkPhysicalDeviceRawAccessChainsFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAW_ACCESS_CHAINS_FEATURES_NV");
+		case .VkExternalComputeQueueDeviceCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_DEVICE_CREATE_INFO_NV");
+		case .VkExternalComputeQueueCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_CREATE_INFO_NV");
+		case .VkExternalComputeQueueDataParamsNV: strBuffer.Append("VK_STRUCTURE_TYPE_EXTERNAL_COMPUTE_QUEUE_DATA_PARAMS_NV");
+		case .VkPhysicalDeviceExternalComputeQueuePropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_COMPUTE_QUEUE_PROPERTIES_NV");
 		case .VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_RELAXED_EXTENDED_INSTRUCTION_FEATURES_KHR");
 		case .VkPhysicalDeviceCommandBufferInheritanceFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMMAND_BUFFER_INHERITANCE_FEATURES_NV");
 		case .VkPhysicalDeviceMaintenance7FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_7_FEATURES_KHR");
@@ -2402,7 +2512,22 @@ extension VkStructureType
 		case .VkPhysicalDeviceLayeredApiVulkanPropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_API_VULKAN_PROPERTIES_KHR");
 		case .VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT16_VECTOR_FEATURES_NV");
 		case .VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_REPLICATED_COMPOSITES_FEATURES_EXT");
+		case .VkPhysicalDeviceShaderFloat8FeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT8_FEATURES_EXT");
 		case .VkPhysicalDeviceRayTracingValidationFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_VALIDATION_FEATURES_NV");
+		case .VkPhysicalDeviceClusterAccelerationStructureFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_FEATURES_NV");
+		case .VkPhysicalDeviceClusterAccelerationStructurePropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_ACCELERATION_STRUCTURE_PROPERTIES_NV");
+		case .VkClusterAccelerationStructureClustersBottomLevelInputNV: strBuffer.Append("VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_CLUSTERS_BOTTOM_LEVEL_INPUT_NV");
+		case .VkClusterAccelerationStructureTriangleClusterInputNV: strBuffer.Append("VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_TRIANGLE_CLUSTER_INPUT_NV");
+		case .VkClusterAccelerationStructureMoveObjectsInputNV: strBuffer.Append("VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_MOVE_OBJECTS_INPUT_NV");
+		case .VkClusterAccelerationStructureInputInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_INPUT_INFO_NV");
+		case .VkClusterAccelerationStructureCommandsInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_CLUSTER_ACCELERATION_STRUCTURE_COMMANDS_INFO_NV");
+		case .VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CLUSTER_ACCELERATION_STRUCTURE_CREATE_INFO_NV");
+		case .VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_FEATURES_NV");
+		case .VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PARTITIONED_ACCELERATION_STRUCTURE_PROPERTIES_NV");
+		case .VkWriteDescriptorSetPartitionedAccelerationStructureNV: strBuffer.Append("VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_PARTITIONED_ACCELERATION_STRUCTURE_NV");
+		case .VkPartitionedAccelerationStructureInstancesInputNV: strBuffer.Append("VK_STRUCTURE_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCES_INPUT_NV");
+		case .VkBuildPartitionedAccelerationStructureInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_BUILD_PARTITIONED_ACCELERATION_STRUCTURE_INFO_NV");
+		case .VkPartitionedAccelerationStructureFlagsNV: strBuffer.Append("VK_STRUCTURE_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_FLAGS_NV");
 		case .VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_EXT");
 		case .VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_EXT");
 		case .VkGeneratedCommandsMemoryRequirementsInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_EXT");
@@ -2417,17 +2542,41 @@ extension VkStructureType
 		case .VkIndirectExecutionSetShaderLayoutInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_INDIRECT_EXECUTION_SET_SHADER_LAYOUT_INFO_EXT");
 		case .VkGeneratedCommandsPipelineInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_GENERATED_COMMANDS_PIPELINE_INFO_EXT");
 		case .VkGeneratedCommandsShaderInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_GENERATED_COMMANDS_SHADER_INFO_EXT");
+		case .VkPhysicalDeviceMaintenance8FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_8_FEATURES_KHR");
+		case .VkMemoryBarrierAccessFlags3KHR: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_BARRIER_ACCESS_FLAGS_3_KHR");
 		case .VkPhysicalDeviceImageAlignmentControlFeaturesMESA: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_FEATURES_MESA");
 		case .VkPhysicalDeviceImageAlignmentControlPropertiesMESA: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ALIGNMENT_CONTROL_PROPERTIES_MESA");
 		case .VkImageAlignmentControlCreateInfoMESA: strBuffer.Append("VK_STRUCTURE_TYPE_IMAGE_ALIGNMENT_CONTROL_CREATE_INFO_MESA");
 		case .VkPhysicalDeviceDepthClampControlFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_CONTROL_FEATURES_EXT");
 		case .VkPipelineViewportDepthClampControlCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLAMP_CONTROL_CREATE_INFO_EXT");
+		case .VkPhysicalDeviceMaintenance9FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_9_FEATURES_KHR");
+		case .VkPhysicalDeviceMaintenance9PropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_9_PROPERTIES_KHR");
+		case .VkQueueFamilyOwnershipTransferPropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_QUEUE_FAMILY_OWNERSHIP_TRANSFER_PROPERTIES_KHR");
+		case .VkPhysicalDeviceVideoMaintenance2FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_MAINTENANCE_2_FEATURES_KHR");
+		case .VkVideoDecodeH264InlineSessionParametersInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO_KHR");
+		case .VkVideoDecodeH265InlineSessionParametersInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO_KHR");
+		case .VkVideoDecodeAv1InlineSessionParametersInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO_KHR");
 		case .VkPhysicalDeviceHdrVividFeaturesHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HDR_VIVID_FEATURES_HUAWEI");
 		case .VkHdrVividDynamicMetadataHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_HDR_VIVID_DYNAMIC_METADATA_HUAWEI");
 		case .VkPhysicalDeviceCooperativeMatrix2FeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES_NV");
 		case .VkCooperativeMatrixFlexibleDimensionsPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES_NV");
 		case .VkPhysicalDeviceCooperativeMatrix2PropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES_NV");
+		case .VkPhysicalDevicePipelineOpacityMicromapFeaturesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES_ARM");
+		case .VkPhysicalDeviceDepthClampZeroOneFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_KHR");
 		case .VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES_EXT");
+		case .VkPhysicalDeviceFormatPackFeaturesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FORMAT_PACK_FEATURES_ARM");
+		case .VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_FEATURES_VALVE");
+		case .VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_LAYERED_PROPERTIES_VALVE");
+		case .VkPipelineFragmentDensityMapLayeredCreateInfoVALVE: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO_VALVE");
+		case .VkPhysicalDeviceRobustness2FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR");
+		case .VkPhysicalDeviceRobustness2PropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR");
+		case .VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_EXT");
+		case .VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_EXT");
+		case .VkRenderPassFragmentDensityMapOffsetEndInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_EXT");
+		case .VkRenderingEndInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_RENDERING_END_INFO_EXT");
+		case .VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES_EXT");
+		case .VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_KHR");
+		case .VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES_SEC");
 		}
 	}
 }
@@ -2540,9 +2689,9 @@ extension VkPipelineStageFlagBits
 		case .RayTracingShaderKHR: strBuffer.Append("VK_PIPELINE_STAGE_RAY_TRACING_SHADER_BIT_KHR");
 		case .FragmentDensityProcessEXT: strBuffer.Append("VK_PIPELINE_STAGE_FRAGMENT_DENSITY_PROCESS_BIT_EXT");
 		case .FragmentShadingRateAttachmentKHR: strBuffer.Append("VK_PIPELINE_STAGE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR");
-		case .CommandPreprocessNV: strBuffer.Append("VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_NV");
 		case .TaskShaderEXT: strBuffer.Append("VK_PIPELINE_STAGE_TASK_SHADER_BIT_EXT");
 		case .MeshShaderEXT: strBuffer.Append("VK_PIPELINE_STAGE_MESH_SHADER_BIT_EXT");
+		case .CommandPreprocessEXT: strBuffer.Append("VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_EXT");
 		}
 	}
 }
@@ -2556,6 +2705,61 @@ extension VkSparseImageFormatFlagBits
 		case .SingleMiptail: strBuffer.Append("VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT");
 		case .AlignedMipSize: strBuffer.Append("VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT");
 		case .NonstandardBlockSize: strBuffer.Append("VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT");
+		}
+	}
+}
+
+extension VkClusterAccelerationStructureIndexFormatFlagBitsNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_8bitNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_8BIT_NV");
+		case .VK_16bitNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_16BIT_NV");
+		case .VK_32bitNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_32BIT_NV");
+		}
+	}
+}
+
+extension VkClusterAccelerationStructureTypeNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ClustersBottomLevelNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_CLUSTERS_BOTTOM_LEVEL_NV");
+		case .TriangleClusterNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_NV");
+		case .TriangleClusterTemplateNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_TEMPLATE_NV");
+		}
+	}
+}
+
+extension VkClusterAccelerationStructureOpTypeNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MoveObjectsNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_MOVE_OBJECTS_NV");
+		case .BuildClustersBottomLevelNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_CLUSTERS_BOTTOM_LEVEL_NV");
+		case .BuildTriangleClusterNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_NV");
+		case .BuildTriangleClusterTemplateNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_TEMPLATE_NV");
+		case .InstantiateTriangleClusterNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV");
+		case .GetClusterTemplateIndicesNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_GET_CLUSTER_TEMPLATE_INDICES_NV");
+		}
+	}
+}
+
+extension VkClusterAccelerationStructureOpModeNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ImplicitDestinationsNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV");
+		case .ExplicitDestinationsNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV");
+		case .ComputeSizesNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV");
 		}
 	}
 }
@@ -2613,6 +2817,8 @@ extension VkDependencyFlagBits
 		case .DeviceGroup: strBuffer.Append("VK_DEPENDENCY_DEVICE_GROUP_BIT");
 		case .ViewLocal: strBuffer.Append("VK_DEPENDENCY_VIEW_LOCAL_BIT");
 		case .FeedbackLoopEXT: strBuffer.Append("VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT");
+		case .QueueFamilyOwnershipTransferUseAllStagesKHR: strBuffer.Append("VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR");
+		case .AsymmetricEventKHR: strBuffer.Append("VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR");
 		}
 	}
 }
@@ -2668,12 +2874,14 @@ extension VkObjectType
 		case .PerformanceConfigurationINTEL: strBuffer.Append("VK_OBJECT_TYPE_PERFORMANCE_CONFIGURATION_INTEL");
 		case .DeferredOperationKHR: strBuffer.Append("VK_OBJECT_TYPE_DEFERRED_OPERATION_KHR");
 		case .IndirectCommandsLayoutNV: strBuffer.Append("VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NV");
-		case .CudaModuleNV: strBuffer.Append("VK_OBJECT_TYPE_CUDA_MODULE_NV");
-		case .CudaFunctionNV: strBuffer.Append("VK_OBJECT_TYPE_CUDA_FUNCTION_NV");
 		case .MicromapEXT: strBuffer.Append("VK_OBJECT_TYPE_MICROMAP_EXT");
+		case .TensorARM: strBuffer.Append("VK_OBJECT_TYPE_TENSOR_ARM");
+		case .TensorViewARM: strBuffer.Append("VK_OBJECT_TYPE_TENSOR_VIEW_ARM");
 		case .OpticalFlowSessionNV: strBuffer.Append("VK_OBJECT_TYPE_OPTICAL_FLOW_SESSION_NV");
 		case .ShaderEXT: strBuffer.Append("VK_OBJECT_TYPE_SHADER_EXT");
 		case .PipelineBinaryKHR: strBuffer.Append("VK_OBJECT_TYPE_PIPELINE_BINARY_KHR");
+		case .DataGraphPipelineSessionARM: strBuffer.Append("VK_OBJECT_TYPE_DATA_GRAPH_PIPELINE_SESSION_ARM");
+		case .ExternalComputeQueueNV: strBuffer.Append("VK_OBJECT_TYPE_EXTERNAL_COMPUTE_QUEUE_NV");
 		case .IndirectCommandsLayoutEXT: strBuffer.Append("VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_EXT");
 		case .IndirectExecutionSetEXT: strBuffer.Append("VK_OBJECT_TYPE_INDIRECT_EXECUTION_SET_EXT");
 		}
@@ -2811,6 +3019,7 @@ extension VkSubpassDescriptionFlagBits
 		case .PerViewPositionXOnlyNVX: strBuffer.Append("VK_SUBPASS_DESCRIPTION_PER_VIEW_POSITION_X_ONLY_BIT_NVX");
 		case .FragmentRegionQCOM: strBuffer.Append("VK_SUBPASS_DESCRIPTION_FRAGMENT_REGION_BIT_QCOM");
 		case .ShaderResolveQCOM: strBuffer.Append("VK_SUBPASS_DESCRIPTION_SHADER_RESOLVE_BIT_QCOM");
+		case .TileShadingApronQCOM: strBuffer.Append("VK_SUBPASS_DESCRIPTION_TILE_SHADING_APRON_BIT_QCOM");
 		case .RasterizationOrderAttachmentColorAccessEXT: strBuffer.Append("VK_SUBPASS_DESCRIPTION_RASTERIZATION_ORDER_ATTACHMENT_COLOR_ACCESS_BIT_EXT");
 		case .RasterizationOrderAttachmentDepthAccessEXT: strBuffer.Append("VK_SUBPASS_DESCRIPTION_RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT_EXT");
 		case .RasterizationOrderAttachmentStencilAccessEXT: strBuffer.Append("VK_SUBPASS_DESCRIPTION_RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT_EXT");
@@ -2996,8 +3205,49 @@ extension VkGeometryInstanceFlagBitsKHR
 		case .TriangleFlipFacingKHR: strBuffer.Append("VK_GEOMETRY_INSTANCE_TRIANGLE_FLIP_FACING_BIT_KHR");
 		case .ForceOpaqueKHR: strBuffer.Append("VK_GEOMETRY_INSTANCE_FORCE_OPAQUE_BIT_KHR");
 		case .ForceNoOpaqueKHR: strBuffer.Append("VK_GEOMETRY_INSTANCE_FORCE_NO_OPAQUE_BIT_KHR");
-		case .VkGeometryInstanceForceOpacityMicromap2StateEXT: strBuffer.Append("VK_GEOMETRY_INSTANCE_FORCE_OPACITY_MICROMAP_2_STATE_EXT");
-		case .VkGeometryInstanceDisableOpacityMicromapsEXT: strBuffer.Append("VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_EXT");
+		case .VkGeometryInstanceForceOpacityMicromap2StateEXT: strBuffer.Append("VK_GEOMETRY_INSTANCE_FORCE_OPACITY_MICROMAP_2_STATE_BIT_EXT");
+		case .VkGeometryInstanceDisableOpacityMicromapsEXT: strBuffer.Append("VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_BIT_EXT");
+		}
+	}
+}
+
+extension VkClusterAccelerationStructureAddressResolutionFlagBitsNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_NONE_NV");
+		case .IndirectedDstImplicitDataNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_IMPLICIT_DATA_BIT_NV");
+		case .IndirectedScratchDataNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_SCRATCH_DATA_BIT_NV");
+		case .IndirectedDstAddressArrayNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_ADDRESS_ARRAY_BIT_NV");
+		case .IndirectedDstSizesArrayNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_SIZES_ARRAY_BIT_NV");
+		case .IndirectedSrcInfosArrayNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_SRC_INFOS_ARRAY_BIT_NV");
+		case .IndirectedSrcInfosCountNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_SRC_INFOS_COUNT_BIT_NV");
+		}
+	}
+}
+
+extension VkClusterAccelerationStructureGeometryFlagBitsNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CullDisableNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_CULL_DISABLE_BIT_NV");
+		case .NoDuplicateAnyhitInvocationNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_NO_DUPLICATE_ANYHIT_INVOCATION_BIT_NV");
+		case .OpaqueNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_OPAQUE_BIT_NV");
+		}
+	}
+}
+
+extension VkClusterAccelerationStructureClusterFlagBitsNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AllowDisableOpacityMicromapsNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_CLUSTER_ALLOW_DISABLE_OPACITY_MICROMAPS_NV");
 		}
 	}
 }
@@ -3014,10 +3264,10 @@ extension VkBuildAccelerationStructureFlagBitsKHR
 		case .PreferFastBuildKHR: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_PREFER_FAST_BUILD_BIT_KHR");
 		case .LowMemoryKHR: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_LOW_MEMORY_BIT_KHR");
 		case .VkBuildAccelerationStructureMotionNV: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_MOTION_BIT_NV");
-		case .VkBuildAccelerationStructureAllowOpacityMicromapUpdateEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_EXT");
-		case .VkBuildAccelerationStructureAllowDisableOpacityMicromapsEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT");
-		case .VkBuildAccelerationStructureAllowOpacityMicromapDataUpdateEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT");
-		case .AllowDataAccessKHR: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_KHR");
+		case .VkBuildAccelerationStructureAllowOpacityMicromapUpdateEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_BIT_EXT");
+		case .VkBuildAccelerationStructureAllowDisableOpacityMicromapsEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT");
+		case .VkBuildAccelerationStructureAllowOpacityMicromapDataUpdateEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_BIT_EXT");
+		case .AllowDataAccessKHR: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR");
 		}
 	}
 }
@@ -3083,6 +3333,8 @@ extension VkGeometryTypeKHR
 		case .TrianglesKHR: strBuffer.Append("VK_GEOMETRY_TYPE_TRIANGLES_KHR");
 		case .AabbsKHR: strBuffer.Append("VK_GEOMETRY_TYPE_AABBS_KHR");
 		case .InstancesKHR: strBuffer.Append("VK_GEOMETRY_TYPE_INSTANCES_KHR");
+		case .VkGeometryTypeSpheresNV: strBuffer.Append("VK_GEOMETRY_TYPE_SPHERES_NV");
+		case .VkGeometryTypeLinearSweptSpheresNV: strBuffer.Append("VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV");
 		}
 	}
 }
@@ -3134,6 +3386,30 @@ extension VkAccelerationStructureCompatibilityKHR
 		{
 		case .CompatibleKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_COMPATIBILITY_COMPATIBLE_KHR");
 		case .IncompatibleKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_COMPATIBILITY_INCOMPATIBLE_KHR");
+		}
+	}
+}
+
+extension VkRayTracingLssIndexingModeNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ListNV: strBuffer.Append("VK_RAY_TRACING_LSS_INDEXING_MODE_LIST_NV");
+		case .SuccessiveNV: strBuffer.Append("VK_RAY_TRACING_LSS_INDEXING_MODE_SUCCESSIVE_NV");
+		}
+	}
+}
+
+extension VkRayTracingLssPrimitiveEndCapsModeNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneNV: strBuffer.Append("VK_RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_NONE_NV");
+		case .ChainedNV: strBuffer.Append("VK_RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_CHAINED_NV");
 		}
 	}
 }
@@ -3476,12 +3752,14 @@ extension VkAccessFlagBits2
 		case .VideoDecodeWriteKHR: strBuffer.Append("VK_ACCESS_2_VIDEO_DECODE_WRITE_BIT_KHR");
 		case .VideoEncodeReadKHR: strBuffer.Append("VK_ACCESS_2_VIDEO_ENCODE_READ_BIT_KHR");
 		case .VideoEncodeWriteKHR: strBuffer.Append("VK_ACCESS_2_VIDEO_ENCODE_WRITE_BIT_KHR");
+		case .ShaderTileAttachmentReadQCOM: strBuffer.Append("VK_ACCESS_2_SHADER_TILE_ATTACHMENT_READ_BIT_QCOM");
+		case .ShaderTileAttachmentWriteQCOM: strBuffer.Append("VK_ACCESS_2_SHADER_TILE_ATTACHMENT_WRITE_BIT_QCOM");
 		case .TransformFeedbackWriteEXT: strBuffer.Append("VK_ACCESS_2_TRANSFORM_FEEDBACK_WRITE_BIT_EXT");
 		case .TransformFeedbackCounterReadEXT: strBuffer.Append("VK_ACCESS_2_TRANSFORM_FEEDBACK_COUNTER_READ_BIT_EXT");
 		case .TransformFeedbackCounterWriteEXT: strBuffer.Append("VK_ACCESS_2_TRANSFORM_FEEDBACK_COUNTER_WRITE_BIT_EXT");
 		case .ConditionalRenderingReadEXT: strBuffer.Append("VK_ACCESS_2_CONDITIONAL_RENDERING_READ_BIT_EXT");
-		case .CommandPreprocessReadNV: strBuffer.Append("VK_ACCESS_2_COMMAND_PREPROCESS_READ_BIT_NV");
-		case .CommandPreprocessWriteNV: strBuffer.Append("VK_ACCESS_2_COMMAND_PREPROCESS_WRITE_BIT_NV");
+		case .CommandPreprocessReadEXT: strBuffer.Append("VK_ACCESS_2_COMMAND_PREPROCESS_READ_BIT_EXT");
+		case .CommandPreprocessWriteEXT: strBuffer.Append("VK_ACCESS_2_COMMAND_PREPROCESS_WRITE_BIT_EXT");
 		case .FragmentShadingRateAttachmentReadKHR: strBuffer.Append("VK_ACCESS_2_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR");
 		case .AccelerationStructureReadKHR: strBuffer.Append("VK_ACCESS_2_ACCELERATION_STRUCTURE_READ_BIT_KHR");
 		case .AccelerationStructureWriteKHR: strBuffer.Append("VK_ACCESS_2_ACCELERATION_STRUCTURE_WRITE_BIT_KHR");
@@ -3494,6 +3772,8 @@ extension VkAccessFlagBits2
 		case .MicromapWriteEXT: strBuffer.Append("VK_ACCESS_2_MICROMAP_WRITE_BIT_EXT");
 		case .OpticalFlowReadNV: strBuffer.Append("VK_ACCESS_2_OPTICAL_FLOW_READ_BIT_NV");
 		case .OpticalFlowWriteNV: strBuffer.Append("VK_ACCESS_2_OPTICAL_FLOW_WRITE_BIT_NV");
+		case .DataGraphReadARM: strBuffer.Append("VK_ACCESS_2_DATA_GRAPH_READ_BIT_ARM");
+		case .DataGraphWriteARM: strBuffer.Append("VK_ACCESS_2_DATA_GRAPH_WRITE_BIT_ARM");
 		}
 	}
 }
@@ -3533,7 +3813,7 @@ extension VkPipelineStageFlagBits2
 		case .VideoEncodeKHR: strBuffer.Append("VK_PIPELINE_STAGE_2_VIDEO_ENCODE_BIT_KHR");
 		case .TransformFeedbackEXT: strBuffer.Append("VK_PIPELINE_STAGE_2_TRANSFORM_FEEDBACK_BIT_EXT");
 		case .ConditionalRenderingEXT: strBuffer.Append("VK_PIPELINE_STAGE_2_CONDITIONAL_RENDERING_BIT_EXT");
-		case .CommandPreprocessNV: strBuffer.Append("VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_NV");
+		case .CommandPreprocessEXT: strBuffer.Append("VK_PIPELINE_STAGE_2_COMMAND_PREPROCESS_BIT_EXT");
 		case .FragmentShadingRateAttachmentKHR: strBuffer.Append("VK_PIPELINE_STAGE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR");
 		case .AccelerationStructureBuildKHR: strBuffer.Append("VK_PIPELINE_STAGE_2_ACCELERATION_STRUCTURE_BUILD_BIT_KHR");
 		case .RayTracingShaderKHR: strBuffer.Append("VK_PIPELINE_STAGE_2_RAY_TRACING_SHADER_BIT_KHR");
@@ -3546,6 +3826,8 @@ extension VkPipelineStageFlagBits2
 		case .MicromapBuildEXT: strBuffer.Append("VK_PIPELINE_STAGE_2_MICROMAP_BUILD_BIT_EXT");
 		case .ClusterCullingShaderHUAWEI: strBuffer.Append("VK_PIPELINE_STAGE_2_CLUSTER_CULLING_SHADER_BIT_HUAWEI");
 		case .OpticalFlowNV: strBuffer.Append("VK_PIPELINE_STAGE_2_OPTICAL_FLOW_BIT_NV");
+		case .ConvertCooperativeVectorMatrixNV: strBuffer.Append("VK_PIPELINE_STAGE_2_CONVERT_COOPERATIVE_VECTOR_MATRIX_BIT_NV");
+		case .DataGraphARM: strBuffer.Append("VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM");
 		}
 	}
 }
@@ -3568,7 +3850,7 @@ extension VkHostImageCopyFlagBits
 	{
 		switch (this)
 		{
-		case .Memcpy: strBuffer.Append("VK_HOST_IMAGE_COPY_MEMCPY");
+		case .Memcpy: strBuffer.Append("VK_HOST_IMAGE_COPY_MEMCPY_BIT");
 		}
 	}
 }
@@ -3614,14 +3896,18 @@ extension VkFormatFeatureFlagBits2
 		case .FragmentShadingRateAttachmentKHR: strBuffer.Append("VK_FORMAT_FEATURE_2_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR");
 		case .VideoEncodeInputKHR: strBuffer.Append("VK_FORMAT_FEATURE_2_VIDEO_ENCODE_INPUT_BIT_KHR");
 		case .VideoEncodeDpbKHR: strBuffer.Append("VK_FORMAT_FEATURE_2_VIDEO_ENCODE_DPB_BIT_KHR");
+		case .AccelerationStructureRadiusBufferNV: strBuffer.Append("VK_FORMAT_FEATURE_2_ACCELERATION_STRUCTURE_RADIUS_BUFFER_BIT_NV");
 		case .LinearColorAttachmentNV: strBuffer.Append("VK_FORMAT_FEATURE_2_LINEAR_COLOR_ATTACHMENT_BIT_NV");
 		case .WeightImageQCOM: strBuffer.Append("VK_FORMAT_FEATURE_2_WEIGHT_IMAGE_BIT_QCOM");
 		case .WeightSampledImageQCOM: strBuffer.Append("VK_FORMAT_FEATURE_2_WEIGHT_SAMPLED_IMAGE_BIT_QCOM");
 		case .BlockMatchingQCOM: strBuffer.Append("VK_FORMAT_FEATURE_2_BLOCK_MATCHING_BIT_QCOM");
 		case .BoxFilterSampledQCOM: strBuffer.Append("VK_FORMAT_FEATURE_2_BOX_FILTER_SAMPLED_BIT_QCOM");
+		case .TensorShaderARM: strBuffer.Append("VK_FORMAT_FEATURE_2_TENSOR_SHADER_BIT_ARM");
+		case .TensorImageAliasingARM: strBuffer.Append("VK_FORMAT_FEATURE_2_TENSOR_IMAGE_ALIASING_BIT_ARM");
 		case .OpticalFlowImageNV: strBuffer.Append("VK_FORMAT_FEATURE_2_OPTICAL_FLOW_IMAGE_BIT_NV");
 		case .OpticalFlowVectorNV: strBuffer.Append("VK_FORMAT_FEATURE_2_OPTICAL_FLOW_VECTOR_BIT_NV");
 		case .OpticalFlowCostNV: strBuffer.Append("VK_FORMAT_FEATURE_2_OPTICAL_FLOW_COST_BIT_NV");
+		case .TensorDataGraphARM: strBuffer.Append("VK_FORMAT_FEATURE_2_TENSOR_DATA_GRAPH_BIT_ARM");
 		case .VideoEncodeQuantizationDeltaMapKHR: strBuffer.Append("VK_FORMAT_FEATURE_2_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR");
 		case .VideoEncodeEmphasisMapKHR: strBuffer.Append("VK_FORMAT_FEATURE_2_VIDEO_ENCODE_EMPHASIS_MAP_BIT_KHR");
 		}
@@ -3639,6 +3925,7 @@ extension VkRenderingFlagBits
 		case .Resuming: strBuffer.Append("VK_RENDERING_RESUMING_BIT");
 		case .EnableLegacyDitheringEXT: strBuffer.Append("VK_RENDERING_ENABLE_LEGACY_DITHERING_BIT_EXT");
 		case .ContentsInlineKHR: strBuffer.Append("VK_RENDERING_CONTENTS_INLINE_BIT_KHR");
+		case .PerLayerFragmentDensityVALVE: strBuffer.Append("VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE");
 		}
 	}
 }
@@ -3848,6 +4135,7 @@ extension VkOpacityMicromapSpecialIndexEXT
 		case .FullyOpaqueEXT: strBuffer.Append("VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_OPAQUE_EXT");
 		case .FullyUnknownTransparentEXT: strBuffer.Append("VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_TRANSPARENT_EXT");
 		case .FullyUnknownOpaqueEXT: strBuffer.Append("VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_EXT");
+		case .VkOpacityMicromapSpecialIndexClusterGeometryDisableOpacityMicromapNV: strBuffer.Append("VK_OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV");
 		}
 	}
 }
@@ -3961,6 +4249,7 @@ extension VkPipelineCreateFlagBits2
 		case .EarlyReturnOnFailure: strBuffer.Append("VK_PIPELINE_CREATE_2_EARLY_RETURN_ON_FAILURE_BIT");
 		case .NoProtectedAccess: strBuffer.Append("VK_PIPELINE_CREATE_2_NO_PROTECTED_ACCESS_BIT");
 		case .ProtectedAccessOnly: strBuffer.Append("VK_PIPELINE_CREATE_2_PROTECTED_ACCESS_ONLY_BIT");
+		case .RayTracingAllowSpheresAndLinearSweptSpheresNV: strBuffer.Append("VK_PIPELINE_CREATE_2_RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES_BIT_NV");
 		case .EnableLegacyDitheringEXT: strBuffer.Append("VK_PIPELINE_CREATE_2_ENABLE_LEGACY_DITHERING_BIT_EXT");
 		case .DeferCompileNV: strBuffer.Append("VK_PIPELINE_CREATE_2_DEFER_COMPILE_BIT_NV");
 		case .CaptureStatisticsKHR: strBuffer.Append("VK_PIPELINE_CREATE_2_CAPTURE_STATISTICS_BIT_KHR");
@@ -3984,8 +4273,10 @@ extension VkPipelineCreateFlagBits2
 		case .DepthStencilAttachmentFeedbackLoopEXT: strBuffer.Append("VK_PIPELINE_CREATE_2_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT");
 		case .RayTracingDisplacementMicromapNV: strBuffer.Append("VK_PIPELINE_CREATE_2_RAY_TRACING_DISPLACEMENT_MICROMAP_BIT_NV");
 		case .DescriptorBufferEXT: strBuffer.Append("VK_PIPELINE_CREATE_2_DESCRIPTOR_BUFFER_BIT_EXT");
+		case .DisallowOpacityMicromapARM: strBuffer.Append("VK_PIPELINE_CREATE_2_DISALLOW_OPACITY_MICROMAP_BIT_ARM");
 		case .CaptureDataKHR: strBuffer.Append("VK_PIPELINE_CREATE_2_CAPTURE_DATA_BIT_KHR");
 		case .IndirectBindableEXT: strBuffer.Append("VK_PIPELINE_CREATE_2_INDIRECT_BINDABLE_BIT_EXT");
+		case .PerLayerFragmentDensityVALVE: strBuffer.Append("VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE");
 		}
 	}
 }
@@ -4021,7 +4312,37 @@ extension VkBufferUsageFlagBits2
 		case .PushDescriptorsDescriptorBufferEXT: strBuffer.Append("VK_BUFFER_USAGE_2_PUSH_DESCRIPTORS_DESCRIPTOR_BUFFER_BIT_EXT");
 		case .MicromapBuildInputReadOnlyEXT: strBuffer.Append("VK_BUFFER_USAGE_2_MICROMAP_BUILD_INPUT_READ_ONLY_BIT_EXT");
 		case .MicromapStorageEXT: strBuffer.Append("VK_BUFFER_USAGE_2_MICROMAP_STORAGE_BIT_EXT");
+		case .DataGraphForeignDescriptorARM: strBuffer.Append("VK_BUFFER_USAGE_2_DATA_GRAPH_FOREIGN_DESCRIPTOR_BIT_ARM");
+		case .TileMemoryQCOM: strBuffer.Append("VK_BUFFER_USAGE_2_TILE_MEMORY_BIT_QCOM");
 		case .PreprocessBufferEXT: strBuffer.Append("VK_BUFFER_USAGE_2_PREPROCESS_BUFFER_BIT_EXT");
+		}
+	}
+}
+
+extension VkPartitionedAccelerationStructureOpTypeNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .WriteInstanceNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_INSTANCE_NV");
+		case .UpdateInstanceNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_UPDATE_INSTANCE_NV");
+		case .WritePartitionTranslationNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_PARTITION_TRANSLATION_NV");
+		}
+	}
+}
+
+extension VkPartitionedAccelerationStructureInstanceFlagBitsNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FlagTriangleFacingCullDisableNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_TRIANGLE_FACING_CULL_DISABLE_BIT_NV");
+		case .FlagTriangleFlipFacingNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_TRIANGLE_FLIP_FACING_BIT_NV");
+		case .FlagForceOpaqueNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_FORCE_OPAQUE_BIT_NV");
+		case .FlagForceNoOpaqueNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_FORCE_NO_OPAQUE_BIT_NV");
+		case .FlagEnableExplicitBoundingBoxNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_ENABLE_EXPLICIT_BOUNDING_BOX_NV");
 		}
 	}
 }
@@ -4112,6 +4433,11 @@ extension VkComponentTypeKHR
 		case .Uint16KHR: strBuffer.Append("VK_COMPONENT_TYPE_UINT16_KHR");
 		case .Uint32KHR: strBuffer.Append("VK_COMPONENT_TYPE_UINT32_KHR");
 		case .Uint64KHR: strBuffer.Append("VK_COMPONENT_TYPE_UINT64_KHR");
+		case .Bfloat16KHR: strBuffer.Append("VK_COMPONENT_TYPE_BFLOAT16_KHR");
+		case .VkComponentTypeSint8PackedNV: strBuffer.Append("VK_COMPONENT_TYPE_SINT8_PACKED_NV");
+		case .VkComponentTypeUint8PackedNV: strBuffer.Append("VK_COMPONENT_TYPE_UINT8_PACKED_NV");
+		case .VkComponentTypeFloat8E4m3EXT: strBuffer.Append("VK_COMPONENT_TYPE_FLOAT8_E4M3_EXT");
+		case .VkComponentTypeFloat8E5m2EXT: strBuffer.Append("VK_COMPONENT_TYPE_FLOAT8_E5M2_EXT");
 		}
 	}
 }
@@ -4177,6 +4503,160 @@ extension VkDepthClampModeEXT
 		{
 		case .ViewportRangeEXT: strBuffer.Append("VK_DEPTH_CLAMP_MODE_VIEWPORT_RANGE_EXT");
 		case .UserDefinedRangeEXT: strBuffer.Append("VK_DEPTH_CLAMP_MODE_USER_DEFINED_RANGE_EXT");
+		}
+	}
+}
+
+extension VkTileShadingRenderPassFlagBitsQCOM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .EnableQCOM: strBuffer.Append("VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM");
+		case .PerTileExecutionQCOM: strBuffer.Append("VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM");
+		}
+	}
+}
+
+extension VkCooperativeVectorMatrixLayoutNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .RowMajorNV: strBuffer.Append("VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_ROW_MAJOR_NV");
+		case .ColumnMajorNV: strBuffer.Append("VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_COLUMN_MAJOR_NV");
+		case .InferencingOptimalNV: strBuffer.Append("VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_INFERENCING_OPTIMAL_NV");
+		case .TrainingOptimalNV: strBuffer.Append("VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_TRAINING_OPTIMAL_NV");
+		}
+	}
+}
+
+extension VkTensorCreateFlagBitsARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MutableFormatARM: strBuffer.Append("VK_TENSOR_CREATE_MUTABLE_FORMAT_BIT_ARM");
+		case .ProtectedARM: strBuffer.Append("VK_TENSOR_CREATE_PROTECTED_BIT_ARM");
+		case .DescriptorBufferCaptureReplayARM: strBuffer.Append("VK_TENSOR_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM");
+		}
+	}
+}
+
+extension VkTensorUsageFlagBitsARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ShaderARM: strBuffer.Append("VK_TENSOR_USAGE_SHADER_BIT_ARM");
+		case .TransferSrcARM: strBuffer.Append("VK_TENSOR_USAGE_TRANSFER_SRC_BIT_ARM");
+		case .TransferDstARM: strBuffer.Append("VK_TENSOR_USAGE_TRANSFER_DST_BIT_ARM");
+		case .ImageAliasingARM: strBuffer.Append("VK_TENSOR_USAGE_IMAGE_ALIASING_BIT_ARM");
+		case .DataGraphARM: strBuffer.Append("VK_TENSOR_USAGE_DATA_GRAPH_BIT_ARM");
+		}
+	}
+}
+
+extension VkTensorTilingARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OptimalARM: strBuffer.Append("VK_TENSOR_TILING_OPTIMAL_ARM");
+		case .LinearARM: strBuffer.Append("VK_TENSOR_TILING_LINEAR_ARM");
+		}
+	}
+}
+
+extension VkTensorViewCreateFlagBitsARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DescriptorBufferCaptureReplayARM: strBuffer.Append("VK_TENSOR_VIEW_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM");
+		}
+	}
+}
+
+extension VkDataGraphPipelineSessionCreateFlagBitsARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ProtectedARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_SESSION_CREATE_PROTECTED_BIT_ARM");
+		}
+	}
+}
+
+extension VkDataGraphPipelinePropertyARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CreationLogARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_PROPERTY_CREATION_LOG_ARM");
+		case .IdentifierARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM");
+		}
+	}
+}
+
+extension VkDataGraphPipelineSessionBindPointARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TransientARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TRANSIENT_ARM");
+		}
+	}
+}
+
+extension VkDataGraphPipelineSessionBindPointTypeARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MemoryARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TYPE_MEMORY_ARM");
+		}
+	}
+}
+
+extension VkDataGraphPipelineDispatchFlagBitsARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		}
+	}
+}
+
+extension VkPhysicalDeviceDataGraphProcessingEngineTypeARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultARM: strBuffer.Append("VK_PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_DEFAULT_ARM");
+		}
+	}
+}
+
+extension VkPhysicalDeviceDataGraphOperationTypeARM
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SpirvExtendedInstructionSetARM: strBuffer.Append("VK_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_SPIRV_EXTENDED_INSTRUCTION_SET_ARM");
 		}
 	}
 }
@@ -4247,7 +4727,7 @@ extension VkPresentModeKHR
 		case .FifoRelaxedKHR: strBuffer.Append("VK_PRESENT_MODE_FIFO_RELAXED_KHR");
 		case .SharedDemandRefreshKHR: strBuffer.Append("VK_PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR");
 		case .SharedContinuousRefreshKHR: strBuffer.Append("VK_PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR");
-		case .VkPresentModeFifoLatestReadyEXT: strBuffer.Append("VK_PRESENT_MODE_FIFO_LATEST_READY_EXT");
+		case .FifoLatestReadyKHR: strBuffer.Append("VK_PRESENT_MODE_FIFO_LATEST_READY_KHR");
 		}
 	}
 }
@@ -4344,8 +4824,6 @@ extension VkDebugReportObjectTypeEXT
 		case .CuFunctionNvxEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_CU_FUNCTION_NVX_EXT");
 		case .AccelerationStructureKhrEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_KHR_EXT");
 		case .AccelerationStructureNvEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_NV_EXT");
-		case .CudaModuleNvEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_CUDA_MODULE_NV_EXT");
-		case .CudaFunctionNvEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_CUDA_FUNCTION_NV_EXT");
 		}
 	}
 }
@@ -4627,6 +5105,7 @@ extension VkMemoryAllocateFlagBits
 		case .DeviceMask: strBuffer.Append("VK_MEMORY_ALLOCATE_DEVICE_MASK_BIT");
 		case .DeviceAddress: strBuffer.Append("VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT");
 		case .DeviceAddressCaptureReplay: strBuffer.Append("VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT");
+		case .ZeroInitializeEXT: strBuffer.Append("VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT");
 		}
 	}
 }
@@ -4654,7 +5133,9 @@ extension VkSwapchainCreateFlagBitsKHR
 		case .SplitInstanceBindRegionsKHR: strBuffer.Append("VK_SWAPCHAIN_CREATE_SPLIT_INSTANCE_BIND_REGIONS_BIT_KHR");
 		case .ProtectedKHR: strBuffer.Append("VK_SWAPCHAIN_CREATE_PROTECTED_BIT_KHR");
 		case .MutableFormatKHR: strBuffer.Append("VK_SWAPCHAIN_CREATE_MUTABLE_FORMAT_BIT_KHR");
-		case .VkSwapchainCreateDeferredMemoryAllocationEXT: strBuffer.Append("VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_EXT");
+		case .PresentId2KHR: strBuffer.Append("VK_SWAPCHAIN_CREATE_PRESENT_ID_2_BIT_KHR");
+		case .PresentWait2KHR: strBuffer.Append("VK_SWAPCHAIN_CREATE_PRESENT_WAIT_2_BIT_KHR");
+		case .DeferredMemoryAllocationKHR: strBuffer.Append("VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_KHR");
 		}
 	}
 }
@@ -4946,28 +5427,28 @@ extension VkDeviceFaultAddressTypeEXT
 	}
 }
 
-extension VkPresentScalingFlagBitsEXT
+extension VkPresentScalingFlagBitsKHR
 {
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
 		{
-		case .OneToOneEXT: strBuffer.Append("VK_PRESENT_SCALING_ONE_TO_ONE_BIT_EXT");
-		case .AspectRatioStretchEXT: strBuffer.Append("VK_PRESENT_SCALING_ASPECT_RATIO_STRETCH_BIT_EXT");
-		case .StretchEXT: strBuffer.Append("VK_PRESENT_SCALING_STRETCH_BIT_EXT");
+		case .OneToOneKHR: strBuffer.Append("VK_PRESENT_SCALING_ONE_TO_ONE_BIT_KHR");
+		case .AspectRatioStretchKHR: strBuffer.Append("VK_PRESENT_SCALING_ASPECT_RATIO_STRETCH_BIT_KHR");
+		case .StretchKHR: strBuffer.Append("VK_PRESENT_SCALING_STRETCH_BIT_KHR");
 		}
 	}
 }
 
-extension VkPresentGravityFlagBitsEXT
+extension VkPresentGravityFlagBitsKHR
 {
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
 		{
-		case .MinEXT: strBuffer.Append("VK_PRESENT_GRAVITY_MIN_BIT_EXT");
-		case .MaxEXT: strBuffer.Append("VK_PRESENT_GRAVITY_MAX_BIT_EXT");
-		case .CenteredEXT: strBuffer.Append("VK_PRESENT_GRAVITY_CENTERED_BIT_EXT");
+		case .MinKHR: strBuffer.Append("VK_PRESENT_GRAVITY_MIN_BIT_KHR");
+		case .MaxKHR: strBuffer.Append("VK_PRESENT_GRAVITY_MAX_BIT_KHR");
+		case .CenteredKHR: strBuffer.Append("VK_PRESENT_GRAVITY_CENTERED_BIT_KHR");
 		}
 	}
 }
@@ -5164,6 +5645,7 @@ extension VkVideoCodecOperationFlagBitsKHR
 		case .DecodeH265KHR: strBuffer.Append("VK_VIDEO_CODEC_OPERATION_DECODE_H265_BIT_KHR");
 		case .DecodeAv1KHR: strBuffer.Append("VK_VIDEO_CODEC_OPERATION_DECODE_AV1_BIT_KHR");
 		case .EncodeAv1KHR: strBuffer.Append("VK_VIDEO_CODEC_OPERATION_ENCODE_AV1_BIT_KHR");
+		case .DecodeVp9KHR: strBuffer.Append("VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR");
 		}
 	}
 }
@@ -5220,6 +5702,7 @@ extension VkVideoSessionCreateFlagBitsKHR
 		case .InlineQueriesKHR: strBuffer.Append("VK_VIDEO_SESSION_CREATE_INLINE_QUERIES_BIT_KHR");
 		case .AllowEncodeQuantizationDeltaMapKHR: strBuffer.Append("VK_VIDEO_SESSION_CREATE_ALLOW_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR");
 		case .AllowEncodeEmphasisMapKHR: strBuffer.Append("VK_VIDEO_SESSION_CREATE_ALLOW_ENCODE_EMPHASIS_MAP_BIT_KHR");
+		case .InlineSessionParametersKHR: strBuffer.Append("VK_VIDEO_SESSION_CREATE_INLINE_SESSION_PARAMETERS_BIT_KHR");
 		}
 	}
 }
@@ -5307,6 +5790,7 @@ extension VkVideoEncodeFlagBitsKHR
 	{
 		switch (this)
 		{
+		case .IntraRefreshKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR");
 		case .WithQuantizationDeltaMapKHR: strBuffer.Append("VK_VIDEO_ENCODE_WITH_QUANTIZATION_DELTA_MAP_BIT_KHR");
 		case .WithEmphasisMapKHR: strBuffer.Append("VK_VIDEO_ENCODE_WITH_EMPHASIS_MAP_BIT_KHR");
 		}
@@ -5398,6 +5882,21 @@ extension VkVideoEncodeRateControlModeFlagBitsKHR
 	}
 }
 
+extension VkVideoEncodeIntraRefreshModeFlagBitsKHR
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_NONE_KHR");
+		case .PerPicturePartitionKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_PER_PICTURE_PARTITION_BIT_KHR");
+		case .BlockBasedKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_BLOCK_BASED_BIT_KHR");
+		case .BlockRowBasedKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_BLOCK_ROW_BASED_BIT_KHR");
+		case .BlockColumnBasedKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_BLOCK_COLUMN_BASED_BIT_KHR");
+		}
+	}
+}
+
 extension VkVideoEncodeH264CapabilityFlagBitsKHR
 {
 	public override void ToString(String strBuffer)
@@ -5413,6 +5912,7 @@ extension VkVideoEncodeH264CapabilityFlagBitsKHR
 		case .PerPictureTypeMinMaxQpKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_CAPABILITY_PER_PICTURE_TYPE_MIN_MAX_QP_BIT_KHR");
 		case .PerSliceConstantQpKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_CAPABILITY_PER_SLICE_CONSTANT_QP_BIT_KHR");
 		case .GeneratePrefixNaluKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_CAPABILITY_GENERATE_PREFIX_NALU_BIT_KHR");
+		case .BPictureIntraRefreshKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_CAPABILITY_B_PICTURE_INTRA_REFRESH_BIT_KHR");
 		case .MbQpDiffWraparoundKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_CAPABILITY_MB_QP_DIFF_WRAPAROUND_BIT_KHR");
 		}
 	}
@@ -5479,6 +5979,7 @@ extension VkVideoEncodeH265CapabilityFlagBitsKHR
 		case .PerSliceSegmentConstantQpKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CAPABILITY_PER_SLICE_SEGMENT_CONSTANT_QP_BIT_KHR");
 		case .MultipleTilesPerSliceSegmentKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_TILES_PER_SLICE_SEGMENT_BIT_KHR");
 		case .MultipleSliceSegmentsPerTileKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_SLICE_SEGMENTS_PER_TILE_BIT_KHR");
+		case .BPictureIntraRefreshKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CAPABILITY_B_PICTURE_INTRA_REFRESH_BIT_KHR");
 		case .CuQpDiffWraparoundKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CAPABILITY_CU_QP_DIFF_WRAPAROUND_BIT_KHR");
 		}
 	}
@@ -5568,6 +6069,7 @@ extension VkVideoEncodeAV1CapabilityFlagBitsKHR
 		case .VkVideoEncodeAv1CapabilityPrimaryReferenceCdfOnlyKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_CAPABILITY_PRIMARY_REFERENCE_CDF_ONLY_BIT_KHR");
 		case .VkVideoEncodeAv1CapabilityFrameSizeOverrideKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_CAPABILITY_FRAME_SIZE_OVERRIDE_BIT_KHR");
 		case .VkVideoEncodeAv1CapabilityMotionVectorScalingKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_CAPABILITY_MOTION_VECTOR_SCALING_BIT_KHR");
+		case .VkVideoEncodeAv1CapabilityCompoundPredictionIntraRefreshKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_CAPABILITY_COMPOUND_PREDICTION_INTRA_REFRESH_BIT_KHR");
 		}
 	}
 }
@@ -5635,6 +6137,29 @@ extension VkVideoEncodeAV1RateControlGroupKHR
 		case .VkVideoEncodeAv1RateControlGroupIntraKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_INTRA_KHR");
 		case .VkVideoEncodeAv1RateControlGroupPredictiveKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_PREDICTIVE_KHR");
 		case .VkVideoEncodeAv1RateControlGroupBipredictiveKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_BIPREDICTIVE_KHR");
+		}
+	}
+}
+
+extension VkAccessFlagBits3KHR
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneKHR: strBuffer.Append("VK_ACCESS_3_NONE_KHR");
+		}
+	}
+}
+
+extension VkDefaultVertexAttributeValueKHR
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ZeroZeroZeroZeroKHR: strBuffer.Append("VK_DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ZERO_KHR");
+		case .ZeroZeroZeroOneKHR: strBuffer.Append("VK_DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ONE_KHR");
 		}
 	}
 }
@@ -6001,6 +6526,109 @@ extension StdVideoH265AspectRatioIdc
 		case .VK_21: strBuffer.Append("STD_VIDEO_H265_ASPECT_RATIO_IDC_2_1");
 		case .ExtendedSar: strBuffer.Append("STD_VIDEO_H265_ASPECT_RATIO_IDC_EXTENDED_SAR");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H265_ASPECT_RATIO_IDC_INVALID");
+		}
+	}
+}
+
+extension StdVideoVP9Profile
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9Profile0: strBuffer.Append("STD_VIDEO_VP9_PROFILE_0");
+		case .StdVideoVp9Profile1: strBuffer.Append("STD_VIDEO_VP9_PROFILE_1");
+		case .StdVideoVp9Profile2: strBuffer.Append("STD_VIDEO_VP9_PROFILE_2");
+		case .StdVideoVp9Profile3: strBuffer.Append("STD_VIDEO_VP9_PROFILE_3");
+		case .StdVideoVp9ProfileInvalid: strBuffer.Append("STD_VIDEO_VP9_PROFILE_INVALID");
+		}
+	}
+}
+
+extension StdVideoVP9Level
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9Level10: strBuffer.Append("STD_VIDEO_VP9_LEVEL_1_0");
+		case .StdVideoVp9Level11: strBuffer.Append("STD_VIDEO_VP9_LEVEL_1_1");
+		case .StdVideoVp9Level20: strBuffer.Append("STD_VIDEO_VP9_LEVEL_2_0");
+		case .StdVideoVp9Level21: strBuffer.Append("STD_VIDEO_VP9_LEVEL_2_1");
+		case .StdVideoVp9Level30: strBuffer.Append("STD_VIDEO_VP9_LEVEL_3_0");
+		case .StdVideoVp9Level31: strBuffer.Append("STD_VIDEO_VP9_LEVEL_3_1");
+		case .StdVideoVp9Level40: strBuffer.Append("STD_VIDEO_VP9_LEVEL_4_0");
+		case .StdVideoVp9Level41: strBuffer.Append("STD_VIDEO_VP9_LEVEL_4_1");
+		case .StdVideoVp9Level50: strBuffer.Append("STD_VIDEO_VP9_LEVEL_5_0");
+		case .StdVideoVp9Level51: strBuffer.Append("STD_VIDEO_VP9_LEVEL_5_1");
+		case .StdVideoVp9Level52: strBuffer.Append("STD_VIDEO_VP9_LEVEL_5_2");
+		case .StdVideoVp9Level60: strBuffer.Append("STD_VIDEO_VP9_LEVEL_6_0");
+		case .StdVideoVp9Level61: strBuffer.Append("STD_VIDEO_VP9_LEVEL_6_1");
+		case .StdVideoVp9Level62: strBuffer.Append("STD_VIDEO_VP9_LEVEL_6_2");
+		case .StdVideoVp9LevelInvalid: strBuffer.Append("STD_VIDEO_VP9_LEVEL_INVALID");
+		}
+	}
+}
+
+extension StdVideoVP9FrameType
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9FrameTypeKey: strBuffer.Append("STD_VIDEO_VP9_FRAME_TYPE_KEY");
+		case .StdVideoVp9FrameTypeNonKey: strBuffer.Append("STD_VIDEO_VP9_FRAME_TYPE_NON_KEY");
+		case .StdVideoVp9FrameTypeInvalid: strBuffer.Append("STD_VIDEO_VP9_FRAME_TYPE_INVALID");
+		}
+	}
+}
+
+extension StdVideoVP9ReferenceName
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9ReferenceNameIntraFrame: strBuffer.Append("STD_VIDEO_VP9_REFERENCE_NAME_INTRA_FRAME");
+		case .StdVideoVp9ReferenceNameLastFrame: strBuffer.Append("STD_VIDEO_VP9_REFERENCE_NAME_LAST_FRAME");
+		case .StdVideoVp9ReferenceNameGoldenFrame: strBuffer.Append("STD_VIDEO_VP9_REFERENCE_NAME_GOLDEN_FRAME");
+		case .StdVideoVp9ReferenceNameAltrefFrame: strBuffer.Append("STD_VIDEO_VP9_REFERENCE_NAME_ALTREF_FRAME");
+		case .StdVideoVp9ReferenceNameInvalid: strBuffer.Append("STD_VIDEO_VP9_REFERENCE_NAME_INVALID");
+		}
+	}
+}
+
+extension StdVideoVP9InterpolationFilter
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9InterpolationFilterEighttap: strBuffer.Append("STD_VIDEO_VP9_INTERPOLATION_FILTER_EIGHTTAP");
+		case .StdVideoVp9InterpolationFilterEighttapSmooth: strBuffer.Append("STD_VIDEO_VP9_INTERPOLATION_FILTER_EIGHTTAP_SMOOTH");
+		case .StdVideoVp9InterpolationFilterEighttapSharp: strBuffer.Append("STD_VIDEO_VP9_INTERPOLATION_FILTER_EIGHTTAP_SHARP");
+		case .StdVideoVp9InterpolationFilterBilinear: strBuffer.Append("STD_VIDEO_VP9_INTERPOLATION_FILTER_BILINEAR");
+		case .StdVideoVp9InterpolationFilterSwitchable: strBuffer.Append("STD_VIDEO_VP9_INTERPOLATION_FILTER_SWITCHABLE");
+		case .StdVideoVp9InterpolationFilterInvalid: strBuffer.Append("STD_VIDEO_VP9_INTERPOLATION_FILTER_INVALID");
+		}
+	}
+}
+
+extension StdVideoVP9ColorSpace
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9ColorSpaceUnknown: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_UNKNOWN");
+		case .StdVideoVp9ColorSpaceBt601: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_BT_601");
+		case .StdVideoVp9ColorSpaceBt709: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_BT_709");
+		case .StdVideoVp9ColorSpaceSmpte170: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_SMPTE_170");
+		case .StdVideoVp9ColorSpaceSmpte240: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_SMPTE_240");
+		case .StdVideoVp9ColorSpaceBt2020: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_BT_2020");
+		case .StdVideoVp9ColorSpaceReserved: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_RESERVED");
+		case .StdVideoVp9ColorSpaceRgb: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_RGB");
+		case .StdVideoVp9ColorSpaceInvalid: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_INVALID");
 		}
 	}
 }

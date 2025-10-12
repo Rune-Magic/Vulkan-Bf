@@ -59,7 +59,6 @@ static class Program
 	typealias Vertex = (Vector pos, Vector color);
 	public const Vertex[8] vertices = .
 	(
-	    // Define vertices for the cube
 	    ((-1, -1, -1), (1, 0, 0)),  // Bottom-left-back (Red)
 		(( 1, -1, -1), (0, 1, 0)),  // Bottom-right-back (Green)
 		(( 1,  1, -1), (0, 0, 1)),  // Top-right-back (Blue)
@@ -71,12 +70,12 @@ static class Program
 	);
 	public const uint32[36] indices = .
 	(
-	    0, 1, 2, 0, 2, 3, // Back face (clockwise)
-		4, 7, 6, 4, 6, 5, // Front face (clockwise)
-		0, 3, 7, 0, 7, 4, // Left face (clockwise)
-		1, 2, 6, 1, 6, 5, // Right face (clockwise)
-		0, 1, 5, 0, 5, 4, // Bottom face (clockwise)
-		2, 3, 7, 2, 7, 6  // Top face (clockwise)
+	    0, 1, 2, 0, 2, 3, // Back face 
+		4, 7, 6, 4, 6, 5, // Front face 
+		0, 3, 7, 0, 7, 4, // Left face 
+		1, 2, 6, 1, 6, 5, // Right face 
+		0, 1, 5, 0, 5, 4, // Bottom face 
+		2, 3, 7, 2, 7, 6  // Top face 
 	);
 
 	public typealias PushConstants = (float[16] view, float[16] projection);
@@ -167,8 +166,7 @@ static class Program
 
 		public char8*[requiredExtensions.Count] extensionBuffer;
 		public uint32 extensionCount;
-		public VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT swapchainMaintenace1Features = .(null, swapchainMaintenance1: true);
-		public VkPhysicalDeviceFeatures2 enabledFeatures = .(null, .());
+		public VkPhysicalDeviceFeatures enabledFeatures = .() { fillModeNonSolid=true };
 
 		public static Result<Self> GetFor(VkPhysicalDevice device)
 		{
@@ -282,7 +280,7 @@ static class Program
 				queueFamilyIndices = .(physicalDevice.queueFamilyIndex),
 				preTransform = physicalDevice.surfaceCapabilities.currentTransform,
 				compositeAlpha = .OpaqueKHR,
-				presentMode = .FifoKHR, //TODO
+				presentMode = .FifoKHR,
 				clipped = true,
 				oldSwapchain = swapchain,
 			}, gVkAlloc, out swapchain);
@@ -341,6 +339,7 @@ static class Program
 		VkResult result;
 		{
 			List<char8*> extensions = scope .(16);
+
 			{
 				uint32 count = ?;
 				char8** exts = Glfw.[Friend]glfwGetRequiredInstanceExtensions(&count);
@@ -431,16 +430,15 @@ static class Program
 		}
 
 		{
-			physicalDevice.enabledFeatures.pNext = &physicalDevice.swapchainMaintenace1Features; //TODO: proper way of doing this
 			result = physicalDevice.device.CreateDevice(scope .()
 			{
-				pNext = &physicalDevice.enabledFeatures,
 				queueCreateInfos = .(.()
 				{
 					queueFamilyIndex = physicalDevice.queueFamilyIndex,
 					queuePriorities = .(1.f),
 				}),
 				enabledExtensionNames = .(physicalDevice.extensionCount, &physicalDevice.extensionBuffer),
+				pEnabledFeatures = &physicalDevice.enabledFeatures,
 			}, gVkAlloc, out gDevice);
 			CheckResult(result);
 			VulkanLoader.LoadDevice(gDevice);

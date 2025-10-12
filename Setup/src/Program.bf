@@ -200,6 +200,7 @@ class Program
 					case .Attribute("name", out name):
 					case .Attribute("alias", out alias):
 					case .Attribute("parent", out parent):
+					case .Attribute("bitvalues", out type):
 					case .Attribute("requires", let required): if (declType == .Bitmask) type = required;
 					case .Attribute("category", "enum"): declType = .Enum;
 					case .Attribute("category", "handle"): declType = .Handle;
@@ -294,6 +295,9 @@ class Program
 					case .ClosingTag("type") when declType == .Handle:
 						types.Add(name, new:Alloc PrecomputedEntry(new:Alloc $"class {name} {{ private this() {{ }} }}", name, .Handle));
 						handles.Add(name, .(parent));
+					case .OpeningEnd when declType == .Bitmask:
+						if (name.IsNull) break;
+						types.Add(name, new:Alloc PrecomputedEntry(new:Alloc $"typealias {name} = {alias};", name, .TypeAlias));
 					case .ClosingTag("type") when declType == .Bitmask:
 						types.Add(name, new:Alloc PrecomputedEntry(new:Alloc $"typealias {name} = {type};", name, .TypeAlias));
 					case .ClosingTag("type") when declType == .FunctionPtr:
@@ -752,7 +756,7 @@ class Program
 				""");
 			void Feature(StringView feature)
 			{
-				str.Append(feature.StartsWith("VK_VERSION") ? "VulkanFeature.ApiVersion(." : "VulkanFeature.Extension(.", feature, ")");
+				str.Append(feature.StartsWith("VK_VERSION") ? "VulkanApi.ApiVersion(." : "VulkanApi.Extension(.", feature, ")");
 			}
 			for (let ext in featureVistor.extensions.Values)
 			{
@@ -819,7 +823,7 @@ class Program
 						}
 					}
 
-					public VulkanFeature? PromotedTo
+					public VulkanApi? PromotedTo
 					{
 						get
 						{
@@ -924,7 +928,7 @@ class Program
 						}
 					}
 
-					public VulkanFeature GetDependency(int idx)
+					public VulkanApi GetDependency(int idx)
 					{
 						switch (this)
 						{
@@ -946,8 +950,8 @@ class Program
 							extDep = either;
 						else if (!isVersion)
 						{
-							Debug.Assert(extDep.IsNull || extDep.StartsWith("VK_VERSION"));
-							extDep = either;
+							if (extDep.IsNull || extDep.StartsWith("VK_VERSION"))
+								extDep = either;
 						}	
 					}
 					deps.Add(extDep);
@@ -1296,6 +1300,7 @@ class Program
 						case "decode": str.Append("VideoDecodeKHR");
 						case "encode": str.Append("VideoEncodeKHR");
 						case "opticalflow": str.Append("OpticalFlowNV");
+						case "data_graph": str.Append("DataGraphARM");
 						default:
 							str..Append(value[0].ToUpper)..Append(value[1...]);
 						}
@@ -1721,7 +1726,8 @@ class Program
 	{
 		public List<IEntry> output;
 
-		public struct Extension : this(
+		public struct Extension : this
+		(
 			StringView name,
 			int extNumber,
 			enum { Invalid, Instance, Device } kind,
@@ -1731,7 +1737,15 @@ class Program
 			StringView deprecatedBy,
 			StringView spirvExtension
 		);
+		public struct DeviceFeature : this
+		(
+			StringView apiFeature,
+			StringView name,
+			StringView structure
+		);
+
 		public Dictionary<StringView, Extension> extensions;
+		public List<DeviceFeature> deviceFeatures;
 		Extension curExtension;
 
 		EnumEntry.EnumCase enumcase = default;
@@ -1958,7 +1972,10 @@ class Program
 					{
 						if (!curParam.flags.HasFlag(.Const))
 						{
-							if (curCommand.parameters.Count > 0 && (curCommand.parameters.Back.name.EndsWith("Count") || curCommand.parameters.Back.flags.HasFlag(.OutArray)))
+							if (curCommand.parameters.Count > 0 && (
+									(curCommand.parameters.Back.name.EndsWith("Count") && curCommand.parameters.Back.type != "uint32") ||
+									curCommand.parameters.Back.flags.HasFlag(.OutArray)
+								))
 							{
 								curParam.flags |= .OutArray;
 								curCommand.parameters.Back.flags |= .OutArray;

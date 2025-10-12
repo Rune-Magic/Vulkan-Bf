@@ -353,6 +353,8 @@ static
 	public static PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV vkGetPhysicalDeviceCooperativeMatrixPropertiesNV;
 	public static PFN_vkCmdTraceRaysIndirectKHR vkCmdTraceRaysIndirectKHR;
 	public static PFN_vkCmdTraceRaysIndirect2KHR vkCmdTraceRaysIndirect2KHR;
+	public static PFN_vkGetClusterAccelerationStructureBuildSizesNV vkGetClusterAccelerationStructureBuildSizesNV;
+	public static PFN_vkCmdBuildClusterAccelerationStructureIndirectNV vkCmdBuildClusterAccelerationStructureIndirectNV;
 	public static PFN_vkGetDeviceAccelerationStructureCompatibilityKHR vkGetDeviceAccelerationStructureCompatibilityKHR;
 	public static PFN_vkGetRayTracingShaderGroupStackSizeKHR vkGetRayTracingShaderGroupStackSizeKHR;
 	public static PFN_vkCmdSetRayTracingPipelineStackSizeKHR vkCmdSetRayTracingPipelineStackSizeKHR;
@@ -491,6 +493,8 @@ static
 	public static PFN_vkCmdEncodeVideoKHR vkCmdEncodeVideoKHR;
 	public static PFN_vkCmdDecompressMemoryNV vkCmdDecompressMemoryNV;
 	public static PFN_vkCmdDecompressMemoryIndirectCountNV vkCmdDecompressMemoryIndirectCountNV;
+	public static PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV vkGetPartitionedAccelerationStructuresBuildSizesNV;
+	public static PFN_vkCmdBuildPartitionedAccelerationStructuresNV vkCmdBuildPartitionedAccelerationStructuresNV;
 	public static PFN_vkCreateCuModuleNVX vkCreateCuModuleNVX;
 	public static PFN_vkCreateCuFunctionNVX vkCreateCuFunctionNVX;
 	public static PFN_vkDestroyCuModuleNVX vkDestroyCuModuleNVX;
@@ -510,15 +514,11 @@ static
 	public static PFN_vkSetDeviceMemoryPriorityEXT vkSetDeviceMemoryPriorityEXT;
 	public static PFN_vkAcquireDrmDisplayEXT vkAcquireDrmDisplayEXT;
 	public static PFN_vkGetDrmDisplayEXT vkGetDrmDisplayEXT;
+	public static PFN_vkWaitForPresent2KHR vkWaitForPresent2KHR;
 	public static PFN_vkWaitForPresentKHR vkWaitForPresentKHR;
-	public static PFN_vkCreateCudaModuleNV vkCreateCudaModuleNV;
-	public static PFN_vkGetCudaModuleCacheNV vkGetCudaModuleCacheNV;
-	public static PFN_vkCreateCudaFunctionNV vkCreateCudaFunctionNV;
-	public static PFN_vkDestroyCudaModuleNV vkDestroyCudaModuleNV;
-	public static PFN_vkDestroyCudaFunctionNV vkDestroyCudaFunctionNV;
-	public static PFN_vkCmdCudaLaunchKernelNV vkCmdCudaLaunchKernelNV;
 	public static PFN_vkCmdBeginRendering vkCmdBeginRendering;
 	public static PFN_vkCmdEndRendering vkCmdEndRendering;
+	public static PFN_vkCmdEndRendering2EXT vkCmdEndRendering2EXT;
 	public static PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE vkGetDescriptorSetLayoutHostMappingInfoVALVE;
 	public static PFN_vkGetDescriptorSetHostMappingVALVE vkGetDescriptorSetHostMappingVALVE;
 	public static PFN_vkCreateMicromapEXT vkCreateMicromapEXT;
@@ -539,6 +539,7 @@ static
 	public static PFN_vkGetShaderModuleCreateInfoIdentifierEXT vkGetShaderModuleCreateInfoIdentifierEXT;
 	public static PFN_vkGetImageSubresourceLayout2 vkGetImageSubresourceLayout2;
 	public static PFN_vkGetPipelinePropertiesEXT vkGetPipelinePropertiesEXT;
+	public static PFN_vkCmdBindTileMemoryQCOM vkCmdBindTileMemoryQCOM;
 	public static PFN_vkGetFramebufferTilePropertiesQCOM vkGetFramebufferTilePropertiesQCOM;
 	public static PFN_vkGetDynamicRenderingTilePropertiesQCOM vkGetDynamicRenderingTilePropertiesQCOM;
 	public static PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV vkGetPhysicalDeviceOpticalFlowImageFormatsNV;
@@ -548,7 +549,7 @@ static
 	public static PFN_vkCmdOpticalFlowExecuteNV vkCmdOpticalFlowExecuteNV;
 	public static PFN_vkGetDeviceFaultInfoEXT vkGetDeviceFaultInfoEXT;
 	public static PFN_vkCmdSetDepthBias2EXT vkCmdSetDepthBias2EXT;
-	public static PFN_vkReleaseSwapchainImagesEXT vkReleaseSwapchainImagesEXT;
+	public static PFN_vkReleaseSwapchainImagesKHR vkReleaseSwapchainImagesKHR;
 	public static PFN_vkGetDeviceImageSubresourceLayout vkGetDeviceImageSubresourceLayout;
 	public static PFN_vkMapMemory2 vkMapMemory2;
 	public static PFN_vkUnmapMemory2 vkUnmapMemory2;
@@ -572,6 +573,37 @@ static
 	public static PFN_vkCmdSetRenderingInputAttachmentIndices vkCmdSetRenderingInputAttachmentIndices;
 	public static PFN_vkCmdSetDepthClampRangeEXT vkCmdSetDepthClampRangeEXT;
 	public static PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV;
+	public static PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV vkGetPhysicalDeviceCooperativeVectorPropertiesNV;
+	public static PFN_vkConvertCooperativeVectorMatrixNV vkConvertCooperativeVectorMatrixNV;
+	public static PFN_vkCmdConvertCooperativeVectorMatrixNV vkCmdConvertCooperativeVectorMatrixNV;
+	public static PFN_vkCmdDispatchTileQCOM vkCmdDispatchTileQCOM;
+	public static PFN_vkCmdBeginPerTileExecutionQCOM vkCmdBeginPerTileExecutionQCOM;
+	public static PFN_vkCmdEndPerTileExecutionQCOM vkCmdEndPerTileExecutionQCOM;
+	public static PFN_vkCreateExternalComputeQueueNV vkCreateExternalComputeQueueNV;
+	public static PFN_vkDestroyExternalComputeQueueNV vkDestroyExternalComputeQueueNV;
+	public static PFN_vkGetExternalComputeQueueDataNV vkGetExternalComputeQueueDataNV;
+	public static PFN_vkCreateTensorARM vkCreateTensorARM;
+	public static PFN_vkDestroyTensorARM vkDestroyTensorARM;
+	public static PFN_vkCreateTensorViewARM vkCreateTensorViewARM;
+	public static PFN_vkDestroyTensorViewARM vkDestroyTensorViewARM;
+	public static PFN_vkGetTensorMemoryRequirementsARM vkGetTensorMemoryRequirementsARM;
+	public static PFN_vkBindTensorMemoryARM vkBindTensorMemoryARM;
+	public static PFN_vkGetDeviceTensorMemoryRequirementsARM vkGetDeviceTensorMemoryRequirementsARM;
+	public static PFN_vkCmdCopyTensorARM vkCmdCopyTensorARM;
+	public static PFN_vkGetTensorOpaqueCaptureDescriptorDataARM vkGetTensorOpaqueCaptureDescriptorDataARM;
+	public static PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM vkGetTensorViewOpaqueCaptureDescriptorDataARM;
+	public static PFN_vkGetPhysicalDeviceExternalTensorPropertiesARM vkGetPhysicalDeviceExternalTensorPropertiesARM;
+	public static PFN_vkCreateDataGraphPipelinesARM vkCreateDataGraphPipelinesARM;
+	public static PFN_vkCreateDataGraphPipelineSessionARM vkCreateDataGraphPipelineSessionARM;
+	public static PFN_vkGetDataGraphPipelineSessionBindPointRequirementsARM vkGetDataGraphPipelineSessionBindPointRequirementsARM;
+	public static PFN_vkGetDataGraphPipelineSessionMemoryRequirementsARM vkGetDataGraphPipelineSessionMemoryRequirementsARM;
+	public static PFN_vkBindDataGraphPipelineSessionMemoryARM vkBindDataGraphPipelineSessionMemoryARM;
+	public static PFN_vkDestroyDataGraphPipelineSessionARM vkDestroyDataGraphPipelineSessionARM;
+	public static PFN_vkCmdDispatchDataGraphARM vkCmdDispatchDataGraphARM;
+	public static PFN_vkGetDataGraphPipelineAvailablePropertiesARM vkGetDataGraphPipelineAvailablePropertiesARM;
+	public static PFN_vkGetDataGraphPipelinePropertiesARM vkGetDataGraphPipelinePropertiesARM;
+	public static PFN_vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM;
+	public static PFN_vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM;
 }
 
 extension VulkanLoader
@@ -656,6 +688,10 @@ extension VulkanLoader
 		vkGetPhysicalDeviceOpticalFlowImageFormatsNV = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceOpticalFlowImageFormatsNV");
 		vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR");
 		vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV");
+		vkGetPhysicalDeviceCooperativeVectorPropertiesNV = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceCooperativeVectorPropertiesNV");
+		vkGetPhysicalDeviceExternalTensorPropertiesARM = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceExternalTensorPropertiesARM");
+		vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM");
+		vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM");
 	}
 
 	public static void LoadDevice(VkDevice device)
@@ -941,6 +977,8 @@ extension VulkanLoader
 		vkCreateRayTracingPipelinesKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateRayTracingPipelinesKHR");
 		vkCmdTraceRaysIndirectKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdTraceRaysIndirectKHR");
 		vkCmdTraceRaysIndirect2KHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdTraceRaysIndirect2KHR");
+		vkGetClusterAccelerationStructureBuildSizesNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetClusterAccelerationStructureBuildSizesNV");
+		vkCmdBuildClusterAccelerationStructureIndirectNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBuildClusterAccelerationStructureIndirectNV");
 		vkGetDeviceAccelerationStructureCompatibilityKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceAccelerationStructureCompatibilityKHR");
 		vkGetRayTracingShaderGroupStackSizeKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetRayTracingShaderGroupStackSizeKHR");
 		vkCmdSetRayTracingPipelineStackSizeKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRayTracingPipelineStackSizeKHR");
@@ -1070,6 +1108,8 @@ extension VulkanLoader
 		vkCmdEncodeVideoKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEncodeVideoKHR");
 		vkCmdDecompressMemoryNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDecompressMemoryNV");
 		vkCmdDecompressMemoryIndirectCountNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDecompressMemoryIndirectCountNV");
+		vkGetPartitionedAccelerationStructuresBuildSizesNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetPartitionedAccelerationStructuresBuildSizesNV");
+		vkCmdBuildPartitionedAccelerationStructuresNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBuildPartitionedAccelerationStructuresNV");
 		vkCreateCuModuleNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCuModuleNVX");
 		vkCreateCuFunctionNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCuFunctionNVX");
 		vkDestroyCuModuleNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCuModuleNVX");
@@ -1087,15 +1127,11 @@ extension VulkanLoader
 		vkGetSamplerOpaqueCaptureDescriptorDataEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSamplerOpaqueCaptureDescriptorDataEXT");
 		vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
 		vkSetDeviceMemoryPriorityEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkSetDeviceMemoryPriorityEXT");
+		vkWaitForPresent2KHR = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitForPresent2KHR");
 		vkWaitForPresentKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitForPresentKHR");
-		vkCreateCudaModuleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCudaModuleNV");
-		vkGetCudaModuleCacheNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetCudaModuleCacheNV");
-		vkCreateCudaFunctionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCudaFunctionNV");
-		vkDestroyCudaModuleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCudaModuleNV");
-		vkDestroyCudaFunctionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCudaFunctionNV");
-		vkCmdCudaLaunchKernelNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdCudaLaunchKernelNV");
 		vkCmdBeginRendering = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBeginRendering");
 		vkCmdEndRendering = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndRendering");
+		vkCmdEndRendering2EXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndRendering2EXT");
 		vkGetDescriptorSetLayoutHostMappingInfoVALVE = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDescriptorSetLayoutHostMappingInfoVALVE");
 		vkGetDescriptorSetHostMappingVALVE = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDescriptorSetHostMappingVALVE");
 		vkCreateMicromapEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateMicromapEXT");
@@ -1116,6 +1152,7 @@ extension VulkanLoader
 		vkGetShaderModuleCreateInfoIdentifierEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetShaderModuleCreateInfoIdentifierEXT");
 		vkGetImageSubresourceLayout2 = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageSubresourceLayout2");
 		vkGetPipelinePropertiesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetPipelinePropertiesEXT");
+		vkCmdBindTileMemoryQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindTileMemoryQCOM");
 		vkGetFramebufferTilePropertiesQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetFramebufferTilePropertiesQCOM");
 		vkGetDynamicRenderingTilePropertiesQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDynamicRenderingTilePropertiesQCOM");
 		vkCreateOpticalFlowSessionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateOpticalFlowSessionNV");
@@ -1124,7 +1161,7 @@ extension VulkanLoader
 		vkCmdOpticalFlowExecuteNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdOpticalFlowExecuteNV");
 		vkGetDeviceFaultInfoEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceFaultInfoEXT");
 		vkCmdSetDepthBias2EXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetDepthBias2EXT");
-		vkReleaseSwapchainImagesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkReleaseSwapchainImagesEXT");
+		vkReleaseSwapchainImagesKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkReleaseSwapchainImagesKHR");
 		vkGetDeviceImageSubresourceLayout = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceImageSubresourceLayout");
 		vkMapMemory2 = (.)(void*)vkGetDeviceProcAddr(device, "vkMapMemory2");
 		vkUnmapMemory2 = (.)(void*)vkGetDeviceProcAddr(device, "vkUnmapMemory2");
@@ -1146,6 +1183,33 @@ extension VulkanLoader
 		vkCmdSetRenderingAttachmentLocations = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRenderingAttachmentLocations");
 		vkCmdSetRenderingInputAttachmentIndices = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRenderingInputAttachmentIndices");
 		vkCmdSetDepthClampRangeEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetDepthClampRangeEXT");
+		vkConvertCooperativeVectorMatrixNV = (.)(void*)vkGetDeviceProcAddr(device, "vkConvertCooperativeVectorMatrixNV");
+		vkCmdConvertCooperativeVectorMatrixNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdConvertCooperativeVectorMatrixNV");
+		vkCmdDispatchTileQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchTileQCOM");
+		vkCmdBeginPerTileExecutionQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBeginPerTileExecutionQCOM");
+		vkCmdEndPerTileExecutionQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndPerTileExecutionQCOM");
+		vkCreateExternalComputeQueueNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateExternalComputeQueueNV");
+		vkDestroyExternalComputeQueueNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyExternalComputeQueueNV");
+		vkGetExternalComputeQueueDataNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetExternalComputeQueueDataNV");
+		vkCreateTensorARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateTensorARM");
+		vkDestroyTensorARM = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyTensorARM");
+		vkCreateTensorViewARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateTensorViewARM");
+		vkDestroyTensorViewARM = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyTensorViewARM");
+		vkGetTensorMemoryRequirementsARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetTensorMemoryRequirementsARM");
+		vkBindTensorMemoryARM = (.)(void*)vkGetDeviceProcAddr(device, "vkBindTensorMemoryARM");
+		vkGetDeviceTensorMemoryRequirementsARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceTensorMemoryRequirementsARM");
+		vkCmdCopyTensorARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdCopyTensorARM");
+		vkGetTensorOpaqueCaptureDescriptorDataARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetTensorOpaqueCaptureDescriptorDataARM");
+		vkGetTensorViewOpaqueCaptureDescriptorDataARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetTensorViewOpaqueCaptureDescriptorDataARM");
+		vkCreateDataGraphPipelinesARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateDataGraphPipelinesARM");
+		vkCreateDataGraphPipelineSessionARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateDataGraphPipelineSessionARM");
+		vkGetDataGraphPipelineSessionBindPointRequirementsARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDataGraphPipelineSessionBindPointRequirementsARM");
+		vkGetDataGraphPipelineSessionMemoryRequirementsARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDataGraphPipelineSessionMemoryRequirementsARM");
+		vkBindDataGraphPipelineSessionMemoryARM = (.)(void*)vkGetDeviceProcAddr(device, "vkBindDataGraphPipelineSessionMemoryARM");
+		vkDestroyDataGraphPipelineSessionARM = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyDataGraphPipelineSessionARM");
+		vkCmdDispatchDataGraphARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchDataGraphARM");
+		vkGetDataGraphPipelineAvailablePropertiesARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDataGraphPipelineAvailablePropertiesARM");
+		vkGetDataGraphPipelinePropertiesARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDataGraphPipelinePropertiesARM");
 	}
 }
 
@@ -1432,6 +1496,8 @@ struct VulkanDeviceTable
 	public PFN_vkCreateRayTracingPipelinesKHR vkCreateRayTracingPipelinesKHR;
 	public PFN_vkCmdTraceRaysIndirectKHR vkCmdTraceRaysIndirectKHR;
 	public PFN_vkCmdTraceRaysIndirect2KHR vkCmdTraceRaysIndirect2KHR;
+	public PFN_vkGetClusterAccelerationStructureBuildSizesNV vkGetClusterAccelerationStructureBuildSizesNV;
+	public PFN_vkCmdBuildClusterAccelerationStructureIndirectNV vkCmdBuildClusterAccelerationStructureIndirectNV;
 	public PFN_vkGetDeviceAccelerationStructureCompatibilityKHR vkGetDeviceAccelerationStructureCompatibilityKHR;
 	public PFN_vkGetRayTracingShaderGroupStackSizeKHR vkGetRayTracingShaderGroupStackSizeKHR;
 	public PFN_vkCmdSetRayTracingPipelineStackSizeKHR vkCmdSetRayTracingPipelineStackSizeKHR;
@@ -1561,6 +1627,8 @@ struct VulkanDeviceTable
 	public PFN_vkCmdEncodeVideoKHR vkCmdEncodeVideoKHR;
 	public PFN_vkCmdDecompressMemoryNV vkCmdDecompressMemoryNV;
 	public PFN_vkCmdDecompressMemoryIndirectCountNV vkCmdDecompressMemoryIndirectCountNV;
+	public PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV vkGetPartitionedAccelerationStructuresBuildSizesNV;
+	public PFN_vkCmdBuildPartitionedAccelerationStructuresNV vkCmdBuildPartitionedAccelerationStructuresNV;
 	public PFN_vkCreateCuModuleNVX vkCreateCuModuleNVX;
 	public PFN_vkCreateCuFunctionNVX vkCreateCuFunctionNVX;
 	public PFN_vkDestroyCuModuleNVX vkDestroyCuModuleNVX;
@@ -1578,15 +1646,11 @@ struct VulkanDeviceTable
 	public PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT vkGetSamplerOpaqueCaptureDescriptorDataEXT;
 	public PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT;
 	public PFN_vkSetDeviceMemoryPriorityEXT vkSetDeviceMemoryPriorityEXT;
+	public PFN_vkWaitForPresent2KHR vkWaitForPresent2KHR;
 	public PFN_vkWaitForPresentKHR vkWaitForPresentKHR;
-	public PFN_vkCreateCudaModuleNV vkCreateCudaModuleNV;
-	public PFN_vkGetCudaModuleCacheNV vkGetCudaModuleCacheNV;
-	public PFN_vkCreateCudaFunctionNV vkCreateCudaFunctionNV;
-	public PFN_vkDestroyCudaModuleNV vkDestroyCudaModuleNV;
-	public PFN_vkDestroyCudaFunctionNV vkDestroyCudaFunctionNV;
-	public PFN_vkCmdCudaLaunchKernelNV vkCmdCudaLaunchKernelNV;
 	public PFN_vkCmdBeginRendering vkCmdBeginRendering;
 	public PFN_vkCmdEndRendering vkCmdEndRendering;
+	public PFN_vkCmdEndRendering2EXT vkCmdEndRendering2EXT;
 	public PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE vkGetDescriptorSetLayoutHostMappingInfoVALVE;
 	public PFN_vkGetDescriptorSetHostMappingVALVE vkGetDescriptorSetHostMappingVALVE;
 	public PFN_vkCreateMicromapEXT vkCreateMicromapEXT;
@@ -1607,6 +1671,7 @@ struct VulkanDeviceTable
 	public PFN_vkGetShaderModuleCreateInfoIdentifierEXT vkGetShaderModuleCreateInfoIdentifierEXT;
 	public PFN_vkGetImageSubresourceLayout2 vkGetImageSubresourceLayout2;
 	public PFN_vkGetPipelinePropertiesEXT vkGetPipelinePropertiesEXT;
+	public PFN_vkCmdBindTileMemoryQCOM vkCmdBindTileMemoryQCOM;
 	public PFN_vkGetFramebufferTilePropertiesQCOM vkGetFramebufferTilePropertiesQCOM;
 	public PFN_vkGetDynamicRenderingTilePropertiesQCOM vkGetDynamicRenderingTilePropertiesQCOM;
 	public PFN_vkCreateOpticalFlowSessionNV vkCreateOpticalFlowSessionNV;
@@ -1615,7 +1680,7 @@ struct VulkanDeviceTable
 	public PFN_vkCmdOpticalFlowExecuteNV vkCmdOpticalFlowExecuteNV;
 	public PFN_vkGetDeviceFaultInfoEXT vkGetDeviceFaultInfoEXT;
 	public PFN_vkCmdSetDepthBias2EXT vkCmdSetDepthBias2EXT;
-	public PFN_vkReleaseSwapchainImagesEXT vkReleaseSwapchainImagesEXT;
+	public PFN_vkReleaseSwapchainImagesKHR vkReleaseSwapchainImagesKHR;
 	public PFN_vkGetDeviceImageSubresourceLayout vkGetDeviceImageSubresourceLayout;
 	public PFN_vkMapMemory2 vkMapMemory2;
 	public PFN_vkUnmapMemory2 vkUnmapMemory2;
@@ -1637,6 +1702,33 @@ struct VulkanDeviceTable
 	public PFN_vkCmdSetRenderingAttachmentLocations vkCmdSetRenderingAttachmentLocations;
 	public PFN_vkCmdSetRenderingInputAttachmentIndices vkCmdSetRenderingInputAttachmentIndices;
 	public PFN_vkCmdSetDepthClampRangeEXT vkCmdSetDepthClampRangeEXT;
+	public PFN_vkConvertCooperativeVectorMatrixNV vkConvertCooperativeVectorMatrixNV;
+	public PFN_vkCmdConvertCooperativeVectorMatrixNV vkCmdConvertCooperativeVectorMatrixNV;
+	public PFN_vkCmdDispatchTileQCOM vkCmdDispatchTileQCOM;
+	public PFN_vkCmdBeginPerTileExecutionQCOM vkCmdBeginPerTileExecutionQCOM;
+	public PFN_vkCmdEndPerTileExecutionQCOM vkCmdEndPerTileExecutionQCOM;
+	public PFN_vkCreateExternalComputeQueueNV vkCreateExternalComputeQueueNV;
+	public PFN_vkDestroyExternalComputeQueueNV vkDestroyExternalComputeQueueNV;
+	public PFN_vkGetExternalComputeQueueDataNV vkGetExternalComputeQueueDataNV;
+	public PFN_vkCreateTensorARM vkCreateTensorARM;
+	public PFN_vkDestroyTensorARM vkDestroyTensorARM;
+	public PFN_vkCreateTensorViewARM vkCreateTensorViewARM;
+	public PFN_vkDestroyTensorViewARM vkDestroyTensorViewARM;
+	public PFN_vkGetTensorMemoryRequirementsARM vkGetTensorMemoryRequirementsARM;
+	public PFN_vkBindTensorMemoryARM vkBindTensorMemoryARM;
+	public PFN_vkGetDeviceTensorMemoryRequirementsARM vkGetDeviceTensorMemoryRequirementsARM;
+	public PFN_vkCmdCopyTensorARM vkCmdCopyTensorARM;
+	public PFN_vkGetTensorOpaqueCaptureDescriptorDataARM vkGetTensorOpaqueCaptureDescriptorDataARM;
+	public PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM vkGetTensorViewOpaqueCaptureDescriptorDataARM;
+	public PFN_vkCreateDataGraphPipelinesARM vkCreateDataGraphPipelinesARM;
+	public PFN_vkCreateDataGraphPipelineSessionARM vkCreateDataGraphPipelineSessionARM;
+	public PFN_vkGetDataGraphPipelineSessionBindPointRequirementsARM vkGetDataGraphPipelineSessionBindPointRequirementsARM;
+	public PFN_vkGetDataGraphPipelineSessionMemoryRequirementsARM vkGetDataGraphPipelineSessionMemoryRequirementsARM;
+	public PFN_vkBindDataGraphPipelineSessionMemoryARM vkBindDataGraphPipelineSessionMemoryARM;
+	public PFN_vkDestroyDataGraphPipelineSessionARM vkDestroyDataGraphPipelineSessionARM;
+	public PFN_vkCmdDispatchDataGraphARM vkCmdDispatchDataGraphARM;
+	public PFN_vkGetDataGraphPipelineAvailablePropertiesARM vkGetDataGraphPipelineAvailablePropertiesARM;
+	public PFN_vkGetDataGraphPipelinePropertiesARM vkGetDataGraphPipelinePropertiesARM;
 
 	public void Load(VkDevice device) mut
 	{
@@ -1921,6 +2013,8 @@ struct VulkanDeviceTable
 		vkCreateRayTracingPipelinesKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateRayTracingPipelinesKHR");
 		vkCmdTraceRaysIndirectKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdTraceRaysIndirectKHR");
 		vkCmdTraceRaysIndirect2KHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdTraceRaysIndirect2KHR");
+		vkGetClusterAccelerationStructureBuildSizesNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetClusterAccelerationStructureBuildSizesNV");
+		vkCmdBuildClusterAccelerationStructureIndirectNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBuildClusterAccelerationStructureIndirectNV");
 		vkGetDeviceAccelerationStructureCompatibilityKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceAccelerationStructureCompatibilityKHR");
 		vkGetRayTracingShaderGroupStackSizeKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetRayTracingShaderGroupStackSizeKHR");
 		vkCmdSetRayTracingPipelineStackSizeKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRayTracingPipelineStackSizeKHR");
@@ -2050,6 +2144,8 @@ struct VulkanDeviceTable
 		vkCmdEncodeVideoKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEncodeVideoKHR");
 		vkCmdDecompressMemoryNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDecompressMemoryNV");
 		vkCmdDecompressMemoryIndirectCountNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDecompressMemoryIndirectCountNV");
+		vkGetPartitionedAccelerationStructuresBuildSizesNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetPartitionedAccelerationStructuresBuildSizesNV");
+		vkCmdBuildPartitionedAccelerationStructuresNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBuildPartitionedAccelerationStructuresNV");
 		vkCreateCuModuleNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCuModuleNVX");
 		vkCreateCuFunctionNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCuFunctionNVX");
 		vkDestroyCuModuleNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCuModuleNVX");
@@ -2067,15 +2163,11 @@ struct VulkanDeviceTable
 		vkGetSamplerOpaqueCaptureDescriptorDataEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSamplerOpaqueCaptureDescriptorDataEXT");
 		vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
 		vkSetDeviceMemoryPriorityEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkSetDeviceMemoryPriorityEXT");
+		vkWaitForPresent2KHR = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitForPresent2KHR");
 		vkWaitForPresentKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitForPresentKHR");
-		vkCreateCudaModuleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCudaModuleNV");
-		vkGetCudaModuleCacheNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetCudaModuleCacheNV");
-		vkCreateCudaFunctionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCudaFunctionNV");
-		vkDestroyCudaModuleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCudaModuleNV");
-		vkDestroyCudaFunctionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCudaFunctionNV");
-		vkCmdCudaLaunchKernelNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdCudaLaunchKernelNV");
 		vkCmdBeginRendering = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBeginRendering");
 		vkCmdEndRendering = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndRendering");
+		vkCmdEndRendering2EXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndRendering2EXT");
 		vkGetDescriptorSetLayoutHostMappingInfoVALVE = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDescriptorSetLayoutHostMappingInfoVALVE");
 		vkGetDescriptorSetHostMappingVALVE = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDescriptorSetHostMappingVALVE");
 		vkCreateMicromapEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateMicromapEXT");
@@ -2096,6 +2188,7 @@ struct VulkanDeviceTable
 		vkGetShaderModuleCreateInfoIdentifierEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetShaderModuleCreateInfoIdentifierEXT");
 		vkGetImageSubresourceLayout2 = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageSubresourceLayout2");
 		vkGetPipelinePropertiesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetPipelinePropertiesEXT");
+		vkCmdBindTileMemoryQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindTileMemoryQCOM");
 		vkGetFramebufferTilePropertiesQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetFramebufferTilePropertiesQCOM");
 		vkGetDynamicRenderingTilePropertiesQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDynamicRenderingTilePropertiesQCOM");
 		vkCreateOpticalFlowSessionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateOpticalFlowSessionNV");
@@ -2104,7 +2197,7 @@ struct VulkanDeviceTable
 		vkCmdOpticalFlowExecuteNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdOpticalFlowExecuteNV");
 		vkGetDeviceFaultInfoEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceFaultInfoEXT");
 		vkCmdSetDepthBias2EXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetDepthBias2EXT");
-		vkReleaseSwapchainImagesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkReleaseSwapchainImagesEXT");
+		vkReleaseSwapchainImagesKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkReleaseSwapchainImagesKHR");
 		vkGetDeviceImageSubresourceLayout = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceImageSubresourceLayout");
 		vkMapMemory2 = (.)(void*)vkGetDeviceProcAddr(device, "vkMapMemory2");
 		vkUnmapMemory2 = (.)(void*)vkGetDeviceProcAddr(device, "vkUnmapMemory2");
@@ -2126,6 +2219,33 @@ struct VulkanDeviceTable
 		vkCmdSetRenderingAttachmentLocations = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRenderingAttachmentLocations");
 		vkCmdSetRenderingInputAttachmentIndices = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRenderingInputAttachmentIndices");
 		vkCmdSetDepthClampRangeEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetDepthClampRangeEXT");
+		vkConvertCooperativeVectorMatrixNV = (.)(void*)vkGetDeviceProcAddr(device, "vkConvertCooperativeVectorMatrixNV");
+		vkCmdConvertCooperativeVectorMatrixNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdConvertCooperativeVectorMatrixNV");
+		vkCmdDispatchTileQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchTileQCOM");
+		vkCmdBeginPerTileExecutionQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBeginPerTileExecutionQCOM");
+		vkCmdEndPerTileExecutionQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndPerTileExecutionQCOM");
+		vkCreateExternalComputeQueueNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateExternalComputeQueueNV");
+		vkDestroyExternalComputeQueueNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyExternalComputeQueueNV");
+		vkGetExternalComputeQueueDataNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetExternalComputeQueueDataNV");
+		vkCreateTensorARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateTensorARM");
+		vkDestroyTensorARM = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyTensorARM");
+		vkCreateTensorViewARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateTensorViewARM");
+		vkDestroyTensorViewARM = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyTensorViewARM");
+		vkGetTensorMemoryRequirementsARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetTensorMemoryRequirementsARM");
+		vkBindTensorMemoryARM = (.)(void*)vkGetDeviceProcAddr(device, "vkBindTensorMemoryARM");
+		vkGetDeviceTensorMemoryRequirementsARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceTensorMemoryRequirementsARM");
+		vkCmdCopyTensorARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdCopyTensorARM");
+		vkGetTensorOpaqueCaptureDescriptorDataARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetTensorOpaqueCaptureDescriptorDataARM");
+		vkGetTensorViewOpaqueCaptureDescriptorDataARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetTensorViewOpaqueCaptureDescriptorDataARM");
+		vkCreateDataGraphPipelinesARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateDataGraphPipelinesARM");
+		vkCreateDataGraphPipelineSessionARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateDataGraphPipelineSessionARM");
+		vkGetDataGraphPipelineSessionBindPointRequirementsARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDataGraphPipelineSessionBindPointRequirementsARM");
+		vkGetDataGraphPipelineSessionMemoryRequirementsARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDataGraphPipelineSessionMemoryRequirementsARM");
+		vkBindDataGraphPipelineSessionMemoryARM = (.)(void*)vkGetDeviceProcAddr(device, "vkBindDataGraphPipelineSessionMemoryARM");
+		vkDestroyDataGraphPipelineSessionARM = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyDataGraphPipelineSessionARM");
+		vkCmdDispatchDataGraphARM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchDataGraphARM");
+		vkGetDataGraphPipelineAvailablePropertiesARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDataGraphPipelineAvailablePropertiesARM");
+		vkGetDataGraphPipelinePropertiesARM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDataGraphPipelinePropertiesARM");
 	}
 }
 
@@ -2468,6 +2588,8 @@ static
 	[Inline] public static VkResult GetCooperativeMatrixPropertiesNV(this VkPhysicalDevice physicalDevice, out uint32 pPropertyCount, VkCooperativeMatrixPropertiesNV* pProperties = null) => vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(physicalDevice, out pPropertyCount, pProperties);
 	[Inline] public static void CmdTraceRaysIndirectKHR(this VkCommandBuffer commandBuffer, VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, VkDeviceAddress indirectDeviceAddress) => vkCmdTraceRaysIndirectKHR(commandBuffer, pRaygenShaderBindingTable, pMissShaderBindingTable, pHitShaderBindingTable, pCallableShaderBindingTable, indirectDeviceAddress);
 	[Inline] public static void CmdTraceRaysIndirect2KHR(this VkCommandBuffer commandBuffer, VkDeviceAddress indirectDeviceAddress) => vkCmdTraceRaysIndirect2KHR(commandBuffer, indirectDeviceAddress);
+	[Inline] public static void GetClusterAccelerationStructureBuildSizesNV(this VkDevice device, VkClusterAccelerationStructureInputInfoNV* pInfo, out VkAccelerationStructureBuildSizesInfoKHR pSizeInfo) => vkGetClusterAccelerationStructureBuildSizesNV(device, pInfo, out pSizeInfo);
+	[Inline] public static void CmdBuildClusterAccelerationStructureIndirectNV(this VkCommandBuffer commandBuffer, VkClusterAccelerationStructureCommandsInfoNV* pCommandInfos) => vkCmdBuildClusterAccelerationStructureIndirectNV(commandBuffer, pCommandInfos);
 	[Inline] public static void GetAccelerationStructureCompatibilityKHR(this VkDevice device, VkAccelerationStructureVersionInfoKHR* pVersionInfo, out VkAccelerationStructureCompatibilityKHR pCompatibility) => vkGetDeviceAccelerationStructureCompatibilityKHR(device, pVersionInfo, out pCompatibility);
 	[Inline] public static VkDeviceSize GetRayTracingShaderGroupStackSizeKHR(this VkPipeline pipeline, VkDevice device, uint32 group, VkShaderGroupShaderKHR groupShader) => vkGetRayTracingShaderGroupStackSizeKHR(device, pipeline, group, groupShader);
 	[Inline] public static void CmdSetRayTracingPipelineStackSizeKHR(this VkCommandBuffer commandBuffer, uint32 pipelineStackSize) => vkCmdSetRayTracingPipelineStackSizeKHR(commandBuffer, pipelineStackSize);
@@ -2606,6 +2728,8 @@ static
 	[Inline] public static void CmdEncodeVideoKHR(this VkCommandBuffer commandBuffer, VkVideoEncodeInfoKHR* pEncodeInfo) => vkCmdEncodeVideoKHR(commandBuffer, pEncodeInfo);
 	[Inline] public static void CmdDecompressMemoryNV(this VkCommandBuffer commandBuffer, VulkanSpan<VkDecompressMemoryRegionNV> decompressMemoryRegions) => vkCmdDecompressMemoryNV(commandBuffer, decompressMemoryRegions.count, decompressMemoryRegions.ptr);
 	[Inline] public static void CmdDecompressMemoryIndirectCountNV(this VkCommandBuffer commandBuffer, VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint32 stride) => vkCmdDecompressMemoryIndirectCountNV(commandBuffer, indirectCommandsAddress, indirectCommandsCountAddress, stride);
+	[Inline] public static void GetPartitionedAccelerationStructuresBuildSizesNV(this VkDevice device, VkPartitionedAccelerationStructureInstancesInputNV* pInfo, out VkAccelerationStructureBuildSizesInfoKHR pSizeInfo) => vkGetPartitionedAccelerationStructuresBuildSizesNV(device, pInfo, out pSizeInfo);
+	[Inline] public static void CmdBuildPartitionedAccelerationStructuresNV(this VkCommandBuffer commandBuffer, VkBuildPartitionedAccelerationStructureInfoNV* pBuildInfo) => vkCmdBuildPartitionedAccelerationStructuresNV(commandBuffer, pBuildInfo);
 	[Inline] public static VkResult CreateCuModuleNVX(this VkDevice device, VkCuModuleCreateInfoNVX* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCuModuleNVX pModule) => vkCreateCuModuleNVX(device, pCreateInfo, pAllocator, out pModule);
 	[Inline] public static VkResult CreateCuFunctionNVX(this VkDevice device, VkCuFunctionCreateInfoNVX* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCuFunctionNVX pFunction) => vkCreateCuFunctionNVX(device, pCreateInfo, pAllocator, out pFunction);
 	[Inline] public static void DestroyNVX(this VkCuModuleNVX module, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyCuModuleNVX(device, module, pAllocator);
@@ -2625,15 +2749,11 @@ static
 	[Inline] public static void SetMemoryPriorityEXT(this VkDeviceMemory memory, VkDevice device, float priority) => vkSetDeviceMemoryPriorityEXT(device, memory, priority);
 	[Inline] public static VkResult AcquireDrmDisplayEXT(this VkPhysicalDevice physicalDevice, int32 drmFd, VkDisplayKHR display) => vkAcquireDrmDisplayEXT(physicalDevice, drmFd, display);
 	[Inline] public static VkResult GetDrmDisplayEXT(this VkPhysicalDevice physicalDevice, int32 drmFd, uint32 connectorId, out VkDisplayKHR display) => vkGetDrmDisplayEXT(physicalDevice, drmFd, connectorId, out display);
+	[Inline] public static VkResult WaitForPresent2KHR(this VkSwapchainKHR swapchain, VkDevice device, VkPresentWait2InfoKHR* pPresentWait2Info) => vkWaitForPresent2KHR(device, swapchain, pPresentWait2Info);
 	[Inline] public static VkResult WaitForPresentKHR(this VkSwapchainKHR swapchain, VkDevice device, uint64 presentId, uint64 timeout) => vkWaitForPresentKHR(device, swapchain, presentId, timeout);
-	[Inline] public static VkResult CreateCudaModuleNV(this VkDevice device, VkCudaModuleCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCudaModuleNV pModule) => vkCreateCudaModuleNV(device, pCreateInfo, pAllocator, out pModule);
-	[Inline] public static VkResult GetCacheNV(this VkCudaModuleNV module, VkDevice device, out c_size pCacheSize, out void pCacheData) => vkGetCudaModuleCacheNV(device, module, out pCacheSize, out pCacheData);
-	[Inline] public static VkResult CreateCudaFunctionNV(this VkDevice device, VkCudaFunctionCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCudaFunctionNV pFunction) => vkCreateCudaFunctionNV(device, pCreateInfo, pAllocator, out pFunction);
-	[Inline] public static void DestroyNV(this VkCudaModuleNV module, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyCudaModuleNV(device, module, pAllocator);
-	[Inline] public static void DestroyNV(this VkCudaFunctionNV @function, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyCudaFunctionNV(device, @function, pAllocator);
-	[Inline] public static void CmdCudaLaunchKernelNV(this VkCommandBuffer commandBuffer, VkCudaLaunchInfoNV* pLaunchInfo) => vkCmdCudaLaunchKernelNV(commandBuffer, pLaunchInfo);
 	[Inline] public static void CmdBeginRendering(this VkCommandBuffer commandBuffer, VkRenderingInfo* pRenderingInfo) => vkCmdBeginRendering(commandBuffer, pRenderingInfo);
 	[Inline] public static void CmdEndRendering(this VkCommandBuffer commandBuffer) => vkCmdEndRendering(commandBuffer);
+	[Inline] public static void CmdEndRendering2EXT(this VkCommandBuffer commandBuffer, VkRenderingEndInfoEXT* pRenderingEndInfo = null) => vkCmdEndRendering2EXT(commandBuffer, pRenderingEndInfo);
 	[Inline] public static void GetDescriptorSetLayoutHostMappingInfoVALVE(this VkDevice device, VkDescriptorSetBindingReferenceVALVE* pBindingReference, out VkDescriptorSetLayoutHostMappingInfoVALVE pHostMapping) => vkGetDescriptorSetLayoutHostMappingInfoVALVE(device, pBindingReference, out pHostMapping);
 	[Inline] public static void GetHostMappingVALVE(this VkDescriptorSet descriptorSet, VkDevice device, out void* ppData) => vkGetDescriptorSetHostMappingVALVE(device, descriptorSet, out ppData);
 	[Inline] public static VkResult CreateMicromapEXT(this VkDevice device, VkMicromapCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkMicromapEXT pMicromap) => vkCreateMicromapEXT(device, pCreateInfo, pAllocator, out pMicromap);
@@ -2654,6 +2774,7 @@ static
 	[Inline] public static void GetShaderModuleCreateInfoIdentifierEXT(this VkDevice device, VkShaderModuleCreateInfo* pCreateInfo, out VkShaderModuleIdentifierEXT pIdentifier) => vkGetShaderModuleCreateInfoIdentifierEXT(device, pCreateInfo, out pIdentifier);
 	[Inline] public static void GetSubresourceLayout2(this VkImage image, VkDevice device, VkImageSubresource2* pSubresource, out VkSubresourceLayout2 pLayout) => vkGetImageSubresourceLayout2(device, image, pSubresource, out pLayout);
 	[Inline] public static VkResult GetPipelinePropertiesEXT(this VkDevice device, VkPipelineInfoEXT* pPipelineInfo, out VkBaseOutStructure pPipelineProperties) => vkGetPipelinePropertiesEXT(device, pPipelineInfo, out pPipelineProperties);
+	[Inline] public static void CmdBindTileMemoryQCOM(this VkCommandBuffer commandBuffer, VkTileMemoryBindInfoQCOM* pTileMemoryBindInfo = null) => vkCmdBindTileMemoryQCOM(commandBuffer, pTileMemoryBindInfo);
 	[Inline] public static VkResult GetTilePropertiesQCOM(this VkFramebuffer framebuffer, VkDevice device, out uint32 pPropertiesCount, VkTilePropertiesQCOM* pProperties = null) => vkGetFramebufferTilePropertiesQCOM(device, framebuffer, out pPropertiesCount, pProperties);
 	[Inline] public static VkResult GetDynamicRenderingTilePropertiesQCOM(this VkDevice device, VkRenderingInfo* pRenderingInfo, out VkTilePropertiesQCOM pProperties) => vkGetDynamicRenderingTilePropertiesQCOM(device, pRenderingInfo, out pProperties);
 	[Inline] public static VkResult GetOpticalFlowImageFormatsNV(this VkPhysicalDevice physicalDevice, VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, out uint32 pFormatCount, VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties = null) => vkGetPhysicalDeviceOpticalFlowImageFormatsNV(physicalDevice, pOpticalFlowImageFormatInfo, out pFormatCount, pImageFormatProperties);
@@ -2663,7 +2784,7 @@ static
 	[Inline] public static void CmdOpticalFlowExecuteNV(this VkCommandBuffer commandBuffer, VkOpticalFlowSessionNV session, VkOpticalFlowExecuteInfoNV* pExecuteInfo) => vkCmdOpticalFlowExecuteNV(commandBuffer, session, pExecuteInfo);
 	[Inline] public static VkResult GetFaultInfoEXT(this VkDevice device, out VkDeviceFaultCountsEXT pFaultCounts, out VkDeviceFaultInfoEXT pFaultInfo) => vkGetDeviceFaultInfoEXT(device, out pFaultCounts, out pFaultInfo);
 	[Inline] public static void CmdSetDepthBias2EXT(this VkCommandBuffer commandBuffer, VkDepthBiasInfoEXT* pDepthBiasInfo) => vkCmdSetDepthBias2EXT(commandBuffer, pDepthBiasInfo);
-	[Inline] public static VkResult ReleaseSwapchainImagesEXT(this VkDevice device, VkReleaseSwapchainImagesInfoEXT* pReleaseInfo) => vkReleaseSwapchainImagesEXT(device, pReleaseInfo);
+	[Inline] public static VkResult ReleaseSwapchainImagesKHR(this VkDevice device, VkReleaseSwapchainImagesInfoKHR* pReleaseInfo) => vkReleaseSwapchainImagesKHR(device, pReleaseInfo);
 	[Inline] public static void GetImageSubresourceLayout(this VkDevice device, VkDeviceImageSubresourceInfo* pInfo, out VkSubresourceLayout2 pLayout) => vkGetDeviceImageSubresourceLayout(device, pInfo, out pLayout);
 	[Inline] public static VkResult MapMemory2(this VkDevice device, VkMemoryMapInfo* pMemoryMapInfo, out void* ppData) => vkMapMemory2(device, pMemoryMapInfo, out ppData);
 	[Inline] public static VkResult UnmapMemory2(this VkDevice device, VkMemoryUnmapInfo* pMemoryUnmapInfo) => vkUnmapMemory2(device, pMemoryUnmapInfo);
@@ -2687,6 +2808,37 @@ static
 	[Inline] public static void CmdSetRenderingInputAttachmentIndices(this VkCommandBuffer commandBuffer, VkRenderingInputAttachmentIndexInfo* pInputAttachmentIndexInfo) => vkCmdSetRenderingInputAttachmentIndices(commandBuffer, pInputAttachmentIndexInfo);
 	[Inline] public static void CmdSetDepthClampRangeEXT(this VkCommandBuffer commandBuffer, VkDepthClampModeEXT depthClampMode, VkDepthClampRangeEXT* pDepthClampRange = null) => vkCmdSetDepthClampRangeEXT(commandBuffer, depthClampMode, pDepthClampRange);
 	[Inline] public static VkResult GetCooperativeMatrixFlexibleDimensionsPropertiesNV(this VkPhysicalDevice physicalDevice, out uint32 pPropertyCount, VkCooperativeMatrixFlexibleDimensionsPropertiesNV* pProperties = null) => vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(physicalDevice, out pPropertyCount, pProperties);
+	[Inline] public static VkResult GetCooperativeVectorPropertiesNV(this VkPhysicalDevice physicalDevice, out uint32 pPropertyCount, VkCooperativeVectorPropertiesNV* pProperties = null) => vkGetPhysicalDeviceCooperativeVectorPropertiesNV(physicalDevice, out pPropertyCount, pProperties);
+	[Inline] public static VkResult ConvertCooperativeVectorMatrixNV(this VkDevice device, VkConvertCooperativeVectorMatrixInfoNV* pInfo) => vkConvertCooperativeVectorMatrixNV(device, pInfo);
+	[Inline] public static void CmdConvertCooperativeVectorMatrixNV(this VkCommandBuffer commandBuffer, VulkanSpan<VkConvertCooperativeVectorMatrixInfoNV> infos) => vkCmdConvertCooperativeVectorMatrixNV(commandBuffer, infos.count, infos.ptr);
+	[Inline] public static void CmdDispatchTileQCOM(this VkCommandBuffer commandBuffer, VkDispatchTileInfoQCOM* pDispatchTileInfo) => vkCmdDispatchTileQCOM(commandBuffer, pDispatchTileInfo);
+	[Inline] public static void CmdBeginPerTileExecutionQCOM(this VkCommandBuffer commandBuffer, VkPerTileBeginInfoQCOM* pPerTileBeginInfo) => vkCmdBeginPerTileExecutionQCOM(commandBuffer, pPerTileBeginInfo);
+	[Inline] public static void CmdEndPerTileExecutionQCOM(this VkCommandBuffer commandBuffer, VkPerTileEndInfoQCOM* pPerTileEndInfo) => vkCmdEndPerTileExecutionQCOM(commandBuffer, pPerTileEndInfo);
+	[Inline] public static VkResult CreateExternalComputeQueueNV(this VkDevice device, VkExternalComputeQueueCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkExternalComputeQueueNV pExternalQueue) => vkCreateExternalComputeQueueNV(device, pCreateInfo, pAllocator, out pExternalQueue);
+	[Inline] public static void DestroyNV(this VkExternalComputeQueueNV externalQueue, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyExternalComputeQueueNV(device, externalQueue, pAllocator);
+	[Inline] public static void GetDataNV(this VkExternalComputeQueueNV externalQueue, out VkExternalComputeQueueDataParamsNV @params, out void pData) => vkGetExternalComputeQueueDataNV(externalQueue, out @params, out pData);
+	[Inline] public static VkResult CreateTensorARM(this VkDevice device, VkTensorCreateInfoARM* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkTensorARM pTensor) => vkCreateTensorARM(device, pCreateInfo, pAllocator, out pTensor);
+	[Inline] public static void DestroyARM(this VkTensorARM tensor, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyTensorARM(device, tensor, pAllocator);
+	[Inline] public static VkResult CreateTensorViewARM(this VkDevice device, VkTensorViewCreateInfoARM* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkTensorViewARM pView) => vkCreateTensorViewARM(device, pCreateInfo, pAllocator, out pView);
+	[Inline] public static void DestroyARM(this VkTensorViewARM tensorView, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyTensorViewARM(device, tensorView, pAllocator);
+	[Inline] public static void GetTensorMemoryRequirementsARM(this VkDevice device, VkTensorMemoryRequirementsInfoARM* pInfo, out VkMemoryRequirements2 pMemoryRequirements) => vkGetTensorMemoryRequirementsARM(device, pInfo, out pMemoryRequirements);
+	[Inline] public static VkResult BindTensorMemoryARM(this VkDevice device, VulkanSpan<VkBindTensorMemoryInfoARM> bindInfos) => vkBindTensorMemoryARM(device, bindInfos.count, bindInfos.ptr);
+	[Inline] public static void GetTensorMemoryRequirementsARM(this VkDevice device, VkDeviceTensorMemoryRequirementsARM* pInfo, out VkMemoryRequirements2 pMemoryRequirements) => vkGetDeviceTensorMemoryRequirementsARM(device, pInfo, out pMemoryRequirements);
+	[Inline] public static void CmdCopyTensorARM(this VkCommandBuffer commandBuffer, VkCopyTensorInfoARM* pCopyTensorInfo) => vkCmdCopyTensorARM(commandBuffer, pCopyTensorInfo);
+	[Inline] public static VkResult GetTensorOpaqueCaptureDescriptorDataARM(this VkDevice device, VkTensorCaptureDescriptorDataInfoARM* pInfo, out void pData) => vkGetTensorOpaqueCaptureDescriptorDataARM(device, pInfo, out pData);
+	[Inline] public static VkResult GetTensorViewOpaqueCaptureDescriptorDataARM(this VkDevice device, VkTensorViewCaptureDescriptorDataInfoARM* pInfo, out void pData) => vkGetTensorViewOpaqueCaptureDescriptorDataARM(device, pInfo, out pData);
+	[Inline] public static void GetExternalTensorPropertiesARM(this VkPhysicalDevice physicalDevice, VkPhysicalDeviceExternalTensorInfoARM* pExternalTensorInfo, out VkExternalTensorPropertiesARM pExternalTensorProperties) => vkGetPhysicalDeviceExternalTensorPropertiesARM(physicalDevice, pExternalTensorInfo, out pExternalTensorProperties);
+	[Inline] public static VkResult CreateDataGraphPipelinesARM(this VkDeferredOperationKHR deferredOperation, VkDevice device, VkPipelineCache pipelineCache, VulkanSpan<VkDataGraphPipelineCreateInfoARM> createInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines) => vkCreateDataGraphPipelinesARM(device, deferredOperation, pipelineCache, createInfos.count, createInfos.ptr, pAllocator, out pPipelines);
+	[Inline] public static VkResult CreateDataGraphPipelineSessionARM(this VkDevice device, VkDataGraphPipelineSessionCreateInfoARM* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkDataGraphPipelineSessionARM pSession) => vkCreateDataGraphPipelineSessionARM(device, pCreateInfo, pAllocator, out pSession);
+	[Inline] public static VkResult GetDataGraphPipelineSessionBindPointRequirementsARM(this VkDevice device, VkDataGraphPipelineSessionBindPointRequirementsInfoARM* pInfo, out uint32 pBindPointRequirementCount, VkDataGraphPipelineSessionBindPointRequirementARM* pBindPointRequirements = null) => vkGetDataGraphPipelineSessionBindPointRequirementsARM(device, pInfo, out pBindPointRequirementCount, pBindPointRequirements);
+	[Inline] public static void GetDataGraphPipelineSessionMemoryRequirementsARM(this VkDevice device, VkDataGraphPipelineSessionMemoryRequirementsInfoARM* pInfo, out VkMemoryRequirements2 pMemoryRequirements) => vkGetDataGraphPipelineSessionMemoryRequirementsARM(device, pInfo, out pMemoryRequirements);
+	[Inline] public static VkResult BindDataGraphPipelineSessionMemoryARM(this VkDevice device, VulkanSpan<VkBindDataGraphPipelineSessionMemoryInfoARM> bindInfos) => vkBindDataGraphPipelineSessionMemoryARM(device, bindInfos.count, bindInfos.ptr);
+	[Inline] public static void DestroyARM(this VkDataGraphPipelineSessionARM session, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyDataGraphPipelineSessionARM(device, session, pAllocator);
+	[Inline] public static void CmdDispatchDataGraphARM(this VkCommandBuffer commandBuffer, VkDataGraphPipelineSessionARM session, VkDataGraphPipelineDispatchInfoARM* pInfo = null) => vkCmdDispatchDataGraphARM(commandBuffer, session, pInfo);
+	[Inline] public static VkResult GetDataGraphPipelineAvailablePropertiesARM(this VkDevice device, VkDataGraphPipelineInfoARM* pPipelineInfo, out uint32 pPropertiesCount, VkDataGraphPipelinePropertyARM* pProperties = null) => vkGetDataGraphPipelineAvailablePropertiesARM(device, pPipelineInfo, out pPropertiesCount, pProperties);
+	[Inline] public static VkResult GetDataGraphPipelinePropertiesARM(this VkDevice device, VkDataGraphPipelineInfoARM* pPipelineInfo, uint32 propertiesCount, out VkDataGraphPipelinePropertyQueryResultARM pProperties) => vkGetDataGraphPipelinePropertiesARM(device, pPipelineInfo, propertiesCount, out pProperties);
+	[Inline] public static VkResult GetQueueFamilyDataGraphPropertiesARM(this VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out uint32 pQueueFamilyDataGraphPropertyCount, VkQueueFamilyDataGraphPropertiesARM* pQueueFamilyDataGraphProperties = null) => vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(physicalDevice, queueFamilyIndex, out pQueueFamilyDataGraphPropertyCount, pQueueFamilyDataGraphProperties);
+	[Inline] public static void GetQueueFamilyDataGraphProcessingEnginePropertiesARM(this VkPhysicalDevice physicalDevice, VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM* pQueueFamilyDataGraphProcessingEngineInfo, out VkQueueFamilyDataGraphProcessingEnginePropertiesARM pQueueFamilyDataGraphProcessingEngineProperties) => vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM(physicalDevice, pQueueFamilyDataGraphProcessingEngineInfo, out pQueueFamilyDataGraphProcessingEngineProperties);
 }
 
 namespace Vulkan;
@@ -4577,6 +4729,202 @@ extension VkPhysicalDevice
 		else
 		{
 			pProperties = null;
+		}
+		result
+	}
+}
+
+extension VkPhysicalDevice
+{
+	public mixin GetCooperativeVectorPropertiesNV_Scope(out VkCooperativeVectorPropertiesNV[] pProperties)
+	{
+		let physicalDevice = this;
+		var result = vkGetPhysicalDeviceCooperativeVectorPropertiesNV(physicalDevice, var pPropertyCount, null);
+		if (result == .VkSuccess)
+		{
+			pProperties = scope:mixin .[pPropertyCount];
+			result = vkGetPhysicalDeviceCooperativeVectorPropertiesNV(physicalDevice, out pPropertyCount, pProperties.Ptr);
+		}
+		else
+		{
+			pProperties = null;
+		}
+		result
+	}
+	public mixin GetCooperativeVectorPropertiesNV_New(out VkCooperativeVectorPropertiesNV[] pProperties)
+	{
+		let physicalDevice = this;
+		var result = vkGetPhysicalDeviceCooperativeVectorPropertiesNV(physicalDevice, var pPropertyCount, null);
+		if (result == .VkSuccess)
+		{
+			pProperties = new .[pPropertyCount];
+			result = vkGetPhysicalDeviceCooperativeVectorPropertiesNV(physicalDevice, out pPropertyCount, pProperties.Ptr);
+		}
+		else
+		{
+			pProperties = null;
+		}
+		result
+	}
+	public mixin GetCooperativeVectorPropertiesNV_New(out VkCooperativeVectorPropertiesNV[] pProperties, IRawAllocator alloc)
+	{
+		let physicalDevice = this;
+		var result = vkGetPhysicalDeviceCooperativeVectorPropertiesNV(physicalDevice, var pPropertyCount, null);
+		if (result == .VkSuccess)
+		{
+			pProperties = new:alloc .[pPropertyCount];
+			result = vkGetPhysicalDeviceCooperativeVectorPropertiesNV(physicalDevice, out pPropertyCount, pProperties.Ptr);
+		}
+		else
+		{
+			pProperties = null;
+		}
+		result
+	}
+}
+
+extension VkDevice
+{
+	public mixin GetDataGraphPipelineSessionBindPointRequirementsARM_Scope(VkDataGraphPipelineSessionBindPointRequirementsInfoARM* pInfo, out VkDataGraphPipelineSessionBindPointRequirementARM[] pBindPointRequirements)
+	{
+		let device = this;
+		var result = vkGetDataGraphPipelineSessionBindPointRequirementsARM(device, pInfo, var pBindPointRequirementCount, null);
+		if (result == .VkSuccess)
+		{
+			pBindPointRequirements = scope:mixin .[pBindPointRequirementCount];
+			result = vkGetDataGraphPipelineSessionBindPointRequirementsARM(device, pInfo, out pBindPointRequirementCount, pBindPointRequirements.Ptr);
+		}
+		else
+		{
+			pBindPointRequirements = null;
+		}
+		result
+	}
+	public mixin GetDataGraphPipelineSessionBindPointRequirementsARM_New(VkDataGraphPipelineSessionBindPointRequirementsInfoARM* pInfo, out VkDataGraphPipelineSessionBindPointRequirementARM[] pBindPointRequirements)
+	{
+		let device = this;
+		var result = vkGetDataGraphPipelineSessionBindPointRequirementsARM(device, pInfo, var pBindPointRequirementCount, null);
+		if (result == .VkSuccess)
+		{
+			pBindPointRequirements = new .[pBindPointRequirementCount];
+			result = vkGetDataGraphPipelineSessionBindPointRequirementsARM(device, pInfo, out pBindPointRequirementCount, pBindPointRequirements.Ptr);
+		}
+		else
+		{
+			pBindPointRequirements = null;
+		}
+		result
+	}
+	public mixin GetDataGraphPipelineSessionBindPointRequirementsARM_New(VkDataGraphPipelineSessionBindPointRequirementsInfoARM* pInfo, out VkDataGraphPipelineSessionBindPointRequirementARM[] pBindPointRequirements, IRawAllocator alloc)
+	{
+		let device = this;
+		var result = vkGetDataGraphPipelineSessionBindPointRequirementsARM(device, pInfo, var pBindPointRequirementCount, null);
+		if (result == .VkSuccess)
+		{
+			pBindPointRequirements = new:alloc .[pBindPointRequirementCount];
+			result = vkGetDataGraphPipelineSessionBindPointRequirementsARM(device, pInfo, out pBindPointRequirementCount, pBindPointRequirements.Ptr);
+		}
+		else
+		{
+			pBindPointRequirements = null;
+		}
+		result
+	}
+}
+
+extension VkDevice
+{
+	public mixin GetDataGraphPipelineAvailablePropertiesARM_Scope(VkDataGraphPipelineInfoARM* pPipelineInfo, out VkDataGraphPipelinePropertyARM[] pProperties)
+	{
+		let device = this;
+		var result = vkGetDataGraphPipelineAvailablePropertiesARM(device, pPipelineInfo, var pPropertiesCount, null);
+		if (result == .VkSuccess)
+		{
+			pProperties = scope:mixin .[pPropertiesCount];
+			result = vkGetDataGraphPipelineAvailablePropertiesARM(device, pPipelineInfo, out pPropertiesCount, pProperties.Ptr);
+		}
+		else
+		{
+			pProperties = null;
+		}
+		result
+	}
+	public mixin GetDataGraphPipelineAvailablePropertiesARM_New(VkDataGraphPipelineInfoARM* pPipelineInfo, out VkDataGraphPipelinePropertyARM[] pProperties)
+	{
+		let device = this;
+		var result = vkGetDataGraphPipelineAvailablePropertiesARM(device, pPipelineInfo, var pPropertiesCount, null);
+		if (result == .VkSuccess)
+		{
+			pProperties = new .[pPropertiesCount];
+			result = vkGetDataGraphPipelineAvailablePropertiesARM(device, pPipelineInfo, out pPropertiesCount, pProperties.Ptr);
+		}
+		else
+		{
+			pProperties = null;
+		}
+		result
+	}
+	public mixin GetDataGraphPipelineAvailablePropertiesARM_New(VkDataGraphPipelineInfoARM* pPipelineInfo, out VkDataGraphPipelinePropertyARM[] pProperties, IRawAllocator alloc)
+	{
+		let device = this;
+		var result = vkGetDataGraphPipelineAvailablePropertiesARM(device, pPipelineInfo, var pPropertiesCount, null);
+		if (result == .VkSuccess)
+		{
+			pProperties = new:alloc .[pPropertiesCount];
+			result = vkGetDataGraphPipelineAvailablePropertiesARM(device, pPipelineInfo, out pPropertiesCount, pProperties.Ptr);
+		}
+		else
+		{
+			pProperties = null;
+		}
+		result
+	}
+}
+
+extension VkPhysicalDevice
+{
+	public mixin GetQueueFamilyDataGraphPropertiesARM_Scope(uint32 queueFamilyIndex, out VkQueueFamilyDataGraphPropertiesARM[] pQueueFamilyDataGraphProperties)
+	{
+		let physicalDevice = this;
+		var result = vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(physicalDevice, queueFamilyIndex, var pQueueFamilyDataGraphPropertyCount, null);
+		if (result == .VkSuccess)
+		{
+			pQueueFamilyDataGraphProperties = scope:mixin .[pQueueFamilyDataGraphPropertyCount];
+			result = vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(physicalDevice, queueFamilyIndex, out pQueueFamilyDataGraphPropertyCount, pQueueFamilyDataGraphProperties.Ptr);
+		}
+		else
+		{
+			pQueueFamilyDataGraphProperties = null;
+		}
+		result
+	}
+	public mixin GetQueueFamilyDataGraphPropertiesARM_New(uint32 queueFamilyIndex, out VkQueueFamilyDataGraphPropertiesARM[] pQueueFamilyDataGraphProperties)
+	{
+		let physicalDevice = this;
+		var result = vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(physicalDevice, queueFamilyIndex, var pQueueFamilyDataGraphPropertyCount, null);
+		if (result == .VkSuccess)
+		{
+			pQueueFamilyDataGraphProperties = new .[pQueueFamilyDataGraphPropertyCount];
+			result = vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(physicalDevice, queueFamilyIndex, out pQueueFamilyDataGraphPropertyCount, pQueueFamilyDataGraphProperties.Ptr);
+		}
+		else
+		{
+			pQueueFamilyDataGraphProperties = null;
+		}
+		result
+	}
+	public mixin GetQueueFamilyDataGraphPropertiesARM_New(uint32 queueFamilyIndex, out VkQueueFamilyDataGraphPropertiesARM[] pQueueFamilyDataGraphProperties, IRawAllocator alloc)
+	{
+		let physicalDevice = this;
+		var result = vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(physicalDevice, queueFamilyIndex, var pQueueFamilyDataGraphPropertyCount, null);
+		if (result == .VkSuccess)
+		{
+			pQueueFamilyDataGraphProperties = new:alloc .[pQueueFamilyDataGraphPropertyCount];
+			result = vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM(physicalDevice, queueFamilyIndex, out pQueueFamilyDataGraphPropertyCount, pQueueFamilyDataGraphProperties.Ptr);
+		}
+		else
+		{
+			pQueueFamilyDataGraphProperties = null;
 		}
 		result
 	}

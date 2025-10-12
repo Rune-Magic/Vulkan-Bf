@@ -150,12 +150,10 @@ namespace Vulkan
 	typealias VkDeviceSize = uint64;
 	typealias VkDeviceAddress = uint64;
 	typealias VkRemoteAddressNV = void*;
-	typealias VkBuildAccelerationStructureFlagsNV = VkBuildAccelerationStructureFlagsKHR;
 
 	extension VkResult
 	{
-		//NOTE: NoDiscard doesn't seem to work
-		//NOTE: ReurnValueDiscard may be removed in the future
+		// NOTE: NoDiscard doesn't seem to work
 		[SkipCall, Warn("VkResult discarded")]
 		public void ReturnValueDiscarded();
 	}
@@ -277,7 +275,7 @@ namespace Vulkan.Loader
 
 namespace Vulkan.Metadata
 {
-	enum VulkanFeature
+	enum VulkanApi
 	{
 		case ApiVersion(VulkanApiVersion version);
 		case Extension(VulkanExtension ext);
@@ -287,7 +285,7 @@ namespace Vulkan.Metadata
 	{
 		public enum Kind { Instance, Device }
 
-		public struct DependencyEnumerator : IEnumerator<VulkanFeature>
+		public struct DependencyEnumerator : IEnumerator<VulkanApi>
 		{
 			VulkanExtension self;
 			int count, index = 0;
@@ -298,7 +296,7 @@ namespace Vulkan.Metadata
 				count = self.DependencyCount;
 			}
 
-			public Result<VulkanFeature> GetNext()
+			public Result<VulkanApi> GetNext()
 			{
 				if (index >= count) return .Err;
 				return self.GetDependency(index);
