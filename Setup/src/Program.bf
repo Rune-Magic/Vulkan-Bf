@@ -132,6 +132,7 @@ class Program
 		FeatureVisitor featureVistor = scope .();
 		featureVistor.output = entries;
 		featureVistor.extensions = scope .(512);
+		featureVistor.deviceFeatures = scope .(512);
 		SpirVExtensionVisitor spirvVisitor = scope .();
 		spirvVisitor.extensions = featureVistor.extensions;
 		FormatVisitor formatVisitor = scope .();
@@ -754,7 +755,7 @@ class Program
 				{
 
 				""");
-			void Feature(StringView feature)
+			void Api(StringView feature)
 			{
 				str.Append(feature.StartsWith("VK_VERSION") ? "VulkanApi.ApiVersion(." : "VulkanApi.Extension(.", feature, ")");
 			}
@@ -835,7 +836,7 @@ class Program
 			{
 				if (ext.promotedTo.IsNull) continue;
 				str.Append("\t\t\tcase .", ext.name, ": return ");
-				Feature(ext.promotedTo);
+				Api(ext.promotedTo);
 				str.Append(";\n");
 			}
 			writer.Write(str); str.Clear();
@@ -967,7 +968,7 @@ class Program
 					str.Append("\t\t\tcase ");
 					@dep.Index.ToString(str);
 					str.Append(": return ");
-					Feature(dep);
+					Api(dep);
 					str.Append(";\n");
 				}
 				str.Append("""
@@ -1268,83 +1269,258 @@ class Program
 					}
 				}
 
-				namespace Vulkan.Metadata;
-
-				static class VulkanCommandMetadata
+				extension VkStructureType
 				{
+					public Type VkType
+					{
+						get
+						{
+							switch (this)
+							{
 
 				""");
-			for (let command in commands)
+			for (let enumcase in (types["VkStructureType"] as EnumEntry).cases)
 			{
-				let metadata = command.value.metadata;
-				if (!command.value.added || metadata == default) continue;
-				void WriteResults(StringView results)
-				{
-					for (let result in results.Split(','))
-					{
-						if (result == "VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT") continue;
-						if (@result.MatchIndex != 0) str.Append(", ");
-						str.Append('.');
-						BeefifyEnumName(result, "VkResult", str);
-					}	
-				}
-				void WriteValues(StringView values, StringView sep)
-				{
-					for (let value in values.Split(','))
-					{
-						if (@value.MatchIndex != 0) str.Append(sep);
-						str.Append('.');
-						switch (value)
-						{
-						case "sparse_binding": str.Append("SparseBinding");
-						case "decode": str.Append("VideoDecodeKHR");
-						case "encode": str.Append("VideoEncodeKHR");
-						case "opticalflow": str.Append("OpticalFlowNV");
-						case "data_graph": str.Append("DataGraphARM");
-						default:
-							str..Append(value[0].ToUpper)..Append(value[1...]);
+				if (sTypeToStructMap.TryGet(enumcase.name, let sType, let structure))
+				str.Append("\t\t\tcase .", sType, ": return typeof(", structure, ");\n");
+				writer.Write(str); str.Clear();
+			}
+			writer.Write("""
+							default: return null;
+							}
 						}
 					}
 				}
-				if (!metadata.successcodes.IsNull)
+
+				namespace Vulkan.Metadata;
+
+				enum VulkanCommand
 				{
-					str.Append("\tprivate static VkResult[?] ", command.key, "__successcodes = .(");
-					WriteResults(metadata.successcodes);
-					str.Append(");\n\t[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_", command.key, " => ", command.key, "__successcodes;\n");
-				}
-				if (!metadata.errorcodes.IsNull)
+
+				""");
+			{
+				for (let command in commands)
 				{
-					str.Append("\tprivate static VkResult[?] ", command.key, "__errorcodes = .(");
-					WriteResults(metadata.errorcodes);
-					str.Append(");\n\t[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_", command.key, " => ", command.key, "__errorcodes;\n");
+					if (!command.value.added) continue;
+					str.Append("\tcase ", command.key, ";\n");
+					writer.Write(str); str.Clear();
 				}
-				if (!metadata.queues.IsNull)
+				writer.Write("""
+
+						public Type PFNType
+						{
+							get
+							{
+								switch (this)
+								{
+
+					""");
+				for (let command in commands)
 				{
-					str.Append("\tprivate static VkQueueFlags ", command.key, "__queues = ");
-					WriteValues(metadata.queues, " | ");
-					str.Append(";\n\t[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_", command.key, " => ", command.key, "__queues;\n");
+					if (!command.value.added) continue;
+					str.Append("\t\t\tcase ", command.key, ": return typeof(PFN_", command.key, ");\n");
+					writer.Write(str); str.Clear();
 				}
-				if (!metadata.renderpass.IsNull)
+				writer.Write("""
+								}
+							}
+						}
+	
+						public static Self FromName(StringView command)
+						{
+							switch (command)
+							{
+	
+					""");
+				for (let command in commands)
 				{
-					str.Append("\tprivate static RenderPassLocation ", command.key, "__renderpass = ");
-					WriteValues(metadata.renderpass, "#");
-					str.Append(";\n\t[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_", command.key, " => ", command.key, "__renderpass;\n");
+					if (!command.value.added) continue;
+					str.Append("\t\tcase nameof(", command.key, "): return ", command.key, ";\n");
+					writer.Write(str); str.Clear();
 				}
-				if (!metadata.cmdbufferlevel.IsNull)
+				writer.Write("""
+							default: Runtime.FatalError("Command not found");
+							}
+						}
+
+					""");
+				void ReturnResults(StringView name, function StringView(CommandEntry.Metadata) getCodes)
 				{
-					str.Append("\tprivate static CmdBufferLevel ", command.key, "__cmdbufferlevel = ");
-					WriteValues(metadata.cmdbufferlevel, " | ");
-					str.Append(";\n\t[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_", command.key, " => ", command.key, "__cmdbufferlevel;\n");
+					str.Append("""
+
+							public int
+						""", " ", name, """
+						Count
+							{
+								get
+								{
+									switch (this)
+									{
+
+						""");
+					for (let command in commands)
+					{
+						let codes = getCodes(command.value.metadata);
+						if (!command.value.added || codes.IsNull) continue;
+						int count = 1;
+						for (let c in codes)
+							if (c == ',') count++;
+						str.Append("\t\t\tcase ", command.key, ": return ");
+						count.ToString(str);
+						str.Append(";\n");
+						writer.Write(str); str.Clear();
+					}
+					str.Append("""
+									default: return 0;
+									}
+								}
+							}
+
+							public VkResult Get
+						""", name, """
+						(int idx)
+							{
+								switch (this)
+								{
+
+						""");
+					for (let command in commands)
+					{
+						let codes = getCodes(command.value.metadata);
+						if (!command.value.added || codes.IsNull) continue;
+						str.Append("\t\tcase ", command.key, """
+							:
+										switch (idx)
+										{
+
+							""");
+						for (let code in codes.Split(','))
+						{
+							str.Append("\t\t\tcase ");
+							@code.MatchIndex.ToString(str);
+							str.Append(": return .");
+							BeefifyEnumName(code, "VkResult", str);
+							str.Append(";\n");
+						}
+						str.Append("""
+										default: Runtime.FatalError("Index out of range");
+										}
+
+							""");
+						writer.Write(str); str.Clear();
+					}
+					writer.Write("""
+								default: Runtime.FatalError("Index out of range");
+								}
+							}
+
+						""");
 				}
-				if (!metadata.tasks.IsNull)
+				ReturnResults("SuccessCodes", (metadata) => metadata.successcodes);
+				ReturnResults("ErrorCodes", (metadata) => metadata.errorcodes);
+				void Values(StringView name, StringView type, function StringView(CommandEntry.Metadata) getValues)
 				{
-					str.Append("\tprivate static Task ", command.key, "__tasks = ");
-					WriteValues(metadata.tasks, " | ");
-					str.Append(";\n\t[Inline] public static Task Tasks<T>() where T : PFN_", command.key, " => ", command.key, "__tasks;\n");
+					str.Append("\n\tpublic ", type, " ", name, """
+
+							{
+								get
+								{
+									switch (this)
+									{
+
+						""");
+					for (let command in commands)
+					{
+						let values = getValues(command.value.metadata);
+						if (!command.value.added || values.IsNull) continue;
+						str.Append("\t\t\tcase ", command.key, ": return ");
+						for (let value in values.Split(','))
+						{
+							if (@value.MatchIndex != 0) str.Append(" | ");
+							str.Append('.');
+							switch (value)
+							{
+							case "sparse_binding": str.Append("SparseBinding");
+							case "decode": str.Append("VideoDecodeKHR");
+							case "encode": str.Append("VideoEncodeKHR");
+							case "opticalflow": str.Append("OpticalFlowNV");
+							case "data_graph": str.Append("DataGraphARM");
+							default:
+								str..Append(value[0].ToUpper)..Append(value[1...]);
+							}
+						}
+						str.Append(";\n");
+						writer.Write(str); str.Clear();
+					}
+					writer.Write("""
+									default: return 0;
+									}
+								}
+							}
+
+						""");
 				}
+				Values("Queues", "VkQueueFlags", (metadata) => metadata.queues);
+				Values("RenderPassLocation", "RenderPassLocation", (metadata) => metadata.renderpass);
+				Values("CmdBufferLevels", "CmdBufferLevel", (metadata) => metadata.cmdbufferlevel);
+				Values("Tasks", "Task", (metadata) => metadata.tasks);
+			}
+			writer.Write("""
+				}
+
+				enum VulkanFeature
+				{
+
+				""");
+			for (let feature in featureVistor.deviceFeatures)
+			{
+				str.Append("\tcase ", feature.name, ";\n");
 				writer.Write(str); str.Clear();
 			}
-			writer.Write("}\n");
+			writer.Write("""
+
+					public VulkanApi Api
+					{
+						get
+						{
+							switch (this)
+							{
+
+				""");
+			for (let feature in featureVistor.deviceFeatures)
+			{
+				str.Append("\t\t\tcase ", feature.name, ": return ");
+				Api(feature.api);
+				str.Append(";\n");
+				writer.Write(str); str.Clear();
+			}
+			writer.Write("""
+							}
+						}
+					}
+
+					public VkStructureType Struct
+					{
+						get
+						{
+							switch (this)
+							{
+	
+				""");
+			for (let feature in featureVistor.deviceFeatures)
+			{
+				str.Append("\t\t\tcase ", feature.name, ": return ");
+				if (feature.structure == "VkPhysicalDeviceFeatures") str.Append(".VkPhysicalDeviceFeatures2");
+				else str.Append(feature.structure, ".SType");
+				str.Append(";\n");
+				writer.Write(str); str.Clear();
+			}
+			writer.Write("""
+							}
+						}
+					}
+				}
+				""");
 		}
 
 		{
@@ -1383,6 +1559,7 @@ class Program
 					str.Append("\t\tcase .", enumcase.name, ": strBuffer.Append(\"", enumcase.orignalName, "\");\n");
 				}
 				str.Append("""
+							default: Underlying.ToString(strBuffer);
 							}
 						}
 					}
@@ -1465,7 +1642,7 @@ class Program
 		public enum ParamFlags { None = 0, Optional = 1, Span = 2, Const = 4, OutParam = 8, OutArray = 16, ExcludeFromPrettyCall = 32, ExcludeFromPFN = 64 }
 		public typealias Param = (String type, StringView name, ParamFlags flags, int spanMulti, StringView lenParam);
 		public append List<Param> parameters;
-		public
+		public typealias Metadata =
 		(
 			StringView successcodes,
 			StringView errorcodes,
@@ -1473,7 +1650,8 @@ class Program
 			StringView renderpass,
 			StringView cmdbufferlevel,
 			StringView tasks
-		) metadata;
+		);
+		public Metadata metadata;
 
 		public override EntryType Type => .FunctionPtr;
 		public override StringView Name => name;
@@ -1545,6 +1723,7 @@ class Program
 			String str = scope .(256);
 			WriteAttrs(writer, true);
 			str.Append("AllowDuplicates] enum ", name, " : int", bitwidth, "\n{\n");
+			writer.Write(str); str.Clear();
 			for (let enumcase in cases)
 			{
 				if (enumcase.name == enumcase.value) continue;
@@ -1558,7 +1737,7 @@ class Program
 						bool neg = value.StartsWith('-');
 						if (neg) value.RemoveFromStart(1);
 						int number = .Parse(value);
-						Runtime.Assert(enumcase.extnumber >= 0);
+						Runtime.Assert(enumcase.extnumber > 0);
 						number += 1'000'000'000 + ((enumcase.extnumber-1)*1000);
 						if (neg) str.Append('-');
 						number.ToString(str);
@@ -1570,9 +1749,9 @@ class Program
 				if (!enumcase.comment.IsNull)
 					str.Append("// ", enumcase.comment);
 				str.Append('\n');
+				writer.Write(str); str.Clear();
 			}
-			str.Append('}');
-			writer.Write(str);
+			writer.Write("}");
 			return true;
 		}
 
@@ -1737,16 +1916,22 @@ class Program
 			StringView deprecatedBy,
 			StringView spirvExtension
 		);
+		public Dictionary<StringView, Extension> extensions;
+		Extension curExtension;
+
 		public struct DeviceFeature : this
 		(
-			StringView apiFeature,
+			StringView api,
 			StringView name,
 			StringView structure
-		);
-
-		public Dictionary<StringView, Extension> extensions;
-		public List<DeviceFeature> deviceFeatures;
-		Extension curExtension;
+		), IHashable
+		{
+			public int GetHashCode() => name.GetHashCode();
+			public static bool operator==(Self lhs, Self rhs) => lhs.name == rhs.name;
+		}
+		public HashSet<DeviceFeature> deviceFeatures;
+		DeviceFeature curFeature;
+		StringView apiVersion = null;
 
 		EnumEntry.EnumCase enumcase = default;
 		StringView enumName = null, enumAlias = null;
@@ -1759,6 +1944,33 @@ class Program
 			bool inRequire = TagDepth[^2] == "require";
 			switch (TagDepth.Back)
 			{
+			case "feature":
+				if (TagDepth.Count == 2)
+					switch (node)
+					{
+					case .OpeningTag:
+						apiVersion = null;
+						curExtension = default;
+					case .Attribute("name", out apiVersion):
+					default:
+					}
+				else
+					switch (node)
+					{
+					case .OpeningTag:
+						curFeature = default;
+						curFeature.api = apiVersion.IsNull ? curExtension.name : apiVersion;
+					case .Attribute("name", out curFeature.name):
+					case .Attribute("struct", out curFeature.structure):
+					case .OpeningEnd:
+						let features = curFeature.name;
+						for (let feature in features.Split(','))
+						{
+							curFeature.name = feature;
+							deviceFeatures.Add(curFeature);
+						}
+					default:
+					}
 			case "require":
 				if (node case .Attribute("comment", let comment))
 					output.Add(new:Alloc PrecomputedEntry(new:Alloc $"// {comment}", null, .Comment));
@@ -1767,6 +1979,7 @@ class Program
 				{
 				case .OpeningTag:
 					curExtension = default;
+					apiVersion = null;
 				case .OpeningEnd:
 					if (!curExtension.name.StartsWith("vulkan_"))
 						extensions.Add(curExtension.name, curExtension);
@@ -1785,7 +1998,6 @@ class Program
 				case .Attribute("depends", out curExtension.dependencies):
 				default:
 				}
-			//case "comment":
 			case "type" when inRequire:
 				if (node case .Attribute("name", let name) && types.TryGet(name, ?, let value))
 				{
@@ -2102,6 +2314,7 @@ class Program
 		}
 	}
 
+	static Dictionary<StringView, StringView> sTypeToStructMap = new .(256) ~ delete _;
 	class StructVisitor : XmlVisitor
 	{
 		enum { None, InStruct = 1, Union = 2, ReturnedOnly = 4 } flags = .None;
@@ -2207,7 +2420,9 @@ class Program
 						{
 							Runtime.Assert(member.name == "sType");
 							output.Append("\tpublic const VkStructureType SType = .");
-							BeefifyEnumName(member.values, "VkStructureType", output);
+							let sType = BeefifyEnumName(member.values, "VkStructureType", ..new:Alloc .(name.Length));
+							output.Append(sType);
+							sTypeToStructMap.Add(sType, name);
 							output.Append(";\n");
 						}
 

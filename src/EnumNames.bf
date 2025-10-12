@@ -13,6 +13,7 @@ extension VkAttachmentLoadOp
 		case .Clear: strBuffer.Append("VK_ATTACHMENT_LOAD_OP_CLEAR");
 		case .DontCare: strBuffer.Append("VK_ATTACHMENT_LOAD_OP_DONT_CARE");
 		case .None: strBuffer.Append("VK_ATTACHMENT_LOAD_OP_NONE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -26,6 +27,7 @@ extension VkAttachmentStoreOp
 		case .Store: strBuffer.Append("VK_ATTACHMENT_STORE_OP_STORE");
 		case .DontCare: strBuffer.Append("VK_ATTACHMENT_STORE_OP_DONT_CARE");
 		case .None: strBuffer.Append("VK_ATTACHMENT_STORE_OP_NONE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -55,6 +57,7 @@ extension VkBlendFactor
 		case .OneMinusSrc1Color: strBuffer.Append("VK_BLEND_FACTOR_ONE_MINUS_SRC1_COLOR");
 		case .Src1Alpha: strBuffer.Append("VK_BLEND_FACTOR_SRC1_ALPHA");
 		case .OneMinusSrc1Alpha: strBuffer.Append("VK_BLEND_FACTOR_ONE_MINUS_SRC1_ALPHA");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -116,6 +119,7 @@ extension VkBlendOp
 		case .RedEXT: strBuffer.Append("VK_BLEND_OP_RED_EXT");
 		case .GreenEXT: strBuffer.Append("VK_BLEND_OP_GREEN_EXT");
 		case .BlueEXT: strBuffer.Append("VK_BLEND_OP_BLUE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -134,6 +138,7 @@ extension VkBorderColor
 		case .IntOpaqueWhite: strBuffer.Append("VK_BORDER_COLOR_INT_OPAQUE_WHITE");
 		case .FloatCustomEXT: strBuffer.Append("VK_BORDER_COLOR_FLOAT_CUSTOM_EXT");
 		case .IntCustomEXT: strBuffer.Append("VK_BORDER_COLOR_INT_CUSTOM_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -145,6 +150,7 @@ extension VkFramebufferCreateFlagBits
 		switch (this)
 		{
 		case .Imageless: strBuffer.Append("VK_FRAMEBUFFER_CREATE_IMAGELESS_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -156,6 +162,7 @@ extension VkQueryPoolCreateFlagBits
 		switch (this)
 		{
 		case .ResetKHR: strBuffer.Append("VK_QUERY_POOL_CREATE_RESET_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -168,6 +175,7 @@ extension VkRenderPassCreateFlagBits
 		{
 		case .TransformQCOM: strBuffer.Append("VK_RENDER_PASS_CREATE_TRANSFORM_BIT_QCOM");
 		case .PerLayerFragmentDensityVALVE: strBuffer.Append("VK_RENDER_PASS_CREATE_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -183,6 +191,7 @@ extension VkSamplerCreateFlagBits
 		case .DescriptorBufferCaptureReplayEXT: strBuffer.Append("VK_SAMPLER_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_EXT");
 		case .NonSeamlessCubeMapEXT: strBuffer.Append("VK_SAMPLER_CREATE_NON_SEAMLESS_CUBE_MAP_BIT_EXT");
 		case .ImageProcessingQCOM: strBuffer.Append("VK_SAMPLER_CREATE_IMAGE_PROCESSING_BIT_QCOM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -194,6 +203,7 @@ extension VkPipelineCacheHeaderVersion
 		switch (this)
 		{
 		case .One: strBuffer.Append("VK_PIPELINE_CACHE_HEADER_VERSION_ONE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -206,6 +216,7 @@ extension VkPipelineCacheCreateFlagBits
 		{
 		case .ExternallySynchronized: strBuffer.Append("VK_PIPELINE_CACHE_CREATE_EXTERNALLY_SYNCHRONIZED_BIT");
 		case .InternallySynchronizedMergeKHR: strBuffer.Append("VK_PIPELINE_CACHE_CREATE_INTERNALLY_SYNCHRONIZED_MERGE_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -218,6 +229,7 @@ extension VkPipelineShaderStageCreateFlagBits
 		{
 		case .AllowVaryingSubgroupSize: strBuffer.Append("VK_PIPELINE_SHADER_STAGE_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT");
 		case .RequireFullSubgroups: strBuffer.Append("VK_PIPELINE_SHADER_STAGE_CREATE_REQUIRE_FULL_SUBGROUPS_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -235,6 +247,7 @@ extension VkDescriptorSetLayoutCreateFlagBits
 		case .IndirectBindableNV: strBuffer.Append("VK_DESCRIPTOR_SET_LAYOUT_CREATE_INDIRECT_BINDABLE_BIT_NV");
 		case .HostOnlyPoolEXT: strBuffer.Append("VK_DESCRIPTOR_SET_LAYOUT_CREATE_HOST_ONLY_POOL_BIT_EXT");
 		case .PerStageNV: strBuffer.Append("VK_DESCRIPTOR_SET_LAYOUT_CREATE_PER_STAGE_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -246,6 +259,7 @@ extension VkInstanceCreateFlagBits
 		switch (this)
 		{
 		case .EnumeratePortabilityKHR: strBuffer.Append("VK_INSTANCE_CREATE_ENUMERATE_PORTABILITY_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -257,6 +271,7 @@ extension VkDeviceQueueCreateFlagBits
 		switch (this)
 		{
 		case .Protected: strBuffer.Append("VK_DEVICE_QUEUE_CREATE_PROTECTED_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -274,6 +289,7 @@ extension VkBufferCreateFlagBits
 		case .DeviceAddressCaptureReplay: strBuffer.Append("VK_BUFFER_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT");
 		case .DescriptorBufferCaptureReplayEXT: strBuffer.Append("VK_BUFFER_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_EXT");
 		case .VideoProfileIndependentKHR: strBuffer.Append("VK_BUFFER_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -310,6 +326,7 @@ extension VkBufferUsageFlagBits
 		case .MicromapBuildInputReadOnlyEXT: strBuffer.Append("VK_BUFFER_USAGE_MICROMAP_BUILD_INPUT_READ_ONLY_BIT_EXT");
 		case .MicromapStorageEXT: strBuffer.Append("VK_BUFFER_USAGE_MICROMAP_STORAGE_BIT_EXT");
 		case .TileMemoryQCOM: strBuffer.Append("VK_BUFFER_USAGE_TILE_MEMORY_BIT_QCOM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -324,6 +341,7 @@ extension VkColorComponentFlagBits
 		case .G: strBuffer.Append("VK_COLOR_COMPONENT_G_BIT");
 		case .B: strBuffer.Append("VK_COLOR_COMPONENT_B_BIT");
 		case .A: strBuffer.Append("VK_COLOR_COMPONENT_A_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -341,6 +359,7 @@ extension VkComponentSwizzle
 		case .G: strBuffer.Append("VK_COMPONENT_SWIZZLE_G");
 		case .B: strBuffer.Append("VK_COMPONENT_SWIZZLE_B");
 		case .A: strBuffer.Append("VK_COMPONENT_SWIZZLE_A");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -354,6 +373,7 @@ extension VkCommandPoolCreateFlagBits
 		case .Transient: strBuffer.Append("VK_COMMAND_POOL_CREATE_TRANSIENT_BIT");
 		case .ResetCommandBuffer: strBuffer.Append("VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT");
 		case .Protected: strBuffer.Append("VK_COMMAND_POOL_CREATE_PROTECTED_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -365,6 +385,7 @@ extension VkCommandPoolResetFlagBits
 		switch (this)
 		{
 		case .ReleaseResources: strBuffer.Append("VK_COMMAND_POOL_RESET_RELEASE_RESOURCES_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -376,6 +397,7 @@ extension VkCommandBufferResetFlagBits
 		switch (this)
 		{
 		case .ReleaseResources: strBuffer.Append("VK_COMMAND_BUFFER_RESET_RELEASE_RESOURCES_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -388,6 +410,7 @@ extension VkCommandBufferLevel
 		{
 		case .Primary: strBuffer.Append("VK_COMMAND_BUFFER_LEVEL_PRIMARY");
 		case .Secondary: strBuffer.Append("VK_COMMAND_BUFFER_LEVEL_SECONDARY");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -401,6 +424,7 @@ extension VkCommandBufferUsageFlagBits
 		case .OneTimeSubmit: strBuffer.Append("VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT");
 		case .RenderPassContinue: strBuffer.Append("VK_COMMAND_BUFFER_USAGE_RENDER_PASS_CONTINUE_BIT");
 		case .SimultaneousUse: strBuffer.Append("VK_COMMAND_BUFFER_USAGE_SIMULTANEOUS_USE_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -419,6 +443,7 @@ extension VkCompareOp
 		case .NotEqual: strBuffer.Append("VK_COMPARE_OP_NOT_EQUAL");
 		case .GreaterOrEqual: strBuffer.Append("VK_COMPARE_OP_GREATER_OR_EQUAL");
 		case .Always: strBuffer.Append("VK_COMPARE_OP_ALWAYS");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -433,6 +458,7 @@ extension VkCullModeFlagBits
 		case .Front: strBuffer.Append("VK_CULL_MODE_FRONT_BIT");
 		case .Back: strBuffer.Append("VK_CULL_MODE_BACK_BIT");
 		case .FrontAndBack: strBuffer.Append("VK_CULL_MODE_FRONT_AND_BACK");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -462,6 +488,7 @@ extension VkDescriptorType
 		case .TensorARM: strBuffer.Append("VK_DESCRIPTOR_TYPE_TENSOR_ARM");
 		case .MutableEXT: strBuffer.Append("VK_DESCRIPTOR_TYPE_MUTABLE_EXT");
 		case .PartitionedAccelerationStructureNV: strBuffer.Append("VK_DESCRIPTOR_TYPE_PARTITIONED_ACCELERATION_STRUCTURE_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -545,6 +572,7 @@ extension VkDynamicState
 		case .CoverageReductionModeNV: strBuffer.Append("VK_DYNAMIC_STATE_COVERAGE_REDUCTION_MODE_NV");
 		case .AttachmentFeedbackLoopEnableEXT: strBuffer.Append("VK_DYNAMIC_STATE_ATTACHMENT_FEEDBACK_LOOP_ENABLE_EXT");
 		case .DepthClampRangeEXT: strBuffer.Append("VK_DYNAMIC_STATE_DEPTH_CLAMP_RANGE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -556,6 +584,7 @@ extension VkFenceCreateFlagBits
 		switch (this)
 		{
 		case .Signaled: strBuffer.Append("VK_FENCE_CREATE_SIGNALED_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -570,6 +599,7 @@ extension VkPolygonMode
 		case .Line: strBuffer.Append("VK_POLYGON_MODE_LINE");
 		case .Point: strBuffer.Append("VK_POLYGON_MODE_POINT");
 		case .FillRectangleNV: strBuffer.Append("VK_POLYGON_MODE_FILL_RECTANGLE_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -845,6 +875,7 @@ extension VkFormat
 		case .R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM: strBuffer.Append("VK_FORMAT_R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM");
 		case .G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM: strBuffer.Append("VK_FORMAT_G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM");
 		case .G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM: strBuffer.Append("VK_FORMAT_G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -886,6 +917,7 @@ extension VkFormatFeatureFlagBits
 		case .FragmentShadingRateAttachmentKHR: strBuffer.Append("VK_FORMAT_FEATURE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_KHR");
 		case .VideoEncodeInputKHR: strBuffer.Append("VK_FORMAT_FEATURE_VIDEO_ENCODE_INPUT_BIT_KHR");
 		case .VideoEncodeDpbKHR: strBuffer.Append("VK_FORMAT_FEATURE_VIDEO_ENCODE_DPB_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -898,6 +930,7 @@ extension VkFrontFace
 		{
 		case .CounterClockwise: strBuffer.Append("VK_FRONT_FACE_COUNTER_CLOCKWISE");
 		case .Clockwise: strBuffer.Append("VK_FRONT_FACE_CLOCKWISE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -909,6 +942,7 @@ extension VkMemoryMapFlagBits
 		switch (this)
 		{
 		case .PlacedEXT: strBuffer.Append("VK_MEMORY_MAP_PLACED_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -931,6 +965,7 @@ extension VkImageAspectFlagBits
 		case .MemoryPlane1EXT: strBuffer.Append("VK_IMAGE_ASPECT_MEMORY_PLANE_1_BIT_EXT");
 		case .MemoryPlane2EXT: strBuffer.Append("VK_IMAGE_ASPECT_MEMORY_PLANE_2_BIT_EXT");
 		case .MemoryPlane3EXT: strBuffer.Append("VK_IMAGE_ASPECT_MEMORY_PLANE_3_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -961,6 +996,7 @@ extension VkImageCreateFlagBits
 		case .VK_2dViewCompatibleEXT: strBuffer.Append("VK_IMAGE_CREATE_2D_VIEW_COMPATIBLE_BIT_EXT");
 		case .VideoProfileIndependentKHR: strBuffer.Append("VK_IMAGE_CREATE_VIDEO_PROFILE_INDEPENDENT_BIT_KHR");
 		case .FragmentDensityMapOffsetEXT: strBuffer.Append("VK_IMAGE_CREATE_FRAGMENT_DENSITY_MAP_OFFSET_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1003,6 +1039,7 @@ extension VkImageLayout
 		case .TensorAliasingARM: strBuffer.Append("VK_IMAGE_LAYOUT_TENSOR_ALIASING_ARM");
 		case .VideoEncodeQuantizationMapKHR: strBuffer.Append("VK_IMAGE_LAYOUT_VIDEO_ENCODE_QUANTIZATION_MAP_KHR");
 		case .ZeroInitializedEXT: strBuffer.Append("VK_IMAGE_LAYOUT_ZERO_INITIALIZED_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1016,6 +1053,7 @@ extension VkImageTiling
 		case .Optimal: strBuffer.Append("VK_IMAGE_TILING_OPTIMAL");
 		case .Linear: strBuffer.Append("VK_IMAGE_TILING_LINEAR");
 		case .DrmFormatModifierEXT: strBuffer.Append("VK_IMAGE_TILING_DRM_FORMAT_MODIFIER_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1029,6 +1067,7 @@ extension VkImageType
 		case .VK_1d: strBuffer.Append("VK_IMAGE_TYPE_1D");
 		case .VK_2d: strBuffer.Append("VK_IMAGE_TYPE_2D");
 		case .VK_3d: strBuffer.Append("VK_IMAGE_TYPE_3D");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1064,6 +1103,7 @@ extension VkImageUsageFlagBits
 		case .TileMemoryQCOM: strBuffer.Append("VK_IMAGE_USAGE_TILE_MEMORY_BIT_QCOM");
 		case .VideoEncodeQuantizationDeltaMapKHR: strBuffer.Append("VK_IMAGE_USAGE_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR");
 		case .VideoEncodeEmphasisMapKHR: strBuffer.Append("VK_IMAGE_USAGE_VIDEO_ENCODE_EMPHASIS_MAP_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1077,6 +1117,7 @@ extension VkImageViewCreateFlagBits
 		case .FragmentDensityMapDynamicEXT: strBuffer.Append("VK_IMAGE_VIEW_CREATE_FRAGMENT_DENSITY_MAP_DYNAMIC_BIT_EXT");
 		case .DescriptorBufferCaptureReplayEXT: strBuffer.Append("VK_IMAGE_VIEW_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_EXT");
 		case .FragmentDensityMapDeferredEXT: strBuffer.Append("VK_IMAGE_VIEW_CREATE_FRAGMENT_DENSITY_MAP_DEFERRED_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1094,6 +1135,7 @@ extension VkImageViewType
 		case .VK_1dArray: strBuffer.Append("VK_IMAGE_VIEW_TYPE_1D_ARRAY");
 		case .VK_2dArray: strBuffer.Append("VK_IMAGE_VIEW_TYPE_2D_ARRAY");
 		case .CubeArray: strBuffer.Append("VK_IMAGE_VIEW_TYPE_CUBE_ARRAY");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1119,6 +1161,7 @@ extension VkIndirectCommandsTokenTypeEXT
 		case .DrawMeshTasksEXT: strBuffer.Append("VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_EXT");
 		case .DrawMeshTasksCountEXT: strBuffer.Append("VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_COUNT_EXT");
 		case .TraceRays2EXT: strBuffer.Append("VK_INDIRECT_COMMANDS_TOKEN_TYPE_TRACE_RAYS2_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1131,6 +1174,7 @@ extension VkSharingMode
 		{
 		case .Exclusive: strBuffer.Append("VK_SHARING_MODE_EXCLUSIVE");
 		case .Concurrent: strBuffer.Append("VK_SHARING_MODE_CONCURRENT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1145,6 +1189,7 @@ extension VkIndexType
 		case .Uint32: strBuffer.Append("VK_INDEX_TYPE_UINT32");
 		case .Uint8: strBuffer.Append("VK_INDEX_TYPE_UINT8");
 		case .NoneKHR: strBuffer.Append("VK_INDEX_TYPE_NONE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1171,6 +1216,7 @@ extension VkLogicOp
 		case .OrInverted: strBuffer.Append("VK_LOGIC_OP_OR_INVERTED");
 		case .Nand: strBuffer.Append("VK_LOGIC_OP_NAND");
 		case .Set: strBuffer.Append("VK_LOGIC_OP_SET");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1184,6 +1230,7 @@ extension VkMemoryHeapFlagBits
 		case .DeviceLocal: strBuffer.Append("VK_MEMORY_HEAP_DEVICE_LOCAL_BIT");
 		case .MultiInstance: strBuffer.Append("VK_MEMORY_HEAP_MULTI_INSTANCE_BIT");
 		case .TileMemoryQCOM: strBuffer.Append("VK_MEMORY_HEAP_TILE_MEMORY_BIT_QCOM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1223,6 +1270,7 @@ extension VkAccessFlagBits
 		case .FragmentShadingRateAttachmentReadKHR: strBuffer.Append("VK_ACCESS_FRAGMENT_SHADING_RATE_ATTACHMENT_READ_BIT_KHR");
 		case .CommandPreprocessReadEXT: strBuffer.Append("VK_ACCESS_COMMAND_PREPROCESS_READ_BIT_EXT");
 		case .CommandPreprocessWriteEXT: strBuffer.Append("VK_ACCESS_COMMAND_PREPROCESS_WRITE_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1242,6 +1290,7 @@ extension VkMemoryPropertyFlagBits
 		case .DeviceCoherentAMD: strBuffer.Append("VK_MEMORY_PROPERTY_DEVICE_COHERENT_BIT_AMD");
 		case .DeviceUncachedAMD: strBuffer.Append("VK_MEMORY_PROPERTY_DEVICE_UNCACHED_BIT_AMD");
 		case .RdmaCapableNV: strBuffer.Append("VK_MEMORY_PROPERTY_RDMA_CAPABLE_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1257,6 +1306,7 @@ extension VkPhysicalDeviceType
 		case .DiscreteGpu: strBuffer.Append("VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU");
 		case .VirtualGpu: strBuffer.Append("VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU");
 		case .Cpu: strBuffer.Append("VK_PHYSICAL_DEVICE_TYPE_CPU");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1272,6 +1322,7 @@ extension VkPipelineBindPoint
 		case .RayTracingKHR: strBuffer.Append("VK_PIPELINE_BIND_POINT_RAY_TRACING_KHR");
 		case .SubpassShadingHUAWEI: strBuffer.Append("VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI");
 		case .DataGraphARM: strBuffer.Append("VK_PIPELINE_BIND_POINT_DATA_GRAPH_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1312,6 +1363,7 @@ extension VkPipelineCreateFlagBits
 		case .ColorAttachmentFeedbackLoopEXT: strBuffer.Append("VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT");
 		case .DepthStencilAttachmentFeedbackLoopEXT: strBuffer.Append("VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT");
 		case .RayTracingOpacityMicromapEXT: strBuffer.Append("VK_PIPELINE_CREATE_RAY_TRACING_OPACITY_MICROMAP_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1333,6 +1385,7 @@ extension VkPrimitiveTopology
 		case .TriangleListWithAdjacency: strBuffer.Append("VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST_WITH_ADJACENCY");
 		case .TriangleStripWithAdjacency: strBuffer.Append("VK_PRIMITIVE_TOPOLOGY_TRIANGLE_STRIP_WITH_ADJACENCY");
 		case .PatchList: strBuffer.Append("VK_PRIMITIVE_TOPOLOGY_PATCH_LIST");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1344,6 +1397,7 @@ extension VkQueryControlFlagBits
 		switch (this)
 		{
 		case .Precise: strBuffer.Append("VK_QUERY_CONTROL_PRECISE_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1368,6 +1422,7 @@ extension VkQueryPipelineStatisticFlagBits
 		case .TaskShaderInvocationsEXT: strBuffer.Append("VK_QUERY_PIPELINE_STATISTIC_TASK_SHADER_INVOCATIONS_BIT_EXT");
 		case .MeshShaderInvocationsEXT: strBuffer.Append("VK_QUERY_PIPELINE_STATISTIC_MESH_SHADER_INVOCATIONS_BIT_EXT");
 		case .ClusterCullingShaderInvocationsHUAWEI: strBuffer.Append("VK_QUERY_PIPELINE_STATISTIC_CLUSTER_CULLING_SHADER_INVOCATIONS_BIT_HUAWEI");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1383,6 +1438,7 @@ extension VkQueryResultFlagBits
 		case .WithAvailability: strBuffer.Append("VK_QUERY_RESULT_WITH_AVAILABILITY_BIT");
 		case .Partial: strBuffer.Append("VK_QUERY_RESULT_PARTIAL_BIT");
 		case .WithStatusKHR: strBuffer.Append("VK_QUERY_RESULT_WITH_STATUS_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1410,6 +1466,7 @@ extension VkQueryType
 		case .AccelerationStructureSizeKHR: strBuffer.Append("VK_QUERY_TYPE_ACCELERATION_STRUCTURE_SIZE_KHR");
 		case .MicromapSerializationSizeEXT: strBuffer.Append("VK_QUERY_TYPE_MICROMAP_SERIALIZATION_SIZE_EXT");
 		case .MicromapCompactedSizeEXT: strBuffer.Append("VK_QUERY_TYPE_MICROMAP_COMPACTED_SIZE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1429,6 +1486,7 @@ extension VkQueueFlagBits
 		case .VideoEncodeKHR: strBuffer.Append("VK_QUEUE_VIDEO_ENCODE_BIT_KHR");
 		case .OpticalFlowNV: strBuffer.Append("VK_QUEUE_OPTICAL_FLOW_BIT_NV");
 		case .DataGraphARM: strBuffer.Append("VK_QUEUE_DATA_GRAPH_BIT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1442,6 +1500,7 @@ extension VkSubpassContents
 		case .Inline: strBuffer.Append("VK_SUBPASS_CONTENTS_INLINE");
 		case .SecondaryCommandBuffers: strBuffer.Append("VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS");
 		case .InlineAndSecondaryCommandBuffersKHR: strBuffer.Append("VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1500,6 +1559,7 @@ extension VkResult
 		case .VkIncompatibleShaderBinaryEXT: strBuffer.Append("VK_INCOMPATIBLE_SHADER_BINARY_EXT");
 		case .VkPipelineBinaryMissingKHR: strBuffer.Append("VK_PIPELINE_BINARY_MISSING_KHR");
 		case .VkErrorNotEnoughSpaceKHR: strBuffer.Append("VK_ERROR_NOT_ENOUGH_SPACE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1528,6 +1588,7 @@ extension VkShaderStageFlagBits
 		case .MeshEXT: strBuffer.Append("VK_SHADER_STAGE_MESH_BIT_EXT");
 		case .SubpassShadingHUAWEI: strBuffer.Append("VK_SHADER_STAGE_SUBPASS_SHADING_BIT_HUAWEI");
 		case .ClusterCullingHUAWEI: strBuffer.Append("VK_SHADER_STAGE_CLUSTER_CULLING_BIT_HUAWEI");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1539,6 +1600,7 @@ extension VkSparseMemoryBindFlagBits
 		switch (this)
 		{
 		case .Metadata: strBuffer.Append("VK_SPARSE_MEMORY_BIND_METADATA_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1552,6 +1614,7 @@ extension VkStencilFaceFlagBits
 		case .Front: strBuffer.Append("VK_STENCIL_FACE_FRONT_BIT");
 		case .Back: strBuffer.Append("VK_STENCIL_FACE_BACK_BIT");
 		case .FrontAndBack: strBuffer.Append("VK_STENCIL_FACE_FRONT_AND_BACK");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -1570,6 +1633,7 @@ extension VkStencilOp
 		case .Invert: strBuffer.Append("VK_STENCIL_OP_INVERT");
 		case .IncrementAndWrap: strBuffer.Append("VK_STENCIL_OP_INCREMENT_AND_WRAP");
 		case .DecrementAndWrap: strBuffer.Append("VK_STENCIL_OP_DECREMENT_AND_WRAP");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2577,6 +2641,7 @@ extension VkStructureType
 		case .VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_DEVICE_MEMORY_FEATURES_EXT");
 		case .VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_MODE_FIFO_LATEST_READY_FEATURES_KHR");
 		case .VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CACHE_INCREMENTAL_MODE_FEATURES_SEC");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2592,6 +2657,7 @@ extension VkSystemAllocationScope
 		case .Cache: strBuffer.Append("VK_SYSTEM_ALLOCATION_SCOPE_CACHE");
 		case .Device: strBuffer.Append("VK_SYSTEM_ALLOCATION_SCOPE_DEVICE");
 		case .Instance: strBuffer.Append("VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2603,6 +2669,7 @@ extension VkInternalAllocationType
 		switch (this)
 		{
 		case .Executable: strBuffer.Append("VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2618,6 +2685,7 @@ extension VkSamplerAddressMode
 		case .ClampToEdge: strBuffer.Append("VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE");
 		case .ClampToBorder: strBuffer.Append("VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER");
 		case .MirrorClampToEdge: strBuffer.Append("VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2631,6 +2699,7 @@ extension VkFilter
 		case .Nearest: strBuffer.Append("VK_FILTER_NEAREST");
 		case .Linear: strBuffer.Append("VK_FILTER_LINEAR");
 		case .CubicEXT: strBuffer.Append("VK_FILTER_CUBIC_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2643,6 +2712,7 @@ extension VkSamplerMipmapMode
 		{
 		case .Nearest: strBuffer.Append("VK_SAMPLER_MIPMAP_MODE_NEAREST");
 		case .Linear: strBuffer.Append("VK_SAMPLER_MIPMAP_MODE_LINEAR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2655,6 +2725,7 @@ extension VkVertexInputRate
 		{
 		case .Vertex: strBuffer.Append("VK_VERTEX_INPUT_RATE_VERTEX");
 		case .Instance: strBuffer.Append("VK_VERTEX_INPUT_RATE_INSTANCE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2692,6 +2763,7 @@ extension VkPipelineStageFlagBits
 		case .TaskShaderEXT: strBuffer.Append("VK_PIPELINE_STAGE_TASK_SHADER_BIT_EXT");
 		case .MeshShaderEXT: strBuffer.Append("VK_PIPELINE_STAGE_MESH_SHADER_BIT_EXT");
 		case .CommandPreprocessEXT: strBuffer.Append("VK_PIPELINE_STAGE_COMMAND_PREPROCESS_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2705,6 +2777,7 @@ extension VkSparseImageFormatFlagBits
 		case .SingleMiptail: strBuffer.Append("VK_SPARSE_IMAGE_FORMAT_SINGLE_MIPTAIL_BIT");
 		case .AlignedMipSize: strBuffer.Append("VK_SPARSE_IMAGE_FORMAT_ALIGNED_MIP_SIZE_BIT");
 		case .NonstandardBlockSize: strBuffer.Append("VK_SPARSE_IMAGE_FORMAT_NONSTANDARD_BLOCK_SIZE_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2718,6 +2791,7 @@ extension VkClusterAccelerationStructureIndexFormatFlagBitsNV
 		case .VK_8bitNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_8BIT_NV");
 		case .VK_16bitNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_16BIT_NV");
 		case .VK_32bitNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_INDEX_FORMAT_32BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2731,6 +2805,7 @@ extension VkClusterAccelerationStructureTypeNV
 		case .ClustersBottomLevelNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_CLUSTERS_BOTTOM_LEVEL_NV");
 		case .TriangleClusterNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_NV");
 		case .TriangleClusterTemplateNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_TYPE_TRIANGLE_CLUSTER_TEMPLATE_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2747,6 +2822,7 @@ extension VkClusterAccelerationStructureOpTypeNV
 		case .BuildTriangleClusterTemplateNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_BUILD_TRIANGLE_CLUSTER_TEMPLATE_NV");
 		case .InstantiateTriangleClusterNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_INSTANTIATE_TRIANGLE_CLUSTER_NV");
 		case .GetClusterTemplateIndicesNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_TYPE_GET_CLUSTER_TEMPLATE_INDICES_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2760,6 +2836,7 @@ extension VkClusterAccelerationStructureOpModeNV
 		case .ImplicitDestinationsNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_IMPLICIT_DESTINATIONS_NV");
 		case .ExplicitDestinationsNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_EXPLICIT_DESTINATIONS_NV");
 		case .ComputeSizesNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_OP_MODE_COMPUTE_SIZES_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2777,6 +2854,7 @@ extension VkSampleCountFlagBits
 		case .VK_16: strBuffer.Append("VK_SAMPLE_COUNT_16_BIT");
 		case .VK_32: strBuffer.Append("VK_SAMPLE_COUNT_32_BIT");
 		case .VK_64: strBuffer.Append("VK_SAMPLE_COUNT_64_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2788,6 +2866,7 @@ extension VkAttachmentDescriptionFlagBits
 		switch (this)
 		{
 		case .MayAlias: strBuffer.Append("VK_ATTACHMENT_DESCRIPTION_MAY_ALIAS_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2803,6 +2882,7 @@ extension VkDescriptorPoolCreateFlagBits
 		case .HostOnlyEXT: strBuffer.Append("VK_DESCRIPTOR_POOL_CREATE_HOST_ONLY_BIT_EXT");
 		case .AllowOverallocationSetsNV: strBuffer.Append("VK_DESCRIPTOR_POOL_CREATE_ALLOW_OVERALLOCATION_SETS_BIT_NV");
 		case .AllowOverallocationPoolsNV: strBuffer.Append("VK_DESCRIPTOR_POOL_CREATE_ALLOW_OVERALLOCATION_POOLS_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2819,6 +2899,7 @@ extension VkDependencyFlagBits
 		case .FeedbackLoopEXT: strBuffer.Append("VK_DEPENDENCY_FEEDBACK_LOOP_BIT_EXT");
 		case .QueueFamilyOwnershipTransferUseAllStagesKHR: strBuffer.Append("VK_DEPENDENCY_QUEUE_FAMILY_OWNERSHIP_TRANSFER_USE_ALL_STAGES_BIT_KHR");
 		case .AsymmetricEventKHR: strBuffer.Append("VK_DEPENDENCY_ASYMMETRIC_EVENT_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2884,6 +2965,7 @@ extension VkObjectType
 		case .ExternalComputeQueueNV: strBuffer.Append("VK_OBJECT_TYPE_EXTERNAL_COMPUTE_QUEUE_NV");
 		case .IndirectCommandsLayoutEXT: strBuffer.Append("VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_EXT");
 		case .IndirectExecutionSetEXT: strBuffer.Append("VK_OBJECT_TYPE_INDIRECT_EXECUTION_SET_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2895,6 +2977,7 @@ extension VkEventCreateFlagBits
 		switch (this)
 		{
 		case .DeviceOnly: strBuffer.Append("VK_EVENT_CREATE_DEVICE_ONLY_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2906,6 +2989,7 @@ extension VkPipelineLayoutCreateFlagBits
 		switch (this)
 		{
 		case .IndependentSetsEXT: strBuffer.Append("VK_PIPELINE_LAYOUT_CREATE_INDEPENDENT_SETS_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2918,6 +3002,7 @@ extension VkRayTracingInvocationReorderModeNV
 		{
 		case .NoneNV: strBuffer.Append("VK_RAY_TRACING_INVOCATION_REORDER_MODE_NONE_NV");
 		case .ReorderNV: strBuffer.Append("VK_RAY_TRACING_INVOCATION_REORDER_MODE_REORDER_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2931,6 +3016,7 @@ extension VkIndirectCommandsLayoutUsageFlagBitsNV
 		case .ExplicitPreprocessNV: strBuffer.Append("VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_NV");
 		case .IndexedSequencesNV: strBuffer.Append("VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NV");
 		case .UnorderedSequencesNV: strBuffer.Append("VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2952,6 +3038,7 @@ extension VkIndirectCommandsTokenTypeNV
 		case .DrawMeshTasksNV: strBuffer.Append("VK_INDIRECT_COMMANDS_TOKEN_TYPE_DRAW_MESH_TASKS_NV");
 		case .PipelineNV: strBuffer.Append("VK_INDIRECT_COMMANDS_TOKEN_TYPE_PIPELINE_NV");
 		case .DispatchNV: strBuffer.Append("VK_INDIRECT_COMMANDS_TOKEN_TYPE_DISPATCH_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2963,6 +3050,7 @@ extension VkIndirectStateFlagBitsNV
 		switch (this)
 		{
 		case .FlagFrontfaceNV: strBuffer.Append("VK_INDIRECT_STATE_FLAG_FRONTFACE_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2975,6 +3063,7 @@ extension VkDescriptorUpdateTemplateType
 		{
 		case .DescriptorSet: strBuffer.Append("VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_DESCRIPTOR_SET");
 		case .PushDescriptors: strBuffer.Append("VK_DESCRIPTOR_UPDATE_TEMPLATE_TYPE_PUSH_DESCRIPTORS");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -2993,6 +3082,7 @@ extension VkViewportCoordinateSwizzleNV
 		case .NegativeZNV: strBuffer.Append("VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_Z_NV");
 		case .PositiveWNV: strBuffer.Append("VK_VIEWPORT_COORDINATE_SWIZZLE_POSITIVE_W_NV");
 		case .NegativeWNV: strBuffer.Append("VK_VIEWPORT_COORDINATE_SWIZZLE_NEGATIVE_W_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3005,6 +3095,7 @@ extension VkDiscardRectangleModeEXT
 		{
 		case .InclusiveEXT: strBuffer.Append("VK_DISCARD_RECTANGLE_MODE_INCLUSIVE_EXT");
 		case .ExclusiveEXT: strBuffer.Append("VK_DISCARD_RECTANGLE_MODE_EXCLUSIVE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3024,6 +3115,7 @@ extension VkSubpassDescriptionFlagBits
 		case .RasterizationOrderAttachmentDepthAccessEXT: strBuffer.Append("VK_SUBPASS_DESCRIPTION_RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT_EXT");
 		case .RasterizationOrderAttachmentStencilAccessEXT: strBuffer.Append("VK_SUBPASS_DESCRIPTION_RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT_EXT");
 		case .EnableLegacyDitheringEXT: strBuffer.Append("VK_SUBPASS_DESCRIPTION_ENABLE_LEGACY_DITHERING_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3036,6 +3128,7 @@ extension VkPointClippingBehavior
 		{
 		case .AllClipPlanes: strBuffer.Append("VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES");
 		case .UserClipPlanesOnly: strBuffer.Append("VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3050,6 +3143,7 @@ extension VkCoverageModulationModeNV
 		case .RgbNV: strBuffer.Append("VK_COVERAGE_MODULATION_MODE_RGB_NV");
 		case .AlphaNV: strBuffer.Append("VK_COVERAGE_MODULATION_MODE_ALPHA_NV");
 		case .RgbaNV: strBuffer.Append("VK_COVERAGE_MODULATION_MODE_RGBA_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3062,6 +3156,7 @@ extension VkCoverageReductionModeNV
 		{
 		case .MergeNV: strBuffer.Append("VK_COVERAGE_REDUCTION_MODE_MERGE_NV");
 		case .TruncateNV: strBuffer.Append("VK_COVERAGE_REDUCTION_MODE_TRUNCATE_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3073,6 +3168,7 @@ extension VkValidationCacheHeaderVersionEXT
 		switch (this)
 		{
 		case .OneEXT: strBuffer.Append("VK_VALIDATION_CACHE_HEADER_VERSION_ONE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3086,6 +3182,7 @@ extension VkShaderInfoTypeAMD
 		case .StatisticsAMD: strBuffer.Append("VK_SHADER_INFO_TYPE_STATISTICS_AMD");
 		case .BinaryAMD: strBuffer.Append("VK_SHADER_INFO_TYPE_BINARY_AMD");
 		case .DisassemblyAMD: strBuffer.Append("VK_SHADER_INFO_TYPE_DISASSEMBLY_AMD");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3100,6 +3197,7 @@ extension VkQueueGlobalPriority
 		case .Medium: strBuffer.Append("VK_QUEUE_GLOBAL_PRIORITY_MEDIUM");
 		case .High: strBuffer.Append("VK_QUEUE_GLOBAL_PRIORITY_HIGH");
 		case .Realtime: strBuffer.Append("VK_QUEUE_GLOBAL_PRIORITY_REALTIME");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3114,6 +3212,7 @@ extension VkTimeDomainKHR
 		case .ClockMonotonicKHR: strBuffer.Append("VK_TIME_DOMAIN_CLOCK_MONOTONIC_KHR");
 		case .ClockMonotonicRawKHR: strBuffer.Append("VK_TIME_DOMAIN_CLOCK_MONOTONIC_RAW_KHR");
 		case .QueryPerformanceCounterKHR: strBuffer.Append("VK_TIME_DOMAIN_QUERY_PERFORMANCE_COUNTER_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3127,6 +3226,7 @@ extension VkConservativeRasterizationModeEXT
 		case .DisabledEXT: strBuffer.Append("VK_CONSERVATIVE_RASTERIZATION_MODE_DISABLED_EXT");
 		case .OverestimateEXT: strBuffer.Append("VK_CONSERVATIVE_RASTERIZATION_MODE_OVERESTIMATE_EXT");
 		case .UnderestimateEXT: strBuffer.Append("VK_CONSERVATIVE_RASTERIZATION_MODE_UNDERESTIMATE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3142,6 +3242,7 @@ extension VkResolveModeFlagBits
 		case .Average: strBuffer.Append("VK_RESOLVE_MODE_AVERAGE_BIT");
 		case .Min: strBuffer.Append("VK_RESOLVE_MODE_MIN_BIT");
 		case .Max: strBuffer.Append("VK_RESOLVE_MODE_MAX_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3156,6 +3257,7 @@ extension VkDescriptorBindingFlagBits
 		case .UpdateUnusedWhilePending: strBuffer.Append("VK_DESCRIPTOR_BINDING_UPDATE_UNUSED_WHILE_PENDING_BIT");
 		case .PartiallyBound: strBuffer.Append("VK_DESCRIPTOR_BINDING_PARTIALLY_BOUND_BIT");
 		case .VariableDescriptorCount: strBuffer.Append("VK_DESCRIPTOR_BINDING_VARIABLE_DESCRIPTOR_COUNT_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3167,6 +3269,7 @@ extension VkConditionalRenderingFlagBitsEXT
 		switch (this)
 		{
 		case .InvertedEXT: strBuffer.Append("VK_CONDITIONAL_RENDERING_INVERTED_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3179,6 +3282,7 @@ extension VkSemaphoreType
 		{
 		case .Binary: strBuffer.Append("VK_SEMAPHORE_TYPE_BINARY");
 		case .Timeline: strBuffer.Append("VK_SEMAPHORE_TYPE_TIMELINE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3191,6 +3295,7 @@ extension VkGeometryFlagBitsKHR
 		{
 		case .OpaqueKHR: strBuffer.Append("VK_GEOMETRY_OPAQUE_BIT_KHR");
 		case .NoDuplicateAnyHitInvocationKHR: strBuffer.Append("VK_GEOMETRY_NO_DUPLICATE_ANY_HIT_INVOCATION_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3207,6 +3312,7 @@ extension VkGeometryInstanceFlagBitsKHR
 		case .ForceNoOpaqueKHR: strBuffer.Append("VK_GEOMETRY_INSTANCE_FORCE_NO_OPAQUE_BIT_KHR");
 		case .VkGeometryInstanceForceOpacityMicromap2StateEXT: strBuffer.Append("VK_GEOMETRY_INSTANCE_FORCE_OPACITY_MICROMAP_2_STATE_BIT_EXT");
 		case .VkGeometryInstanceDisableOpacityMicromapsEXT: strBuffer.Append("VK_GEOMETRY_INSTANCE_DISABLE_OPACITY_MICROMAPS_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3224,6 +3330,7 @@ extension VkClusterAccelerationStructureAddressResolutionFlagBitsNV
 		case .IndirectedDstSizesArrayNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_DST_SIZES_ARRAY_BIT_NV");
 		case .IndirectedSrcInfosArrayNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_SRC_INFOS_ARRAY_BIT_NV");
 		case .IndirectedSrcInfosCountNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_ADDRESS_RESOLUTION_INDIRECTED_SRC_INFOS_COUNT_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3237,6 +3344,7 @@ extension VkClusterAccelerationStructureGeometryFlagBitsNV
 		case .CullDisableNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_CULL_DISABLE_BIT_NV");
 		case .NoDuplicateAnyhitInvocationNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_NO_DUPLICATE_ANYHIT_INVOCATION_BIT_NV");
 		case .OpaqueNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_GEOMETRY_OPAQUE_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3248,6 +3356,7 @@ extension VkClusterAccelerationStructureClusterFlagBitsNV
 		switch (this)
 		{
 		case .AllowDisableOpacityMicromapsNV: strBuffer.Append("VK_CLUSTER_ACCELERATION_STRUCTURE_CLUSTER_ALLOW_DISABLE_OPACITY_MICROMAPS_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3268,6 +3377,7 @@ extension VkBuildAccelerationStructureFlagBitsKHR
 		case .VkBuildAccelerationStructureAllowDisableOpacityMicromapsEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT");
 		case .VkBuildAccelerationStructureAllowOpacityMicromapDataUpdateEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_BIT_EXT");
 		case .AllowDataAccessKHR: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3281,6 +3391,7 @@ extension VkAccelerationStructureCreateFlagBitsKHR
 		case .DeviceAddressCaptureReplayKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT_KHR");
 		case .VkAccelerationStructureCreateDescriptorBufferCaptureReplayEXT: strBuffer.Append("VK_ACCELERATION_STRUCTURE_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_EXT");
 		case .VkAccelerationStructureCreateMotionNV: strBuffer.Append("VK_ACCELERATION_STRUCTURE_CREATE_MOTION_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3293,6 +3404,7 @@ extension VkBuildAccelerationStructureModeKHR
 		{
 		case .BuildKHR: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_MODE_BUILD_KHR");
 		case .UpdateKHR: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_MODE_UPDATE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3307,6 +3419,7 @@ extension VkCopyAccelerationStructureModeKHR
 		case .CompactKHR: strBuffer.Append("VK_COPY_ACCELERATION_STRUCTURE_MODE_COMPACT_KHR");
 		case .SerializeKHR: strBuffer.Append("VK_COPY_ACCELERATION_STRUCTURE_MODE_SERIALIZE_KHR");
 		case .DeserializeKHR: strBuffer.Append("VK_COPY_ACCELERATION_STRUCTURE_MODE_DESERIALIZE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3320,6 +3433,7 @@ extension VkAccelerationStructureTypeKHR
 		case .TopLevelKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL_KHR");
 		case .BottomLevelKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL_KHR");
 		case .GenericKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_TYPE_GENERIC_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3335,6 +3449,7 @@ extension VkGeometryTypeKHR
 		case .InstancesKHR: strBuffer.Append("VK_GEOMETRY_TYPE_INSTANCES_KHR");
 		case .VkGeometryTypeSpheresNV: strBuffer.Append("VK_GEOMETRY_TYPE_SPHERES_NV");
 		case .VkGeometryTypeLinearSweptSpheresNV: strBuffer.Append("VK_GEOMETRY_TYPE_LINEAR_SWEPT_SPHERES_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3348,6 +3463,7 @@ extension VkRayTracingShaderGroupTypeKHR
 		case .GeneralKHR: strBuffer.Append("VK_RAY_TRACING_SHADER_GROUP_TYPE_GENERAL_KHR");
 		case .TrianglesHitGroupKHR: strBuffer.Append("VK_RAY_TRACING_SHADER_GROUP_TYPE_TRIANGLES_HIT_GROUP_KHR");
 		case .ProceduralHitGroupKHR: strBuffer.Append("VK_RAY_TRACING_SHADER_GROUP_TYPE_PROCEDURAL_HIT_GROUP_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3361,6 +3477,7 @@ extension VkAccelerationStructureMemoryRequirementsTypeNV
 		case .ObjectNV: strBuffer.Append("VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_OBJECT_NV");
 		case .BuildScratchNV: strBuffer.Append("VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_BUILD_SCRATCH_NV");
 		case .UpdateScratchNV: strBuffer.Append("VK_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_TYPE_UPDATE_SCRATCH_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3374,6 +3491,7 @@ extension VkAccelerationStructureBuildTypeKHR
 		case .HostKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_KHR");
 		case .DeviceKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_BUILD_TYPE_DEVICE_KHR");
 		case .HostOrDeviceKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_BUILD_TYPE_HOST_OR_DEVICE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3386,6 +3504,7 @@ extension VkAccelerationStructureCompatibilityKHR
 		{
 		case .CompatibleKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_COMPATIBILITY_COMPATIBLE_KHR");
 		case .IncompatibleKHR: strBuffer.Append("VK_ACCELERATION_STRUCTURE_COMPATIBILITY_INCOMPATIBLE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3398,6 +3517,7 @@ extension VkRayTracingLssIndexingModeNV
 		{
 		case .ListNV: strBuffer.Append("VK_RAY_TRACING_LSS_INDEXING_MODE_LIST_NV");
 		case .SuccessiveNV: strBuffer.Append("VK_RAY_TRACING_LSS_INDEXING_MODE_SUCCESSIVE_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3410,6 +3530,7 @@ extension VkRayTracingLssPrimitiveEndCapsModeNV
 		{
 		case .NoneNV: strBuffer.Append("VK_RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_NONE_NV");
 		case .ChainedNV: strBuffer.Append("VK_RAY_TRACING_LSS_PRIMITIVE_END_CAPS_MODE_CHAINED_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3424,6 +3545,7 @@ extension VkShaderGroupShaderKHR
 		case .ClosestHitKHR: strBuffer.Append("VK_SHADER_GROUP_SHADER_CLOSEST_HIT_KHR");
 		case .AnyHitKHR: strBuffer.Append("VK_SHADER_GROUP_SHADER_ANY_HIT_KHR");
 		case .IntersectionKHR: strBuffer.Append("VK_SHADER_GROUP_SHADER_INTERSECTION_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3437,6 +3559,7 @@ extension VkMemoryOverallocationBehaviorAMD
 		case .DefaultAMD: strBuffer.Append("VK_MEMORY_OVERALLOCATION_BEHAVIOR_DEFAULT_AMD");
 		case .AllowedAMD: strBuffer.Append("VK_MEMORY_OVERALLOCATION_BEHAVIOR_ALLOWED_AMD");
 		case .DisallowedAMD: strBuffer.Append("VK_MEMORY_OVERALLOCATION_BEHAVIOR_DISALLOWED_AMD");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3451,6 +3574,7 @@ extension VkDeviceDiagnosticsConfigFlagBitsNV
 		case .EnableResourceTrackingNV: strBuffer.Append("VK_DEVICE_DIAGNOSTICS_CONFIG_ENABLE_RESOURCE_TRACKING_BIT_NV");
 		case .EnableAutomaticCheckpointsNV: strBuffer.Append("VK_DEVICE_DIAGNOSTICS_CONFIG_ENABLE_AUTOMATIC_CHECKPOINTS_BIT_NV");
 		case .EnableShaderErrorReportingNV: strBuffer.Append("VK_DEVICE_DIAGNOSTICS_CONFIG_ENABLE_SHADER_ERROR_REPORTING_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3464,6 +3588,7 @@ extension VkPipelineCreationFeedbackFlagBits
 		case .Valid: strBuffer.Append("VK_PIPELINE_CREATION_FEEDBACK_VALID_BIT");
 		case .ApplicationPipelineCacheHit: strBuffer.Append("VK_PIPELINE_CREATION_FEEDBACK_APPLICATION_PIPELINE_CACHE_HIT_BIT");
 		case .BasePipelineAcceleration: strBuffer.Append("VK_PIPELINE_CREATION_FEEDBACK_BASE_PIPELINE_ACCELERATION_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3477,6 +3602,7 @@ extension VkPerformanceCounterScopeKHR
 		case .CommandBufferKHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_BUFFER_KHR");
 		case .RenderPassKHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_SCOPE_RENDER_PASS_KHR");
 		case .CommandKHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_SCOPE_COMMAND_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3498,6 +3624,7 @@ extension VkPerformanceCounterUnitKHR
 		case .AmpsKHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_UNIT_AMPS_KHR");
 		case .HertzKHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_UNIT_HERTZ_KHR");
 		case .CyclesKHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_UNIT_CYCLES_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3514,6 +3641,7 @@ extension VkPerformanceCounterStorageKHR
 		case .Uint64KHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_STORAGE_UINT64_KHR");
 		case .Float32KHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_STORAGE_FLOAT32_KHR");
 		case .Float64KHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_STORAGE_FLOAT64_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3526,6 +3654,7 @@ extension VkPerformanceCounterDescriptionFlagBitsKHR
 		{
 		case .PerformanceImpactingKHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_DESCRIPTION_PERFORMANCE_IMPACTING_BIT_KHR");
 		case .ConcurrentlyImpactedKHR: strBuffer.Append("VK_PERFORMANCE_COUNTER_DESCRIPTION_CONCURRENTLY_IMPACTED_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3536,6 +3665,7 @@ extension VkAcquireProfilingLockFlagBitsKHR
 	{
 		switch (this)
 		{
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3547,6 +3677,7 @@ extension VkSemaphoreWaitFlagBits
 		switch (this)
 		{
 		case .Any: strBuffer.Append("VK_SEMAPHORE_WAIT_ANY_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3558,6 +3689,7 @@ extension VkPerformanceConfigurationTypeINTEL
 		switch (this)
 		{
 		case .CommandQueueMetricsDiscoveryActivatedINTEL: strBuffer.Append("VK_PERFORMANCE_CONFIGURATION_TYPE_COMMAND_QUEUE_METRICS_DISCOVERY_ACTIVATED_INTEL");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3569,6 +3701,7 @@ extension VkQueryPoolSamplingModeINTEL
 		switch (this)
 		{
 		case .ManualINTEL: strBuffer.Append("VK_QUERY_POOL_SAMPLING_MODE_MANUAL_INTEL");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3581,6 +3714,7 @@ extension VkPerformanceOverrideTypeINTEL
 		{
 		case .NullHardwareINTEL: strBuffer.Append("VK_PERFORMANCE_OVERRIDE_TYPE_NULL_HARDWARE_INTEL");
 		case .FlushGpuCachesINTEL: strBuffer.Append("VK_PERFORMANCE_OVERRIDE_TYPE_FLUSH_GPU_CACHES_INTEL");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3593,6 +3727,7 @@ extension VkPerformanceParameterTypeINTEL
 		{
 		case .HwCountersSupportedINTEL: strBuffer.Append("VK_PERFORMANCE_PARAMETER_TYPE_HW_COUNTERS_SUPPORTED_INTEL");
 		case .StreamMarkerValidBitsINTEL: strBuffer.Append("VK_PERFORMANCE_PARAMETER_TYPE_STREAM_MARKER_VALID_BITS_INTEL");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3608,6 +3743,7 @@ extension VkPerformanceValueTypeINTEL
 		case .FloatINTEL: strBuffer.Append("VK_PERFORMANCE_VALUE_TYPE_FLOAT_INTEL");
 		case .BoolINTEL: strBuffer.Append("VK_PERFORMANCE_VALUE_TYPE_BOOL_INTEL");
 		case .StringINTEL: strBuffer.Append("VK_PERFORMANCE_VALUE_TYPE_STRING_INTEL");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3622,6 +3758,7 @@ extension VkLineRasterizationMode
 		case .Rectangular: strBuffer.Append("VK_LINE_RASTERIZATION_MODE_RECTANGULAR");
 		case .Bresenham: strBuffer.Append("VK_LINE_RASTERIZATION_MODE_BRESENHAM");
 		case .RectangularSmooth: strBuffer.Append("VK_LINE_RASTERIZATION_MODE_RECTANGULAR_SMOOTH");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3632,6 +3769,7 @@ extension VkPipelineCompilerControlFlagBitsAMD
 	{
 		switch (this)
 		{
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3642,6 +3780,7 @@ extension VkShaderCorePropertiesFlagBitsAMD
 	{
 		switch (this)
 		{
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3659,6 +3798,7 @@ extension VkToolPurposeFlagBits
 		case .ModifyingFeatures: strBuffer.Append("VK_TOOL_PURPOSE_MODIFYING_FEATURES_BIT");
 		case .DebugReportingEXT: strBuffer.Append("VK_TOOL_PURPOSE_DEBUG_REPORTING_BIT_EXT");
 		case .DebugMarkersEXT: strBuffer.Append("VK_TOOL_PURPOSE_DEBUG_MARKERS_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3681,6 +3821,7 @@ extension VkFragmentShadingRateNV
 		case .VK_8InvocationsPerPixelNV: strBuffer.Append("VK_FRAGMENT_SHADING_RATE_8_INVOCATIONS_PER_PIXEL_NV");
 		case .VK_16InvocationsPerPixelNV: strBuffer.Append("VK_FRAGMENT_SHADING_RATE_16_INVOCATIONS_PER_PIXEL_NV");
 		case .NoInvocationsNV: strBuffer.Append("VK_FRAGMENT_SHADING_RATE_NO_INVOCATIONS_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3693,6 +3834,7 @@ extension VkFragmentShadingRateTypeNV
 		{
 		case .FragmentSizeNV: strBuffer.Append("VK_FRAGMENT_SHADING_RATE_TYPE_FRAGMENT_SIZE_NV");
 		case .EnumsNV: strBuffer.Append("VK_FRAGMENT_SHADING_RATE_TYPE_ENUMS_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3717,6 +3859,7 @@ extension VkSubpassMergeStatusEXT
 		case .NotMergedResolveAttachmentReuseEXT: strBuffer.Append("VK_SUBPASS_MERGE_STATUS_NOT_MERGED_RESOLVE_ATTACHMENT_REUSE_EXT");
 		case .NotMergedSingleSubpassEXT: strBuffer.Append("VK_SUBPASS_MERGE_STATUS_NOT_MERGED_SINGLE_SUBPASS_EXT");
 		case .NotMergedUnspecifiedEXT: strBuffer.Append("VK_SUBPASS_MERGE_STATUS_NOT_MERGED_UNSPECIFIED_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3774,6 +3917,7 @@ extension VkAccessFlagBits2
 		case .OpticalFlowWriteNV: strBuffer.Append("VK_ACCESS_2_OPTICAL_FLOW_WRITE_BIT_NV");
 		case .DataGraphReadARM: strBuffer.Append("VK_ACCESS_2_DATA_GRAPH_READ_BIT_ARM");
 		case .DataGraphWriteARM: strBuffer.Append("VK_ACCESS_2_DATA_GRAPH_WRITE_BIT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3828,6 +3972,7 @@ extension VkPipelineStageFlagBits2
 		case .OpticalFlowNV: strBuffer.Append("VK_PIPELINE_STAGE_2_OPTICAL_FLOW_BIT_NV");
 		case .ConvertCooperativeVectorMatrixNV: strBuffer.Append("VK_PIPELINE_STAGE_2_CONVERT_COOPERATIVE_VECTOR_MATRIX_BIT_NV");
 		case .DataGraphARM: strBuffer.Append("VK_PIPELINE_STAGE_2_DATA_GRAPH_BIT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3840,6 +3985,7 @@ extension VkProvokingVertexModeEXT
 		{
 		case .FirstVertexEXT: strBuffer.Append("VK_PROVOKING_VERTEX_MODE_FIRST_VERTEX_EXT");
 		case .LastVertexEXT: strBuffer.Append("VK_PROVOKING_VERTEX_MODE_LAST_VERTEX_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3851,6 +3997,7 @@ extension VkHostImageCopyFlagBits
 		switch (this)
 		{
 		case .Memcpy: strBuffer.Append("VK_HOST_IMAGE_COPY_MEMCPY_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3910,6 +4057,7 @@ extension VkFormatFeatureFlagBits2
 		case .TensorDataGraphARM: strBuffer.Append("VK_FORMAT_FEATURE_2_TENSOR_DATA_GRAPH_BIT_ARM");
 		case .VideoEncodeQuantizationDeltaMapKHR: strBuffer.Append("VK_FORMAT_FEATURE_2_VIDEO_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR");
 		case .VideoEncodeEmphasisMapKHR: strBuffer.Append("VK_FORMAT_FEATURE_2_VIDEO_ENCODE_EMPHASIS_MAP_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3926,6 +4074,7 @@ extension VkRenderingFlagBits
 		case .EnableLegacyDitheringEXT: strBuffer.Append("VK_RENDERING_ENABLE_LEGACY_DITHERING_BIT_EXT");
 		case .ContentsInlineKHR: strBuffer.Append("VK_RENDERING_CONTENTS_INLINE_BIT_KHR");
 		case .PerLayerFragmentDensityVALVE: strBuffer.Append("VK_RENDERING_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3938,6 +4087,7 @@ extension VkPipelineDepthStencilStateCreateFlagBits
 		{
 		case .RasterizationOrderAttachmentDepthAccessEXT: strBuffer.Append("VK_PIPELINE_DEPTH_STENCIL_STATE_CREATE_RASTERIZATION_ORDER_ATTACHMENT_DEPTH_ACCESS_BIT_EXT");
 		case .RasterizationOrderAttachmentStencilAccessEXT: strBuffer.Append("VK_PIPELINE_DEPTH_STENCIL_STATE_CREATE_RASTERIZATION_ORDER_ATTACHMENT_STENCIL_ACCESS_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3949,6 +4099,7 @@ extension VkPipelineColorBlendStateCreateFlagBits
 		switch (this)
 		{
 		case .RasterizationOrderAttachmentAccessEXT: strBuffer.Append("VK_PIPELINE_COLOR_BLEND_STATE_CREATE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3963,6 +4114,7 @@ extension VkImageCompressionFlagBitsEXT
 		case .FixedRateDefaultEXT: strBuffer.Append("VK_IMAGE_COMPRESSION_FIXED_RATE_DEFAULT_EXT");
 		case .FixedRateExplicitEXT: strBuffer.Append("VK_IMAGE_COMPRESSION_FIXED_RATE_EXPLICIT_EXT");
 		case .DisabledEXT: strBuffer.Append("VK_IMAGE_COMPRESSION_DISABLED_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -3998,6 +4150,7 @@ extension VkImageCompressionFixedRateFlagBitsEXT
 		case .VK_22bpcEXT: strBuffer.Append("VK_IMAGE_COMPRESSION_FIXED_RATE_22BPC_BIT_EXT");
 		case .VK_23bpcEXT: strBuffer.Append("VK_IMAGE_COMPRESSION_FIXED_RATE_23BPC_BIT_EXT");
 		case .VK_24bpcEXT: strBuffer.Append("VK_IMAGE_COMPRESSION_FIXED_RATE_24BPC_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4012,6 +4165,7 @@ extension VkPipelineRobustnessBufferBehavior
 		case .Disabled: strBuffer.Append("VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_DISABLED");
 		case .RobustBufferAccess: strBuffer.Append("VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS");
 		case .RobustBufferAccess2: strBuffer.Append("VK_PIPELINE_ROBUSTNESS_BUFFER_BEHAVIOR_ROBUST_BUFFER_ACCESS_2");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4026,6 +4180,7 @@ extension VkPipelineRobustnessImageBehavior
 		case .Disabled: strBuffer.Append("VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_DISABLED");
 		case .RobustImageAccess: strBuffer.Append("VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS");
 		case .RobustImageAccess2: strBuffer.Append("VK_PIPELINE_ROBUSTNESS_IMAGE_BEHAVIOR_ROBUST_IMAGE_ACCESS_2");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4037,6 +4192,7 @@ extension VkDeviceAddressBindingFlagBitsEXT
 		switch (this)
 		{
 		case .InternalObjectEXT: strBuffer.Append("VK_DEVICE_ADDRESS_BINDING_INTERNAL_OBJECT_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4049,6 +4205,7 @@ extension VkDeviceAddressBindingTypeEXT
 		{
 		case .BindEXT: strBuffer.Append("VK_DEVICE_ADDRESS_BINDING_TYPE_BIND_EXT");
 		case .UnbindEXT: strBuffer.Append("VK_DEVICE_ADDRESS_BINDING_TYPE_UNBIND_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4060,6 +4217,7 @@ extension VkMicromapTypeEXT
 		switch (this)
 		{
 		case .OpacityMicromapEXT: strBuffer.Append("VK_MICROMAP_TYPE_OPACITY_MICROMAP_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4071,6 +4229,7 @@ extension VkBuildMicromapModeEXT
 		switch (this)
 		{
 		case .BuildEXT: strBuffer.Append("VK_BUILD_MICROMAP_MODE_BUILD_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4085,6 +4244,7 @@ extension VkCopyMicromapModeEXT
 		case .SerializeEXT: strBuffer.Append("VK_COPY_MICROMAP_MODE_SERIALIZE_EXT");
 		case .DeserializeEXT: strBuffer.Append("VK_COPY_MICROMAP_MODE_DESERIALIZE_EXT");
 		case .CompactEXT: strBuffer.Append("VK_COPY_MICROMAP_MODE_COMPACT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4098,6 +4258,7 @@ extension VkBuildMicromapFlagBitsEXT
 		case .PreferFastTraceEXT: strBuffer.Append("VK_BUILD_MICROMAP_PREFER_FAST_TRACE_BIT_EXT");
 		case .PreferFastBuildEXT: strBuffer.Append("VK_BUILD_MICROMAP_PREFER_FAST_BUILD_BIT_EXT");
 		case .AllowCompactionEXT: strBuffer.Append("VK_BUILD_MICROMAP_ALLOW_COMPACTION_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4109,6 +4270,7 @@ extension VkMicromapCreateFlagBitsEXT
 		switch (this)
 		{
 		case .DeviceAddressCaptureReplayEXT: strBuffer.Append("VK_MICROMAP_CREATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4121,6 +4283,7 @@ extension VkOpacityMicromapFormatEXT
 		{
 		case .VK_2StateEXT: strBuffer.Append("VK_OPACITY_MICROMAP_FORMAT_2_STATE_EXT");
 		case .VK_4StateEXT: strBuffer.Append("VK_OPACITY_MICROMAP_FORMAT_4_STATE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4136,6 +4299,7 @@ extension VkOpacityMicromapSpecialIndexEXT
 		case .FullyUnknownTransparentEXT: strBuffer.Append("VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_TRANSPARENT_EXT");
 		case .FullyUnknownOpaqueEXT: strBuffer.Append("VK_OPACITY_MICROMAP_SPECIAL_INDEX_FULLY_UNKNOWN_OPAQUE_EXT");
 		case .VkOpacityMicromapSpecialIndexClusterGeometryDisableOpacityMicromapNV: strBuffer.Append("VK_OPACITY_MICROMAP_SPECIAL_INDEX_CLUSTER_GEOMETRY_DISABLE_OPACITY_MICROMAP_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4147,6 +4311,7 @@ extension VkDeviceFaultVendorBinaryHeaderVersionEXT
 		switch (this)
 		{
 		case .OneEXT: strBuffer.Append("VK_DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4159,6 +4324,7 @@ extension VkIndirectCommandsLayoutUsageFlagBitsEXT
 		{
 		case .ExplicitPreprocessEXT: strBuffer.Append("VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EXPLICIT_PREPROCESS_BIT_EXT");
 		case .UnorderedSequencesEXT: strBuffer.Append("VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4171,6 +4337,7 @@ extension VkIndirectExecutionSetInfoTypeEXT
 		{
 		case .PipelinesEXT: strBuffer.Append("VK_INDIRECT_EXECUTION_SET_INFO_TYPE_PIPELINES_EXT");
 		case .ShaderObjectsEXT: strBuffer.Append("VK_INDIRECT_EXECUTION_SET_INFO_TYPE_SHADER_OBJECTS_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4183,6 +4350,7 @@ extension VkIndirectCommandsInputModeFlagBitsEXT
 		{
 		case .VulkanIndexBufferEXT: strBuffer.Append("VK_INDIRECT_COMMANDS_INPUT_MODE_VULKAN_INDEX_BUFFER_EXT");
 		case .DxgiIndexBufferEXT: strBuffer.Append("VK_INDIRECT_COMMANDS_INPUT_MODE_DXGI_INDEX_BUFFER_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4194,6 +4362,7 @@ extension VkFrameBoundaryFlagBitsEXT
 		switch (this)
 		{
 		case .FrameEndEXT: strBuffer.Append("VK_FRAME_BOUNDARY_FRAME_END_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4205,6 +4374,7 @@ extension VkMemoryDecompressionMethodFlagBitsNV
 		switch (this)
 		{
 		case .Gdeflate10NV: strBuffer.Append("VK_MEMORY_DECOMPRESSION_METHOD_GDEFLATE_1_0_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4218,6 +4388,7 @@ extension VkDepthBiasRepresentationEXT
 		case .LeastRepresentableValueFormatEXT: strBuffer.Append("VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORMAT_EXT");
 		case .LeastRepresentableValueForceUnormEXT: strBuffer.Append("VK_DEPTH_BIAS_REPRESENTATION_LEAST_REPRESENTABLE_VALUE_FORCE_UNORM_EXT");
 		case .FloatEXT: strBuffer.Append("VK_DEPTH_BIAS_REPRESENTATION_FLOAT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4230,6 +4401,7 @@ extension VkDirectDriverLoadingModeLUNARG
 		{
 		case .ExclusiveLUNARG: strBuffer.Append("VK_DIRECT_DRIVER_LOADING_MODE_EXCLUSIVE_LUNARG");
 		case .InclusiveLUNARG: strBuffer.Append("VK_DIRECT_DRIVER_LOADING_MODE_INCLUSIVE_LUNARG");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4277,6 +4449,7 @@ extension VkPipelineCreateFlagBits2
 		case .CaptureDataKHR: strBuffer.Append("VK_PIPELINE_CREATE_2_CAPTURE_DATA_BIT_KHR");
 		case .IndirectBindableEXT: strBuffer.Append("VK_PIPELINE_CREATE_2_INDIRECT_BINDABLE_BIT_EXT");
 		case .PerLayerFragmentDensityVALVE: strBuffer.Append("VK_PIPELINE_CREATE_2_PER_LAYER_FRAGMENT_DENSITY_BIT_VALVE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4315,6 +4488,7 @@ extension VkBufferUsageFlagBits2
 		case .DataGraphForeignDescriptorARM: strBuffer.Append("VK_BUFFER_USAGE_2_DATA_GRAPH_FOREIGN_DESCRIPTOR_BIT_ARM");
 		case .TileMemoryQCOM: strBuffer.Append("VK_BUFFER_USAGE_2_TILE_MEMORY_BIT_QCOM");
 		case .PreprocessBufferEXT: strBuffer.Append("VK_BUFFER_USAGE_2_PREPROCESS_BUFFER_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4328,6 +4502,7 @@ extension VkPartitionedAccelerationStructureOpTypeNV
 		case .WriteInstanceNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_INSTANCE_NV");
 		case .UpdateInstanceNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_UPDATE_INSTANCE_NV");
 		case .WritePartitionTranslationNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_OP_TYPE_WRITE_PARTITION_TRANSLATION_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4343,6 +4518,7 @@ extension VkPartitionedAccelerationStructureInstanceFlagBitsNV
 		case .FlagForceOpaqueNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_FORCE_OPAQUE_BIT_NV");
 		case .FlagForceNoOpaqueNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_FORCE_NO_OPAQUE_BIT_NV");
 		case .FlagEnableExplicitBoundingBoxNV: strBuffer.Append("VK_PARTITIONED_ACCELERATION_STRUCTURE_INSTANCE_FLAG_ENABLE_EXPLICIT_BOUNDING_BOX_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4356,6 +4532,7 @@ extension VkAntiLagModeAMD
 		case .DriverControlAMD: strBuffer.Append("VK_ANTI_LAG_MODE_DRIVER_CONTROL_AMD");
 		case .OnAMD: strBuffer.Append("VK_ANTI_LAG_MODE_ON_AMD");
 		case .OffAMD: strBuffer.Append("VK_ANTI_LAG_MODE_OFF_AMD");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4368,6 +4545,7 @@ extension VkAntiLagStageAMD
 		{
 		case .InputAMD: strBuffer.Append("VK_ANTI_LAG_STAGE_INPUT_AMD");
 		case .PresentAMD: strBuffer.Append("VK_ANTI_LAG_STAGE_PRESENT_AMD");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4386,6 +4564,7 @@ extension VkShaderCreateFlagBitsEXT
 		case .FragmentShadingRateAttachmentEXT: strBuffer.Append("VK_SHADER_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_EXT");
 		case .FragmentDensityMapAttachmentEXT: strBuffer.Append("VK_SHADER_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT");
 		case .IndirectBindableEXT: strBuffer.Append("VK_SHADER_CREATE_INDIRECT_BINDABLE_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4398,6 +4577,7 @@ extension VkShaderCodeTypeEXT
 		{
 		case .BinaryEXT: strBuffer.Append("VK_SHADER_CODE_TYPE_BINARY_EXT");
 		case .SpirvEXT: strBuffer.Append("VK_SHADER_CODE_TYPE_SPIRV_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4412,6 +4592,7 @@ extension VkScopeKHR
 		case .WorkgroupKHR: strBuffer.Append("VK_SCOPE_WORKGROUP_KHR");
 		case .SubgroupKHR: strBuffer.Append("VK_SCOPE_SUBGROUP_KHR");
 		case .QueueFamilyKHR: strBuffer.Append("VK_SCOPE_QUEUE_FAMILY_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4438,6 +4619,7 @@ extension VkComponentTypeKHR
 		case .VkComponentTypeUint8PackedNV: strBuffer.Append("VK_COMPONENT_TYPE_UINT8_PACKED_NV");
 		case .VkComponentTypeFloat8E4m3EXT: strBuffer.Append("VK_COMPONENT_TYPE_FLOAT8_E4M3_EXT");
 		case .VkComponentTypeFloat8E5m2EXT: strBuffer.Append("VK_COMPONENT_TYPE_FLOAT8_E5M2_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4452,6 +4634,7 @@ extension VkCubicFilterWeightsQCOM
 		case .ZeroTangentCardinalQCOM: strBuffer.Append("VK_CUBIC_FILTER_WEIGHTS_ZERO_TANGENT_CARDINAL_QCOM");
 		case .BSplineQCOM: strBuffer.Append("VK_CUBIC_FILTER_WEIGHTS_B_SPLINE_QCOM");
 		case .MitchellNetravaliQCOM: strBuffer.Append("VK_CUBIC_FILTER_WEIGHTS_MITCHELL_NETRAVALI_QCOM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4464,6 +4647,7 @@ extension VkBlockMatchWindowCompareModeQCOM
 		{
 		case .MinQCOM: strBuffer.Append("VK_BLOCK_MATCH_WINDOW_COMPARE_MODE_MIN_QCOM");
 		case .MaxQCOM: strBuffer.Append("VK_BLOCK_MATCH_WINDOW_COMPARE_MODE_MAX_QCOM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4476,6 +4660,7 @@ extension VkLayeredDriverUnderlyingApiMSFT
 		{
 		case .NoneMSFT: strBuffer.Append("VK_LAYERED_DRIVER_UNDERLYING_API_NONE_MSFT");
 		case .D3d12MSFT: strBuffer.Append("VK_LAYERED_DRIVER_UNDERLYING_API_D3D12_MSFT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4491,6 +4676,7 @@ extension VkPhysicalDeviceLayeredApiKHR
 		case .MetalKHR: strBuffer.Append("VK_PHYSICAL_DEVICE_LAYERED_API_METAL_KHR");
 		case .OpenglKHR: strBuffer.Append("VK_PHYSICAL_DEVICE_LAYERED_API_OPENGL_KHR");
 		case .OpenglesKHR: strBuffer.Append("VK_PHYSICAL_DEVICE_LAYERED_API_OPENGLES_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4503,6 +4689,7 @@ extension VkDepthClampModeEXT
 		{
 		case .ViewportRangeEXT: strBuffer.Append("VK_DEPTH_CLAMP_MODE_VIEWPORT_RANGE_EXT");
 		case .UserDefinedRangeEXT: strBuffer.Append("VK_DEPTH_CLAMP_MODE_USER_DEFINED_RANGE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4515,6 +4702,7 @@ extension VkTileShadingRenderPassFlagBitsQCOM
 		{
 		case .EnableQCOM: strBuffer.Append("VK_TILE_SHADING_RENDER_PASS_ENABLE_BIT_QCOM");
 		case .PerTileExecutionQCOM: strBuffer.Append("VK_TILE_SHADING_RENDER_PASS_PER_TILE_EXECUTION_BIT_QCOM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4529,6 +4717,7 @@ extension VkCooperativeVectorMatrixLayoutNV
 		case .ColumnMajorNV: strBuffer.Append("VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_COLUMN_MAJOR_NV");
 		case .InferencingOptimalNV: strBuffer.Append("VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_INFERENCING_OPTIMAL_NV");
 		case .TrainingOptimalNV: strBuffer.Append("VK_COOPERATIVE_VECTOR_MATRIX_LAYOUT_TRAINING_OPTIMAL_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4542,6 +4731,7 @@ extension VkTensorCreateFlagBitsARM
 		case .MutableFormatARM: strBuffer.Append("VK_TENSOR_CREATE_MUTABLE_FORMAT_BIT_ARM");
 		case .ProtectedARM: strBuffer.Append("VK_TENSOR_CREATE_PROTECTED_BIT_ARM");
 		case .DescriptorBufferCaptureReplayARM: strBuffer.Append("VK_TENSOR_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4557,6 +4747,7 @@ extension VkTensorUsageFlagBitsARM
 		case .TransferDstARM: strBuffer.Append("VK_TENSOR_USAGE_TRANSFER_DST_BIT_ARM");
 		case .ImageAliasingARM: strBuffer.Append("VK_TENSOR_USAGE_IMAGE_ALIASING_BIT_ARM");
 		case .DataGraphARM: strBuffer.Append("VK_TENSOR_USAGE_DATA_GRAPH_BIT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4569,6 +4760,7 @@ extension VkTensorTilingARM
 		{
 		case .OptimalARM: strBuffer.Append("VK_TENSOR_TILING_OPTIMAL_ARM");
 		case .LinearARM: strBuffer.Append("VK_TENSOR_TILING_LINEAR_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4580,6 +4772,7 @@ extension VkTensorViewCreateFlagBitsARM
 		switch (this)
 		{
 		case .DescriptorBufferCaptureReplayARM: strBuffer.Append("VK_TENSOR_VIEW_CREATE_DESCRIPTOR_BUFFER_CAPTURE_REPLAY_BIT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4591,6 +4784,7 @@ extension VkDataGraphPipelineSessionCreateFlagBitsARM
 		switch (this)
 		{
 		case .ProtectedARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_SESSION_CREATE_PROTECTED_BIT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4603,6 +4797,7 @@ extension VkDataGraphPipelinePropertyARM
 		{
 		case .CreationLogARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_PROPERTY_CREATION_LOG_ARM");
 		case .IdentifierARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_PROPERTY_IDENTIFIER_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4614,6 +4809,7 @@ extension VkDataGraphPipelineSessionBindPointARM
 		switch (this)
 		{
 		case .TransientARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TRANSIENT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4625,6 +4821,7 @@ extension VkDataGraphPipelineSessionBindPointTypeARM
 		switch (this)
 		{
 		case .MemoryARM: strBuffer.Append("VK_DATA_GRAPH_PIPELINE_SESSION_BIND_POINT_TYPE_MEMORY_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4635,6 +4832,7 @@ extension VkDataGraphPipelineDispatchFlagBitsARM
 	{
 		switch (this)
 		{
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4646,6 +4844,7 @@ extension VkPhysicalDeviceDataGraphProcessingEngineTypeARM
 		switch (this)
 		{
 		case .DefaultARM: strBuffer.Append("VK_PHYSICAL_DEVICE_DATA_GRAPH_PROCESSING_ENGINE_TYPE_DEFAULT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4657,6 +4856,7 @@ extension VkPhysicalDeviceDataGraphOperationTypeARM
 		switch (this)
 		{
 		case .SpirvExtendedInstructionSetARM: strBuffer.Append("VK_PHYSICAL_DEVICE_DATA_GRAPH_OPERATION_TYPE_SPIRV_EXTENDED_INSTRUCTION_SET_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4683,6 +4883,7 @@ extension VkColorSpaceKHR
 		case .VkColorSpacePassThroughEXT: strBuffer.Append("VK_COLOR_SPACE_PASS_THROUGH_EXT");
 		case .VkColorSpaceExtendedSrgbNonlinearEXT: strBuffer.Append("VK_COLOR_SPACE_EXTENDED_SRGB_NONLINEAR_EXT");
 		case .VkColorSpaceDisplayNativeAMD: strBuffer.Append("VK_COLOR_SPACE_DISPLAY_NATIVE_AMD");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4697,6 +4898,7 @@ extension VkCompositeAlphaFlagBitsKHR
 		case .PreMultipliedKHR: strBuffer.Append("VK_COMPOSITE_ALPHA_PRE_MULTIPLIED_BIT_KHR");
 		case .PostMultipliedKHR: strBuffer.Append("VK_COMPOSITE_ALPHA_POST_MULTIPLIED_BIT_KHR");
 		case .InheritKHR: strBuffer.Append("VK_COMPOSITE_ALPHA_INHERIT_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4711,6 +4913,7 @@ extension VkDisplayPlaneAlphaFlagBitsKHR
 		case .GlobalKHR: strBuffer.Append("VK_DISPLAY_PLANE_ALPHA_GLOBAL_BIT_KHR");
 		case .PerPixelKHR: strBuffer.Append("VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_BIT_KHR");
 		case .PerPixelPremultipliedKHR: strBuffer.Append("VK_DISPLAY_PLANE_ALPHA_PER_PIXEL_PREMULTIPLIED_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4728,6 +4931,7 @@ extension VkPresentModeKHR
 		case .SharedDemandRefreshKHR: strBuffer.Append("VK_PRESENT_MODE_SHARED_DEMAND_REFRESH_KHR");
 		case .SharedContinuousRefreshKHR: strBuffer.Append("VK_PRESENT_MODE_SHARED_CONTINUOUS_REFRESH_KHR");
 		case .FifoLatestReadyKHR: strBuffer.Append("VK_PRESENT_MODE_FIFO_LATEST_READY_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4747,6 +4951,7 @@ extension VkSurfaceTransformFlagBitsKHR
 		case .HorizontalMirrorRotate180KHR: strBuffer.Append("VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_180_BIT_KHR");
 		case .HorizontalMirrorRotate270KHR: strBuffer.Append("VK_SURFACE_TRANSFORM_HORIZONTAL_MIRROR_ROTATE_270_BIT_KHR");
 		case .InheritKHR: strBuffer.Append("VK_SURFACE_TRANSFORM_INHERIT_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4761,6 +4966,7 @@ extension VkDisplaySurfaceStereoTypeNV
 		case .OnboardDinNV: strBuffer.Append("VK_DISPLAY_SURFACE_STEREO_TYPE_ONBOARD_DIN_NV");
 		case .Hdmi3dNV: strBuffer.Append("VK_DISPLAY_SURFACE_STEREO_TYPE_HDMI_3D_NV");
 		case .InbandDisplayportNV: strBuffer.Append("VK_DISPLAY_SURFACE_STEREO_TYPE_INBAND_DISPLAYPORT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4776,6 +4982,7 @@ extension VkDebugReportFlagBitsEXT
 		case .PerformanceWarningEXT: strBuffer.Append("VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT");
 		case .ErrorEXT: strBuffer.Append("VK_DEBUG_REPORT_ERROR_BIT_EXT");
 		case .DebugEXT: strBuffer.Append("VK_DEBUG_REPORT_DEBUG_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4824,6 +5031,7 @@ extension VkDebugReportObjectTypeEXT
 		case .CuFunctionNvxEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_CU_FUNCTION_NVX_EXT");
 		case .AccelerationStructureKhrEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_KHR_EXT");
 		case .AccelerationStructureNvEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_NV_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4839,6 +5047,7 @@ extension VkDeviceMemoryReportEventTypeEXT
 		case .ImportEXT: strBuffer.Append("VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_IMPORT_EXT");
 		case .UnimportEXT: strBuffer.Append("VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_UNIMPORT_EXT");
 		case .AllocationFailedEXT: strBuffer.Append("VK_DEVICE_MEMORY_REPORT_EVENT_TYPE_ALLOCATION_FAILED_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4851,6 +5060,7 @@ extension VkRasterizationOrderAMD
 		{
 		case .StrictAMD: strBuffer.Append("VK_RASTERIZATION_ORDER_STRICT_AMD");
 		case .RelaxedAMD: strBuffer.Append("VK_RASTERIZATION_ORDER_RELAXED_AMD");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4865,6 +5075,7 @@ extension VkExternalMemoryHandleTypeFlagBitsNV
 		case .OpaqueWin32KmtNV: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV");
 		case .D3d11ImageNV: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV");
 		case .D3d11ImageKmtNV: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4878,6 +5089,7 @@ extension VkExternalMemoryFeatureFlagBitsNV
 		case .DedicatedOnlyNV: strBuffer.Append("VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV");
 		case .ExportableNV: strBuffer.Append("VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV");
 		case .ImportableNV: strBuffer.Append("VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4890,6 +5102,7 @@ extension VkValidationCheckEXT
 		{
 		case .AllEXT: strBuffer.Append("VK_VALIDATION_CHECK_ALL_EXT");
 		case .ShadersEXT: strBuffer.Append("VK_VALIDATION_CHECK_SHADERS_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4905,6 +5118,7 @@ extension VkValidationFeatureEnableEXT
 		case .BestPracticesEXT: strBuffer.Append("VK_VALIDATION_FEATURE_ENABLE_BEST_PRACTICES_EXT");
 		case .DebugPrintfEXT: strBuffer.Append("VK_VALIDATION_FEATURE_ENABLE_DEBUG_PRINTF_EXT");
 		case .SynchronizationValidationEXT: strBuffer.Append("VK_VALIDATION_FEATURE_ENABLE_SYNCHRONIZATION_VALIDATION_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4923,6 +5137,7 @@ extension VkValidationFeatureDisableEXT
 		case .CoreChecksEXT: strBuffer.Append("VK_VALIDATION_FEATURE_DISABLE_CORE_CHECKS_EXT");
 		case .UniqueHandlesEXT: strBuffer.Append("VK_VALIDATION_FEATURE_DISABLE_UNIQUE_HANDLES_EXT");
 		case .ShaderValidationCacheEXT: strBuffer.Append("VK_VALIDATION_FEATURE_DISABLE_SHADER_VALIDATION_CACHE_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4944,6 +5159,7 @@ extension VkExternalMemoryHandleTypeFlagBits
 		case .HostAllocationEXT: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT");
 		case .HostMappedForeignMemoryEXT: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT");
 		case .RdmaAddressNV: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_RDMA_ADDRESS_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4957,6 +5173,7 @@ extension VkExternalMemoryFeatureFlagBits
 		case .DedicatedOnly: strBuffer.Append("VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT");
 		case .Exportable: strBuffer.Append("VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT");
 		case .Importable: strBuffer.Append("VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4972,6 +5189,7 @@ extension VkExternalSemaphoreHandleTypeFlagBits
 		case .OpaqueWin32Kmt: strBuffer.Append("VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT");
 		case .D3d12Fence: strBuffer.Append("VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT");
 		case .SyncFd: strBuffer.Append("VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4984,6 +5202,7 @@ extension VkExternalSemaphoreFeatureFlagBits
 		{
 		case .Exportable: strBuffer.Append("VK_EXTERNAL_SEMAPHORE_FEATURE_EXPORTABLE_BIT");
 		case .Importable: strBuffer.Append("VK_EXTERNAL_SEMAPHORE_FEATURE_IMPORTABLE_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -4995,6 +5214,7 @@ extension VkSemaphoreImportFlagBits
 		switch (this)
 		{
 		case .Temporary: strBuffer.Append("VK_SEMAPHORE_IMPORT_TEMPORARY_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5009,6 +5229,7 @@ extension VkExternalFenceHandleTypeFlagBits
 		case .OpaqueWin32: strBuffer.Append("VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT");
 		case .OpaqueWin32Kmt: strBuffer.Append("VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT");
 		case .SyncFd: strBuffer.Append("VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5021,6 +5242,7 @@ extension VkExternalFenceFeatureFlagBits
 		{
 		case .Exportable: strBuffer.Append("VK_EXTERNAL_FENCE_FEATURE_EXPORTABLE_BIT");
 		case .Importable: strBuffer.Append("VK_EXTERNAL_FENCE_FEATURE_IMPORTABLE_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5032,6 +5254,7 @@ extension VkFenceImportFlagBits
 		switch (this)
 		{
 		case .Temporary: strBuffer.Append("VK_FENCE_IMPORT_TEMPORARY_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5043,6 +5266,7 @@ extension VkSurfaceCounterFlagBitsEXT
 		switch (this)
 		{
 		case .VblankEXT: strBuffer.Append("VK_SURFACE_COUNTER_VBLANK_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5056,6 +5280,7 @@ extension VkDisplayPowerStateEXT
 		case .OffEXT: strBuffer.Append("VK_DISPLAY_POWER_STATE_OFF_EXT");
 		case .SuspendEXT: strBuffer.Append("VK_DISPLAY_POWER_STATE_SUSPEND_EXT");
 		case .OnEXT: strBuffer.Append("VK_DISPLAY_POWER_STATE_ON_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5067,6 +5292,7 @@ extension VkDeviceEventTypeEXT
 		switch (this)
 		{
 		case .DisplayHotplugEXT: strBuffer.Append("VK_DEVICE_EVENT_TYPE_DISPLAY_HOTPLUG_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5078,6 +5304,7 @@ extension VkDisplayEventTypeEXT
 		switch (this)
 		{
 		case .FirstPixelOutEXT: strBuffer.Append("VK_DISPLAY_EVENT_TYPE_FIRST_PIXEL_OUT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5092,6 +5319,7 @@ extension VkPeerMemoryFeatureFlagBits
 		case .CopyDst: strBuffer.Append("VK_PEER_MEMORY_FEATURE_COPY_DST_BIT");
 		case .GenericSrc: strBuffer.Append("VK_PEER_MEMORY_FEATURE_GENERIC_SRC_BIT");
 		case .GenericDst: strBuffer.Append("VK_PEER_MEMORY_FEATURE_GENERIC_DST_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5106,6 +5334,7 @@ extension VkMemoryAllocateFlagBits
 		case .DeviceAddress: strBuffer.Append("VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_BIT");
 		case .DeviceAddressCaptureReplay: strBuffer.Append("VK_MEMORY_ALLOCATE_DEVICE_ADDRESS_CAPTURE_REPLAY_BIT");
 		case .ZeroInitializeEXT: strBuffer.Append("VK_MEMORY_ALLOCATE_ZERO_INITIALIZE_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5120,6 +5349,7 @@ extension VkDeviceGroupPresentModeFlagBitsKHR
 		case .RemoteKHR: strBuffer.Append("VK_DEVICE_GROUP_PRESENT_MODE_REMOTE_BIT_KHR");
 		case .SumKHR: strBuffer.Append("VK_DEVICE_GROUP_PRESENT_MODE_SUM_BIT_KHR");
 		case .LocalMultiDeviceKHR: strBuffer.Append("VK_DEVICE_GROUP_PRESENT_MODE_LOCAL_MULTI_DEVICE_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5136,6 +5366,7 @@ extension VkSwapchainCreateFlagBitsKHR
 		case .PresentId2KHR: strBuffer.Append("VK_SWAPCHAIN_CREATE_PRESENT_ID_2_BIT_KHR");
 		case .PresentWait2KHR: strBuffer.Append("VK_SWAPCHAIN_CREATE_PRESENT_WAIT_2_BIT_KHR");
 		case .DeferredMemoryAllocationKHR: strBuffer.Append("VK_SWAPCHAIN_CREATE_DEFERRED_MEMORY_ALLOCATION_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5157,6 +5388,7 @@ extension VkSubgroupFeatureFlagBits
 		case .Rotate: strBuffer.Append("VK_SUBGROUP_FEATURE_ROTATE_BIT");
 		case .RotateClustered: strBuffer.Append("VK_SUBGROUP_FEATURE_ROTATE_CLUSTERED_BIT");
 		case .PartitionedNV: strBuffer.Append("VK_SUBGROUP_FEATURE_PARTITIONED_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5169,6 +5401,7 @@ extension VkTessellationDomainOrigin
 		{
 		case .UpperLeft: strBuffer.Append("VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT");
 		case .LowerLeft: strBuffer.Append("VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5184,6 +5417,7 @@ extension VkSamplerYcbcrModelConversion
 		case .Ycbcr709: strBuffer.Append("VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_709");
 		case .Ycbcr601: strBuffer.Append("VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_601");
 		case .Ycbcr2020: strBuffer.Append("VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5196,6 +5430,7 @@ extension VkSamplerYcbcrRange
 		{
 		case .ItuFull: strBuffer.Append("VK_SAMPLER_YCBCR_RANGE_ITU_FULL");
 		case .ItuNarrow: strBuffer.Append("VK_SAMPLER_YCBCR_RANGE_ITU_NARROW");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5208,6 +5443,7 @@ extension VkChromaLocation
 		{
 		case .CositedEven: strBuffer.Append("VK_CHROMA_LOCATION_COSITED_EVEN");
 		case .Midpoint: strBuffer.Append("VK_CHROMA_LOCATION_MIDPOINT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5222,6 +5458,7 @@ extension VkSamplerReductionMode
 		case .Min: strBuffer.Append("VK_SAMPLER_REDUCTION_MODE_MIN");
 		case .Max: strBuffer.Append("VK_SAMPLER_REDUCTION_MODE_MAX");
 		case .WeightedAverageRangeclampQCOM: strBuffer.Append("VK_SAMPLER_REDUCTION_MODE_WEIGHTED_AVERAGE_RANGECLAMP_QCOM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5235,6 +5472,7 @@ extension VkBlendOverlapEXT
 		case .UncorrelatedEXT: strBuffer.Append("VK_BLEND_OVERLAP_UNCORRELATED_EXT");
 		case .DisjointEXT: strBuffer.Append("VK_BLEND_OVERLAP_DISJOINT_EXT");
 		case .ConjointEXT: strBuffer.Append("VK_BLEND_OVERLAP_CONJOINT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5249,6 +5487,7 @@ extension VkDebugUtilsMessageSeverityFlagBitsEXT
 		case .InfoEXT: strBuffer.Append("VK_DEBUG_UTILS_MESSAGE_SEVERITY_INFO_BIT_EXT");
 		case .WarningEXT: strBuffer.Append("VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT");
 		case .ErrorEXT: strBuffer.Append("VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5263,6 +5502,7 @@ extension VkDebugUtilsMessageTypeFlagBitsEXT
 		case .ValidationEXT: strBuffer.Append("VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT");
 		case .PerformanceEXT: strBuffer.Append("VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT");
 		case .DeviceAddressBindingEXT: strBuffer.Append("VK_DEBUG_UTILS_MESSAGE_TYPE_DEVICE_ADDRESS_BINDING_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5276,6 +5516,7 @@ extension VkShaderFloatControlsIndependence
 		case .VK_32BitOnly: strBuffer.Append("VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_32_BIT_ONLY");
 		case .All: strBuffer.Append("VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_ALL");
 		case .None: strBuffer.Append("VK_SHADER_FLOAT_CONTROLS_INDEPENDENCE_NONE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5291,6 +5532,7 @@ extension VkFragmentShadingRateCombinerOpKHR
 		case .MinKHR: strBuffer.Append("VK_FRAGMENT_SHADING_RATE_COMBINER_OP_MIN_KHR");
 		case .MaxKHR: strBuffer.Append("VK_FRAGMENT_SHADING_RATE_COMBINER_OP_MAX_KHR");
 		case .MulKHR: strBuffer.Append("VK_FRAGMENT_SHADING_RATE_COMBINER_OP_MUL_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5302,6 +5544,7 @@ extension VkSubmitFlagBits
 		switch (this)
 		{
 		case .Protected: strBuffer.Append("VK_SUBMIT_PROTECTED_BIT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5316,6 +5559,7 @@ extension VkGraphicsPipelineLibraryFlagBitsEXT
 		case .PreRasterizationShadersEXT: strBuffer.Append("VK_GRAPHICS_PIPELINE_LIBRARY_PRE_RASTERIZATION_SHADERS_BIT_EXT");
 		case .FragmentShaderEXT: strBuffer.Append("VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_SHADER_BIT_EXT");
 		case .FragmentOutputInterfaceEXT: strBuffer.Append("VK_GRAPHICS_PIPELINE_LIBRARY_FRAGMENT_OUTPUT_INTERFACE_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5331,6 +5575,7 @@ extension VkOpticalFlowGridSizeFlagBitsNV
 		case .VK_2x2NV: strBuffer.Append("VK_OPTICAL_FLOW_GRID_SIZE_2X2_BIT_NV");
 		case .VK_4x4NV: strBuffer.Append("VK_OPTICAL_FLOW_GRID_SIZE_4X4_BIT_NV");
 		case .VK_8x8NV: strBuffer.Append("VK_OPTICAL_FLOW_GRID_SIZE_8X8_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5347,6 +5592,7 @@ extension VkOpticalFlowUsageFlagBitsNV
 		case .HintNV: strBuffer.Append("VK_OPTICAL_FLOW_USAGE_HINT_BIT_NV");
 		case .CostNV: strBuffer.Append("VK_OPTICAL_FLOW_USAGE_COST_BIT_NV");
 		case .GlobalFlowNV: strBuffer.Append("VK_OPTICAL_FLOW_USAGE_GLOBAL_FLOW_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5361,6 +5607,7 @@ extension VkOpticalFlowPerformanceLevelNV
 		case .SlowNV: strBuffer.Append("VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_SLOW_NV");
 		case .MediumNV: strBuffer.Append("VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_MEDIUM_NV");
 		case .FastNV: strBuffer.Append("VK_OPTICAL_FLOW_PERFORMANCE_LEVEL_FAST_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5380,6 +5627,7 @@ extension VkOpticalFlowSessionBindingPointNV
 		case .CostNV: strBuffer.Append("VK_OPTICAL_FLOW_SESSION_BINDING_POINT_COST_NV");
 		case .BackwardCostNV: strBuffer.Append("VK_OPTICAL_FLOW_SESSION_BINDING_POINT_BACKWARD_COST_NV");
 		case .GlobalFlowNV: strBuffer.Append("VK_OPTICAL_FLOW_SESSION_BINDING_POINT_GLOBAL_FLOW_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5395,6 +5643,7 @@ extension VkOpticalFlowSessionCreateFlagBitsNV
 		case .EnableGlobalFlowNV: strBuffer.Append("VK_OPTICAL_FLOW_SESSION_CREATE_ENABLE_GLOBAL_FLOW_BIT_NV");
 		case .AllowRegionsNV: strBuffer.Append("VK_OPTICAL_FLOW_SESSION_CREATE_ALLOW_REGIONS_BIT_NV");
 		case .BothDirectionsNV: strBuffer.Append("VK_OPTICAL_FLOW_SESSION_CREATE_BOTH_DIRECTIONS_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5406,6 +5655,7 @@ extension VkOpticalFlowExecuteFlagBitsNV
 		switch (this)
 		{
 		case .DisableTemporalHintsNV: strBuffer.Append("VK_OPTICAL_FLOW_EXECUTE_DISABLE_TEMPORAL_HINTS_BIT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5423,6 +5673,7 @@ extension VkDeviceFaultAddressTypeEXT
 		case .InstructionPointerUnknownEXT: strBuffer.Append("VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_UNKNOWN_EXT");
 		case .InstructionPointerInvalidEXT: strBuffer.Append("VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_INVALID_EXT");
 		case .InstructionPointerFaultEXT: strBuffer.Append("VK_DEVICE_FAULT_ADDRESS_TYPE_INSTRUCTION_POINTER_FAULT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5436,6 +5687,7 @@ extension VkPresentScalingFlagBitsKHR
 		case .OneToOneKHR: strBuffer.Append("VK_PRESENT_SCALING_ONE_TO_ONE_BIT_KHR");
 		case .AspectRatioStretchKHR: strBuffer.Append("VK_PRESENT_SCALING_ASPECT_RATIO_STRETCH_BIT_KHR");
 		case .StretchKHR: strBuffer.Append("VK_PRESENT_SCALING_STRETCH_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5449,6 +5701,7 @@ extension VkPresentGravityFlagBitsKHR
 		case .MinKHR: strBuffer.Append("VK_PRESENT_GRAVITY_MIN_BIT_KHR");
 		case .MaxKHR: strBuffer.Append("VK_PRESENT_GRAVITY_MAX_BIT_KHR");
 		case .CenteredKHR: strBuffer.Append("VK_PRESENT_GRAVITY_CENTERED_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5467,6 +5720,7 @@ extension VkLayerSettingTypeEXT
 		case .Float32EXT: strBuffer.Append("VK_LAYER_SETTING_TYPE_FLOAT32_EXT");
 		case .Float64EXT: strBuffer.Append("VK_LAYER_SETTING_TYPE_FLOAT64_EXT");
 		case .StringEXT: strBuffer.Append("VK_LAYER_SETTING_TYPE_STRING_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5489,6 +5743,7 @@ extension VkLatencyMarkerNV
 		case .OutOfBandRendersubmitEndNV: strBuffer.Append("VK_LATENCY_MARKER_OUT_OF_BAND_RENDERSUBMIT_END_NV");
 		case .OutOfBandPresentStartNV: strBuffer.Append("VK_LATENCY_MARKER_OUT_OF_BAND_PRESENT_START_NV");
 		case .OutOfBandPresentEndNV: strBuffer.Append("VK_LATENCY_MARKER_OUT_OF_BAND_PRESENT_END_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5501,6 +5756,7 @@ extension VkOutOfBandQueueTypeNV
 		{
 		case .RenderNV: strBuffer.Append("VK_OUT_OF_BAND_QUEUE_TYPE_RENDER_NV");
 		case .PresentNV: strBuffer.Append("VK_OUT_OF_BAND_QUEUE_TYPE_PRESENT_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5512,6 +5768,7 @@ extension VkPhysicalDeviceSchedulingControlsFlagBitsARM
 		switch (this)
 		{
 		case .ShaderCoreCountARM: strBuffer.Append("VK_PHYSICAL_DEVICE_SCHEDULING_CONTROLS_SHADER_CORE_COUNT_ARM");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5523,6 +5780,7 @@ extension VkMemoryUnmapFlagBits
 		switch (this)
 		{
 		case .ReserveEXT: strBuffer.Append("VK_MEMORY_UNMAP_RESERVE_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5541,6 +5799,7 @@ extension VkVendorId
 		case .MESA: strBuffer.Append("VK_VENDOR_ID_MESA");
 		case .Pocl: strBuffer.Append("VK_VENDOR_ID_POCL");
 		case .Mobileye: strBuffer.Append("VK_VENDOR_ID_MOBILEYE");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5578,6 +5837,7 @@ extension VkDriverId
 		case .ImaginationOpenSourceMESA: strBuffer.Append("VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA");
 		case .MesaHoneykrisp: strBuffer.Append("VK_DRIVER_ID_MESA_HONEYKRISP");
 		case .VulkanScEmulationOnVulkan: strBuffer.Append("VK_DRIVER_ID_VULKAN_SC_EMULATION_ON_VULKAN");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5600,6 +5860,7 @@ extension VkShadingRatePaletteEntryNV
 		case .VK_1InvocationPer4x2PixelsNV: strBuffer.Append("VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X2_PIXELS_NV");
 		case .VK_1InvocationPer2x4PixelsNV: strBuffer.Append("VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_2X4_PIXELS_NV");
 		case .VK_1InvocationPer4x4PixelsNV: strBuffer.Append("VK_SHADING_RATE_PALETTE_ENTRY_1_INVOCATION_PER_4X4_PIXELS_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5614,6 +5875,7 @@ extension VkCoarseSampleOrderTypeNV
 		case .CustomNV: strBuffer.Append("VK_COARSE_SAMPLE_ORDER_TYPE_CUSTOM_NV");
 		case .PixelMajorNV: strBuffer.Append("VK_COARSE_SAMPLE_ORDER_TYPE_PIXEL_MAJOR_NV");
 		case .SampleMajorNV: strBuffer.Append("VK_COARSE_SAMPLE_ORDER_TYPE_SAMPLE_MAJOR_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5628,6 +5890,7 @@ extension VkPipelineExecutableStatisticFormatKHR
 		case .Int64KHR: strBuffer.Append("VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_INT64_KHR");
 		case .Uint64KHR: strBuffer.Append("VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_UINT64_KHR");
 		case .Float64KHR: strBuffer.Append("VK_PIPELINE_EXECUTABLE_STATISTIC_FORMAT_FLOAT64_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5646,6 +5909,7 @@ extension VkVideoCodecOperationFlagBitsKHR
 		case .DecodeAv1KHR: strBuffer.Append("VK_VIDEO_CODEC_OPERATION_DECODE_AV1_BIT_KHR");
 		case .EncodeAv1KHR: strBuffer.Append("VK_VIDEO_CODEC_OPERATION_ENCODE_AV1_BIT_KHR");
 		case .DecodeVp9KHR: strBuffer.Append("VK_VIDEO_CODEC_OPERATION_DECODE_VP9_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5661,6 +5925,7 @@ extension VkVideoChromaSubsamplingFlagBitsKHR
 		case .VK_420KHR: strBuffer.Append("VK_VIDEO_CHROMA_SUBSAMPLING_420_BIT_KHR");
 		case .VK_422KHR: strBuffer.Append("VK_VIDEO_CHROMA_SUBSAMPLING_422_BIT_KHR");
 		case .VK_444KHR: strBuffer.Append("VK_VIDEO_CHROMA_SUBSAMPLING_444_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5675,6 +5940,7 @@ extension VkVideoComponentBitDepthFlagBitsKHR
 		case .VK_8KHR: strBuffer.Append("VK_VIDEO_COMPONENT_BIT_DEPTH_8_BIT_KHR");
 		case .VK_10KHR: strBuffer.Append("VK_VIDEO_COMPONENT_BIT_DEPTH_10_BIT_KHR");
 		case .VK_12KHR: strBuffer.Append("VK_VIDEO_COMPONENT_BIT_DEPTH_12_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5687,6 +5953,7 @@ extension VkVideoCapabilityFlagBitsKHR
 		{
 		case .ProtectedContentKHR: strBuffer.Append("VK_VIDEO_CAPABILITY_PROTECTED_CONTENT_BIT_KHR");
 		case .SeparateReferenceImagesKHR: strBuffer.Append("VK_VIDEO_CAPABILITY_SEPARATE_REFERENCE_IMAGES_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5703,6 +5970,7 @@ extension VkVideoSessionCreateFlagBitsKHR
 		case .AllowEncodeQuantizationDeltaMapKHR: strBuffer.Append("VK_VIDEO_SESSION_CREATE_ALLOW_ENCODE_QUANTIZATION_DELTA_MAP_BIT_KHR");
 		case .AllowEncodeEmphasisMapKHR: strBuffer.Append("VK_VIDEO_SESSION_CREATE_ALLOW_ENCODE_EMPHASIS_MAP_BIT_KHR");
 		case .InlineSessionParametersKHR: strBuffer.Append("VK_VIDEO_SESSION_CREATE_INLINE_SESSION_PARAMETERS_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5714,6 +5982,7 @@ extension VkVideoSessionParametersCreateFlagBitsKHR
 		switch (this)
 		{
 		case .QuantizationMapCompatibleKHR: strBuffer.Append("VK_VIDEO_SESSION_PARAMETERS_CREATE_QUANTIZATION_MAP_COMPATIBLE_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5727,6 +5996,7 @@ extension VkVideoCodingControlFlagBitsKHR
 		case .ResetKHR: strBuffer.Append("VK_VIDEO_CODING_CONTROL_RESET_BIT_KHR");
 		case .EncodeRateControlKHR: strBuffer.Append("VK_VIDEO_CODING_CONTROL_ENCODE_RATE_CONTROL_BIT_KHR");
 		case .EncodeQualityLevelKHR: strBuffer.Append("VK_VIDEO_CODING_CONTROL_ENCODE_QUALITY_LEVEL_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5741,6 +6011,7 @@ extension VkQueryResultStatusKHR
 		case .NotReadyKHR: strBuffer.Append("VK_QUERY_RESULT_STATUS_NOT_READY_KHR");
 		case .CompleteKHR: strBuffer.Append("VK_QUERY_RESULT_STATUS_COMPLETE_KHR");
 		case .InsufficientBitstreamBufferRangeKHR: strBuffer.Append("VK_QUERY_RESULT_STATUS_INSUFFICIENT_BITSTREAM_BUFFER_RANGE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5755,6 +6026,7 @@ extension VkVideoDecodeUsageFlagBitsKHR
 		case .TranscodingKHR: strBuffer.Append("VK_VIDEO_DECODE_USAGE_TRANSCODING_BIT_KHR");
 		case .OfflineKHR: strBuffer.Append("VK_VIDEO_DECODE_USAGE_OFFLINE_BIT_KHR");
 		case .StreamingKHR: strBuffer.Append("VK_VIDEO_DECODE_USAGE_STREAMING_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5767,6 +6039,7 @@ extension VkVideoDecodeCapabilityFlagBitsKHR
 		{
 		case .DpbAndOutputCoincideKHR: strBuffer.Append("VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_COINCIDE_BIT_KHR");
 		case .DpbAndOutputDistinctKHR: strBuffer.Append("VK_VIDEO_DECODE_CAPABILITY_DPB_AND_OUTPUT_DISTINCT_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5780,6 +6053,7 @@ extension VkVideoDecodeH264PictureLayoutFlagBitsKHR
 		case .ProgressiveKHR: strBuffer.Append("VK_VIDEO_DECODE_H264_PICTURE_LAYOUT_PROGRESSIVE_KHR");
 		case .InterlacedInterleavedLinesKHR: strBuffer.Append("VK_VIDEO_DECODE_H264_PICTURE_LAYOUT_INTERLACED_INTERLEAVED_LINES_BIT_KHR");
 		case .InterlacedSeparatePlanesKHR: strBuffer.Append("VK_VIDEO_DECODE_H264_PICTURE_LAYOUT_INTERLACED_SEPARATE_PLANES_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5793,6 +6067,7 @@ extension VkVideoEncodeFlagBitsKHR
 		case .IntraRefreshKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_BIT_KHR");
 		case .WithQuantizationDeltaMapKHR: strBuffer.Append("VK_VIDEO_ENCODE_WITH_QUANTIZATION_DELTA_MAP_BIT_KHR");
 		case .WithEmphasisMapKHR: strBuffer.Append("VK_VIDEO_ENCODE_WITH_EMPHASIS_MAP_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5808,6 +6083,7 @@ extension VkVideoEncodeUsageFlagBitsKHR
 		case .StreamingKHR: strBuffer.Append("VK_VIDEO_ENCODE_USAGE_STREAMING_BIT_KHR");
 		case .RecordingKHR: strBuffer.Append("VK_VIDEO_ENCODE_USAGE_RECORDING_BIT_KHR");
 		case .ConferencingKHR: strBuffer.Append("VK_VIDEO_ENCODE_USAGE_CONFERENCING_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5822,6 +6098,7 @@ extension VkVideoEncodeContentFlagBitsKHR
 		case .CameraKHR: strBuffer.Append("VK_VIDEO_ENCODE_CONTENT_CAMERA_BIT_KHR");
 		case .DesktopKHR: strBuffer.Append("VK_VIDEO_ENCODE_CONTENT_DESKTOP_BIT_KHR");
 		case .RenderedKHR: strBuffer.Append("VK_VIDEO_ENCODE_CONTENT_RENDERED_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5837,6 +6114,7 @@ extension VkVideoEncodeTuningModeKHR
 		case .LowLatencyKHR: strBuffer.Append("VK_VIDEO_ENCODE_TUNING_MODE_LOW_LATENCY_KHR");
 		case .UltraLowLatencyKHR: strBuffer.Append("VK_VIDEO_ENCODE_TUNING_MODE_ULTRA_LOW_LATENCY_KHR");
 		case .LosslessKHR: strBuffer.Append("VK_VIDEO_ENCODE_TUNING_MODE_LOSSLESS_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5851,6 +6129,7 @@ extension VkVideoEncodeCapabilityFlagBitsKHR
 		case .InsufficientBitstreamBufferRangeDetectionKHR: strBuffer.Append("VK_VIDEO_ENCODE_CAPABILITY_INSUFFICIENT_BITSTREAM_BUFFER_RANGE_DETECTION_BIT_KHR");
 		case .QuantizationDeltaMapKHR: strBuffer.Append("VK_VIDEO_ENCODE_CAPABILITY_QUANTIZATION_DELTA_MAP_BIT_KHR");
 		case .EmphasisMapKHR: strBuffer.Append("VK_VIDEO_ENCODE_CAPABILITY_EMPHASIS_MAP_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5864,6 +6143,7 @@ extension VkVideoEncodeFeedbackFlagBitsKHR
 		case .BitstreamBufferOffsetKHR: strBuffer.Append("VK_VIDEO_ENCODE_FEEDBACK_BITSTREAM_BUFFER_OFFSET_BIT_KHR");
 		case .BitstreamBytesWrittenKHR: strBuffer.Append("VK_VIDEO_ENCODE_FEEDBACK_BITSTREAM_BYTES_WRITTEN_BIT_KHR");
 		case .BitstreamHasOverridesKHR: strBuffer.Append("VK_VIDEO_ENCODE_FEEDBACK_BITSTREAM_HAS_OVERRIDES_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5878,6 +6158,7 @@ extension VkVideoEncodeRateControlModeFlagBitsKHR
 		case .DisabledKHR: strBuffer.Append("VK_VIDEO_ENCODE_RATE_CONTROL_MODE_DISABLED_BIT_KHR");
 		case .CbrKHR: strBuffer.Append("VK_VIDEO_ENCODE_RATE_CONTROL_MODE_CBR_BIT_KHR");
 		case .VbrKHR: strBuffer.Append("VK_VIDEO_ENCODE_RATE_CONTROL_MODE_VBR_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5893,6 +6174,7 @@ extension VkVideoEncodeIntraRefreshModeFlagBitsKHR
 		case .BlockBasedKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_BLOCK_BASED_BIT_KHR");
 		case .BlockRowBasedKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_BLOCK_ROW_BASED_BIT_KHR");
 		case .BlockColumnBasedKHR: strBuffer.Append("VK_VIDEO_ENCODE_INTRA_REFRESH_MODE_BLOCK_COLUMN_BASED_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5914,6 +6196,7 @@ extension VkVideoEncodeH264CapabilityFlagBitsKHR
 		case .GeneratePrefixNaluKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_CAPABILITY_GENERATE_PREFIX_NALU_BIT_KHR");
 		case .BPictureIntraRefreshKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_CAPABILITY_B_PICTURE_INTRA_REFRESH_BIT_KHR");
 		case .MbQpDiffWraparoundKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_CAPABILITY_MB_QP_DIFF_WRAPAROUND_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5944,6 +6227,7 @@ extension VkVideoEncodeH264StdFlagBitsKHR
 		case .DeblockingFilterPartialKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_STD_DEBLOCKING_FILTER_PARTIAL_BIT_KHR");
 		case .SliceQpDeltaKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_STD_SLICE_QP_DELTA_BIT_KHR");
 		case .DifferentSliceQpDeltaKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_STD_DIFFERENT_SLICE_QP_DELTA_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5959,6 +6243,7 @@ extension VkVideoEncodeH264RateControlFlagBitsKHR
 		case .ReferencePatternFlatKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_RATE_CONTROL_REFERENCE_PATTERN_FLAT_BIT_KHR");
 		case .ReferencePatternDyadicKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_RATE_CONTROL_REFERENCE_PATTERN_DYADIC_BIT_KHR");
 		case .TemporalLayerPatternDyadicKHR: strBuffer.Append("VK_VIDEO_ENCODE_H264_RATE_CONTROL_TEMPORAL_LAYER_PATTERN_DYADIC_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -5981,6 +6266,7 @@ extension VkVideoEncodeH265CapabilityFlagBitsKHR
 		case .MultipleSliceSegmentsPerTileKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CAPABILITY_MULTIPLE_SLICE_SEGMENTS_PER_TILE_BIT_KHR");
 		case .BPictureIntraRefreshKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CAPABILITY_B_PICTURE_INTRA_REFRESH_BIT_KHR");
 		case .CuQpDiffWraparoundKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CAPABILITY_CU_QP_DIFF_WRAPAROUND_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6012,6 +6298,7 @@ extension VkVideoEncodeH265StdFlagBitsKHR
 		case .DependentSliceSegmentFlagSetKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_STD_DEPENDENT_SLICE_SEGMENT_FLAG_SET_BIT_KHR");
 		case .SliceQpDeltaKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_STD_SLICE_QP_DELTA_BIT_KHR");
 		case .DifferentSliceQpDeltaKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_STD_DIFFERENT_SLICE_QP_DELTA_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6027,6 +6314,7 @@ extension VkVideoEncodeH265RateControlFlagBitsKHR
 		case .ReferencePatternFlatKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_RATE_CONTROL_REFERENCE_PATTERN_FLAT_BIT_KHR");
 		case .ReferencePatternDyadicKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_RATE_CONTROL_REFERENCE_PATTERN_DYADIC_BIT_KHR");
 		case .TemporalSubLayerPatternDyadicKHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_RATE_CONTROL_TEMPORAL_SUB_LAYER_PATTERN_DYADIC_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6040,6 +6328,7 @@ extension VkVideoEncodeH265CtbSizeFlagBitsKHR
 		case .VK_16KHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CTB_SIZE_16_BIT_KHR");
 		case .VK_32KHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CTB_SIZE_32_BIT_KHR");
 		case .VK_64KHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_CTB_SIZE_64_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6054,6 +6343,7 @@ extension VkVideoEncodeH265TransformBlockSizeFlagBitsKHR
 		case .VK_8KHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_8_BIT_KHR");
 		case .VK_16KHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_16_BIT_KHR");
 		case .VK_32KHR: strBuffer.Append("VK_VIDEO_ENCODE_H265_TRANSFORM_BLOCK_SIZE_32_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6070,6 +6360,7 @@ extension VkVideoEncodeAV1CapabilityFlagBitsKHR
 		case .VkVideoEncodeAv1CapabilityFrameSizeOverrideKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_CAPABILITY_FRAME_SIZE_OVERRIDE_BIT_KHR");
 		case .VkVideoEncodeAv1CapabilityMotionVectorScalingKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_CAPABILITY_MOTION_VECTOR_SCALING_BIT_KHR");
 		case .VkVideoEncodeAv1CapabilityCompoundPredictionIntraRefreshKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_CAPABILITY_COMPOUND_PREDICTION_INTRA_REFRESH_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6084,6 +6375,7 @@ extension VkVideoEncodeAV1StdFlagBitsKHR
 		case .VkVideoEncodeAv1StdSkipModePresentUnsetKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_STD_SKIP_MODE_PRESENT_UNSET_BIT_KHR");
 		case .VkVideoEncodeAv1StdPrimaryRefFrameKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_STD_PRIMARY_REF_FRAME_BIT_KHR");
 		case .VkVideoEncodeAv1StdDeltaQKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_STD_DELTA_Q_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6098,6 +6390,7 @@ extension VkVideoEncodeAV1RateControlFlagBitsKHR
 		case .VkVideoEncodeAv1RateControlTemporalLayerPatternDyadicKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_RATE_CONTROL_TEMPORAL_LAYER_PATTERN_DYADIC_BIT_KHR");
 		case .VkVideoEncodeAv1RateControlReferencePatternFlatKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_RATE_CONTROL_REFERENCE_PATTERN_FLAT_BIT_KHR");
 		case .VkVideoEncodeAv1RateControlReferencePatternDyadicKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_RATE_CONTROL_REFERENCE_PATTERN_DYADIC_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6110,6 +6403,7 @@ extension VkVideoEncodeAV1SuperblockSizeFlagBitsKHR
 		{
 		case .VkVideoEncodeAv1SuperblockSize64KHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_SUPERBLOCK_SIZE_64_BIT_KHR");
 		case .VkVideoEncodeAv1SuperblockSize128KHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_SUPERBLOCK_SIZE_128_BIT_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6124,6 +6418,7 @@ extension VkVideoEncodeAV1PredictionModeKHR
 		case .VkVideoEncodeAv1PredictionModeSingleReferenceKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_SINGLE_REFERENCE_KHR");
 		case .VkVideoEncodeAv1PredictionModeUnidirectionalCompoundKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_UNIDIRECTIONAL_COMPOUND_KHR");
 		case .VkVideoEncodeAv1PredictionModeBidirectionalCompoundKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_PREDICTION_MODE_BIDIRECTIONAL_COMPOUND_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6137,6 +6432,7 @@ extension VkVideoEncodeAV1RateControlGroupKHR
 		case .VkVideoEncodeAv1RateControlGroupIntraKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_INTRA_KHR");
 		case .VkVideoEncodeAv1RateControlGroupPredictiveKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_PREDICTIVE_KHR");
 		case .VkVideoEncodeAv1RateControlGroupBipredictiveKHR: strBuffer.Append("VK_VIDEO_ENCODE_AV1_RATE_CONTROL_GROUP_BIPREDICTIVE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6148,6 +6444,7 @@ extension VkAccessFlagBits3KHR
 		switch (this)
 		{
 		case .NoneKHR: strBuffer.Append("VK_ACCESS_3_NONE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6160,6 +6457,7 @@ extension VkDefaultVertexAttributeValueKHR
 		{
 		case .ZeroZeroZeroZeroKHR: strBuffer.Append("VK_DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ZERO_KHR");
 		case .ZeroZeroZeroOneKHR: strBuffer.Append("VK_DEFAULT_VERTEX_ATTRIBUTE_VALUE_ZERO_ZERO_ZERO_ONE_KHR");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6173,6 +6471,7 @@ extension VkAccelerationStructureMotionInstanceTypeNV
 		case .StaticNV: strBuffer.Append("VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_STATIC_NV");
 		case .MatrixMotionNV: strBuffer.Append("VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_MATRIX_MOTION_NV");
 		case .SrtMotionNV: strBuffer.Append("VK_ACCELERATION_STRUCTURE_MOTION_INSTANCE_TYPE_SRT_MOTION_NV");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6190,6 +6489,7 @@ extension StdVideoH264ChromaFormatIdc
 		case .VK_422: strBuffer.Append("STD_VIDEO_H264_CHROMA_FORMAT_IDC_422");
 		case .VK_444: strBuffer.Append("STD_VIDEO_H264_CHROMA_FORMAT_IDC_444");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_CHROMA_FORMAT_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6205,6 +6505,7 @@ extension StdVideoH264ProfileIdc
 		case .High: strBuffer.Append("STD_VIDEO_H264_PROFILE_IDC_HIGH");
 		case .High444Predictive: strBuffer.Append("STD_VIDEO_H264_PROFILE_IDC_HIGH_444_PREDICTIVE");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_PROFILE_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6235,6 +6536,7 @@ extension StdVideoH264LevelIdc
 		case .VK_61: strBuffer.Append("STD_VIDEO_H264_LEVEL_IDC_6_1");
 		case .VK_62: strBuffer.Append("STD_VIDEO_H264_LEVEL_IDC_6_2");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_LEVEL_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6249,6 +6551,7 @@ extension StdVideoH264PocType
 		case .VK_1: strBuffer.Append("STD_VIDEO_H264_POC_TYPE_1");
 		case .VK_2: strBuffer.Append("STD_VIDEO_H264_POC_TYPE_2");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_POC_TYPE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6278,6 +6581,7 @@ extension StdVideoH264AspectRatioIdc
 		case .VK_21: strBuffer.Append("STD_VIDEO_H264_ASPECT_RATIO_IDC_2_1");
 		case .ExtendedSar: strBuffer.Append("STD_VIDEO_H264_ASPECT_RATIO_IDC_EXTENDED_SAR");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_ASPECT_RATIO_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6292,6 +6596,7 @@ extension StdVideoH264WeightedBipredIdc
 		case .Explicit: strBuffer.Append("STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_EXPLICIT");
 		case .Implicit: strBuffer.Append("STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_IMPLICIT");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_WEIGHTED_BIPRED_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6307,6 +6612,7 @@ extension StdVideoH264ModificationOfPicNumsIdc
 		case .LongTerm: strBuffer.Append("STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_LONG_TERM");
 		case .End: strBuffer.Append("STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_END");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_MODIFICATION_OF_PIC_NUMS_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6325,6 +6631,7 @@ extension StdVideoH264MemMgmtControlOp
 		case .UnmarkAll: strBuffer.Append("STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_UNMARK_ALL");
 		case .MarkCurrentAsLongTerm: strBuffer.Append("STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_MARK_CURRENT_AS_LONG_TERM");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_MEM_MGMT_CONTROL_OP_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6339,6 +6646,7 @@ extension StdVideoH264CabacInitIdc
 		case .VK_1: strBuffer.Append("STD_VIDEO_H264_CABAC_INIT_IDC_1");
 		case .VK_2: strBuffer.Append("STD_VIDEO_H264_CABAC_INIT_IDC_2");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_CABAC_INIT_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6353,6 +6661,7 @@ extension StdVideoH264DisableDeblockingFilterIdc
 		case .Enabled: strBuffer.Append("STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_ENABLED");
 		case .Partial: strBuffer.Append("STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_PARTIAL");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_DISABLE_DEBLOCKING_FILTER_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6367,6 +6676,7 @@ extension StdVideoH264SliceType
 		case .B: strBuffer.Append("STD_VIDEO_H264_SLICE_TYPE_B");
 		case .I: strBuffer.Append("STD_VIDEO_H264_SLICE_TYPE_I");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_SLICE_TYPE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6382,6 +6692,7 @@ extension StdVideoH264PictureType
 		case .I: strBuffer.Append("STD_VIDEO_H264_PICTURE_TYPE_I");
 		case .Idr: strBuffer.Append("STD_VIDEO_H264_PICTURE_TYPE_IDR");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_PICTURE_TYPE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6400,6 +6711,7 @@ extension StdVideoH264NonVclNaluType
 		case .EndOfStream: strBuffer.Append("STD_VIDEO_H264_NON_VCL_NALU_TYPE_END_OF_STREAM");
 		case .Precoded: strBuffer.Append("STD_VIDEO_H264_NON_VCL_NALU_TYPE_PRECODED");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H264_NON_VCL_NALU_TYPE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6413,6 +6725,7 @@ extension StdVideoDecodeH264FieldOrderCount
 		case .Top: strBuffer.Append("STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_TOP");
 		case .Bottom: strBuffer.Append("STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_BOTTOM");
 		case .Invalid: strBuffer.Append("STD_VIDEO_DECODE_H264_FIELD_ORDER_COUNT_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6428,6 +6741,7 @@ extension StdVideoH265ChromaFormatIdc
 		case .VK_422: strBuffer.Append("STD_VIDEO_H265_CHROMA_FORMAT_IDC_422");
 		case .VK_444: strBuffer.Append("STD_VIDEO_H265_CHROMA_FORMAT_IDC_444");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H265_CHROMA_FORMAT_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6444,6 +6758,7 @@ extension StdVideoH265ProfileIdc
 		case .FormatRangeExtensions: strBuffer.Append("STD_VIDEO_H265_PROFILE_IDC_FORMAT_RANGE_EXTENSIONS");
 		case .SccExtensions: strBuffer.Append("STD_VIDEO_H265_PROFILE_IDC_SCC_EXTENSIONS");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H265_PROFILE_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6468,6 +6783,7 @@ extension StdVideoH265LevelIdc
 		case .VK_61: strBuffer.Append("STD_VIDEO_H265_LEVEL_IDC_6_1");
 		case .VK_62: strBuffer.Append("STD_VIDEO_H265_LEVEL_IDC_6_2");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H265_LEVEL_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6482,6 +6798,7 @@ extension StdVideoH265SliceType
 		case .P: strBuffer.Append("STD_VIDEO_H265_SLICE_TYPE_P");
 		case .I: strBuffer.Append("STD_VIDEO_H265_SLICE_TYPE_I");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H265_SLICE_TYPE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6497,6 +6814,7 @@ extension StdVideoH265PictureType
 		case .I: strBuffer.Append("STD_VIDEO_H265_PICTURE_TYPE_I");
 		case .Idr: strBuffer.Append("STD_VIDEO_H265_PICTURE_TYPE_IDR");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H265_PICTURE_TYPE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6526,6 +6844,7 @@ extension StdVideoH265AspectRatioIdc
 		case .VK_21: strBuffer.Append("STD_VIDEO_H265_ASPECT_RATIO_IDC_2_1");
 		case .ExtendedSar: strBuffer.Append("STD_VIDEO_H265_ASPECT_RATIO_IDC_EXTENDED_SAR");
 		case .Invalid: strBuffer.Append("STD_VIDEO_H265_ASPECT_RATIO_IDC_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6541,6 +6860,7 @@ extension StdVideoVP9Profile
 		case .StdVideoVp9Profile2: strBuffer.Append("STD_VIDEO_VP9_PROFILE_2");
 		case .StdVideoVp9Profile3: strBuffer.Append("STD_VIDEO_VP9_PROFILE_3");
 		case .StdVideoVp9ProfileInvalid: strBuffer.Append("STD_VIDEO_VP9_PROFILE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6566,6 +6886,7 @@ extension StdVideoVP9Level
 		case .StdVideoVp9Level61: strBuffer.Append("STD_VIDEO_VP9_LEVEL_6_1");
 		case .StdVideoVp9Level62: strBuffer.Append("STD_VIDEO_VP9_LEVEL_6_2");
 		case .StdVideoVp9LevelInvalid: strBuffer.Append("STD_VIDEO_VP9_LEVEL_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6579,6 +6900,7 @@ extension StdVideoVP9FrameType
 		case .StdVideoVp9FrameTypeKey: strBuffer.Append("STD_VIDEO_VP9_FRAME_TYPE_KEY");
 		case .StdVideoVp9FrameTypeNonKey: strBuffer.Append("STD_VIDEO_VP9_FRAME_TYPE_NON_KEY");
 		case .StdVideoVp9FrameTypeInvalid: strBuffer.Append("STD_VIDEO_VP9_FRAME_TYPE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6594,6 +6916,7 @@ extension StdVideoVP9ReferenceName
 		case .StdVideoVp9ReferenceNameGoldenFrame: strBuffer.Append("STD_VIDEO_VP9_REFERENCE_NAME_GOLDEN_FRAME");
 		case .StdVideoVp9ReferenceNameAltrefFrame: strBuffer.Append("STD_VIDEO_VP9_REFERENCE_NAME_ALTREF_FRAME");
 		case .StdVideoVp9ReferenceNameInvalid: strBuffer.Append("STD_VIDEO_VP9_REFERENCE_NAME_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6610,6 +6933,7 @@ extension StdVideoVP9InterpolationFilter
 		case .StdVideoVp9InterpolationFilterBilinear: strBuffer.Append("STD_VIDEO_VP9_INTERPOLATION_FILTER_BILINEAR");
 		case .StdVideoVp9InterpolationFilterSwitchable: strBuffer.Append("STD_VIDEO_VP9_INTERPOLATION_FILTER_SWITCHABLE");
 		case .StdVideoVp9InterpolationFilterInvalid: strBuffer.Append("STD_VIDEO_VP9_INTERPOLATION_FILTER_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6629,6 +6953,7 @@ extension StdVideoVP9ColorSpace
 		case .StdVideoVp9ColorSpaceReserved: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_RESERVED");
 		case .StdVideoVp9ColorSpaceRgb: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_RGB");
 		case .StdVideoVp9ColorSpaceInvalid: strBuffer.Append("STD_VIDEO_VP9_COLOR_SPACE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6643,6 +6968,7 @@ extension StdVideoAV1Profile
 		case .StdVideoAv1ProfileHigh: strBuffer.Append("STD_VIDEO_AV1_PROFILE_HIGH");
 		case .StdVideoAv1ProfileProfessional: strBuffer.Append("STD_VIDEO_AV1_PROFILE_PROFESSIONAL");
 		case .StdVideoAv1ProfileInvalid: strBuffer.Append("STD_VIDEO_AV1_PROFILE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6678,6 +7004,7 @@ extension StdVideoAV1Level
 		case .StdVideoAv1Level72: strBuffer.Append("STD_VIDEO_AV1_LEVEL_7_2");
 		case .StdVideoAv1Level73: strBuffer.Append("STD_VIDEO_AV1_LEVEL_7_3");
 		case .StdVideoAv1LevelInvalid: strBuffer.Append("STD_VIDEO_AV1_LEVEL_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6693,6 +7020,7 @@ extension StdVideoAV1FrameType
 		case .StdVideoAv1FrameTypeIntraOnly: strBuffer.Append("STD_VIDEO_AV1_FRAME_TYPE_INTRA_ONLY");
 		case .StdVideoAv1FrameTypeSwitch: strBuffer.Append("STD_VIDEO_AV1_FRAME_TYPE_SWITCH");
 		case .StdVideoAv1FrameTypeInvalid: strBuffer.Append("STD_VIDEO_AV1_FRAME_TYPE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6712,6 +7040,7 @@ extension StdVideoAV1ReferenceName
 		case .StdVideoAv1ReferenceNameAltref2Frame: strBuffer.Append("STD_VIDEO_AV1_REFERENCE_NAME_ALTREF2_FRAME");
 		case .StdVideoAv1ReferenceNameAltrefFrame: strBuffer.Append("STD_VIDEO_AV1_REFERENCE_NAME_ALTREF_FRAME");
 		case .StdVideoAv1ReferenceNameInvalid: strBuffer.Append("STD_VIDEO_AV1_REFERENCE_NAME_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6728,6 +7057,7 @@ extension StdVideoAV1InterpolationFilter
 		case .StdVideoAv1InterpolationFilterBilinear: strBuffer.Append("STD_VIDEO_AV1_INTERPOLATION_FILTER_BILINEAR");
 		case .StdVideoAv1InterpolationFilterSwitchable: strBuffer.Append("STD_VIDEO_AV1_INTERPOLATION_FILTER_SWITCHABLE");
 		case .StdVideoAv1InterpolationFilterInvalid: strBuffer.Append("STD_VIDEO_AV1_INTERPOLATION_FILTER_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6742,6 +7072,7 @@ extension StdVideoAV1TxMode
 		case .StdVideoAv1TxModeLargest: strBuffer.Append("STD_VIDEO_AV1_TX_MODE_LARGEST");
 		case .StdVideoAv1TxModeSelect: strBuffer.Append("STD_VIDEO_AV1_TX_MODE_SELECT");
 		case .StdVideoAv1TxModeInvalid: strBuffer.Append("STD_VIDEO_AV1_TX_MODE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6757,6 +7088,7 @@ extension StdVideoAV1FrameRestorationType
 		case .StdVideoAv1FrameRestorationTypeSgrproj: strBuffer.Append("STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_SGRPROJ");
 		case .StdVideoAv1FrameRestorationTypeSwitchable: strBuffer.Append("STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_SWITCHABLE");
 		case .StdVideoAv1FrameRestorationTypeInvalid: strBuffer.Append("STD_VIDEO_AV1_FRAME_RESTORATION_TYPE_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6780,6 +7112,7 @@ extension StdVideoAV1ColorPrimaries
 		case .StdVideoAv1ColorPrimariesSmpte432: strBuffer.Append("STD_VIDEO_AV1_COLOR_PRIMARIES_SMPTE_432");
 		case .StdVideoAv1ColorPrimariesEbu3213: strBuffer.Append("STD_VIDEO_AV1_COLOR_PRIMARIES_EBU_3213");
 		case .StdVideoAv1ColorPrimariesInvalid: strBuffer.Append("STD_VIDEO_AV1_COLOR_PRIMARIES_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6810,6 +7143,7 @@ extension StdVideoAV1TransferCharacteristics
 		case .StdVideoAv1TransferCharacteristicsSmpte428: strBuffer.Append("STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_SMPTE_428");
 		case .StdVideoAv1TransferCharacteristicsHlg: strBuffer.Append("STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_HLG");
 		case .StdVideoAv1TransferCharacteristicsInvalid: strBuffer.Append("STD_VIDEO_AV1_TRANSFER_CHARACTERISTICS_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6836,6 +7170,7 @@ extension StdVideoAV1MatrixCoefficients
 		case .StdVideoAv1MatrixCoefficientsChromatCl: strBuffer.Append("STD_VIDEO_AV1_MATRIX_COEFFICIENTS_CHROMAT_CL");
 		case .StdVideoAv1MatrixCoefficientsIctcp: strBuffer.Append("STD_VIDEO_AV1_MATRIX_COEFFICIENTS_ICTCP");
 		case .StdVideoAv1MatrixCoefficientsInvalid: strBuffer.Append("STD_VIDEO_AV1_MATRIX_COEFFICIENTS_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }
@@ -6851,6 +7186,7 @@ extension StdVideoAV1ChromaSamplePosition
 		case .StdVideoAv1ChromaSamplePositionColocated: strBuffer.Append("STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_COLOCATED");
 		case .StdVideoAv1ChromaSamplePositionReserved: strBuffer.Append("STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_RESERVED");
 		case .StdVideoAv1ChromaSamplePositionInvalid: strBuffer.Append("STD_VIDEO_AV1_CHROMA_SAMPLE_POSITION_INVALID");
+		default: Underlying.ToString(strBuffer);
 		}
 	}
 }

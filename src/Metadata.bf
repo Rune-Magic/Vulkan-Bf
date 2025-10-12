@@ -9563,2696 +9563,8322 @@ extension VkFormat
 	}
 }
 
+extension VkStructureType
+{
+	public Type VkType
+	{
+		get
+		{
+			switch (this)
+			{
+			case .VkApplicationInfo: return typeof(VkApplicationInfo);
+			case .VkInstanceCreateInfo: return typeof(VkInstanceCreateInfo);
+			case .VkDeviceQueueCreateInfo: return typeof(VkDeviceQueueCreateInfo);
+			case .VkDeviceCreateInfo: return typeof(VkDeviceCreateInfo);
+			case .VkSubmitInfo: return typeof(VkSubmitInfo);
+			case .VkMemoryAllocateInfo: return typeof(VkMemoryAllocateInfo);
+			case .VkMappedMemoryRange: return typeof(VkMappedMemoryRange);
+			case .VkBindSparseInfo: return typeof(VkBindSparseInfo);
+			case .VkFenceCreateInfo: return typeof(VkFenceCreateInfo);
+			case .VkSemaphoreCreateInfo: return typeof(VkSemaphoreCreateInfo);
+			case .VkEventCreateInfo: return typeof(VkEventCreateInfo);
+			case .VkQueryPoolCreateInfo: return typeof(VkQueryPoolCreateInfo);
+			case .VkBufferCreateInfo: return typeof(VkBufferCreateInfo);
+			case .VkBufferViewCreateInfo: return typeof(VkBufferViewCreateInfo);
+			case .VkImageCreateInfo: return typeof(VkImageCreateInfo);
+			case .VkImageViewCreateInfo: return typeof(VkImageViewCreateInfo);
+			case .VkShaderModuleCreateInfo: return typeof(VkShaderModuleCreateInfo);
+			case .VkPipelineCacheCreateInfo: return typeof(VkPipelineCacheCreateInfo);
+			case .VkPipelineShaderStageCreateInfo: return typeof(VkPipelineShaderStageCreateInfo);
+			case .VkPipelineVertexInputStateCreateInfo: return typeof(VkPipelineVertexInputStateCreateInfo);
+			case .VkPipelineInputAssemblyStateCreateInfo: return typeof(VkPipelineInputAssemblyStateCreateInfo);
+			case .VkPipelineTessellationStateCreateInfo: return typeof(VkPipelineTessellationStateCreateInfo);
+			case .VkPipelineViewportStateCreateInfo: return typeof(VkPipelineViewportStateCreateInfo);
+			case .VkPipelineRasterizationStateCreateInfo: return typeof(VkPipelineRasterizationStateCreateInfo);
+			case .VkPipelineMultisampleStateCreateInfo: return typeof(VkPipelineMultisampleStateCreateInfo);
+			case .VkPipelineDepthStencilStateCreateInfo: return typeof(VkPipelineDepthStencilStateCreateInfo);
+			case .VkPipelineColorBlendStateCreateInfo: return typeof(VkPipelineColorBlendStateCreateInfo);
+			case .VkPipelineDynamicStateCreateInfo: return typeof(VkPipelineDynamicStateCreateInfo);
+			case .VkGraphicsPipelineCreateInfo: return typeof(VkGraphicsPipelineCreateInfo);
+			case .VkComputePipelineCreateInfo: return typeof(VkComputePipelineCreateInfo);
+			case .VkPipelineLayoutCreateInfo: return typeof(VkPipelineLayoutCreateInfo);
+			case .VkSamplerCreateInfo: return typeof(VkSamplerCreateInfo);
+			case .VkDescriptorSetLayoutCreateInfo: return typeof(VkDescriptorSetLayoutCreateInfo);
+			case .VkDescriptorPoolCreateInfo: return typeof(VkDescriptorPoolCreateInfo);
+			case .VkDescriptorSetAllocateInfo: return typeof(VkDescriptorSetAllocateInfo);
+			case .VkWriteDescriptorSet: return typeof(VkWriteDescriptorSet);
+			case .VkCopyDescriptorSet: return typeof(VkCopyDescriptorSet);
+			case .VkFramebufferCreateInfo: return typeof(VkFramebufferCreateInfo);
+			case .VkRenderPassCreateInfo: return typeof(VkRenderPassCreateInfo);
+			case .VkCommandPoolCreateInfo: return typeof(VkCommandPoolCreateInfo);
+			case .VkCommandBufferAllocateInfo: return typeof(VkCommandBufferAllocateInfo);
+			case .VkCommandBufferInheritanceInfo: return typeof(VkCommandBufferInheritanceInfo);
+			case .VkCommandBufferBeginInfo: return typeof(VkCommandBufferBeginInfo);
+			case .VkRenderPassBeginInfo: return typeof(VkRenderPassBeginInfo);
+			case .VkBufferMemoryBarrier: return typeof(VkBufferMemoryBarrier);
+			case .VkImageMemoryBarrier: return typeof(VkImageMemoryBarrier);
+			case .VkMemoryBarrier: return typeof(VkMemoryBarrier);
+			case .VkPhysicalDeviceSubgroupProperties: return typeof(VkPhysicalDeviceSubgroupProperties);
+			case .VkBindBufferMemoryInfo: return typeof(VkBindBufferMemoryInfo);
+			case .VkBindImageMemoryInfo: return typeof(VkBindImageMemoryInfo);
+			case .VkPhysicalDevice16bitStorageFeatures: return typeof(VkPhysicalDevice16BitStorageFeatures);
+			case .VkMemoryDedicatedRequirements: return typeof(VkMemoryDedicatedRequirements);
+			case .VkMemoryDedicatedAllocateInfo: return typeof(VkMemoryDedicatedAllocateInfo);
+			case .VkMemoryAllocateFlagsInfo: return typeof(VkMemoryAllocateFlagsInfo);
+			case .VkDeviceGroupRenderPassBeginInfo: return typeof(VkDeviceGroupRenderPassBeginInfo);
+			case .VkDeviceGroupCommandBufferBeginInfo: return typeof(VkDeviceGroupCommandBufferBeginInfo);
+			case .VkDeviceGroupSubmitInfo: return typeof(VkDeviceGroupSubmitInfo);
+			case .VkDeviceGroupBindSparseInfo: return typeof(VkDeviceGroupBindSparseInfo);
+			case .VkBindBufferMemoryDeviceGroupInfo: return typeof(VkBindBufferMemoryDeviceGroupInfo);
+			case .VkBindImageMemoryDeviceGroupInfo: return typeof(VkBindImageMemoryDeviceGroupInfo);
+			case .VkPhysicalDeviceGroupProperties: return typeof(VkPhysicalDeviceGroupProperties);
+			case .VkDeviceGroupDeviceCreateInfo: return typeof(VkDeviceGroupDeviceCreateInfo);
+			case .VkBufferMemoryRequirementsInfo2: return typeof(VkBufferMemoryRequirementsInfo2);
+			case .VkImageMemoryRequirementsInfo2: return typeof(VkImageMemoryRequirementsInfo2);
+			case .VkImageSparseMemoryRequirementsInfo2: return typeof(VkImageSparseMemoryRequirementsInfo2);
+			case .VkMemoryRequirements2: return typeof(VkMemoryRequirements2);
+			case .VkSparseImageMemoryRequirements2: return typeof(VkSparseImageMemoryRequirements2);
+			case .VkPhysicalDeviceFeatures2: return typeof(VkPhysicalDeviceFeatures2);
+			case .VkPhysicalDeviceProperties2: return typeof(VkPhysicalDeviceProperties2);
+			case .VkFormatProperties2: return typeof(VkFormatProperties2);
+			case .VkImageFormatProperties2: return typeof(VkImageFormatProperties2);
+			case .VkPhysicalDeviceImageFormatInfo2: return typeof(VkPhysicalDeviceImageFormatInfo2);
+			case .VkQueueFamilyProperties2: return typeof(VkQueueFamilyProperties2);
+			case .VkPhysicalDeviceMemoryProperties2: return typeof(VkPhysicalDeviceMemoryProperties2);
+			case .VkSparseImageFormatProperties2: return typeof(VkSparseImageFormatProperties2);
+			case .VkPhysicalDeviceSparseImageFormatInfo2: return typeof(VkPhysicalDeviceSparseImageFormatInfo2);
+			case .VkPhysicalDevicePointClippingProperties: return typeof(VkPhysicalDevicePointClippingProperties);
+			case .VkRenderPassInputAttachmentAspectCreateInfo: return typeof(VkRenderPassInputAttachmentAspectCreateInfo);
+			case .VkImageViewUsageCreateInfo: return typeof(VkImageViewUsageCreateInfo);
+			case .VkPipelineTessellationDomainOriginStateCreateInfo: return typeof(VkPipelineTessellationDomainOriginStateCreateInfo);
+			case .VkRenderPassMultiviewCreateInfo: return typeof(VkRenderPassMultiviewCreateInfo);
+			case .VkPhysicalDeviceMultiviewFeatures: return typeof(VkPhysicalDeviceMultiviewFeatures);
+			case .VkPhysicalDeviceMultiviewProperties: return typeof(VkPhysicalDeviceMultiviewProperties);
+			case .VkPhysicalDeviceVariablePointersFeatures: return typeof(VkPhysicalDeviceVariablePointersFeatures);
+			case .VkProtectedSubmitInfo: return typeof(VkProtectedSubmitInfo);
+			case .VkPhysicalDeviceProtectedMemoryFeatures: return typeof(VkPhysicalDeviceProtectedMemoryFeatures);
+			case .VkPhysicalDeviceProtectedMemoryProperties: return typeof(VkPhysicalDeviceProtectedMemoryProperties);
+			case .VkDeviceQueueInfo2: return typeof(VkDeviceQueueInfo2);
+			case .VkSamplerYcbcrConversionCreateInfo: return typeof(VkSamplerYcbcrConversionCreateInfo);
+			case .VkSamplerYcbcrConversionInfo: return typeof(VkSamplerYcbcrConversionInfo);
+			case .VkBindImagePlaneMemoryInfo: return typeof(VkBindImagePlaneMemoryInfo);
+			case .VkImagePlaneMemoryRequirementsInfo: return typeof(VkImagePlaneMemoryRequirementsInfo);
+			case .VkPhysicalDeviceSamplerYcbcrConversionFeatures: return typeof(VkPhysicalDeviceSamplerYcbcrConversionFeatures);
+			case .VkSamplerYcbcrConversionImageFormatProperties: return typeof(VkSamplerYcbcrConversionImageFormatProperties);
+			case .VkDescriptorUpdateTemplateCreateInfo: return typeof(VkDescriptorUpdateTemplateCreateInfo);
+			case .VkPhysicalDeviceExternalImageFormatInfo: return typeof(VkPhysicalDeviceExternalImageFormatInfo);
+			case .VkExternalImageFormatProperties: return typeof(VkExternalImageFormatProperties);
+			case .VkPhysicalDeviceExternalBufferInfo: return typeof(VkPhysicalDeviceExternalBufferInfo);
+			case .VkExternalBufferProperties: return typeof(VkExternalBufferProperties);
+			case .VkPhysicalDeviceIdProperties: return typeof(VkPhysicalDeviceIDProperties);
+			case .VkExternalMemoryBufferCreateInfo: return typeof(VkExternalMemoryBufferCreateInfo);
+			case .VkExternalMemoryImageCreateInfo: return typeof(VkExternalMemoryImageCreateInfo);
+			case .VkExportMemoryAllocateInfo: return typeof(VkExportMemoryAllocateInfo);
+			case .VkPhysicalDeviceExternalFenceInfo: return typeof(VkPhysicalDeviceExternalFenceInfo);
+			case .VkExternalFenceProperties: return typeof(VkExternalFenceProperties);
+			case .VkExportFenceCreateInfo: return typeof(VkExportFenceCreateInfo);
+			case .VkExportSemaphoreCreateInfo: return typeof(VkExportSemaphoreCreateInfo);
+			case .VkPhysicalDeviceExternalSemaphoreInfo: return typeof(VkPhysicalDeviceExternalSemaphoreInfo);
+			case .VkExternalSemaphoreProperties: return typeof(VkExternalSemaphoreProperties);
+			case .VkPhysicalDeviceMaintenance3Properties: return typeof(VkPhysicalDeviceMaintenance3Properties);
+			case .VkDescriptorSetLayoutSupport: return typeof(VkDescriptorSetLayoutSupport);
+			case .VkPhysicalDeviceShaderDrawParametersFeatures: return typeof(VkPhysicalDeviceShaderDrawParametersFeatures);
+			case .VkPhysicalDeviceVulkan11Features: return typeof(VkPhysicalDeviceVulkan11Features);
+			case .VkPhysicalDeviceVulkan11Properties: return typeof(VkPhysicalDeviceVulkan11Properties);
+			case .VkPhysicalDeviceVulkan12Features: return typeof(VkPhysicalDeviceVulkan12Features);
+			case .VkPhysicalDeviceVulkan12Properties: return typeof(VkPhysicalDeviceVulkan12Properties);
+			case .VkImageFormatListCreateInfo: return typeof(VkImageFormatListCreateInfo);
+			case .VkAttachmentDescription2: return typeof(VkAttachmentDescription2);
+			case .VkAttachmentReference2: return typeof(VkAttachmentReference2);
+			case .VkSubpassDescription2: return typeof(VkSubpassDescription2);
+			case .VkSubpassDependency2: return typeof(VkSubpassDependency2);
+			case .VkRenderPassCreateInfo2: return typeof(VkRenderPassCreateInfo2);
+			case .VkSubpassBeginInfo: return typeof(VkSubpassBeginInfo);
+			case .VkSubpassEndInfo: return typeof(VkSubpassEndInfo);
+			case .VkPhysicalDevice8bitStorageFeatures: return typeof(VkPhysicalDevice8BitStorageFeatures);
+			case .VkPhysicalDeviceDriverProperties: return typeof(VkPhysicalDeviceDriverProperties);
+			case .VkPhysicalDeviceShaderAtomicInt64Features: return typeof(VkPhysicalDeviceShaderAtomicInt64Features);
+			case .VkPhysicalDeviceShaderFloat16Int8Features: return typeof(VkPhysicalDeviceShaderFloat16Int8Features);
+			case .VkPhysicalDeviceFloatControlsProperties: return typeof(VkPhysicalDeviceFloatControlsProperties);
+			case .VkDescriptorSetLayoutBindingFlagsCreateInfo: return typeof(VkDescriptorSetLayoutBindingFlagsCreateInfo);
+			case .VkPhysicalDeviceDescriptorIndexingFeatures: return typeof(VkPhysicalDeviceDescriptorIndexingFeatures);
+			case .VkPhysicalDeviceDescriptorIndexingProperties: return typeof(VkPhysicalDeviceDescriptorIndexingProperties);
+			case .VkDescriptorSetVariableDescriptorCountAllocateInfo: return typeof(VkDescriptorSetVariableDescriptorCountAllocateInfo);
+			case .VkDescriptorSetVariableDescriptorCountLayoutSupport: return typeof(VkDescriptorSetVariableDescriptorCountLayoutSupport);
+			case .VkPhysicalDeviceDepthStencilResolveProperties: return typeof(VkPhysicalDeviceDepthStencilResolveProperties);
+			case .VkSubpassDescriptionDepthStencilResolve: return typeof(VkSubpassDescriptionDepthStencilResolve);
+			case .VkPhysicalDeviceScalarBlockLayoutFeatures: return typeof(VkPhysicalDeviceScalarBlockLayoutFeatures);
+			case .VkImageStencilUsageCreateInfo: return typeof(VkImageStencilUsageCreateInfo);
+			case .VkPhysicalDeviceSamplerFilterMinmaxProperties: return typeof(VkPhysicalDeviceSamplerFilterMinmaxProperties);
+			case .VkSamplerReductionModeCreateInfo: return typeof(VkSamplerReductionModeCreateInfo);
+			case .VkPhysicalDeviceVulkanMemoryModelFeatures: return typeof(VkPhysicalDeviceVulkanMemoryModelFeatures);
+			case .VkPhysicalDeviceImagelessFramebufferFeatures: return typeof(VkPhysicalDeviceImagelessFramebufferFeatures);
+			case .VkFramebufferAttachmentsCreateInfo: return typeof(VkFramebufferAttachmentsCreateInfo);
+			case .VkFramebufferAttachmentImageInfo: return typeof(VkFramebufferAttachmentImageInfo);
+			case .VkRenderPassAttachmentBeginInfo: return typeof(VkRenderPassAttachmentBeginInfo);
+			case .VkPhysicalDeviceUniformBufferStandardLayoutFeatures: return typeof(VkPhysicalDeviceUniformBufferStandardLayoutFeatures);
+			case .VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures: return typeof(VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures);
+			case .VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures: return typeof(VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures);
+			case .VkAttachmentReferenceStencilLayout: return typeof(VkAttachmentReferenceStencilLayout);
+			case .VkAttachmentDescriptionStencilLayout: return typeof(VkAttachmentDescriptionStencilLayout);
+			case .VkPhysicalDeviceHostQueryResetFeatures: return typeof(VkPhysicalDeviceHostQueryResetFeatures);
+			case .VkPhysicalDeviceTimelineSemaphoreFeatures: return typeof(VkPhysicalDeviceTimelineSemaphoreFeatures);
+			case .VkPhysicalDeviceTimelineSemaphoreProperties: return typeof(VkPhysicalDeviceTimelineSemaphoreProperties);
+			case .VkSemaphoreTypeCreateInfo: return typeof(VkSemaphoreTypeCreateInfo);
+			case .VkTimelineSemaphoreSubmitInfo: return typeof(VkTimelineSemaphoreSubmitInfo);
+			case .VkSemaphoreWaitInfo: return typeof(VkSemaphoreWaitInfo);
+			case .VkSemaphoreSignalInfo: return typeof(VkSemaphoreSignalInfo);
+			case .VkPhysicalDeviceBufferDeviceAddressFeatures: return typeof(VkPhysicalDeviceBufferDeviceAddressFeatures);
+			case .VkBufferDeviceAddressInfo: return typeof(VkBufferDeviceAddressInfo);
+			case .VkBufferOpaqueCaptureAddressCreateInfo: return typeof(VkBufferOpaqueCaptureAddressCreateInfo);
+			case .VkMemoryOpaqueCaptureAddressAllocateInfo: return typeof(VkMemoryOpaqueCaptureAddressAllocateInfo);
+			case .VkDeviceMemoryOpaqueCaptureAddressInfo: return typeof(VkDeviceMemoryOpaqueCaptureAddressInfo);
+			case .VkPhysicalDeviceVulkan13Features: return typeof(VkPhysicalDeviceVulkan13Features);
+			case .VkPhysicalDeviceVulkan13Properties: return typeof(VkPhysicalDeviceVulkan13Properties);
+			case .VkPipelineCreationFeedbackCreateInfo: return typeof(VkPipelineCreationFeedbackCreateInfo);
+			case .VkPhysicalDeviceShaderTerminateInvocationFeatures: return typeof(VkPhysicalDeviceShaderTerminateInvocationFeatures);
+			case .VkPhysicalDeviceToolProperties: return typeof(VkPhysicalDeviceToolProperties);
+			case .VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures: return typeof(VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures);
+			case .VkPhysicalDevicePrivateDataFeatures: return typeof(VkPhysicalDevicePrivateDataFeatures);
+			case .VkDevicePrivateDataCreateInfo: return typeof(VkDevicePrivateDataCreateInfo);
+			case .VkPrivateDataSlotCreateInfo: return typeof(VkPrivateDataSlotCreateInfo);
+			case .VkPhysicalDevicePipelineCreationCacheControlFeatures: return typeof(VkPhysicalDevicePipelineCreationCacheControlFeatures);
+			case .VkMemoryBarrier2: return typeof(VkMemoryBarrier2);
+			case .VkBufferMemoryBarrier2: return typeof(VkBufferMemoryBarrier2);
+			case .VkImageMemoryBarrier2: return typeof(VkImageMemoryBarrier2);
+			case .VkDependencyInfo: return typeof(VkDependencyInfo);
+			case .VkSubmitInfo2: return typeof(VkSubmitInfo2);
+			case .VkSemaphoreSubmitInfo: return typeof(VkSemaphoreSubmitInfo);
+			case .VkCommandBufferSubmitInfo: return typeof(VkCommandBufferSubmitInfo);
+			case .VkPhysicalDeviceSynchronization2Features: return typeof(VkPhysicalDeviceSynchronization2Features);
+			case .VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures: return typeof(VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures);
+			case .VkPhysicalDeviceImageRobustnessFeatures: return typeof(VkPhysicalDeviceImageRobustnessFeatures);
+			case .VkCopyBufferInfo2: return typeof(VkCopyBufferInfo2);
+			case .VkCopyImageInfo2: return typeof(VkCopyImageInfo2);
+			case .VkCopyBufferToImageInfo2: return typeof(VkCopyBufferToImageInfo2);
+			case .VkCopyImageToBufferInfo2: return typeof(VkCopyImageToBufferInfo2);
+			case .VkBlitImageInfo2: return typeof(VkBlitImageInfo2);
+			case .VkResolveImageInfo2: return typeof(VkResolveImageInfo2);
+			case .VkBufferCopy2: return typeof(VkBufferCopy2);
+			case .VkImageCopy2: return typeof(VkImageCopy2);
+			case .VkImageBlit2: return typeof(VkImageBlit2);
+			case .VkBufferImageCopy2: return typeof(VkBufferImageCopy2);
+			case .VkImageResolve2: return typeof(VkImageResolve2);
+			case .VkPhysicalDeviceSubgroupSizeControlProperties: return typeof(VkPhysicalDeviceSubgroupSizeControlProperties);
+			case .VkPipelineShaderStageRequiredSubgroupSizeCreateInfo: return typeof(VkPipelineShaderStageRequiredSubgroupSizeCreateInfo);
+			case .VkPhysicalDeviceSubgroupSizeControlFeatures: return typeof(VkPhysicalDeviceSubgroupSizeControlFeatures);
+			case .VkPhysicalDeviceInlineUniformBlockFeatures: return typeof(VkPhysicalDeviceInlineUniformBlockFeatures);
+			case .VkPhysicalDeviceInlineUniformBlockProperties: return typeof(VkPhysicalDeviceInlineUniformBlockProperties);
+			case .VkWriteDescriptorSetInlineUniformBlock: return typeof(VkWriteDescriptorSetInlineUniformBlock);
+			case .VkDescriptorPoolInlineUniformBlockCreateInfo: return typeof(VkDescriptorPoolInlineUniformBlockCreateInfo);
+			case .VkPhysicalDeviceTextureCompressionAstcHdrFeatures: return typeof(VkPhysicalDeviceTextureCompressionASTCHDRFeatures);
+			case .VkRenderingInfo: return typeof(VkRenderingInfo);
+			case .VkRenderingAttachmentInfo: return typeof(VkRenderingAttachmentInfo);
+			case .VkPipelineRenderingCreateInfo: return typeof(VkPipelineRenderingCreateInfo);
+			case .VkPhysicalDeviceDynamicRenderingFeatures: return typeof(VkPhysicalDeviceDynamicRenderingFeatures);
+			case .VkCommandBufferInheritanceRenderingInfo: return typeof(VkCommandBufferInheritanceRenderingInfo);
+			case .VkPhysicalDeviceShaderIntegerDotProductFeatures: return typeof(VkPhysicalDeviceShaderIntegerDotProductFeatures);
+			case .VkPhysicalDeviceShaderIntegerDotProductProperties: return typeof(VkPhysicalDeviceShaderIntegerDotProductProperties);
+			case .VkPhysicalDeviceTexelBufferAlignmentProperties: return typeof(VkPhysicalDeviceTexelBufferAlignmentProperties);
+			case .VkFormatProperties3: return typeof(VkFormatProperties3);
+			case .VkPhysicalDeviceMaintenance4Features: return typeof(VkPhysicalDeviceMaintenance4Features);
+			case .VkPhysicalDeviceMaintenance4Properties: return typeof(VkPhysicalDeviceMaintenance4Properties);
+			case .VkDeviceBufferMemoryRequirements: return typeof(VkDeviceBufferMemoryRequirements);
+			case .VkDeviceImageMemoryRequirements: return typeof(VkDeviceImageMemoryRequirements);
+			case .VkPhysicalDeviceVulkan14Features: return typeof(VkPhysicalDeviceVulkan14Features);
+			case .VkPhysicalDeviceVulkan14Properties: return typeof(VkPhysicalDeviceVulkan14Properties);
+			case .VkDeviceQueueGlobalPriorityCreateInfo: return typeof(VkDeviceQueueGlobalPriorityCreateInfo);
+			case .VkPhysicalDeviceGlobalPriorityQueryFeatures: return typeof(VkPhysicalDeviceGlobalPriorityQueryFeatures);
+			case .VkQueueFamilyGlobalPriorityProperties: return typeof(VkQueueFamilyGlobalPriorityProperties);
+			case .VkPhysicalDeviceShaderSubgroupRotateFeatures: return typeof(VkPhysicalDeviceShaderSubgroupRotateFeatures);
+			case .VkPhysicalDeviceShaderFloatControls2Features: return typeof(VkPhysicalDeviceShaderFloatControls2Features);
+			case .VkPhysicalDeviceShaderExpectAssumeFeatures: return typeof(VkPhysicalDeviceShaderExpectAssumeFeatures);
+			case .VkPhysicalDeviceLineRasterizationFeatures: return typeof(VkPhysicalDeviceLineRasterizationFeatures);
+			case .VkPipelineRasterizationLineStateCreateInfo: return typeof(VkPipelineRasterizationLineStateCreateInfo);
+			case .VkPhysicalDeviceLineRasterizationProperties: return typeof(VkPhysicalDeviceLineRasterizationProperties);
+			case .VkPhysicalDeviceVertexAttributeDivisorProperties: return typeof(VkPhysicalDeviceVertexAttributeDivisorProperties);
+			case .VkPipelineVertexInputDivisorStateCreateInfo: return typeof(VkPipelineVertexInputDivisorStateCreateInfo);
+			case .VkPhysicalDeviceVertexAttributeDivisorFeatures: return typeof(VkPhysicalDeviceVertexAttributeDivisorFeatures);
+			case .VkPhysicalDeviceIndexTypeUint8Features: return typeof(VkPhysicalDeviceIndexTypeUint8Features);
+			case .VkMemoryMapInfo: return typeof(VkMemoryMapInfo);
+			case .VkMemoryUnmapInfo: return typeof(VkMemoryUnmapInfo);
+			case .VkPhysicalDeviceMaintenance5Features: return typeof(VkPhysicalDeviceMaintenance5Features);
+			case .VkPhysicalDeviceMaintenance5Properties: return typeof(VkPhysicalDeviceMaintenance5Properties);
+			case .VkRenderingAreaInfo: return typeof(VkRenderingAreaInfo);
+			case .VkDeviceImageSubresourceInfo: return typeof(VkDeviceImageSubresourceInfo);
+			case .VkSubresourceLayout2: return typeof(VkSubresourceLayout2);
+			case .VkImageSubresource2: return typeof(VkImageSubresource2);
+			case .VkPipelineCreateFlags2CreateInfo: return typeof(VkPipelineCreateFlags2CreateInfo);
+			case .VkBufferUsageFlags2CreateInfo: return typeof(VkBufferUsageFlags2CreateInfo);
+			case .VkPhysicalDevicePushDescriptorProperties: return typeof(VkPhysicalDevicePushDescriptorProperties);
+			case .VkPhysicalDeviceDynamicRenderingLocalReadFeatures: return typeof(VkPhysicalDeviceDynamicRenderingLocalReadFeatures);
+			case .VkRenderingAttachmentLocationInfo: return typeof(VkRenderingAttachmentLocationInfo);
+			case .VkRenderingInputAttachmentIndexInfo: return typeof(VkRenderingInputAttachmentIndexInfo);
+			case .VkPhysicalDeviceMaintenance6Features: return typeof(VkPhysicalDeviceMaintenance6Features);
+			case .VkPhysicalDeviceMaintenance6Properties: return typeof(VkPhysicalDeviceMaintenance6Properties);
+			case .VkBindMemoryStatus: return typeof(VkBindMemoryStatus);
+			case .VkBindDescriptorSetsInfo: return typeof(VkBindDescriptorSetsInfo);
+			case .VkPushConstantsInfo: return typeof(VkPushConstantsInfo);
+			case .VkPushDescriptorSetInfo: return typeof(VkPushDescriptorSetInfo);
+			case .VkPushDescriptorSetWithTemplateInfo: return typeof(VkPushDescriptorSetWithTemplateInfo);
+			case .VkPhysicalDevicePipelineProtectedAccessFeatures: return typeof(VkPhysicalDevicePipelineProtectedAccessFeatures);
+			case .VkPipelineRobustnessCreateInfo: return typeof(VkPipelineRobustnessCreateInfo);
+			case .VkPhysicalDevicePipelineRobustnessFeatures: return typeof(VkPhysicalDevicePipelineRobustnessFeatures);
+			case .VkPhysicalDevicePipelineRobustnessProperties: return typeof(VkPhysicalDevicePipelineRobustnessProperties);
+			case .VkPhysicalDeviceHostImageCopyFeatures: return typeof(VkPhysicalDeviceHostImageCopyFeatures);
+			case .VkPhysicalDeviceHostImageCopyProperties: return typeof(VkPhysicalDeviceHostImageCopyProperties);
+			case .VkMemoryToImageCopy: return typeof(VkMemoryToImageCopy);
+			case .VkImageToMemoryCopy: return typeof(VkImageToMemoryCopy);
+			case .VkCopyImageToMemoryInfo: return typeof(VkCopyImageToMemoryInfo);
+			case .VkCopyMemoryToImageInfo: return typeof(VkCopyMemoryToImageInfo);
+			case .VkHostImageLayoutTransitionInfo: return typeof(VkHostImageLayoutTransitionInfo);
+			case .VkCopyImageToImageInfo: return typeof(VkCopyImageToImageInfo);
+			case .VkSubresourceHostMemcpySize: return typeof(VkSubresourceHostMemcpySize);
+			case .VkHostImageCopyDevicePerformanceQuery: return typeof(VkHostImageCopyDevicePerformanceQuery);
+			case .VkSwapchainCreateInfoKHR: return typeof(VkSwapchainCreateInfoKHR);
+			case .VkPresentInfoKHR: return typeof(VkPresentInfoKHR);
+			case .VkDeviceGroupPresentCapabilitiesKHR: return typeof(VkDeviceGroupPresentCapabilitiesKHR);
+			case .VkImageSwapchainCreateInfoKHR: return typeof(VkImageSwapchainCreateInfoKHR);
+			case .VkBindImageMemorySwapchainInfoKHR: return typeof(VkBindImageMemorySwapchainInfoKHR);
+			case .VkAcquireNextImageInfoKHR: return typeof(VkAcquireNextImageInfoKHR);
+			case .VkDeviceGroupPresentInfoKHR: return typeof(VkDeviceGroupPresentInfoKHR);
+			case .VkDeviceGroupSwapchainCreateInfoKHR: return typeof(VkDeviceGroupSwapchainCreateInfoKHR);
+			case .VkDisplayModeCreateInfoKHR: return typeof(VkDisplayModeCreateInfoKHR);
+			case .VkDisplaySurfaceCreateInfoKHR: return typeof(VkDisplaySurfaceCreateInfoKHR);
+			case .VkDisplayPresentInfoKHR: return typeof(VkDisplayPresentInfoKHR);
+			case .VkDebugReportCallbackCreateInfoEXT: return typeof(VkDebugReportCallbackCreateInfoEXT);
+			case .VkPipelineRasterizationStateRasterizationOrderAMD: return typeof(VkPipelineRasterizationStateRasterizationOrderAMD);
+			case .VkDebugMarkerObjectNameInfoEXT: return typeof(VkDebugMarkerObjectNameInfoEXT);
+			case .VkDebugMarkerObjectTagInfoEXT: return typeof(VkDebugMarkerObjectTagInfoEXT);
+			case .VkDebugMarkerMarkerInfoEXT: return typeof(VkDebugMarkerMarkerInfoEXT);
+			case .VkVideoProfileInfoKHR: return typeof(VkVideoProfileInfoKHR);
+			case .VkVideoCapabilitiesKHR: return typeof(VkVideoCapabilitiesKHR);
+			case .VkVideoPictureResourceInfoKHR: return typeof(VkVideoPictureResourceInfoKHR);
+			case .VkVideoSessionMemoryRequirementsKHR: return typeof(VkVideoSessionMemoryRequirementsKHR);
+			case .VkBindVideoSessionMemoryInfoKHR: return typeof(VkBindVideoSessionMemoryInfoKHR);
+			case .VkVideoSessionCreateInfoKHR: return typeof(VkVideoSessionCreateInfoKHR);
+			case .VkVideoSessionParametersCreateInfoKHR: return typeof(VkVideoSessionParametersCreateInfoKHR);
+			case .VkVideoSessionParametersUpdateInfoKHR: return typeof(VkVideoSessionParametersUpdateInfoKHR);
+			case .VkVideoBeginCodingInfoKHR: return typeof(VkVideoBeginCodingInfoKHR);
+			case .VkVideoEndCodingInfoKHR: return typeof(VkVideoEndCodingInfoKHR);
+			case .VkVideoCodingControlInfoKHR: return typeof(VkVideoCodingControlInfoKHR);
+			case .VkVideoReferenceSlotInfoKHR: return typeof(VkVideoReferenceSlotInfoKHR);
+			case .VkQueueFamilyVideoPropertiesKHR: return typeof(VkQueueFamilyVideoPropertiesKHR);
+			case .VkVideoProfileListInfoKHR: return typeof(VkVideoProfileListInfoKHR);
+			case .VkPhysicalDeviceVideoFormatInfoKHR: return typeof(VkPhysicalDeviceVideoFormatInfoKHR);
+			case .VkVideoFormatPropertiesKHR: return typeof(VkVideoFormatPropertiesKHR);
+			case .VkQueueFamilyQueryResultStatusPropertiesKHR: return typeof(VkQueueFamilyQueryResultStatusPropertiesKHR);
+			case .VkVideoDecodeInfoKHR: return typeof(VkVideoDecodeInfoKHR);
+			case .VkVideoDecodeCapabilitiesKHR: return typeof(VkVideoDecodeCapabilitiesKHR);
+			case .VkVideoDecodeUsageInfoKHR: return typeof(VkVideoDecodeUsageInfoKHR);
+			case .VkDedicatedAllocationImageCreateInfoNV: return typeof(VkDedicatedAllocationImageCreateInfoNV);
+			case .VkDedicatedAllocationBufferCreateInfoNV: return typeof(VkDedicatedAllocationBufferCreateInfoNV);
+			case .VkDedicatedAllocationMemoryAllocateInfoNV: return typeof(VkDedicatedAllocationMemoryAllocateInfoNV);
+			case .VkPhysicalDeviceTransformFeedbackFeaturesEXT: return typeof(VkPhysicalDeviceTransformFeedbackFeaturesEXT);
+			case .VkPhysicalDeviceTransformFeedbackPropertiesEXT: return typeof(VkPhysicalDeviceTransformFeedbackPropertiesEXT);
+			case .VkPipelineRasterizationStateStreamCreateInfoEXT: return typeof(VkPipelineRasterizationStateStreamCreateInfoEXT);
+			case .VkCuModuleCreateInfoNVX: return typeof(VkCuModuleCreateInfoNVX);
+			case .VkCuFunctionCreateInfoNVX: return typeof(VkCuFunctionCreateInfoNVX);
+			case .VkCuLaunchInfoNVX: return typeof(VkCuLaunchInfoNVX);
+			case .VkCuModuleTexturingModeCreateInfoNVX: return typeof(VkCuModuleTexturingModeCreateInfoNVX);
+			case .VkImageViewHandleInfoNVX: return typeof(VkImageViewHandleInfoNVX);
+			case .VkImageViewAddressPropertiesNVX: return typeof(VkImageViewAddressPropertiesNVX);
+			case .VkVideoEncodeH264CapabilitiesKHR: return typeof(VkVideoEncodeH264CapabilitiesKHR);
+			case .VkVideoEncodeH264SessionParametersCreateInfoKHR: return typeof(VkVideoEncodeH264SessionParametersCreateInfoKHR);
+			case .VkVideoEncodeH264SessionParametersAddInfoKHR: return typeof(VkVideoEncodeH264SessionParametersAddInfoKHR);
+			case .VkVideoEncodeH264PictureInfoKHR: return typeof(VkVideoEncodeH264PictureInfoKHR);
+			case .VkVideoEncodeH264DpbSlotInfoKHR: return typeof(VkVideoEncodeH264DpbSlotInfoKHR);
+			case .VkVideoEncodeH264NaluSliceInfoKHR: return typeof(VkVideoEncodeH264NaluSliceInfoKHR);
+			case .VkVideoEncodeH264GopRemainingFrameInfoKHR: return typeof(VkVideoEncodeH264GopRemainingFrameInfoKHR);
+			case .VkVideoEncodeH264ProfileInfoKHR: return typeof(VkVideoEncodeH264ProfileInfoKHR);
+			case .VkVideoEncodeH264RateControlInfoKHR: return typeof(VkVideoEncodeH264RateControlInfoKHR);
+			case .VkVideoEncodeH264RateControlLayerInfoKHR: return typeof(VkVideoEncodeH264RateControlLayerInfoKHR);
+			case .VkVideoEncodeH264SessionCreateInfoKHR: return typeof(VkVideoEncodeH264SessionCreateInfoKHR);
+			case .VkVideoEncodeH264QualityLevelPropertiesKHR: return typeof(VkVideoEncodeH264QualityLevelPropertiesKHR);
+			case .VkVideoEncodeH264SessionParametersGetInfoKHR: return typeof(VkVideoEncodeH264SessionParametersGetInfoKHR);
+			case .VkVideoEncodeH264SessionParametersFeedbackInfoKHR: return typeof(VkVideoEncodeH264SessionParametersFeedbackInfoKHR);
+			case .VkVideoEncodeH265CapabilitiesKHR: return typeof(VkVideoEncodeH265CapabilitiesKHR);
+			case .VkVideoEncodeH265SessionParametersCreateInfoKHR: return typeof(VkVideoEncodeH265SessionParametersCreateInfoKHR);
+			case .VkVideoEncodeH265SessionParametersAddInfoKHR: return typeof(VkVideoEncodeH265SessionParametersAddInfoKHR);
+			case .VkVideoEncodeH265PictureInfoKHR: return typeof(VkVideoEncodeH265PictureInfoKHR);
+			case .VkVideoEncodeH265DpbSlotInfoKHR: return typeof(VkVideoEncodeH265DpbSlotInfoKHR);
+			case .VkVideoEncodeH265NaluSliceSegmentInfoKHR: return typeof(VkVideoEncodeH265NaluSliceSegmentInfoKHR);
+			case .VkVideoEncodeH265GopRemainingFrameInfoKHR: return typeof(VkVideoEncodeH265GopRemainingFrameInfoKHR);
+			case .VkVideoEncodeH265ProfileInfoKHR: return typeof(VkVideoEncodeH265ProfileInfoKHR);
+			case .VkVideoEncodeH265RateControlInfoKHR: return typeof(VkVideoEncodeH265RateControlInfoKHR);
+			case .VkVideoEncodeH265RateControlLayerInfoKHR: return typeof(VkVideoEncodeH265RateControlLayerInfoKHR);
+			case .VkVideoEncodeH265SessionCreateInfoKHR: return typeof(VkVideoEncodeH265SessionCreateInfoKHR);
+			case .VkVideoEncodeH265QualityLevelPropertiesKHR: return typeof(VkVideoEncodeH265QualityLevelPropertiesKHR);
+			case .VkVideoEncodeH265SessionParametersGetInfoKHR: return typeof(VkVideoEncodeH265SessionParametersGetInfoKHR);
+			case .VkVideoEncodeH265SessionParametersFeedbackInfoKHR: return typeof(VkVideoEncodeH265SessionParametersFeedbackInfoKHR);
+			case .VkVideoDecodeH264CapabilitiesKHR: return typeof(VkVideoDecodeH264CapabilitiesKHR);
+			case .VkVideoDecodeH264PictureInfoKHR: return typeof(VkVideoDecodeH264PictureInfoKHR);
+			case .VkVideoDecodeH264ProfileInfoKHR: return typeof(VkVideoDecodeH264ProfileInfoKHR);
+			case .VkVideoDecodeH264SessionParametersCreateInfoKHR: return typeof(VkVideoDecodeH264SessionParametersCreateInfoKHR);
+			case .VkVideoDecodeH264SessionParametersAddInfoKHR: return typeof(VkVideoDecodeH264SessionParametersAddInfoKHR);
+			case .VkVideoDecodeH264DpbSlotInfoKHR: return typeof(VkVideoDecodeH264DpbSlotInfoKHR);
+			case .VkTextureLodGatherFormatPropertiesAMD: return typeof(VkTextureLODGatherFormatPropertiesAMD);
+			case .VkPhysicalDeviceCornerSampledImageFeaturesNV: return typeof(VkPhysicalDeviceCornerSampledImageFeaturesNV);
+			case .VkExternalMemoryImageCreateInfoNV: return typeof(VkExternalMemoryImageCreateInfoNV);
+			case .VkExportMemoryAllocateInfoNV: return typeof(VkExportMemoryAllocateInfoNV);
+			case .VkValidationFlagsEXT: return typeof(VkValidationFlagsEXT);
+			case .VkImageViewAstcDecodeModeEXT: return typeof(VkImageViewASTCDecodeModeEXT);
+			case .VkPhysicalDeviceAstcDecodeFeaturesEXT: return typeof(VkPhysicalDeviceASTCDecodeFeaturesEXT);
+			case .VkImportMemoryFdInfoKHR: return typeof(VkImportMemoryFdInfoKHR);
+			case .VkMemoryFdPropertiesKHR: return typeof(VkMemoryFdPropertiesKHR);
+			case .VkMemoryGetFdInfoKHR: return typeof(VkMemoryGetFdInfoKHR);
+			case .VkImportSemaphoreFdInfoKHR: return typeof(VkImportSemaphoreFdInfoKHR);
+			case .VkSemaphoreGetFdInfoKHR: return typeof(VkSemaphoreGetFdInfoKHR);
+			case .VkCommandBufferInheritanceConditionalRenderingInfoEXT: return typeof(VkCommandBufferInheritanceConditionalRenderingInfoEXT);
+			case .VkPhysicalDeviceConditionalRenderingFeaturesEXT: return typeof(VkPhysicalDeviceConditionalRenderingFeaturesEXT);
+			case .VkConditionalRenderingBeginInfoEXT: return typeof(VkConditionalRenderingBeginInfoEXT);
+			case .VkPresentRegionsKHR: return typeof(VkPresentRegionsKHR);
+			case .VkPipelineViewportWScalingStateCreateInfoNV: return typeof(VkPipelineViewportWScalingStateCreateInfoNV);
+			case .VkSurfaceCapabilities2EXT: return typeof(VkSurfaceCapabilities2EXT);
+			case .VkDisplayPowerInfoEXT: return typeof(VkDisplayPowerInfoEXT);
+			case .VkDeviceEventInfoEXT: return typeof(VkDeviceEventInfoEXT);
+			case .VkDisplayEventInfoEXT: return typeof(VkDisplayEventInfoEXT);
+			case .VkSwapchainCounterCreateInfoEXT: return typeof(VkSwapchainCounterCreateInfoEXT);
+			case .VkPresentTimesInfoGOOGLE: return typeof(VkPresentTimesInfoGOOGLE);
+			case .VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX: return typeof(VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX);
+			case .VkMultiviewPerViewAttributesInfoNVX: return typeof(VkMultiviewPerViewAttributesInfoNVX);
+			case .VkPipelineViewportSwizzleStateCreateInfoNV: return typeof(VkPipelineViewportSwizzleStateCreateInfoNV);
+			case .VkPhysicalDeviceDiscardRectanglePropertiesEXT: return typeof(VkPhysicalDeviceDiscardRectanglePropertiesEXT);
+			case .VkPipelineDiscardRectangleStateCreateInfoEXT: return typeof(VkPipelineDiscardRectangleStateCreateInfoEXT);
+			case .VkPhysicalDeviceConservativeRasterizationPropertiesEXT: return typeof(VkPhysicalDeviceConservativeRasterizationPropertiesEXT);
+			case .VkPipelineRasterizationConservativeStateCreateInfoEXT: return typeof(VkPipelineRasterizationConservativeStateCreateInfoEXT);
+			case .VkPhysicalDeviceDepthClipEnableFeaturesEXT: return typeof(VkPhysicalDeviceDepthClipEnableFeaturesEXT);
+			case .VkPipelineRasterizationDepthClipStateCreateInfoEXT: return typeof(VkPipelineRasterizationDepthClipStateCreateInfoEXT);
+			case .VkHdrMetadataEXT: return typeof(VkHdrMetadataEXT);
+			case .VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG: return typeof(VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG);
+			case .VkSharedPresentSurfaceCapabilitiesKHR: return typeof(VkSharedPresentSurfaceCapabilitiesKHR);
+			case .VkImportFenceFdInfoKHR: return typeof(VkImportFenceFdInfoKHR);
+			case .VkFenceGetFdInfoKHR: return typeof(VkFenceGetFdInfoKHR);
+			case .VkPhysicalDevicePerformanceQueryFeaturesKHR: return typeof(VkPhysicalDevicePerformanceQueryFeaturesKHR);
+			case .VkPhysicalDevicePerformanceQueryPropertiesKHR: return typeof(VkPhysicalDevicePerformanceQueryPropertiesKHR);
+			case .VkQueryPoolPerformanceCreateInfoKHR: return typeof(VkQueryPoolPerformanceCreateInfoKHR);
+			case .VkPerformanceQuerySubmitInfoKHR: return typeof(VkPerformanceQuerySubmitInfoKHR);
+			case .VkAcquireProfilingLockInfoKHR: return typeof(VkAcquireProfilingLockInfoKHR);
+			case .VkPerformanceCounterKHR: return typeof(VkPerformanceCounterKHR);
+			case .VkPerformanceCounterDescriptionKHR: return typeof(VkPerformanceCounterDescriptionKHR);
+			case .VkPhysicalDeviceSurfaceInfo2KHR: return typeof(VkPhysicalDeviceSurfaceInfo2KHR);
+			case .VkSurfaceCapabilities2KHR: return typeof(VkSurfaceCapabilities2KHR);
+			case .VkSurfaceFormat2KHR: return typeof(VkSurfaceFormat2KHR);
+			case .VkDisplayProperties2KHR: return typeof(VkDisplayProperties2KHR);
+			case .VkDisplayPlaneProperties2KHR: return typeof(VkDisplayPlaneProperties2KHR);
+			case .VkDisplayModeProperties2KHR: return typeof(VkDisplayModeProperties2KHR);
+			case .VkDisplayPlaneInfo2KHR: return typeof(VkDisplayPlaneInfo2KHR);
+			case .VkDisplayPlaneCapabilities2KHR: return typeof(VkDisplayPlaneCapabilities2KHR);
+			case .VkDebugUtilsObjectNameInfoEXT: return typeof(VkDebugUtilsObjectNameInfoEXT);
+			case .VkDebugUtilsObjectTagInfoEXT: return typeof(VkDebugUtilsObjectTagInfoEXT);
+			case .VkDebugUtilsLabelEXT: return typeof(VkDebugUtilsLabelEXT);
+			case .VkDebugUtilsMessengerCallbackDataEXT: return typeof(VkDebugUtilsMessengerCallbackDataEXT);
+			case .VkDebugUtilsMessengerCreateInfoEXT: return typeof(VkDebugUtilsMessengerCreateInfoEXT);
+			case .VkAttachmentSampleCountInfoAMD: return typeof(VkAttachmentSampleCountInfoAMD);
+			case .VkPhysicalDeviceShaderBfloat16FeaturesKHR: return typeof(VkPhysicalDeviceShaderBfloat16FeaturesKHR);
+			case .VkSampleLocationsInfoEXT: return typeof(VkSampleLocationsInfoEXT);
+			case .VkRenderPassSampleLocationsBeginInfoEXT: return typeof(VkRenderPassSampleLocationsBeginInfoEXT);
+			case .VkPipelineSampleLocationsStateCreateInfoEXT: return typeof(VkPipelineSampleLocationsStateCreateInfoEXT);
+			case .VkPhysicalDeviceSampleLocationsPropertiesEXT: return typeof(VkPhysicalDeviceSampleLocationsPropertiesEXT);
+			case .VkMultisamplePropertiesEXT: return typeof(VkMultisamplePropertiesEXT);
+			case .VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT: return typeof(VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT);
+			case .VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT: return typeof(VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT);
+			case .VkPipelineColorBlendAdvancedStateCreateInfoEXT: return typeof(VkPipelineColorBlendAdvancedStateCreateInfoEXT);
+			case .VkPipelineCoverageToColorStateCreateInfoNV: return typeof(VkPipelineCoverageToColorStateCreateInfoNV);
+			case .VkWriteDescriptorSetAccelerationStructureKHR: return typeof(VkWriteDescriptorSetAccelerationStructureKHR);
+			case .VkAccelerationStructureBuildGeometryInfoKHR: return typeof(VkAccelerationStructureBuildGeometryInfoKHR);
+			case .VkAccelerationStructureDeviceAddressInfoKHR: return typeof(VkAccelerationStructureDeviceAddressInfoKHR);
+			case .VkAccelerationStructureGeometryAabbsDataKHR: return typeof(VkAccelerationStructureGeometryAabbsDataKHR);
+			case .VkAccelerationStructureGeometryInstancesDataKHR: return typeof(VkAccelerationStructureGeometryInstancesDataKHR);
+			case .VkAccelerationStructureGeometryTrianglesDataKHR: return typeof(VkAccelerationStructureGeometryTrianglesDataKHR);
+			case .VkAccelerationStructureGeometryKHR: return typeof(VkAccelerationStructureGeometryKHR);
+			case .VkAccelerationStructureVersionInfoKHR: return typeof(VkAccelerationStructureVersionInfoKHR);
+			case .VkCopyAccelerationStructureInfoKHR: return typeof(VkCopyAccelerationStructureInfoKHR);
+			case .VkCopyAccelerationStructureToMemoryInfoKHR: return typeof(VkCopyAccelerationStructureToMemoryInfoKHR);
+			case .VkCopyMemoryToAccelerationStructureInfoKHR: return typeof(VkCopyMemoryToAccelerationStructureInfoKHR);
+			case .VkPhysicalDeviceAccelerationStructureFeaturesKHR: return typeof(VkPhysicalDeviceAccelerationStructureFeaturesKHR);
+			case .VkPhysicalDeviceAccelerationStructurePropertiesKHR: return typeof(VkPhysicalDeviceAccelerationStructurePropertiesKHR);
+			case .VkAccelerationStructureCreateInfoKHR: return typeof(VkAccelerationStructureCreateInfoKHR);
+			case .VkAccelerationStructureBuildSizesInfoKHR: return typeof(VkAccelerationStructureBuildSizesInfoKHR);
+			case .VkPhysicalDeviceRayTracingPipelineFeaturesKHR: return typeof(VkPhysicalDeviceRayTracingPipelineFeaturesKHR);
+			case .VkPhysicalDeviceRayTracingPipelinePropertiesKHR: return typeof(VkPhysicalDeviceRayTracingPipelinePropertiesKHR);
+			case .VkRayTracingPipelineCreateInfoKHR: return typeof(VkRayTracingPipelineCreateInfoKHR);
+			case .VkRayTracingShaderGroupCreateInfoKHR: return typeof(VkRayTracingShaderGroupCreateInfoKHR);
+			case .VkRayTracingPipelineInterfaceCreateInfoKHR: return typeof(VkRayTracingPipelineInterfaceCreateInfoKHR);
+			case .VkPhysicalDeviceRayQueryFeaturesKHR: return typeof(VkPhysicalDeviceRayQueryFeaturesKHR);
+			case .VkPipelineCoverageModulationStateCreateInfoNV: return typeof(VkPipelineCoverageModulationStateCreateInfoNV);
+			case .VkPhysicalDeviceShaderSmBuiltinsFeaturesNV: return typeof(VkPhysicalDeviceShaderSMBuiltinsFeaturesNV);
+			case .VkPhysicalDeviceShaderSmBuiltinsPropertiesNV: return typeof(VkPhysicalDeviceShaderSMBuiltinsPropertiesNV);
+			case .VkDrmFormatModifierPropertiesListEXT: return typeof(VkDrmFormatModifierPropertiesListEXT);
+			case .VkPhysicalDeviceImageDrmFormatModifierInfoEXT: return typeof(VkPhysicalDeviceImageDrmFormatModifierInfoEXT);
+			case .VkImageDrmFormatModifierListCreateInfoEXT: return typeof(VkImageDrmFormatModifierListCreateInfoEXT);
+			case .VkImageDrmFormatModifierExplicitCreateInfoEXT: return typeof(VkImageDrmFormatModifierExplicitCreateInfoEXT);
+			case .VkImageDrmFormatModifierPropertiesEXT: return typeof(VkImageDrmFormatModifierPropertiesEXT);
+			case .VkDrmFormatModifierPropertiesList2EXT: return typeof(VkDrmFormatModifierPropertiesList2EXT);
+			case .VkValidationCacheCreateInfoEXT: return typeof(VkValidationCacheCreateInfoEXT);
+			case .VkShaderModuleValidationCacheCreateInfoEXT: return typeof(VkShaderModuleValidationCacheCreateInfoEXT);
+			case .VkPipelineViewportShadingRateImageStateCreateInfoNV: return typeof(VkPipelineViewportShadingRateImageStateCreateInfoNV);
+			case .VkPhysicalDeviceShadingRateImageFeaturesNV: return typeof(VkPhysicalDeviceShadingRateImageFeaturesNV);
+			case .VkPhysicalDeviceShadingRateImagePropertiesNV: return typeof(VkPhysicalDeviceShadingRateImagePropertiesNV);
+			case .VkPipelineViewportCoarseSampleOrderStateCreateInfoNV: return typeof(VkPipelineViewportCoarseSampleOrderStateCreateInfoNV);
+			case .VkRayTracingPipelineCreateInfoNV: return typeof(VkRayTracingPipelineCreateInfoNV);
+			case .VkAccelerationStructureCreateInfoNV: return typeof(VkAccelerationStructureCreateInfoNV);
+			case .VkGeometryNV: return typeof(VkGeometryNV);
+			case .VkGeometryTrianglesNV: return typeof(VkGeometryTrianglesNV);
+			case .VkGeometryAabbNV: return typeof(VkGeometryAABBNV);
+			case .VkBindAccelerationStructureMemoryInfoNV: return typeof(VkBindAccelerationStructureMemoryInfoNV);
+			case .VkWriteDescriptorSetAccelerationStructureNV: return typeof(VkWriteDescriptorSetAccelerationStructureNV);
+			case .VkAccelerationStructureMemoryRequirementsInfoNV: return typeof(VkAccelerationStructureMemoryRequirementsInfoNV);
+			case .VkPhysicalDeviceRayTracingPropertiesNV: return typeof(VkPhysicalDeviceRayTracingPropertiesNV);
+			case .VkRayTracingShaderGroupCreateInfoNV: return typeof(VkRayTracingShaderGroupCreateInfoNV);
+			case .VkAccelerationStructureInfoNV: return typeof(VkAccelerationStructureInfoNV);
+			case .VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV: return typeof(VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV);
+			case .VkPipelineRepresentativeFragmentTestStateCreateInfoNV: return typeof(VkPipelineRepresentativeFragmentTestStateCreateInfoNV);
+			case .VkPhysicalDeviceImageViewImageFormatInfoEXT: return typeof(VkPhysicalDeviceImageViewImageFormatInfoEXT);
+			case .VkFilterCubicImageViewImageFormatPropertiesEXT: return typeof(VkFilterCubicImageViewImageFormatPropertiesEXT);
+			case .VkImportMemoryHostPointerInfoEXT: return typeof(VkImportMemoryHostPointerInfoEXT);
+			case .VkMemoryHostPointerPropertiesEXT: return typeof(VkMemoryHostPointerPropertiesEXT);
+			case .VkPhysicalDeviceExternalMemoryHostPropertiesEXT: return typeof(VkPhysicalDeviceExternalMemoryHostPropertiesEXT);
+			case .VkPhysicalDeviceShaderClockFeaturesKHR: return typeof(VkPhysicalDeviceShaderClockFeaturesKHR);
+			case .VkPipelineCompilerControlCreateInfoAMD: return typeof(VkPipelineCompilerControlCreateInfoAMD);
+			case .VkPhysicalDeviceShaderCorePropertiesAMD: return typeof(VkPhysicalDeviceShaderCorePropertiesAMD);
+			case .VkVideoDecodeH265CapabilitiesKHR: return typeof(VkVideoDecodeH265CapabilitiesKHR);
+			case .VkVideoDecodeH265SessionParametersCreateInfoKHR: return typeof(VkVideoDecodeH265SessionParametersCreateInfoKHR);
+			case .VkVideoDecodeH265SessionParametersAddInfoKHR: return typeof(VkVideoDecodeH265SessionParametersAddInfoKHR);
+			case .VkVideoDecodeH265ProfileInfoKHR: return typeof(VkVideoDecodeH265ProfileInfoKHR);
+			case .VkVideoDecodeH265PictureInfoKHR: return typeof(VkVideoDecodeH265PictureInfoKHR);
+			case .VkVideoDecodeH265DpbSlotInfoKHR: return typeof(VkVideoDecodeH265DpbSlotInfoKHR);
+			case .VkDeviceMemoryOverallocationCreateInfoAMD: return typeof(VkDeviceMemoryOverallocationCreateInfoAMD);
+			case .VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT: return typeof(VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT);
+			case .VkPhysicalDeviceMeshShaderFeaturesNV: return typeof(VkPhysicalDeviceMeshShaderFeaturesNV);
+			case .VkPhysicalDeviceMeshShaderPropertiesNV: return typeof(VkPhysicalDeviceMeshShaderPropertiesNV);
+			case .VkPhysicalDeviceShaderImageFootprintFeaturesNV: return typeof(VkPhysicalDeviceShaderImageFootprintFeaturesNV);
+			case .VkPipelineViewportExclusiveScissorStateCreateInfoNV: return typeof(VkPipelineViewportExclusiveScissorStateCreateInfoNV);
+			case .VkPhysicalDeviceExclusiveScissorFeaturesNV: return typeof(VkPhysicalDeviceExclusiveScissorFeaturesNV);
+			case .VkCheckpointDataNV: return typeof(VkCheckpointDataNV);
+			case .VkQueueFamilyCheckpointPropertiesNV: return typeof(VkQueueFamilyCheckpointPropertiesNV);
+			case .VkQueueFamilyCheckpointProperties2NV: return typeof(VkQueueFamilyCheckpointProperties2NV);
+			case .VkCheckpointData2NV: return typeof(VkCheckpointData2NV);
+			case .VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL: return typeof(VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL);
+			case .VkQueryPoolPerformanceQueryCreateInfoINTEL: return typeof(VkQueryPoolPerformanceQueryCreateInfoINTEL);
+			case .VkInitializePerformanceApiInfoINTEL: return typeof(VkInitializePerformanceApiInfoINTEL);
+			case .VkPerformanceMarkerInfoINTEL: return typeof(VkPerformanceMarkerInfoINTEL);
+			case .VkPerformanceStreamMarkerInfoINTEL: return typeof(VkPerformanceStreamMarkerInfoINTEL);
+			case .VkPerformanceOverrideInfoINTEL: return typeof(VkPerformanceOverrideInfoINTEL);
+			case .VkPerformanceConfigurationAcquireInfoINTEL: return typeof(VkPerformanceConfigurationAcquireInfoINTEL);
+			case .VkPhysicalDevicePciBusInfoPropertiesEXT: return typeof(VkPhysicalDevicePCIBusInfoPropertiesEXT);
+			case .VkDisplayNativeHdrSurfaceCapabilitiesAMD: return typeof(VkDisplayNativeHdrSurfaceCapabilitiesAMD);
+			case .VkSwapchainDisplayNativeHdrCreateInfoAMD: return typeof(VkSwapchainDisplayNativeHdrCreateInfoAMD);
+			case .VkPhysicalDeviceFragmentDensityMapFeaturesEXT: return typeof(VkPhysicalDeviceFragmentDensityMapFeaturesEXT);
+			case .VkPhysicalDeviceFragmentDensityMapPropertiesEXT: return typeof(VkPhysicalDeviceFragmentDensityMapPropertiesEXT);
+			case .VkRenderPassFragmentDensityMapCreateInfoEXT: return typeof(VkRenderPassFragmentDensityMapCreateInfoEXT);
+			case .VkRenderingFragmentDensityMapAttachmentInfoEXT: return typeof(VkRenderingFragmentDensityMapAttachmentInfoEXT);
+			case .VkFragmentShadingRateAttachmentInfoKHR: return typeof(VkFragmentShadingRateAttachmentInfoKHR);
+			case .VkPipelineFragmentShadingRateStateCreateInfoKHR: return typeof(VkPipelineFragmentShadingRateStateCreateInfoKHR);
+			case .VkPhysicalDeviceFragmentShadingRatePropertiesKHR: return typeof(VkPhysicalDeviceFragmentShadingRatePropertiesKHR);
+			case .VkPhysicalDeviceFragmentShadingRateFeaturesKHR: return typeof(VkPhysicalDeviceFragmentShadingRateFeaturesKHR);
+			case .VkPhysicalDeviceFragmentShadingRateKHR: return typeof(VkPhysicalDeviceFragmentShadingRateKHR);
+			case .VkRenderingFragmentShadingRateAttachmentInfoKHR: return typeof(VkRenderingFragmentShadingRateAttachmentInfoKHR);
+			case .VkPhysicalDeviceShaderCoreProperties2AMD: return typeof(VkPhysicalDeviceShaderCoreProperties2AMD);
+			case .VkPhysicalDeviceCoherentMemoryFeaturesAMD: return typeof(VkPhysicalDeviceCoherentMemoryFeaturesAMD);
+			case .VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT: return typeof(VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT);
+			case .VkPhysicalDeviceShaderQuadControlFeaturesKHR: return typeof(VkPhysicalDeviceShaderQuadControlFeaturesKHR);
+			case .VkPhysicalDeviceMemoryBudgetPropertiesEXT: return typeof(VkPhysicalDeviceMemoryBudgetPropertiesEXT);
+			case .VkPhysicalDeviceMemoryPriorityFeaturesEXT: return typeof(VkPhysicalDeviceMemoryPriorityFeaturesEXT);
+			case .VkMemoryPriorityAllocateInfoEXT: return typeof(VkMemoryPriorityAllocateInfoEXT);
+			case .VkSurfaceProtectedCapabilitiesKHR: return typeof(VkSurfaceProtectedCapabilitiesKHR);
+			case .VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV: return typeof(VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV);
+			case .VkPhysicalDeviceBufferDeviceAddressFeaturesEXT: return typeof(VkPhysicalDeviceBufferDeviceAddressFeaturesEXT);
+			case .VkBufferDeviceAddressCreateInfoEXT: return typeof(VkBufferDeviceAddressCreateInfoEXT);
+			case .VkValidationFeaturesEXT: return typeof(VkValidationFeaturesEXT);
+			case .VkPhysicalDevicePresentWaitFeaturesKHR: return typeof(VkPhysicalDevicePresentWaitFeaturesKHR);
+			case .VkPhysicalDeviceCooperativeMatrixFeaturesNV: return typeof(VkPhysicalDeviceCooperativeMatrixFeaturesNV);
+			case .VkCooperativeMatrixPropertiesNV: return typeof(VkCooperativeMatrixPropertiesNV);
+			case .VkPhysicalDeviceCooperativeMatrixPropertiesNV: return typeof(VkPhysicalDeviceCooperativeMatrixPropertiesNV);
+			case .VkPhysicalDeviceCoverageReductionModeFeaturesNV: return typeof(VkPhysicalDeviceCoverageReductionModeFeaturesNV);
+			case .VkPipelineCoverageReductionStateCreateInfoNV: return typeof(VkPipelineCoverageReductionStateCreateInfoNV);
+			case .VkFramebufferMixedSamplesCombinationNV: return typeof(VkFramebufferMixedSamplesCombinationNV);
+			case .VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT: return typeof(VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT);
+			case .VkPhysicalDeviceYcbcrImageArraysFeaturesEXT: return typeof(VkPhysicalDeviceYcbcrImageArraysFeaturesEXT);
+			case .VkPhysicalDeviceProvokingVertexFeaturesEXT: return typeof(VkPhysicalDeviceProvokingVertexFeaturesEXT);
+			case .VkPipelineRasterizationProvokingVertexStateCreateInfoEXT: return typeof(VkPipelineRasterizationProvokingVertexStateCreateInfoEXT);
+			case .VkPhysicalDeviceProvokingVertexPropertiesEXT: return typeof(VkPhysicalDeviceProvokingVertexPropertiesEXT);
+			case .VkHeadlessSurfaceCreateInfoEXT: return typeof(VkHeadlessSurfaceCreateInfoEXT);
+			case .VkPhysicalDeviceShaderAtomicFloatFeaturesEXT: return typeof(VkPhysicalDeviceShaderAtomicFloatFeaturesEXT);
+			case .VkPhysicalDeviceExtendedDynamicStateFeaturesEXT: return typeof(VkPhysicalDeviceExtendedDynamicStateFeaturesEXT);
+			case .VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR: return typeof(VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR);
+			case .VkPipelineInfoKHR: return typeof(VkPipelineInfoKHR);
+			case .VkPipelineExecutablePropertiesKHR: return typeof(VkPipelineExecutablePropertiesKHR);
+			case .VkPipelineExecutableInfoKHR: return typeof(VkPipelineExecutableInfoKHR);
+			case .VkPipelineExecutableStatisticKHR: return typeof(VkPipelineExecutableStatisticKHR);
+			case .VkPipelineExecutableInternalRepresentationKHR: return typeof(VkPipelineExecutableInternalRepresentationKHR);
+			case .VkPhysicalDeviceMapMemoryPlacedFeaturesEXT: return typeof(VkPhysicalDeviceMapMemoryPlacedFeaturesEXT);
+			case .VkPhysicalDeviceMapMemoryPlacedPropertiesEXT: return typeof(VkPhysicalDeviceMapMemoryPlacedPropertiesEXT);
+			case .VkMemoryMapPlacedInfoEXT: return typeof(VkMemoryMapPlacedInfoEXT);
+			case .VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT: return typeof(VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT);
+			case .VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV: return typeof(VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV);
+			case .VkGraphicsShaderGroupCreateInfoNV: return typeof(VkGraphicsShaderGroupCreateInfoNV);
+			case .VkGraphicsPipelineShaderGroupsCreateInfoNV: return typeof(VkGraphicsPipelineShaderGroupsCreateInfoNV);
+			case .VkIndirectCommandsLayoutTokenNV: return typeof(VkIndirectCommandsLayoutTokenNV);
+			case .VkIndirectCommandsLayoutCreateInfoNV: return typeof(VkIndirectCommandsLayoutCreateInfoNV);
+			case .VkGeneratedCommandsInfoNV: return typeof(VkGeneratedCommandsInfoNV);
+			case .VkGeneratedCommandsMemoryRequirementsInfoNV: return typeof(VkGeneratedCommandsMemoryRequirementsInfoNV);
+			case .VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV: return typeof(VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV);
+			case .VkPhysicalDeviceInheritedViewportScissorFeaturesNV: return typeof(VkPhysicalDeviceInheritedViewportScissorFeaturesNV);
+			case .VkCommandBufferInheritanceViewportScissorInfoNV: return typeof(VkCommandBufferInheritanceViewportScissorInfoNV);
+			case .VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT: return typeof(VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT);
+			case .VkCommandBufferInheritanceRenderPassTransformInfoQCOM: return typeof(VkCommandBufferInheritanceRenderPassTransformInfoQCOM);
+			case .VkRenderPassTransformBeginInfoQCOM: return typeof(VkRenderPassTransformBeginInfoQCOM);
+			case .VkPhysicalDeviceDepthBiasControlFeaturesEXT: return typeof(VkPhysicalDeviceDepthBiasControlFeaturesEXT);
+			case .VkDepthBiasInfoEXT: return typeof(VkDepthBiasInfoEXT);
+			case .VkDepthBiasRepresentationInfoEXT: return typeof(VkDepthBiasRepresentationInfoEXT);
+			case .VkPhysicalDeviceDeviceMemoryReportFeaturesEXT: return typeof(VkPhysicalDeviceDeviceMemoryReportFeaturesEXT);
+			case .VkDeviceDeviceMemoryReportCreateInfoEXT: return typeof(VkDeviceDeviceMemoryReportCreateInfoEXT);
+			case .VkDeviceMemoryReportCallbackDataEXT: return typeof(VkDeviceMemoryReportCallbackDataEXT);
+			case .VkSamplerCustomBorderColorCreateInfoEXT: return typeof(VkSamplerCustomBorderColorCreateInfoEXT);
+			case .VkPhysicalDeviceCustomBorderColorPropertiesEXT: return typeof(VkPhysicalDeviceCustomBorderColorPropertiesEXT);
+			case .VkPhysicalDeviceCustomBorderColorFeaturesEXT: return typeof(VkPhysicalDeviceCustomBorderColorFeaturesEXT);
+			case .VkPipelineLibraryCreateInfoKHR: return typeof(VkPipelineLibraryCreateInfoKHR);
+			case .VkPhysicalDevicePresentBarrierFeaturesNV: return typeof(VkPhysicalDevicePresentBarrierFeaturesNV);
+			case .VkSurfaceCapabilitiesPresentBarrierNV: return typeof(VkSurfaceCapabilitiesPresentBarrierNV);
+			case .VkSwapchainPresentBarrierCreateInfoNV: return typeof(VkSwapchainPresentBarrierCreateInfoNV);
+			case .VkPresentIdKHR: return typeof(VkPresentIdKHR);
+			case .VkPhysicalDevicePresentIdFeaturesKHR: return typeof(VkPhysicalDevicePresentIdFeaturesKHR);
+			case .VkVideoEncodeInfoKHR: return typeof(VkVideoEncodeInfoKHR);
+			case .VkVideoEncodeRateControlInfoKHR: return typeof(VkVideoEncodeRateControlInfoKHR);
+			case .VkVideoEncodeRateControlLayerInfoKHR: return typeof(VkVideoEncodeRateControlLayerInfoKHR);
+			case .VkVideoEncodeCapabilitiesKHR: return typeof(VkVideoEncodeCapabilitiesKHR);
+			case .VkVideoEncodeUsageInfoKHR: return typeof(VkVideoEncodeUsageInfoKHR);
+			case .VkQueryPoolVideoEncodeFeedbackCreateInfoKHR: return typeof(VkQueryPoolVideoEncodeFeedbackCreateInfoKHR);
+			case .VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR: return typeof(VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR);
+			case .VkVideoEncodeQualityLevelPropertiesKHR: return typeof(VkVideoEncodeQualityLevelPropertiesKHR);
+			case .VkVideoEncodeQualityLevelInfoKHR: return typeof(VkVideoEncodeQualityLevelInfoKHR);
+			case .VkVideoEncodeSessionParametersGetInfoKHR: return typeof(VkVideoEncodeSessionParametersGetInfoKHR);
+			case .VkVideoEncodeSessionParametersFeedbackInfoKHR: return typeof(VkVideoEncodeSessionParametersFeedbackInfoKHR);
+			case .VkPhysicalDeviceDiagnosticsConfigFeaturesNV: return typeof(VkPhysicalDeviceDiagnosticsConfigFeaturesNV);
+			case .VkDeviceDiagnosticsConfigCreateInfoNV: return typeof(VkDeviceDiagnosticsConfigCreateInfoNV);
+			case .VkPhysicalDeviceTileShadingFeaturesQCOM: return typeof(VkPhysicalDeviceTileShadingFeaturesQCOM);
+			case .VkPhysicalDeviceTileShadingPropertiesQCOM: return typeof(VkPhysicalDeviceTileShadingPropertiesQCOM);
+			case .VkRenderPassTileShadingCreateInfoQCOM: return typeof(VkRenderPassTileShadingCreateInfoQCOM);
+			case .VkPerTileBeginInfoQCOM: return typeof(VkPerTileBeginInfoQCOM);
+			case .VkPerTileEndInfoQCOM: return typeof(VkPerTileEndInfoQCOM);
+			case .VkDispatchTileInfoQCOM: return typeof(VkDispatchTileInfoQCOM);
+			case .VkQueryLowLatencySupportNV: return typeof(VkQueryLowLatencySupportNV);
+			case .VkPhysicalDeviceDescriptorBufferPropertiesEXT: return typeof(VkPhysicalDeviceDescriptorBufferPropertiesEXT);
+			case .VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT: return typeof(VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT);
+			case .VkPhysicalDeviceDescriptorBufferFeaturesEXT: return typeof(VkPhysicalDeviceDescriptorBufferFeaturesEXT);
+			case .VkDescriptorAddressInfoEXT: return typeof(VkDescriptorAddressInfoEXT);
+			case .VkDescriptorGetInfoEXT: return typeof(VkDescriptorGetInfoEXT);
+			case .VkBufferCaptureDescriptorDataInfoEXT: return typeof(VkBufferCaptureDescriptorDataInfoEXT);
+			case .VkImageCaptureDescriptorDataInfoEXT: return typeof(VkImageCaptureDescriptorDataInfoEXT);
+			case .VkImageViewCaptureDescriptorDataInfoEXT: return typeof(VkImageViewCaptureDescriptorDataInfoEXT);
+			case .VkSamplerCaptureDescriptorDataInfoEXT: return typeof(VkSamplerCaptureDescriptorDataInfoEXT);
+			case .VkOpaqueCaptureDescriptorDataCreateInfoEXT: return typeof(VkOpaqueCaptureDescriptorDataCreateInfoEXT);
+			case .VkDescriptorBufferBindingInfoEXT: return typeof(VkDescriptorBufferBindingInfoEXT);
+			case .VkDescriptorBufferBindingPushDescriptorBufferHandleEXT: return typeof(VkDescriptorBufferBindingPushDescriptorBufferHandleEXT);
+			case .VkAccelerationStructureCaptureDescriptorDataInfoEXT: return typeof(VkAccelerationStructureCaptureDescriptorDataInfoEXT);
+			case .VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT: return typeof(VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT);
+			case .VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT: return typeof(VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT);
+			case .VkGraphicsPipelineLibraryCreateInfoEXT: return typeof(VkGraphicsPipelineLibraryCreateInfoEXT);
+			case .VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD: return typeof(VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD);
+			case .VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR: return typeof(VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR);
+			case .VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR: return typeof(VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR);
+			case .VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR: return typeof(VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR);
+			case .VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV: return typeof(VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV);
+			case .VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV: return typeof(VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV);
+			case .VkPipelineFragmentShadingRateEnumStateCreateInfoNV: return typeof(VkPipelineFragmentShadingRateEnumStateCreateInfoNV);
+			case .VkAccelerationStructureGeometryMotionTrianglesDataNV: return typeof(VkAccelerationStructureGeometryMotionTrianglesDataNV);
+			case .VkPhysicalDeviceRayTracingMotionBlurFeaturesNV: return typeof(VkPhysicalDeviceRayTracingMotionBlurFeaturesNV);
+			case .VkAccelerationStructureMotionInfoNV: return typeof(VkAccelerationStructureMotionInfoNV);
+			case .VkPhysicalDeviceMeshShaderFeaturesEXT: return typeof(VkPhysicalDeviceMeshShaderFeaturesEXT);
+			case .VkPhysicalDeviceMeshShaderPropertiesEXT: return typeof(VkPhysicalDeviceMeshShaderPropertiesEXT);
+			case .VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT: return typeof(VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT);
+			case .VkPhysicalDeviceFragmentDensityMap2FeaturesEXT: return typeof(VkPhysicalDeviceFragmentDensityMap2FeaturesEXT);
+			case .VkPhysicalDeviceFragmentDensityMap2PropertiesEXT: return typeof(VkPhysicalDeviceFragmentDensityMap2PropertiesEXT);
+			case .VkCopyCommandTransformInfoQCOM: return typeof(VkCopyCommandTransformInfoQCOM);
+			case .VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR: return typeof(VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR);
+			case .VkPhysicalDeviceImageCompressionControlFeaturesEXT: return typeof(VkPhysicalDeviceImageCompressionControlFeaturesEXT);
+			case .VkImageCompressionControlEXT: return typeof(VkImageCompressionControlEXT);
+			case .VkImageCompressionPropertiesEXT: return typeof(VkImageCompressionPropertiesEXT);
+			case .VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT: return typeof(VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT);
+			case .VkPhysicalDevice4444FormatsFeaturesEXT: return typeof(VkPhysicalDevice4444FormatsFeaturesEXT);
+			case .VkPhysicalDeviceFaultFeaturesEXT: return typeof(VkPhysicalDeviceFaultFeaturesEXT);
+			case .VkDeviceFaultCountsEXT: return typeof(VkDeviceFaultCountsEXT);
+			case .VkDeviceFaultInfoEXT: return typeof(VkDeviceFaultInfoEXT);
+			case .VkPhysicalDeviceRgba10x6FormatsFeaturesEXT: return typeof(VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT);
+			case .VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT: return typeof(VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT);
+			case .VkVertexInputBindingDescription2EXT: return typeof(VkVertexInputBindingDescription2EXT);
+			case .VkVertexInputAttributeDescription2EXT: return typeof(VkVertexInputAttributeDescription2EXT);
+			case .VkPhysicalDeviceDrmPropertiesEXT: return typeof(VkPhysicalDeviceDrmPropertiesEXT);
+			case .VkPhysicalDeviceAddressBindingReportFeaturesEXT: return typeof(VkPhysicalDeviceAddressBindingReportFeaturesEXT);
+			case .VkDeviceAddressBindingCallbackDataEXT: return typeof(VkDeviceAddressBindingCallbackDataEXT);
+			case .VkPhysicalDeviceDepthClipControlFeaturesEXT: return typeof(VkPhysicalDeviceDepthClipControlFeaturesEXT);
+			case .VkPipelineViewportDepthClipControlCreateInfoEXT: return typeof(VkPipelineViewportDepthClipControlCreateInfoEXT);
+			case .VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT: return typeof(VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT);
+			case .VkSubpassShadingPipelineCreateInfoHUAWEI: return typeof(VkSubpassShadingPipelineCreateInfoHUAWEI);
+			case .VkPhysicalDeviceSubpassShadingFeaturesHUAWEI: return typeof(VkPhysicalDeviceSubpassShadingFeaturesHUAWEI);
+			case .VkPhysicalDeviceSubpassShadingPropertiesHUAWEI: return typeof(VkPhysicalDeviceSubpassShadingPropertiesHUAWEI);
+			case .VkPhysicalDeviceInvocationMaskFeaturesHUAWEI: return typeof(VkPhysicalDeviceInvocationMaskFeaturesHUAWEI);
+			case .VkMemoryGetRemoteAddressInfoNV: return typeof(VkMemoryGetRemoteAddressInfoNV);
+			case .VkPhysicalDeviceExternalMemoryRdmaFeaturesNV: return typeof(VkPhysicalDeviceExternalMemoryRDMAFeaturesNV);
+			case .VkPipelinePropertiesIdentifierEXT: return typeof(VkPipelinePropertiesIdentifierEXT);
+			case .VkPhysicalDevicePipelinePropertiesFeaturesEXT: return typeof(VkPhysicalDevicePipelinePropertiesFeaturesEXT);
+			case .VkPhysicalDeviceFrameBoundaryFeaturesEXT: return typeof(VkPhysicalDeviceFrameBoundaryFeaturesEXT);
+			case .VkFrameBoundaryEXT: return typeof(VkFrameBoundaryEXT);
+			case .VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT: return typeof(VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT);
+			case .VkSubpassResolvePerformanceQueryEXT: return typeof(VkSubpassResolvePerformanceQueryEXT);
+			case .VkMultisampledRenderToSingleSampledInfoEXT: return typeof(VkMultisampledRenderToSingleSampledInfoEXT);
+			case .VkPhysicalDeviceExtendedDynamicState2FeaturesEXT: return typeof(VkPhysicalDeviceExtendedDynamicState2FeaturesEXT);
+			case .VkPhysicalDeviceColorWriteEnableFeaturesEXT: return typeof(VkPhysicalDeviceColorWriteEnableFeaturesEXT);
+			case .VkPipelineColorWriteCreateInfoEXT: return typeof(VkPipelineColorWriteCreateInfoEXT);
+			case .VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT: return typeof(VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT);
+			case .VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR: return typeof(VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR);
+			case .VkPhysicalDeviceImageViewMinLodFeaturesEXT: return typeof(VkPhysicalDeviceImageViewMinLodFeaturesEXT);
+			case .VkImageViewMinLodCreateInfoEXT: return typeof(VkImageViewMinLodCreateInfoEXT);
+			case .VkPhysicalDeviceMultiDrawFeaturesEXT: return typeof(VkPhysicalDeviceMultiDrawFeaturesEXT);
+			case .VkPhysicalDeviceMultiDrawPropertiesEXT: return typeof(VkPhysicalDeviceMultiDrawPropertiesEXT);
+			case .VkPhysicalDeviceImage2dViewOf3dFeaturesEXT: return typeof(VkPhysicalDeviceImage2DViewOf3DFeaturesEXT);
+			case .VkPhysicalDeviceShaderTileImageFeaturesEXT: return typeof(VkPhysicalDeviceShaderTileImageFeaturesEXT);
+			case .VkPhysicalDeviceShaderTileImagePropertiesEXT: return typeof(VkPhysicalDeviceShaderTileImagePropertiesEXT);
+			case .VkMicromapBuildInfoEXT: return typeof(VkMicromapBuildInfoEXT);
+			case .VkMicromapVersionInfoEXT: return typeof(VkMicromapVersionInfoEXT);
+			case .VkCopyMicromapInfoEXT: return typeof(VkCopyMicromapInfoEXT);
+			case .VkCopyMicromapToMemoryInfoEXT: return typeof(VkCopyMicromapToMemoryInfoEXT);
+			case .VkCopyMemoryToMicromapInfoEXT: return typeof(VkCopyMemoryToMicromapInfoEXT);
+			case .VkPhysicalDeviceOpacityMicromapFeaturesEXT: return typeof(VkPhysicalDeviceOpacityMicromapFeaturesEXT);
+			case .VkPhysicalDeviceOpacityMicromapPropertiesEXT: return typeof(VkPhysicalDeviceOpacityMicromapPropertiesEXT);
+			case .VkMicromapCreateInfoEXT: return typeof(VkMicromapCreateInfoEXT);
+			case .VkMicromapBuildSizesInfoEXT: return typeof(VkMicromapBuildSizesInfoEXT);
+			case .VkAccelerationStructureTrianglesOpacityMicromapEXT: return typeof(VkAccelerationStructureTrianglesOpacityMicromapEXT);
+			case .VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI: return typeof(VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI);
+			case .VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI: return typeof(VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI);
+			case .VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI: return typeof(VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI);
+			case .VkPhysicalDeviceBorderColorSwizzleFeaturesEXT: return typeof(VkPhysicalDeviceBorderColorSwizzleFeaturesEXT);
+			case .VkSamplerBorderColorComponentMappingCreateInfoEXT: return typeof(VkSamplerBorderColorComponentMappingCreateInfoEXT);
+			case .VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT: return typeof(VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT);
+			case .VkPhysicalDeviceShaderCorePropertiesARM: return typeof(VkPhysicalDeviceShaderCorePropertiesARM);
+			case .VkDeviceQueueShaderCoreControlCreateInfoARM: return typeof(VkDeviceQueueShaderCoreControlCreateInfoARM);
+			case .VkPhysicalDeviceSchedulingControlsFeaturesARM: return typeof(VkPhysicalDeviceSchedulingControlsFeaturesARM);
+			case .VkPhysicalDeviceSchedulingControlsPropertiesARM: return typeof(VkPhysicalDeviceSchedulingControlsPropertiesARM);
+			case .VkPhysicalDeviceImageSlicedViewOf3dFeaturesEXT: return typeof(VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT);
+			case .VkImageViewSlicedCreateInfoEXT: return typeof(VkImageViewSlicedCreateInfoEXT);
+			case .VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE: return typeof(VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE);
+			case .VkDescriptorSetBindingReferenceVALVE: return typeof(VkDescriptorSetBindingReferenceVALVE);
+			case .VkDescriptorSetLayoutHostMappingInfoVALVE: return typeof(VkDescriptorSetLayoutHostMappingInfoVALVE);
+			case .VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT: return typeof(VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT);
+			case .VkPhysicalDeviceRenderPassStripedFeaturesARM: return typeof(VkPhysicalDeviceRenderPassStripedFeaturesARM);
+			case .VkPhysicalDeviceRenderPassStripedPropertiesARM: return typeof(VkPhysicalDeviceRenderPassStripedPropertiesARM);
+			case .VkRenderPassStripeBeginInfoARM: return typeof(VkRenderPassStripeBeginInfoARM);
+			case .VkRenderPassStripeInfoARM: return typeof(VkRenderPassStripeInfoARM);
+			case .VkRenderPassStripeSubmitInfoARM: return typeof(VkRenderPassStripeSubmitInfoARM);
+			case .VkPhysicalDeviceCopyMemoryIndirectFeaturesNV: return typeof(VkPhysicalDeviceCopyMemoryIndirectFeaturesNV);
+			case .VkPhysicalDeviceCopyMemoryIndirectPropertiesNV: return typeof(VkPhysicalDeviceCopyMemoryIndirectPropertiesNV);
+			case .VkPhysicalDeviceMemoryDecompressionFeaturesNV: return typeof(VkPhysicalDeviceMemoryDecompressionFeaturesNV);
+			case .VkPhysicalDeviceMemoryDecompressionPropertiesNV: return typeof(VkPhysicalDeviceMemoryDecompressionPropertiesNV);
+			case .VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV: return typeof(VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV);
+			case .VkComputePipelineIndirectBufferInfoNV: return typeof(VkComputePipelineIndirectBufferInfoNV);
+			case .VkPipelineIndirectDeviceAddressInfoNV: return typeof(VkPipelineIndirectDeviceAddressInfoNV);
+			case .VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV: return typeof(VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV);
+			case .VkAccelerationStructureGeometryLinearSweptSpheresDataNV: return typeof(VkAccelerationStructureGeometryLinearSweptSpheresDataNV);
+			case .VkAccelerationStructureGeometrySpheresDataNV: return typeof(VkAccelerationStructureGeometrySpheresDataNV);
+			case .VkPhysicalDeviceLinearColorAttachmentFeaturesNV: return typeof(VkPhysicalDeviceLinearColorAttachmentFeaturesNV);
+			case .VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR: return typeof(VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR);
+			case .VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT: return typeof(VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT);
+			case .VkPhysicalDeviceImageProcessingFeaturesQCOM: return typeof(VkPhysicalDeviceImageProcessingFeaturesQCOM);
+			case .VkPhysicalDeviceImageProcessingPropertiesQCOM: return typeof(VkPhysicalDeviceImageProcessingPropertiesQCOM);
+			case .VkImageViewSampleWeightCreateInfoQCOM: return typeof(VkImageViewSampleWeightCreateInfoQCOM);
+			case .VkPhysicalDeviceNestedCommandBufferFeaturesEXT: return typeof(VkPhysicalDeviceNestedCommandBufferFeaturesEXT);
+			case .VkPhysicalDeviceNestedCommandBufferPropertiesEXT: return typeof(VkPhysicalDeviceNestedCommandBufferPropertiesEXT);
+			case .VkExternalMemoryAcquireUnmodifiedEXT: return typeof(VkExternalMemoryAcquireUnmodifiedEXT);
+			case .VkPhysicalDeviceExtendedDynamicState3FeaturesEXT: return typeof(VkPhysicalDeviceExtendedDynamicState3FeaturesEXT);
+			case .VkPhysicalDeviceExtendedDynamicState3PropertiesEXT: return typeof(VkPhysicalDeviceExtendedDynamicState3PropertiesEXT);
+			case .VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT: return typeof(VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT);
+			case .VkRenderPassCreationControlEXT: return typeof(VkRenderPassCreationControlEXT);
+			case .VkRenderPassCreationFeedbackCreateInfoEXT: return typeof(VkRenderPassCreationFeedbackCreateInfoEXT);
+			case .VkRenderPassSubpassFeedbackCreateInfoEXT: return typeof(VkRenderPassSubpassFeedbackCreateInfoEXT);
+			case .VkDirectDriverLoadingInfoLUNARG: return typeof(VkDirectDriverLoadingInfoLUNARG);
+			case .VkDirectDriverLoadingListLUNARG: return typeof(VkDirectDriverLoadingListLUNARG);
+			case .VkTensorCreateInfoARM: return typeof(VkTensorCreateInfoARM);
+			case .VkTensorViewCreateInfoARM: return typeof(VkTensorViewCreateInfoARM);
+			case .VkBindTensorMemoryInfoARM: return typeof(VkBindTensorMemoryInfoARM);
+			case .VkWriteDescriptorSetTensorARM: return typeof(VkWriteDescriptorSetTensorARM);
+			case .VkPhysicalDeviceTensorPropertiesARM: return typeof(VkPhysicalDeviceTensorPropertiesARM);
+			case .VkTensorFormatPropertiesARM: return typeof(VkTensorFormatPropertiesARM);
+			case .VkTensorDescriptionARM: return typeof(VkTensorDescriptionARM);
+			case .VkTensorMemoryRequirementsInfoARM: return typeof(VkTensorMemoryRequirementsInfoARM);
+			case .VkTensorMemoryBarrierARM: return typeof(VkTensorMemoryBarrierARM);
+			case .VkPhysicalDeviceTensorFeaturesARM: return typeof(VkPhysicalDeviceTensorFeaturesARM);
+			case .VkDeviceTensorMemoryRequirementsARM: return typeof(VkDeviceTensorMemoryRequirementsARM);
+			case .VkCopyTensorInfoARM: return typeof(VkCopyTensorInfoARM);
+			case .VkTensorCopyARM: return typeof(VkTensorCopyARM);
+			case .VkTensorDependencyInfoARM: return typeof(VkTensorDependencyInfoARM);
+			case .VkMemoryDedicatedAllocateInfoTensorARM: return typeof(VkMemoryDedicatedAllocateInfoTensorARM);
+			case .VkPhysicalDeviceExternalTensorInfoARM: return typeof(VkPhysicalDeviceExternalTensorInfoARM);
+			case .VkExternalTensorPropertiesARM: return typeof(VkExternalTensorPropertiesARM);
+			case .VkExternalMemoryTensorCreateInfoARM: return typeof(VkExternalMemoryTensorCreateInfoARM);
+			case .VkPhysicalDeviceDescriptorBufferTensorFeaturesARM: return typeof(VkPhysicalDeviceDescriptorBufferTensorFeaturesARM);
+			case .VkPhysicalDeviceDescriptorBufferTensorPropertiesARM: return typeof(VkPhysicalDeviceDescriptorBufferTensorPropertiesARM);
+			case .VkDescriptorGetTensorInfoARM: return typeof(VkDescriptorGetTensorInfoARM);
+			case .VkTensorCaptureDescriptorDataInfoARM: return typeof(VkTensorCaptureDescriptorDataInfoARM);
+			case .VkTensorViewCaptureDescriptorDataInfoARM: return typeof(VkTensorViewCaptureDescriptorDataInfoARM);
+			case .VkFrameBoundaryTensorsARM: return typeof(VkFrameBoundaryTensorsARM);
+			case .VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT: return typeof(VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT);
+			case .VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT: return typeof(VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT);
+			case .VkPipelineShaderStageModuleIdentifierCreateInfoEXT: return typeof(VkPipelineShaderStageModuleIdentifierCreateInfoEXT);
+			case .VkShaderModuleIdentifierEXT: return typeof(VkShaderModuleIdentifierEXT);
+			case .VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT: return typeof(VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT);
+			case .VkPhysicalDeviceOpticalFlowFeaturesNV: return typeof(VkPhysicalDeviceOpticalFlowFeaturesNV);
+			case .VkPhysicalDeviceOpticalFlowPropertiesNV: return typeof(VkPhysicalDeviceOpticalFlowPropertiesNV);
+			case .VkOpticalFlowImageFormatInfoNV: return typeof(VkOpticalFlowImageFormatInfoNV);
+			case .VkOpticalFlowImageFormatPropertiesNV: return typeof(VkOpticalFlowImageFormatPropertiesNV);
+			case .VkOpticalFlowSessionCreateInfoNV: return typeof(VkOpticalFlowSessionCreateInfoNV);
+			case .VkOpticalFlowExecuteInfoNV: return typeof(VkOpticalFlowExecuteInfoNV);
+			case .VkOpticalFlowSessionCreatePrivateDataInfoNV: return typeof(VkOpticalFlowSessionCreatePrivateDataInfoNV);
+			case .VkPhysicalDeviceLegacyDitheringFeaturesEXT: return typeof(VkPhysicalDeviceLegacyDitheringFeaturesEXT);
+			case .VkPhysicalDeviceAntiLagFeaturesAMD: return typeof(VkPhysicalDeviceAntiLagFeaturesAMD);
+			case .VkAntiLagDataAMD: return typeof(VkAntiLagDataAMD);
+			case .VkAntiLagPresentationInfoAMD: return typeof(VkAntiLagPresentationInfoAMD);
+			case .VkSurfaceCapabilitiesPresentId2KHR: return typeof(VkSurfaceCapabilitiesPresentId2KHR);
+			case .VkPresentId2KHR: return typeof(VkPresentId2KHR);
+			case .VkPhysicalDevicePresentId2FeaturesKHR: return typeof(VkPhysicalDevicePresentId2FeaturesKHR);
+			case .VkSurfaceCapabilitiesPresentWait2KHR: return typeof(VkSurfaceCapabilitiesPresentWait2KHR);
+			case .VkPhysicalDevicePresentWait2FeaturesKHR: return typeof(VkPhysicalDevicePresentWait2FeaturesKHR);
+			case .VkPresentWait2InfoKHR: return typeof(VkPresentWait2InfoKHR);
+			case .VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR: return typeof(VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR);
+			case .VkPhysicalDeviceShaderObjectFeaturesEXT: return typeof(VkPhysicalDeviceShaderObjectFeaturesEXT);
+			case .VkPhysicalDeviceShaderObjectPropertiesEXT: return typeof(VkPhysicalDeviceShaderObjectPropertiesEXT);
+			case .VkShaderCreateInfoEXT: return typeof(VkShaderCreateInfoEXT);
+			case .VkPhysicalDevicePipelineBinaryFeaturesKHR: return typeof(VkPhysicalDevicePipelineBinaryFeaturesKHR);
+			case .VkPipelineBinaryCreateInfoKHR: return typeof(VkPipelineBinaryCreateInfoKHR);
+			case .VkPipelineBinaryInfoKHR: return typeof(VkPipelineBinaryInfoKHR);
+			case .VkPipelineBinaryKeyKHR: return typeof(VkPipelineBinaryKeyKHR);
+			case .VkPhysicalDevicePipelineBinaryPropertiesKHR: return typeof(VkPhysicalDevicePipelineBinaryPropertiesKHR);
+			case .VkReleaseCapturedPipelineDataInfoKHR: return typeof(VkReleaseCapturedPipelineDataInfoKHR);
+			case .VkPipelineBinaryDataInfoKHR: return typeof(VkPipelineBinaryDataInfoKHR);
+			case .VkPipelineCreateInfoKHR: return typeof(VkPipelineCreateInfoKHR);
+			case .VkDevicePipelineBinaryInternalCacheControlKHR: return typeof(VkDevicePipelineBinaryInternalCacheControlKHR);
+			case .VkPipelineBinaryHandlesInfoKHR: return typeof(VkPipelineBinaryHandlesInfoKHR);
+			case .VkPhysicalDeviceTilePropertiesFeaturesQCOM: return typeof(VkPhysicalDeviceTilePropertiesFeaturesQCOM);
+			case .VkTilePropertiesQCOM: return typeof(VkTilePropertiesQCOM);
+			case .VkPhysicalDeviceAmigoProfilingFeaturesSEC: return typeof(VkPhysicalDeviceAmigoProfilingFeaturesSEC);
+			case .VkAmigoProfilingSubmitInfoSEC: return typeof(VkAmigoProfilingSubmitInfoSEC);
+			case .VkSurfacePresentModeKHR: return typeof(VkSurfacePresentModeKHR);
+			case .VkSurfacePresentScalingCapabilitiesKHR: return typeof(VkSurfacePresentScalingCapabilitiesKHR);
+			case .VkSurfacePresentModeCompatibilityKHR: return typeof(VkSurfacePresentModeCompatibilityKHR);
+			case .VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR: return typeof(VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR);
+			case .VkSwapchainPresentFenceInfoKHR: return typeof(VkSwapchainPresentFenceInfoKHR);
+			case .VkSwapchainPresentModesCreateInfoKHR: return typeof(VkSwapchainPresentModesCreateInfoKHR);
+			case .VkSwapchainPresentModeInfoKHR: return typeof(VkSwapchainPresentModeInfoKHR);
+			case .VkSwapchainPresentScalingCreateInfoKHR: return typeof(VkSwapchainPresentScalingCreateInfoKHR);
+			case .VkReleaseSwapchainImagesInfoKHR: return typeof(VkReleaseSwapchainImagesInfoKHR);
+			case .VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM: return typeof(VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM);
+			case .VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV: return typeof(VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV);
+			case .VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV: return typeof(VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV);
+			case .VkPhysicalDeviceCooperativeVectorFeaturesNV: return typeof(VkPhysicalDeviceCooperativeVectorFeaturesNV);
+			case .VkPhysicalDeviceCooperativeVectorPropertiesNV: return typeof(VkPhysicalDeviceCooperativeVectorPropertiesNV);
+			case .VkCooperativeVectorPropertiesNV: return typeof(VkCooperativeVectorPropertiesNV);
+			case .VkConvertCooperativeVectorMatrixInfoNV: return typeof(VkConvertCooperativeVectorMatrixInfoNV);
+			case .VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV: return typeof(VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV);
+			case .VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV: return typeof(VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV);
+			case .VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT: return typeof(VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT);
+			case .VkMutableDescriptorTypeCreateInfoEXT: return typeof(VkMutableDescriptorTypeCreateInfoEXT);
+			case .VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT: return typeof(VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT);
+			case .VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT: return typeof(VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT);
+			case .VkLayerSettingsCreateInfoEXT: return typeof(VkLayerSettingsCreateInfoEXT);
+			case .VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM: return typeof(VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM);
+			case .VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM: return typeof(VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM);
+			case .VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT: return typeof(VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT);
+			case .VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT: return typeof(VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT);
+			case .VkLatencySleepModeInfoNV: return typeof(VkLatencySleepModeInfoNV);
+			case .VkLatencySleepInfoNV: return typeof(VkLatencySleepInfoNV);
+			case .VkSetLatencyMarkerInfoNV: return typeof(VkSetLatencyMarkerInfoNV);
+			case .VkGetLatencyMarkerInfoNV: return typeof(VkGetLatencyMarkerInfoNV);
+			case .VkLatencyTimingsFrameReportNV: return typeof(VkLatencyTimingsFrameReportNV);
+			case .VkLatencySubmissionPresentIdNV: return typeof(VkLatencySubmissionPresentIdNV);
+			case .VkOutOfBandQueueTypeInfoNV: return typeof(VkOutOfBandQueueTypeInfoNV);
+			case .VkSwapchainLatencyCreateInfoNV: return typeof(VkSwapchainLatencyCreateInfoNV);
+			case .VkLatencySurfaceCapabilitiesNV: return typeof(VkLatencySurfaceCapabilitiesNV);
+			case .VkPhysicalDeviceCooperativeMatrixFeaturesKHR: return typeof(VkPhysicalDeviceCooperativeMatrixFeaturesKHR);
+			case .VkCooperativeMatrixPropertiesKHR: return typeof(VkCooperativeMatrixPropertiesKHR);
+			case .VkPhysicalDeviceCooperativeMatrixPropertiesKHR: return typeof(VkPhysicalDeviceCooperativeMatrixPropertiesKHR);
+			case .VkDataGraphPipelineCreateInfoARM: return typeof(VkDataGraphPipelineCreateInfoARM);
+			case .VkDataGraphPipelineSessionCreateInfoARM: return typeof(VkDataGraphPipelineSessionCreateInfoARM);
+			case .VkDataGraphPipelineResourceInfoARM: return typeof(VkDataGraphPipelineResourceInfoARM);
+			case .VkDataGraphPipelineConstantARM: return typeof(VkDataGraphPipelineConstantARM);
+			case .VkDataGraphPipelineSessionMemoryRequirementsInfoARM: return typeof(VkDataGraphPipelineSessionMemoryRequirementsInfoARM);
+			case .VkBindDataGraphPipelineSessionMemoryInfoARM: return typeof(VkBindDataGraphPipelineSessionMemoryInfoARM);
+			case .VkPhysicalDeviceDataGraphFeaturesARM: return typeof(VkPhysicalDeviceDataGraphFeaturesARM);
+			case .VkDataGraphPipelineShaderModuleCreateInfoARM: return typeof(VkDataGraphPipelineShaderModuleCreateInfoARM);
+			case .VkDataGraphPipelinePropertyQueryResultARM: return typeof(VkDataGraphPipelinePropertyQueryResultARM);
+			case .VkDataGraphPipelineInfoARM: return typeof(VkDataGraphPipelineInfoARM);
+			case .VkDataGraphPipelineCompilerControlCreateInfoARM: return typeof(VkDataGraphPipelineCompilerControlCreateInfoARM);
+			case .VkDataGraphPipelineSessionBindPointRequirementsInfoARM: return typeof(VkDataGraphPipelineSessionBindPointRequirementsInfoARM);
+			case .VkDataGraphPipelineSessionBindPointRequirementARM: return typeof(VkDataGraphPipelineSessionBindPointRequirementARM);
+			case .VkDataGraphPipelineIdentifierCreateInfoARM: return typeof(VkDataGraphPipelineIdentifierCreateInfoARM);
+			case .VkDataGraphPipelineDispatchInfoARM: return typeof(VkDataGraphPipelineDispatchInfoARM);
+			case .VkDataGraphProcessingEngineCreateInfoARM: return typeof(VkDataGraphProcessingEngineCreateInfoARM);
+			case .VkQueueFamilyDataGraphProcessingEnginePropertiesARM: return typeof(VkQueueFamilyDataGraphProcessingEnginePropertiesARM);
+			case .VkQueueFamilyDataGraphPropertiesARM: return typeof(VkQueueFamilyDataGraphPropertiesARM);
+			case .VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM: return typeof(VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM);
+			case .VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM: return typeof(VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM);
+			case .VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM: return typeof(VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM);
+			case .VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM: return typeof(VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM);
+			case .VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR: return typeof(VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR);
+			case .VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR: return typeof(VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR);
+			case .VkVideoDecodeAv1CapabilitiesKHR: return typeof(VkVideoDecodeAV1CapabilitiesKHR);
+			case .VkVideoDecodeAv1PictureInfoKHR: return typeof(VkVideoDecodeAV1PictureInfoKHR);
+			case .VkVideoDecodeAv1ProfileInfoKHR: return typeof(VkVideoDecodeAV1ProfileInfoKHR);
+			case .VkVideoDecodeAv1SessionParametersCreateInfoKHR: return typeof(VkVideoDecodeAV1SessionParametersCreateInfoKHR);
+			case .VkVideoDecodeAv1DpbSlotInfoKHR: return typeof(VkVideoDecodeAV1DpbSlotInfoKHR);
+			case .VkVideoEncodeAv1CapabilitiesKHR: return typeof(VkVideoEncodeAV1CapabilitiesKHR);
+			case .VkVideoEncodeAv1SessionParametersCreateInfoKHR: return typeof(VkVideoEncodeAV1SessionParametersCreateInfoKHR);
+			case .VkVideoEncodeAv1PictureInfoKHR: return typeof(VkVideoEncodeAV1PictureInfoKHR);
+			case .VkVideoEncodeAv1DpbSlotInfoKHR: return typeof(VkVideoEncodeAV1DpbSlotInfoKHR);
+			case .VkPhysicalDeviceVideoEncodeAv1FeaturesKHR: return typeof(VkPhysicalDeviceVideoEncodeAV1FeaturesKHR);
+			case .VkVideoEncodeAv1ProfileInfoKHR: return typeof(VkVideoEncodeAV1ProfileInfoKHR);
+			case .VkVideoEncodeAv1RateControlInfoKHR: return typeof(VkVideoEncodeAV1RateControlInfoKHR);
+			case .VkVideoEncodeAv1RateControlLayerInfoKHR: return typeof(VkVideoEncodeAV1RateControlLayerInfoKHR);
+			case .VkVideoEncodeAv1QualityLevelPropertiesKHR: return typeof(VkVideoEncodeAV1QualityLevelPropertiesKHR);
+			case .VkVideoEncodeAv1SessionCreateInfoKHR: return typeof(VkVideoEncodeAV1SessionCreateInfoKHR);
+			case .VkVideoEncodeAv1GopRemainingFrameInfoKHR: return typeof(VkVideoEncodeAV1GopRemainingFrameInfoKHR);
+			case .VkPhysicalDeviceVideoDecodeVp9FeaturesKHR: return typeof(VkPhysicalDeviceVideoDecodeVP9FeaturesKHR);
+			case .VkVideoDecodeVp9CapabilitiesKHR: return typeof(VkVideoDecodeVP9CapabilitiesKHR);
+			case .VkVideoDecodeVp9PictureInfoKHR: return typeof(VkVideoDecodeVP9PictureInfoKHR);
+			case .VkVideoDecodeVp9ProfileInfoKHR: return typeof(VkVideoDecodeVP9ProfileInfoKHR);
+			case .VkPhysicalDeviceVideoMaintenance1FeaturesKHR: return typeof(VkPhysicalDeviceVideoMaintenance1FeaturesKHR);
+			case .VkVideoInlineQueryInfoKHR: return typeof(VkVideoInlineQueryInfoKHR);
+			case .VkPhysicalDevicePerStageDescriptorSetFeaturesNV: return typeof(VkPhysicalDevicePerStageDescriptorSetFeaturesNV);
+			case .VkPhysicalDeviceImageProcessing2FeaturesQCOM: return typeof(VkPhysicalDeviceImageProcessing2FeaturesQCOM);
+			case .VkPhysicalDeviceImageProcessing2PropertiesQCOM: return typeof(VkPhysicalDeviceImageProcessing2PropertiesQCOM);
+			case .VkSamplerBlockMatchWindowCreateInfoQCOM: return typeof(VkSamplerBlockMatchWindowCreateInfoQCOM);
+			case .VkSamplerCubicWeightsCreateInfoQCOM: return typeof(VkSamplerCubicWeightsCreateInfoQCOM);
+			case .VkPhysicalDeviceCubicWeightsFeaturesQCOM: return typeof(VkPhysicalDeviceCubicWeightsFeaturesQCOM);
+			case .VkBlitImageCubicWeightsInfoQCOM: return typeof(VkBlitImageCubicWeightsInfoQCOM);
+			case .VkPhysicalDeviceYcbcrDegammaFeaturesQCOM: return typeof(VkPhysicalDeviceYcbcrDegammaFeaturesQCOM);
+			case .VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM: return typeof(VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM);
+			case .VkPhysicalDeviceCubicClampFeaturesQCOM: return typeof(VkPhysicalDeviceCubicClampFeaturesQCOM);
+			case .VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT: return typeof(VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT);
+			case .VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR: return typeof(VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR);
+			case .VkAttachmentFeedbackLoopInfoEXT: return typeof(VkAttachmentFeedbackLoopInfoEXT);
+			case .VkPhysicalDeviceLayeredDriverPropertiesMSFT: return typeof(VkPhysicalDeviceLayeredDriverPropertiesMSFT);
+			case .VkCalibratedTimestampInfoKHR: return typeof(VkCalibratedTimestampInfoKHR);
+			case .VkSetDescriptorBufferOffsetsInfoEXT: return typeof(VkSetDescriptorBufferOffsetsInfoEXT);
+			case .VkBindDescriptorBufferEmbeddedSamplersInfoEXT: return typeof(VkBindDescriptorBufferEmbeddedSamplersInfoEXT);
+			case .VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV: return typeof(VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV);
+			case .VkPhysicalDeviceTileMemoryHeapFeaturesQCOM: return typeof(VkPhysicalDeviceTileMemoryHeapFeaturesQCOM);
+			case .VkPhysicalDeviceTileMemoryHeapPropertiesQCOM: return typeof(VkPhysicalDeviceTileMemoryHeapPropertiesQCOM);
+			case .VkTileMemoryRequirementsQCOM: return typeof(VkTileMemoryRequirementsQCOM);
+			case .VkTileMemoryBindInfoQCOM: return typeof(VkTileMemoryBindInfoQCOM);
+			case .VkTileMemorySizeInfoQCOM: return typeof(VkTileMemorySizeInfoQCOM);
+			case .VkDisplaySurfaceStereoCreateInfoNV: return typeof(VkDisplaySurfaceStereoCreateInfoNV);
+			case .VkDisplayModeStereoPropertiesNV: return typeof(VkDisplayModeStereoPropertiesNV);
+			case .VkVideoEncodeIntraRefreshCapabilitiesKHR: return typeof(VkVideoEncodeIntraRefreshCapabilitiesKHR);
+			case .VkVideoEncodeSessionIntraRefreshCreateInfoKHR: return typeof(VkVideoEncodeSessionIntraRefreshCreateInfoKHR);
+			case .VkVideoEncodeIntraRefreshInfoKHR: return typeof(VkVideoEncodeIntraRefreshInfoKHR);
+			case .VkVideoReferenceIntraRefreshInfoKHR: return typeof(VkVideoReferenceIntraRefreshInfoKHR);
+			case .VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR: return typeof(VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR);
+			case .VkVideoEncodeQuantizationMapCapabilitiesKHR: return typeof(VkVideoEncodeQuantizationMapCapabilitiesKHR);
+			case .VkVideoFormatQuantizationMapPropertiesKHR: return typeof(VkVideoFormatQuantizationMapPropertiesKHR);
+			case .VkVideoEncodeQuantizationMapInfoKHR: return typeof(VkVideoEncodeQuantizationMapInfoKHR);
+			case .VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR: return typeof(VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR);
+			case .VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR: return typeof(VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR);
+			case .VkVideoEncodeH264QuantizationMapCapabilitiesKHR: return typeof(VkVideoEncodeH264QuantizationMapCapabilitiesKHR);
+			case .VkVideoEncodeH265QuantizationMapCapabilitiesKHR: return typeof(VkVideoEncodeH265QuantizationMapCapabilitiesKHR);
+			case .VkVideoFormatH265QuantizationMapPropertiesKHR: return typeof(VkVideoFormatH265QuantizationMapPropertiesKHR);
+			case .VkVideoEncodeAv1QuantizationMapCapabilitiesKHR: return typeof(VkVideoEncodeAV1QuantizationMapCapabilitiesKHR);
+			case .VkVideoFormatAv1QuantizationMapPropertiesKHR: return typeof(VkVideoFormatAV1QuantizationMapPropertiesKHR);
+			case .VkPhysicalDeviceRawAccessChainsFeaturesNV: return typeof(VkPhysicalDeviceRawAccessChainsFeaturesNV);
+			case .VkExternalComputeQueueDeviceCreateInfoNV: return typeof(VkExternalComputeQueueDeviceCreateInfoNV);
+			case .VkExternalComputeQueueCreateInfoNV: return typeof(VkExternalComputeQueueCreateInfoNV);
+			case .VkExternalComputeQueueDataParamsNV: return typeof(VkExternalComputeQueueDataParamsNV);
+			case .VkPhysicalDeviceExternalComputeQueuePropertiesNV: return typeof(VkPhysicalDeviceExternalComputeQueuePropertiesNV);
+			case .VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR: return typeof(VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR);
+			case .VkPhysicalDeviceCommandBufferInheritanceFeaturesNV: return typeof(VkPhysicalDeviceCommandBufferInheritanceFeaturesNV);
+			case .VkPhysicalDeviceMaintenance7FeaturesKHR: return typeof(VkPhysicalDeviceMaintenance7FeaturesKHR);
+			case .VkPhysicalDeviceMaintenance7PropertiesKHR: return typeof(VkPhysicalDeviceMaintenance7PropertiesKHR);
+			case .VkPhysicalDeviceLayeredApiPropertiesListKHR: return typeof(VkPhysicalDeviceLayeredApiPropertiesListKHR);
+			case .VkPhysicalDeviceLayeredApiPropertiesKHR: return typeof(VkPhysicalDeviceLayeredApiPropertiesKHR);
+			case .VkPhysicalDeviceLayeredApiVulkanPropertiesKHR: return typeof(VkPhysicalDeviceLayeredApiVulkanPropertiesKHR);
+			case .VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV: return typeof(VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV);
+			case .VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT: return typeof(VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT);
+			case .VkPhysicalDeviceShaderFloat8FeaturesEXT: return typeof(VkPhysicalDeviceShaderFloat8FeaturesEXT);
+			case .VkPhysicalDeviceRayTracingValidationFeaturesNV: return typeof(VkPhysicalDeviceRayTracingValidationFeaturesNV);
+			case .VkPhysicalDeviceClusterAccelerationStructureFeaturesNV: return typeof(VkPhysicalDeviceClusterAccelerationStructureFeaturesNV);
+			case .VkPhysicalDeviceClusterAccelerationStructurePropertiesNV: return typeof(VkPhysicalDeviceClusterAccelerationStructurePropertiesNV);
+			case .VkClusterAccelerationStructureClustersBottomLevelInputNV: return typeof(VkClusterAccelerationStructureClustersBottomLevelInputNV);
+			case .VkClusterAccelerationStructureTriangleClusterInputNV: return typeof(VkClusterAccelerationStructureTriangleClusterInputNV);
+			case .VkClusterAccelerationStructureMoveObjectsInputNV: return typeof(VkClusterAccelerationStructureMoveObjectsInputNV);
+			case .VkClusterAccelerationStructureInputInfoNV: return typeof(VkClusterAccelerationStructureInputInfoNV);
+			case .VkClusterAccelerationStructureCommandsInfoNV: return typeof(VkClusterAccelerationStructureCommandsInfoNV);
+			case .VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV: return typeof(VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV);
+			case .VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV: return typeof(VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV);
+			case .VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV: return typeof(VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV);
+			case .VkWriteDescriptorSetPartitionedAccelerationStructureNV: return typeof(VkWriteDescriptorSetPartitionedAccelerationStructureNV);
+			case .VkPartitionedAccelerationStructureInstancesInputNV: return typeof(VkPartitionedAccelerationStructureInstancesInputNV);
+			case .VkBuildPartitionedAccelerationStructureInfoNV: return typeof(VkBuildPartitionedAccelerationStructureInfoNV);
+			case .VkPartitionedAccelerationStructureFlagsNV: return typeof(VkPartitionedAccelerationStructureFlagsNV);
+			case .VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT: return typeof(VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT);
+			case .VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT: return typeof(VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT);
+			case .VkGeneratedCommandsMemoryRequirementsInfoEXT: return typeof(VkGeneratedCommandsMemoryRequirementsInfoEXT);
+			case .VkIndirectExecutionSetCreateInfoEXT: return typeof(VkIndirectExecutionSetCreateInfoEXT);
+			case .VkGeneratedCommandsInfoEXT: return typeof(VkGeneratedCommandsInfoEXT);
+			case .VkIndirectCommandsLayoutCreateInfoEXT: return typeof(VkIndirectCommandsLayoutCreateInfoEXT);
+			case .VkIndirectCommandsLayoutTokenEXT: return typeof(VkIndirectCommandsLayoutTokenEXT);
+			case .VkWriteIndirectExecutionSetPipelineEXT: return typeof(VkWriteIndirectExecutionSetPipelineEXT);
+			case .VkWriteIndirectExecutionSetShaderEXT: return typeof(VkWriteIndirectExecutionSetShaderEXT);
+			case .VkIndirectExecutionSetPipelineInfoEXT: return typeof(VkIndirectExecutionSetPipelineInfoEXT);
+			case .VkIndirectExecutionSetShaderInfoEXT: return typeof(VkIndirectExecutionSetShaderInfoEXT);
+			case .VkIndirectExecutionSetShaderLayoutInfoEXT: return typeof(VkIndirectExecutionSetShaderLayoutInfoEXT);
+			case .VkGeneratedCommandsPipelineInfoEXT: return typeof(VkGeneratedCommandsPipelineInfoEXT);
+			case .VkGeneratedCommandsShaderInfoEXT: return typeof(VkGeneratedCommandsShaderInfoEXT);
+			case .VkPhysicalDeviceMaintenance8FeaturesKHR: return typeof(VkPhysicalDeviceMaintenance8FeaturesKHR);
+			case .VkMemoryBarrierAccessFlags3KHR: return typeof(VkMemoryBarrierAccessFlags3KHR);
+			case .VkPhysicalDeviceImageAlignmentControlFeaturesMESA: return typeof(VkPhysicalDeviceImageAlignmentControlFeaturesMESA);
+			case .VkPhysicalDeviceImageAlignmentControlPropertiesMESA: return typeof(VkPhysicalDeviceImageAlignmentControlPropertiesMESA);
+			case .VkImageAlignmentControlCreateInfoMESA: return typeof(VkImageAlignmentControlCreateInfoMESA);
+			case .VkPhysicalDeviceDepthClampControlFeaturesEXT: return typeof(VkPhysicalDeviceDepthClampControlFeaturesEXT);
+			case .VkPipelineViewportDepthClampControlCreateInfoEXT: return typeof(VkPipelineViewportDepthClampControlCreateInfoEXT);
+			case .VkPhysicalDeviceMaintenance9FeaturesKHR: return typeof(VkPhysicalDeviceMaintenance9FeaturesKHR);
+			case .VkPhysicalDeviceMaintenance9PropertiesKHR: return typeof(VkPhysicalDeviceMaintenance9PropertiesKHR);
+			case .VkQueueFamilyOwnershipTransferPropertiesKHR: return typeof(VkQueueFamilyOwnershipTransferPropertiesKHR);
+			case .VkPhysicalDeviceVideoMaintenance2FeaturesKHR: return typeof(VkPhysicalDeviceVideoMaintenance2FeaturesKHR);
+			case .VkVideoDecodeH264InlineSessionParametersInfoKHR: return typeof(VkVideoDecodeH264InlineSessionParametersInfoKHR);
+			case .VkVideoDecodeH265InlineSessionParametersInfoKHR: return typeof(VkVideoDecodeH265InlineSessionParametersInfoKHR);
+			case .VkVideoDecodeAv1InlineSessionParametersInfoKHR: return typeof(VkVideoDecodeAV1InlineSessionParametersInfoKHR);
+			case .VkPhysicalDeviceHdrVividFeaturesHUAWEI: return typeof(VkPhysicalDeviceHdrVividFeaturesHUAWEI);
+			case .VkHdrVividDynamicMetadataHUAWEI: return typeof(VkHdrVividDynamicMetadataHUAWEI);
+			case .VkPhysicalDeviceCooperativeMatrix2FeaturesNV: return typeof(VkPhysicalDeviceCooperativeMatrix2FeaturesNV);
+			case .VkCooperativeMatrixFlexibleDimensionsPropertiesNV: return typeof(VkCooperativeMatrixFlexibleDimensionsPropertiesNV);
+			case .VkPhysicalDeviceCooperativeMatrix2PropertiesNV: return typeof(VkPhysicalDeviceCooperativeMatrix2PropertiesNV);
+			case .VkPhysicalDevicePipelineOpacityMicromapFeaturesARM: return typeof(VkPhysicalDevicePipelineOpacityMicromapFeaturesARM);
+			case .VkPhysicalDeviceDepthClampZeroOneFeaturesKHR: return typeof(VkPhysicalDeviceDepthClampZeroOneFeaturesKHR);
+			case .VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT: return typeof(VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT);
+			case .VkPhysicalDeviceFormatPackFeaturesARM: return typeof(VkPhysicalDeviceFormatPackFeaturesARM);
+			case .VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE: return typeof(VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE);
+			case .VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE: return typeof(VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE);
+			case .VkPipelineFragmentDensityMapLayeredCreateInfoVALVE: return typeof(VkPipelineFragmentDensityMapLayeredCreateInfoVALVE);
+			case .VkPhysicalDeviceRobustness2FeaturesKHR: return typeof(VkPhysicalDeviceRobustness2FeaturesKHR);
+			case .VkPhysicalDeviceRobustness2PropertiesKHR: return typeof(VkPhysicalDeviceRobustness2PropertiesKHR);
+			case .VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT: return typeof(VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT);
+			case .VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT: return typeof(VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT);
+			case .VkRenderPassFragmentDensityMapOffsetEndInfoEXT: return typeof(VkRenderPassFragmentDensityMapOffsetEndInfoEXT);
+			case .VkRenderingEndInfoEXT: return typeof(VkRenderingEndInfoEXT);
+			case .VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT: return typeof(VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT);
+			case .VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR: return typeof(VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR);
+			case .VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC: return typeof(VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC);
+			default: return null;
+			}
+		}
+	}
+}
+
 namespace Vulkan.Metadata;
 
-static class VulkanCommandMetadata
+enum VulkanCommand
 {
-	private static VkResult[?] vkCreateInstance__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateInstance => vkCreateInstance__successcodes;
-	private static VkResult[?] vkCreateInstance__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed, .VkErrorLayerNotPresent, .VkErrorExtensionNotPresent, .VkErrorIncompatibleDriver);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateInstance => vkCreateInstance__errorcodes;
-	private static VkResult[?] vkEnumeratePhysicalDevices__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkEnumeratePhysicalDevices => vkEnumeratePhysicalDevices__successcodes;
-	private static VkResult[?] vkEnumeratePhysicalDevices__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkEnumeratePhysicalDevices => vkEnumeratePhysicalDevices__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceImageFormatProperties__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceImageFormatProperties => vkGetPhysicalDeviceImageFormatProperties__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceImageFormatProperties__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorFormatNotSupported);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceImageFormatProperties => vkGetPhysicalDeviceImageFormatProperties__errorcodes;
-	private static VkResult[?] vkCreateDevice__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDevice => vkCreateDevice__successcodes;
-	private static VkResult[?] vkCreateDevice__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed, .VkErrorExtensionNotPresent, .VkErrorFeatureNotPresent, .VkErrorTooManyObjects, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDevice => vkCreateDevice__errorcodes;
-	private static VkResult[?] vkEnumerateInstanceVersion__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkEnumerateInstanceVersion => vkEnumerateInstanceVersion__successcodes;
-	private static VkResult[?] vkEnumerateInstanceVersion__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkEnumerateInstanceVersion => vkEnumerateInstanceVersion__errorcodes;
-	private static VkResult[?] vkEnumerateInstanceLayerProperties__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkEnumerateInstanceLayerProperties => vkEnumerateInstanceLayerProperties__successcodes;
-	private static VkResult[?] vkEnumerateInstanceLayerProperties__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkEnumerateInstanceLayerProperties => vkEnumerateInstanceLayerProperties__errorcodes;
-	private static VkResult[?] vkEnumerateInstanceExtensionProperties__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkEnumerateInstanceExtensionProperties => vkEnumerateInstanceExtensionProperties__successcodes;
-	private static VkResult[?] vkEnumerateInstanceExtensionProperties__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorLayerNotPresent);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkEnumerateInstanceExtensionProperties => vkEnumerateInstanceExtensionProperties__errorcodes;
-	private static VkResult[?] vkEnumerateDeviceLayerProperties__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkEnumerateDeviceLayerProperties => vkEnumerateDeviceLayerProperties__successcodes;
-	private static VkResult[?] vkEnumerateDeviceLayerProperties__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkEnumerateDeviceLayerProperties => vkEnumerateDeviceLayerProperties__errorcodes;
-	private static VkResult[?] vkEnumerateDeviceExtensionProperties__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkEnumerateDeviceExtensionProperties => vkEnumerateDeviceExtensionProperties__successcodes;
-	private static VkResult[?] vkEnumerateDeviceExtensionProperties__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorLayerNotPresent);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkEnumerateDeviceExtensionProperties => vkEnumerateDeviceExtensionProperties__errorcodes;
-	private static VkResult[?] vkQueueSubmit__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkQueueSubmit => vkQueueSubmit__successcodes;
-	private static VkResult[?] vkQueueSubmit__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkQueueSubmit => vkQueueSubmit__errorcodes;
-	private static VkResult[?] vkQueueWaitIdle__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkQueueWaitIdle => vkQueueWaitIdle__successcodes;
-	private static VkResult[?] vkQueueWaitIdle__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkQueueWaitIdle => vkQueueWaitIdle__errorcodes;
-	private static VkResult[?] vkDeviceWaitIdle__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkDeviceWaitIdle => vkDeviceWaitIdle__successcodes;
-	private static VkResult[?] vkDeviceWaitIdle__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkDeviceWaitIdle => vkDeviceWaitIdle__errorcodes;
-	private static VkResult[?] vkAllocateMemory__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkAllocateMemory => vkAllocateMemory__successcodes;
-	private static VkResult[?] vkAllocateMemory__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidExternalHandle, .VkErrorInvalidOpaqueCaptureAddressKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkAllocateMemory => vkAllocateMemory__errorcodes;
-	private static VkResult[?] vkMapMemory__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkMapMemory => vkMapMemory__successcodes;
-	private static VkResult[?] vkMapMemory__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorMemoryMapFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkMapMemory => vkMapMemory__errorcodes;
-	private static VkResult[?] vkFlushMappedMemoryRanges__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkFlushMappedMemoryRanges => vkFlushMappedMemoryRanges__successcodes;
-	private static VkResult[?] vkFlushMappedMemoryRanges__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkFlushMappedMemoryRanges => vkFlushMappedMemoryRanges__errorcodes;
-	private static VkResult[?] vkInvalidateMappedMemoryRanges__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkInvalidateMappedMemoryRanges => vkInvalidateMappedMemoryRanges__successcodes;
-	private static VkResult[?] vkInvalidateMappedMemoryRanges__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkInvalidateMappedMemoryRanges => vkInvalidateMappedMemoryRanges__errorcodes;
-	private static VkResult[?] vkBindBufferMemory__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindBufferMemory => vkBindBufferMemory__successcodes;
-	private static VkResult[?] vkBindBufferMemory__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidOpaqueCaptureAddressKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindBufferMemory => vkBindBufferMemory__errorcodes;
-	private static VkResult[?] vkBindImageMemory__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindImageMemory => vkBindImageMemory__successcodes;
-	private static VkResult[?] vkBindImageMemory__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindImageMemory => vkBindImageMemory__errorcodes;
-	private static VkResult[?] vkQueueBindSparse__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkQueueBindSparse => vkQueueBindSparse__successcodes;
-	private static VkResult[?] vkQueueBindSparse__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkQueueBindSparse => vkQueueBindSparse__errorcodes;
-	private static VkQueueFlags vkQueueBindSparse__queues = .SparseBinding;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkQueueBindSparse => vkQueueBindSparse__queues;
-	private static VkResult[?] vkCreateFence__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateFence => vkCreateFence__successcodes;
-	private static VkResult[?] vkCreateFence__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateFence => vkCreateFence__errorcodes;
-	private static VkResult[?] vkResetFences__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkResetFences => vkResetFences__successcodes;
-	private static VkResult[?] vkResetFences__errorcodes = .(.VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkResetFences => vkResetFences__errorcodes;
-	private static VkResult[?] vkGetFenceStatus__successcodes = .(.VkSuccess, .VkNotReady);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetFenceStatus => vkGetFenceStatus__successcodes;
-	private static VkResult[?] vkGetFenceStatus__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetFenceStatus => vkGetFenceStatus__errorcodes;
-	private static VkResult[?] vkWaitForFences__successcodes = .(.VkSuccess, .VkTimeout);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkWaitForFences => vkWaitForFences__successcodes;
-	private static VkResult[?] vkWaitForFences__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkWaitForFences => vkWaitForFences__errorcodes;
-	private static VkResult[?] vkCreateSemaphore__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateSemaphore => vkCreateSemaphore__successcodes;
-	private static VkResult[?] vkCreateSemaphore__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateSemaphore => vkCreateSemaphore__errorcodes;
-	private static VkResult[?] vkCreateEvent__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateEvent => vkCreateEvent__successcodes;
-	private static VkResult[?] vkCreateEvent__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateEvent => vkCreateEvent__errorcodes;
-	private static VkResult[?] vkGetEventStatus__successcodes = .(.VkEventSet, .VkEventReset);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetEventStatus => vkGetEventStatus__successcodes;
-	private static VkResult[?] vkGetEventStatus__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetEventStatus => vkGetEventStatus__errorcodes;
-	private static VkResult[?] vkSetEvent__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkSetEvent => vkSetEvent__successcodes;
-	private static VkResult[?] vkSetEvent__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkSetEvent => vkSetEvent__errorcodes;
-	private static VkResult[?] vkResetEvent__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkResetEvent => vkResetEvent__successcodes;
-	private static VkResult[?] vkResetEvent__errorcodes = .(.VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkResetEvent => vkResetEvent__errorcodes;
-	private static VkResult[?] vkCreateQueryPool__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateQueryPool => vkCreateQueryPool__successcodes;
-	private static VkResult[?] vkCreateQueryPool__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateQueryPool => vkCreateQueryPool__errorcodes;
-	private static VkResult[?] vkGetQueryPoolResults__successcodes = .(.VkSuccess, .VkNotReady);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetQueryPoolResults => vkGetQueryPoolResults__successcodes;
-	private static VkResult[?] vkGetQueryPoolResults__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetQueryPoolResults => vkGetQueryPoolResults__errorcodes;
-	private static VkResult[?] vkCreateBuffer__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateBuffer => vkCreateBuffer__successcodes;
-	private static VkResult[?] vkCreateBuffer__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidOpaqueCaptureAddressKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateBuffer => vkCreateBuffer__errorcodes;
-	private static VkResult[?] vkCreateBufferView__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateBufferView => vkCreateBufferView__successcodes;
-	private static VkResult[?] vkCreateBufferView__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateBufferView => vkCreateBufferView__errorcodes;
-	private static VkResult[?] vkCreateImage__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateImage => vkCreateImage__successcodes;
-	private static VkResult[?] vkCreateImage__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorCompressionExhaustedEXT, .VkErrorInvalidOpaqueCaptureAddressKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateImage => vkCreateImage__errorcodes;
-	private static VkResult[?] vkCreateImageView__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateImageView => vkCreateImageView__successcodes;
-	private static VkResult[?] vkCreateImageView__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidOpaqueCaptureAddressKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateImageView => vkCreateImageView__errorcodes;
-	private static VkResult[?] vkCreateShaderModule__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateShaderModule => vkCreateShaderModule__successcodes;
-	private static VkResult[?] vkCreateShaderModule__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidShaderNV);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateShaderModule => vkCreateShaderModule__errorcodes;
-	private static VkResult[?] vkCreatePipelineCache__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreatePipelineCache => vkCreatePipelineCache__successcodes;
-	private static VkResult[?] vkCreatePipelineCache__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreatePipelineCache => vkCreatePipelineCache__errorcodes;
-	private static VkResult[?] vkGetPipelineCacheData__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPipelineCacheData => vkGetPipelineCacheData__successcodes;
-	private static VkResult[?] vkGetPipelineCacheData__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPipelineCacheData => vkGetPipelineCacheData__errorcodes;
-	private static VkResult[?] vkMergePipelineCaches__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkMergePipelineCaches => vkMergePipelineCaches__successcodes;
-	private static VkResult[?] vkMergePipelineCaches__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkMergePipelineCaches => vkMergePipelineCaches__errorcodes;
-	private static VkResult[?] vkCreatePipelineBinariesKHR__successcodes = .(.VkSuccess, .VkIncomplete, .VkPipelineBinaryMissingKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreatePipelineBinariesKHR => vkCreatePipelineBinariesKHR__successcodes;
-	private static VkResult[?] vkCreatePipelineBinariesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreatePipelineBinariesKHR => vkCreatePipelineBinariesKHR__errorcodes;
-	private static VkResult[?] vkGetPipelineKeyKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPipelineKeyKHR => vkGetPipelineKeyKHR__successcodes;
-	private static VkResult[?] vkGetPipelineKeyKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPipelineKeyKHR => vkGetPipelineKeyKHR__errorcodes;
-	private static VkResult[?] vkGetPipelineBinaryDataKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPipelineBinaryDataKHR => vkGetPipelineBinaryDataKHR__successcodes;
-	private static VkResult[?] vkGetPipelineBinaryDataKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorNotEnoughSpaceKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPipelineBinaryDataKHR => vkGetPipelineBinaryDataKHR__errorcodes;
-	private static VkResult[?] vkReleaseCapturedPipelineDataKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkReleaseCapturedPipelineDataKHR => vkReleaseCapturedPipelineDataKHR__successcodes;
-	private static VkResult[?] vkCreateGraphicsPipelines__successcodes = .(.VkSuccess, .VkPipelineCompileRequiredEXT);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateGraphicsPipelines => vkCreateGraphicsPipelines__successcodes;
-	private static VkResult[?] vkCreateGraphicsPipelines__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidShaderNV);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateGraphicsPipelines => vkCreateGraphicsPipelines__errorcodes;
-	private static VkResult[?] vkCreateComputePipelines__successcodes = .(.VkSuccess, .VkPipelineCompileRequiredEXT);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateComputePipelines => vkCreateComputePipelines__successcodes;
-	private static VkResult[?] vkCreateComputePipelines__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidShaderNV);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateComputePipelines => vkCreateComputePipelines__errorcodes;
-	private static VkResult[?] vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI => vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI__successcodes;
-	private static VkResult[?] vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI => vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI__errorcodes;
-	private static VkResult[?] vkCreatePipelineLayout__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreatePipelineLayout => vkCreatePipelineLayout__successcodes;
-	private static VkResult[?] vkCreatePipelineLayout__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreatePipelineLayout => vkCreatePipelineLayout__errorcodes;
-	private static VkResult[?] vkCreateSampler__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateSampler => vkCreateSampler__successcodes;
-	private static VkResult[?] vkCreateSampler__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidOpaqueCaptureAddressKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateSampler => vkCreateSampler__errorcodes;
-	private static VkResult[?] vkCreateDescriptorSetLayout__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDescriptorSetLayout => vkCreateDescriptorSetLayout__successcodes;
-	private static VkResult[?] vkCreateDescriptorSetLayout__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDescriptorSetLayout => vkCreateDescriptorSetLayout__errorcodes;
-	private static VkResult[?] vkCreateDescriptorPool__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDescriptorPool => vkCreateDescriptorPool__successcodes;
-	private static VkResult[?] vkCreateDescriptorPool__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorFragmentationEXT);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDescriptorPool => vkCreateDescriptorPool__errorcodes;
-	private static VkResult[?] vkResetDescriptorPool__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkResetDescriptorPool => vkResetDescriptorPool__successcodes;
-	private static VkResult[?] vkAllocateDescriptorSets__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkAllocateDescriptorSets => vkAllocateDescriptorSets__successcodes;
-	private static VkResult[?] vkAllocateDescriptorSets__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorFragmentedPool, .VkErrorOutOfPoolMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkAllocateDescriptorSets => vkAllocateDescriptorSets__errorcodes;
-	private static VkResult[?] vkFreeDescriptorSets__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkFreeDescriptorSets => vkFreeDescriptorSets__successcodes;
-	private static VkResult[?] vkCreateFramebuffer__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateFramebuffer => vkCreateFramebuffer__successcodes;
-	private static VkResult[?] vkCreateFramebuffer__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateFramebuffer => vkCreateFramebuffer__errorcodes;
-	private static VkResult[?] vkCreateRenderPass__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateRenderPass => vkCreateRenderPass__successcodes;
-	private static VkResult[?] vkCreateRenderPass__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateRenderPass => vkCreateRenderPass__errorcodes;
-	private static VkResult[?] vkCreateCommandPool__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateCommandPool => vkCreateCommandPool__successcodes;
-	private static VkResult[?] vkCreateCommandPool__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateCommandPool => vkCreateCommandPool__errorcodes;
-	private static VkResult[?] vkResetCommandPool__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkResetCommandPool => vkResetCommandPool__successcodes;
-	private static VkResult[?] vkResetCommandPool__errorcodes = .(.VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkResetCommandPool => vkResetCommandPool__errorcodes;
-	private static VkResult[?] vkAllocateCommandBuffers__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkAllocateCommandBuffers => vkAllocateCommandBuffers__successcodes;
-	private static VkResult[?] vkAllocateCommandBuffers__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkAllocateCommandBuffers => vkAllocateCommandBuffers__errorcodes;
-	private static VkResult[?] vkBeginCommandBuffer__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBeginCommandBuffer => vkBeginCommandBuffer__successcodes;
-	private static VkResult[?] vkBeginCommandBuffer__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBeginCommandBuffer => vkBeginCommandBuffer__errorcodes;
-	private static VkResult[?] vkEndCommandBuffer__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkEndCommandBuffer => vkEndCommandBuffer__successcodes;
-	private static VkResult[?] vkEndCommandBuffer__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidVideoStdParametersKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkEndCommandBuffer => vkEndCommandBuffer__errorcodes;
-	private static VkResult[?] vkResetCommandBuffer__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkResetCommandBuffer => vkResetCommandBuffer__successcodes;
-	private static VkResult[?] vkResetCommandBuffer__errorcodes = .(.VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkResetCommandBuffer => vkResetCommandBuffer__errorcodes;
-	private static VkQueueFlags vkCmdBindPipeline__queues = .Graphics | .Compute | .DataGraphARM;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindPipeline => vkCmdBindPipeline__queues;
-	private static RenderPassLocation vkCmdBindPipeline__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindPipeline => vkCmdBindPipeline__renderpass;
-	private static CmdBufferLevel vkCmdBindPipeline__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindPipeline => vkCmdBindPipeline__cmdbufferlevel;
-	private static Task vkCmdBindPipeline__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindPipeline => vkCmdBindPipeline__tasks;
-	private static VkQueueFlags vkCmdSetAttachmentFeedbackLoopEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT => vkCmdSetAttachmentFeedbackLoopEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetAttachmentFeedbackLoopEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT => vkCmdSetAttachmentFeedbackLoopEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetAttachmentFeedbackLoopEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT => vkCmdSetAttachmentFeedbackLoopEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetAttachmentFeedbackLoopEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT => vkCmdSetAttachmentFeedbackLoopEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetViewport__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetViewport => vkCmdSetViewport__queues;
-	private static RenderPassLocation vkCmdSetViewport__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetViewport => vkCmdSetViewport__renderpass;
-	private static CmdBufferLevel vkCmdSetViewport__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetViewport => vkCmdSetViewport__cmdbufferlevel;
-	private static Task vkCmdSetViewport__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetViewport => vkCmdSetViewport__tasks;
-	private static VkQueueFlags vkCmdSetScissor__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetScissor => vkCmdSetScissor__queues;
-	private static RenderPassLocation vkCmdSetScissor__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetScissor => vkCmdSetScissor__renderpass;
-	private static CmdBufferLevel vkCmdSetScissor__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetScissor => vkCmdSetScissor__cmdbufferlevel;
-	private static Task vkCmdSetScissor__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetScissor => vkCmdSetScissor__tasks;
-	private static VkQueueFlags vkCmdSetLineWidth__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetLineWidth => vkCmdSetLineWidth__queues;
-	private static RenderPassLocation vkCmdSetLineWidth__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetLineWidth => vkCmdSetLineWidth__renderpass;
-	private static CmdBufferLevel vkCmdSetLineWidth__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetLineWidth => vkCmdSetLineWidth__cmdbufferlevel;
-	private static Task vkCmdSetLineWidth__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetLineWidth => vkCmdSetLineWidth__tasks;
-	private static VkQueueFlags vkCmdSetDepthBias__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthBias => vkCmdSetDepthBias__queues;
-	private static RenderPassLocation vkCmdSetDepthBias__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthBias => vkCmdSetDepthBias__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthBias__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthBias => vkCmdSetDepthBias__cmdbufferlevel;
-	private static Task vkCmdSetDepthBias__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthBias => vkCmdSetDepthBias__tasks;
-	private static VkQueueFlags vkCmdSetBlendConstants__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetBlendConstants => vkCmdSetBlendConstants__queues;
-	private static RenderPassLocation vkCmdSetBlendConstants__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetBlendConstants => vkCmdSetBlendConstants__renderpass;
-	private static CmdBufferLevel vkCmdSetBlendConstants__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetBlendConstants => vkCmdSetBlendConstants__cmdbufferlevel;
-	private static Task vkCmdSetBlendConstants__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetBlendConstants => vkCmdSetBlendConstants__tasks;
-	private static VkQueueFlags vkCmdSetDepthBounds__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthBounds => vkCmdSetDepthBounds__queues;
-	private static RenderPassLocation vkCmdSetDepthBounds__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthBounds => vkCmdSetDepthBounds__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthBounds__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthBounds => vkCmdSetDepthBounds__cmdbufferlevel;
-	private static Task vkCmdSetDepthBounds__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthBounds => vkCmdSetDepthBounds__tasks;
-	private static VkQueueFlags vkCmdSetStencilCompareMask__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetStencilCompareMask => vkCmdSetStencilCompareMask__queues;
-	private static RenderPassLocation vkCmdSetStencilCompareMask__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetStencilCompareMask => vkCmdSetStencilCompareMask__renderpass;
-	private static CmdBufferLevel vkCmdSetStencilCompareMask__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetStencilCompareMask => vkCmdSetStencilCompareMask__cmdbufferlevel;
-	private static Task vkCmdSetStencilCompareMask__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetStencilCompareMask => vkCmdSetStencilCompareMask__tasks;
-	private static VkQueueFlags vkCmdSetStencilWriteMask__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetStencilWriteMask => vkCmdSetStencilWriteMask__queues;
-	private static RenderPassLocation vkCmdSetStencilWriteMask__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetStencilWriteMask => vkCmdSetStencilWriteMask__renderpass;
-	private static CmdBufferLevel vkCmdSetStencilWriteMask__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetStencilWriteMask => vkCmdSetStencilWriteMask__cmdbufferlevel;
-	private static Task vkCmdSetStencilWriteMask__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetStencilWriteMask => vkCmdSetStencilWriteMask__tasks;
-	private static VkQueueFlags vkCmdSetStencilReference__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetStencilReference => vkCmdSetStencilReference__queues;
-	private static RenderPassLocation vkCmdSetStencilReference__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetStencilReference => vkCmdSetStencilReference__renderpass;
-	private static CmdBufferLevel vkCmdSetStencilReference__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetStencilReference => vkCmdSetStencilReference__cmdbufferlevel;
-	private static Task vkCmdSetStencilReference__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetStencilReference => vkCmdSetStencilReference__tasks;
-	private static VkQueueFlags vkCmdBindDescriptorSets__queues = .Graphics | .Compute | .DataGraphARM;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindDescriptorSets => vkCmdBindDescriptorSets__queues;
-	private static RenderPassLocation vkCmdBindDescriptorSets__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindDescriptorSets => vkCmdBindDescriptorSets__renderpass;
-	private static CmdBufferLevel vkCmdBindDescriptorSets__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindDescriptorSets => vkCmdBindDescriptorSets__cmdbufferlevel;
-	private static Task vkCmdBindDescriptorSets__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindDescriptorSets => vkCmdBindDescriptorSets__tasks;
-	private static VkQueueFlags vkCmdBindIndexBuffer__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindIndexBuffer => vkCmdBindIndexBuffer__queues;
-	private static RenderPassLocation vkCmdBindIndexBuffer__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindIndexBuffer => vkCmdBindIndexBuffer__renderpass;
-	private static CmdBufferLevel vkCmdBindIndexBuffer__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindIndexBuffer => vkCmdBindIndexBuffer__cmdbufferlevel;
-	private static Task vkCmdBindIndexBuffer__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindIndexBuffer => vkCmdBindIndexBuffer__tasks;
-	private static VkQueueFlags vkCmdBindVertexBuffers__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindVertexBuffers => vkCmdBindVertexBuffers__queues;
-	private static RenderPassLocation vkCmdBindVertexBuffers__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindVertexBuffers => vkCmdBindVertexBuffers__renderpass;
-	private static CmdBufferLevel vkCmdBindVertexBuffers__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindVertexBuffers => vkCmdBindVertexBuffers__cmdbufferlevel;
-	private static Task vkCmdBindVertexBuffers__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindVertexBuffers => vkCmdBindVertexBuffers__tasks;
-	private static VkQueueFlags vkCmdDraw__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDraw => vkCmdDraw__queues;
-	private static RenderPassLocation vkCmdDraw__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDraw => vkCmdDraw__renderpass;
-	private static CmdBufferLevel vkCmdDraw__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDraw => vkCmdDraw__cmdbufferlevel;
-	private static Task vkCmdDraw__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDraw => vkCmdDraw__tasks;
-	private static VkQueueFlags vkCmdDrawIndexed__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawIndexed => vkCmdDrawIndexed__queues;
-	private static RenderPassLocation vkCmdDrawIndexed__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawIndexed => vkCmdDrawIndexed__renderpass;
-	private static CmdBufferLevel vkCmdDrawIndexed__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawIndexed => vkCmdDrawIndexed__cmdbufferlevel;
-	private static Task vkCmdDrawIndexed__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawIndexed => vkCmdDrawIndexed__tasks;
-	private static VkQueueFlags vkCmdDrawMultiEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawMultiEXT => vkCmdDrawMultiEXT__queues;
-	private static RenderPassLocation vkCmdDrawMultiEXT__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawMultiEXT => vkCmdDrawMultiEXT__renderpass;
-	private static CmdBufferLevel vkCmdDrawMultiEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawMultiEXT => vkCmdDrawMultiEXT__cmdbufferlevel;
-	private static Task vkCmdDrawMultiEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawMultiEXT => vkCmdDrawMultiEXT__tasks;
-	private static VkQueueFlags vkCmdDrawMultiIndexedEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawMultiIndexedEXT => vkCmdDrawMultiIndexedEXT__queues;
-	private static RenderPassLocation vkCmdDrawMultiIndexedEXT__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawMultiIndexedEXT => vkCmdDrawMultiIndexedEXT__renderpass;
-	private static CmdBufferLevel vkCmdDrawMultiIndexedEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawMultiIndexedEXT => vkCmdDrawMultiIndexedEXT__cmdbufferlevel;
-	private static Task vkCmdDrawMultiIndexedEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawMultiIndexedEXT => vkCmdDrawMultiIndexedEXT__tasks;
-	private static VkQueueFlags vkCmdDrawIndirect__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawIndirect => vkCmdDrawIndirect__queues;
-	private static RenderPassLocation vkCmdDrawIndirect__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawIndirect => vkCmdDrawIndirect__renderpass;
-	private static CmdBufferLevel vkCmdDrawIndirect__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawIndirect => vkCmdDrawIndirect__cmdbufferlevel;
-	private static Task vkCmdDrawIndirect__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawIndirect => vkCmdDrawIndirect__tasks;
-	private static VkQueueFlags vkCmdDrawIndexedIndirect__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawIndexedIndirect => vkCmdDrawIndexedIndirect__queues;
-	private static RenderPassLocation vkCmdDrawIndexedIndirect__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawIndexedIndirect => vkCmdDrawIndexedIndirect__renderpass;
-	private static CmdBufferLevel vkCmdDrawIndexedIndirect__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawIndexedIndirect => vkCmdDrawIndexedIndirect__cmdbufferlevel;
-	private static Task vkCmdDrawIndexedIndirect__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawIndexedIndirect => vkCmdDrawIndexedIndirect__tasks;
-	private static VkQueueFlags vkCmdDispatch__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatch => vkCmdDispatch__queues;
-	private static RenderPassLocation vkCmdDispatch__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatch => vkCmdDispatch__renderpass;
-	private static CmdBufferLevel vkCmdDispatch__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatch => vkCmdDispatch__cmdbufferlevel;
-	private static Task vkCmdDispatch__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDispatch => vkCmdDispatch__tasks;
-	private static VkQueueFlags vkCmdDispatchIndirect__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatchIndirect => vkCmdDispatchIndirect__queues;
-	private static RenderPassLocation vkCmdDispatchIndirect__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatchIndirect => vkCmdDispatchIndirect__renderpass;
-	private static CmdBufferLevel vkCmdDispatchIndirect__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatchIndirect => vkCmdDispatchIndirect__cmdbufferlevel;
-	private static Task vkCmdDispatchIndirect__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDispatchIndirect => vkCmdDispatchIndirect__tasks;
-	private static VkQueueFlags vkCmdSubpassShadingHUAWEI__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSubpassShadingHUAWEI => vkCmdSubpassShadingHUAWEI__queues;
-	private static RenderPassLocation vkCmdSubpassShadingHUAWEI__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSubpassShadingHUAWEI => vkCmdSubpassShadingHUAWEI__renderpass;
-	private static CmdBufferLevel vkCmdSubpassShadingHUAWEI__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSubpassShadingHUAWEI => vkCmdSubpassShadingHUAWEI__cmdbufferlevel;
-	private static Task vkCmdSubpassShadingHUAWEI__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSubpassShadingHUAWEI => vkCmdSubpassShadingHUAWEI__tasks;
-	private static VkQueueFlags vkCmdDrawClusterHUAWEI__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawClusterHUAWEI => vkCmdDrawClusterHUAWEI__queues;
-	private static RenderPassLocation vkCmdDrawClusterHUAWEI__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawClusterHUAWEI => vkCmdDrawClusterHUAWEI__renderpass;
-	private static CmdBufferLevel vkCmdDrawClusterHUAWEI__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawClusterHUAWEI => vkCmdDrawClusterHUAWEI__cmdbufferlevel;
-	private static Task vkCmdDrawClusterHUAWEI__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawClusterHUAWEI => vkCmdDrawClusterHUAWEI__tasks;
-	private static VkQueueFlags vkCmdDrawClusterIndirectHUAWEI__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawClusterIndirectHUAWEI => vkCmdDrawClusterIndirectHUAWEI__queues;
-	private static RenderPassLocation vkCmdDrawClusterIndirectHUAWEI__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawClusterIndirectHUAWEI => vkCmdDrawClusterIndirectHUAWEI__renderpass;
-	private static CmdBufferLevel vkCmdDrawClusterIndirectHUAWEI__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawClusterIndirectHUAWEI => vkCmdDrawClusterIndirectHUAWEI__cmdbufferlevel;
-	private static Task vkCmdDrawClusterIndirectHUAWEI__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawClusterIndirectHUAWEI => vkCmdDrawClusterIndirectHUAWEI__tasks;
-	private static VkQueueFlags vkCmdUpdatePipelineIndirectBufferNV__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdUpdatePipelineIndirectBufferNV => vkCmdUpdatePipelineIndirectBufferNV__queues;
-	private static RenderPassLocation vkCmdUpdatePipelineIndirectBufferNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdUpdatePipelineIndirectBufferNV => vkCmdUpdatePipelineIndirectBufferNV__renderpass;
-	private static CmdBufferLevel vkCmdUpdatePipelineIndirectBufferNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdUpdatePipelineIndirectBufferNV => vkCmdUpdatePipelineIndirectBufferNV__cmdbufferlevel;
-	private static Task vkCmdUpdatePipelineIndirectBufferNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdUpdatePipelineIndirectBufferNV => vkCmdUpdatePipelineIndirectBufferNV__tasks;
-	private static VkQueueFlags vkCmdCopyBuffer__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyBuffer => vkCmdCopyBuffer__queues;
-	private static RenderPassLocation vkCmdCopyBuffer__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyBuffer => vkCmdCopyBuffer__renderpass;
-	private static CmdBufferLevel vkCmdCopyBuffer__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyBuffer => vkCmdCopyBuffer__cmdbufferlevel;
-	private static Task vkCmdCopyBuffer__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyBuffer => vkCmdCopyBuffer__tasks;
-	private static VkQueueFlags vkCmdCopyImage__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyImage => vkCmdCopyImage__queues;
-	private static RenderPassLocation vkCmdCopyImage__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyImage => vkCmdCopyImage__renderpass;
-	private static CmdBufferLevel vkCmdCopyImage__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyImage => vkCmdCopyImage__cmdbufferlevel;
-	private static Task vkCmdCopyImage__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyImage => vkCmdCopyImage__tasks;
-	private static VkQueueFlags vkCmdBlitImage__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBlitImage => vkCmdBlitImage__queues;
-	private static RenderPassLocation vkCmdBlitImage__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBlitImage => vkCmdBlitImage__renderpass;
-	private static CmdBufferLevel vkCmdBlitImage__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBlitImage => vkCmdBlitImage__cmdbufferlevel;
-	private static Task vkCmdBlitImage__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBlitImage => vkCmdBlitImage__tasks;
-	private static VkQueueFlags vkCmdCopyBufferToImage__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyBufferToImage => vkCmdCopyBufferToImage__queues;
-	private static RenderPassLocation vkCmdCopyBufferToImage__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyBufferToImage => vkCmdCopyBufferToImage__renderpass;
-	private static CmdBufferLevel vkCmdCopyBufferToImage__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyBufferToImage => vkCmdCopyBufferToImage__cmdbufferlevel;
-	private static Task vkCmdCopyBufferToImage__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyBufferToImage => vkCmdCopyBufferToImage__tasks;
-	private static VkQueueFlags vkCmdCopyImageToBuffer__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyImageToBuffer => vkCmdCopyImageToBuffer__queues;
-	private static RenderPassLocation vkCmdCopyImageToBuffer__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyImageToBuffer => vkCmdCopyImageToBuffer__renderpass;
-	private static CmdBufferLevel vkCmdCopyImageToBuffer__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyImageToBuffer => vkCmdCopyImageToBuffer__cmdbufferlevel;
-	private static Task vkCmdCopyImageToBuffer__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyImageToBuffer => vkCmdCopyImageToBuffer__tasks;
-	private static VkQueueFlags vkCmdCopyMemoryIndirectNV__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyMemoryIndirectNV => vkCmdCopyMemoryIndirectNV__queues;
-	private static RenderPassLocation vkCmdCopyMemoryIndirectNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyMemoryIndirectNV => vkCmdCopyMemoryIndirectNV__renderpass;
-	private static CmdBufferLevel vkCmdCopyMemoryIndirectNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyMemoryIndirectNV => vkCmdCopyMemoryIndirectNV__cmdbufferlevel;
-	private static Task vkCmdCopyMemoryIndirectNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyMemoryIndirectNV => vkCmdCopyMemoryIndirectNV__tasks;
-	private static VkQueueFlags vkCmdCopyMemoryToImageIndirectNV__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyMemoryToImageIndirectNV => vkCmdCopyMemoryToImageIndirectNV__queues;
-	private static RenderPassLocation vkCmdCopyMemoryToImageIndirectNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyMemoryToImageIndirectNV => vkCmdCopyMemoryToImageIndirectNV__renderpass;
-	private static CmdBufferLevel vkCmdCopyMemoryToImageIndirectNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyMemoryToImageIndirectNV => vkCmdCopyMemoryToImageIndirectNV__cmdbufferlevel;
-	private static Task vkCmdCopyMemoryToImageIndirectNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyMemoryToImageIndirectNV => vkCmdCopyMemoryToImageIndirectNV__tasks;
-	private static VkQueueFlags vkCmdUpdateBuffer__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdUpdateBuffer => vkCmdUpdateBuffer__queues;
-	private static RenderPassLocation vkCmdUpdateBuffer__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdUpdateBuffer => vkCmdUpdateBuffer__renderpass;
-	private static CmdBufferLevel vkCmdUpdateBuffer__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdUpdateBuffer => vkCmdUpdateBuffer__cmdbufferlevel;
-	private static Task vkCmdUpdateBuffer__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdUpdateBuffer => vkCmdUpdateBuffer__tasks;
-	private static VkQueueFlags vkCmdFillBuffer__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdFillBuffer => vkCmdFillBuffer__queues;
-	private static RenderPassLocation vkCmdFillBuffer__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdFillBuffer => vkCmdFillBuffer__renderpass;
-	private static CmdBufferLevel vkCmdFillBuffer__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdFillBuffer => vkCmdFillBuffer__cmdbufferlevel;
-	private static Task vkCmdFillBuffer__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdFillBuffer => vkCmdFillBuffer__tasks;
-	private static VkQueueFlags vkCmdClearColorImage__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdClearColorImage => vkCmdClearColorImage__queues;
-	private static RenderPassLocation vkCmdClearColorImage__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdClearColorImage => vkCmdClearColorImage__renderpass;
-	private static CmdBufferLevel vkCmdClearColorImage__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdClearColorImage => vkCmdClearColorImage__cmdbufferlevel;
-	private static Task vkCmdClearColorImage__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdClearColorImage => vkCmdClearColorImage__tasks;
-	private static VkQueueFlags vkCmdClearDepthStencilImage__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdClearDepthStencilImage => vkCmdClearDepthStencilImage__queues;
-	private static RenderPassLocation vkCmdClearDepthStencilImage__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdClearDepthStencilImage => vkCmdClearDepthStencilImage__renderpass;
-	private static CmdBufferLevel vkCmdClearDepthStencilImage__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdClearDepthStencilImage => vkCmdClearDepthStencilImage__cmdbufferlevel;
-	private static Task vkCmdClearDepthStencilImage__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdClearDepthStencilImage => vkCmdClearDepthStencilImage__tasks;
-	private static VkQueueFlags vkCmdClearAttachments__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdClearAttachments => vkCmdClearAttachments__queues;
-	private static RenderPassLocation vkCmdClearAttachments__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdClearAttachments => vkCmdClearAttachments__renderpass;
-	private static CmdBufferLevel vkCmdClearAttachments__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdClearAttachments => vkCmdClearAttachments__cmdbufferlevel;
-	private static Task vkCmdClearAttachments__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdClearAttachments => vkCmdClearAttachments__tasks;
-	private static VkQueueFlags vkCmdResolveImage__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdResolveImage => vkCmdResolveImage__queues;
-	private static RenderPassLocation vkCmdResolveImage__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdResolveImage => vkCmdResolveImage__renderpass;
-	private static CmdBufferLevel vkCmdResolveImage__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdResolveImage => vkCmdResolveImage__cmdbufferlevel;
-	private static Task vkCmdResolveImage__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdResolveImage => vkCmdResolveImage__tasks;
-	private static VkQueueFlags vkCmdSetEvent__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetEvent => vkCmdSetEvent__queues;
-	private static RenderPassLocation vkCmdSetEvent__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetEvent => vkCmdSetEvent__renderpass;
-	private static CmdBufferLevel vkCmdSetEvent__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetEvent => vkCmdSetEvent__cmdbufferlevel;
-	private static Task vkCmdSetEvent__tasks = .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetEvent => vkCmdSetEvent__tasks;
-	private static VkQueueFlags vkCmdResetEvent__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdResetEvent => vkCmdResetEvent__queues;
-	private static RenderPassLocation vkCmdResetEvent__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdResetEvent => vkCmdResetEvent__renderpass;
-	private static CmdBufferLevel vkCmdResetEvent__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdResetEvent => vkCmdResetEvent__cmdbufferlevel;
-	private static Task vkCmdResetEvent__tasks = .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdResetEvent => vkCmdResetEvent__tasks;
-	private static VkQueueFlags vkCmdWaitEvents__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdWaitEvents => vkCmdWaitEvents__queues;
-	private static RenderPassLocation vkCmdWaitEvents__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdWaitEvents => vkCmdWaitEvents__renderpass;
-	private static CmdBufferLevel vkCmdWaitEvents__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdWaitEvents => vkCmdWaitEvents__cmdbufferlevel;
-	private static Task vkCmdWaitEvents__tasks = .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdWaitEvents => vkCmdWaitEvents__tasks;
-	private static VkQueueFlags vkCmdPipelineBarrier__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPipelineBarrier => vkCmdPipelineBarrier__queues;
-	private static RenderPassLocation vkCmdPipelineBarrier__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPipelineBarrier => vkCmdPipelineBarrier__renderpass;
-	private static CmdBufferLevel vkCmdPipelineBarrier__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPipelineBarrier => vkCmdPipelineBarrier__cmdbufferlevel;
-	private static Task vkCmdPipelineBarrier__tasks = .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPipelineBarrier => vkCmdPipelineBarrier__tasks;
-	private static VkQueueFlags vkCmdBeginQuery__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginQuery => vkCmdBeginQuery__queues;
-	private static RenderPassLocation vkCmdBeginQuery__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginQuery => vkCmdBeginQuery__renderpass;
-	private static CmdBufferLevel vkCmdBeginQuery__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginQuery => vkCmdBeginQuery__cmdbufferlevel;
-	private static Task vkCmdBeginQuery__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginQuery => vkCmdBeginQuery__tasks;
-	private static VkQueueFlags vkCmdEndQuery__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndQuery => vkCmdEndQuery__queues;
-	private static RenderPassLocation vkCmdEndQuery__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndQuery => vkCmdEndQuery__renderpass;
-	private static CmdBufferLevel vkCmdEndQuery__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndQuery => vkCmdEndQuery__cmdbufferlevel;
-	private static Task vkCmdEndQuery__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndQuery => vkCmdEndQuery__tasks;
-	private static VkQueueFlags vkCmdBeginConditionalRenderingEXT__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginConditionalRenderingEXT => vkCmdBeginConditionalRenderingEXT__queues;
-	private static RenderPassLocation vkCmdBeginConditionalRenderingEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginConditionalRenderingEXT => vkCmdBeginConditionalRenderingEXT__renderpass;
-	private static CmdBufferLevel vkCmdBeginConditionalRenderingEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginConditionalRenderingEXT => vkCmdBeginConditionalRenderingEXT__cmdbufferlevel;
-	private static Task vkCmdBeginConditionalRenderingEXT__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginConditionalRenderingEXT => vkCmdBeginConditionalRenderingEXT__tasks;
-	private static VkQueueFlags vkCmdEndConditionalRenderingEXT__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndConditionalRenderingEXT => vkCmdEndConditionalRenderingEXT__queues;
-	private static RenderPassLocation vkCmdEndConditionalRenderingEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndConditionalRenderingEXT => vkCmdEndConditionalRenderingEXT__renderpass;
-	private static CmdBufferLevel vkCmdEndConditionalRenderingEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndConditionalRenderingEXT => vkCmdEndConditionalRenderingEXT__cmdbufferlevel;
-	private static Task vkCmdEndConditionalRenderingEXT__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndConditionalRenderingEXT => vkCmdEndConditionalRenderingEXT__tasks;
-	private static VkQueueFlags vkCmdResetQueryPool__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdResetQueryPool => vkCmdResetQueryPool__queues;
-	private static RenderPassLocation vkCmdResetQueryPool__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdResetQueryPool => vkCmdResetQueryPool__renderpass;
-	private static CmdBufferLevel vkCmdResetQueryPool__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdResetQueryPool => vkCmdResetQueryPool__cmdbufferlevel;
-	private static Task vkCmdResetQueryPool__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdResetQueryPool => vkCmdResetQueryPool__tasks;
-	private static VkQueueFlags vkCmdWriteTimestamp__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdWriteTimestamp => vkCmdWriteTimestamp__queues;
-	private static RenderPassLocation vkCmdWriteTimestamp__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdWriteTimestamp => vkCmdWriteTimestamp__renderpass;
-	private static CmdBufferLevel vkCmdWriteTimestamp__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdWriteTimestamp => vkCmdWriteTimestamp__cmdbufferlevel;
-	private static Task vkCmdWriteTimestamp__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdWriteTimestamp => vkCmdWriteTimestamp__tasks;
-	private static VkQueueFlags vkCmdCopyQueryPoolResults__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyQueryPoolResults => vkCmdCopyQueryPoolResults__queues;
-	private static RenderPassLocation vkCmdCopyQueryPoolResults__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyQueryPoolResults => vkCmdCopyQueryPoolResults__renderpass;
-	private static CmdBufferLevel vkCmdCopyQueryPoolResults__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyQueryPoolResults => vkCmdCopyQueryPoolResults__cmdbufferlevel;
-	private static Task vkCmdCopyQueryPoolResults__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyQueryPoolResults => vkCmdCopyQueryPoolResults__tasks;
-	private static VkQueueFlags vkCmdPushConstants__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPushConstants => vkCmdPushConstants__queues;
-	private static RenderPassLocation vkCmdPushConstants__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPushConstants => vkCmdPushConstants__renderpass;
-	private static CmdBufferLevel vkCmdPushConstants__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPushConstants => vkCmdPushConstants__cmdbufferlevel;
-	private static Task vkCmdPushConstants__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPushConstants => vkCmdPushConstants__tasks;
-	private static VkQueueFlags vkCmdBeginRenderPass__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginRenderPass => vkCmdBeginRenderPass__queues;
-	private static RenderPassLocation vkCmdBeginRenderPass__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginRenderPass => vkCmdBeginRenderPass__renderpass;
-	private static CmdBufferLevel vkCmdBeginRenderPass__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginRenderPass => vkCmdBeginRenderPass__cmdbufferlevel;
-	private static Task vkCmdBeginRenderPass__tasks = .Action | .State | .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginRenderPass => vkCmdBeginRenderPass__tasks;
-	private static VkQueueFlags vkCmdNextSubpass__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdNextSubpass => vkCmdNextSubpass__queues;
-	private static RenderPassLocation vkCmdNextSubpass__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdNextSubpass => vkCmdNextSubpass__renderpass;
-	private static CmdBufferLevel vkCmdNextSubpass__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdNextSubpass => vkCmdNextSubpass__cmdbufferlevel;
-	private static Task vkCmdNextSubpass__tasks = .Action | .State | .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdNextSubpass => vkCmdNextSubpass__tasks;
-	private static VkQueueFlags vkCmdEndRenderPass__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndRenderPass => vkCmdEndRenderPass__queues;
-	private static RenderPassLocation vkCmdEndRenderPass__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndRenderPass => vkCmdEndRenderPass__renderpass;
-	private static CmdBufferLevel vkCmdEndRenderPass__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndRenderPass => vkCmdEndRenderPass__cmdbufferlevel;
-	private static Task vkCmdEndRenderPass__tasks = .Action | .State | .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndRenderPass => vkCmdEndRenderPass__tasks;
-	private static VkQueueFlags vkCmdExecuteCommands__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdExecuteCommands => vkCmdExecuteCommands__queues;
-	private static RenderPassLocation vkCmdExecuteCommands__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdExecuteCommands => vkCmdExecuteCommands__renderpass;
-	private static CmdBufferLevel vkCmdExecuteCommands__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdExecuteCommands => vkCmdExecuteCommands__cmdbufferlevel;
-	private static Task vkCmdExecuteCommands__tasks = .Indirection;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdExecuteCommands => vkCmdExecuteCommands__tasks;
-	private static VkResult[?] vkGetPhysicalDeviceDisplayPropertiesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceDisplayPropertiesKHR => vkGetPhysicalDeviceDisplayPropertiesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceDisplayPropertiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceDisplayPropertiesKHR => vkGetPhysicalDeviceDisplayPropertiesKHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceDisplayPlanePropertiesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR => vkGetPhysicalDeviceDisplayPlanePropertiesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceDisplayPlanePropertiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR => vkGetPhysicalDeviceDisplayPlanePropertiesKHR__errorcodes;
-	private static VkResult[?] vkGetDisplayPlaneSupportedDisplaysKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDisplayPlaneSupportedDisplaysKHR => vkGetDisplayPlaneSupportedDisplaysKHR__successcodes;
-	private static VkResult[?] vkGetDisplayPlaneSupportedDisplaysKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDisplayPlaneSupportedDisplaysKHR => vkGetDisplayPlaneSupportedDisplaysKHR__errorcodes;
-	private static VkResult[?] vkGetDisplayModePropertiesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDisplayModePropertiesKHR => vkGetDisplayModePropertiesKHR__successcodes;
-	private static VkResult[?] vkGetDisplayModePropertiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDisplayModePropertiesKHR => vkGetDisplayModePropertiesKHR__errorcodes;
-	private static VkResult[?] vkCreateDisplayModeKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDisplayModeKHR => vkCreateDisplayModeKHR__successcodes;
-	private static VkResult[?] vkCreateDisplayModeKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDisplayModeKHR => vkCreateDisplayModeKHR__errorcodes;
-	private static VkResult[?] vkGetDisplayPlaneCapabilitiesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDisplayPlaneCapabilitiesKHR => vkGetDisplayPlaneCapabilitiesKHR__successcodes;
-	private static VkResult[?] vkGetDisplayPlaneCapabilitiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDisplayPlaneCapabilitiesKHR => vkGetDisplayPlaneCapabilitiesKHR__errorcodes;
-	private static VkResult[?] vkCreateDisplayPlaneSurfaceKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDisplayPlaneSurfaceKHR => vkCreateDisplayPlaneSurfaceKHR__successcodes;
-	private static VkResult[?] vkCreateDisplayPlaneSurfaceKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDisplayPlaneSurfaceKHR => vkCreateDisplayPlaneSurfaceKHR__errorcodes;
-	private static VkResult[?] vkCreateSharedSwapchainsKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateSharedSwapchainsKHR => vkCreateSharedSwapchainsKHR__successcodes;
-	private static VkResult[?] vkCreateSharedSwapchainsKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorIncompatibleDisplayKHR, .VkErrorDeviceLost, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateSharedSwapchainsKHR => vkCreateSharedSwapchainsKHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceSupportKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceSupportKHR => vkGetPhysicalDeviceSurfaceSupportKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceSupportKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceSupportKHR => vkGetPhysicalDeviceSurfaceSupportKHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceCapabilitiesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR => vkGetPhysicalDeviceSurfaceCapabilitiesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceCapabilitiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR => vkGetPhysicalDeviceSurfaceCapabilitiesKHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceFormatsKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceFormatsKHR => vkGetPhysicalDeviceSurfaceFormatsKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceFormatsKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceFormatsKHR => vkGetPhysicalDeviceSurfaceFormatsKHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfacePresentModesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfacePresentModesKHR => vkGetPhysicalDeviceSurfacePresentModesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfacePresentModesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfacePresentModesKHR => vkGetPhysicalDeviceSurfacePresentModesKHR__errorcodes;
-	private static VkResult[?] vkCreateSwapchainKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateSwapchainKHR => vkCreateSwapchainKHR__successcodes;
-	private static VkResult[?] vkCreateSwapchainKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost, .VkErrorSurfaceLostKHR, .VkErrorNativeWindowInUseKHR, .VkErrorInitializationFailed, .VkErrorCompressionExhaustedEXT);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateSwapchainKHR => vkCreateSwapchainKHR__errorcodes;
-	private static VkResult[?] vkGetSwapchainImagesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetSwapchainImagesKHR => vkGetSwapchainImagesKHR__successcodes;
-	private static VkResult[?] vkGetSwapchainImagesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetSwapchainImagesKHR => vkGetSwapchainImagesKHR__errorcodes;
-	private static VkResult[?] vkAcquireNextImageKHR__successcodes = .(.VkSuccess, .VkTimeout, .VkNotReady, .VkSuboptimalKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkAcquireNextImageKHR => vkAcquireNextImageKHR__successcodes;
-	private static VkResult[?] vkAcquireNextImageKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkAcquireNextImageKHR => vkAcquireNextImageKHR__errorcodes;
-	private static VkResult[?] vkQueuePresentKHR__successcodes = .(.VkSuccess, .VkSuboptimalKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkQueuePresentKHR => vkQueuePresentKHR__successcodes;
-	private static VkResult[?] vkQueuePresentKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkQueuePresentKHR => vkQueuePresentKHR__errorcodes;
-	private static VkResult[?] vkCreateDebugReportCallbackEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDebugReportCallbackEXT => vkCreateDebugReportCallbackEXT__successcodes;
-	private static VkResult[?] vkCreateDebugReportCallbackEXT__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDebugReportCallbackEXT => vkCreateDebugReportCallbackEXT__errorcodes;
-	private static VkResult[?] vkDebugMarkerSetObjectNameEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkDebugMarkerSetObjectNameEXT => vkDebugMarkerSetObjectNameEXT__successcodes;
-	private static VkResult[?] vkDebugMarkerSetObjectNameEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkDebugMarkerSetObjectNameEXT => vkDebugMarkerSetObjectNameEXT__errorcodes;
-	private static VkResult[?] vkDebugMarkerSetObjectTagEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkDebugMarkerSetObjectTagEXT => vkDebugMarkerSetObjectTagEXT__successcodes;
-	private static VkResult[?] vkDebugMarkerSetObjectTagEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkDebugMarkerSetObjectTagEXT => vkDebugMarkerSetObjectTagEXT__errorcodes;
-	private static VkQueueFlags vkCmdDebugMarkerBeginEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDebugMarkerBeginEXT => vkCmdDebugMarkerBeginEXT__queues;
-	private static RenderPassLocation vkCmdDebugMarkerBeginEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDebugMarkerBeginEXT => vkCmdDebugMarkerBeginEXT__renderpass;
-	private static CmdBufferLevel vkCmdDebugMarkerBeginEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDebugMarkerBeginEXT => vkCmdDebugMarkerBeginEXT__cmdbufferlevel;
-	private static Task vkCmdDebugMarkerBeginEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDebugMarkerBeginEXT => vkCmdDebugMarkerBeginEXT__tasks;
-	private static VkQueueFlags vkCmdDebugMarkerEndEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDebugMarkerEndEXT => vkCmdDebugMarkerEndEXT__queues;
-	private static RenderPassLocation vkCmdDebugMarkerEndEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDebugMarkerEndEXT => vkCmdDebugMarkerEndEXT__renderpass;
-	private static CmdBufferLevel vkCmdDebugMarkerEndEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDebugMarkerEndEXT => vkCmdDebugMarkerEndEXT__cmdbufferlevel;
-	private static Task vkCmdDebugMarkerEndEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDebugMarkerEndEXT => vkCmdDebugMarkerEndEXT__tasks;
-	private static VkQueueFlags vkCmdDebugMarkerInsertEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDebugMarkerInsertEXT => vkCmdDebugMarkerInsertEXT__queues;
-	private static RenderPassLocation vkCmdDebugMarkerInsertEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDebugMarkerInsertEXT => vkCmdDebugMarkerInsertEXT__renderpass;
-	private static CmdBufferLevel vkCmdDebugMarkerInsertEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDebugMarkerInsertEXT => vkCmdDebugMarkerInsertEXT__cmdbufferlevel;
-	private static Task vkCmdDebugMarkerInsertEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDebugMarkerInsertEXT => vkCmdDebugMarkerInsertEXT__tasks;
-	private static VkResult[?] vkGetPhysicalDeviceExternalImageFormatPropertiesNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV => vkGetPhysicalDeviceExternalImageFormatPropertiesNV__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceExternalImageFormatPropertiesNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorFormatNotSupported);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV => vkGetPhysicalDeviceExternalImageFormatPropertiesNV__errorcodes;
-	private static VkQueueFlags vkCmdExecuteGeneratedCommandsNV__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdExecuteGeneratedCommandsNV => vkCmdExecuteGeneratedCommandsNV__queues;
-	private static RenderPassLocation vkCmdExecuteGeneratedCommandsNV__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdExecuteGeneratedCommandsNV => vkCmdExecuteGeneratedCommandsNV__renderpass;
-	private static CmdBufferLevel vkCmdExecuteGeneratedCommandsNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdExecuteGeneratedCommandsNV => vkCmdExecuteGeneratedCommandsNV__cmdbufferlevel;
-	private static Task vkCmdExecuteGeneratedCommandsNV__tasks = .Action | .Indirection;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdExecuteGeneratedCommandsNV => vkCmdExecuteGeneratedCommandsNV__tasks;
-	private static VkQueueFlags vkCmdPreprocessGeneratedCommandsNV__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPreprocessGeneratedCommandsNV => vkCmdPreprocessGeneratedCommandsNV__queues;
-	private static RenderPassLocation vkCmdPreprocessGeneratedCommandsNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPreprocessGeneratedCommandsNV => vkCmdPreprocessGeneratedCommandsNV__renderpass;
-	private static CmdBufferLevel vkCmdPreprocessGeneratedCommandsNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPreprocessGeneratedCommandsNV => vkCmdPreprocessGeneratedCommandsNV__cmdbufferlevel;
-	private static Task vkCmdPreprocessGeneratedCommandsNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPreprocessGeneratedCommandsNV => vkCmdPreprocessGeneratedCommandsNV__tasks;
-	private static VkQueueFlags vkCmdBindPipelineShaderGroupNV__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindPipelineShaderGroupNV => vkCmdBindPipelineShaderGroupNV__queues;
-	private static RenderPassLocation vkCmdBindPipelineShaderGroupNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindPipelineShaderGroupNV => vkCmdBindPipelineShaderGroupNV__renderpass;
-	private static CmdBufferLevel vkCmdBindPipelineShaderGroupNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindPipelineShaderGroupNV => vkCmdBindPipelineShaderGroupNV__cmdbufferlevel;
-	private static Task vkCmdBindPipelineShaderGroupNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindPipelineShaderGroupNV => vkCmdBindPipelineShaderGroupNV__tasks;
-	private static VkResult[?] vkCreateIndirectCommandsLayoutNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateIndirectCommandsLayoutNV => vkCreateIndirectCommandsLayoutNV__successcodes;
-	private static VkResult[?] vkCreateIndirectCommandsLayoutNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateIndirectCommandsLayoutNV => vkCreateIndirectCommandsLayoutNV__errorcodes;
-	private static VkQueueFlags vkCmdExecuteGeneratedCommandsEXT__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdExecuteGeneratedCommandsEXT => vkCmdExecuteGeneratedCommandsEXT__queues;
-	private static RenderPassLocation vkCmdExecuteGeneratedCommandsEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdExecuteGeneratedCommandsEXT => vkCmdExecuteGeneratedCommandsEXT__renderpass;
-	private static CmdBufferLevel vkCmdExecuteGeneratedCommandsEXT__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdExecuteGeneratedCommandsEXT => vkCmdExecuteGeneratedCommandsEXT__cmdbufferlevel;
-	private static Task vkCmdExecuteGeneratedCommandsEXT__tasks = .Action | .Indirection;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdExecuteGeneratedCommandsEXT => vkCmdExecuteGeneratedCommandsEXT__tasks;
-	private static VkQueueFlags vkCmdPreprocessGeneratedCommandsEXT__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPreprocessGeneratedCommandsEXT => vkCmdPreprocessGeneratedCommandsEXT__queues;
-	private static RenderPassLocation vkCmdPreprocessGeneratedCommandsEXT__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPreprocessGeneratedCommandsEXT => vkCmdPreprocessGeneratedCommandsEXT__renderpass;
-	private static CmdBufferLevel vkCmdPreprocessGeneratedCommandsEXT__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPreprocessGeneratedCommandsEXT => vkCmdPreprocessGeneratedCommandsEXT__cmdbufferlevel;
-	private static Task vkCmdPreprocessGeneratedCommandsEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPreprocessGeneratedCommandsEXT => vkCmdPreprocessGeneratedCommandsEXT__tasks;
-	private static VkResult[?] vkCreateIndirectCommandsLayoutEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateIndirectCommandsLayoutEXT => vkCreateIndirectCommandsLayoutEXT__successcodes;
-	private static VkResult[?] vkCreateIndirectCommandsLayoutEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateIndirectCommandsLayoutEXT => vkCreateIndirectCommandsLayoutEXT__errorcodes;
-	private static VkResult[?] vkCreateIndirectExecutionSetEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateIndirectExecutionSetEXT => vkCreateIndirectExecutionSetEXT__successcodes;
-	private static VkResult[?] vkCreateIndirectExecutionSetEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateIndirectExecutionSetEXT => vkCreateIndirectExecutionSetEXT__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceImageFormatProperties2__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceImageFormatProperties2 => vkGetPhysicalDeviceImageFormatProperties2__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceImageFormatProperties2__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorFormatNotSupported, .VkErrorImageUsageNotSupportedKHR, .VkErrorVideoProfileOperationNotSupportedKHR, .VkErrorVideoProfileFormatNotSupportedKHR, .VkErrorVideoPictureLayoutNotSupportedKHR, .VkErrorVideoProfileCodecNotSupportedKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceImageFormatProperties2 => vkGetPhysicalDeviceImageFormatProperties2__errorcodes;
-	private static VkQueueFlags vkCmdPushDescriptorSet__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPushDescriptorSet => vkCmdPushDescriptorSet__queues;
-	private static RenderPassLocation vkCmdPushDescriptorSet__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPushDescriptorSet => vkCmdPushDescriptorSet__renderpass;
-	private static CmdBufferLevel vkCmdPushDescriptorSet__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPushDescriptorSet => vkCmdPushDescriptorSet__cmdbufferlevel;
-	private static Task vkCmdPushDescriptorSet__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPushDescriptorSet => vkCmdPushDescriptorSet__tasks;
-	private static VkResult[?] vkGetMemoryFdKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetMemoryFdKHR => vkGetMemoryFdKHR__successcodes;
-	private static VkResult[?] vkGetMemoryFdKHR__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetMemoryFdKHR => vkGetMemoryFdKHR__errorcodes;
-	private static VkResult[?] vkGetMemoryFdPropertiesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetMemoryFdPropertiesKHR => vkGetMemoryFdPropertiesKHR__successcodes;
-	private static VkResult[?] vkGetMemoryFdPropertiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInvalidExternalHandle);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetMemoryFdPropertiesKHR => vkGetMemoryFdPropertiesKHR__errorcodes;
-	private static VkResult[?] vkGetMemoryRemoteAddressNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetMemoryRemoteAddressNV => vkGetMemoryRemoteAddressNV__successcodes;
-	private static VkResult[?] vkGetMemoryRemoteAddressNV__errorcodes = .(.VkErrorInvalidExternalHandle);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetMemoryRemoteAddressNV => vkGetMemoryRemoteAddressNV__errorcodes;
-	private static VkResult[?] vkGetSemaphoreFdKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetSemaphoreFdKHR => vkGetSemaphoreFdKHR__successcodes;
-	private static VkResult[?] vkGetSemaphoreFdKHR__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetSemaphoreFdKHR => vkGetSemaphoreFdKHR__errorcodes;
-	private static VkResult[?] vkImportSemaphoreFdKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkImportSemaphoreFdKHR => vkImportSemaphoreFdKHR__successcodes;
-	private static VkResult[?] vkImportSemaphoreFdKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInvalidExternalHandle);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkImportSemaphoreFdKHR => vkImportSemaphoreFdKHR__errorcodes;
-	private static VkResult[?] vkGetFenceFdKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetFenceFdKHR => vkGetFenceFdKHR__successcodes;
-	private static VkResult[?] vkGetFenceFdKHR__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetFenceFdKHR => vkGetFenceFdKHR__errorcodes;
-	private static VkResult[?] vkImportFenceFdKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkImportFenceFdKHR => vkImportFenceFdKHR__successcodes;
-	private static VkResult[?] vkImportFenceFdKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInvalidExternalHandle);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkImportFenceFdKHR => vkImportFenceFdKHR__errorcodes;
-	private static VkResult[?] vkReleaseDisplayEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkReleaseDisplayEXT => vkReleaseDisplayEXT__successcodes;
-	private static VkResult[?] vkDisplayPowerControlEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkDisplayPowerControlEXT => vkDisplayPowerControlEXT__successcodes;
-	private static VkResult[?] vkDisplayPowerControlEXT__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkDisplayPowerControlEXT => vkDisplayPowerControlEXT__errorcodes;
-	private static VkResult[?] vkRegisterDeviceEventEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkRegisterDeviceEventEXT => vkRegisterDeviceEventEXT__successcodes;
-	private static VkResult[?] vkRegisterDeviceEventEXT__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkRegisterDeviceEventEXT => vkRegisterDeviceEventEXT__errorcodes;
-	private static VkResult[?] vkRegisterDisplayEventEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkRegisterDisplayEventEXT => vkRegisterDisplayEventEXT__successcodes;
-	private static VkResult[?] vkRegisterDisplayEventEXT__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkRegisterDisplayEventEXT => vkRegisterDisplayEventEXT__errorcodes;
-	private static VkResult[?] vkGetSwapchainCounterEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetSwapchainCounterEXT => vkGetSwapchainCounterEXT__successcodes;
-	private static VkResult[?] vkGetSwapchainCounterEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetSwapchainCounterEXT => vkGetSwapchainCounterEXT__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceCapabilities2EXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT => vkGetPhysicalDeviceSurfaceCapabilities2EXT__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceCapabilities2EXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT => vkGetPhysicalDeviceSurfaceCapabilities2EXT__errorcodes;
-	private static VkResult[?] vkEnumeratePhysicalDeviceGroups__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkEnumeratePhysicalDeviceGroups => vkEnumeratePhysicalDeviceGroups__successcodes;
-	private static VkResult[?] vkEnumeratePhysicalDeviceGroups__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkEnumeratePhysicalDeviceGroups => vkEnumeratePhysicalDeviceGroups__errorcodes;
-	private static VkResult[?] vkBindBufferMemory2__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindBufferMemory2 => vkBindBufferMemory2__successcodes;
-	private static VkResult[?] vkBindBufferMemory2__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidOpaqueCaptureAddressKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindBufferMemory2 => vkBindBufferMemory2__errorcodes;
-	private static VkResult[?] vkBindImageMemory2__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindImageMemory2 => vkBindImageMemory2__successcodes;
-	private static VkResult[?] vkBindImageMemory2__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindImageMemory2 => vkBindImageMemory2__errorcodes;
-	private static VkQueueFlags vkCmdSetDeviceMask__queues = .Graphics | .Compute | .Transfer;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDeviceMask => vkCmdSetDeviceMask__queues;
-	private static RenderPassLocation vkCmdSetDeviceMask__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDeviceMask => vkCmdSetDeviceMask__renderpass;
-	private static CmdBufferLevel vkCmdSetDeviceMask__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDeviceMask => vkCmdSetDeviceMask__cmdbufferlevel;
-	private static Task vkCmdSetDeviceMask__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDeviceMask => vkCmdSetDeviceMask__tasks;
-	private static VkResult[?] vkGetDeviceGroupPresentCapabilitiesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDeviceGroupPresentCapabilitiesKHR => vkGetDeviceGroupPresentCapabilitiesKHR__successcodes;
-	private static VkResult[?] vkGetDeviceGroupPresentCapabilitiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDeviceGroupPresentCapabilitiesKHR => vkGetDeviceGroupPresentCapabilitiesKHR__errorcodes;
-	private static VkResult[?] vkGetDeviceGroupSurfacePresentModesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDeviceGroupSurfacePresentModesKHR => vkGetDeviceGroupSurfacePresentModesKHR__successcodes;
-	private static VkResult[?] vkGetDeviceGroupSurfacePresentModesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDeviceGroupSurfacePresentModesKHR => vkGetDeviceGroupSurfacePresentModesKHR__errorcodes;
-	private static VkResult[?] vkAcquireNextImage2KHR__successcodes = .(.VkSuccess, .VkTimeout, .VkNotReady, .VkSuboptimalKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkAcquireNextImage2KHR => vkAcquireNextImage2KHR__successcodes;
-	private static VkResult[?] vkAcquireNextImage2KHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkAcquireNextImage2KHR => vkAcquireNextImage2KHR__errorcodes;
-	private static VkQueueFlags vkCmdDispatchBase__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatchBase => vkCmdDispatchBase__queues;
-	private static RenderPassLocation vkCmdDispatchBase__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatchBase => vkCmdDispatchBase__renderpass;
-	private static CmdBufferLevel vkCmdDispatchBase__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatchBase => vkCmdDispatchBase__cmdbufferlevel;
-	private static Task vkCmdDispatchBase__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDispatchBase => vkCmdDispatchBase__tasks;
-	private static VkResult[?] vkGetPhysicalDevicePresentRectanglesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDevicePresentRectanglesKHR => vkGetPhysicalDevicePresentRectanglesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDevicePresentRectanglesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDevicePresentRectanglesKHR => vkGetPhysicalDevicePresentRectanglesKHR__errorcodes;
-	private static VkResult[?] vkCreateDescriptorUpdateTemplate__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDescriptorUpdateTemplate => vkCreateDescriptorUpdateTemplate__successcodes;
-	private static VkResult[?] vkCreateDescriptorUpdateTemplate__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDescriptorUpdateTemplate => vkCreateDescriptorUpdateTemplate__errorcodes;
-	private static VkQueueFlags vkCmdPushDescriptorSetWithTemplate__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate => vkCmdPushDescriptorSetWithTemplate__queues;
-	private static RenderPassLocation vkCmdPushDescriptorSetWithTemplate__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate => vkCmdPushDescriptorSetWithTemplate__renderpass;
-	private static CmdBufferLevel vkCmdPushDescriptorSetWithTemplate__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate => vkCmdPushDescriptorSetWithTemplate__cmdbufferlevel;
-	private static Task vkCmdPushDescriptorSetWithTemplate__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate => vkCmdPushDescriptorSetWithTemplate__tasks;
-	private static VkResult[?] vkGetSwapchainStatusKHR__successcodes = .(.VkSuccess, .VkSuboptimalKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetSwapchainStatusKHR => vkGetSwapchainStatusKHR__successcodes;
-	private static VkResult[?] vkGetSwapchainStatusKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetSwapchainStatusKHR => vkGetSwapchainStatusKHR__errorcodes;
-	private static VkResult[?] vkGetRefreshCycleDurationGOOGLE__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetRefreshCycleDurationGOOGLE => vkGetRefreshCycleDurationGOOGLE__successcodes;
-	private static VkResult[?] vkGetRefreshCycleDurationGOOGLE__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorDeviceLost, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetRefreshCycleDurationGOOGLE => vkGetRefreshCycleDurationGOOGLE__errorcodes;
-	private static VkResult[?] vkGetPastPresentationTimingGOOGLE__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPastPresentationTimingGOOGLE => vkGetPastPresentationTimingGOOGLE__successcodes;
-	private static VkResult[?] vkGetPastPresentationTimingGOOGLE__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPastPresentationTimingGOOGLE => vkGetPastPresentationTimingGOOGLE__errorcodes;
-	private static VkQueueFlags vkCmdSetViewportWScalingNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetViewportWScalingNV => vkCmdSetViewportWScalingNV__queues;
-	private static RenderPassLocation vkCmdSetViewportWScalingNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetViewportWScalingNV => vkCmdSetViewportWScalingNV__renderpass;
-	private static CmdBufferLevel vkCmdSetViewportWScalingNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetViewportWScalingNV => vkCmdSetViewportWScalingNV__cmdbufferlevel;
-	private static Task vkCmdSetViewportWScalingNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetViewportWScalingNV => vkCmdSetViewportWScalingNV__tasks;
-	private static VkQueueFlags vkCmdSetDiscardRectangleEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDiscardRectangleEXT => vkCmdSetDiscardRectangleEXT__queues;
-	private static RenderPassLocation vkCmdSetDiscardRectangleEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDiscardRectangleEXT => vkCmdSetDiscardRectangleEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDiscardRectangleEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDiscardRectangleEXT => vkCmdSetDiscardRectangleEXT__cmdbufferlevel;
-	private static Task vkCmdSetDiscardRectangleEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDiscardRectangleEXT => vkCmdSetDiscardRectangleEXT__tasks;
-	private static VkQueueFlags vkCmdSetDiscardRectangleEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDiscardRectangleEnableEXT => vkCmdSetDiscardRectangleEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetDiscardRectangleEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDiscardRectangleEnableEXT => vkCmdSetDiscardRectangleEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDiscardRectangleEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDiscardRectangleEnableEXT => vkCmdSetDiscardRectangleEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetDiscardRectangleEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDiscardRectangleEnableEXT => vkCmdSetDiscardRectangleEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetDiscardRectangleModeEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDiscardRectangleModeEXT => vkCmdSetDiscardRectangleModeEXT__queues;
-	private static RenderPassLocation vkCmdSetDiscardRectangleModeEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDiscardRectangleModeEXT => vkCmdSetDiscardRectangleModeEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDiscardRectangleModeEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDiscardRectangleModeEXT => vkCmdSetDiscardRectangleModeEXT__cmdbufferlevel;
-	private static Task vkCmdSetDiscardRectangleModeEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDiscardRectangleModeEXT => vkCmdSetDiscardRectangleModeEXT__tasks;
-	private static VkQueueFlags vkCmdSetSampleLocationsEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetSampleLocationsEXT => vkCmdSetSampleLocationsEXT__queues;
-	private static RenderPassLocation vkCmdSetSampleLocationsEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetSampleLocationsEXT => vkCmdSetSampleLocationsEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetSampleLocationsEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetSampleLocationsEXT => vkCmdSetSampleLocationsEXT__cmdbufferlevel;
-	private static Task vkCmdSetSampleLocationsEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetSampleLocationsEXT => vkCmdSetSampleLocationsEXT__tasks;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceCapabilities2KHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR => vkGetPhysicalDeviceSurfaceCapabilities2KHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceCapabilities2KHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR => vkGetPhysicalDeviceSurfaceCapabilities2KHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceFormats2KHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceFormats2KHR => vkGetPhysicalDeviceSurfaceFormats2KHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSurfaceFormats2KHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceSurfaceFormats2KHR => vkGetPhysicalDeviceSurfaceFormats2KHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceDisplayProperties2KHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceDisplayProperties2KHR => vkGetPhysicalDeviceDisplayProperties2KHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceDisplayProperties2KHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceDisplayProperties2KHR => vkGetPhysicalDeviceDisplayProperties2KHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceDisplayPlaneProperties2KHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR => vkGetPhysicalDeviceDisplayPlaneProperties2KHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceDisplayPlaneProperties2KHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR => vkGetPhysicalDeviceDisplayPlaneProperties2KHR__errorcodes;
-	private static VkResult[?] vkGetDisplayModeProperties2KHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDisplayModeProperties2KHR => vkGetDisplayModeProperties2KHR__successcodes;
-	private static VkResult[?] vkGetDisplayModeProperties2KHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDisplayModeProperties2KHR => vkGetDisplayModeProperties2KHR__errorcodes;
-	private static VkResult[?] vkGetDisplayPlaneCapabilities2KHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDisplayPlaneCapabilities2KHR => vkGetDisplayPlaneCapabilities2KHR__successcodes;
-	private static VkResult[?] vkGetDisplayPlaneCapabilities2KHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDisplayPlaneCapabilities2KHR => vkGetDisplayPlaneCapabilities2KHR__errorcodes;
-	private static VkResult[?] vkCreateSamplerYcbcrConversion__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateSamplerYcbcrConversion => vkCreateSamplerYcbcrConversion__successcodes;
-	private static VkResult[?] vkCreateSamplerYcbcrConversion__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateSamplerYcbcrConversion => vkCreateSamplerYcbcrConversion__errorcodes;
-	private static VkResult[?] vkCreateValidationCacheEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateValidationCacheEXT => vkCreateValidationCacheEXT__successcodes;
-	private static VkResult[?] vkCreateValidationCacheEXT__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateValidationCacheEXT => vkCreateValidationCacheEXT__errorcodes;
-	private static VkResult[?] vkGetValidationCacheDataEXT__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetValidationCacheDataEXT => vkGetValidationCacheDataEXT__successcodes;
-	private static VkResult[?] vkGetValidationCacheDataEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetValidationCacheDataEXT => vkGetValidationCacheDataEXT__errorcodes;
-	private static VkResult[?] vkMergeValidationCachesEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkMergeValidationCachesEXT => vkMergeValidationCachesEXT__successcodes;
-	private static VkResult[?] vkMergeValidationCachesEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkMergeValidationCachesEXT => vkMergeValidationCachesEXT__errorcodes;
-	private static VkResult[?] vkGetShaderInfoAMD__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetShaderInfoAMD => vkGetShaderInfoAMD__successcodes;
-	private static VkResult[?] vkGetShaderInfoAMD__errorcodes = .(.VkErrorFeatureNotPresent, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetShaderInfoAMD => vkGetShaderInfoAMD__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceCalibrateableTimeDomainsKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR => vkGetPhysicalDeviceCalibrateableTimeDomainsKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceCalibrateableTimeDomainsKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR => vkGetPhysicalDeviceCalibrateableTimeDomainsKHR__errorcodes;
-	private static VkResult[?] vkGetCalibratedTimestampsKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetCalibratedTimestampsKHR => vkGetCalibratedTimestampsKHR__successcodes;
-	private static VkResult[?] vkGetCalibratedTimestampsKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetCalibratedTimestampsKHR => vkGetCalibratedTimestampsKHR__errorcodes;
-	private static VkResult[?] vkSetDebugUtilsObjectNameEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkSetDebugUtilsObjectNameEXT => vkSetDebugUtilsObjectNameEXT__successcodes;
-	private static VkResult[?] vkSetDebugUtilsObjectNameEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkSetDebugUtilsObjectNameEXT => vkSetDebugUtilsObjectNameEXT__errorcodes;
-	private static VkResult[?] vkSetDebugUtilsObjectTagEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkSetDebugUtilsObjectTagEXT => vkSetDebugUtilsObjectTagEXT__successcodes;
-	private static VkResult[?] vkSetDebugUtilsObjectTagEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkSetDebugUtilsObjectTagEXT => vkSetDebugUtilsObjectTagEXT__errorcodes;
-	private static VkQueueFlags vkCmdBeginDebugUtilsLabelEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginDebugUtilsLabelEXT => vkCmdBeginDebugUtilsLabelEXT__queues;
-	private static RenderPassLocation vkCmdBeginDebugUtilsLabelEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginDebugUtilsLabelEXT => vkCmdBeginDebugUtilsLabelEXT__renderpass;
-	private static CmdBufferLevel vkCmdBeginDebugUtilsLabelEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginDebugUtilsLabelEXT => vkCmdBeginDebugUtilsLabelEXT__cmdbufferlevel;
-	private static Task vkCmdBeginDebugUtilsLabelEXT__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginDebugUtilsLabelEXT => vkCmdBeginDebugUtilsLabelEXT__tasks;
-	private static VkQueueFlags vkCmdEndDebugUtilsLabelEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndDebugUtilsLabelEXT => vkCmdEndDebugUtilsLabelEXT__queues;
-	private static RenderPassLocation vkCmdEndDebugUtilsLabelEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndDebugUtilsLabelEXT => vkCmdEndDebugUtilsLabelEXT__renderpass;
-	private static CmdBufferLevel vkCmdEndDebugUtilsLabelEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndDebugUtilsLabelEXT => vkCmdEndDebugUtilsLabelEXT__cmdbufferlevel;
-	private static Task vkCmdEndDebugUtilsLabelEXT__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndDebugUtilsLabelEXT => vkCmdEndDebugUtilsLabelEXT__tasks;
-	private static VkQueueFlags vkCmdInsertDebugUtilsLabelEXT__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdInsertDebugUtilsLabelEXT => vkCmdInsertDebugUtilsLabelEXT__queues;
-	private static RenderPassLocation vkCmdInsertDebugUtilsLabelEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdInsertDebugUtilsLabelEXT => vkCmdInsertDebugUtilsLabelEXT__renderpass;
-	private static CmdBufferLevel vkCmdInsertDebugUtilsLabelEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdInsertDebugUtilsLabelEXT => vkCmdInsertDebugUtilsLabelEXT__cmdbufferlevel;
-	private static Task vkCmdInsertDebugUtilsLabelEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdInsertDebugUtilsLabelEXT => vkCmdInsertDebugUtilsLabelEXT__tasks;
-	private static VkResult[?] vkCreateDebugUtilsMessengerEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDebugUtilsMessengerEXT => vkCreateDebugUtilsMessengerEXT__successcodes;
-	private static VkResult[?] vkCreateDebugUtilsMessengerEXT__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDebugUtilsMessengerEXT => vkCreateDebugUtilsMessengerEXT__errorcodes;
-	private static VkResult[?] vkGetMemoryHostPointerPropertiesEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetMemoryHostPointerPropertiesEXT => vkGetMemoryHostPointerPropertiesEXT__successcodes;
-	private static VkResult[?] vkGetMemoryHostPointerPropertiesEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInvalidExternalHandle);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetMemoryHostPointerPropertiesEXT => vkGetMemoryHostPointerPropertiesEXT__errorcodes;
-	private static VkQueueFlags vkCmdWriteBufferMarkerAMD__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdWriteBufferMarkerAMD => vkCmdWriteBufferMarkerAMD__queues;
-	private static RenderPassLocation vkCmdWriteBufferMarkerAMD__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdWriteBufferMarkerAMD => vkCmdWriteBufferMarkerAMD__renderpass;
-	private static CmdBufferLevel vkCmdWriteBufferMarkerAMD__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdWriteBufferMarkerAMD => vkCmdWriteBufferMarkerAMD__cmdbufferlevel;
-	private static Task vkCmdWriteBufferMarkerAMD__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdWriteBufferMarkerAMD => vkCmdWriteBufferMarkerAMD__tasks;
-	private static VkResult[?] vkCreateRenderPass2__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateRenderPass2 => vkCreateRenderPass2__successcodes;
-	private static VkResult[?] vkCreateRenderPass2__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateRenderPass2 => vkCreateRenderPass2__errorcodes;
-	private static VkQueueFlags vkCmdBeginRenderPass2__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginRenderPass2 => vkCmdBeginRenderPass2__queues;
-	private static RenderPassLocation vkCmdBeginRenderPass2__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginRenderPass2 => vkCmdBeginRenderPass2__renderpass;
-	private static CmdBufferLevel vkCmdBeginRenderPass2__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginRenderPass2 => vkCmdBeginRenderPass2__cmdbufferlevel;
-	private static Task vkCmdBeginRenderPass2__tasks = .Action | .State | .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginRenderPass2 => vkCmdBeginRenderPass2__tasks;
-	private static VkQueueFlags vkCmdNextSubpass2__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdNextSubpass2 => vkCmdNextSubpass2__queues;
-	private static RenderPassLocation vkCmdNextSubpass2__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdNextSubpass2 => vkCmdNextSubpass2__renderpass;
-	private static CmdBufferLevel vkCmdNextSubpass2__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdNextSubpass2 => vkCmdNextSubpass2__cmdbufferlevel;
-	private static Task vkCmdNextSubpass2__tasks = .Action | .State | .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdNextSubpass2 => vkCmdNextSubpass2__tasks;
-	private static VkQueueFlags vkCmdEndRenderPass2__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndRenderPass2 => vkCmdEndRenderPass2__queues;
-	private static RenderPassLocation vkCmdEndRenderPass2__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndRenderPass2 => vkCmdEndRenderPass2__renderpass;
-	private static CmdBufferLevel vkCmdEndRenderPass2__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndRenderPass2 => vkCmdEndRenderPass2__cmdbufferlevel;
-	private static Task vkCmdEndRenderPass2__tasks = .Action | .State | .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndRenderPass2 => vkCmdEndRenderPass2__tasks;
-	private static VkResult[?] vkGetSemaphoreCounterValue__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetSemaphoreCounterValue => vkGetSemaphoreCounterValue__successcodes;
-	private static VkResult[?] vkGetSemaphoreCounterValue__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetSemaphoreCounterValue => vkGetSemaphoreCounterValue__errorcodes;
-	private static VkResult[?] vkWaitSemaphores__successcodes = .(.VkSuccess, .VkTimeout);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkWaitSemaphores => vkWaitSemaphores__successcodes;
-	private static VkResult[?] vkWaitSemaphores__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkWaitSemaphores => vkWaitSemaphores__errorcodes;
-	private static VkResult[?] vkSignalSemaphore__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkSignalSemaphore => vkSignalSemaphore__successcodes;
-	private static VkResult[?] vkSignalSemaphore__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkSignalSemaphore => vkSignalSemaphore__errorcodes;
-	private static VkQueueFlags vkCmdDrawIndirectCount__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawIndirectCount => vkCmdDrawIndirectCount__queues;
-	private static RenderPassLocation vkCmdDrawIndirectCount__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawIndirectCount => vkCmdDrawIndirectCount__renderpass;
-	private static CmdBufferLevel vkCmdDrawIndirectCount__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawIndirectCount => vkCmdDrawIndirectCount__cmdbufferlevel;
-	private static Task vkCmdDrawIndirectCount__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawIndirectCount => vkCmdDrawIndirectCount__tasks;
-	private static VkQueueFlags vkCmdDrawIndexedIndirectCount__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawIndexedIndirectCount => vkCmdDrawIndexedIndirectCount__queues;
-	private static RenderPassLocation vkCmdDrawIndexedIndirectCount__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawIndexedIndirectCount => vkCmdDrawIndexedIndirectCount__renderpass;
-	private static CmdBufferLevel vkCmdDrawIndexedIndirectCount__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawIndexedIndirectCount => vkCmdDrawIndexedIndirectCount__cmdbufferlevel;
-	private static Task vkCmdDrawIndexedIndirectCount__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawIndexedIndirectCount => vkCmdDrawIndexedIndirectCount__tasks;
-	private static VkQueueFlags vkCmdSetCheckpointNV__queues = .Graphics | .Compute | .Transfer;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetCheckpointNV => vkCmdSetCheckpointNV__queues;
-	private static RenderPassLocation vkCmdSetCheckpointNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetCheckpointNV => vkCmdSetCheckpointNV__renderpass;
-	private static CmdBufferLevel vkCmdSetCheckpointNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetCheckpointNV => vkCmdSetCheckpointNV__cmdbufferlevel;
-	private static Task vkCmdSetCheckpointNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetCheckpointNV => vkCmdSetCheckpointNV__tasks;
-	private static VkQueueFlags vkCmdBindTransformFeedbackBuffersEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindTransformFeedbackBuffersEXT => vkCmdBindTransformFeedbackBuffersEXT__queues;
-	private static RenderPassLocation vkCmdBindTransformFeedbackBuffersEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindTransformFeedbackBuffersEXT => vkCmdBindTransformFeedbackBuffersEXT__renderpass;
-	private static CmdBufferLevel vkCmdBindTransformFeedbackBuffersEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindTransformFeedbackBuffersEXT => vkCmdBindTransformFeedbackBuffersEXT__cmdbufferlevel;
-	private static Task vkCmdBindTransformFeedbackBuffersEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindTransformFeedbackBuffersEXT => vkCmdBindTransformFeedbackBuffersEXT__tasks;
-	private static VkQueueFlags vkCmdBeginTransformFeedbackEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginTransformFeedbackEXT => vkCmdBeginTransformFeedbackEXT__queues;
-	private static RenderPassLocation vkCmdBeginTransformFeedbackEXT__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginTransformFeedbackEXT => vkCmdBeginTransformFeedbackEXT__renderpass;
-	private static CmdBufferLevel vkCmdBeginTransformFeedbackEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginTransformFeedbackEXT => vkCmdBeginTransformFeedbackEXT__cmdbufferlevel;
-	private static Task vkCmdBeginTransformFeedbackEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginTransformFeedbackEXT => vkCmdBeginTransformFeedbackEXT__tasks;
-	private static VkQueueFlags vkCmdEndTransformFeedbackEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndTransformFeedbackEXT => vkCmdEndTransformFeedbackEXT__queues;
-	private static RenderPassLocation vkCmdEndTransformFeedbackEXT__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndTransformFeedbackEXT => vkCmdEndTransformFeedbackEXT__renderpass;
-	private static CmdBufferLevel vkCmdEndTransformFeedbackEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndTransformFeedbackEXT => vkCmdEndTransformFeedbackEXT__cmdbufferlevel;
-	private static Task vkCmdEndTransformFeedbackEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndTransformFeedbackEXT => vkCmdEndTransformFeedbackEXT__tasks;
-	private static VkQueueFlags vkCmdBeginQueryIndexedEXT__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginQueryIndexedEXT => vkCmdBeginQueryIndexedEXT__queues;
-	private static RenderPassLocation vkCmdBeginQueryIndexedEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginQueryIndexedEXT => vkCmdBeginQueryIndexedEXT__renderpass;
-	private static CmdBufferLevel vkCmdBeginQueryIndexedEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginQueryIndexedEXT => vkCmdBeginQueryIndexedEXT__cmdbufferlevel;
-	private static Task vkCmdBeginQueryIndexedEXT__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginQueryIndexedEXT => vkCmdBeginQueryIndexedEXT__tasks;
-	private static VkQueueFlags vkCmdEndQueryIndexedEXT__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndQueryIndexedEXT => vkCmdEndQueryIndexedEXT__queues;
-	private static RenderPassLocation vkCmdEndQueryIndexedEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndQueryIndexedEXT => vkCmdEndQueryIndexedEXT__renderpass;
-	private static CmdBufferLevel vkCmdEndQueryIndexedEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndQueryIndexedEXT => vkCmdEndQueryIndexedEXT__cmdbufferlevel;
-	private static Task vkCmdEndQueryIndexedEXT__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndQueryIndexedEXT => vkCmdEndQueryIndexedEXT__tasks;
-	private static VkQueueFlags vkCmdDrawIndirectByteCountEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawIndirectByteCountEXT => vkCmdDrawIndirectByteCountEXT__queues;
-	private static RenderPassLocation vkCmdDrawIndirectByteCountEXT__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawIndirectByteCountEXT => vkCmdDrawIndirectByteCountEXT__renderpass;
-	private static CmdBufferLevel vkCmdDrawIndirectByteCountEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawIndirectByteCountEXT => vkCmdDrawIndirectByteCountEXT__cmdbufferlevel;
-	private static Task vkCmdDrawIndirectByteCountEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawIndirectByteCountEXT => vkCmdDrawIndirectByteCountEXT__tasks;
-	private static VkQueueFlags vkCmdSetExclusiveScissorNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetExclusiveScissorNV => vkCmdSetExclusiveScissorNV__queues;
-	private static RenderPassLocation vkCmdSetExclusiveScissorNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetExclusiveScissorNV => vkCmdSetExclusiveScissorNV__renderpass;
-	private static CmdBufferLevel vkCmdSetExclusiveScissorNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetExclusiveScissorNV => vkCmdSetExclusiveScissorNV__cmdbufferlevel;
-	private static Task vkCmdSetExclusiveScissorNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetExclusiveScissorNV => vkCmdSetExclusiveScissorNV__tasks;
-	private static VkQueueFlags vkCmdSetExclusiveScissorEnableNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetExclusiveScissorEnableNV => vkCmdSetExclusiveScissorEnableNV__queues;
-	private static RenderPassLocation vkCmdSetExclusiveScissorEnableNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetExclusiveScissorEnableNV => vkCmdSetExclusiveScissorEnableNV__renderpass;
-	private static CmdBufferLevel vkCmdSetExclusiveScissorEnableNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetExclusiveScissorEnableNV => vkCmdSetExclusiveScissorEnableNV__cmdbufferlevel;
-	private static Task vkCmdSetExclusiveScissorEnableNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetExclusiveScissorEnableNV => vkCmdSetExclusiveScissorEnableNV__tasks;
-	private static VkQueueFlags vkCmdBindShadingRateImageNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindShadingRateImageNV => vkCmdBindShadingRateImageNV__queues;
-	private static RenderPassLocation vkCmdBindShadingRateImageNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindShadingRateImageNV => vkCmdBindShadingRateImageNV__renderpass;
-	private static CmdBufferLevel vkCmdBindShadingRateImageNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindShadingRateImageNV => vkCmdBindShadingRateImageNV__cmdbufferlevel;
-	private static Task vkCmdBindShadingRateImageNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindShadingRateImageNV => vkCmdBindShadingRateImageNV__tasks;
-	private static VkQueueFlags vkCmdSetViewportShadingRatePaletteNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetViewportShadingRatePaletteNV => vkCmdSetViewportShadingRatePaletteNV__queues;
-	private static RenderPassLocation vkCmdSetViewportShadingRatePaletteNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetViewportShadingRatePaletteNV => vkCmdSetViewportShadingRatePaletteNV__renderpass;
-	private static CmdBufferLevel vkCmdSetViewportShadingRatePaletteNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetViewportShadingRatePaletteNV => vkCmdSetViewportShadingRatePaletteNV__cmdbufferlevel;
-	private static Task vkCmdSetViewportShadingRatePaletteNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetViewportShadingRatePaletteNV => vkCmdSetViewportShadingRatePaletteNV__tasks;
-	private static VkQueueFlags vkCmdSetCoarseSampleOrderNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetCoarseSampleOrderNV => vkCmdSetCoarseSampleOrderNV__queues;
-	private static RenderPassLocation vkCmdSetCoarseSampleOrderNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetCoarseSampleOrderNV => vkCmdSetCoarseSampleOrderNV__renderpass;
-	private static CmdBufferLevel vkCmdSetCoarseSampleOrderNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetCoarseSampleOrderNV => vkCmdSetCoarseSampleOrderNV__cmdbufferlevel;
-	private static Task vkCmdSetCoarseSampleOrderNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetCoarseSampleOrderNV => vkCmdSetCoarseSampleOrderNV__tasks;
-	private static VkQueueFlags vkCmdDrawMeshTasksNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawMeshTasksNV => vkCmdDrawMeshTasksNV__queues;
-	private static RenderPassLocation vkCmdDrawMeshTasksNV__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawMeshTasksNV => vkCmdDrawMeshTasksNV__renderpass;
-	private static CmdBufferLevel vkCmdDrawMeshTasksNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawMeshTasksNV => vkCmdDrawMeshTasksNV__cmdbufferlevel;
-	private static Task vkCmdDrawMeshTasksNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawMeshTasksNV => vkCmdDrawMeshTasksNV__tasks;
-	private static VkQueueFlags vkCmdDrawMeshTasksIndirectNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawMeshTasksIndirectNV => vkCmdDrawMeshTasksIndirectNV__queues;
-	private static RenderPassLocation vkCmdDrawMeshTasksIndirectNV__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawMeshTasksIndirectNV => vkCmdDrawMeshTasksIndirectNV__renderpass;
-	private static CmdBufferLevel vkCmdDrawMeshTasksIndirectNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawMeshTasksIndirectNV => vkCmdDrawMeshTasksIndirectNV__cmdbufferlevel;
-	private static Task vkCmdDrawMeshTasksIndirectNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawMeshTasksIndirectNV => vkCmdDrawMeshTasksIndirectNV__tasks;
-	private static VkQueueFlags vkCmdDrawMeshTasksIndirectCountNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawMeshTasksIndirectCountNV => vkCmdDrawMeshTasksIndirectCountNV__queues;
-	private static RenderPassLocation vkCmdDrawMeshTasksIndirectCountNV__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawMeshTasksIndirectCountNV => vkCmdDrawMeshTasksIndirectCountNV__renderpass;
-	private static CmdBufferLevel vkCmdDrawMeshTasksIndirectCountNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawMeshTasksIndirectCountNV => vkCmdDrawMeshTasksIndirectCountNV__cmdbufferlevel;
-	private static Task vkCmdDrawMeshTasksIndirectCountNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawMeshTasksIndirectCountNV => vkCmdDrawMeshTasksIndirectCountNV__tasks;
-	private static VkQueueFlags vkCmdDrawMeshTasksEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawMeshTasksEXT => vkCmdDrawMeshTasksEXT__queues;
-	private static RenderPassLocation vkCmdDrawMeshTasksEXT__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawMeshTasksEXT => vkCmdDrawMeshTasksEXT__renderpass;
-	private static CmdBufferLevel vkCmdDrawMeshTasksEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawMeshTasksEXT => vkCmdDrawMeshTasksEXT__cmdbufferlevel;
-	private static Task vkCmdDrawMeshTasksEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawMeshTasksEXT => vkCmdDrawMeshTasksEXT__tasks;
-	private static VkQueueFlags vkCmdDrawMeshTasksIndirectEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawMeshTasksIndirectEXT => vkCmdDrawMeshTasksIndirectEXT__queues;
-	private static RenderPassLocation vkCmdDrawMeshTasksIndirectEXT__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawMeshTasksIndirectEXT => vkCmdDrawMeshTasksIndirectEXT__renderpass;
-	private static CmdBufferLevel vkCmdDrawMeshTasksIndirectEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawMeshTasksIndirectEXT => vkCmdDrawMeshTasksIndirectEXT__cmdbufferlevel;
-	private static Task vkCmdDrawMeshTasksIndirectEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawMeshTasksIndirectEXT => vkCmdDrawMeshTasksIndirectEXT__tasks;
-	private static VkQueueFlags vkCmdDrawMeshTasksIndirectCountEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDrawMeshTasksIndirectCountEXT => vkCmdDrawMeshTasksIndirectCountEXT__queues;
-	private static RenderPassLocation vkCmdDrawMeshTasksIndirectCountEXT__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDrawMeshTasksIndirectCountEXT => vkCmdDrawMeshTasksIndirectCountEXT__renderpass;
-	private static CmdBufferLevel vkCmdDrawMeshTasksIndirectCountEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDrawMeshTasksIndirectCountEXT => vkCmdDrawMeshTasksIndirectCountEXT__cmdbufferlevel;
-	private static Task vkCmdDrawMeshTasksIndirectCountEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDrawMeshTasksIndirectCountEXT => vkCmdDrawMeshTasksIndirectCountEXT__tasks;
-	private static VkResult[?] vkCompileDeferredNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCompileDeferredNV => vkCompileDeferredNV__successcodes;
-	private static VkResult[?] vkCompileDeferredNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCompileDeferredNV => vkCompileDeferredNV__errorcodes;
-	private static VkResult[?] vkCreateAccelerationStructureNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateAccelerationStructureNV => vkCreateAccelerationStructureNV__successcodes;
-	private static VkResult[?] vkCreateAccelerationStructureNV__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateAccelerationStructureNV => vkCreateAccelerationStructureNV__errorcodes;
-	private static VkQueueFlags vkCmdBindInvocationMaskHUAWEI__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindInvocationMaskHUAWEI => vkCmdBindInvocationMaskHUAWEI__queues;
-	private static RenderPassLocation vkCmdBindInvocationMaskHUAWEI__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindInvocationMaskHUAWEI => vkCmdBindInvocationMaskHUAWEI__renderpass;
-	private static CmdBufferLevel vkCmdBindInvocationMaskHUAWEI__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindInvocationMaskHUAWEI => vkCmdBindInvocationMaskHUAWEI__cmdbufferlevel;
-	private static Task vkCmdBindInvocationMaskHUAWEI__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindInvocationMaskHUAWEI => vkCmdBindInvocationMaskHUAWEI__tasks;
-	private static VkResult[?] vkBindAccelerationStructureMemoryNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindAccelerationStructureMemoryNV => vkBindAccelerationStructureMemoryNV__successcodes;
-	private static VkResult[?] vkBindAccelerationStructureMemoryNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindAccelerationStructureMemoryNV => vkBindAccelerationStructureMemoryNV__errorcodes;
-	private static VkQueueFlags vkCmdCopyAccelerationStructureNV__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyAccelerationStructureNV => vkCmdCopyAccelerationStructureNV__queues;
-	private static RenderPassLocation vkCmdCopyAccelerationStructureNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyAccelerationStructureNV => vkCmdCopyAccelerationStructureNV__renderpass;
-	private static CmdBufferLevel vkCmdCopyAccelerationStructureNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyAccelerationStructureNV => vkCmdCopyAccelerationStructureNV__cmdbufferlevel;
-	private static Task vkCmdCopyAccelerationStructureNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyAccelerationStructureNV => vkCmdCopyAccelerationStructureNV__tasks;
-	private static VkQueueFlags vkCmdCopyAccelerationStructureKHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyAccelerationStructureKHR => vkCmdCopyAccelerationStructureKHR__queues;
-	private static RenderPassLocation vkCmdCopyAccelerationStructureKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyAccelerationStructureKHR => vkCmdCopyAccelerationStructureKHR__renderpass;
-	private static CmdBufferLevel vkCmdCopyAccelerationStructureKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyAccelerationStructureKHR => vkCmdCopyAccelerationStructureKHR__cmdbufferlevel;
-	private static Task vkCmdCopyAccelerationStructureKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyAccelerationStructureKHR => vkCmdCopyAccelerationStructureKHR__tasks;
-	private static VkResult[?] vkCopyAccelerationStructureKHR__successcodes = .(.VkSuccess, .VkOperationDeferredKHR, .VkOperationNotDeferredKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCopyAccelerationStructureKHR => vkCopyAccelerationStructureKHR__successcodes;
-	private static VkResult[?] vkCopyAccelerationStructureKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCopyAccelerationStructureKHR => vkCopyAccelerationStructureKHR__errorcodes;
-	private static VkQueueFlags vkCmdCopyAccelerationStructureToMemoryKHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyAccelerationStructureToMemoryKHR => vkCmdCopyAccelerationStructureToMemoryKHR__queues;
-	private static RenderPassLocation vkCmdCopyAccelerationStructureToMemoryKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyAccelerationStructureToMemoryKHR => vkCmdCopyAccelerationStructureToMemoryKHR__renderpass;
-	private static CmdBufferLevel vkCmdCopyAccelerationStructureToMemoryKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyAccelerationStructureToMemoryKHR => vkCmdCopyAccelerationStructureToMemoryKHR__cmdbufferlevel;
-	private static Task vkCmdCopyAccelerationStructureToMemoryKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyAccelerationStructureToMemoryKHR => vkCmdCopyAccelerationStructureToMemoryKHR__tasks;
-	private static VkResult[?] vkCopyAccelerationStructureToMemoryKHR__successcodes = .(.VkSuccess, .VkOperationDeferredKHR, .VkOperationNotDeferredKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCopyAccelerationStructureToMemoryKHR => vkCopyAccelerationStructureToMemoryKHR__successcodes;
-	private static VkResult[?] vkCopyAccelerationStructureToMemoryKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCopyAccelerationStructureToMemoryKHR => vkCopyAccelerationStructureToMemoryKHR__errorcodes;
-	private static VkQueueFlags vkCmdCopyMemoryToAccelerationStructureKHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyMemoryToAccelerationStructureKHR => vkCmdCopyMemoryToAccelerationStructureKHR__queues;
-	private static RenderPassLocation vkCmdCopyMemoryToAccelerationStructureKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyMemoryToAccelerationStructureKHR => vkCmdCopyMemoryToAccelerationStructureKHR__renderpass;
-	private static CmdBufferLevel vkCmdCopyMemoryToAccelerationStructureKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyMemoryToAccelerationStructureKHR => vkCmdCopyMemoryToAccelerationStructureKHR__cmdbufferlevel;
-	private static Task vkCmdCopyMemoryToAccelerationStructureKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyMemoryToAccelerationStructureKHR => vkCmdCopyMemoryToAccelerationStructureKHR__tasks;
-	private static VkResult[?] vkCopyMemoryToAccelerationStructureKHR__successcodes = .(.VkSuccess, .VkOperationDeferredKHR, .VkOperationNotDeferredKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCopyMemoryToAccelerationStructureKHR => vkCopyMemoryToAccelerationStructureKHR__successcodes;
-	private static VkResult[?] vkCopyMemoryToAccelerationStructureKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCopyMemoryToAccelerationStructureKHR => vkCopyMemoryToAccelerationStructureKHR__errorcodes;
-	private static VkQueueFlags vkCmdWriteAccelerationStructuresPropertiesKHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdWriteAccelerationStructuresPropertiesKHR => vkCmdWriteAccelerationStructuresPropertiesKHR__queues;
-	private static RenderPassLocation vkCmdWriteAccelerationStructuresPropertiesKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdWriteAccelerationStructuresPropertiesKHR => vkCmdWriteAccelerationStructuresPropertiesKHR__renderpass;
-	private static CmdBufferLevel vkCmdWriteAccelerationStructuresPropertiesKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdWriteAccelerationStructuresPropertiesKHR => vkCmdWriteAccelerationStructuresPropertiesKHR__cmdbufferlevel;
-	private static Task vkCmdWriteAccelerationStructuresPropertiesKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdWriteAccelerationStructuresPropertiesKHR => vkCmdWriteAccelerationStructuresPropertiesKHR__tasks;
-	private static VkQueueFlags vkCmdWriteAccelerationStructuresPropertiesNV__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdWriteAccelerationStructuresPropertiesNV => vkCmdWriteAccelerationStructuresPropertiesNV__queues;
-	private static RenderPassLocation vkCmdWriteAccelerationStructuresPropertiesNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdWriteAccelerationStructuresPropertiesNV => vkCmdWriteAccelerationStructuresPropertiesNV__renderpass;
-	private static CmdBufferLevel vkCmdWriteAccelerationStructuresPropertiesNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdWriteAccelerationStructuresPropertiesNV => vkCmdWriteAccelerationStructuresPropertiesNV__cmdbufferlevel;
-	private static Task vkCmdWriteAccelerationStructuresPropertiesNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdWriteAccelerationStructuresPropertiesNV => vkCmdWriteAccelerationStructuresPropertiesNV__tasks;
-	private static VkQueueFlags vkCmdBuildAccelerationStructureNV__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBuildAccelerationStructureNV => vkCmdBuildAccelerationStructureNV__queues;
-	private static RenderPassLocation vkCmdBuildAccelerationStructureNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBuildAccelerationStructureNV => vkCmdBuildAccelerationStructureNV__renderpass;
-	private static CmdBufferLevel vkCmdBuildAccelerationStructureNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBuildAccelerationStructureNV => vkCmdBuildAccelerationStructureNV__cmdbufferlevel;
-	private static Task vkCmdBuildAccelerationStructureNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBuildAccelerationStructureNV => vkCmdBuildAccelerationStructureNV__tasks;
-	private static VkResult[?] vkWriteAccelerationStructuresPropertiesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkWriteAccelerationStructuresPropertiesKHR => vkWriteAccelerationStructuresPropertiesKHR__successcodes;
-	private static VkResult[?] vkWriteAccelerationStructuresPropertiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkWriteAccelerationStructuresPropertiesKHR => vkWriteAccelerationStructuresPropertiesKHR__errorcodes;
-	private static VkQueueFlags vkCmdTraceRaysKHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdTraceRaysKHR => vkCmdTraceRaysKHR__queues;
-	private static RenderPassLocation vkCmdTraceRaysKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdTraceRaysKHR => vkCmdTraceRaysKHR__renderpass;
-	private static CmdBufferLevel vkCmdTraceRaysKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdTraceRaysKHR => vkCmdTraceRaysKHR__cmdbufferlevel;
-	private static Task vkCmdTraceRaysKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdTraceRaysKHR => vkCmdTraceRaysKHR__tasks;
-	private static VkQueueFlags vkCmdTraceRaysNV__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdTraceRaysNV => vkCmdTraceRaysNV__queues;
-	private static RenderPassLocation vkCmdTraceRaysNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdTraceRaysNV => vkCmdTraceRaysNV__renderpass;
-	private static CmdBufferLevel vkCmdTraceRaysNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdTraceRaysNV => vkCmdTraceRaysNV__cmdbufferlevel;
-	private static Task vkCmdTraceRaysNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdTraceRaysNV => vkCmdTraceRaysNV__tasks;
-	private static VkResult[?] vkGetRayTracingShaderGroupHandlesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetRayTracingShaderGroupHandlesKHR => vkGetRayTracingShaderGroupHandlesKHR__successcodes;
-	private static VkResult[?] vkGetRayTracingShaderGroupHandlesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetRayTracingShaderGroupHandlesKHR => vkGetRayTracingShaderGroupHandlesKHR__errorcodes;
-	private static VkResult[?] vkGetRayTracingCaptureReplayShaderGroupHandlesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR => vkGetRayTracingCaptureReplayShaderGroupHandlesKHR__successcodes;
-	private static VkResult[?] vkGetRayTracingCaptureReplayShaderGroupHandlesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR => vkGetRayTracingCaptureReplayShaderGroupHandlesKHR__errorcodes;
-	private static VkResult[?] vkGetAccelerationStructureHandleNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetAccelerationStructureHandleNV => vkGetAccelerationStructureHandleNV__successcodes;
-	private static VkResult[?] vkGetAccelerationStructureHandleNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetAccelerationStructureHandleNV => vkGetAccelerationStructureHandleNV__errorcodes;
-	private static VkResult[?] vkCreateRayTracingPipelinesNV__successcodes = .(.VkSuccess, .VkPipelineCompileRequiredEXT);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateRayTracingPipelinesNV => vkCreateRayTracingPipelinesNV__successcodes;
-	private static VkResult[?] vkCreateRayTracingPipelinesNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidShaderNV);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateRayTracingPipelinesNV => vkCreateRayTracingPipelinesNV__errorcodes;
-	private static VkResult[?] vkCreateRayTracingPipelinesKHR__successcodes = .(.VkSuccess, .VkOperationDeferredKHR, .VkOperationNotDeferredKHR, .VkPipelineCompileRequiredEXT);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateRayTracingPipelinesKHR => vkCreateRayTracingPipelinesKHR__successcodes;
-	private static VkResult[?] vkCreateRayTracingPipelinesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidOpaqueCaptureAddress);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateRayTracingPipelinesKHR => vkCreateRayTracingPipelinesKHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceCooperativeMatrixPropertiesNV__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV => vkGetPhysicalDeviceCooperativeMatrixPropertiesNV__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceCooperativeMatrixPropertiesNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV => vkGetPhysicalDeviceCooperativeMatrixPropertiesNV__errorcodes;
-	private static VkQueueFlags vkCmdTraceRaysIndirectKHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdTraceRaysIndirectKHR => vkCmdTraceRaysIndirectKHR__queues;
-	private static RenderPassLocation vkCmdTraceRaysIndirectKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdTraceRaysIndirectKHR => vkCmdTraceRaysIndirectKHR__renderpass;
-	private static CmdBufferLevel vkCmdTraceRaysIndirectKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdTraceRaysIndirectKHR => vkCmdTraceRaysIndirectKHR__cmdbufferlevel;
-	private static Task vkCmdTraceRaysIndirectKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdTraceRaysIndirectKHR => vkCmdTraceRaysIndirectKHR__tasks;
-	private static VkQueueFlags vkCmdTraceRaysIndirect2KHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdTraceRaysIndirect2KHR => vkCmdTraceRaysIndirect2KHR__queues;
-	private static RenderPassLocation vkCmdTraceRaysIndirect2KHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdTraceRaysIndirect2KHR => vkCmdTraceRaysIndirect2KHR__renderpass;
-	private static CmdBufferLevel vkCmdTraceRaysIndirect2KHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdTraceRaysIndirect2KHR => vkCmdTraceRaysIndirect2KHR__cmdbufferlevel;
-	private static Task vkCmdTraceRaysIndirect2KHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdTraceRaysIndirect2KHR => vkCmdTraceRaysIndirect2KHR__tasks;
-	private static VkQueueFlags vkCmdBuildClusterAccelerationStructureIndirectNV__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBuildClusterAccelerationStructureIndirectNV => vkCmdBuildClusterAccelerationStructureIndirectNV__queues;
-	private static RenderPassLocation vkCmdBuildClusterAccelerationStructureIndirectNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBuildClusterAccelerationStructureIndirectNV => vkCmdBuildClusterAccelerationStructureIndirectNV__renderpass;
-	private static CmdBufferLevel vkCmdBuildClusterAccelerationStructureIndirectNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBuildClusterAccelerationStructureIndirectNV => vkCmdBuildClusterAccelerationStructureIndirectNV__cmdbufferlevel;
-	private static Task vkCmdBuildClusterAccelerationStructureIndirectNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBuildClusterAccelerationStructureIndirectNV => vkCmdBuildClusterAccelerationStructureIndirectNV__tasks;
-	private static VkQueueFlags vkCmdSetRayTracingPipelineStackSizeKHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetRayTracingPipelineStackSizeKHR => vkCmdSetRayTracingPipelineStackSizeKHR__queues;
-	private static RenderPassLocation vkCmdSetRayTracingPipelineStackSizeKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetRayTracingPipelineStackSizeKHR => vkCmdSetRayTracingPipelineStackSizeKHR__renderpass;
-	private static CmdBufferLevel vkCmdSetRayTracingPipelineStackSizeKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetRayTracingPipelineStackSizeKHR => vkCmdSetRayTracingPipelineStackSizeKHR__cmdbufferlevel;
-	private static Task vkCmdSetRayTracingPipelineStackSizeKHR__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetRayTracingPipelineStackSizeKHR => vkCmdSetRayTracingPipelineStackSizeKHR__tasks;
-	private static VkResult[?] vkGetImageViewAddressNVX__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetImageViewAddressNVX => vkGetImageViewAddressNVX__successcodes;
-	private static VkResult[?] vkGetImageViewAddressNVX__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetImageViewAddressNVX => vkGetImageViewAddressNVX__errorcodes;
-	private static VkResult[?] vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR => vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR__successcodes;
-	private static VkResult[?] vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR => vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR__errorcodes;
-	private static VkResult[?] vkAcquireProfilingLockKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkAcquireProfilingLockKHR => vkAcquireProfilingLockKHR__successcodes;
-	private static VkResult[?] vkAcquireProfilingLockKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkTimeout);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkAcquireProfilingLockKHR => vkAcquireProfilingLockKHR__errorcodes;
-	private static VkResult[?] vkGetImageDrmFormatModifierPropertiesEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetImageDrmFormatModifierPropertiesEXT => vkGetImageDrmFormatModifierPropertiesEXT__successcodes;
-	private static VkResult[?] vkGetImageDrmFormatModifierPropertiesEXT__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetImageDrmFormatModifierPropertiesEXT => vkGetImageDrmFormatModifierPropertiesEXT__errorcodes;
-	private static VkResult[?] vkCreateHeadlessSurfaceEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateHeadlessSurfaceEXT => vkCreateHeadlessSurfaceEXT__successcodes;
-	private static VkResult[?] vkCreateHeadlessSurfaceEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateHeadlessSurfaceEXT => vkCreateHeadlessSurfaceEXT__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV => vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV => vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV__errorcodes;
-	private static VkResult[?] vkInitializePerformanceApiINTEL__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkInitializePerformanceApiINTEL => vkInitializePerformanceApiINTEL__successcodes;
-	private static VkResult[?] vkInitializePerformanceApiINTEL__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkInitializePerformanceApiINTEL => vkInitializePerformanceApiINTEL__errorcodes;
-	private static VkResult[?] vkCmdSetPerformanceMarkerINTEL__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCmdSetPerformanceMarkerINTEL => vkCmdSetPerformanceMarkerINTEL__successcodes;
-	private static VkResult[?] vkCmdSetPerformanceMarkerINTEL__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCmdSetPerformanceMarkerINTEL => vkCmdSetPerformanceMarkerINTEL__errorcodes;
-	private static VkQueueFlags vkCmdSetPerformanceMarkerINTEL__queues = .Graphics | .Compute | .Transfer;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetPerformanceMarkerINTEL => vkCmdSetPerformanceMarkerINTEL__queues;
-	private static RenderPassLocation vkCmdSetPerformanceMarkerINTEL__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetPerformanceMarkerINTEL => vkCmdSetPerformanceMarkerINTEL__renderpass;
-	private static CmdBufferLevel vkCmdSetPerformanceMarkerINTEL__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetPerformanceMarkerINTEL => vkCmdSetPerformanceMarkerINTEL__cmdbufferlevel;
-	private static Task vkCmdSetPerformanceMarkerINTEL__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetPerformanceMarkerINTEL => vkCmdSetPerformanceMarkerINTEL__tasks;
-	private static VkResult[?] vkCmdSetPerformanceStreamMarkerINTEL__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCmdSetPerformanceStreamMarkerINTEL => vkCmdSetPerformanceStreamMarkerINTEL__successcodes;
-	private static VkResult[?] vkCmdSetPerformanceStreamMarkerINTEL__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCmdSetPerformanceStreamMarkerINTEL => vkCmdSetPerformanceStreamMarkerINTEL__errorcodes;
-	private static VkQueueFlags vkCmdSetPerformanceStreamMarkerINTEL__queues = .Graphics | .Compute | .Transfer;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetPerformanceStreamMarkerINTEL => vkCmdSetPerformanceStreamMarkerINTEL__queues;
-	private static RenderPassLocation vkCmdSetPerformanceStreamMarkerINTEL__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetPerformanceStreamMarkerINTEL => vkCmdSetPerformanceStreamMarkerINTEL__renderpass;
-	private static CmdBufferLevel vkCmdSetPerformanceStreamMarkerINTEL__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetPerformanceStreamMarkerINTEL => vkCmdSetPerformanceStreamMarkerINTEL__cmdbufferlevel;
-	private static Task vkCmdSetPerformanceStreamMarkerINTEL__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetPerformanceStreamMarkerINTEL => vkCmdSetPerformanceStreamMarkerINTEL__tasks;
-	private static VkResult[?] vkCmdSetPerformanceOverrideINTEL__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCmdSetPerformanceOverrideINTEL => vkCmdSetPerformanceOverrideINTEL__successcodes;
-	private static VkResult[?] vkCmdSetPerformanceOverrideINTEL__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCmdSetPerformanceOverrideINTEL => vkCmdSetPerformanceOverrideINTEL__errorcodes;
-	private static VkQueueFlags vkCmdSetPerformanceOverrideINTEL__queues = .Graphics | .Compute | .Transfer;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetPerformanceOverrideINTEL => vkCmdSetPerformanceOverrideINTEL__queues;
-	private static RenderPassLocation vkCmdSetPerformanceOverrideINTEL__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetPerformanceOverrideINTEL => vkCmdSetPerformanceOverrideINTEL__renderpass;
-	private static CmdBufferLevel vkCmdSetPerformanceOverrideINTEL__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetPerformanceOverrideINTEL => vkCmdSetPerformanceOverrideINTEL__cmdbufferlevel;
-	private static Task vkCmdSetPerformanceOverrideINTEL__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetPerformanceOverrideINTEL => vkCmdSetPerformanceOverrideINTEL__tasks;
-	private static VkResult[?] vkAcquirePerformanceConfigurationINTEL__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkAcquirePerformanceConfigurationINTEL => vkAcquirePerformanceConfigurationINTEL__successcodes;
-	private static VkResult[?] vkAcquirePerformanceConfigurationINTEL__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkAcquirePerformanceConfigurationINTEL => vkAcquirePerformanceConfigurationINTEL__errorcodes;
-	private static VkResult[?] vkReleasePerformanceConfigurationINTEL__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkReleasePerformanceConfigurationINTEL => vkReleasePerformanceConfigurationINTEL__successcodes;
-	private static VkResult[?] vkReleasePerformanceConfigurationINTEL__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkReleasePerformanceConfigurationINTEL => vkReleasePerformanceConfigurationINTEL__errorcodes;
-	private static VkResult[?] vkQueueSetPerformanceConfigurationINTEL__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkQueueSetPerformanceConfigurationINTEL => vkQueueSetPerformanceConfigurationINTEL__successcodes;
-	private static VkResult[?] vkQueueSetPerformanceConfigurationINTEL__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkQueueSetPerformanceConfigurationINTEL => vkQueueSetPerformanceConfigurationINTEL__errorcodes;
-	private static VkResult[?] vkGetPerformanceParameterINTEL__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPerformanceParameterINTEL => vkGetPerformanceParameterINTEL__successcodes;
-	private static VkResult[?] vkGetPerformanceParameterINTEL__errorcodes = .(.VkErrorTooManyObjects, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPerformanceParameterINTEL => vkGetPerformanceParameterINTEL__errorcodes;
-	private static VkResult[?] vkGetPipelineExecutablePropertiesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPipelineExecutablePropertiesKHR => vkGetPipelineExecutablePropertiesKHR__successcodes;
-	private static VkResult[?] vkGetPipelineExecutablePropertiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPipelineExecutablePropertiesKHR => vkGetPipelineExecutablePropertiesKHR__errorcodes;
-	private static VkResult[?] vkGetPipelineExecutableStatisticsKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPipelineExecutableStatisticsKHR => vkGetPipelineExecutableStatisticsKHR__successcodes;
-	private static VkResult[?] vkGetPipelineExecutableStatisticsKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPipelineExecutableStatisticsKHR => vkGetPipelineExecutableStatisticsKHR__errorcodes;
-	private static VkResult[?] vkGetPipelineExecutableInternalRepresentationsKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPipelineExecutableInternalRepresentationsKHR => vkGetPipelineExecutableInternalRepresentationsKHR__successcodes;
-	private static VkResult[?] vkGetPipelineExecutableInternalRepresentationsKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPipelineExecutableInternalRepresentationsKHR => vkGetPipelineExecutableInternalRepresentationsKHR__errorcodes;
-	private static VkQueueFlags vkCmdSetLineStipple__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetLineStipple => vkCmdSetLineStipple__queues;
-	private static RenderPassLocation vkCmdSetLineStipple__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetLineStipple => vkCmdSetLineStipple__renderpass;
-	private static CmdBufferLevel vkCmdSetLineStipple__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetLineStipple => vkCmdSetLineStipple__cmdbufferlevel;
-	private static Task vkCmdSetLineStipple__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetLineStipple => vkCmdSetLineStipple__tasks;
-	private static VkResult[?] vkGetPhysicalDeviceToolProperties__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceToolProperties => vkGetPhysicalDeviceToolProperties__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceToolProperties__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceToolProperties => vkGetPhysicalDeviceToolProperties__errorcodes;
-	private static VkResult[?] vkCreateAccelerationStructureKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateAccelerationStructureKHR => vkCreateAccelerationStructureKHR__successcodes;
-	private static VkResult[?] vkCreateAccelerationStructureKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInvalidOpaqueCaptureAddressKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateAccelerationStructureKHR => vkCreateAccelerationStructureKHR__errorcodes;
-	private static VkQueueFlags vkCmdBuildAccelerationStructuresKHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBuildAccelerationStructuresKHR => vkCmdBuildAccelerationStructuresKHR__queues;
-	private static RenderPassLocation vkCmdBuildAccelerationStructuresKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBuildAccelerationStructuresKHR => vkCmdBuildAccelerationStructuresKHR__renderpass;
-	private static CmdBufferLevel vkCmdBuildAccelerationStructuresKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBuildAccelerationStructuresKHR => vkCmdBuildAccelerationStructuresKHR__cmdbufferlevel;
-	private static Task vkCmdBuildAccelerationStructuresKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBuildAccelerationStructuresKHR => vkCmdBuildAccelerationStructuresKHR__tasks;
-	private static VkQueueFlags vkCmdBuildAccelerationStructuresIndirectKHR__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBuildAccelerationStructuresIndirectKHR => vkCmdBuildAccelerationStructuresIndirectKHR__queues;
-	private static RenderPassLocation vkCmdBuildAccelerationStructuresIndirectKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBuildAccelerationStructuresIndirectKHR => vkCmdBuildAccelerationStructuresIndirectKHR__renderpass;
-	private static CmdBufferLevel vkCmdBuildAccelerationStructuresIndirectKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBuildAccelerationStructuresIndirectKHR => vkCmdBuildAccelerationStructuresIndirectKHR__cmdbufferlevel;
-	private static Task vkCmdBuildAccelerationStructuresIndirectKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBuildAccelerationStructuresIndirectKHR => vkCmdBuildAccelerationStructuresIndirectKHR__tasks;
-	private static VkResult[?] vkBuildAccelerationStructuresKHR__successcodes = .(.VkSuccess, .VkOperationDeferredKHR, .VkOperationNotDeferredKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBuildAccelerationStructuresKHR => vkBuildAccelerationStructuresKHR__successcodes;
-	private static VkResult[?] vkBuildAccelerationStructuresKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBuildAccelerationStructuresKHR => vkBuildAccelerationStructuresKHR__errorcodes;
-	private static VkResult[?] vkCreateDeferredOperationKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDeferredOperationKHR => vkCreateDeferredOperationKHR__successcodes;
-	private static VkResult[?] vkCreateDeferredOperationKHR__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDeferredOperationKHR => vkCreateDeferredOperationKHR__errorcodes;
-	private static VkResult[?] vkGetDeferredOperationResultKHR__successcodes = .(.VkSuccess, .VkNotReady);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDeferredOperationResultKHR => vkGetDeferredOperationResultKHR__successcodes;
-	private static VkResult[?] vkDeferredOperationJoinKHR__successcodes = .(.VkSuccess, .VkThreadDoneKHR, .VkThreadIdleKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkDeferredOperationJoinKHR => vkDeferredOperationJoinKHR__successcodes;
-	private static VkResult[?] vkDeferredOperationJoinKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkDeferredOperationJoinKHR => vkDeferredOperationJoinKHR__errorcodes;
-	private static VkQueueFlags vkCmdSetCullMode__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetCullMode => vkCmdSetCullMode__queues;
-	private static RenderPassLocation vkCmdSetCullMode__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetCullMode => vkCmdSetCullMode__renderpass;
-	private static CmdBufferLevel vkCmdSetCullMode__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetCullMode => vkCmdSetCullMode__cmdbufferlevel;
-	private static Task vkCmdSetCullMode__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetCullMode => vkCmdSetCullMode__tasks;
-	private static VkQueueFlags vkCmdSetFrontFace__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetFrontFace => vkCmdSetFrontFace__queues;
-	private static RenderPassLocation vkCmdSetFrontFace__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetFrontFace => vkCmdSetFrontFace__renderpass;
-	private static CmdBufferLevel vkCmdSetFrontFace__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetFrontFace => vkCmdSetFrontFace__cmdbufferlevel;
-	private static Task vkCmdSetFrontFace__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetFrontFace => vkCmdSetFrontFace__tasks;
-	private static VkQueueFlags vkCmdSetPrimitiveTopology__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetPrimitiveTopology => vkCmdSetPrimitiveTopology__queues;
-	private static RenderPassLocation vkCmdSetPrimitiveTopology__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetPrimitiveTopology => vkCmdSetPrimitiveTopology__renderpass;
-	private static CmdBufferLevel vkCmdSetPrimitiveTopology__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetPrimitiveTopology => vkCmdSetPrimitiveTopology__cmdbufferlevel;
-	private static Task vkCmdSetPrimitiveTopology__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetPrimitiveTopology => vkCmdSetPrimitiveTopology__tasks;
-	private static VkQueueFlags vkCmdSetViewportWithCount__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetViewportWithCount => vkCmdSetViewportWithCount__queues;
-	private static RenderPassLocation vkCmdSetViewportWithCount__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetViewportWithCount => vkCmdSetViewportWithCount__renderpass;
-	private static CmdBufferLevel vkCmdSetViewportWithCount__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetViewportWithCount => vkCmdSetViewportWithCount__cmdbufferlevel;
-	private static Task vkCmdSetViewportWithCount__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetViewportWithCount => vkCmdSetViewportWithCount__tasks;
-	private static VkQueueFlags vkCmdSetScissorWithCount__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetScissorWithCount => vkCmdSetScissorWithCount__queues;
-	private static RenderPassLocation vkCmdSetScissorWithCount__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetScissorWithCount => vkCmdSetScissorWithCount__renderpass;
-	private static CmdBufferLevel vkCmdSetScissorWithCount__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetScissorWithCount => vkCmdSetScissorWithCount__cmdbufferlevel;
-	private static Task vkCmdSetScissorWithCount__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetScissorWithCount => vkCmdSetScissorWithCount__tasks;
-	private static VkQueueFlags vkCmdBindIndexBuffer2__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindIndexBuffer2 => vkCmdBindIndexBuffer2__queues;
-	private static RenderPassLocation vkCmdBindIndexBuffer2__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindIndexBuffer2 => vkCmdBindIndexBuffer2__renderpass;
-	private static CmdBufferLevel vkCmdBindIndexBuffer2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindIndexBuffer2 => vkCmdBindIndexBuffer2__cmdbufferlevel;
-	private static Task vkCmdBindIndexBuffer2__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindIndexBuffer2 => vkCmdBindIndexBuffer2__tasks;
-	private static VkQueueFlags vkCmdBindVertexBuffers2__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindVertexBuffers2 => vkCmdBindVertexBuffers2__queues;
-	private static RenderPassLocation vkCmdBindVertexBuffers2__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindVertexBuffers2 => vkCmdBindVertexBuffers2__renderpass;
-	private static CmdBufferLevel vkCmdBindVertexBuffers2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindVertexBuffers2 => vkCmdBindVertexBuffers2__cmdbufferlevel;
-	private static Task vkCmdBindVertexBuffers2__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindVertexBuffers2 => vkCmdBindVertexBuffers2__tasks;
-	private static VkQueueFlags vkCmdSetDepthTestEnable__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthTestEnable => vkCmdSetDepthTestEnable__queues;
-	private static RenderPassLocation vkCmdSetDepthTestEnable__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthTestEnable => vkCmdSetDepthTestEnable__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthTestEnable__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthTestEnable => vkCmdSetDepthTestEnable__cmdbufferlevel;
-	private static Task vkCmdSetDepthTestEnable__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthTestEnable => vkCmdSetDepthTestEnable__tasks;
-	private static VkQueueFlags vkCmdSetDepthWriteEnable__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthWriteEnable => vkCmdSetDepthWriteEnable__queues;
-	private static RenderPassLocation vkCmdSetDepthWriteEnable__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthWriteEnable => vkCmdSetDepthWriteEnable__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthWriteEnable__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthWriteEnable => vkCmdSetDepthWriteEnable__cmdbufferlevel;
-	private static Task vkCmdSetDepthWriteEnable__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthWriteEnable => vkCmdSetDepthWriteEnable__tasks;
-	private static VkQueueFlags vkCmdSetDepthCompareOp__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthCompareOp => vkCmdSetDepthCompareOp__queues;
-	private static RenderPassLocation vkCmdSetDepthCompareOp__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthCompareOp => vkCmdSetDepthCompareOp__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthCompareOp__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthCompareOp => vkCmdSetDepthCompareOp__cmdbufferlevel;
-	private static Task vkCmdSetDepthCompareOp__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthCompareOp => vkCmdSetDepthCompareOp__tasks;
-	private static VkQueueFlags vkCmdSetDepthBoundsTestEnable__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthBoundsTestEnable => vkCmdSetDepthBoundsTestEnable__queues;
-	private static RenderPassLocation vkCmdSetDepthBoundsTestEnable__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthBoundsTestEnable => vkCmdSetDepthBoundsTestEnable__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthBoundsTestEnable__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthBoundsTestEnable => vkCmdSetDepthBoundsTestEnable__cmdbufferlevel;
-	private static Task vkCmdSetDepthBoundsTestEnable__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthBoundsTestEnable => vkCmdSetDepthBoundsTestEnable__tasks;
-	private static VkQueueFlags vkCmdSetStencilTestEnable__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetStencilTestEnable => vkCmdSetStencilTestEnable__queues;
-	private static RenderPassLocation vkCmdSetStencilTestEnable__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetStencilTestEnable => vkCmdSetStencilTestEnable__renderpass;
-	private static CmdBufferLevel vkCmdSetStencilTestEnable__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetStencilTestEnable => vkCmdSetStencilTestEnable__cmdbufferlevel;
-	private static Task vkCmdSetStencilTestEnable__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetStencilTestEnable => vkCmdSetStencilTestEnable__tasks;
-	private static VkQueueFlags vkCmdSetStencilOp__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetStencilOp => vkCmdSetStencilOp__queues;
-	private static RenderPassLocation vkCmdSetStencilOp__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetStencilOp => vkCmdSetStencilOp__renderpass;
-	private static CmdBufferLevel vkCmdSetStencilOp__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetStencilOp => vkCmdSetStencilOp__cmdbufferlevel;
-	private static Task vkCmdSetStencilOp__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetStencilOp => vkCmdSetStencilOp__tasks;
-	private static VkQueueFlags vkCmdSetPatchControlPointsEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetPatchControlPointsEXT => vkCmdSetPatchControlPointsEXT__queues;
-	private static RenderPassLocation vkCmdSetPatchControlPointsEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetPatchControlPointsEXT => vkCmdSetPatchControlPointsEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetPatchControlPointsEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetPatchControlPointsEXT => vkCmdSetPatchControlPointsEXT__cmdbufferlevel;
-	private static Task vkCmdSetPatchControlPointsEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetPatchControlPointsEXT => vkCmdSetPatchControlPointsEXT__tasks;
-	private static VkQueueFlags vkCmdSetRasterizerDiscardEnable__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetRasterizerDiscardEnable => vkCmdSetRasterizerDiscardEnable__queues;
-	private static RenderPassLocation vkCmdSetRasterizerDiscardEnable__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetRasterizerDiscardEnable => vkCmdSetRasterizerDiscardEnable__renderpass;
-	private static CmdBufferLevel vkCmdSetRasterizerDiscardEnable__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetRasterizerDiscardEnable => vkCmdSetRasterizerDiscardEnable__cmdbufferlevel;
-	private static Task vkCmdSetRasterizerDiscardEnable__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetRasterizerDiscardEnable => vkCmdSetRasterizerDiscardEnable__tasks;
-	private static VkQueueFlags vkCmdSetDepthBiasEnable__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthBiasEnable => vkCmdSetDepthBiasEnable__queues;
-	private static RenderPassLocation vkCmdSetDepthBiasEnable__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthBiasEnable => vkCmdSetDepthBiasEnable__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthBiasEnable__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthBiasEnable => vkCmdSetDepthBiasEnable__cmdbufferlevel;
-	private static Task vkCmdSetDepthBiasEnable__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthBiasEnable => vkCmdSetDepthBiasEnable__tasks;
-	private static VkQueueFlags vkCmdSetLogicOpEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetLogicOpEXT => vkCmdSetLogicOpEXT__queues;
-	private static RenderPassLocation vkCmdSetLogicOpEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetLogicOpEXT => vkCmdSetLogicOpEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetLogicOpEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetLogicOpEXT => vkCmdSetLogicOpEXT__cmdbufferlevel;
-	private static Task vkCmdSetLogicOpEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetLogicOpEXT => vkCmdSetLogicOpEXT__tasks;
-	private static VkQueueFlags vkCmdSetPrimitiveRestartEnable__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetPrimitiveRestartEnable => vkCmdSetPrimitiveRestartEnable__queues;
-	private static RenderPassLocation vkCmdSetPrimitiveRestartEnable__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetPrimitiveRestartEnable => vkCmdSetPrimitiveRestartEnable__renderpass;
-	private static CmdBufferLevel vkCmdSetPrimitiveRestartEnable__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetPrimitiveRestartEnable => vkCmdSetPrimitiveRestartEnable__cmdbufferlevel;
-	private static Task vkCmdSetPrimitiveRestartEnable__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetPrimitiveRestartEnable => vkCmdSetPrimitiveRestartEnable__tasks;
-	private static VkQueueFlags vkCmdSetTessellationDomainOriginEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetTessellationDomainOriginEXT => vkCmdSetTessellationDomainOriginEXT__queues;
-	private static RenderPassLocation vkCmdSetTessellationDomainOriginEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetTessellationDomainOriginEXT => vkCmdSetTessellationDomainOriginEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetTessellationDomainOriginEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetTessellationDomainOriginEXT => vkCmdSetTessellationDomainOriginEXT__cmdbufferlevel;
-	private static Task vkCmdSetTessellationDomainOriginEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetTessellationDomainOriginEXT => vkCmdSetTessellationDomainOriginEXT__tasks;
-	private static VkQueueFlags vkCmdSetDepthClampEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthClampEnableEXT => vkCmdSetDepthClampEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetDepthClampEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthClampEnableEXT => vkCmdSetDepthClampEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthClampEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthClampEnableEXT => vkCmdSetDepthClampEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetDepthClampEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthClampEnableEXT => vkCmdSetDepthClampEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetPolygonModeEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetPolygonModeEXT => vkCmdSetPolygonModeEXT__queues;
-	private static RenderPassLocation vkCmdSetPolygonModeEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetPolygonModeEXT => vkCmdSetPolygonModeEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetPolygonModeEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetPolygonModeEXT => vkCmdSetPolygonModeEXT__cmdbufferlevel;
-	private static Task vkCmdSetPolygonModeEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetPolygonModeEXT => vkCmdSetPolygonModeEXT__tasks;
-	private static VkQueueFlags vkCmdSetRasterizationSamplesEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetRasterizationSamplesEXT => vkCmdSetRasterizationSamplesEXT__queues;
-	private static RenderPassLocation vkCmdSetRasterizationSamplesEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetRasterizationSamplesEXT => vkCmdSetRasterizationSamplesEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetRasterizationSamplesEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetRasterizationSamplesEXT => vkCmdSetRasterizationSamplesEXT__cmdbufferlevel;
-	private static Task vkCmdSetRasterizationSamplesEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetRasterizationSamplesEXT => vkCmdSetRasterizationSamplesEXT__tasks;
-	private static VkQueueFlags vkCmdSetSampleMaskEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetSampleMaskEXT => vkCmdSetSampleMaskEXT__queues;
-	private static RenderPassLocation vkCmdSetSampleMaskEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetSampleMaskEXT => vkCmdSetSampleMaskEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetSampleMaskEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetSampleMaskEXT => vkCmdSetSampleMaskEXT__cmdbufferlevel;
-	private static Task vkCmdSetSampleMaskEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetSampleMaskEXT => vkCmdSetSampleMaskEXT__tasks;
-	private static VkQueueFlags vkCmdSetAlphaToCoverageEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetAlphaToCoverageEnableEXT => vkCmdSetAlphaToCoverageEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetAlphaToCoverageEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetAlphaToCoverageEnableEXT => vkCmdSetAlphaToCoverageEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetAlphaToCoverageEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetAlphaToCoverageEnableEXT => vkCmdSetAlphaToCoverageEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetAlphaToCoverageEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetAlphaToCoverageEnableEXT => vkCmdSetAlphaToCoverageEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetAlphaToOneEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetAlphaToOneEnableEXT => vkCmdSetAlphaToOneEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetAlphaToOneEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetAlphaToOneEnableEXT => vkCmdSetAlphaToOneEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetAlphaToOneEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetAlphaToOneEnableEXT => vkCmdSetAlphaToOneEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetAlphaToOneEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetAlphaToOneEnableEXT => vkCmdSetAlphaToOneEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetLogicOpEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetLogicOpEnableEXT => vkCmdSetLogicOpEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetLogicOpEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetLogicOpEnableEXT => vkCmdSetLogicOpEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetLogicOpEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetLogicOpEnableEXT => vkCmdSetLogicOpEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetLogicOpEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetLogicOpEnableEXT => vkCmdSetLogicOpEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetColorBlendEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetColorBlendEnableEXT => vkCmdSetColorBlendEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetColorBlendEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetColorBlendEnableEXT => vkCmdSetColorBlendEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetColorBlendEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetColorBlendEnableEXT => vkCmdSetColorBlendEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetColorBlendEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetColorBlendEnableEXT => vkCmdSetColorBlendEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetColorBlendEquationEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetColorBlendEquationEXT => vkCmdSetColorBlendEquationEXT__queues;
-	private static RenderPassLocation vkCmdSetColorBlendEquationEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetColorBlendEquationEXT => vkCmdSetColorBlendEquationEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetColorBlendEquationEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetColorBlendEquationEXT => vkCmdSetColorBlendEquationEXT__cmdbufferlevel;
-	private static Task vkCmdSetColorBlendEquationEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetColorBlendEquationEXT => vkCmdSetColorBlendEquationEXT__tasks;
-	private static VkQueueFlags vkCmdSetColorWriteMaskEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetColorWriteMaskEXT => vkCmdSetColorWriteMaskEXT__queues;
-	private static RenderPassLocation vkCmdSetColorWriteMaskEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetColorWriteMaskEXT => vkCmdSetColorWriteMaskEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetColorWriteMaskEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetColorWriteMaskEXT => vkCmdSetColorWriteMaskEXT__cmdbufferlevel;
-	private static Task vkCmdSetColorWriteMaskEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetColorWriteMaskEXT => vkCmdSetColorWriteMaskEXT__tasks;
-	private static VkQueueFlags vkCmdSetRasterizationStreamEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetRasterizationStreamEXT => vkCmdSetRasterizationStreamEXT__queues;
-	private static RenderPassLocation vkCmdSetRasterizationStreamEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetRasterizationStreamEXT => vkCmdSetRasterizationStreamEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetRasterizationStreamEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetRasterizationStreamEXT => vkCmdSetRasterizationStreamEXT__cmdbufferlevel;
-	private static Task vkCmdSetRasterizationStreamEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetRasterizationStreamEXT => vkCmdSetRasterizationStreamEXT__tasks;
-	private static VkQueueFlags vkCmdSetConservativeRasterizationModeEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetConservativeRasterizationModeEXT => vkCmdSetConservativeRasterizationModeEXT__queues;
-	private static RenderPassLocation vkCmdSetConservativeRasterizationModeEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetConservativeRasterizationModeEXT => vkCmdSetConservativeRasterizationModeEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetConservativeRasterizationModeEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetConservativeRasterizationModeEXT => vkCmdSetConservativeRasterizationModeEXT__cmdbufferlevel;
-	private static Task vkCmdSetConservativeRasterizationModeEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetConservativeRasterizationModeEXT => vkCmdSetConservativeRasterizationModeEXT__tasks;
-	private static VkQueueFlags vkCmdSetExtraPrimitiveOverestimationSizeEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT => vkCmdSetExtraPrimitiveOverestimationSizeEXT__queues;
-	private static RenderPassLocation vkCmdSetExtraPrimitiveOverestimationSizeEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT => vkCmdSetExtraPrimitiveOverestimationSizeEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetExtraPrimitiveOverestimationSizeEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT => vkCmdSetExtraPrimitiveOverestimationSizeEXT__cmdbufferlevel;
-	private static Task vkCmdSetExtraPrimitiveOverestimationSizeEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT => vkCmdSetExtraPrimitiveOverestimationSizeEXT__tasks;
-	private static VkQueueFlags vkCmdSetDepthClipEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthClipEnableEXT => vkCmdSetDepthClipEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetDepthClipEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthClipEnableEXT => vkCmdSetDepthClipEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthClipEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthClipEnableEXT => vkCmdSetDepthClipEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetDepthClipEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthClipEnableEXT => vkCmdSetDepthClipEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetSampleLocationsEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetSampleLocationsEnableEXT => vkCmdSetSampleLocationsEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetSampleLocationsEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetSampleLocationsEnableEXT => vkCmdSetSampleLocationsEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetSampleLocationsEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetSampleLocationsEnableEXT => vkCmdSetSampleLocationsEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetSampleLocationsEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetSampleLocationsEnableEXT => vkCmdSetSampleLocationsEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetColorBlendAdvancedEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetColorBlendAdvancedEXT => vkCmdSetColorBlendAdvancedEXT__queues;
-	private static RenderPassLocation vkCmdSetColorBlendAdvancedEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetColorBlendAdvancedEXT => vkCmdSetColorBlendAdvancedEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetColorBlendAdvancedEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetColorBlendAdvancedEXT => vkCmdSetColorBlendAdvancedEXT__cmdbufferlevel;
-	private static Task vkCmdSetColorBlendAdvancedEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetColorBlendAdvancedEXT => vkCmdSetColorBlendAdvancedEXT__tasks;
-	private static VkQueueFlags vkCmdSetProvokingVertexModeEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetProvokingVertexModeEXT => vkCmdSetProvokingVertexModeEXT__queues;
-	private static RenderPassLocation vkCmdSetProvokingVertexModeEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetProvokingVertexModeEXT => vkCmdSetProvokingVertexModeEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetProvokingVertexModeEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetProvokingVertexModeEXT => vkCmdSetProvokingVertexModeEXT__cmdbufferlevel;
-	private static Task vkCmdSetProvokingVertexModeEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetProvokingVertexModeEXT => vkCmdSetProvokingVertexModeEXT__tasks;
-	private static VkQueueFlags vkCmdSetLineRasterizationModeEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetLineRasterizationModeEXT => vkCmdSetLineRasterizationModeEXT__queues;
-	private static RenderPassLocation vkCmdSetLineRasterizationModeEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetLineRasterizationModeEXT => vkCmdSetLineRasterizationModeEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetLineRasterizationModeEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetLineRasterizationModeEXT => vkCmdSetLineRasterizationModeEXT__cmdbufferlevel;
-	private static Task vkCmdSetLineRasterizationModeEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetLineRasterizationModeEXT => vkCmdSetLineRasterizationModeEXT__tasks;
-	private static VkQueueFlags vkCmdSetLineStippleEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetLineStippleEnableEXT => vkCmdSetLineStippleEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetLineStippleEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetLineStippleEnableEXT => vkCmdSetLineStippleEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetLineStippleEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetLineStippleEnableEXT => vkCmdSetLineStippleEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetLineStippleEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetLineStippleEnableEXT => vkCmdSetLineStippleEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetDepthClipNegativeOneToOneEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthClipNegativeOneToOneEXT => vkCmdSetDepthClipNegativeOneToOneEXT__queues;
-	private static RenderPassLocation vkCmdSetDepthClipNegativeOneToOneEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthClipNegativeOneToOneEXT => vkCmdSetDepthClipNegativeOneToOneEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthClipNegativeOneToOneEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthClipNegativeOneToOneEXT => vkCmdSetDepthClipNegativeOneToOneEXT__cmdbufferlevel;
-	private static Task vkCmdSetDepthClipNegativeOneToOneEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthClipNegativeOneToOneEXT => vkCmdSetDepthClipNegativeOneToOneEXT__tasks;
-	private static VkQueueFlags vkCmdSetViewportWScalingEnableNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetViewportWScalingEnableNV => vkCmdSetViewportWScalingEnableNV__queues;
-	private static RenderPassLocation vkCmdSetViewportWScalingEnableNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetViewportWScalingEnableNV => vkCmdSetViewportWScalingEnableNV__renderpass;
-	private static CmdBufferLevel vkCmdSetViewportWScalingEnableNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetViewportWScalingEnableNV => vkCmdSetViewportWScalingEnableNV__cmdbufferlevel;
-	private static Task vkCmdSetViewportWScalingEnableNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetViewportWScalingEnableNV => vkCmdSetViewportWScalingEnableNV__tasks;
-	private static VkQueueFlags vkCmdSetViewportSwizzleNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetViewportSwizzleNV => vkCmdSetViewportSwizzleNV__queues;
-	private static RenderPassLocation vkCmdSetViewportSwizzleNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetViewportSwizzleNV => vkCmdSetViewportSwizzleNV__renderpass;
-	private static CmdBufferLevel vkCmdSetViewportSwizzleNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetViewportSwizzleNV => vkCmdSetViewportSwizzleNV__cmdbufferlevel;
-	private static Task vkCmdSetViewportSwizzleNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetViewportSwizzleNV => vkCmdSetViewportSwizzleNV__tasks;
-	private static VkQueueFlags vkCmdSetCoverageToColorEnableNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetCoverageToColorEnableNV => vkCmdSetCoverageToColorEnableNV__queues;
-	private static RenderPassLocation vkCmdSetCoverageToColorEnableNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetCoverageToColorEnableNV => vkCmdSetCoverageToColorEnableNV__renderpass;
-	private static CmdBufferLevel vkCmdSetCoverageToColorEnableNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetCoverageToColorEnableNV => vkCmdSetCoverageToColorEnableNV__cmdbufferlevel;
-	private static Task vkCmdSetCoverageToColorEnableNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetCoverageToColorEnableNV => vkCmdSetCoverageToColorEnableNV__tasks;
-	private static VkQueueFlags vkCmdSetCoverageToColorLocationNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetCoverageToColorLocationNV => vkCmdSetCoverageToColorLocationNV__queues;
-	private static RenderPassLocation vkCmdSetCoverageToColorLocationNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetCoverageToColorLocationNV => vkCmdSetCoverageToColorLocationNV__renderpass;
-	private static CmdBufferLevel vkCmdSetCoverageToColorLocationNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetCoverageToColorLocationNV => vkCmdSetCoverageToColorLocationNV__cmdbufferlevel;
-	private static Task vkCmdSetCoverageToColorLocationNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetCoverageToColorLocationNV => vkCmdSetCoverageToColorLocationNV__tasks;
-	private static VkQueueFlags vkCmdSetCoverageModulationModeNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetCoverageModulationModeNV => vkCmdSetCoverageModulationModeNV__queues;
-	private static RenderPassLocation vkCmdSetCoverageModulationModeNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetCoverageModulationModeNV => vkCmdSetCoverageModulationModeNV__renderpass;
-	private static CmdBufferLevel vkCmdSetCoverageModulationModeNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetCoverageModulationModeNV => vkCmdSetCoverageModulationModeNV__cmdbufferlevel;
-	private static Task vkCmdSetCoverageModulationModeNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetCoverageModulationModeNV => vkCmdSetCoverageModulationModeNV__tasks;
-	private static VkQueueFlags vkCmdSetCoverageModulationTableEnableNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetCoverageModulationTableEnableNV => vkCmdSetCoverageModulationTableEnableNV__queues;
-	private static RenderPassLocation vkCmdSetCoverageModulationTableEnableNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetCoverageModulationTableEnableNV => vkCmdSetCoverageModulationTableEnableNV__renderpass;
-	private static CmdBufferLevel vkCmdSetCoverageModulationTableEnableNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetCoverageModulationTableEnableNV => vkCmdSetCoverageModulationTableEnableNV__cmdbufferlevel;
-	private static Task vkCmdSetCoverageModulationTableEnableNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetCoverageModulationTableEnableNV => vkCmdSetCoverageModulationTableEnableNV__tasks;
-	private static VkQueueFlags vkCmdSetCoverageModulationTableNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetCoverageModulationTableNV => vkCmdSetCoverageModulationTableNV__queues;
-	private static RenderPassLocation vkCmdSetCoverageModulationTableNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetCoverageModulationTableNV => vkCmdSetCoverageModulationTableNV__renderpass;
-	private static CmdBufferLevel vkCmdSetCoverageModulationTableNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetCoverageModulationTableNV => vkCmdSetCoverageModulationTableNV__cmdbufferlevel;
-	private static Task vkCmdSetCoverageModulationTableNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetCoverageModulationTableNV => vkCmdSetCoverageModulationTableNV__tasks;
-	private static VkQueueFlags vkCmdSetShadingRateImageEnableNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetShadingRateImageEnableNV => vkCmdSetShadingRateImageEnableNV__queues;
-	private static RenderPassLocation vkCmdSetShadingRateImageEnableNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetShadingRateImageEnableNV => vkCmdSetShadingRateImageEnableNV__renderpass;
-	private static CmdBufferLevel vkCmdSetShadingRateImageEnableNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetShadingRateImageEnableNV => vkCmdSetShadingRateImageEnableNV__cmdbufferlevel;
-	private static Task vkCmdSetShadingRateImageEnableNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetShadingRateImageEnableNV => vkCmdSetShadingRateImageEnableNV__tasks;
-	private static VkQueueFlags vkCmdSetCoverageReductionModeNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetCoverageReductionModeNV => vkCmdSetCoverageReductionModeNV__queues;
-	private static RenderPassLocation vkCmdSetCoverageReductionModeNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetCoverageReductionModeNV => vkCmdSetCoverageReductionModeNV__renderpass;
-	private static CmdBufferLevel vkCmdSetCoverageReductionModeNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetCoverageReductionModeNV => vkCmdSetCoverageReductionModeNV__cmdbufferlevel;
-	private static Task vkCmdSetCoverageReductionModeNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetCoverageReductionModeNV => vkCmdSetCoverageReductionModeNV__tasks;
-	private static VkQueueFlags vkCmdSetRepresentativeFragmentTestEnableNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetRepresentativeFragmentTestEnableNV => vkCmdSetRepresentativeFragmentTestEnableNV__queues;
-	private static RenderPassLocation vkCmdSetRepresentativeFragmentTestEnableNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetRepresentativeFragmentTestEnableNV => vkCmdSetRepresentativeFragmentTestEnableNV__renderpass;
-	private static CmdBufferLevel vkCmdSetRepresentativeFragmentTestEnableNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetRepresentativeFragmentTestEnableNV => vkCmdSetRepresentativeFragmentTestEnableNV__cmdbufferlevel;
-	private static Task vkCmdSetRepresentativeFragmentTestEnableNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetRepresentativeFragmentTestEnableNV => vkCmdSetRepresentativeFragmentTestEnableNV__tasks;
-	private static VkResult[?] vkCreatePrivateDataSlot__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreatePrivateDataSlot => vkCreatePrivateDataSlot__successcodes;
-	private static VkResult[?] vkCreatePrivateDataSlot__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreatePrivateDataSlot => vkCreatePrivateDataSlot__errorcodes;
-	private static VkResult[?] vkSetPrivateData__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkSetPrivateData => vkSetPrivateData__successcodes;
-	private static VkResult[?] vkSetPrivateData__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkSetPrivateData => vkSetPrivateData__errorcodes;
-	private static VkQueueFlags vkCmdCopyBuffer2__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyBuffer2 => vkCmdCopyBuffer2__queues;
-	private static RenderPassLocation vkCmdCopyBuffer2__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyBuffer2 => vkCmdCopyBuffer2__renderpass;
-	private static CmdBufferLevel vkCmdCopyBuffer2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyBuffer2 => vkCmdCopyBuffer2__cmdbufferlevel;
-	private static Task vkCmdCopyBuffer2__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyBuffer2 => vkCmdCopyBuffer2__tasks;
-	private static VkQueueFlags vkCmdCopyImage2__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyImage2 => vkCmdCopyImage2__queues;
-	private static RenderPassLocation vkCmdCopyImage2__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyImage2 => vkCmdCopyImage2__renderpass;
-	private static CmdBufferLevel vkCmdCopyImage2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyImage2 => vkCmdCopyImage2__cmdbufferlevel;
-	private static Task vkCmdCopyImage2__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyImage2 => vkCmdCopyImage2__tasks;
-	private static VkQueueFlags vkCmdBlitImage2__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBlitImage2 => vkCmdBlitImage2__queues;
-	private static RenderPassLocation vkCmdBlitImage2__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBlitImage2 => vkCmdBlitImage2__renderpass;
-	private static CmdBufferLevel vkCmdBlitImage2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBlitImage2 => vkCmdBlitImage2__cmdbufferlevel;
-	private static Task vkCmdBlitImage2__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBlitImage2 => vkCmdBlitImage2__tasks;
-	private static VkQueueFlags vkCmdCopyBufferToImage2__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyBufferToImage2 => vkCmdCopyBufferToImage2__queues;
-	private static RenderPassLocation vkCmdCopyBufferToImage2__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyBufferToImage2 => vkCmdCopyBufferToImage2__renderpass;
-	private static CmdBufferLevel vkCmdCopyBufferToImage2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyBufferToImage2 => vkCmdCopyBufferToImage2__cmdbufferlevel;
-	private static Task vkCmdCopyBufferToImage2__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyBufferToImage2 => vkCmdCopyBufferToImage2__tasks;
-	private static VkQueueFlags vkCmdCopyImageToBuffer2__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyImageToBuffer2 => vkCmdCopyImageToBuffer2__queues;
-	private static RenderPassLocation vkCmdCopyImageToBuffer2__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyImageToBuffer2 => vkCmdCopyImageToBuffer2__renderpass;
-	private static CmdBufferLevel vkCmdCopyImageToBuffer2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyImageToBuffer2 => vkCmdCopyImageToBuffer2__cmdbufferlevel;
-	private static Task vkCmdCopyImageToBuffer2__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyImageToBuffer2 => vkCmdCopyImageToBuffer2__tasks;
-	private static VkQueueFlags vkCmdResolveImage2__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdResolveImage2 => vkCmdResolveImage2__queues;
-	private static RenderPassLocation vkCmdResolveImage2__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdResolveImage2 => vkCmdResolveImage2__renderpass;
-	private static CmdBufferLevel vkCmdResolveImage2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdResolveImage2 => vkCmdResolveImage2__cmdbufferlevel;
-	private static Task vkCmdResolveImage2__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdResolveImage2 => vkCmdResolveImage2__tasks;
-	private static VkQueueFlags vkCmdSetFragmentShadingRateKHR__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetFragmentShadingRateKHR => vkCmdSetFragmentShadingRateKHR__queues;
-	private static RenderPassLocation vkCmdSetFragmentShadingRateKHR__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetFragmentShadingRateKHR => vkCmdSetFragmentShadingRateKHR__renderpass;
-	private static CmdBufferLevel vkCmdSetFragmentShadingRateKHR__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetFragmentShadingRateKHR => vkCmdSetFragmentShadingRateKHR__cmdbufferlevel;
-	private static Task vkCmdSetFragmentShadingRateKHR__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetFragmentShadingRateKHR => vkCmdSetFragmentShadingRateKHR__tasks;
-	private static VkResult[?] vkGetPhysicalDeviceFragmentShadingRatesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR => vkGetPhysicalDeviceFragmentShadingRatesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceFragmentShadingRatesKHR__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR => vkGetPhysicalDeviceFragmentShadingRatesKHR__errorcodes;
-	private static VkQueueFlags vkCmdSetFragmentShadingRateEnumNV__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetFragmentShadingRateEnumNV => vkCmdSetFragmentShadingRateEnumNV__queues;
-	private static RenderPassLocation vkCmdSetFragmentShadingRateEnumNV__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetFragmentShadingRateEnumNV => vkCmdSetFragmentShadingRateEnumNV__renderpass;
-	private static CmdBufferLevel vkCmdSetFragmentShadingRateEnumNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetFragmentShadingRateEnumNV => vkCmdSetFragmentShadingRateEnumNV__cmdbufferlevel;
-	private static Task vkCmdSetFragmentShadingRateEnumNV__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetFragmentShadingRateEnumNV => vkCmdSetFragmentShadingRateEnumNV__tasks;
-	private static VkQueueFlags vkCmdSetVertexInputEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetVertexInputEXT => vkCmdSetVertexInputEXT__queues;
-	private static RenderPassLocation vkCmdSetVertexInputEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetVertexInputEXT => vkCmdSetVertexInputEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetVertexInputEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetVertexInputEXT => vkCmdSetVertexInputEXT__cmdbufferlevel;
-	private static Task vkCmdSetVertexInputEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetVertexInputEXT => vkCmdSetVertexInputEXT__tasks;
-	private static VkQueueFlags vkCmdSetColorWriteEnableEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetColorWriteEnableEXT => vkCmdSetColorWriteEnableEXT__queues;
-	private static RenderPassLocation vkCmdSetColorWriteEnableEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetColorWriteEnableEXT => vkCmdSetColorWriteEnableEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetColorWriteEnableEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetColorWriteEnableEXT => vkCmdSetColorWriteEnableEXT__cmdbufferlevel;
-	private static Task vkCmdSetColorWriteEnableEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetColorWriteEnableEXT => vkCmdSetColorWriteEnableEXT__tasks;
-	private static VkQueueFlags vkCmdSetEvent2__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetEvent2 => vkCmdSetEvent2__queues;
-	private static RenderPassLocation vkCmdSetEvent2__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetEvent2 => vkCmdSetEvent2__renderpass;
-	private static CmdBufferLevel vkCmdSetEvent2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetEvent2 => vkCmdSetEvent2__cmdbufferlevel;
-	private static Task vkCmdSetEvent2__tasks = .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetEvent2 => vkCmdSetEvent2__tasks;
-	private static VkQueueFlags vkCmdResetEvent2__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdResetEvent2 => vkCmdResetEvent2__queues;
-	private static RenderPassLocation vkCmdResetEvent2__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdResetEvent2 => vkCmdResetEvent2__renderpass;
-	private static CmdBufferLevel vkCmdResetEvent2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdResetEvent2 => vkCmdResetEvent2__cmdbufferlevel;
-	private static Task vkCmdResetEvent2__tasks = .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdResetEvent2 => vkCmdResetEvent2__tasks;
-	private static VkQueueFlags vkCmdWaitEvents2__queues = .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdWaitEvents2 => vkCmdWaitEvents2__queues;
-	private static RenderPassLocation vkCmdWaitEvents2__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdWaitEvents2 => vkCmdWaitEvents2__renderpass;
-	private static CmdBufferLevel vkCmdWaitEvents2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdWaitEvents2 => vkCmdWaitEvents2__cmdbufferlevel;
-	private static Task vkCmdWaitEvents2__tasks = .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdWaitEvents2 => vkCmdWaitEvents2__tasks;
-	private static VkQueueFlags vkCmdPipelineBarrier2__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPipelineBarrier2 => vkCmdPipelineBarrier2__queues;
-	private static RenderPassLocation vkCmdPipelineBarrier2__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPipelineBarrier2 => vkCmdPipelineBarrier2__renderpass;
-	private static CmdBufferLevel vkCmdPipelineBarrier2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPipelineBarrier2 => vkCmdPipelineBarrier2__cmdbufferlevel;
-	private static Task vkCmdPipelineBarrier2__tasks = .Synchronization;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPipelineBarrier2 => vkCmdPipelineBarrier2__tasks;
-	private static VkResult[?] vkQueueSubmit2__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkQueueSubmit2 => vkQueueSubmit2__successcodes;
-	private static VkResult[?] vkQueueSubmit2__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkQueueSubmit2 => vkQueueSubmit2__errorcodes;
-	private static VkQueueFlags vkCmdWriteTimestamp2__queues = .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdWriteTimestamp2 => vkCmdWriteTimestamp2__queues;
-	private static RenderPassLocation vkCmdWriteTimestamp2__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdWriteTimestamp2 => vkCmdWriteTimestamp2__renderpass;
-	private static CmdBufferLevel vkCmdWriteTimestamp2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdWriteTimestamp2 => vkCmdWriteTimestamp2__cmdbufferlevel;
-	private static Task vkCmdWriteTimestamp2__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdWriteTimestamp2 => vkCmdWriteTimestamp2__tasks;
-	private static VkQueueFlags vkCmdWriteBufferMarker2AMD__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdWriteBufferMarker2AMD => vkCmdWriteBufferMarker2AMD__queues;
-	private static RenderPassLocation vkCmdWriteBufferMarker2AMD__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdWriteBufferMarker2AMD => vkCmdWriteBufferMarker2AMD__renderpass;
-	private static CmdBufferLevel vkCmdWriteBufferMarker2AMD__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdWriteBufferMarker2AMD => vkCmdWriteBufferMarker2AMD__cmdbufferlevel;
-	private static Task vkCmdWriteBufferMarker2AMD__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdWriteBufferMarker2AMD => vkCmdWriteBufferMarker2AMD__tasks;
-	private static VkResult[?] vkCopyMemoryToImage__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCopyMemoryToImage => vkCopyMemoryToImage__successcodes;
-	private static VkResult[?] vkCopyMemoryToImage__errorcodes = .(.VkErrorInitializationFailed, .VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorMemoryMapFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCopyMemoryToImage => vkCopyMemoryToImage__errorcodes;
-	private static VkResult[?] vkCopyImageToMemory__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCopyImageToMemory => vkCopyImageToMemory__successcodes;
-	private static VkResult[?] vkCopyImageToMemory__errorcodes = .(.VkErrorInitializationFailed, .VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorMemoryMapFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCopyImageToMemory => vkCopyImageToMemory__errorcodes;
-	private static VkResult[?] vkCopyImageToImage__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCopyImageToImage => vkCopyImageToImage__successcodes;
-	private static VkResult[?] vkCopyImageToImage__errorcodes = .(.VkErrorInitializationFailed, .VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorMemoryMapFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCopyImageToImage => vkCopyImageToImage__errorcodes;
-	private static VkResult[?] vkTransitionImageLayout__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkTransitionImageLayout => vkTransitionImageLayout__successcodes;
-	private static VkResult[?] vkTransitionImageLayout__errorcodes = .(.VkErrorInitializationFailed, .VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorMemoryMapFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkTransitionImageLayout => vkTransitionImageLayout__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceVideoCapabilitiesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR => vkGetPhysicalDeviceVideoCapabilitiesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceVideoCapabilitiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorVideoProfileOperationNotSupportedKHR, .VkErrorVideoProfileFormatNotSupportedKHR, .VkErrorVideoPictureLayoutNotSupportedKHR, .VkErrorVideoProfileCodecNotSupportedKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR => vkGetPhysicalDeviceVideoCapabilitiesKHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceVideoFormatPropertiesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR => vkGetPhysicalDeviceVideoFormatPropertiesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceVideoFormatPropertiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorImageUsageNotSupportedKHR, .VkErrorVideoProfileOperationNotSupportedKHR, .VkErrorVideoProfileFormatNotSupportedKHR, .VkErrorVideoPictureLayoutNotSupportedKHR, .VkErrorVideoProfileCodecNotSupportedKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR => vkGetPhysicalDeviceVideoFormatPropertiesKHR__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR => vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorVideoProfileOperationNotSupportedKHR, .VkErrorVideoProfileFormatNotSupportedKHR, .VkErrorVideoPictureLayoutNotSupportedKHR, .VkErrorVideoProfileCodecNotSupportedKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR => vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR__errorcodes;
-	private static VkResult[?] vkCreateVideoSessionKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateVideoSessionKHR => vkCreateVideoSessionKHR__successcodes;
-	private static VkResult[?] vkCreateVideoSessionKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed, .VkErrorVideoStdVersionNotSupportedKHR, .VkErrorInvalidVideoStdParametersKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateVideoSessionKHR => vkCreateVideoSessionKHR__errorcodes;
-	private static VkResult[?] vkCreateVideoSessionParametersKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateVideoSessionParametersKHR => vkCreateVideoSessionParametersKHR__successcodes;
-	private static VkResult[?] vkCreateVideoSessionParametersKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed, .VkErrorInvalidVideoStdParametersKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateVideoSessionParametersKHR => vkCreateVideoSessionParametersKHR__errorcodes;
-	private static VkResult[?] vkUpdateVideoSessionParametersKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkUpdateVideoSessionParametersKHR => vkUpdateVideoSessionParametersKHR__successcodes;
-	private static VkResult[?] vkUpdateVideoSessionParametersKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInvalidVideoStdParametersKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkUpdateVideoSessionParametersKHR => vkUpdateVideoSessionParametersKHR__errorcodes;
-	private static VkResult[?] vkGetEncodedVideoSessionParametersKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetEncodedVideoSessionParametersKHR => vkGetEncodedVideoSessionParametersKHR__successcodes;
-	private static VkResult[?] vkGetEncodedVideoSessionParametersKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetEncodedVideoSessionParametersKHR => vkGetEncodedVideoSessionParametersKHR__errorcodes;
-	private static VkResult[?] vkGetVideoSessionMemoryRequirementsKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetVideoSessionMemoryRequirementsKHR => vkGetVideoSessionMemoryRequirementsKHR__successcodes;
-	private static VkResult[?] vkBindVideoSessionMemoryKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindVideoSessionMemoryKHR => vkBindVideoSessionMemoryKHR__successcodes;
-	private static VkResult[?] vkBindVideoSessionMemoryKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindVideoSessionMemoryKHR => vkBindVideoSessionMemoryKHR__errorcodes;
-	private static VkQueueFlags vkCmdDecodeVideoKHR__queues = .VideoDecodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDecodeVideoKHR => vkCmdDecodeVideoKHR__queues;
-	private static RenderPassLocation vkCmdDecodeVideoKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDecodeVideoKHR => vkCmdDecodeVideoKHR__renderpass;
-	private static CmdBufferLevel vkCmdDecodeVideoKHR__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDecodeVideoKHR => vkCmdDecodeVideoKHR__cmdbufferlevel;
-	private static Task vkCmdDecodeVideoKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDecodeVideoKHR => vkCmdDecodeVideoKHR__tasks;
-	private static VkQueueFlags vkCmdBeginVideoCodingKHR__queues = .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginVideoCodingKHR => vkCmdBeginVideoCodingKHR__queues;
-	private static RenderPassLocation vkCmdBeginVideoCodingKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginVideoCodingKHR => vkCmdBeginVideoCodingKHR__renderpass;
-	private static CmdBufferLevel vkCmdBeginVideoCodingKHR__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginVideoCodingKHR => vkCmdBeginVideoCodingKHR__cmdbufferlevel;
-	private static Task vkCmdBeginVideoCodingKHR__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginVideoCodingKHR => vkCmdBeginVideoCodingKHR__tasks;
-	private static VkQueueFlags vkCmdControlVideoCodingKHR__queues = .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdControlVideoCodingKHR => vkCmdControlVideoCodingKHR__queues;
-	private static RenderPassLocation vkCmdControlVideoCodingKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdControlVideoCodingKHR => vkCmdControlVideoCodingKHR__renderpass;
-	private static CmdBufferLevel vkCmdControlVideoCodingKHR__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdControlVideoCodingKHR => vkCmdControlVideoCodingKHR__cmdbufferlevel;
-	private static Task vkCmdControlVideoCodingKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdControlVideoCodingKHR => vkCmdControlVideoCodingKHR__tasks;
-	private static VkQueueFlags vkCmdEndVideoCodingKHR__queues = .VideoDecodeKHR | .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndVideoCodingKHR => vkCmdEndVideoCodingKHR__queues;
-	private static RenderPassLocation vkCmdEndVideoCodingKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndVideoCodingKHR => vkCmdEndVideoCodingKHR__renderpass;
-	private static CmdBufferLevel vkCmdEndVideoCodingKHR__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndVideoCodingKHR => vkCmdEndVideoCodingKHR__cmdbufferlevel;
-	private static Task vkCmdEndVideoCodingKHR__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndVideoCodingKHR => vkCmdEndVideoCodingKHR__tasks;
-	private static VkQueueFlags vkCmdEncodeVideoKHR__queues = .VideoEncodeKHR;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEncodeVideoKHR => vkCmdEncodeVideoKHR__queues;
-	private static RenderPassLocation vkCmdEncodeVideoKHR__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEncodeVideoKHR => vkCmdEncodeVideoKHR__renderpass;
-	private static CmdBufferLevel vkCmdEncodeVideoKHR__cmdbufferlevel = .Primary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEncodeVideoKHR => vkCmdEncodeVideoKHR__cmdbufferlevel;
-	private static Task vkCmdEncodeVideoKHR__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEncodeVideoKHR => vkCmdEncodeVideoKHR__tasks;
-	private static VkQueueFlags vkCmdDecompressMemoryNV__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDecompressMemoryNV => vkCmdDecompressMemoryNV__queues;
-	private static RenderPassLocation vkCmdDecompressMemoryNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDecompressMemoryNV => vkCmdDecompressMemoryNV__renderpass;
-	private static CmdBufferLevel vkCmdDecompressMemoryNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDecompressMemoryNV => vkCmdDecompressMemoryNV__cmdbufferlevel;
-	private static Task vkCmdDecompressMemoryNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDecompressMemoryNV => vkCmdDecompressMemoryNV__tasks;
-	private static VkQueueFlags vkCmdDecompressMemoryIndirectCountNV__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDecompressMemoryIndirectCountNV => vkCmdDecompressMemoryIndirectCountNV__queues;
-	private static RenderPassLocation vkCmdDecompressMemoryIndirectCountNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDecompressMemoryIndirectCountNV => vkCmdDecompressMemoryIndirectCountNV__renderpass;
-	private static CmdBufferLevel vkCmdDecompressMemoryIndirectCountNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDecompressMemoryIndirectCountNV => vkCmdDecompressMemoryIndirectCountNV__cmdbufferlevel;
-	private static Task vkCmdDecompressMemoryIndirectCountNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDecompressMemoryIndirectCountNV => vkCmdDecompressMemoryIndirectCountNV__tasks;
-	private static VkQueueFlags vkCmdBuildPartitionedAccelerationStructuresNV__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBuildPartitionedAccelerationStructuresNV => vkCmdBuildPartitionedAccelerationStructuresNV__queues;
-	private static RenderPassLocation vkCmdBuildPartitionedAccelerationStructuresNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBuildPartitionedAccelerationStructuresNV => vkCmdBuildPartitionedAccelerationStructuresNV__renderpass;
-	private static CmdBufferLevel vkCmdBuildPartitionedAccelerationStructuresNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBuildPartitionedAccelerationStructuresNV => vkCmdBuildPartitionedAccelerationStructuresNV__cmdbufferlevel;
-	private static Task vkCmdBuildPartitionedAccelerationStructuresNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBuildPartitionedAccelerationStructuresNV => vkCmdBuildPartitionedAccelerationStructuresNV__tasks;
-	private static VkResult[?] vkCreateCuModuleNVX__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateCuModuleNVX => vkCreateCuModuleNVX__successcodes;
-	private static VkResult[?] vkCreateCuModuleNVX__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateCuModuleNVX => vkCreateCuModuleNVX__errorcodes;
-	private static VkResult[?] vkCreateCuFunctionNVX__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateCuFunctionNVX => vkCreateCuFunctionNVX__successcodes;
-	private static VkResult[?] vkCreateCuFunctionNVX__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateCuFunctionNVX => vkCreateCuFunctionNVX__errorcodes;
-	private static VkQueueFlags vkCmdCuLaunchKernelNVX__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCuLaunchKernelNVX => vkCmdCuLaunchKernelNVX__queues;
-	private static RenderPassLocation vkCmdCuLaunchKernelNVX__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCuLaunchKernelNVX => vkCmdCuLaunchKernelNVX__renderpass;
-	private static CmdBufferLevel vkCmdCuLaunchKernelNVX__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCuLaunchKernelNVX => vkCmdCuLaunchKernelNVX__cmdbufferlevel;
-	private static Task vkCmdCuLaunchKernelNVX__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCuLaunchKernelNVX => vkCmdCuLaunchKernelNVX__tasks;
-	private static VkQueueFlags vkCmdBindDescriptorBuffersEXT__queues = .Graphics | .Compute | .DataGraphARM;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindDescriptorBuffersEXT => vkCmdBindDescriptorBuffersEXT__queues;
-	private static RenderPassLocation vkCmdBindDescriptorBuffersEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindDescriptorBuffersEXT => vkCmdBindDescriptorBuffersEXT__renderpass;
-	private static CmdBufferLevel vkCmdBindDescriptorBuffersEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindDescriptorBuffersEXT => vkCmdBindDescriptorBuffersEXT__cmdbufferlevel;
-	private static Task vkCmdBindDescriptorBuffersEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindDescriptorBuffersEXT => vkCmdBindDescriptorBuffersEXT__tasks;
-	private static VkQueueFlags vkCmdSetDescriptorBufferOffsetsEXT__queues = .Graphics | .Compute | .DataGraphARM;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDescriptorBufferOffsetsEXT => vkCmdSetDescriptorBufferOffsetsEXT__queues;
-	private static RenderPassLocation vkCmdSetDescriptorBufferOffsetsEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDescriptorBufferOffsetsEXT => vkCmdSetDescriptorBufferOffsetsEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDescriptorBufferOffsetsEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDescriptorBufferOffsetsEXT => vkCmdSetDescriptorBufferOffsetsEXT__cmdbufferlevel;
-	private static Task vkCmdSetDescriptorBufferOffsetsEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDescriptorBufferOffsetsEXT => vkCmdSetDescriptorBufferOffsetsEXT__tasks;
-	private static VkQueueFlags vkCmdBindDescriptorBufferEmbeddedSamplersEXT__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT => vkCmdBindDescriptorBufferEmbeddedSamplersEXT__queues;
-	private static RenderPassLocation vkCmdBindDescriptorBufferEmbeddedSamplersEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT => vkCmdBindDescriptorBufferEmbeddedSamplersEXT__renderpass;
-	private static CmdBufferLevel vkCmdBindDescriptorBufferEmbeddedSamplersEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT => vkCmdBindDescriptorBufferEmbeddedSamplersEXT__cmdbufferlevel;
-	private static Task vkCmdBindDescriptorBufferEmbeddedSamplersEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT => vkCmdBindDescriptorBufferEmbeddedSamplersEXT__tasks;
-	private static VkResult[?] vkGetBufferOpaqueCaptureDescriptorDataEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT => vkGetBufferOpaqueCaptureDescriptorDataEXT__successcodes;
-	private static VkResult[?] vkGetBufferOpaqueCaptureDescriptorDataEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT => vkGetBufferOpaqueCaptureDescriptorDataEXT__errorcodes;
-	private static VkResult[?] vkGetImageOpaqueCaptureDescriptorDataEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetImageOpaqueCaptureDescriptorDataEXT => vkGetImageOpaqueCaptureDescriptorDataEXT__successcodes;
-	private static VkResult[?] vkGetImageOpaqueCaptureDescriptorDataEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetImageOpaqueCaptureDescriptorDataEXT => vkGetImageOpaqueCaptureDescriptorDataEXT__errorcodes;
-	private static VkResult[?] vkGetImageViewOpaqueCaptureDescriptorDataEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT => vkGetImageViewOpaqueCaptureDescriptorDataEXT__successcodes;
-	private static VkResult[?] vkGetImageViewOpaqueCaptureDescriptorDataEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT => vkGetImageViewOpaqueCaptureDescriptorDataEXT__errorcodes;
-	private static VkResult[?] vkGetSamplerOpaqueCaptureDescriptorDataEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT => vkGetSamplerOpaqueCaptureDescriptorDataEXT__successcodes;
-	private static VkResult[?] vkGetSamplerOpaqueCaptureDescriptorDataEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT => vkGetSamplerOpaqueCaptureDescriptorDataEXT__errorcodes;
-	private static VkResult[?] vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT => vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT__successcodes;
-	private static VkResult[?] vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT => vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT__errorcodes;
-	private static VkResult[?] vkAcquireDrmDisplayEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkAcquireDrmDisplayEXT => vkAcquireDrmDisplayEXT__successcodes;
-	private static VkResult[?] vkAcquireDrmDisplayEXT__errorcodes = .(.VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkAcquireDrmDisplayEXT => vkAcquireDrmDisplayEXT__errorcodes;
-	private static VkResult[?] vkGetDrmDisplayEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDrmDisplayEXT => vkGetDrmDisplayEXT__successcodes;
-	private static VkResult[?] vkGetDrmDisplayEXT__errorcodes = .(.VkErrorInitializationFailed, .VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDrmDisplayEXT => vkGetDrmDisplayEXT__errorcodes;
-	private static VkResult[?] vkWaitForPresent2KHR__successcodes = .(.VkSuccess, .VkTimeout, .VkSuboptimalKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkWaitForPresent2KHR => vkWaitForPresent2KHR__successcodes;
-	private static VkResult[?] vkWaitForPresent2KHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkWaitForPresent2KHR => vkWaitForPresent2KHR__errorcodes;
-	private static VkResult[?] vkWaitForPresentKHR__successcodes = .(.VkSuccess, .VkTimeout, .VkSuboptimalKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkWaitForPresentKHR => vkWaitForPresentKHR__successcodes;
-	private static VkResult[?] vkWaitForPresentKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorDeviceLost, .VkErrorOutOfDateKHR, .VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkWaitForPresentKHR => vkWaitForPresentKHR__errorcodes;
-	private static VkQueueFlags vkCmdBeginRendering__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginRendering => vkCmdBeginRendering__queues;
-	private static RenderPassLocation vkCmdBeginRendering__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginRendering => vkCmdBeginRendering__renderpass;
-	private static CmdBufferLevel vkCmdBeginRendering__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginRendering => vkCmdBeginRendering__cmdbufferlevel;
-	private static Task vkCmdBeginRendering__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginRendering => vkCmdBeginRendering__tasks;
-	private static VkQueueFlags vkCmdEndRendering__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndRendering => vkCmdEndRendering__queues;
-	private static RenderPassLocation vkCmdEndRendering__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndRendering => vkCmdEndRendering__renderpass;
-	private static CmdBufferLevel vkCmdEndRendering__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndRendering => vkCmdEndRendering__cmdbufferlevel;
-	private static Task vkCmdEndRendering__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndRendering => vkCmdEndRendering__tasks;
-	private static VkQueueFlags vkCmdEndRendering2EXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndRendering2EXT => vkCmdEndRendering2EXT__queues;
-	private static RenderPassLocation vkCmdEndRendering2EXT__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndRendering2EXT => vkCmdEndRendering2EXT__renderpass;
-	private static CmdBufferLevel vkCmdEndRendering2EXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndRendering2EXT => vkCmdEndRendering2EXT__cmdbufferlevel;
-	private static Task vkCmdEndRendering2EXT__tasks = .Action | .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndRendering2EXT => vkCmdEndRendering2EXT__tasks;
-	private static VkResult[?] vkCreateMicromapEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateMicromapEXT => vkCreateMicromapEXT__successcodes;
-	private static VkResult[?] vkCreateMicromapEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInvalidOpaqueCaptureAddressKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateMicromapEXT => vkCreateMicromapEXT__errorcodes;
-	private static VkQueueFlags vkCmdBuildMicromapsEXT__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBuildMicromapsEXT => vkCmdBuildMicromapsEXT__queues;
-	private static RenderPassLocation vkCmdBuildMicromapsEXT__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBuildMicromapsEXT => vkCmdBuildMicromapsEXT__renderpass;
-	private static CmdBufferLevel vkCmdBuildMicromapsEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBuildMicromapsEXT => vkCmdBuildMicromapsEXT__cmdbufferlevel;
-	private static Task vkCmdBuildMicromapsEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBuildMicromapsEXT => vkCmdBuildMicromapsEXT__tasks;
-	private static VkResult[?] vkBuildMicromapsEXT__successcodes = .(.VkSuccess, .VkOperationDeferredKHR, .VkOperationNotDeferredKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBuildMicromapsEXT => vkBuildMicromapsEXT__successcodes;
-	private static VkResult[?] vkBuildMicromapsEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBuildMicromapsEXT => vkBuildMicromapsEXT__errorcodes;
-	private static VkQueueFlags vkCmdCopyMicromapEXT__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyMicromapEXT => vkCmdCopyMicromapEXT__queues;
-	private static RenderPassLocation vkCmdCopyMicromapEXT__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyMicromapEXT => vkCmdCopyMicromapEXT__renderpass;
-	private static CmdBufferLevel vkCmdCopyMicromapEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyMicromapEXT => vkCmdCopyMicromapEXT__cmdbufferlevel;
-	private static Task vkCmdCopyMicromapEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyMicromapEXT => vkCmdCopyMicromapEXT__tasks;
-	private static VkResult[?] vkCopyMicromapEXT__successcodes = .(.VkSuccess, .VkOperationDeferredKHR, .VkOperationNotDeferredKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCopyMicromapEXT => vkCopyMicromapEXT__successcodes;
-	private static VkResult[?] vkCopyMicromapEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCopyMicromapEXT => vkCopyMicromapEXT__errorcodes;
-	private static VkQueueFlags vkCmdCopyMicromapToMemoryEXT__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyMicromapToMemoryEXT => vkCmdCopyMicromapToMemoryEXT__queues;
-	private static RenderPassLocation vkCmdCopyMicromapToMemoryEXT__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyMicromapToMemoryEXT => vkCmdCopyMicromapToMemoryEXT__renderpass;
-	private static CmdBufferLevel vkCmdCopyMicromapToMemoryEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyMicromapToMemoryEXT => vkCmdCopyMicromapToMemoryEXT__cmdbufferlevel;
-	private static Task vkCmdCopyMicromapToMemoryEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyMicromapToMemoryEXT => vkCmdCopyMicromapToMemoryEXT__tasks;
-	private static VkResult[?] vkCopyMicromapToMemoryEXT__successcodes = .(.VkSuccess, .VkOperationDeferredKHR, .VkOperationNotDeferredKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCopyMicromapToMemoryEXT => vkCopyMicromapToMemoryEXT__successcodes;
-	private static VkResult[?] vkCopyMicromapToMemoryEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCopyMicromapToMemoryEXT => vkCopyMicromapToMemoryEXT__errorcodes;
-	private static VkQueueFlags vkCmdCopyMemoryToMicromapEXT__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyMemoryToMicromapEXT => vkCmdCopyMemoryToMicromapEXT__queues;
-	private static RenderPassLocation vkCmdCopyMemoryToMicromapEXT__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyMemoryToMicromapEXT => vkCmdCopyMemoryToMicromapEXT__renderpass;
-	private static CmdBufferLevel vkCmdCopyMemoryToMicromapEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyMemoryToMicromapEXT => vkCmdCopyMemoryToMicromapEXT__cmdbufferlevel;
-	private static Task vkCmdCopyMemoryToMicromapEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyMemoryToMicromapEXT => vkCmdCopyMemoryToMicromapEXT__tasks;
-	private static VkResult[?] vkCopyMemoryToMicromapEXT__successcodes = .(.VkSuccess, .VkOperationDeferredKHR, .VkOperationNotDeferredKHR);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCopyMemoryToMicromapEXT => vkCopyMemoryToMicromapEXT__successcodes;
-	private static VkResult[?] vkCopyMemoryToMicromapEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCopyMemoryToMicromapEXT => vkCopyMemoryToMicromapEXT__errorcodes;
-	private static VkQueueFlags vkCmdWriteMicromapsPropertiesEXT__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdWriteMicromapsPropertiesEXT => vkCmdWriteMicromapsPropertiesEXT__queues;
-	private static RenderPassLocation vkCmdWriteMicromapsPropertiesEXT__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdWriteMicromapsPropertiesEXT => vkCmdWriteMicromapsPropertiesEXT__renderpass;
-	private static CmdBufferLevel vkCmdWriteMicromapsPropertiesEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdWriteMicromapsPropertiesEXT => vkCmdWriteMicromapsPropertiesEXT__cmdbufferlevel;
-	private static Task vkCmdWriteMicromapsPropertiesEXT__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdWriteMicromapsPropertiesEXT => vkCmdWriteMicromapsPropertiesEXT__tasks;
-	private static VkResult[?] vkWriteMicromapsPropertiesEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkWriteMicromapsPropertiesEXT => vkWriteMicromapsPropertiesEXT__successcodes;
-	private static VkResult[?] vkWriteMicromapsPropertiesEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkWriteMicromapsPropertiesEXT => vkWriteMicromapsPropertiesEXT__errorcodes;
-	private static VkResult[?] vkGetPipelinePropertiesEXT__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPipelinePropertiesEXT => vkGetPipelinePropertiesEXT__successcodes;
-	private static VkResult[?] vkGetPipelinePropertiesEXT__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPipelinePropertiesEXT => vkGetPipelinePropertiesEXT__errorcodes;
-	private static VkQueueFlags vkCmdBindTileMemoryQCOM__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindTileMemoryQCOM => vkCmdBindTileMemoryQCOM__queues;
-	private static RenderPassLocation vkCmdBindTileMemoryQCOM__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindTileMemoryQCOM => vkCmdBindTileMemoryQCOM__renderpass;
-	private static CmdBufferLevel vkCmdBindTileMemoryQCOM__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindTileMemoryQCOM => vkCmdBindTileMemoryQCOM__cmdbufferlevel;
-	private static Task vkCmdBindTileMemoryQCOM__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindTileMemoryQCOM => vkCmdBindTileMemoryQCOM__tasks;
-	private static VkResult[?] vkGetFramebufferTilePropertiesQCOM__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetFramebufferTilePropertiesQCOM => vkGetFramebufferTilePropertiesQCOM__successcodes;
-	private static VkResult[?] vkGetDynamicRenderingTilePropertiesQCOM__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDynamicRenderingTilePropertiesQCOM => vkGetDynamicRenderingTilePropertiesQCOM__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceOpticalFlowImageFormatsNV__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV => vkGetPhysicalDeviceOpticalFlowImageFormatsNV__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceOpticalFlowImageFormatsNV__errorcodes = .(.VkErrorExtensionNotPresent, .VkErrorInitializationFailed, .VkErrorFormatNotSupported);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV => vkGetPhysicalDeviceOpticalFlowImageFormatsNV__errorcodes;
-	private static VkResult[?] vkCreateOpticalFlowSessionNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateOpticalFlowSessionNV => vkCreateOpticalFlowSessionNV__successcodes;
-	private static VkResult[?] vkCreateOpticalFlowSessionNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateOpticalFlowSessionNV => vkCreateOpticalFlowSessionNV__errorcodes;
-	private static VkResult[?] vkBindOpticalFlowSessionImageNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindOpticalFlowSessionImageNV => vkBindOpticalFlowSessionImageNV__successcodes;
-	private static VkResult[?] vkBindOpticalFlowSessionImageNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindOpticalFlowSessionImageNV => vkBindOpticalFlowSessionImageNV__errorcodes;
-	private static VkQueueFlags vkCmdOpticalFlowExecuteNV__queues = .OpticalFlowNV;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdOpticalFlowExecuteNV => vkCmdOpticalFlowExecuteNV__queues;
-	private static RenderPassLocation vkCmdOpticalFlowExecuteNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdOpticalFlowExecuteNV => vkCmdOpticalFlowExecuteNV__renderpass;
-	private static CmdBufferLevel vkCmdOpticalFlowExecuteNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdOpticalFlowExecuteNV => vkCmdOpticalFlowExecuteNV__cmdbufferlevel;
-	private static Task vkCmdOpticalFlowExecuteNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdOpticalFlowExecuteNV => vkCmdOpticalFlowExecuteNV__tasks;
-	private static VkResult[?] vkGetDeviceFaultInfoEXT__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDeviceFaultInfoEXT => vkGetDeviceFaultInfoEXT__successcodes;
-	private static VkResult[?] vkGetDeviceFaultInfoEXT__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDeviceFaultInfoEXT => vkGetDeviceFaultInfoEXT__errorcodes;
-	private static VkQueueFlags vkCmdSetDepthBias2EXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthBias2EXT => vkCmdSetDepthBias2EXT__queues;
-	private static RenderPassLocation vkCmdSetDepthBias2EXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthBias2EXT => vkCmdSetDepthBias2EXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthBias2EXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthBias2EXT => vkCmdSetDepthBias2EXT__cmdbufferlevel;
-	private static Task vkCmdSetDepthBias2EXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthBias2EXT => vkCmdSetDepthBias2EXT__tasks;
-	private static VkResult[?] vkReleaseSwapchainImagesKHR__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkReleaseSwapchainImagesKHR => vkReleaseSwapchainImagesKHR__successcodes;
-	private static VkResult[?] vkReleaseSwapchainImagesKHR__errorcodes = .(.VkErrorSurfaceLostKHR);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkReleaseSwapchainImagesKHR => vkReleaseSwapchainImagesKHR__errorcodes;
-	private static VkResult[?] vkMapMemory2__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkMapMemory2 => vkMapMemory2__successcodes;
-	private static VkResult[?] vkMapMemory2__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorMemoryMapFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkMapMemory2 => vkMapMemory2__errorcodes;
-	private static VkResult[?] vkUnmapMemory2__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkUnmapMemory2 => vkUnmapMemory2__successcodes;
-	private static VkResult[?] vkUnmapMemory2__errorcodes = .(.VkErrorMemoryMapFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkUnmapMemory2 => vkUnmapMemory2__errorcodes;
-	private static VkResult[?] vkCreateShadersEXT__successcodes = .(.VkSuccess, .VkIncompatibleShaderBinaryEXT);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateShadersEXT => vkCreateShadersEXT__successcodes;
-	private static VkResult[?] vkCreateShadersEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory, .VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateShadersEXT => vkCreateShadersEXT__errorcodes;
-	private static VkResult[?] vkGetShaderBinaryDataEXT__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetShaderBinaryDataEXT => vkGetShaderBinaryDataEXT__successcodes;
-	private static VkResult[?] vkGetShaderBinaryDataEXT__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetShaderBinaryDataEXT => vkGetShaderBinaryDataEXT__errorcodes;
-	private static VkQueueFlags vkCmdBindShadersEXT__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindShadersEXT => vkCmdBindShadersEXT__queues;
-	private static RenderPassLocation vkCmdBindShadersEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindShadersEXT => vkCmdBindShadersEXT__renderpass;
-	private static CmdBufferLevel vkCmdBindShadersEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindShadersEXT => vkCmdBindShadersEXT__cmdbufferlevel;
-	private static Task vkCmdBindShadersEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindShadersEXT => vkCmdBindShadersEXT__tasks;
-	private static VkResult[?] vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR => vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR => vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR__errorcodes;
-	private static VkQueueFlags vkCmdBindDescriptorSets2__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindDescriptorSets2 => vkCmdBindDescriptorSets2__queues;
-	private static RenderPassLocation vkCmdBindDescriptorSets2__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindDescriptorSets2 => vkCmdBindDescriptorSets2__renderpass;
-	private static CmdBufferLevel vkCmdBindDescriptorSets2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindDescriptorSets2 => vkCmdBindDescriptorSets2__cmdbufferlevel;
-	private static Task vkCmdBindDescriptorSets2__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindDescriptorSets2 => vkCmdBindDescriptorSets2__tasks;
-	private static VkQueueFlags vkCmdPushConstants2__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPushConstants2 => vkCmdPushConstants2__queues;
-	private static RenderPassLocation vkCmdPushConstants2__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPushConstants2 => vkCmdPushConstants2__renderpass;
-	private static CmdBufferLevel vkCmdPushConstants2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPushConstants2 => vkCmdPushConstants2__cmdbufferlevel;
-	private static Task vkCmdPushConstants2__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPushConstants2 => vkCmdPushConstants2__tasks;
-	private static VkQueueFlags vkCmdPushDescriptorSet2__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPushDescriptorSet2 => vkCmdPushDescriptorSet2__queues;
-	private static RenderPassLocation vkCmdPushDescriptorSet2__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPushDescriptorSet2 => vkCmdPushDescriptorSet2__renderpass;
-	private static CmdBufferLevel vkCmdPushDescriptorSet2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPushDescriptorSet2 => vkCmdPushDescriptorSet2__cmdbufferlevel;
-	private static Task vkCmdPushDescriptorSet2__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPushDescriptorSet2 => vkCmdPushDescriptorSet2__tasks;
-	private static VkQueueFlags vkCmdPushDescriptorSetWithTemplate2__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate2 => vkCmdPushDescriptorSetWithTemplate2__queues;
-	private static RenderPassLocation vkCmdPushDescriptorSetWithTemplate2__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate2 => vkCmdPushDescriptorSetWithTemplate2__renderpass;
-	private static CmdBufferLevel vkCmdPushDescriptorSetWithTemplate2__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate2 => vkCmdPushDescriptorSetWithTemplate2__cmdbufferlevel;
-	private static Task vkCmdPushDescriptorSetWithTemplate2__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdPushDescriptorSetWithTemplate2 => vkCmdPushDescriptorSetWithTemplate2__tasks;
-	private static VkQueueFlags vkCmdSetDescriptorBufferOffsets2EXT__queues = .Graphics | .Compute | .DataGraphARM;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDescriptorBufferOffsets2EXT => vkCmdSetDescriptorBufferOffsets2EXT__queues;
-	private static RenderPassLocation vkCmdSetDescriptorBufferOffsets2EXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDescriptorBufferOffsets2EXT => vkCmdSetDescriptorBufferOffsets2EXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDescriptorBufferOffsets2EXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDescriptorBufferOffsets2EXT => vkCmdSetDescriptorBufferOffsets2EXT__cmdbufferlevel;
-	private static Task vkCmdSetDescriptorBufferOffsets2EXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDescriptorBufferOffsets2EXT => vkCmdSetDescriptorBufferOffsets2EXT__tasks;
-	private static VkQueueFlags vkCmdBindDescriptorBufferEmbeddedSamplers2EXT__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT => vkCmdBindDescriptorBufferEmbeddedSamplers2EXT__queues;
-	private static RenderPassLocation vkCmdBindDescriptorBufferEmbeddedSamplers2EXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT => vkCmdBindDescriptorBufferEmbeddedSamplers2EXT__renderpass;
-	private static CmdBufferLevel vkCmdBindDescriptorBufferEmbeddedSamplers2EXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT => vkCmdBindDescriptorBufferEmbeddedSamplers2EXT__cmdbufferlevel;
-	private static Task vkCmdBindDescriptorBufferEmbeddedSamplers2EXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT => vkCmdBindDescriptorBufferEmbeddedSamplers2EXT__tasks;
-	private static VkResult[?] vkSetLatencySleepModeNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkSetLatencySleepModeNV => vkSetLatencySleepModeNV__successcodes;
-	private static VkResult[?] vkSetLatencySleepModeNV__errorcodes = .(.VkErrorInitializationFailed);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkSetLatencySleepModeNV => vkSetLatencySleepModeNV__errorcodes;
-	private static VkResult[?] vkLatencySleepNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkLatencySleepNV => vkLatencySleepNV__successcodes;
-	private static VkQueueFlags vkCmdSetRenderingAttachmentLocations__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetRenderingAttachmentLocations => vkCmdSetRenderingAttachmentLocations__queues;
-	private static RenderPassLocation vkCmdSetRenderingAttachmentLocations__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetRenderingAttachmentLocations => vkCmdSetRenderingAttachmentLocations__renderpass;
-	private static CmdBufferLevel vkCmdSetRenderingAttachmentLocations__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetRenderingAttachmentLocations => vkCmdSetRenderingAttachmentLocations__cmdbufferlevel;
-	private static Task vkCmdSetRenderingAttachmentLocations__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetRenderingAttachmentLocations => vkCmdSetRenderingAttachmentLocations__tasks;
-	private static VkQueueFlags vkCmdSetRenderingInputAttachmentIndices__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetRenderingInputAttachmentIndices => vkCmdSetRenderingInputAttachmentIndices__queues;
-	private static RenderPassLocation vkCmdSetRenderingInputAttachmentIndices__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetRenderingInputAttachmentIndices => vkCmdSetRenderingInputAttachmentIndices__renderpass;
-	private static CmdBufferLevel vkCmdSetRenderingInputAttachmentIndices__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetRenderingInputAttachmentIndices => vkCmdSetRenderingInputAttachmentIndices__cmdbufferlevel;
-	private static Task vkCmdSetRenderingInputAttachmentIndices__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetRenderingInputAttachmentIndices => vkCmdSetRenderingInputAttachmentIndices__tasks;
-	private static VkQueueFlags vkCmdSetDepthClampRangeEXT__queues = .Graphics;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdSetDepthClampRangeEXT => vkCmdSetDepthClampRangeEXT__queues;
-	private static RenderPassLocation vkCmdSetDepthClampRangeEXT__renderpass = .Both;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdSetDepthClampRangeEXT => vkCmdSetDepthClampRangeEXT__renderpass;
-	private static CmdBufferLevel vkCmdSetDepthClampRangeEXT__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdSetDepthClampRangeEXT => vkCmdSetDepthClampRangeEXT__cmdbufferlevel;
-	private static Task vkCmdSetDepthClampRangeEXT__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdSetDepthClampRangeEXT => vkCmdSetDepthClampRangeEXT__tasks;
-	private static VkResult[?] vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV => vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV => vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceCooperativeVectorPropertiesNV__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV => vkGetPhysicalDeviceCooperativeVectorPropertiesNV__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceCooperativeVectorPropertiesNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV => vkGetPhysicalDeviceCooperativeVectorPropertiesNV__errorcodes;
-	private static VkResult[?] vkConvertCooperativeVectorMatrixNV__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkConvertCooperativeVectorMatrixNV => vkConvertCooperativeVectorMatrixNV__successcodes;
-	private static VkResult[?] vkConvertCooperativeVectorMatrixNV__errorcodes = .(.VkErrorOutOfHostMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkConvertCooperativeVectorMatrixNV => vkConvertCooperativeVectorMatrixNV__errorcodes;
-	private static VkQueueFlags vkCmdConvertCooperativeVectorMatrixNV__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdConvertCooperativeVectorMatrixNV => vkCmdConvertCooperativeVectorMatrixNV__queues;
-	private static RenderPassLocation vkCmdConvertCooperativeVectorMatrixNV__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdConvertCooperativeVectorMatrixNV => vkCmdConvertCooperativeVectorMatrixNV__renderpass;
-	private static CmdBufferLevel vkCmdConvertCooperativeVectorMatrixNV__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdConvertCooperativeVectorMatrixNV => vkCmdConvertCooperativeVectorMatrixNV__cmdbufferlevel;
-	private static Task vkCmdConvertCooperativeVectorMatrixNV__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdConvertCooperativeVectorMatrixNV => vkCmdConvertCooperativeVectorMatrixNV__tasks;
-	private static VkQueueFlags vkCmdDispatchTileQCOM__queues = .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatchTileQCOM => vkCmdDispatchTileQCOM__queues;
-	private static RenderPassLocation vkCmdDispatchTileQCOM__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatchTileQCOM => vkCmdDispatchTileQCOM__renderpass;
-	private static CmdBufferLevel vkCmdDispatchTileQCOM__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatchTileQCOM => vkCmdDispatchTileQCOM__cmdbufferlevel;
-	private static Task vkCmdDispatchTileQCOM__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDispatchTileQCOM => vkCmdDispatchTileQCOM__tasks;
-	private static VkQueueFlags vkCmdBeginPerTileExecutionQCOM__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdBeginPerTileExecutionQCOM => vkCmdBeginPerTileExecutionQCOM__queues;
-	private static RenderPassLocation vkCmdBeginPerTileExecutionQCOM__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdBeginPerTileExecutionQCOM => vkCmdBeginPerTileExecutionQCOM__renderpass;
-	private static CmdBufferLevel vkCmdBeginPerTileExecutionQCOM__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdBeginPerTileExecutionQCOM => vkCmdBeginPerTileExecutionQCOM__cmdbufferlevel;
-	private static Task vkCmdBeginPerTileExecutionQCOM__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdBeginPerTileExecutionQCOM => vkCmdBeginPerTileExecutionQCOM__tasks;
-	private static VkQueueFlags vkCmdEndPerTileExecutionQCOM__queues = .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdEndPerTileExecutionQCOM => vkCmdEndPerTileExecutionQCOM__queues;
-	private static RenderPassLocation vkCmdEndPerTileExecutionQCOM__renderpass = .Inside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdEndPerTileExecutionQCOM => vkCmdEndPerTileExecutionQCOM__renderpass;
-	private static CmdBufferLevel vkCmdEndPerTileExecutionQCOM__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdEndPerTileExecutionQCOM => vkCmdEndPerTileExecutionQCOM__cmdbufferlevel;
-	private static Task vkCmdEndPerTileExecutionQCOM__tasks = .State;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdEndPerTileExecutionQCOM => vkCmdEndPerTileExecutionQCOM__tasks;
-	private static VkResult[?] vkCreateExternalComputeQueueNV__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateExternalComputeQueueNV => vkCreateExternalComputeQueueNV__successcodes;
-	private static VkResult[?] vkCreateExternalComputeQueueNV__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorTooManyObjects);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateExternalComputeQueueNV => vkCreateExternalComputeQueueNV__errorcodes;
-	private static VkResult[?] vkCreateTensorARM__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateTensorARM => vkCreateTensorARM__successcodes;
-	private static VkResult[?] vkCreateTensorARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateTensorARM => vkCreateTensorARM__errorcodes;
-	private static VkResult[?] vkCreateTensorViewARM__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateTensorViewARM => vkCreateTensorViewARM__successcodes;
-	private static VkResult[?] vkCreateTensorViewARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateTensorViewARM => vkCreateTensorViewARM__errorcodes;
-	private static VkResult[?] vkBindTensorMemoryARM__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindTensorMemoryARM => vkBindTensorMemoryARM__successcodes;
-	private static VkResult[?] vkBindTensorMemoryARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindTensorMemoryARM => vkBindTensorMemoryARM__errorcodes;
-	private static VkQueueFlags vkCmdCopyTensorARM__queues = .Transfer | .Graphics | .Compute;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdCopyTensorARM => vkCmdCopyTensorARM__queues;
-	private static RenderPassLocation vkCmdCopyTensorARM__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdCopyTensorARM => vkCmdCopyTensorARM__renderpass;
-	private static CmdBufferLevel vkCmdCopyTensorARM__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdCopyTensorARM => vkCmdCopyTensorARM__cmdbufferlevel;
-	private static Task vkCmdCopyTensorARM__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdCopyTensorARM => vkCmdCopyTensorARM__tasks;
-	private static VkResult[?] vkGetTensorOpaqueCaptureDescriptorDataARM__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetTensorOpaqueCaptureDescriptorDataARM => vkGetTensorOpaqueCaptureDescriptorDataARM__successcodes;
-	private static VkResult[?] vkGetTensorOpaqueCaptureDescriptorDataARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetTensorOpaqueCaptureDescriptorDataARM => vkGetTensorOpaqueCaptureDescriptorDataARM__errorcodes;
-	private static VkResult[?] vkGetTensorViewOpaqueCaptureDescriptorDataARM__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM => vkGetTensorViewOpaqueCaptureDescriptorDataARM__successcodes;
-	private static VkResult[?] vkGetTensorViewOpaqueCaptureDescriptorDataARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM => vkGetTensorViewOpaqueCaptureDescriptorDataARM__errorcodes;
-	private static VkResult[?] vkCreateDataGraphPipelinesARM__successcodes = .(.VkSuccess, .VkPipelineCompileRequiredEXT);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDataGraphPipelinesARM => vkCreateDataGraphPipelinesARM__successcodes;
-	private static VkResult[?] vkCreateDataGraphPipelinesARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDataGraphPipelinesARM => vkCreateDataGraphPipelinesARM__errorcodes;
-	private static VkResult[?] vkCreateDataGraphPipelineSessionARM__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkCreateDataGraphPipelineSessionARM => vkCreateDataGraphPipelineSessionARM__successcodes;
-	private static VkResult[?] vkCreateDataGraphPipelineSessionARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkCreateDataGraphPipelineSessionARM => vkCreateDataGraphPipelineSessionARM__errorcodes;
-	private static VkResult[?] vkGetDataGraphPipelineSessionBindPointRequirementsARM__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDataGraphPipelineSessionBindPointRequirementsARM => vkGetDataGraphPipelineSessionBindPointRequirementsARM__successcodes;
-	private static VkResult[?] vkGetDataGraphPipelineSessionBindPointRequirementsARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDataGraphPipelineSessionBindPointRequirementsARM => vkGetDataGraphPipelineSessionBindPointRequirementsARM__errorcodes;
-	private static VkResult[?] vkBindDataGraphPipelineSessionMemoryARM__successcodes = .(.VkSuccess);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkBindDataGraphPipelineSessionMemoryARM => vkBindDataGraphPipelineSessionMemoryARM__successcodes;
-	private static VkResult[?] vkBindDataGraphPipelineSessionMemoryARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkBindDataGraphPipelineSessionMemoryARM => vkBindDataGraphPipelineSessionMemoryARM__errorcodes;
-	private static VkQueueFlags vkCmdDispatchDataGraphARM__queues = .DataGraphARM;
-	[Inline] public static VkQueueFlagBits Queues<T>() where T : PFN_vkCmdDispatchDataGraphARM => vkCmdDispatchDataGraphARM__queues;
-	private static RenderPassLocation vkCmdDispatchDataGraphARM__renderpass = .Outside;
-	[Inline] public static RenderPassLocation RenderPassLocation<T>() where T : PFN_vkCmdDispatchDataGraphARM => vkCmdDispatchDataGraphARM__renderpass;
-	private static CmdBufferLevel vkCmdDispatchDataGraphARM__cmdbufferlevel = .Primary | .Secondary;
-	[Inline] public static CmdBufferLevel CmdBufferLevels<T>() where T : PFN_vkCmdDispatchDataGraphARM => vkCmdDispatchDataGraphARM__cmdbufferlevel;
-	private static Task vkCmdDispatchDataGraphARM__tasks = .Action;
-	[Inline] public static Task Tasks<T>() where T : PFN_vkCmdDispatchDataGraphARM => vkCmdDispatchDataGraphARM__tasks;
-	private static VkResult[?] vkGetDataGraphPipelineAvailablePropertiesARM__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDataGraphPipelineAvailablePropertiesARM => vkGetDataGraphPipelineAvailablePropertiesARM__successcodes;
-	private static VkResult[?] vkGetDataGraphPipelineAvailablePropertiesARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDataGraphPipelineAvailablePropertiesARM => vkGetDataGraphPipelineAvailablePropertiesARM__errorcodes;
-	private static VkResult[?] vkGetDataGraphPipelinePropertiesARM__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetDataGraphPipelinePropertiesARM => vkGetDataGraphPipelinePropertiesARM__successcodes;
-	private static VkResult[?] vkGetDataGraphPipelinePropertiesARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetDataGraphPipelinePropertiesARM => vkGetDataGraphPipelinePropertiesARM__errorcodes;
-	private static VkResult[?] vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM__successcodes = .(.VkSuccess, .VkIncomplete);
-	[Inline] public static Span<VkResult> SuccessCodes<T>() where T : PFN_vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM => vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM__successcodes;
-	private static VkResult[?] vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM__errorcodes = .(.VkErrorOutOfHostMemory, .VkErrorOutOfDeviceMemory);
-	[Inline] public static Span<VkResult> ErrorCodes<T>() where T : PFN_vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM => vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM__errorcodes;
+	case vkCreateInstance;
+	case vkDestroyInstance;
+	case vkEnumeratePhysicalDevices;
+	case vkGetDeviceProcAddr;
+	case vkGetInstanceProcAddr;
+	case vkGetPhysicalDeviceProperties;
+	case vkGetPhysicalDeviceQueueFamilyProperties;
+	case vkGetPhysicalDeviceMemoryProperties;
+	case vkGetPhysicalDeviceFeatures;
+	case vkGetPhysicalDeviceFormatProperties;
+	case vkGetPhysicalDeviceImageFormatProperties;
+	case vkCreateDevice;
+	case vkDestroyDevice;
+	case vkEnumerateInstanceVersion;
+	case vkEnumerateInstanceLayerProperties;
+	case vkEnumerateInstanceExtensionProperties;
+	case vkEnumerateDeviceLayerProperties;
+	case vkEnumerateDeviceExtensionProperties;
+	case vkGetDeviceQueue;
+	case vkQueueSubmit;
+	case vkQueueWaitIdle;
+	case vkDeviceWaitIdle;
+	case vkAllocateMemory;
+	case vkFreeMemory;
+	case vkMapMemory;
+	case vkUnmapMemory;
+	case vkFlushMappedMemoryRanges;
+	case vkInvalidateMappedMemoryRanges;
+	case vkGetDeviceMemoryCommitment;
+	case vkGetBufferMemoryRequirements;
+	case vkBindBufferMemory;
+	case vkGetImageMemoryRequirements;
+	case vkBindImageMemory;
+	case vkGetImageSparseMemoryRequirements;
+	case vkGetPhysicalDeviceSparseImageFormatProperties;
+	case vkQueueBindSparse;
+	case vkCreateFence;
+	case vkDestroyFence;
+	case vkResetFences;
+	case vkGetFenceStatus;
+	case vkWaitForFences;
+	case vkCreateSemaphore;
+	case vkDestroySemaphore;
+	case vkCreateEvent;
+	case vkDestroyEvent;
+	case vkGetEventStatus;
+	case vkSetEvent;
+	case vkResetEvent;
+	case vkCreateQueryPool;
+	case vkDestroyQueryPool;
+	case vkGetQueryPoolResults;
+	case vkResetQueryPool;
+	case vkCreateBuffer;
+	case vkDestroyBuffer;
+	case vkCreateBufferView;
+	case vkDestroyBufferView;
+	case vkCreateImage;
+	case vkDestroyImage;
+	case vkGetImageSubresourceLayout;
+	case vkCreateImageView;
+	case vkDestroyImageView;
+	case vkCreateShaderModule;
+	case vkDestroyShaderModule;
+	case vkCreatePipelineCache;
+	case vkDestroyPipelineCache;
+	case vkGetPipelineCacheData;
+	case vkMergePipelineCaches;
+	case vkCreatePipelineBinariesKHR;
+	case vkDestroyPipelineBinaryKHR;
+	case vkGetPipelineKeyKHR;
+	case vkGetPipelineBinaryDataKHR;
+	case vkReleaseCapturedPipelineDataKHR;
+	case vkCreateGraphicsPipelines;
+	case vkCreateComputePipelines;
+	case vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI;
+	case vkDestroyPipeline;
+	case vkCreatePipelineLayout;
+	case vkDestroyPipelineLayout;
+	case vkCreateSampler;
+	case vkDestroySampler;
+	case vkCreateDescriptorSetLayout;
+	case vkDestroyDescriptorSetLayout;
+	case vkCreateDescriptorPool;
+	case vkDestroyDescriptorPool;
+	case vkResetDescriptorPool;
+	case vkAllocateDescriptorSets;
+	case vkFreeDescriptorSets;
+	case vkUpdateDescriptorSets;
+	case vkCreateFramebuffer;
+	case vkDestroyFramebuffer;
+	case vkCreateRenderPass;
+	case vkDestroyRenderPass;
+	case vkGetRenderAreaGranularity;
+	case vkGetRenderingAreaGranularity;
+	case vkCreateCommandPool;
+	case vkDestroyCommandPool;
+	case vkResetCommandPool;
+	case vkAllocateCommandBuffers;
+	case vkFreeCommandBuffers;
+	case vkBeginCommandBuffer;
+	case vkEndCommandBuffer;
+	case vkResetCommandBuffer;
+	case vkCmdBindPipeline;
+	case vkCmdSetAttachmentFeedbackLoopEnableEXT;
+	case vkCmdSetViewport;
+	case vkCmdSetScissor;
+	case vkCmdSetLineWidth;
+	case vkCmdSetDepthBias;
+	case vkCmdSetBlendConstants;
+	case vkCmdSetDepthBounds;
+	case vkCmdSetStencilCompareMask;
+	case vkCmdSetStencilWriteMask;
+	case vkCmdSetStencilReference;
+	case vkCmdBindDescriptorSets;
+	case vkCmdBindIndexBuffer;
+	case vkCmdBindVertexBuffers;
+	case vkCmdDraw;
+	case vkCmdDrawIndexed;
+	case vkCmdDrawMultiEXT;
+	case vkCmdDrawMultiIndexedEXT;
+	case vkCmdDrawIndirect;
+	case vkCmdDrawIndexedIndirect;
+	case vkCmdDispatch;
+	case vkCmdDispatchIndirect;
+	case vkCmdSubpassShadingHUAWEI;
+	case vkCmdDrawClusterHUAWEI;
+	case vkCmdDrawClusterIndirectHUAWEI;
+	case vkCmdUpdatePipelineIndirectBufferNV;
+	case vkCmdCopyBuffer;
+	case vkCmdCopyImage;
+	case vkCmdBlitImage;
+	case vkCmdCopyBufferToImage;
+	case vkCmdCopyImageToBuffer;
+	case vkCmdCopyMemoryIndirectNV;
+	case vkCmdCopyMemoryToImageIndirectNV;
+	case vkCmdUpdateBuffer;
+	case vkCmdFillBuffer;
+	case vkCmdClearColorImage;
+	case vkCmdClearDepthStencilImage;
+	case vkCmdClearAttachments;
+	case vkCmdResolveImage;
+	case vkCmdSetEvent;
+	case vkCmdResetEvent;
+	case vkCmdWaitEvents;
+	case vkCmdPipelineBarrier;
+	case vkCmdBeginQuery;
+	case vkCmdEndQuery;
+	case vkCmdBeginConditionalRenderingEXT;
+	case vkCmdEndConditionalRenderingEXT;
+	case vkCmdResetQueryPool;
+	case vkCmdWriteTimestamp;
+	case vkCmdCopyQueryPoolResults;
+	case vkCmdPushConstants;
+	case vkCmdBeginRenderPass;
+	case vkCmdNextSubpass;
+	case vkCmdEndRenderPass;
+	case vkCmdExecuteCommands;
+	case vkGetPhysicalDeviceDisplayPropertiesKHR;
+	case vkGetPhysicalDeviceDisplayPlanePropertiesKHR;
+	case vkGetDisplayPlaneSupportedDisplaysKHR;
+	case vkGetDisplayModePropertiesKHR;
+	case vkCreateDisplayModeKHR;
+	case vkGetDisplayPlaneCapabilitiesKHR;
+	case vkCreateDisplayPlaneSurfaceKHR;
+	case vkCreateSharedSwapchainsKHR;
+	case vkDestroySurfaceKHR;
+	case vkGetPhysicalDeviceSurfaceSupportKHR;
+	case vkGetPhysicalDeviceSurfaceCapabilitiesKHR;
+	case vkGetPhysicalDeviceSurfaceFormatsKHR;
+	case vkGetPhysicalDeviceSurfacePresentModesKHR;
+	case vkCreateSwapchainKHR;
+	case vkDestroySwapchainKHR;
+	case vkGetSwapchainImagesKHR;
+	case vkAcquireNextImageKHR;
+	case vkQueuePresentKHR;
+	case vkCreateDebugReportCallbackEXT;
+	case vkDestroyDebugReportCallbackEXT;
+	case vkDebugReportMessageEXT;
+	case vkDebugMarkerSetObjectNameEXT;
+	case vkDebugMarkerSetObjectTagEXT;
+	case vkCmdDebugMarkerBeginEXT;
+	case vkCmdDebugMarkerEndEXT;
+	case vkCmdDebugMarkerInsertEXT;
+	case vkGetPhysicalDeviceExternalImageFormatPropertiesNV;
+	case vkCmdExecuteGeneratedCommandsNV;
+	case vkCmdPreprocessGeneratedCommandsNV;
+	case vkCmdBindPipelineShaderGroupNV;
+	case vkGetGeneratedCommandsMemoryRequirementsNV;
+	case vkCreateIndirectCommandsLayoutNV;
+	case vkDestroyIndirectCommandsLayoutNV;
+	case vkCmdExecuteGeneratedCommandsEXT;
+	case vkCmdPreprocessGeneratedCommandsEXT;
+	case vkGetGeneratedCommandsMemoryRequirementsEXT;
+	case vkCreateIndirectCommandsLayoutEXT;
+	case vkDestroyIndirectCommandsLayoutEXT;
+	case vkCreateIndirectExecutionSetEXT;
+	case vkDestroyIndirectExecutionSetEXT;
+	case vkUpdateIndirectExecutionSetPipelineEXT;
+	case vkUpdateIndirectExecutionSetShaderEXT;
+	case vkGetPhysicalDeviceFeatures2;
+	case vkGetPhysicalDeviceProperties2;
+	case vkGetPhysicalDeviceFormatProperties2;
+	case vkGetPhysicalDeviceImageFormatProperties2;
+	case vkGetPhysicalDeviceQueueFamilyProperties2;
+	case vkGetPhysicalDeviceMemoryProperties2;
+	case vkGetPhysicalDeviceSparseImageFormatProperties2;
+	case vkCmdPushDescriptorSet;
+	case vkTrimCommandPool;
+	case vkGetPhysicalDeviceExternalBufferProperties;
+	case vkGetMemoryFdKHR;
+	case vkGetMemoryFdPropertiesKHR;
+	case vkGetMemoryRemoteAddressNV;
+	case vkGetPhysicalDeviceExternalSemaphoreProperties;
+	case vkGetSemaphoreFdKHR;
+	case vkImportSemaphoreFdKHR;
+	case vkGetPhysicalDeviceExternalFenceProperties;
+	case vkGetFenceFdKHR;
+	case vkImportFenceFdKHR;
+	case vkReleaseDisplayEXT;
+	case vkDisplayPowerControlEXT;
+	case vkRegisterDeviceEventEXT;
+	case vkRegisterDisplayEventEXT;
+	case vkGetSwapchainCounterEXT;
+	case vkGetPhysicalDeviceSurfaceCapabilities2EXT;
+	case vkEnumeratePhysicalDeviceGroups;
+	case vkGetDeviceGroupPeerMemoryFeatures;
+	case vkBindBufferMemory2;
+	case vkBindImageMemory2;
+	case vkCmdSetDeviceMask;
+	case vkGetDeviceGroupPresentCapabilitiesKHR;
+	case vkGetDeviceGroupSurfacePresentModesKHR;
+	case vkAcquireNextImage2KHR;
+	case vkCmdDispatchBase;
+	case vkGetPhysicalDevicePresentRectanglesKHR;
+	case vkCreateDescriptorUpdateTemplate;
+	case vkDestroyDescriptorUpdateTemplate;
+	case vkUpdateDescriptorSetWithTemplate;
+	case vkCmdPushDescriptorSetWithTemplate;
+	case vkSetHdrMetadataEXT;
+	case vkGetSwapchainStatusKHR;
+	case vkGetRefreshCycleDurationGOOGLE;
+	case vkGetPastPresentationTimingGOOGLE;
+	case vkCmdSetViewportWScalingNV;
+	case vkCmdSetDiscardRectangleEXT;
+	case vkCmdSetDiscardRectangleEnableEXT;
+	case vkCmdSetDiscardRectangleModeEXT;
+	case vkCmdSetSampleLocationsEXT;
+	case vkGetPhysicalDeviceMultisamplePropertiesEXT;
+	case vkGetPhysicalDeviceSurfaceCapabilities2KHR;
+	case vkGetPhysicalDeviceSurfaceFormats2KHR;
+	case vkGetPhysicalDeviceDisplayProperties2KHR;
+	case vkGetPhysicalDeviceDisplayPlaneProperties2KHR;
+	case vkGetDisplayModeProperties2KHR;
+	case vkGetDisplayPlaneCapabilities2KHR;
+	case vkGetBufferMemoryRequirements2;
+	case vkGetImageMemoryRequirements2;
+	case vkGetImageSparseMemoryRequirements2;
+	case vkGetDeviceBufferMemoryRequirements;
+	case vkGetDeviceImageMemoryRequirements;
+	case vkGetDeviceImageSparseMemoryRequirements;
+	case vkCreateSamplerYcbcrConversion;
+	case vkDestroySamplerYcbcrConversion;
+	case vkGetDeviceQueue2;
+	case vkCreateValidationCacheEXT;
+	case vkDestroyValidationCacheEXT;
+	case vkGetValidationCacheDataEXT;
+	case vkMergeValidationCachesEXT;
+	case vkGetDescriptorSetLayoutSupport;
+	case vkGetShaderInfoAMD;
+	case vkSetLocalDimmingAMD;
+	case vkGetPhysicalDeviceCalibrateableTimeDomainsKHR;
+	case vkGetCalibratedTimestampsKHR;
+	case vkSetDebugUtilsObjectNameEXT;
+	case vkSetDebugUtilsObjectTagEXT;
+	case vkQueueBeginDebugUtilsLabelEXT;
+	case vkQueueEndDebugUtilsLabelEXT;
+	case vkQueueInsertDebugUtilsLabelEXT;
+	case vkCmdBeginDebugUtilsLabelEXT;
+	case vkCmdEndDebugUtilsLabelEXT;
+	case vkCmdInsertDebugUtilsLabelEXT;
+	case vkCreateDebugUtilsMessengerEXT;
+	case vkDestroyDebugUtilsMessengerEXT;
+	case vkSubmitDebugUtilsMessageEXT;
+	case vkGetMemoryHostPointerPropertiesEXT;
+	case vkCmdWriteBufferMarkerAMD;
+	case vkCreateRenderPass2;
+	case vkCmdBeginRenderPass2;
+	case vkCmdNextSubpass2;
+	case vkCmdEndRenderPass2;
+	case vkGetSemaphoreCounterValue;
+	case vkWaitSemaphores;
+	case vkSignalSemaphore;
+	case vkCmdDrawIndirectCount;
+	case vkCmdDrawIndexedIndirectCount;
+	case vkCmdSetCheckpointNV;
+	case vkGetQueueCheckpointDataNV;
+	case vkCmdBindTransformFeedbackBuffersEXT;
+	case vkCmdBeginTransformFeedbackEXT;
+	case vkCmdEndTransformFeedbackEXT;
+	case vkCmdBeginQueryIndexedEXT;
+	case vkCmdEndQueryIndexedEXT;
+	case vkCmdDrawIndirectByteCountEXT;
+	case vkCmdSetExclusiveScissorNV;
+	case vkCmdSetExclusiveScissorEnableNV;
+	case vkCmdBindShadingRateImageNV;
+	case vkCmdSetViewportShadingRatePaletteNV;
+	case vkCmdSetCoarseSampleOrderNV;
+	case vkCmdDrawMeshTasksNV;
+	case vkCmdDrawMeshTasksIndirectNV;
+	case vkCmdDrawMeshTasksIndirectCountNV;
+	case vkCmdDrawMeshTasksEXT;
+	case vkCmdDrawMeshTasksIndirectEXT;
+	case vkCmdDrawMeshTasksIndirectCountEXT;
+	case vkCompileDeferredNV;
+	case vkCreateAccelerationStructureNV;
+	case vkCmdBindInvocationMaskHUAWEI;
+	case vkDestroyAccelerationStructureKHR;
+	case vkDestroyAccelerationStructureNV;
+	case vkGetAccelerationStructureMemoryRequirementsNV;
+	case vkBindAccelerationStructureMemoryNV;
+	case vkCmdCopyAccelerationStructureNV;
+	case vkCmdCopyAccelerationStructureKHR;
+	case vkCopyAccelerationStructureKHR;
+	case vkCmdCopyAccelerationStructureToMemoryKHR;
+	case vkCopyAccelerationStructureToMemoryKHR;
+	case vkCmdCopyMemoryToAccelerationStructureKHR;
+	case vkCopyMemoryToAccelerationStructureKHR;
+	case vkCmdWriteAccelerationStructuresPropertiesKHR;
+	case vkCmdWriteAccelerationStructuresPropertiesNV;
+	case vkCmdBuildAccelerationStructureNV;
+	case vkWriteAccelerationStructuresPropertiesKHR;
+	case vkCmdTraceRaysKHR;
+	case vkCmdTraceRaysNV;
+	case vkGetRayTracingShaderGroupHandlesKHR;
+	case vkGetRayTracingCaptureReplayShaderGroupHandlesKHR;
+	case vkGetAccelerationStructureHandleNV;
+	case vkCreateRayTracingPipelinesNV;
+	case vkCreateRayTracingPipelinesKHR;
+	case vkGetPhysicalDeviceCooperativeMatrixPropertiesNV;
+	case vkCmdTraceRaysIndirectKHR;
+	case vkCmdTraceRaysIndirect2KHR;
+	case vkGetClusterAccelerationStructureBuildSizesNV;
+	case vkCmdBuildClusterAccelerationStructureIndirectNV;
+	case vkGetDeviceAccelerationStructureCompatibilityKHR;
+	case vkGetRayTracingShaderGroupStackSizeKHR;
+	case vkCmdSetRayTracingPipelineStackSizeKHR;
+	case vkGetImageViewHandleNVX;
+	case vkGetImageViewHandle64NVX;
+	case vkGetImageViewAddressNVX;
+	case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR;
+	case vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR;
+	case vkAcquireProfilingLockKHR;
+	case vkReleaseProfilingLockKHR;
+	case vkGetImageDrmFormatModifierPropertiesEXT;
+	case vkGetBufferOpaqueCaptureAddress;
+	case vkGetBufferDeviceAddress;
+	case vkCreateHeadlessSurfaceEXT;
+	case vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV;
+	case vkInitializePerformanceApiINTEL;
+	case vkUninitializePerformanceApiINTEL;
+	case vkCmdSetPerformanceMarkerINTEL;
+	case vkCmdSetPerformanceStreamMarkerINTEL;
+	case vkCmdSetPerformanceOverrideINTEL;
+	case vkAcquirePerformanceConfigurationINTEL;
+	case vkReleasePerformanceConfigurationINTEL;
+	case vkQueueSetPerformanceConfigurationINTEL;
+	case vkGetPerformanceParameterINTEL;
+	case vkGetDeviceMemoryOpaqueCaptureAddress;
+	case vkGetPipelineExecutablePropertiesKHR;
+	case vkGetPipelineExecutableStatisticsKHR;
+	case vkGetPipelineExecutableInternalRepresentationsKHR;
+	case vkCmdSetLineStipple;
+	case vkGetPhysicalDeviceToolProperties;
+	case vkCreateAccelerationStructureKHR;
+	case vkCmdBuildAccelerationStructuresKHR;
+	case vkCmdBuildAccelerationStructuresIndirectKHR;
+	case vkBuildAccelerationStructuresKHR;
+	case vkGetAccelerationStructureDeviceAddressKHR;
+	case vkCreateDeferredOperationKHR;
+	case vkDestroyDeferredOperationKHR;
+	case vkGetDeferredOperationMaxConcurrencyKHR;
+	case vkGetDeferredOperationResultKHR;
+	case vkDeferredOperationJoinKHR;
+	case vkGetPipelineIndirectMemoryRequirementsNV;
+	case vkGetPipelineIndirectDeviceAddressNV;
+	case vkAntiLagUpdateAMD;
+	case vkCmdSetCullMode;
+	case vkCmdSetFrontFace;
+	case vkCmdSetPrimitiveTopology;
+	case vkCmdSetViewportWithCount;
+	case vkCmdSetScissorWithCount;
+	case vkCmdBindIndexBuffer2;
+	case vkCmdBindVertexBuffers2;
+	case vkCmdSetDepthTestEnable;
+	case vkCmdSetDepthWriteEnable;
+	case vkCmdSetDepthCompareOp;
+	case vkCmdSetDepthBoundsTestEnable;
+	case vkCmdSetStencilTestEnable;
+	case vkCmdSetStencilOp;
+	case vkCmdSetPatchControlPointsEXT;
+	case vkCmdSetRasterizerDiscardEnable;
+	case vkCmdSetDepthBiasEnable;
+	case vkCmdSetLogicOpEXT;
+	case vkCmdSetPrimitiveRestartEnable;
+	case vkCmdSetTessellationDomainOriginEXT;
+	case vkCmdSetDepthClampEnableEXT;
+	case vkCmdSetPolygonModeEXT;
+	case vkCmdSetRasterizationSamplesEXT;
+	case vkCmdSetSampleMaskEXT;
+	case vkCmdSetAlphaToCoverageEnableEXT;
+	case vkCmdSetAlphaToOneEnableEXT;
+	case vkCmdSetLogicOpEnableEXT;
+	case vkCmdSetColorBlendEnableEXT;
+	case vkCmdSetColorBlendEquationEXT;
+	case vkCmdSetColorWriteMaskEXT;
+	case vkCmdSetRasterizationStreamEXT;
+	case vkCmdSetConservativeRasterizationModeEXT;
+	case vkCmdSetExtraPrimitiveOverestimationSizeEXT;
+	case vkCmdSetDepthClipEnableEXT;
+	case vkCmdSetSampleLocationsEnableEXT;
+	case vkCmdSetColorBlendAdvancedEXT;
+	case vkCmdSetProvokingVertexModeEXT;
+	case vkCmdSetLineRasterizationModeEXT;
+	case vkCmdSetLineStippleEnableEXT;
+	case vkCmdSetDepthClipNegativeOneToOneEXT;
+	case vkCmdSetViewportWScalingEnableNV;
+	case vkCmdSetViewportSwizzleNV;
+	case vkCmdSetCoverageToColorEnableNV;
+	case vkCmdSetCoverageToColorLocationNV;
+	case vkCmdSetCoverageModulationModeNV;
+	case vkCmdSetCoverageModulationTableEnableNV;
+	case vkCmdSetCoverageModulationTableNV;
+	case vkCmdSetShadingRateImageEnableNV;
+	case vkCmdSetCoverageReductionModeNV;
+	case vkCmdSetRepresentativeFragmentTestEnableNV;
+	case vkCreatePrivateDataSlot;
+	case vkDestroyPrivateDataSlot;
+	case vkSetPrivateData;
+	case vkGetPrivateData;
+	case vkCmdCopyBuffer2;
+	case vkCmdCopyImage2;
+	case vkCmdBlitImage2;
+	case vkCmdCopyBufferToImage2;
+	case vkCmdCopyImageToBuffer2;
+	case vkCmdResolveImage2;
+	case vkCmdSetFragmentShadingRateKHR;
+	case vkGetPhysicalDeviceFragmentShadingRatesKHR;
+	case vkCmdSetFragmentShadingRateEnumNV;
+	case vkGetAccelerationStructureBuildSizesKHR;
+	case vkCmdSetVertexInputEXT;
+	case vkCmdSetColorWriteEnableEXT;
+	case vkCmdSetEvent2;
+	case vkCmdResetEvent2;
+	case vkCmdWaitEvents2;
+	case vkCmdPipelineBarrier2;
+	case vkQueueSubmit2;
+	case vkCmdWriteTimestamp2;
+	case vkCmdWriteBufferMarker2AMD;
+	case vkGetQueueCheckpointData2NV;
+	case vkCopyMemoryToImage;
+	case vkCopyImageToMemory;
+	case vkCopyImageToImage;
+	case vkTransitionImageLayout;
+	case vkGetPhysicalDeviceVideoCapabilitiesKHR;
+	case vkGetPhysicalDeviceVideoFormatPropertiesKHR;
+	case vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR;
+	case vkCreateVideoSessionKHR;
+	case vkDestroyVideoSessionKHR;
+	case vkCreateVideoSessionParametersKHR;
+	case vkUpdateVideoSessionParametersKHR;
+	case vkGetEncodedVideoSessionParametersKHR;
+	case vkDestroyVideoSessionParametersKHR;
+	case vkGetVideoSessionMemoryRequirementsKHR;
+	case vkBindVideoSessionMemoryKHR;
+	case vkCmdDecodeVideoKHR;
+	case vkCmdBeginVideoCodingKHR;
+	case vkCmdControlVideoCodingKHR;
+	case vkCmdEndVideoCodingKHR;
+	case vkCmdEncodeVideoKHR;
+	case vkCmdDecompressMemoryNV;
+	case vkCmdDecompressMemoryIndirectCountNV;
+	case vkGetPartitionedAccelerationStructuresBuildSizesNV;
+	case vkCmdBuildPartitionedAccelerationStructuresNV;
+	case vkCreateCuModuleNVX;
+	case vkCreateCuFunctionNVX;
+	case vkDestroyCuModuleNVX;
+	case vkDestroyCuFunctionNVX;
+	case vkCmdCuLaunchKernelNVX;
+	case vkGetDescriptorSetLayoutSizeEXT;
+	case vkGetDescriptorSetLayoutBindingOffsetEXT;
+	case vkGetDescriptorEXT;
+	case vkCmdBindDescriptorBuffersEXT;
+	case vkCmdSetDescriptorBufferOffsetsEXT;
+	case vkCmdBindDescriptorBufferEmbeddedSamplersEXT;
+	case vkGetBufferOpaqueCaptureDescriptorDataEXT;
+	case vkGetImageOpaqueCaptureDescriptorDataEXT;
+	case vkGetImageViewOpaqueCaptureDescriptorDataEXT;
+	case vkGetSamplerOpaqueCaptureDescriptorDataEXT;
+	case vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT;
+	case vkSetDeviceMemoryPriorityEXT;
+	case vkAcquireDrmDisplayEXT;
+	case vkGetDrmDisplayEXT;
+	case vkWaitForPresent2KHR;
+	case vkWaitForPresentKHR;
+	case vkCmdBeginRendering;
+	case vkCmdEndRendering;
+	case vkCmdEndRendering2EXT;
+	case vkGetDescriptorSetLayoutHostMappingInfoVALVE;
+	case vkGetDescriptorSetHostMappingVALVE;
+	case vkCreateMicromapEXT;
+	case vkCmdBuildMicromapsEXT;
+	case vkBuildMicromapsEXT;
+	case vkDestroyMicromapEXT;
+	case vkCmdCopyMicromapEXT;
+	case vkCopyMicromapEXT;
+	case vkCmdCopyMicromapToMemoryEXT;
+	case vkCopyMicromapToMemoryEXT;
+	case vkCmdCopyMemoryToMicromapEXT;
+	case vkCopyMemoryToMicromapEXT;
+	case vkCmdWriteMicromapsPropertiesEXT;
+	case vkWriteMicromapsPropertiesEXT;
+	case vkGetDeviceMicromapCompatibilityEXT;
+	case vkGetMicromapBuildSizesEXT;
+	case vkGetShaderModuleIdentifierEXT;
+	case vkGetShaderModuleCreateInfoIdentifierEXT;
+	case vkGetImageSubresourceLayout2;
+	case vkGetPipelinePropertiesEXT;
+	case vkCmdBindTileMemoryQCOM;
+	case vkGetFramebufferTilePropertiesQCOM;
+	case vkGetDynamicRenderingTilePropertiesQCOM;
+	case vkGetPhysicalDeviceOpticalFlowImageFormatsNV;
+	case vkCreateOpticalFlowSessionNV;
+	case vkDestroyOpticalFlowSessionNV;
+	case vkBindOpticalFlowSessionImageNV;
+	case vkCmdOpticalFlowExecuteNV;
+	case vkGetDeviceFaultInfoEXT;
+	case vkCmdSetDepthBias2EXT;
+	case vkReleaseSwapchainImagesKHR;
+	case vkGetDeviceImageSubresourceLayout;
+	case vkMapMemory2;
+	case vkUnmapMemory2;
+	case vkCreateShadersEXT;
+	case vkDestroyShaderEXT;
+	case vkGetShaderBinaryDataEXT;
+	case vkCmdBindShadersEXT;
+	case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR;
+	case vkCmdBindDescriptorSets2;
+	case vkCmdPushConstants2;
+	case vkCmdPushDescriptorSet2;
+	case vkCmdPushDescriptorSetWithTemplate2;
+	case vkCmdSetDescriptorBufferOffsets2EXT;
+	case vkCmdBindDescriptorBufferEmbeddedSamplers2EXT;
+	case vkSetLatencySleepModeNV;
+	case vkLatencySleepNV;
+	case vkSetLatencyMarkerNV;
+	case vkGetLatencyTimingsNV;
+	case vkQueueNotifyOutOfBandNV;
+	case vkCmdSetRenderingAttachmentLocations;
+	case vkCmdSetRenderingInputAttachmentIndices;
+	case vkCmdSetDepthClampRangeEXT;
+	case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV;
+	case vkGetPhysicalDeviceCooperativeVectorPropertiesNV;
+	case vkConvertCooperativeVectorMatrixNV;
+	case vkCmdConvertCooperativeVectorMatrixNV;
+	case vkCmdDispatchTileQCOM;
+	case vkCmdBeginPerTileExecutionQCOM;
+	case vkCmdEndPerTileExecutionQCOM;
+	case vkCreateExternalComputeQueueNV;
+	case vkDestroyExternalComputeQueueNV;
+	case vkGetExternalComputeQueueDataNV;
+	case vkCreateTensorARM;
+	case vkDestroyTensorARM;
+	case vkCreateTensorViewARM;
+	case vkDestroyTensorViewARM;
+	case vkGetTensorMemoryRequirementsARM;
+	case vkBindTensorMemoryARM;
+	case vkGetDeviceTensorMemoryRequirementsARM;
+	case vkCmdCopyTensorARM;
+	case vkGetTensorOpaqueCaptureDescriptorDataARM;
+	case vkGetTensorViewOpaqueCaptureDescriptorDataARM;
+	case vkGetPhysicalDeviceExternalTensorPropertiesARM;
+	case vkCreateDataGraphPipelinesARM;
+	case vkCreateDataGraphPipelineSessionARM;
+	case vkGetDataGraphPipelineSessionBindPointRequirementsARM;
+	case vkGetDataGraphPipelineSessionMemoryRequirementsARM;
+	case vkBindDataGraphPipelineSessionMemoryARM;
+	case vkDestroyDataGraphPipelineSessionARM;
+	case vkCmdDispatchDataGraphARM;
+	case vkGetDataGraphPipelineAvailablePropertiesARM;
+	case vkGetDataGraphPipelinePropertiesARM;
+	case vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM;
+	case vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM;
+
+	public Type PFNType
+	{
+		get
+		{
+			switch (this)
+			{
+			case vkCreateInstance: return typeof(PFN_vkCreateInstance);
+			case vkDestroyInstance: return typeof(PFN_vkDestroyInstance);
+			case vkEnumeratePhysicalDevices: return typeof(PFN_vkEnumeratePhysicalDevices);
+			case vkGetDeviceProcAddr: return typeof(PFN_vkGetDeviceProcAddr);
+			case vkGetInstanceProcAddr: return typeof(PFN_vkGetInstanceProcAddr);
+			case vkGetPhysicalDeviceProperties: return typeof(PFN_vkGetPhysicalDeviceProperties);
+			case vkGetPhysicalDeviceQueueFamilyProperties: return typeof(PFN_vkGetPhysicalDeviceQueueFamilyProperties);
+			case vkGetPhysicalDeviceMemoryProperties: return typeof(PFN_vkGetPhysicalDeviceMemoryProperties);
+			case vkGetPhysicalDeviceFeatures: return typeof(PFN_vkGetPhysicalDeviceFeatures);
+			case vkGetPhysicalDeviceFormatProperties: return typeof(PFN_vkGetPhysicalDeviceFormatProperties);
+			case vkGetPhysicalDeviceImageFormatProperties: return typeof(PFN_vkGetPhysicalDeviceImageFormatProperties);
+			case vkCreateDevice: return typeof(PFN_vkCreateDevice);
+			case vkDestroyDevice: return typeof(PFN_vkDestroyDevice);
+			case vkEnumerateInstanceVersion: return typeof(PFN_vkEnumerateInstanceVersion);
+			case vkEnumerateInstanceLayerProperties: return typeof(PFN_vkEnumerateInstanceLayerProperties);
+			case vkEnumerateInstanceExtensionProperties: return typeof(PFN_vkEnumerateInstanceExtensionProperties);
+			case vkEnumerateDeviceLayerProperties: return typeof(PFN_vkEnumerateDeviceLayerProperties);
+			case vkEnumerateDeviceExtensionProperties: return typeof(PFN_vkEnumerateDeviceExtensionProperties);
+			case vkGetDeviceQueue: return typeof(PFN_vkGetDeviceQueue);
+			case vkQueueSubmit: return typeof(PFN_vkQueueSubmit);
+			case vkQueueWaitIdle: return typeof(PFN_vkQueueWaitIdle);
+			case vkDeviceWaitIdle: return typeof(PFN_vkDeviceWaitIdle);
+			case vkAllocateMemory: return typeof(PFN_vkAllocateMemory);
+			case vkFreeMemory: return typeof(PFN_vkFreeMemory);
+			case vkMapMemory: return typeof(PFN_vkMapMemory);
+			case vkUnmapMemory: return typeof(PFN_vkUnmapMemory);
+			case vkFlushMappedMemoryRanges: return typeof(PFN_vkFlushMappedMemoryRanges);
+			case vkInvalidateMappedMemoryRanges: return typeof(PFN_vkInvalidateMappedMemoryRanges);
+			case vkGetDeviceMemoryCommitment: return typeof(PFN_vkGetDeviceMemoryCommitment);
+			case vkGetBufferMemoryRequirements: return typeof(PFN_vkGetBufferMemoryRequirements);
+			case vkBindBufferMemory: return typeof(PFN_vkBindBufferMemory);
+			case vkGetImageMemoryRequirements: return typeof(PFN_vkGetImageMemoryRequirements);
+			case vkBindImageMemory: return typeof(PFN_vkBindImageMemory);
+			case vkGetImageSparseMemoryRequirements: return typeof(PFN_vkGetImageSparseMemoryRequirements);
+			case vkGetPhysicalDeviceSparseImageFormatProperties: return typeof(PFN_vkGetPhysicalDeviceSparseImageFormatProperties);
+			case vkQueueBindSparse: return typeof(PFN_vkQueueBindSparse);
+			case vkCreateFence: return typeof(PFN_vkCreateFence);
+			case vkDestroyFence: return typeof(PFN_vkDestroyFence);
+			case vkResetFences: return typeof(PFN_vkResetFences);
+			case vkGetFenceStatus: return typeof(PFN_vkGetFenceStatus);
+			case vkWaitForFences: return typeof(PFN_vkWaitForFences);
+			case vkCreateSemaphore: return typeof(PFN_vkCreateSemaphore);
+			case vkDestroySemaphore: return typeof(PFN_vkDestroySemaphore);
+			case vkCreateEvent: return typeof(PFN_vkCreateEvent);
+			case vkDestroyEvent: return typeof(PFN_vkDestroyEvent);
+			case vkGetEventStatus: return typeof(PFN_vkGetEventStatus);
+			case vkSetEvent: return typeof(PFN_vkSetEvent);
+			case vkResetEvent: return typeof(PFN_vkResetEvent);
+			case vkCreateQueryPool: return typeof(PFN_vkCreateQueryPool);
+			case vkDestroyQueryPool: return typeof(PFN_vkDestroyQueryPool);
+			case vkGetQueryPoolResults: return typeof(PFN_vkGetQueryPoolResults);
+			case vkResetQueryPool: return typeof(PFN_vkResetQueryPool);
+			case vkCreateBuffer: return typeof(PFN_vkCreateBuffer);
+			case vkDestroyBuffer: return typeof(PFN_vkDestroyBuffer);
+			case vkCreateBufferView: return typeof(PFN_vkCreateBufferView);
+			case vkDestroyBufferView: return typeof(PFN_vkDestroyBufferView);
+			case vkCreateImage: return typeof(PFN_vkCreateImage);
+			case vkDestroyImage: return typeof(PFN_vkDestroyImage);
+			case vkGetImageSubresourceLayout: return typeof(PFN_vkGetImageSubresourceLayout);
+			case vkCreateImageView: return typeof(PFN_vkCreateImageView);
+			case vkDestroyImageView: return typeof(PFN_vkDestroyImageView);
+			case vkCreateShaderModule: return typeof(PFN_vkCreateShaderModule);
+			case vkDestroyShaderModule: return typeof(PFN_vkDestroyShaderModule);
+			case vkCreatePipelineCache: return typeof(PFN_vkCreatePipelineCache);
+			case vkDestroyPipelineCache: return typeof(PFN_vkDestroyPipelineCache);
+			case vkGetPipelineCacheData: return typeof(PFN_vkGetPipelineCacheData);
+			case vkMergePipelineCaches: return typeof(PFN_vkMergePipelineCaches);
+			case vkCreatePipelineBinariesKHR: return typeof(PFN_vkCreatePipelineBinariesKHR);
+			case vkDestroyPipelineBinaryKHR: return typeof(PFN_vkDestroyPipelineBinaryKHR);
+			case vkGetPipelineKeyKHR: return typeof(PFN_vkGetPipelineKeyKHR);
+			case vkGetPipelineBinaryDataKHR: return typeof(PFN_vkGetPipelineBinaryDataKHR);
+			case vkReleaseCapturedPipelineDataKHR: return typeof(PFN_vkReleaseCapturedPipelineDataKHR);
+			case vkCreateGraphicsPipelines: return typeof(PFN_vkCreateGraphicsPipelines);
+			case vkCreateComputePipelines: return typeof(PFN_vkCreateComputePipelines);
+			case vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI: return typeof(PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI);
+			case vkDestroyPipeline: return typeof(PFN_vkDestroyPipeline);
+			case vkCreatePipelineLayout: return typeof(PFN_vkCreatePipelineLayout);
+			case vkDestroyPipelineLayout: return typeof(PFN_vkDestroyPipelineLayout);
+			case vkCreateSampler: return typeof(PFN_vkCreateSampler);
+			case vkDestroySampler: return typeof(PFN_vkDestroySampler);
+			case vkCreateDescriptorSetLayout: return typeof(PFN_vkCreateDescriptorSetLayout);
+			case vkDestroyDescriptorSetLayout: return typeof(PFN_vkDestroyDescriptorSetLayout);
+			case vkCreateDescriptorPool: return typeof(PFN_vkCreateDescriptorPool);
+			case vkDestroyDescriptorPool: return typeof(PFN_vkDestroyDescriptorPool);
+			case vkResetDescriptorPool: return typeof(PFN_vkResetDescriptorPool);
+			case vkAllocateDescriptorSets: return typeof(PFN_vkAllocateDescriptorSets);
+			case vkFreeDescriptorSets: return typeof(PFN_vkFreeDescriptorSets);
+			case vkUpdateDescriptorSets: return typeof(PFN_vkUpdateDescriptorSets);
+			case vkCreateFramebuffer: return typeof(PFN_vkCreateFramebuffer);
+			case vkDestroyFramebuffer: return typeof(PFN_vkDestroyFramebuffer);
+			case vkCreateRenderPass: return typeof(PFN_vkCreateRenderPass);
+			case vkDestroyRenderPass: return typeof(PFN_vkDestroyRenderPass);
+			case vkGetRenderAreaGranularity: return typeof(PFN_vkGetRenderAreaGranularity);
+			case vkGetRenderingAreaGranularity: return typeof(PFN_vkGetRenderingAreaGranularity);
+			case vkCreateCommandPool: return typeof(PFN_vkCreateCommandPool);
+			case vkDestroyCommandPool: return typeof(PFN_vkDestroyCommandPool);
+			case vkResetCommandPool: return typeof(PFN_vkResetCommandPool);
+			case vkAllocateCommandBuffers: return typeof(PFN_vkAllocateCommandBuffers);
+			case vkFreeCommandBuffers: return typeof(PFN_vkFreeCommandBuffers);
+			case vkBeginCommandBuffer: return typeof(PFN_vkBeginCommandBuffer);
+			case vkEndCommandBuffer: return typeof(PFN_vkEndCommandBuffer);
+			case vkResetCommandBuffer: return typeof(PFN_vkResetCommandBuffer);
+			case vkCmdBindPipeline: return typeof(PFN_vkCmdBindPipeline);
+			case vkCmdSetAttachmentFeedbackLoopEnableEXT: return typeof(PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT);
+			case vkCmdSetViewport: return typeof(PFN_vkCmdSetViewport);
+			case vkCmdSetScissor: return typeof(PFN_vkCmdSetScissor);
+			case vkCmdSetLineWidth: return typeof(PFN_vkCmdSetLineWidth);
+			case vkCmdSetDepthBias: return typeof(PFN_vkCmdSetDepthBias);
+			case vkCmdSetBlendConstants: return typeof(PFN_vkCmdSetBlendConstants);
+			case vkCmdSetDepthBounds: return typeof(PFN_vkCmdSetDepthBounds);
+			case vkCmdSetStencilCompareMask: return typeof(PFN_vkCmdSetStencilCompareMask);
+			case vkCmdSetStencilWriteMask: return typeof(PFN_vkCmdSetStencilWriteMask);
+			case vkCmdSetStencilReference: return typeof(PFN_vkCmdSetStencilReference);
+			case vkCmdBindDescriptorSets: return typeof(PFN_vkCmdBindDescriptorSets);
+			case vkCmdBindIndexBuffer: return typeof(PFN_vkCmdBindIndexBuffer);
+			case vkCmdBindVertexBuffers: return typeof(PFN_vkCmdBindVertexBuffers);
+			case vkCmdDraw: return typeof(PFN_vkCmdDraw);
+			case vkCmdDrawIndexed: return typeof(PFN_vkCmdDrawIndexed);
+			case vkCmdDrawMultiEXT: return typeof(PFN_vkCmdDrawMultiEXT);
+			case vkCmdDrawMultiIndexedEXT: return typeof(PFN_vkCmdDrawMultiIndexedEXT);
+			case vkCmdDrawIndirect: return typeof(PFN_vkCmdDrawIndirect);
+			case vkCmdDrawIndexedIndirect: return typeof(PFN_vkCmdDrawIndexedIndirect);
+			case vkCmdDispatch: return typeof(PFN_vkCmdDispatch);
+			case vkCmdDispatchIndirect: return typeof(PFN_vkCmdDispatchIndirect);
+			case vkCmdSubpassShadingHUAWEI: return typeof(PFN_vkCmdSubpassShadingHUAWEI);
+			case vkCmdDrawClusterHUAWEI: return typeof(PFN_vkCmdDrawClusterHUAWEI);
+			case vkCmdDrawClusterIndirectHUAWEI: return typeof(PFN_vkCmdDrawClusterIndirectHUAWEI);
+			case vkCmdUpdatePipelineIndirectBufferNV: return typeof(PFN_vkCmdUpdatePipelineIndirectBufferNV);
+			case vkCmdCopyBuffer: return typeof(PFN_vkCmdCopyBuffer);
+			case vkCmdCopyImage: return typeof(PFN_vkCmdCopyImage);
+			case vkCmdBlitImage: return typeof(PFN_vkCmdBlitImage);
+			case vkCmdCopyBufferToImage: return typeof(PFN_vkCmdCopyBufferToImage);
+			case vkCmdCopyImageToBuffer: return typeof(PFN_vkCmdCopyImageToBuffer);
+			case vkCmdCopyMemoryIndirectNV: return typeof(PFN_vkCmdCopyMemoryIndirectNV);
+			case vkCmdCopyMemoryToImageIndirectNV: return typeof(PFN_vkCmdCopyMemoryToImageIndirectNV);
+			case vkCmdUpdateBuffer: return typeof(PFN_vkCmdUpdateBuffer);
+			case vkCmdFillBuffer: return typeof(PFN_vkCmdFillBuffer);
+			case vkCmdClearColorImage: return typeof(PFN_vkCmdClearColorImage);
+			case vkCmdClearDepthStencilImage: return typeof(PFN_vkCmdClearDepthStencilImage);
+			case vkCmdClearAttachments: return typeof(PFN_vkCmdClearAttachments);
+			case vkCmdResolveImage: return typeof(PFN_vkCmdResolveImage);
+			case vkCmdSetEvent: return typeof(PFN_vkCmdSetEvent);
+			case vkCmdResetEvent: return typeof(PFN_vkCmdResetEvent);
+			case vkCmdWaitEvents: return typeof(PFN_vkCmdWaitEvents);
+			case vkCmdPipelineBarrier: return typeof(PFN_vkCmdPipelineBarrier);
+			case vkCmdBeginQuery: return typeof(PFN_vkCmdBeginQuery);
+			case vkCmdEndQuery: return typeof(PFN_vkCmdEndQuery);
+			case vkCmdBeginConditionalRenderingEXT: return typeof(PFN_vkCmdBeginConditionalRenderingEXT);
+			case vkCmdEndConditionalRenderingEXT: return typeof(PFN_vkCmdEndConditionalRenderingEXT);
+			case vkCmdResetQueryPool: return typeof(PFN_vkCmdResetQueryPool);
+			case vkCmdWriteTimestamp: return typeof(PFN_vkCmdWriteTimestamp);
+			case vkCmdCopyQueryPoolResults: return typeof(PFN_vkCmdCopyQueryPoolResults);
+			case vkCmdPushConstants: return typeof(PFN_vkCmdPushConstants);
+			case vkCmdBeginRenderPass: return typeof(PFN_vkCmdBeginRenderPass);
+			case vkCmdNextSubpass: return typeof(PFN_vkCmdNextSubpass);
+			case vkCmdEndRenderPass: return typeof(PFN_vkCmdEndRenderPass);
+			case vkCmdExecuteCommands: return typeof(PFN_vkCmdExecuteCommands);
+			case vkGetPhysicalDeviceDisplayPropertiesKHR: return typeof(PFN_vkGetPhysicalDeviceDisplayPropertiesKHR);
+			case vkGetPhysicalDeviceDisplayPlanePropertiesKHR: return typeof(PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR);
+			case vkGetDisplayPlaneSupportedDisplaysKHR: return typeof(PFN_vkGetDisplayPlaneSupportedDisplaysKHR);
+			case vkGetDisplayModePropertiesKHR: return typeof(PFN_vkGetDisplayModePropertiesKHR);
+			case vkCreateDisplayModeKHR: return typeof(PFN_vkCreateDisplayModeKHR);
+			case vkGetDisplayPlaneCapabilitiesKHR: return typeof(PFN_vkGetDisplayPlaneCapabilitiesKHR);
+			case vkCreateDisplayPlaneSurfaceKHR: return typeof(PFN_vkCreateDisplayPlaneSurfaceKHR);
+			case vkCreateSharedSwapchainsKHR: return typeof(PFN_vkCreateSharedSwapchainsKHR);
+			case vkDestroySurfaceKHR: return typeof(PFN_vkDestroySurfaceKHR);
+			case vkGetPhysicalDeviceSurfaceSupportKHR: return typeof(PFN_vkGetPhysicalDeviceSurfaceSupportKHR);
+			case vkGetPhysicalDeviceSurfaceCapabilitiesKHR: return typeof(PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR);
+			case vkGetPhysicalDeviceSurfaceFormatsKHR: return typeof(PFN_vkGetPhysicalDeviceSurfaceFormatsKHR);
+			case vkGetPhysicalDeviceSurfacePresentModesKHR: return typeof(PFN_vkGetPhysicalDeviceSurfacePresentModesKHR);
+			case vkCreateSwapchainKHR: return typeof(PFN_vkCreateSwapchainKHR);
+			case vkDestroySwapchainKHR: return typeof(PFN_vkDestroySwapchainKHR);
+			case vkGetSwapchainImagesKHR: return typeof(PFN_vkGetSwapchainImagesKHR);
+			case vkAcquireNextImageKHR: return typeof(PFN_vkAcquireNextImageKHR);
+			case vkQueuePresentKHR: return typeof(PFN_vkQueuePresentKHR);
+			case vkCreateDebugReportCallbackEXT: return typeof(PFN_vkCreateDebugReportCallbackEXT);
+			case vkDestroyDebugReportCallbackEXT: return typeof(PFN_vkDestroyDebugReportCallbackEXT);
+			case vkDebugReportMessageEXT: return typeof(PFN_vkDebugReportMessageEXT);
+			case vkDebugMarkerSetObjectNameEXT: return typeof(PFN_vkDebugMarkerSetObjectNameEXT);
+			case vkDebugMarkerSetObjectTagEXT: return typeof(PFN_vkDebugMarkerSetObjectTagEXT);
+			case vkCmdDebugMarkerBeginEXT: return typeof(PFN_vkCmdDebugMarkerBeginEXT);
+			case vkCmdDebugMarkerEndEXT: return typeof(PFN_vkCmdDebugMarkerEndEXT);
+			case vkCmdDebugMarkerInsertEXT: return typeof(PFN_vkCmdDebugMarkerInsertEXT);
+			case vkGetPhysicalDeviceExternalImageFormatPropertiesNV: return typeof(PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV);
+			case vkCmdExecuteGeneratedCommandsNV: return typeof(PFN_vkCmdExecuteGeneratedCommandsNV);
+			case vkCmdPreprocessGeneratedCommandsNV: return typeof(PFN_vkCmdPreprocessGeneratedCommandsNV);
+			case vkCmdBindPipelineShaderGroupNV: return typeof(PFN_vkCmdBindPipelineShaderGroupNV);
+			case vkGetGeneratedCommandsMemoryRequirementsNV: return typeof(PFN_vkGetGeneratedCommandsMemoryRequirementsNV);
+			case vkCreateIndirectCommandsLayoutNV: return typeof(PFN_vkCreateIndirectCommandsLayoutNV);
+			case vkDestroyIndirectCommandsLayoutNV: return typeof(PFN_vkDestroyIndirectCommandsLayoutNV);
+			case vkCmdExecuteGeneratedCommandsEXT: return typeof(PFN_vkCmdExecuteGeneratedCommandsEXT);
+			case vkCmdPreprocessGeneratedCommandsEXT: return typeof(PFN_vkCmdPreprocessGeneratedCommandsEXT);
+			case vkGetGeneratedCommandsMemoryRequirementsEXT: return typeof(PFN_vkGetGeneratedCommandsMemoryRequirementsEXT);
+			case vkCreateIndirectCommandsLayoutEXT: return typeof(PFN_vkCreateIndirectCommandsLayoutEXT);
+			case vkDestroyIndirectCommandsLayoutEXT: return typeof(PFN_vkDestroyIndirectCommandsLayoutEXT);
+			case vkCreateIndirectExecutionSetEXT: return typeof(PFN_vkCreateIndirectExecutionSetEXT);
+			case vkDestroyIndirectExecutionSetEXT: return typeof(PFN_vkDestroyIndirectExecutionSetEXT);
+			case vkUpdateIndirectExecutionSetPipelineEXT: return typeof(PFN_vkUpdateIndirectExecutionSetPipelineEXT);
+			case vkUpdateIndirectExecutionSetShaderEXT: return typeof(PFN_vkUpdateIndirectExecutionSetShaderEXT);
+			case vkGetPhysicalDeviceFeatures2: return typeof(PFN_vkGetPhysicalDeviceFeatures2);
+			case vkGetPhysicalDeviceProperties2: return typeof(PFN_vkGetPhysicalDeviceProperties2);
+			case vkGetPhysicalDeviceFormatProperties2: return typeof(PFN_vkGetPhysicalDeviceFormatProperties2);
+			case vkGetPhysicalDeviceImageFormatProperties2: return typeof(PFN_vkGetPhysicalDeviceImageFormatProperties2);
+			case vkGetPhysicalDeviceQueueFamilyProperties2: return typeof(PFN_vkGetPhysicalDeviceQueueFamilyProperties2);
+			case vkGetPhysicalDeviceMemoryProperties2: return typeof(PFN_vkGetPhysicalDeviceMemoryProperties2);
+			case vkGetPhysicalDeviceSparseImageFormatProperties2: return typeof(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2);
+			case vkCmdPushDescriptorSet: return typeof(PFN_vkCmdPushDescriptorSet);
+			case vkTrimCommandPool: return typeof(PFN_vkTrimCommandPool);
+			case vkGetPhysicalDeviceExternalBufferProperties: return typeof(PFN_vkGetPhysicalDeviceExternalBufferProperties);
+			case vkGetMemoryFdKHR: return typeof(PFN_vkGetMemoryFdKHR);
+			case vkGetMemoryFdPropertiesKHR: return typeof(PFN_vkGetMemoryFdPropertiesKHR);
+			case vkGetMemoryRemoteAddressNV: return typeof(PFN_vkGetMemoryRemoteAddressNV);
+			case vkGetPhysicalDeviceExternalSemaphoreProperties: return typeof(PFN_vkGetPhysicalDeviceExternalSemaphoreProperties);
+			case vkGetSemaphoreFdKHR: return typeof(PFN_vkGetSemaphoreFdKHR);
+			case vkImportSemaphoreFdKHR: return typeof(PFN_vkImportSemaphoreFdKHR);
+			case vkGetPhysicalDeviceExternalFenceProperties: return typeof(PFN_vkGetPhysicalDeviceExternalFenceProperties);
+			case vkGetFenceFdKHR: return typeof(PFN_vkGetFenceFdKHR);
+			case vkImportFenceFdKHR: return typeof(PFN_vkImportFenceFdKHR);
+			case vkReleaseDisplayEXT: return typeof(PFN_vkReleaseDisplayEXT);
+			case vkDisplayPowerControlEXT: return typeof(PFN_vkDisplayPowerControlEXT);
+			case vkRegisterDeviceEventEXT: return typeof(PFN_vkRegisterDeviceEventEXT);
+			case vkRegisterDisplayEventEXT: return typeof(PFN_vkRegisterDisplayEventEXT);
+			case vkGetSwapchainCounterEXT: return typeof(PFN_vkGetSwapchainCounterEXT);
+			case vkGetPhysicalDeviceSurfaceCapabilities2EXT: return typeof(PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT);
+			case vkEnumeratePhysicalDeviceGroups: return typeof(PFN_vkEnumeratePhysicalDeviceGroups);
+			case vkGetDeviceGroupPeerMemoryFeatures: return typeof(PFN_vkGetDeviceGroupPeerMemoryFeatures);
+			case vkBindBufferMemory2: return typeof(PFN_vkBindBufferMemory2);
+			case vkBindImageMemory2: return typeof(PFN_vkBindImageMemory2);
+			case vkCmdSetDeviceMask: return typeof(PFN_vkCmdSetDeviceMask);
+			case vkGetDeviceGroupPresentCapabilitiesKHR: return typeof(PFN_vkGetDeviceGroupPresentCapabilitiesKHR);
+			case vkGetDeviceGroupSurfacePresentModesKHR: return typeof(PFN_vkGetDeviceGroupSurfacePresentModesKHR);
+			case vkAcquireNextImage2KHR: return typeof(PFN_vkAcquireNextImage2KHR);
+			case vkCmdDispatchBase: return typeof(PFN_vkCmdDispatchBase);
+			case vkGetPhysicalDevicePresentRectanglesKHR: return typeof(PFN_vkGetPhysicalDevicePresentRectanglesKHR);
+			case vkCreateDescriptorUpdateTemplate: return typeof(PFN_vkCreateDescriptorUpdateTemplate);
+			case vkDestroyDescriptorUpdateTemplate: return typeof(PFN_vkDestroyDescriptorUpdateTemplate);
+			case vkUpdateDescriptorSetWithTemplate: return typeof(PFN_vkUpdateDescriptorSetWithTemplate);
+			case vkCmdPushDescriptorSetWithTemplate: return typeof(PFN_vkCmdPushDescriptorSetWithTemplate);
+			case vkSetHdrMetadataEXT: return typeof(PFN_vkSetHdrMetadataEXT);
+			case vkGetSwapchainStatusKHR: return typeof(PFN_vkGetSwapchainStatusKHR);
+			case vkGetRefreshCycleDurationGOOGLE: return typeof(PFN_vkGetRefreshCycleDurationGOOGLE);
+			case vkGetPastPresentationTimingGOOGLE: return typeof(PFN_vkGetPastPresentationTimingGOOGLE);
+			case vkCmdSetViewportWScalingNV: return typeof(PFN_vkCmdSetViewportWScalingNV);
+			case vkCmdSetDiscardRectangleEXT: return typeof(PFN_vkCmdSetDiscardRectangleEXT);
+			case vkCmdSetDiscardRectangleEnableEXT: return typeof(PFN_vkCmdSetDiscardRectangleEnableEXT);
+			case vkCmdSetDiscardRectangleModeEXT: return typeof(PFN_vkCmdSetDiscardRectangleModeEXT);
+			case vkCmdSetSampleLocationsEXT: return typeof(PFN_vkCmdSetSampleLocationsEXT);
+			case vkGetPhysicalDeviceMultisamplePropertiesEXT: return typeof(PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT);
+			case vkGetPhysicalDeviceSurfaceCapabilities2KHR: return typeof(PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR);
+			case vkGetPhysicalDeviceSurfaceFormats2KHR: return typeof(PFN_vkGetPhysicalDeviceSurfaceFormats2KHR);
+			case vkGetPhysicalDeviceDisplayProperties2KHR: return typeof(PFN_vkGetPhysicalDeviceDisplayProperties2KHR);
+			case vkGetPhysicalDeviceDisplayPlaneProperties2KHR: return typeof(PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR);
+			case vkGetDisplayModeProperties2KHR: return typeof(PFN_vkGetDisplayModeProperties2KHR);
+			case vkGetDisplayPlaneCapabilities2KHR: return typeof(PFN_vkGetDisplayPlaneCapabilities2KHR);
+			case vkGetBufferMemoryRequirements2: return typeof(PFN_vkGetBufferMemoryRequirements2);
+			case vkGetImageMemoryRequirements2: return typeof(PFN_vkGetImageMemoryRequirements2);
+			case vkGetImageSparseMemoryRequirements2: return typeof(PFN_vkGetImageSparseMemoryRequirements2);
+			case vkGetDeviceBufferMemoryRequirements: return typeof(PFN_vkGetDeviceBufferMemoryRequirements);
+			case vkGetDeviceImageMemoryRequirements: return typeof(PFN_vkGetDeviceImageMemoryRequirements);
+			case vkGetDeviceImageSparseMemoryRequirements: return typeof(PFN_vkGetDeviceImageSparseMemoryRequirements);
+			case vkCreateSamplerYcbcrConversion: return typeof(PFN_vkCreateSamplerYcbcrConversion);
+			case vkDestroySamplerYcbcrConversion: return typeof(PFN_vkDestroySamplerYcbcrConversion);
+			case vkGetDeviceQueue2: return typeof(PFN_vkGetDeviceQueue2);
+			case vkCreateValidationCacheEXT: return typeof(PFN_vkCreateValidationCacheEXT);
+			case vkDestroyValidationCacheEXT: return typeof(PFN_vkDestroyValidationCacheEXT);
+			case vkGetValidationCacheDataEXT: return typeof(PFN_vkGetValidationCacheDataEXT);
+			case vkMergeValidationCachesEXT: return typeof(PFN_vkMergeValidationCachesEXT);
+			case vkGetDescriptorSetLayoutSupport: return typeof(PFN_vkGetDescriptorSetLayoutSupport);
+			case vkGetShaderInfoAMD: return typeof(PFN_vkGetShaderInfoAMD);
+			case vkSetLocalDimmingAMD: return typeof(PFN_vkSetLocalDimmingAMD);
+			case vkGetPhysicalDeviceCalibrateableTimeDomainsKHR: return typeof(PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsKHR);
+			case vkGetCalibratedTimestampsKHR: return typeof(PFN_vkGetCalibratedTimestampsKHR);
+			case vkSetDebugUtilsObjectNameEXT: return typeof(PFN_vkSetDebugUtilsObjectNameEXT);
+			case vkSetDebugUtilsObjectTagEXT: return typeof(PFN_vkSetDebugUtilsObjectTagEXT);
+			case vkQueueBeginDebugUtilsLabelEXT: return typeof(PFN_vkQueueBeginDebugUtilsLabelEXT);
+			case vkQueueEndDebugUtilsLabelEXT: return typeof(PFN_vkQueueEndDebugUtilsLabelEXT);
+			case vkQueueInsertDebugUtilsLabelEXT: return typeof(PFN_vkQueueInsertDebugUtilsLabelEXT);
+			case vkCmdBeginDebugUtilsLabelEXT: return typeof(PFN_vkCmdBeginDebugUtilsLabelEXT);
+			case vkCmdEndDebugUtilsLabelEXT: return typeof(PFN_vkCmdEndDebugUtilsLabelEXT);
+			case vkCmdInsertDebugUtilsLabelEXT: return typeof(PFN_vkCmdInsertDebugUtilsLabelEXT);
+			case vkCreateDebugUtilsMessengerEXT: return typeof(PFN_vkCreateDebugUtilsMessengerEXT);
+			case vkDestroyDebugUtilsMessengerEXT: return typeof(PFN_vkDestroyDebugUtilsMessengerEXT);
+			case vkSubmitDebugUtilsMessageEXT: return typeof(PFN_vkSubmitDebugUtilsMessageEXT);
+			case vkGetMemoryHostPointerPropertiesEXT: return typeof(PFN_vkGetMemoryHostPointerPropertiesEXT);
+			case vkCmdWriteBufferMarkerAMD: return typeof(PFN_vkCmdWriteBufferMarkerAMD);
+			case vkCreateRenderPass2: return typeof(PFN_vkCreateRenderPass2);
+			case vkCmdBeginRenderPass2: return typeof(PFN_vkCmdBeginRenderPass2);
+			case vkCmdNextSubpass2: return typeof(PFN_vkCmdNextSubpass2);
+			case vkCmdEndRenderPass2: return typeof(PFN_vkCmdEndRenderPass2);
+			case vkGetSemaphoreCounterValue: return typeof(PFN_vkGetSemaphoreCounterValue);
+			case vkWaitSemaphores: return typeof(PFN_vkWaitSemaphores);
+			case vkSignalSemaphore: return typeof(PFN_vkSignalSemaphore);
+			case vkCmdDrawIndirectCount: return typeof(PFN_vkCmdDrawIndirectCount);
+			case vkCmdDrawIndexedIndirectCount: return typeof(PFN_vkCmdDrawIndexedIndirectCount);
+			case vkCmdSetCheckpointNV: return typeof(PFN_vkCmdSetCheckpointNV);
+			case vkGetQueueCheckpointDataNV: return typeof(PFN_vkGetQueueCheckpointDataNV);
+			case vkCmdBindTransformFeedbackBuffersEXT: return typeof(PFN_vkCmdBindTransformFeedbackBuffersEXT);
+			case vkCmdBeginTransformFeedbackEXT: return typeof(PFN_vkCmdBeginTransformFeedbackEXT);
+			case vkCmdEndTransformFeedbackEXT: return typeof(PFN_vkCmdEndTransformFeedbackEXT);
+			case vkCmdBeginQueryIndexedEXT: return typeof(PFN_vkCmdBeginQueryIndexedEXT);
+			case vkCmdEndQueryIndexedEXT: return typeof(PFN_vkCmdEndQueryIndexedEXT);
+			case vkCmdDrawIndirectByteCountEXT: return typeof(PFN_vkCmdDrawIndirectByteCountEXT);
+			case vkCmdSetExclusiveScissorNV: return typeof(PFN_vkCmdSetExclusiveScissorNV);
+			case vkCmdSetExclusiveScissorEnableNV: return typeof(PFN_vkCmdSetExclusiveScissorEnableNV);
+			case vkCmdBindShadingRateImageNV: return typeof(PFN_vkCmdBindShadingRateImageNV);
+			case vkCmdSetViewportShadingRatePaletteNV: return typeof(PFN_vkCmdSetViewportShadingRatePaletteNV);
+			case vkCmdSetCoarseSampleOrderNV: return typeof(PFN_vkCmdSetCoarseSampleOrderNV);
+			case vkCmdDrawMeshTasksNV: return typeof(PFN_vkCmdDrawMeshTasksNV);
+			case vkCmdDrawMeshTasksIndirectNV: return typeof(PFN_vkCmdDrawMeshTasksIndirectNV);
+			case vkCmdDrawMeshTasksIndirectCountNV: return typeof(PFN_vkCmdDrawMeshTasksIndirectCountNV);
+			case vkCmdDrawMeshTasksEXT: return typeof(PFN_vkCmdDrawMeshTasksEXT);
+			case vkCmdDrawMeshTasksIndirectEXT: return typeof(PFN_vkCmdDrawMeshTasksIndirectEXT);
+			case vkCmdDrawMeshTasksIndirectCountEXT: return typeof(PFN_vkCmdDrawMeshTasksIndirectCountEXT);
+			case vkCompileDeferredNV: return typeof(PFN_vkCompileDeferredNV);
+			case vkCreateAccelerationStructureNV: return typeof(PFN_vkCreateAccelerationStructureNV);
+			case vkCmdBindInvocationMaskHUAWEI: return typeof(PFN_vkCmdBindInvocationMaskHUAWEI);
+			case vkDestroyAccelerationStructureKHR: return typeof(PFN_vkDestroyAccelerationStructureKHR);
+			case vkDestroyAccelerationStructureNV: return typeof(PFN_vkDestroyAccelerationStructureNV);
+			case vkGetAccelerationStructureMemoryRequirementsNV: return typeof(PFN_vkGetAccelerationStructureMemoryRequirementsNV);
+			case vkBindAccelerationStructureMemoryNV: return typeof(PFN_vkBindAccelerationStructureMemoryNV);
+			case vkCmdCopyAccelerationStructureNV: return typeof(PFN_vkCmdCopyAccelerationStructureNV);
+			case vkCmdCopyAccelerationStructureKHR: return typeof(PFN_vkCmdCopyAccelerationStructureKHR);
+			case vkCopyAccelerationStructureKHR: return typeof(PFN_vkCopyAccelerationStructureKHR);
+			case vkCmdCopyAccelerationStructureToMemoryKHR: return typeof(PFN_vkCmdCopyAccelerationStructureToMemoryKHR);
+			case vkCopyAccelerationStructureToMemoryKHR: return typeof(PFN_vkCopyAccelerationStructureToMemoryKHR);
+			case vkCmdCopyMemoryToAccelerationStructureKHR: return typeof(PFN_vkCmdCopyMemoryToAccelerationStructureKHR);
+			case vkCopyMemoryToAccelerationStructureKHR: return typeof(PFN_vkCopyMemoryToAccelerationStructureKHR);
+			case vkCmdWriteAccelerationStructuresPropertiesKHR: return typeof(PFN_vkCmdWriteAccelerationStructuresPropertiesKHR);
+			case vkCmdWriteAccelerationStructuresPropertiesNV: return typeof(PFN_vkCmdWriteAccelerationStructuresPropertiesNV);
+			case vkCmdBuildAccelerationStructureNV: return typeof(PFN_vkCmdBuildAccelerationStructureNV);
+			case vkWriteAccelerationStructuresPropertiesKHR: return typeof(PFN_vkWriteAccelerationStructuresPropertiesKHR);
+			case vkCmdTraceRaysKHR: return typeof(PFN_vkCmdTraceRaysKHR);
+			case vkCmdTraceRaysNV: return typeof(PFN_vkCmdTraceRaysNV);
+			case vkGetRayTracingShaderGroupHandlesKHR: return typeof(PFN_vkGetRayTracingShaderGroupHandlesKHR);
+			case vkGetRayTracingCaptureReplayShaderGroupHandlesKHR: return typeof(PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR);
+			case vkGetAccelerationStructureHandleNV: return typeof(PFN_vkGetAccelerationStructureHandleNV);
+			case vkCreateRayTracingPipelinesNV: return typeof(PFN_vkCreateRayTracingPipelinesNV);
+			case vkCreateRayTracingPipelinesKHR: return typeof(PFN_vkCreateRayTracingPipelinesKHR);
+			case vkGetPhysicalDeviceCooperativeMatrixPropertiesNV: return typeof(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV);
+			case vkCmdTraceRaysIndirectKHR: return typeof(PFN_vkCmdTraceRaysIndirectKHR);
+			case vkCmdTraceRaysIndirect2KHR: return typeof(PFN_vkCmdTraceRaysIndirect2KHR);
+			case vkGetClusterAccelerationStructureBuildSizesNV: return typeof(PFN_vkGetClusterAccelerationStructureBuildSizesNV);
+			case vkCmdBuildClusterAccelerationStructureIndirectNV: return typeof(PFN_vkCmdBuildClusterAccelerationStructureIndirectNV);
+			case vkGetDeviceAccelerationStructureCompatibilityKHR: return typeof(PFN_vkGetDeviceAccelerationStructureCompatibilityKHR);
+			case vkGetRayTracingShaderGroupStackSizeKHR: return typeof(PFN_vkGetRayTracingShaderGroupStackSizeKHR);
+			case vkCmdSetRayTracingPipelineStackSizeKHR: return typeof(PFN_vkCmdSetRayTracingPipelineStackSizeKHR);
+			case vkGetImageViewHandleNVX: return typeof(PFN_vkGetImageViewHandleNVX);
+			case vkGetImageViewHandle64NVX: return typeof(PFN_vkGetImageViewHandle64NVX);
+			case vkGetImageViewAddressNVX: return typeof(PFN_vkGetImageViewAddressNVX);
+			case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR: return typeof(PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR);
+			case vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR: return typeof(PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR);
+			case vkAcquireProfilingLockKHR: return typeof(PFN_vkAcquireProfilingLockKHR);
+			case vkReleaseProfilingLockKHR: return typeof(PFN_vkReleaseProfilingLockKHR);
+			case vkGetImageDrmFormatModifierPropertiesEXT: return typeof(PFN_vkGetImageDrmFormatModifierPropertiesEXT);
+			case vkGetBufferOpaqueCaptureAddress: return typeof(PFN_vkGetBufferOpaqueCaptureAddress);
+			case vkGetBufferDeviceAddress: return typeof(PFN_vkGetBufferDeviceAddress);
+			case vkCreateHeadlessSurfaceEXT: return typeof(PFN_vkCreateHeadlessSurfaceEXT);
+			case vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV: return typeof(PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV);
+			case vkInitializePerformanceApiINTEL: return typeof(PFN_vkInitializePerformanceApiINTEL);
+			case vkUninitializePerformanceApiINTEL: return typeof(PFN_vkUninitializePerformanceApiINTEL);
+			case vkCmdSetPerformanceMarkerINTEL: return typeof(PFN_vkCmdSetPerformanceMarkerINTEL);
+			case vkCmdSetPerformanceStreamMarkerINTEL: return typeof(PFN_vkCmdSetPerformanceStreamMarkerINTEL);
+			case vkCmdSetPerformanceOverrideINTEL: return typeof(PFN_vkCmdSetPerformanceOverrideINTEL);
+			case vkAcquirePerformanceConfigurationINTEL: return typeof(PFN_vkAcquirePerformanceConfigurationINTEL);
+			case vkReleasePerformanceConfigurationINTEL: return typeof(PFN_vkReleasePerformanceConfigurationINTEL);
+			case vkQueueSetPerformanceConfigurationINTEL: return typeof(PFN_vkQueueSetPerformanceConfigurationINTEL);
+			case vkGetPerformanceParameterINTEL: return typeof(PFN_vkGetPerformanceParameterINTEL);
+			case vkGetDeviceMemoryOpaqueCaptureAddress: return typeof(PFN_vkGetDeviceMemoryOpaqueCaptureAddress);
+			case vkGetPipelineExecutablePropertiesKHR: return typeof(PFN_vkGetPipelineExecutablePropertiesKHR);
+			case vkGetPipelineExecutableStatisticsKHR: return typeof(PFN_vkGetPipelineExecutableStatisticsKHR);
+			case vkGetPipelineExecutableInternalRepresentationsKHR: return typeof(PFN_vkGetPipelineExecutableInternalRepresentationsKHR);
+			case vkCmdSetLineStipple: return typeof(PFN_vkCmdSetLineStipple);
+			case vkGetPhysicalDeviceToolProperties: return typeof(PFN_vkGetPhysicalDeviceToolProperties);
+			case vkCreateAccelerationStructureKHR: return typeof(PFN_vkCreateAccelerationStructureKHR);
+			case vkCmdBuildAccelerationStructuresKHR: return typeof(PFN_vkCmdBuildAccelerationStructuresKHR);
+			case vkCmdBuildAccelerationStructuresIndirectKHR: return typeof(PFN_vkCmdBuildAccelerationStructuresIndirectKHR);
+			case vkBuildAccelerationStructuresKHR: return typeof(PFN_vkBuildAccelerationStructuresKHR);
+			case vkGetAccelerationStructureDeviceAddressKHR: return typeof(PFN_vkGetAccelerationStructureDeviceAddressKHR);
+			case vkCreateDeferredOperationKHR: return typeof(PFN_vkCreateDeferredOperationKHR);
+			case vkDestroyDeferredOperationKHR: return typeof(PFN_vkDestroyDeferredOperationKHR);
+			case vkGetDeferredOperationMaxConcurrencyKHR: return typeof(PFN_vkGetDeferredOperationMaxConcurrencyKHR);
+			case vkGetDeferredOperationResultKHR: return typeof(PFN_vkGetDeferredOperationResultKHR);
+			case vkDeferredOperationJoinKHR: return typeof(PFN_vkDeferredOperationJoinKHR);
+			case vkGetPipelineIndirectMemoryRequirementsNV: return typeof(PFN_vkGetPipelineIndirectMemoryRequirementsNV);
+			case vkGetPipelineIndirectDeviceAddressNV: return typeof(PFN_vkGetPipelineIndirectDeviceAddressNV);
+			case vkAntiLagUpdateAMD: return typeof(PFN_vkAntiLagUpdateAMD);
+			case vkCmdSetCullMode: return typeof(PFN_vkCmdSetCullMode);
+			case vkCmdSetFrontFace: return typeof(PFN_vkCmdSetFrontFace);
+			case vkCmdSetPrimitiveTopology: return typeof(PFN_vkCmdSetPrimitiveTopology);
+			case vkCmdSetViewportWithCount: return typeof(PFN_vkCmdSetViewportWithCount);
+			case vkCmdSetScissorWithCount: return typeof(PFN_vkCmdSetScissorWithCount);
+			case vkCmdBindIndexBuffer2: return typeof(PFN_vkCmdBindIndexBuffer2);
+			case vkCmdBindVertexBuffers2: return typeof(PFN_vkCmdBindVertexBuffers2);
+			case vkCmdSetDepthTestEnable: return typeof(PFN_vkCmdSetDepthTestEnable);
+			case vkCmdSetDepthWriteEnable: return typeof(PFN_vkCmdSetDepthWriteEnable);
+			case vkCmdSetDepthCompareOp: return typeof(PFN_vkCmdSetDepthCompareOp);
+			case vkCmdSetDepthBoundsTestEnable: return typeof(PFN_vkCmdSetDepthBoundsTestEnable);
+			case vkCmdSetStencilTestEnable: return typeof(PFN_vkCmdSetStencilTestEnable);
+			case vkCmdSetStencilOp: return typeof(PFN_vkCmdSetStencilOp);
+			case vkCmdSetPatchControlPointsEXT: return typeof(PFN_vkCmdSetPatchControlPointsEXT);
+			case vkCmdSetRasterizerDiscardEnable: return typeof(PFN_vkCmdSetRasterizerDiscardEnable);
+			case vkCmdSetDepthBiasEnable: return typeof(PFN_vkCmdSetDepthBiasEnable);
+			case vkCmdSetLogicOpEXT: return typeof(PFN_vkCmdSetLogicOpEXT);
+			case vkCmdSetPrimitiveRestartEnable: return typeof(PFN_vkCmdSetPrimitiveRestartEnable);
+			case vkCmdSetTessellationDomainOriginEXT: return typeof(PFN_vkCmdSetTessellationDomainOriginEXT);
+			case vkCmdSetDepthClampEnableEXT: return typeof(PFN_vkCmdSetDepthClampEnableEXT);
+			case vkCmdSetPolygonModeEXT: return typeof(PFN_vkCmdSetPolygonModeEXT);
+			case vkCmdSetRasterizationSamplesEXT: return typeof(PFN_vkCmdSetRasterizationSamplesEXT);
+			case vkCmdSetSampleMaskEXT: return typeof(PFN_vkCmdSetSampleMaskEXT);
+			case vkCmdSetAlphaToCoverageEnableEXT: return typeof(PFN_vkCmdSetAlphaToCoverageEnableEXT);
+			case vkCmdSetAlphaToOneEnableEXT: return typeof(PFN_vkCmdSetAlphaToOneEnableEXT);
+			case vkCmdSetLogicOpEnableEXT: return typeof(PFN_vkCmdSetLogicOpEnableEXT);
+			case vkCmdSetColorBlendEnableEXT: return typeof(PFN_vkCmdSetColorBlendEnableEXT);
+			case vkCmdSetColorBlendEquationEXT: return typeof(PFN_vkCmdSetColorBlendEquationEXT);
+			case vkCmdSetColorWriteMaskEXT: return typeof(PFN_vkCmdSetColorWriteMaskEXT);
+			case vkCmdSetRasterizationStreamEXT: return typeof(PFN_vkCmdSetRasterizationStreamEXT);
+			case vkCmdSetConservativeRasterizationModeEXT: return typeof(PFN_vkCmdSetConservativeRasterizationModeEXT);
+			case vkCmdSetExtraPrimitiveOverestimationSizeEXT: return typeof(PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT);
+			case vkCmdSetDepthClipEnableEXT: return typeof(PFN_vkCmdSetDepthClipEnableEXT);
+			case vkCmdSetSampleLocationsEnableEXT: return typeof(PFN_vkCmdSetSampleLocationsEnableEXT);
+			case vkCmdSetColorBlendAdvancedEXT: return typeof(PFN_vkCmdSetColorBlendAdvancedEXT);
+			case vkCmdSetProvokingVertexModeEXT: return typeof(PFN_vkCmdSetProvokingVertexModeEXT);
+			case vkCmdSetLineRasterizationModeEXT: return typeof(PFN_vkCmdSetLineRasterizationModeEXT);
+			case vkCmdSetLineStippleEnableEXT: return typeof(PFN_vkCmdSetLineStippleEnableEXT);
+			case vkCmdSetDepthClipNegativeOneToOneEXT: return typeof(PFN_vkCmdSetDepthClipNegativeOneToOneEXT);
+			case vkCmdSetViewportWScalingEnableNV: return typeof(PFN_vkCmdSetViewportWScalingEnableNV);
+			case vkCmdSetViewportSwizzleNV: return typeof(PFN_vkCmdSetViewportSwizzleNV);
+			case vkCmdSetCoverageToColorEnableNV: return typeof(PFN_vkCmdSetCoverageToColorEnableNV);
+			case vkCmdSetCoverageToColorLocationNV: return typeof(PFN_vkCmdSetCoverageToColorLocationNV);
+			case vkCmdSetCoverageModulationModeNV: return typeof(PFN_vkCmdSetCoverageModulationModeNV);
+			case vkCmdSetCoverageModulationTableEnableNV: return typeof(PFN_vkCmdSetCoverageModulationTableEnableNV);
+			case vkCmdSetCoverageModulationTableNV: return typeof(PFN_vkCmdSetCoverageModulationTableNV);
+			case vkCmdSetShadingRateImageEnableNV: return typeof(PFN_vkCmdSetShadingRateImageEnableNV);
+			case vkCmdSetCoverageReductionModeNV: return typeof(PFN_vkCmdSetCoverageReductionModeNV);
+			case vkCmdSetRepresentativeFragmentTestEnableNV: return typeof(PFN_vkCmdSetRepresentativeFragmentTestEnableNV);
+			case vkCreatePrivateDataSlot: return typeof(PFN_vkCreatePrivateDataSlot);
+			case vkDestroyPrivateDataSlot: return typeof(PFN_vkDestroyPrivateDataSlot);
+			case vkSetPrivateData: return typeof(PFN_vkSetPrivateData);
+			case vkGetPrivateData: return typeof(PFN_vkGetPrivateData);
+			case vkCmdCopyBuffer2: return typeof(PFN_vkCmdCopyBuffer2);
+			case vkCmdCopyImage2: return typeof(PFN_vkCmdCopyImage2);
+			case vkCmdBlitImage2: return typeof(PFN_vkCmdBlitImage2);
+			case vkCmdCopyBufferToImage2: return typeof(PFN_vkCmdCopyBufferToImage2);
+			case vkCmdCopyImageToBuffer2: return typeof(PFN_vkCmdCopyImageToBuffer2);
+			case vkCmdResolveImage2: return typeof(PFN_vkCmdResolveImage2);
+			case vkCmdSetFragmentShadingRateKHR: return typeof(PFN_vkCmdSetFragmentShadingRateKHR);
+			case vkGetPhysicalDeviceFragmentShadingRatesKHR: return typeof(PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR);
+			case vkCmdSetFragmentShadingRateEnumNV: return typeof(PFN_vkCmdSetFragmentShadingRateEnumNV);
+			case vkGetAccelerationStructureBuildSizesKHR: return typeof(PFN_vkGetAccelerationStructureBuildSizesKHR);
+			case vkCmdSetVertexInputEXT: return typeof(PFN_vkCmdSetVertexInputEXT);
+			case vkCmdSetColorWriteEnableEXT: return typeof(PFN_vkCmdSetColorWriteEnableEXT);
+			case vkCmdSetEvent2: return typeof(PFN_vkCmdSetEvent2);
+			case vkCmdResetEvent2: return typeof(PFN_vkCmdResetEvent2);
+			case vkCmdWaitEvents2: return typeof(PFN_vkCmdWaitEvents2);
+			case vkCmdPipelineBarrier2: return typeof(PFN_vkCmdPipelineBarrier2);
+			case vkQueueSubmit2: return typeof(PFN_vkQueueSubmit2);
+			case vkCmdWriteTimestamp2: return typeof(PFN_vkCmdWriteTimestamp2);
+			case vkCmdWriteBufferMarker2AMD: return typeof(PFN_vkCmdWriteBufferMarker2AMD);
+			case vkGetQueueCheckpointData2NV: return typeof(PFN_vkGetQueueCheckpointData2NV);
+			case vkCopyMemoryToImage: return typeof(PFN_vkCopyMemoryToImage);
+			case vkCopyImageToMemory: return typeof(PFN_vkCopyImageToMemory);
+			case vkCopyImageToImage: return typeof(PFN_vkCopyImageToImage);
+			case vkTransitionImageLayout: return typeof(PFN_vkTransitionImageLayout);
+			case vkGetPhysicalDeviceVideoCapabilitiesKHR: return typeof(PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR);
+			case vkGetPhysicalDeviceVideoFormatPropertiesKHR: return typeof(PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR);
+			case vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR: return typeof(PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR);
+			case vkCreateVideoSessionKHR: return typeof(PFN_vkCreateVideoSessionKHR);
+			case vkDestroyVideoSessionKHR: return typeof(PFN_vkDestroyVideoSessionKHR);
+			case vkCreateVideoSessionParametersKHR: return typeof(PFN_vkCreateVideoSessionParametersKHR);
+			case vkUpdateVideoSessionParametersKHR: return typeof(PFN_vkUpdateVideoSessionParametersKHR);
+			case vkGetEncodedVideoSessionParametersKHR: return typeof(PFN_vkGetEncodedVideoSessionParametersKHR);
+			case vkDestroyVideoSessionParametersKHR: return typeof(PFN_vkDestroyVideoSessionParametersKHR);
+			case vkGetVideoSessionMemoryRequirementsKHR: return typeof(PFN_vkGetVideoSessionMemoryRequirementsKHR);
+			case vkBindVideoSessionMemoryKHR: return typeof(PFN_vkBindVideoSessionMemoryKHR);
+			case vkCmdDecodeVideoKHR: return typeof(PFN_vkCmdDecodeVideoKHR);
+			case vkCmdBeginVideoCodingKHR: return typeof(PFN_vkCmdBeginVideoCodingKHR);
+			case vkCmdControlVideoCodingKHR: return typeof(PFN_vkCmdControlVideoCodingKHR);
+			case vkCmdEndVideoCodingKHR: return typeof(PFN_vkCmdEndVideoCodingKHR);
+			case vkCmdEncodeVideoKHR: return typeof(PFN_vkCmdEncodeVideoKHR);
+			case vkCmdDecompressMemoryNV: return typeof(PFN_vkCmdDecompressMemoryNV);
+			case vkCmdDecompressMemoryIndirectCountNV: return typeof(PFN_vkCmdDecompressMemoryIndirectCountNV);
+			case vkGetPartitionedAccelerationStructuresBuildSizesNV: return typeof(PFN_vkGetPartitionedAccelerationStructuresBuildSizesNV);
+			case vkCmdBuildPartitionedAccelerationStructuresNV: return typeof(PFN_vkCmdBuildPartitionedAccelerationStructuresNV);
+			case vkCreateCuModuleNVX: return typeof(PFN_vkCreateCuModuleNVX);
+			case vkCreateCuFunctionNVX: return typeof(PFN_vkCreateCuFunctionNVX);
+			case vkDestroyCuModuleNVX: return typeof(PFN_vkDestroyCuModuleNVX);
+			case vkDestroyCuFunctionNVX: return typeof(PFN_vkDestroyCuFunctionNVX);
+			case vkCmdCuLaunchKernelNVX: return typeof(PFN_vkCmdCuLaunchKernelNVX);
+			case vkGetDescriptorSetLayoutSizeEXT: return typeof(PFN_vkGetDescriptorSetLayoutSizeEXT);
+			case vkGetDescriptorSetLayoutBindingOffsetEXT: return typeof(PFN_vkGetDescriptorSetLayoutBindingOffsetEXT);
+			case vkGetDescriptorEXT: return typeof(PFN_vkGetDescriptorEXT);
+			case vkCmdBindDescriptorBuffersEXT: return typeof(PFN_vkCmdBindDescriptorBuffersEXT);
+			case vkCmdSetDescriptorBufferOffsetsEXT: return typeof(PFN_vkCmdSetDescriptorBufferOffsetsEXT);
+			case vkCmdBindDescriptorBufferEmbeddedSamplersEXT: return typeof(PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT);
+			case vkGetBufferOpaqueCaptureDescriptorDataEXT: return typeof(PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT);
+			case vkGetImageOpaqueCaptureDescriptorDataEXT: return typeof(PFN_vkGetImageOpaqueCaptureDescriptorDataEXT);
+			case vkGetImageViewOpaqueCaptureDescriptorDataEXT: return typeof(PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT);
+			case vkGetSamplerOpaqueCaptureDescriptorDataEXT: return typeof(PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT);
+			case vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT: return typeof(PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT);
+			case vkSetDeviceMemoryPriorityEXT: return typeof(PFN_vkSetDeviceMemoryPriorityEXT);
+			case vkAcquireDrmDisplayEXT: return typeof(PFN_vkAcquireDrmDisplayEXT);
+			case vkGetDrmDisplayEXT: return typeof(PFN_vkGetDrmDisplayEXT);
+			case vkWaitForPresent2KHR: return typeof(PFN_vkWaitForPresent2KHR);
+			case vkWaitForPresentKHR: return typeof(PFN_vkWaitForPresentKHR);
+			case vkCmdBeginRendering: return typeof(PFN_vkCmdBeginRendering);
+			case vkCmdEndRendering: return typeof(PFN_vkCmdEndRendering);
+			case vkCmdEndRendering2EXT: return typeof(PFN_vkCmdEndRendering2EXT);
+			case vkGetDescriptorSetLayoutHostMappingInfoVALVE: return typeof(PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE);
+			case vkGetDescriptorSetHostMappingVALVE: return typeof(PFN_vkGetDescriptorSetHostMappingVALVE);
+			case vkCreateMicromapEXT: return typeof(PFN_vkCreateMicromapEXT);
+			case vkCmdBuildMicromapsEXT: return typeof(PFN_vkCmdBuildMicromapsEXT);
+			case vkBuildMicromapsEXT: return typeof(PFN_vkBuildMicromapsEXT);
+			case vkDestroyMicromapEXT: return typeof(PFN_vkDestroyMicromapEXT);
+			case vkCmdCopyMicromapEXT: return typeof(PFN_vkCmdCopyMicromapEXT);
+			case vkCopyMicromapEXT: return typeof(PFN_vkCopyMicromapEXT);
+			case vkCmdCopyMicromapToMemoryEXT: return typeof(PFN_vkCmdCopyMicromapToMemoryEXT);
+			case vkCopyMicromapToMemoryEXT: return typeof(PFN_vkCopyMicromapToMemoryEXT);
+			case vkCmdCopyMemoryToMicromapEXT: return typeof(PFN_vkCmdCopyMemoryToMicromapEXT);
+			case vkCopyMemoryToMicromapEXT: return typeof(PFN_vkCopyMemoryToMicromapEXT);
+			case vkCmdWriteMicromapsPropertiesEXT: return typeof(PFN_vkCmdWriteMicromapsPropertiesEXT);
+			case vkWriteMicromapsPropertiesEXT: return typeof(PFN_vkWriteMicromapsPropertiesEXT);
+			case vkGetDeviceMicromapCompatibilityEXT: return typeof(PFN_vkGetDeviceMicromapCompatibilityEXT);
+			case vkGetMicromapBuildSizesEXT: return typeof(PFN_vkGetMicromapBuildSizesEXT);
+			case vkGetShaderModuleIdentifierEXT: return typeof(PFN_vkGetShaderModuleIdentifierEXT);
+			case vkGetShaderModuleCreateInfoIdentifierEXT: return typeof(PFN_vkGetShaderModuleCreateInfoIdentifierEXT);
+			case vkGetImageSubresourceLayout2: return typeof(PFN_vkGetImageSubresourceLayout2);
+			case vkGetPipelinePropertiesEXT: return typeof(PFN_vkGetPipelinePropertiesEXT);
+			case vkCmdBindTileMemoryQCOM: return typeof(PFN_vkCmdBindTileMemoryQCOM);
+			case vkGetFramebufferTilePropertiesQCOM: return typeof(PFN_vkGetFramebufferTilePropertiesQCOM);
+			case vkGetDynamicRenderingTilePropertiesQCOM: return typeof(PFN_vkGetDynamicRenderingTilePropertiesQCOM);
+			case vkGetPhysicalDeviceOpticalFlowImageFormatsNV: return typeof(PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV);
+			case vkCreateOpticalFlowSessionNV: return typeof(PFN_vkCreateOpticalFlowSessionNV);
+			case vkDestroyOpticalFlowSessionNV: return typeof(PFN_vkDestroyOpticalFlowSessionNV);
+			case vkBindOpticalFlowSessionImageNV: return typeof(PFN_vkBindOpticalFlowSessionImageNV);
+			case vkCmdOpticalFlowExecuteNV: return typeof(PFN_vkCmdOpticalFlowExecuteNV);
+			case vkGetDeviceFaultInfoEXT: return typeof(PFN_vkGetDeviceFaultInfoEXT);
+			case vkCmdSetDepthBias2EXT: return typeof(PFN_vkCmdSetDepthBias2EXT);
+			case vkReleaseSwapchainImagesKHR: return typeof(PFN_vkReleaseSwapchainImagesKHR);
+			case vkGetDeviceImageSubresourceLayout: return typeof(PFN_vkGetDeviceImageSubresourceLayout);
+			case vkMapMemory2: return typeof(PFN_vkMapMemory2);
+			case vkUnmapMemory2: return typeof(PFN_vkUnmapMemory2);
+			case vkCreateShadersEXT: return typeof(PFN_vkCreateShadersEXT);
+			case vkDestroyShaderEXT: return typeof(PFN_vkDestroyShaderEXT);
+			case vkGetShaderBinaryDataEXT: return typeof(PFN_vkGetShaderBinaryDataEXT);
+			case vkCmdBindShadersEXT: return typeof(PFN_vkCmdBindShadersEXT);
+			case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR: return typeof(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR);
+			case vkCmdBindDescriptorSets2: return typeof(PFN_vkCmdBindDescriptorSets2);
+			case vkCmdPushConstants2: return typeof(PFN_vkCmdPushConstants2);
+			case vkCmdPushDescriptorSet2: return typeof(PFN_vkCmdPushDescriptorSet2);
+			case vkCmdPushDescriptorSetWithTemplate2: return typeof(PFN_vkCmdPushDescriptorSetWithTemplate2);
+			case vkCmdSetDescriptorBufferOffsets2EXT: return typeof(PFN_vkCmdSetDescriptorBufferOffsets2EXT);
+			case vkCmdBindDescriptorBufferEmbeddedSamplers2EXT: return typeof(PFN_vkCmdBindDescriptorBufferEmbeddedSamplers2EXT);
+			case vkSetLatencySleepModeNV: return typeof(PFN_vkSetLatencySleepModeNV);
+			case vkLatencySleepNV: return typeof(PFN_vkLatencySleepNV);
+			case vkSetLatencyMarkerNV: return typeof(PFN_vkSetLatencyMarkerNV);
+			case vkGetLatencyTimingsNV: return typeof(PFN_vkGetLatencyTimingsNV);
+			case vkQueueNotifyOutOfBandNV: return typeof(PFN_vkQueueNotifyOutOfBandNV);
+			case vkCmdSetRenderingAttachmentLocations: return typeof(PFN_vkCmdSetRenderingAttachmentLocations);
+			case vkCmdSetRenderingInputAttachmentIndices: return typeof(PFN_vkCmdSetRenderingInputAttachmentIndices);
+			case vkCmdSetDepthClampRangeEXT: return typeof(PFN_vkCmdSetDepthClampRangeEXT);
+			case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV: return typeof(PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV);
+			case vkGetPhysicalDeviceCooperativeVectorPropertiesNV: return typeof(PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV);
+			case vkConvertCooperativeVectorMatrixNV: return typeof(PFN_vkConvertCooperativeVectorMatrixNV);
+			case vkCmdConvertCooperativeVectorMatrixNV: return typeof(PFN_vkCmdConvertCooperativeVectorMatrixNV);
+			case vkCmdDispatchTileQCOM: return typeof(PFN_vkCmdDispatchTileQCOM);
+			case vkCmdBeginPerTileExecutionQCOM: return typeof(PFN_vkCmdBeginPerTileExecutionQCOM);
+			case vkCmdEndPerTileExecutionQCOM: return typeof(PFN_vkCmdEndPerTileExecutionQCOM);
+			case vkCreateExternalComputeQueueNV: return typeof(PFN_vkCreateExternalComputeQueueNV);
+			case vkDestroyExternalComputeQueueNV: return typeof(PFN_vkDestroyExternalComputeQueueNV);
+			case vkGetExternalComputeQueueDataNV: return typeof(PFN_vkGetExternalComputeQueueDataNV);
+			case vkCreateTensorARM: return typeof(PFN_vkCreateTensorARM);
+			case vkDestroyTensorARM: return typeof(PFN_vkDestroyTensorARM);
+			case vkCreateTensorViewARM: return typeof(PFN_vkCreateTensorViewARM);
+			case vkDestroyTensorViewARM: return typeof(PFN_vkDestroyTensorViewARM);
+			case vkGetTensorMemoryRequirementsARM: return typeof(PFN_vkGetTensorMemoryRequirementsARM);
+			case vkBindTensorMemoryARM: return typeof(PFN_vkBindTensorMemoryARM);
+			case vkGetDeviceTensorMemoryRequirementsARM: return typeof(PFN_vkGetDeviceTensorMemoryRequirementsARM);
+			case vkCmdCopyTensorARM: return typeof(PFN_vkCmdCopyTensorARM);
+			case vkGetTensorOpaqueCaptureDescriptorDataARM: return typeof(PFN_vkGetTensorOpaqueCaptureDescriptorDataARM);
+			case vkGetTensorViewOpaqueCaptureDescriptorDataARM: return typeof(PFN_vkGetTensorViewOpaqueCaptureDescriptorDataARM);
+			case vkGetPhysicalDeviceExternalTensorPropertiesARM: return typeof(PFN_vkGetPhysicalDeviceExternalTensorPropertiesARM);
+			case vkCreateDataGraphPipelinesARM: return typeof(PFN_vkCreateDataGraphPipelinesARM);
+			case vkCreateDataGraphPipelineSessionARM: return typeof(PFN_vkCreateDataGraphPipelineSessionARM);
+			case vkGetDataGraphPipelineSessionBindPointRequirementsARM: return typeof(PFN_vkGetDataGraphPipelineSessionBindPointRequirementsARM);
+			case vkGetDataGraphPipelineSessionMemoryRequirementsARM: return typeof(PFN_vkGetDataGraphPipelineSessionMemoryRequirementsARM);
+			case vkBindDataGraphPipelineSessionMemoryARM: return typeof(PFN_vkBindDataGraphPipelineSessionMemoryARM);
+			case vkDestroyDataGraphPipelineSessionARM: return typeof(PFN_vkDestroyDataGraphPipelineSessionARM);
+			case vkCmdDispatchDataGraphARM: return typeof(PFN_vkCmdDispatchDataGraphARM);
+			case vkGetDataGraphPipelineAvailablePropertiesARM: return typeof(PFN_vkGetDataGraphPipelineAvailablePropertiesARM);
+			case vkGetDataGraphPipelinePropertiesARM: return typeof(PFN_vkGetDataGraphPipelinePropertiesARM);
+			case vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM: return typeof(PFN_vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM);
+			case vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM: return typeof(PFN_vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM);
+			}
+		}
+	}
+
+	public static Self FromName(StringView command)
+	{
+		switch (command)
+		{
+		case nameof(vkCreateInstance): return vkCreateInstance;
+		case nameof(vkDestroyInstance): return vkDestroyInstance;
+		case nameof(vkEnumeratePhysicalDevices): return vkEnumeratePhysicalDevices;
+		case nameof(vkGetDeviceProcAddr): return vkGetDeviceProcAddr;
+		case nameof(vkGetInstanceProcAddr): return vkGetInstanceProcAddr;
+		case nameof(vkGetPhysicalDeviceProperties): return vkGetPhysicalDeviceProperties;
+		case nameof(vkGetPhysicalDeviceQueueFamilyProperties): return vkGetPhysicalDeviceQueueFamilyProperties;
+		case nameof(vkGetPhysicalDeviceMemoryProperties): return vkGetPhysicalDeviceMemoryProperties;
+		case nameof(vkGetPhysicalDeviceFeatures): return vkGetPhysicalDeviceFeatures;
+		case nameof(vkGetPhysicalDeviceFormatProperties): return vkGetPhysicalDeviceFormatProperties;
+		case nameof(vkGetPhysicalDeviceImageFormatProperties): return vkGetPhysicalDeviceImageFormatProperties;
+		case nameof(vkCreateDevice): return vkCreateDevice;
+		case nameof(vkDestroyDevice): return vkDestroyDevice;
+		case nameof(vkEnumerateInstanceVersion): return vkEnumerateInstanceVersion;
+		case nameof(vkEnumerateInstanceLayerProperties): return vkEnumerateInstanceLayerProperties;
+		case nameof(vkEnumerateInstanceExtensionProperties): return vkEnumerateInstanceExtensionProperties;
+		case nameof(vkEnumerateDeviceLayerProperties): return vkEnumerateDeviceLayerProperties;
+		case nameof(vkEnumerateDeviceExtensionProperties): return vkEnumerateDeviceExtensionProperties;
+		case nameof(vkGetDeviceQueue): return vkGetDeviceQueue;
+		case nameof(vkQueueSubmit): return vkQueueSubmit;
+		case nameof(vkQueueWaitIdle): return vkQueueWaitIdle;
+		case nameof(vkDeviceWaitIdle): return vkDeviceWaitIdle;
+		case nameof(vkAllocateMemory): return vkAllocateMemory;
+		case nameof(vkFreeMemory): return vkFreeMemory;
+		case nameof(vkMapMemory): return vkMapMemory;
+		case nameof(vkUnmapMemory): return vkUnmapMemory;
+		case nameof(vkFlushMappedMemoryRanges): return vkFlushMappedMemoryRanges;
+		case nameof(vkInvalidateMappedMemoryRanges): return vkInvalidateMappedMemoryRanges;
+		case nameof(vkGetDeviceMemoryCommitment): return vkGetDeviceMemoryCommitment;
+		case nameof(vkGetBufferMemoryRequirements): return vkGetBufferMemoryRequirements;
+		case nameof(vkBindBufferMemory): return vkBindBufferMemory;
+		case nameof(vkGetImageMemoryRequirements): return vkGetImageMemoryRequirements;
+		case nameof(vkBindImageMemory): return vkBindImageMemory;
+		case nameof(vkGetImageSparseMemoryRequirements): return vkGetImageSparseMemoryRequirements;
+		case nameof(vkGetPhysicalDeviceSparseImageFormatProperties): return vkGetPhysicalDeviceSparseImageFormatProperties;
+		case nameof(vkQueueBindSparse): return vkQueueBindSparse;
+		case nameof(vkCreateFence): return vkCreateFence;
+		case nameof(vkDestroyFence): return vkDestroyFence;
+		case nameof(vkResetFences): return vkResetFences;
+		case nameof(vkGetFenceStatus): return vkGetFenceStatus;
+		case nameof(vkWaitForFences): return vkWaitForFences;
+		case nameof(vkCreateSemaphore): return vkCreateSemaphore;
+		case nameof(vkDestroySemaphore): return vkDestroySemaphore;
+		case nameof(vkCreateEvent): return vkCreateEvent;
+		case nameof(vkDestroyEvent): return vkDestroyEvent;
+		case nameof(vkGetEventStatus): return vkGetEventStatus;
+		case nameof(vkSetEvent): return vkSetEvent;
+		case nameof(vkResetEvent): return vkResetEvent;
+		case nameof(vkCreateQueryPool): return vkCreateQueryPool;
+		case nameof(vkDestroyQueryPool): return vkDestroyQueryPool;
+		case nameof(vkGetQueryPoolResults): return vkGetQueryPoolResults;
+		case nameof(vkResetQueryPool): return vkResetQueryPool;
+		case nameof(vkCreateBuffer): return vkCreateBuffer;
+		case nameof(vkDestroyBuffer): return vkDestroyBuffer;
+		case nameof(vkCreateBufferView): return vkCreateBufferView;
+		case nameof(vkDestroyBufferView): return vkDestroyBufferView;
+		case nameof(vkCreateImage): return vkCreateImage;
+		case nameof(vkDestroyImage): return vkDestroyImage;
+		case nameof(vkGetImageSubresourceLayout): return vkGetImageSubresourceLayout;
+		case nameof(vkCreateImageView): return vkCreateImageView;
+		case nameof(vkDestroyImageView): return vkDestroyImageView;
+		case nameof(vkCreateShaderModule): return vkCreateShaderModule;
+		case nameof(vkDestroyShaderModule): return vkDestroyShaderModule;
+		case nameof(vkCreatePipelineCache): return vkCreatePipelineCache;
+		case nameof(vkDestroyPipelineCache): return vkDestroyPipelineCache;
+		case nameof(vkGetPipelineCacheData): return vkGetPipelineCacheData;
+		case nameof(vkMergePipelineCaches): return vkMergePipelineCaches;
+		case nameof(vkCreatePipelineBinariesKHR): return vkCreatePipelineBinariesKHR;
+		case nameof(vkDestroyPipelineBinaryKHR): return vkDestroyPipelineBinaryKHR;
+		case nameof(vkGetPipelineKeyKHR): return vkGetPipelineKeyKHR;
+		case nameof(vkGetPipelineBinaryDataKHR): return vkGetPipelineBinaryDataKHR;
+		case nameof(vkReleaseCapturedPipelineDataKHR): return vkReleaseCapturedPipelineDataKHR;
+		case nameof(vkCreateGraphicsPipelines): return vkCreateGraphicsPipelines;
+		case nameof(vkCreateComputePipelines): return vkCreateComputePipelines;
+		case nameof(vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI): return vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI;
+		case nameof(vkDestroyPipeline): return vkDestroyPipeline;
+		case nameof(vkCreatePipelineLayout): return vkCreatePipelineLayout;
+		case nameof(vkDestroyPipelineLayout): return vkDestroyPipelineLayout;
+		case nameof(vkCreateSampler): return vkCreateSampler;
+		case nameof(vkDestroySampler): return vkDestroySampler;
+		case nameof(vkCreateDescriptorSetLayout): return vkCreateDescriptorSetLayout;
+		case nameof(vkDestroyDescriptorSetLayout): return vkDestroyDescriptorSetLayout;
+		case nameof(vkCreateDescriptorPool): return vkCreateDescriptorPool;
+		case nameof(vkDestroyDescriptorPool): return vkDestroyDescriptorPool;
+		case nameof(vkResetDescriptorPool): return vkResetDescriptorPool;
+		case nameof(vkAllocateDescriptorSets): return vkAllocateDescriptorSets;
+		case nameof(vkFreeDescriptorSets): return vkFreeDescriptorSets;
+		case nameof(vkUpdateDescriptorSets): return vkUpdateDescriptorSets;
+		case nameof(vkCreateFramebuffer): return vkCreateFramebuffer;
+		case nameof(vkDestroyFramebuffer): return vkDestroyFramebuffer;
+		case nameof(vkCreateRenderPass): return vkCreateRenderPass;
+		case nameof(vkDestroyRenderPass): return vkDestroyRenderPass;
+		case nameof(vkGetRenderAreaGranularity): return vkGetRenderAreaGranularity;
+		case nameof(vkGetRenderingAreaGranularity): return vkGetRenderingAreaGranularity;
+		case nameof(vkCreateCommandPool): return vkCreateCommandPool;
+		case nameof(vkDestroyCommandPool): return vkDestroyCommandPool;
+		case nameof(vkResetCommandPool): return vkResetCommandPool;
+		case nameof(vkAllocateCommandBuffers): return vkAllocateCommandBuffers;
+		case nameof(vkFreeCommandBuffers): return vkFreeCommandBuffers;
+		case nameof(vkBeginCommandBuffer): return vkBeginCommandBuffer;
+		case nameof(vkEndCommandBuffer): return vkEndCommandBuffer;
+		case nameof(vkResetCommandBuffer): return vkResetCommandBuffer;
+		case nameof(vkCmdBindPipeline): return vkCmdBindPipeline;
+		case nameof(vkCmdSetAttachmentFeedbackLoopEnableEXT): return vkCmdSetAttachmentFeedbackLoopEnableEXT;
+		case nameof(vkCmdSetViewport): return vkCmdSetViewport;
+		case nameof(vkCmdSetScissor): return vkCmdSetScissor;
+		case nameof(vkCmdSetLineWidth): return vkCmdSetLineWidth;
+		case nameof(vkCmdSetDepthBias): return vkCmdSetDepthBias;
+		case nameof(vkCmdSetBlendConstants): return vkCmdSetBlendConstants;
+		case nameof(vkCmdSetDepthBounds): return vkCmdSetDepthBounds;
+		case nameof(vkCmdSetStencilCompareMask): return vkCmdSetStencilCompareMask;
+		case nameof(vkCmdSetStencilWriteMask): return vkCmdSetStencilWriteMask;
+		case nameof(vkCmdSetStencilReference): return vkCmdSetStencilReference;
+		case nameof(vkCmdBindDescriptorSets): return vkCmdBindDescriptorSets;
+		case nameof(vkCmdBindIndexBuffer): return vkCmdBindIndexBuffer;
+		case nameof(vkCmdBindVertexBuffers): return vkCmdBindVertexBuffers;
+		case nameof(vkCmdDraw): return vkCmdDraw;
+		case nameof(vkCmdDrawIndexed): return vkCmdDrawIndexed;
+		case nameof(vkCmdDrawMultiEXT): return vkCmdDrawMultiEXT;
+		case nameof(vkCmdDrawMultiIndexedEXT): return vkCmdDrawMultiIndexedEXT;
+		case nameof(vkCmdDrawIndirect): return vkCmdDrawIndirect;
+		case nameof(vkCmdDrawIndexedIndirect): return vkCmdDrawIndexedIndirect;
+		case nameof(vkCmdDispatch): return vkCmdDispatch;
+		case nameof(vkCmdDispatchIndirect): return vkCmdDispatchIndirect;
+		case nameof(vkCmdSubpassShadingHUAWEI): return vkCmdSubpassShadingHUAWEI;
+		case nameof(vkCmdDrawClusterHUAWEI): return vkCmdDrawClusterHUAWEI;
+		case nameof(vkCmdDrawClusterIndirectHUAWEI): return vkCmdDrawClusterIndirectHUAWEI;
+		case nameof(vkCmdUpdatePipelineIndirectBufferNV): return vkCmdUpdatePipelineIndirectBufferNV;
+		case nameof(vkCmdCopyBuffer): return vkCmdCopyBuffer;
+		case nameof(vkCmdCopyImage): return vkCmdCopyImage;
+		case nameof(vkCmdBlitImage): return vkCmdBlitImage;
+		case nameof(vkCmdCopyBufferToImage): return vkCmdCopyBufferToImage;
+		case nameof(vkCmdCopyImageToBuffer): return vkCmdCopyImageToBuffer;
+		case nameof(vkCmdCopyMemoryIndirectNV): return vkCmdCopyMemoryIndirectNV;
+		case nameof(vkCmdCopyMemoryToImageIndirectNV): return vkCmdCopyMemoryToImageIndirectNV;
+		case nameof(vkCmdUpdateBuffer): return vkCmdUpdateBuffer;
+		case nameof(vkCmdFillBuffer): return vkCmdFillBuffer;
+		case nameof(vkCmdClearColorImage): return vkCmdClearColorImage;
+		case nameof(vkCmdClearDepthStencilImage): return vkCmdClearDepthStencilImage;
+		case nameof(vkCmdClearAttachments): return vkCmdClearAttachments;
+		case nameof(vkCmdResolveImage): return vkCmdResolveImage;
+		case nameof(vkCmdSetEvent): return vkCmdSetEvent;
+		case nameof(vkCmdResetEvent): return vkCmdResetEvent;
+		case nameof(vkCmdWaitEvents): return vkCmdWaitEvents;
+		case nameof(vkCmdPipelineBarrier): return vkCmdPipelineBarrier;
+		case nameof(vkCmdBeginQuery): return vkCmdBeginQuery;
+		case nameof(vkCmdEndQuery): return vkCmdEndQuery;
+		case nameof(vkCmdBeginConditionalRenderingEXT): return vkCmdBeginConditionalRenderingEXT;
+		case nameof(vkCmdEndConditionalRenderingEXT): return vkCmdEndConditionalRenderingEXT;
+		case nameof(vkCmdResetQueryPool): return vkCmdResetQueryPool;
+		case nameof(vkCmdWriteTimestamp): return vkCmdWriteTimestamp;
+		case nameof(vkCmdCopyQueryPoolResults): return vkCmdCopyQueryPoolResults;
+		case nameof(vkCmdPushConstants): return vkCmdPushConstants;
+		case nameof(vkCmdBeginRenderPass): return vkCmdBeginRenderPass;
+		case nameof(vkCmdNextSubpass): return vkCmdNextSubpass;
+		case nameof(vkCmdEndRenderPass): return vkCmdEndRenderPass;
+		case nameof(vkCmdExecuteCommands): return vkCmdExecuteCommands;
+		case nameof(vkGetPhysicalDeviceDisplayPropertiesKHR): return vkGetPhysicalDeviceDisplayPropertiesKHR;
+		case nameof(vkGetPhysicalDeviceDisplayPlanePropertiesKHR): return vkGetPhysicalDeviceDisplayPlanePropertiesKHR;
+		case nameof(vkGetDisplayPlaneSupportedDisplaysKHR): return vkGetDisplayPlaneSupportedDisplaysKHR;
+		case nameof(vkGetDisplayModePropertiesKHR): return vkGetDisplayModePropertiesKHR;
+		case nameof(vkCreateDisplayModeKHR): return vkCreateDisplayModeKHR;
+		case nameof(vkGetDisplayPlaneCapabilitiesKHR): return vkGetDisplayPlaneCapabilitiesKHR;
+		case nameof(vkCreateDisplayPlaneSurfaceKHR): return vkCreateDisplayPlaneSurfaceKHR;
+		case nameof(vkCreateSharedSwapchainsKHR): return vkCreateSharedSwapchainsKHR;
+		case nameof(vkDestroySurfaceKHR): return vkDestroySurfaceKHR;
+		case nameof(vkGetPhysicalDeviceSurfaceSupportKHR): return vkGetPhysicalDeviceSurfaceSupportKHR;
+		case nameof(vkGetPhysicalDeviceSurfaceCapabilitiesKHR): return vkGetPhysicalDeviceSurfaceCapabilitiesKHR;
+		case nameof(vkGetPhysicalDeviceSurfaceFormatsKHR): return vkGetPhysicalDeviceSurfaceFormatsKHR;
+		case nameof(vkGetPhysicalDeviceSurfacePresentModesKHR): return vkGetPhysicalDeviceSurfacePresentModesKHR;
+		case nameof(vkCreateSwapchainKHR): return vkCreateSwapchainKHR;
+		case nameof(vkDestroySwapchainKHR): return vkDestroySwapchainKHR;
+		case nameof(vkGetSwapchainImagesKHR): return vkGetSwapchainImagesKHR;
+		case nameof(vkAcquireNextImageKHR): return vkAcquireNextImageKHR;
+		case nameof(vkQueuePresentKHR): return vkQueuePresentKHR;
+		case nameof(vkCreateDebugReportCallbackEXT): return vkCreateDebugReportCallbackEXT;
+		case nameof(vkDestroyDebugReportCallbackEXT): return vkDestroyDebugReportCallbackEXT;
+		case nameof(vkDebugReportMessageEXT): return vkDebugReportMessageEXT;
+		case nameof(vkDebugMarkerSetObjectNameEXT): return vkDebugMarkerSetObjectNameEXT;
+		case nameof(vkDebugMarkerSetObjectTagEXT): return vkDebugMarkerSetObjectTagEXT;
+		case nameof(vkCmdDebugMarkerBeginEXT): return vkCmdDebugMarkerBeginEXT;
+		case nameof(vkCmdDebugMarkerEndEXT): return vkCmdDebugMarkerEndEXT;
+		case nameof(vkCmdDebugMarkerInsertEXT): return vkCmdDebugMarkerInsertEXT;
+		case nameof(vkGetPhysicalDeviceExternalImageFormatPropertiesNV): return vkGetPhysicalDeviceExternalImageFormatPropertiesNV;
+		case nameof(vkCmdExecuteGeneratedCommandsNV): return vkCmdExecuteGeneratedCommandsNV;
+		case nameof(vkCmdPreprocessGeneratedCommandsNV): return vkCmdPreprocessGeneratedCommandsNV;
+		case nameof(vkCmdBindPipelineShaderGroupNV): return vkCmdBindPipelineShaderGroupNV;
+		case nameof(vkGetGeneratedCommandsMemoryRequirementsNV): return vkGetGeneratedCommandsMemoryRequirementsNV;
+		case nameof(vkCreateIndirectCommandsLayoutNV): return vkCreateIndirectCommandsLayoutNV;
+		case nameof(vkDestroyIndirectCommandsLayoutNV): return vkDestroyIndirectCommandsLayoutNV;
+		case nameof(vkCmdExecuteGeneratedCommandsEXT): return vkCmdExecuteGeneratedCommandsEXT;
+		case nameof(vkCmdPreprocessGeneratedCommandsEXT): return vkCmdPreprocessGeneratedCommandsEXT;
+		case nameof(vkGetGeneratedCommandsMemoryRequirementsEXT): return vkGetGeneratedCommandsMemoryRequirementsEXT;
+		case nameof(vkCreateIndirectCommandsLayoutEXT): return vkCreateIndirectCommandsLayoutEXT;
+		case nameof(vkDestroyIndirectCommandsLayoutEXT): return vkDestroyIndirectCommandsLayoutEXT;
+		case nameof(vkCreateIndirectExecutionSetEXT): return vkCreateIndirectExecutionSetEXT;
+		case nameof(vkDestroyIndirectExecutionSetEXT): return vkDestroyIndirectExecutionSetEXT;
+		case nameof(vkUpdateIndirectExecutionSetPipelineEXT): return vkUpdateIndirectExecutionSetPipelineEXT;
+		case nameof(vkUpdateIndirectExecutionSetShaderEXT): return vkUpdateIndirectExecutionSetShaderEXT;
+		case nameof(vkGetPhysicalDeviceFeatures2): return vkGetPhysicalDeviceFeatures2;
+		case nameof(vkGetPhysicalDeviceProperties2): return vkGetPhysicalDeviceProperties2;
+		case nameof(vkGetPhysicalDeviceFormatProperties2): return vkGetPhysicalDeviceFormatProperties2;
+		case nameof(vkGetPhysicalDeviceImageFormatProperties2): return vkGetPhysicalDeviceImageFormatProperties2;
+		case nameof(vkGetPhysicalDeviceQueueFamilyProperties2): return vkGetPhysicalDeviceQueueFamilyProperties2;
+		case nameof(vkGetPhysicalDeviceMemoryProperties2): return vkGetPhysicalDeviceMemoryProperties2;
+		case nameof(vkGetPhysicalDeviceSparseImageFormatProperties2): return vkGetPhysicalDeviceSparseImageFormatProperties2;
+		case nameof(vkCmdPushDescriptorSet): return vkCmdPushDescriptorSet;
+		case nameof(vkTrimCommandPool): return vkTrimCommandPool;
+		case nameof(vkGetPhysicalDeviceExternalBufferProperties): return vkGetPhysicalDeviceExternalBufferProperties;
+		case nameof(vkGetMemoryFdKHR): return vkGetMemoryFdKHR;
+		case nameof(vkGetMemoryFdPropertiesKHR): return vkGetMemoryFdPropertiesKHR;
+		case nameof(vkGetMemoryRemoteAddressNV): return vkGetMemoryRemoteAddressNV;
+		case nameof(vkGetPhysicalDeviceExternalSemaphoreProperties): return vkGetPhysicalDeviceExternalSemaphoreProperties;
+		case nameof(vkGetSemaphoreFdKHR): return vkGetSemaphoreFdKHR;
+		case nameof(vkImportSemaphoreFdKHR): return vkImportSemaphoreFdKHR;
+		case nameof(vkGetPhysicalDeviceExternalFenceProperties): return vkGetPhysicalDeviceExternalFenceProperties;
+		case nameof(vkGetFenceFdKHR): return vkGetFenceFdKHR;
+		case nameof(vkImportFenceFdKHR): return vkImportFenceFdKHR;
+		case nameof(vkReleaseDisplayEXT): return vkReleaseDisplayEXT;
+		case nameof(vkDisplayPowerControlEXT): return vkDisplayPowerControlEXT;
+		case nameof(vkRegisterDeviceEventEXT): return vkRegisterDeviceEventEXT;
+		case nameof(vkRegisterDisplayEventEXT): return vkRegisterDisplayEventEXT;
+		case nameof(vkGetSwapchainCounterEXT): return vkGetSwapchainCounterEXT;
+		case nameof(vkGetPhysicalDeviceSurfaceCapabilities2EXT): return vkGetPhysicalDeviceSurfaceCapabilities2EXT;
+		case nameof(vkEnumeratePhysicalDeviceGroups): return vkEnumeratePhysicalDeviceGroups;
+		case nameof(vkGetDeviceGroupPeerMemoryFeatures): return vkGetDeviceGroupPeerMemoryFeatures;
+		case nameof(vkBindBufferMemory2): return vkBindBufferMemory2;
+		case nameof(vkBindImageMemory2): return vkBindImageMemory2;
+		case nameof(vkCmdSetDeviceMask): return vkCmdSetDeviceMask;
+		case nameof(vkGetDeviceGroupPresentCapabilitiesKHR): return vkGetDeviceGroupPresentCapabilitiesKHR;
+		case nameof(vkGetDeviceGroupSurfacePresentModesKHR): return vkGetDeviceGroupSurfacePresentModesKHR;
+		case nameof(vkAcquireNextImage2KHR): return vkAcquireNextImage2KHR;
+		case nameof(vkCmdDispatchBase): return vkCmdDispatchBase;
+		case nameof(vkGetPhysicalDevicePresentRectanglesKHR): return vkGetPhysicalDevicePresentRectanglesKHR;
+		case nameof(vkCreateDescriptorUpdateTemplate): return vkCreateDescriptorUpdateTemplate;
+		case nameof(vkDestroyDescriptorUpdateTemplate): return vkDestroyDescriptorUpdateTemplate;
+		case nameof(vkUpdateDescriptorSetWithTemplate): return vkUpdateDescriptorSetWithTemplate;
+		case nameof(vkCmdPushDescriptorSetWithTemplate): return vkCmdPushDescriptorSetWithTemplate;
+		case nameof(vkSetHdrMetadataEXT): return vkSetHdrMetadataEXT;
+		case nameof(vkGetSwapchainStatusKHR): return vkGetSwapchainStatusKHR;
+		case nameof(vkGetRefreshCycleDurationGOOGLE): return vkGetRefreshCycleDurationGOOGLE;
+		case nameof(vkGetPastPresentationTimingGOOGLE): return vkGetPastPresentationTimingGOOGLE;
+		case nameof(vkCmdSetViewportWScalingNV): return vkCmdSetViewportWScalingNV;
+		case nameof(vkCmdSetDiscardRectangleEXT): return vkCmdSetDiscardRectangleEXT;
+		case nameof(vkCmdSetDiscardRectangleEnableEXT): return vkCmdSetDiscardRectangleEnableEXT;
+		case nameof(vkCmdSetDiscardRectangleModeEXT): return vkCmdSetDiscardRectangleModeEXT;
+		case nameof(vkCmdSetSampleLocationsEXT): return vkCmdSetSampleLocationsEXT;
+		case nameof(vkGetPhysicalDeviceMultisamplePropertiesEXT): return vkGetPhysicalDeviceMultisamplePropertiesEXT;
+		case nameof(vkGetPhysicalDeviceSurfaceCapabilities2KHR): return vkGetPhysicalDeviceSurfaceCapabilities2KHR;
+		case nameof(vkGetPhysicalDeviceSurfaceFormats2KHR): return vkGetPhysicalDeviceSurfaceFormats2KHR;
+		case nameof(vkGetPhysicalDeviceDisplayProperties2KHR): return vkGetPhysicalDeviceDisplayProperties2KHR;
+		case nameof(vkGetPhysicalDeviceDisplayPlaneProperties2KHR): return vkGetPhysicalDeviceDisplayPlaneProperties2KHR;
+		case nameof(vkGetDisplayModeProperties2KHR): return vkGetDisplayModeProperties2KHR;
+		case nameof(vkGetDisplayPlaneCapabilities2KHR): return vkGetDisplayPlaneCapabilities2KHR;
+		case nameof(vkGetBufferMemoryRequirements2): return vkGetBufferMemoryRequirements2;
+		case nameof(vkGetImageMemoryRequirements2): return vkGetImageMemoryRequirements2;
+		case nameof(vkGetImageSparseMemoryRequirements2): return vkGetImageSparseMemoryRequirements2;
+		case nameof(vkGetDeviceBufferMemoryRequirements): return vkGetDeviceBufferMemoryRequirements;
+		case nameof(vkGetDeviceImageMemoryRequirements): return vkGetDeviceImageMemoryRequirements;
+		case nameof(vkGetDeviceImageSparseMemoryRequirements): return vkGetDeviceImageSparseMemoryRequirements;
+		case nameof(vkCreateSamplerYcbcrConversion): return vkCreateSamplerYcbcrConversion;
+		case nameof(vkDestroySamplerYcbcrConversion): return vkDestroySamplerYcbcrConversion;
+		case nameof(vkGetDeviceQueue2): return vkGetDeviceQueue2;
+		case nameof(vkCreateValidationCacheEXT): return vkCreateValidationCacheEXT;
+		case nameof(vkDestroyValidationCacheEXT): return vkDestroyValidationCacheEXT;
+		case nameof(vkGetValidationCacheDataEXT): return vkGetValidationCacheDataEXT;
+		case nameof(vkMergeValidationCachesEXT): return vkMergeValidationCachesEXT;
+		case nameof(vkGetDescriptorSetLayoutSupport): return vkGetDescriptorSetLayoutSupport;
+		case nameof(vkGetShaderInfoAMD): return vkGetShaderInfoAMD;
+		case nameof(vkSetLocalDimmingAMD): return vkSetLocalDimmingAMD;
+		case nameof(vkGetPhysicalDeviceCalibrateableTimeDomainsKHR): return vkGetPhysicalDeviceCalibrateableTimeDomainsKHR;
+		case nameof(vkGetCalibratedTimestampsKHR): return vkGetCalibratedTimestampsKHR;
+		case nameof(vkSetDebugUtilsObjectNameEXT): return vkSetDebugUtilsObjectNameEXT;
+		case nameof(vkSetDebugUtilsObjectTagEXT): return vkSetDebugUtilsObjectTagEXT;
+		case nameof(vkQueueBeginDebugUtilsLabelEXT): return vkQueueBeginDebugUtilsLabelEXT;
+		case nameof(vkQueueEndDebugUtilsLabelEXT): return vkQueueEndDebugUtilsLabelEXT;
+		case nameof(vkQueueInsertDebugUtilsLabelEXT): return vkQueueInsertDebugUtilsLabelEXT;
+		case nameof(vkCmdBeginDebugUtilsLabelEXT): return vkCmdBeginDebugUtilsLabelEXT;
+		case nameof(vkCmdEndDebugUtilsLabelEXT): return vkCmdEndDebugUtilsLabelEXT;
+		case nameof(vkCmdInsertDebugUtilsLabelEXT): return vkCmdInsertDebugUtilsLabelEXT;
+		case nameof(vkCreateDebugUtilsMessengerEXT): return vkCreateDebugUtilsMessengerEXT;
+		case nameof(vkDestroyDebugUtilsMessengerEXT): return vkDestroyDebugUtilsMessengerEXT;
+		case nameof(vkSubmitDebugUtilsMessageEXT): return vkSubmitDebugUtilsMessageEXT;
+		case nameof(vkGetMemoryHostPointerPropertiesEXT): return vkGetMemoryHostPointerPropertiesEXT;
+		case nameof(vkCmdWriteBufferMarkerAMD): return vkCmdWriteBufferMarkerAMD;
+		case nameof(vkCreateRenderPass2): return vkCreateRenderPass2;
+		case nameof(vkCmdBeginRenderPass2): return vkCmdBeginRenderPass2;
+		case nameof(vkCmdNextSubpass2): return vkCmdNextSubpass2;
+		case nameof(vkCmdEndRenderPass2): return vkCmdEndRenderPass2;
+		case nameof(vkGetSemaphoreCounterValue): return vkGetSemaphoreCounterValue;
+		case nameof(vkWaitSemaphores): return vkWaitSemaphores;
+		case nameof(vkSignalSemaphore): return vkSignalSemaphore;
+		case nameof(vkCmdDrawIndirectCount): return vkCmdDrawIndirectCount;
+		case nameof(vkCmdDrawIndexedIndirectCount): return vkCmdDrawIndexedIndirectCount;
+		case nameof(vkCmdSetCheckpointNV): return vkCmdSetCheckpointNV;
+		case nameof(vkGetQueueCheckpointDataNV): return vkGetQueueCheckpointDataNV;
+		case nameof(vkCmdBindTransformFeedbackBuffersEXT): return vkCmdBindTransformFeedbackBuffersEXT;
+		case nameof(vkCmdBeginTransformFeedbackEXT): return vkCmdBeginTransformFeedbackEXT;
+		case nameof(vkCmdEndTransformFeedbackEXT): return vkCmdEndTransformFeedbackEXT;
+		case nameof(vkCmdBeginQueryIndexedEXT): return vkCmdBeginQueryIndexedEXT;
+		case nameof(vkCmdEndQueryIndexedEXT): return vkCmdEndQueryIndexedEXT;
+		case nameof(vkCmdDrawIndirectByteCountEXT): return vkCmdDrawIndirectByteCountEXT;
+		case nameof(vkCmdSetExclusiveScissorNV): return vkCmdSetExclusiveScissorNV;
+		case nameof(vkCmdSetExclusiveScissorEnableNV): return vkCmdSetExclusiveScissorEnableNV;
+		case nameof(vkCmdBindShadingRateImageNV): return vkCmdBindShadingRateImageNV;
+		case nameof(vkCmdSetViewportShadingRatePaletteNV): return vkCmdSetViewportShadingRatePaletteNV;
+		case nameof(vkCmdSetCoarseSampleOrderNV): return vkCmdSetCoarseSampleOrderNV;
+		case nameof(vkCmdDrawMeshTasksNV): return vkCmdDrawMeshTasksNV;
+		case nameof(vkCmdDrawMeshTasksIndirectNV): return vkCmdDrawMeshTasksIndirectNV;
+		case nameof(vkCmdDrawMeshTasksIndirectCountNV): return vkCmdDrawMeshTasksIndirectCountNV;
+		case nameof(vkCmdDrawMeshTasksEXT): return vkCmdDrawMeshTasksEXT;
+		case nameof(vkCmdDrawMeshTasksIndirectEXT): return vkCmdDrawMeshTasksIndirectEXT;
+		case nameof(vkCmdDrawMeshTasksIndirectCountEXT): return vkCmdDrawMeshTasksIndirectCountEXT;
+		case nameof(vkCompileDeferredNV): return vkCompileDeferredNV;
+		case nameof(vkCreateAccelerationStructureNV): return vkCreateAccelerationStructureNV;
+		case nameof(vkCmdBindInvocationMaskHUAWEI): return vkCmdBindInvocationMaskHUAWEI;
+		case nameof(vkDestroyAccelerationStructureKHR): return vkDestroyAccelerationStructureKHR;
+		case nameof(vkDestroyAccelerationStructureNV): return vkDestroyAccelerationStructureNV;
+		case nameof(vkGetAccelerationStructureMemoryRequirementsNV): return vkGetAccelerationStructureMemoryRequirementsNV;
+		case nameof(vkBindAccelerationStructureMemoryNV): return vkBindAccelerationStructureMemoryNV;
+		case nameof(vkCmdCopyAccelerationStructureNV): return vkCmdCopyAccelerationStructureNV;
+		case nameof(vkCmdCopyAccelerationStructureKHR): return vkCmdCopyAccelerationStructureKHR;
+		case nameof(vkCopyAccelerationStructureKHR): return vkCopyAccelerationStructureKHR;
+		case nameof(vkCmdCopyAccelerationStructureToMemoryKHR): return vkCmdCopyAccelerationStructureToMemoryKHR;
+		case nameof(vkCopyAccelerationStructureToMemoryKHR): return vkCopyAccelerationStructureToMemoryKHR;
+		case nameof(vkCmdCopyMemoryToAccelerationStructureKHR): return vkCmdCopyMemoryToAccelerationStructureKHR;
+		case nameof(vkCopyMemoryToAccelerationStructureKHR): return vkCopyMemoryToAccelerationStructureKHR;
+		case nameof(vkCmdWriteAccelerationStructuresPropertiesKHR): return vkCmdWriteAccelerationStructuresPropertiesKHR;
+		case nameof(vkCmdWriteAccelerationStructuresPropertiesNV): return vkCmdWriteAccelerationStructuresPropertiesNV;
+		case nameof(vkCmdBuildAccelerationStructureNV): return vkCmdBuildAccelerationStructureNV;
+		case nameof(vkWriteAccelerationStructuresPropertiesKHR): return vkWriteAccelerationStructuresPropertiesKHR;
+		case nameof(vkCmdTraceRaysKHR): return vkCmdTraceRaysKHR;
+		case nameof(vkCmdTraceRaysNV): return vkCmdTraceRaysNV;
+		case nameof(vkGetRayTracingShaderGroupHandlesKHR): return vkGetRayTracingShaderGroupHandlesKHR;
+		case nameof(vkGetRayTracingCaptureReplayShaderGroupHandlesKHR): return vkGetRayTracingCaptureReplayShaderGroupHandlesKHR;
+		case nameof(vkGetAccelerationStructureHandleNV): return vkGetAccelerationStructureHandleNV;
+		case nameof(vkCreateRayTracingPipelinesNV): return vkCreateRayTracingPipelinesNV;
+		case nameof(vkCreateRayTracingPipelinesKHR): return vkCreateRayTracingPipelinesKHR;
+		case nameof(vkGetPhysicalDeviceCooperativeMatrixPropertiesNV): return vkGetPhysicalDeviceCooperativeMatrixPropertiesNV;
+		case nameof(vkCmdTraceRaysIndirectKHR): return vkCmdTraceRaysIndirectKHR;
+		case nameof(vkCmdTraceRaysIndirect2KHR): return vkCmdTraceRaysIndirect2KHR;
+		case nameof(vkGetClusterAccelerationStructureBuildSizesNV): return vkGetClusterAccelerationStructureBuildSizesNV;
+		case nameof(vkCmdBuildClusterAccelerationStructureIndirectNV): return vkCmdBuildClusterAccelerationStructureIndirectNV;
+		case nameof(vkGetDeviceAccelerationStructureCompatibilityKHR): return vkGetDeviceAccelerationStructureCompatibilityKHR;
+		case nameof(vkGetRayTracingShaderGroupStackSizeKHR): return vkGetRayTracingShaderGroupStackSizeKHR;
+		case nameof(vkCmdSetRayTracingPipelineStackSizeKHR): return vkCmdSetRayTracingPipelineStackSizeKHR;
+		case nameof(vkGetImageViewHandleNVX): return vkGetImageViewHandleNVX;
+		case nameof(vkGetImageViewHandle64NVX): return vkGetImageViewHandle64NVX;
+		case nameof(vkGetImageViewAddressNVX): return vkGetImageViewAddressNVX;
+		case nameof(vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR): return vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR;
+		case nameof(vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR): return vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR;
+		case nameof(vkAcquireProfilingLockKHR): return vkAcquireProfilingLockKHR;
+		case nameof(vkReleaseProfilingLockKHR): return vkReleaseProfilingLockKHR;
+		case nameof(vkGetImageDrmFormatModifierPropertiesEXT): return vkGetImageDrmFormatModifierPropertiesEXT;
+		case nameof(vkGetBufferOpaqueCaptureAddress): return vkGetBufferOpaqueCaptureAddress;
+		case nameof(vkGetBufferDeviceAddress): return vkGetBufferDeviceAddress;
+		case nameof(vkCreateHeadlessSurfaceEXT): return vkCreateHeadlessSurfaceEXT;
+		case nameof(vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV): return vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV;
+		case nameof(vkInitializePerformanceApiINTEL): return vkInitializePerformanceApiINTEL;
+		case nameof(vkUninitializePerformanceApiINTEL): return vkUninitializePerformanceApiINTEL;
+		case nameof(vkCmdSetPerformanceMarkerINTEL): return vkCmdSetPerformanceMarkerINTEL;
+		case nameof(vkCmdSetPerformanceStreamMarkerINTEL): return vkCmdSetPerformanceStreamMarkerINTEL;
+		case nameof(vkCmdSetPerformanceOverrideINTEL): return vkCmdSetPerformanceOverrideINTEL;
+		case nameof(vkAcquirePerformanceConfigurationINTEL): return vkAcquirePerformanceConfigurationINTEL;
+		case nameof(vkReleasePerformanceConfigurationINTEL): return vkReleasePerformanceConfigurationINTEL;
+		case nameof(vkQueueSetPerformanceConfigurationINTEL): return vkQueueSetPerformanceConfigurationINTEL;
+		case nameof(vkGetPerformanceParameterINTEL): return vkGetPerformanceParameterINTEL;
+		case nameof(vkGetDeviceMemoryOpaqueCaptureAddress): return vkGetDeviceMemoryOpaqueCaptureAddress;
+		case nameof(vkGetPipelineExecutablePropertiesKHR): return vkGetPipelineExecutablePropertiesKHR;
+		case nameof(vkGetPipelineExecutableStatisticsKHR): return vkGetPipelineExecutableStatisticsKHR;
+		case nameof(vkGetPipelineExecutableInternalRepresentationsKHR): return vkGetPipelineExecutableInternalRepresentationsKHR;
+		case nameof(vkCmdSetLineStipple): return vkCmdSetLineStipple;
+		case nameof(vkGetPhysicalDeviceToolProperties): return vkGetPhysicalDeviceToolProperties;
+		case nameof(vkCreateAccelerationStructureKHR): return vkCreateAccelerationStructureKHR;
+		case nameof(vkCmdBuildAccelerationStructuresKHR): return vkCmdBuildAccelerationStructuresKHR;
+		case nameof(vkCmdBuildAccelerationStructuresIndirectKHR): return vkCmdBuildAccelerationStructuresIndirectKHR;
+		case nameof(vkBuildAccelerationStructuresKHR): return vkBuildAccelerationStructuresKHR;
+		case nameof(vkGetAccelerationStructureDeviceAddressKHR): return vkGetAccelerationStructureDeviceAddressKHR;
+		case nameof(vkCreateDeferredOperationKHR): return vkCreateDeferredOperationKHR;
+		case nameof(vkDestroyDeferredOperationKHR): return vkDestroyDeferredOperationKHR;
+		case nameof(vkGetDeferredOperationMaxConcurrencyKHR): return vkGetDeferredOperationMaxConcurrencyKHR;
+		case nameof(vkGetDeferredOperationResultKHR): return vkGetDeferredOperationResultKHR;
+		case nameof(vkDeferredOperationJoinKHR): return vkDeferredOperationJoinKHR;
+		case nameof(vkGetPipelineIndirectMemoryRequirementsNV): return vkGetPipelineIndirectMemoryRequirementsNV;
+		case nameof(vkGetPipelineIndirectDeviceAddressNV): return vkGetPipelineIndirectDeviceAddressNV;
+		case nameof(vkAntiLagUpdateAMD): return vkAntiLagUpdateAMD;
+		case nameof(vkCmdSetCullMode): return vkCmdSetCullMode;
+		case nameof(vkCmdSetFrontFace): return vkCmdSetFrontFace;
+		case nameof(vkCmdSetPrimitiveTopology): return vkCmdSetPrimitiveTopology;
+		case nameof(vkCmdSetViewportWithCount): return vkCmdSetViewportWithCount;
+		case nameof(vkCmdSetScissorWithCount): return vkCmdSetScissorWithCount;
+		case nameof(vkCmdBindIndexBuffer2): return vkCmdBindIndexBuffer2;
+		case nameof(vkCmdBindVertexBuffers2): return vkCmdBindVertexBuffers2;
+		case nameof(vkCmdSetDepthTestEnable): return vkCmdSetDepthTestEnable;
+		case nameof(vkCmdSetDepthWriteEnable): return vkCmdSetDepthWriteEnable;
+		case nameof(vkCmdSetDepthCompareOp): return vkCmdSetDepthCompareOp;
+		case nameof(vkCmdSetDepthBoundsTestEnable): return vkCmdSetDepthBoundsTestEnable;
+		case nameof(vkCmdSetStencilTestEnable): return vkCmdSetStencilTestEnable;
+		case nameof(vkCmdSetStencilOp): return vkCmdSetStencilOp;
+		case nameof(vkCmdSetPatchControlPointsEXT): return vkCmdSetPatchControlPointsEXT;
+		case nameof(vkCmdSetRasterizerDiscardEnable): return vkCmdSetRasterizerDiscardEnable;
+		case nameof(vkCmdSetDepthBiasEnable): return vkCmdSetDepthBiasEnable;
+		case nameof(vkCmdSetLogicOpEXT): return vkCmdSetLogicOpEXT;
+		case nameof(vkCmdSetPrimitiveRestartEnable): return vkCmdSetPrimitiveRestartEnable;
+		case nameof(vkCmdSetTessellationDomainOriginEXT): return vkCmdSetTessellationDomainOriginEXT;
+		case nameof(vkCmdSetDepthClampEnableEXT): return vkCmdSetDepthClampEnableEXT;
+		case nameof(vkCmdSetPolygonModeEXT): return vkCmdSetPolygonModeEXT;
+		case nameof(vkCmdSetRasterizationSamplesEXT): return vkCmdSetRasterizationSamplesEXT;
+		case nameof(vkCmdSetSampleMaskEXT): return vkCmdSetSampleMaskEXT;
+		case nameof(vkCmdSetAlphaToCoverageEnableEXT): return vkCmdSetAlphaToCoverageEnableEXT;
+		case nameof(vkCmdSetAlphaToOneEnableEXT): return vkCmdSetAlphaToOneEnableEXT;
+		case nameof(vkCmdSetLogicOpEnableEXT): return vkCmdSetLogicOpEnableEXT;
+		case nameof(vkCmdSetColorBlendEnableEXT): return vkCmdSetColorBlendEnableEXT;
+		case nameof(vkCmdSetColorBlendEquationEXT): return vkCmdSetColorBlendEquationEXT;
+		case nameof(vkCmdSetColorWriteMaskEXT): return vkCmdSetColorWriteMaskEXT;
+		case nameof(vkCmdSetRasterizationStreamEXT): return vkCmdSetRasterizationStreamEXT;
+		case nameof(vkCmdSetConservativeRasterizationModeEXT): return vkCmdSetConservativeRasterizationModeEXT;
+		case nameof(vkCmdSetExtraPrimitiveOverestimationSizeEXT): return vkCmdSetExtraPrimitiveOverestimationSizeEXT;
+		case nameof(vkCmdSetDepthClipEnableEXT): return vkCmdSetDepthClipEnableEXT;
+		case nameof(vkCmdSetSampleLocationsEnableEXT): return vkCmdSetSampleLocationsEnableEXT;
+		case nameof(vkCmdSetColorBlendAdvancedEXT): return vkCmdSetColorBlendAdvancedEXT;
+		case nameof(vkCmdSetProvokingVertexModeEXT): return vkCmdSetProvokingVertexModeEXT;
+		case nameof(vkCmdSetLineRasterizationModeEXT): return vkCmdSetLineRasterizationModeEXT;
+		case nameof(vkCmdSetLineStippleEnableEXT): return vkCmdSetLineStippleEnableEXT;
+		case nameof(vkCmdSetDepthClipNegativeOneToOneEXT): return vkCmdSetDepthClipNegativeOneToOneEXT;
+		case nameof(vkCmdSetViewportWScalingEnableNV): return vkCmdSetViewportWScalingEnableNV;
+		case nameof(vkCmdSetViewportSwizzleNV): return vkCmdSetViewportSwizzleNV;
+		case nameof(vkCmdSetCoverageToColorEnableNV): return vkCmdSetCoverageToColorEnableNV;
+		case nameof(vkCmdSetCoverageToColorLocationNV): return vkCmdSetCoverageToColorLocationNV;
+		case nameof(vkCmdSetCoverageModulationModeNV): return vkCmdSetCoverageModulationModeNV;
+		case nameof(vkCmdSetCoverageModulationTableEnableNV): return vkCmdSetCoverageModulationTableEnableNV;
+		case nameof(vkCmdSetCoverageModulationTableNV): return vkCmdSetCoverageModulationTableNV;
+		case nameof(vkCmdSetShadingRateImageEnableNV): return vkCmdSetShadingRateImageEnableNV;
+		case nameof(vkCmdSetCoverageReductionModeNV): return vkCmdSetCoverageReductionModeNV;
+		case nameof(vkCmdSetRepresentativeFragmentTestEnableNV): return vkCmdSetRepresentativeFragmentTestEnableNV;
+		case nameof(vkCreatePrivateDataSlot): return vkCreatePrivateDataSlot;
+		case nameof(vkDestroyPrivateDataSlot): return vkDestroyPrivateDataSlot;
+		case nameof(vkSetPrivateData): return vkSetPrivateData;
+		case nameof(vkGetPrivateData): return vkGetPrivateData;
+		case nameof(vkCmdCopyBuffer2): return vkCmdCopyBuffer2;
+		case nameof(vkCmdCopyImage2): return vkCmdCopyImage2;
+		case nameof(vkCmdBlitImage2): return vkCmdBlitImage2;
+		case nameof(vkCmdCopyBufferToImage2): return vkCmdCopyBufferToImage2;
+		case nameof(vkCmdCopyImageToBuffer2): return vkCmdCopyImageToBuffer2;
+		case nameof(vkCmdResolveImage2): return vkCmdResolveImage2;
+		case nameof(vkCmdSetFragmentShadingRateKHR): return vkCmdSetFragmentShadingRateKHR;
+		case nameof(vkGetPhysicalDeviceFragmentShadingRatesKHR): return vkGetPhysicalDeviceFragmentShadingRatesKHR;
+		case nameof(vkCmdSetFragmentShadingRateEnumNV): return vkCmdSetFragmentShadingRateEnumNV;
+		case nameof(vkGetAccelerationStructureBuildSizesKHR): return vkGetAccelerationStructureBuildSizesKHR;
+		case nameof(vkCmdSetVertexInputEXT): return vkCmdSetVertexInputEXT;
+		case nameof(vkCmdSetColorWriteEnableEXT): return vkCmdSetColorWriteEnableEXT;
+		case nameof(vkCmdSetEvent2): return vkCmdSetEvent2;
+		case nameof(vkCmdResetEvent2): return vkCmdResetEvent2;
+		case nameof(vkCmdWaitEvents2): return vkCmdWaitEvents2;
+		case nameof(vkCmdPipelineBarrier2): return vkCmdPipelineBarrier2;
+		case nameof(vkQueueSubmit2): return vkQueueSubmit2;
+		case nameof(vkCmdWriteTimestamp2): return vkCmdWriteTimestamp2;
+		case nameof(vkCmdWriteBufferMarker2AMD): return vkCmdWriteBufferMarker2AMD;
+		case nameof(vkGetQueueCheckpointData2NV): return vkGetQueueCheckpointData2NV;
+		case nameof(vkCopyMemoryToImage): return vkCopyMemoryToImage;
+		case nameof(vkCopyImageToMemory): return vkCopyImageToMemory;
+		case nameof(vkCopyImageToImage): return vkCopyImageToImage;
+		case nameof(vkTransitionImageLayout): return vkTransitionImageLayout;
+		case nameof(vkGetPhysicalDeviceVideoCapabilitiesKHR): return vkGetPhysicalDeviceVideoCapabilitiesKHR;
+		case nameof(vkGetPhysicalDeviceVideoFormatPropertiesKHR): return vkGetPhysicalDeviceVideoFormatPropertiesKHR;
+		case nameof(vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR): return vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR;
+		case nameof(vkCreateVideoSessionKHR): return vkCreateVideoSessionKHR;
+		case nameof(vkDestroyVideoSessionKHR): return vkDestroyVideoSessionKHR;
+		case nameof(vkCreateVideoSessionParametersKHR): return vkCreateVideoSessionParametersKHR;
+		case nameof(vkUpdateVideoSessionParametersKHR): return vkUpdateVideoSessionParametersKHR;
+		case nameof(vkGetEncodedVideoSessionParametersKHR): return vkGetEncodedVideoSessionParametersKHR;
+		case nameof(vkDestroyVideoSessionParametersKHR): return vkDestroyVideoSessionParametersKHR;
+		case nameof(vkGetVideoSessionMemoryRequirementsKHR): return vkGetVideoSessionMemoryRequirementsKHR;
+		case nameof(vkBindVideoSessionMemoryKHR): return vkBindVideoSessionMemoryKHR;
+		case nameof(vkCmdDecodeVideoKHR): return vkCmdDecodeVideoKHR;
+		case nameof(vkCmdBeginVideoCodingKHR): return vkCmdBeginVideoCodingKHR;
+		case nameof(vkCmdControlVideoCodingKHR): return vkCmdControlVideoCodingKHR;
+		case nameof(vkCmdEndVideoCodingKHR): return vkCmdEndVideoCodingKHR;
+		case nameof(vkCmdEncodeVideoKHR): return vkCmdEncodeVideoKHR;
+		case nameof(vkCmdDecompressMemoryNV): return vkCmdDecompressMemoryNV;
+		case nameof(vkCmdDecompressMemoryIndirectCountNV): return vkCmdDecompressMemoryIndirectCountNV;
+		case nameof(vkGetPartitionedAccelerationStructuresBuildSizesNV): return vkGetPartitionedAccelerationStructuresBuildSizesNV;
+		case nameof(vkCmdBuildPartitionedAccelerationStructuresNV): return vkCmdBuildPartitionedAccelerationStructuresNV;
+		case nameof(vkCreateCuModuleNVX): return vkCreateCuModuleNVX;
+		case nameof(vkCreateCuFunctionNVX): return vkCreateCuFunctionNVX;
+		case nameof(vkDestroyCuModuleNVX): return vkDestroyCuModuleNVX;
+		case nameof(vkDestroyCuFunctionNVX): return vkDestroyCuFunctionNVX;
+		case nameof(vkCmdCuLaunchKernelNVX): return vkCmdCuLaunchKernelNVX;
+		case nameof(vkGetDescriptorSetLayoutSizeEXT): return vkGetDescriptorSetLayoutSizeEXT;
+		case nameof(vkGetDescriptorSetLayoutBindingOffsetEXT): return vkGetDescriptorSetLayoutBindingOffsetEXT;
+		case nameof(vkGetDescriptorEXT): return vkGetDescriptorEXT;
+		case nameof(vkCmdBindDescriptorBuffersEXT): return vkCmdBindDescriptorBuffersEXT;
+		case nameof(vkCmdSetDescriptorBufferOffsetsEXT): return vkCmdSetDescriptorBufferOffsetsEXT;
+		case nameof(vkCmdBindDescriptorBufferEmbeddedSamplersEXT): return vkCmdBindDescriptorBufferEmbeddedSamplersEXT;
+		case nameof(vkGetBufferOpaqueCaptureDescriptorDataEXT): return vkGetBufferOpaqueCaptureDescriptorDataEXT;
+		case nameof(vkGetImageOpaqueCaptureDescriptorDataEXT): return vkGetImageOpaqueCaptureDescriptorDataEXT;
+		case nameof(vkGetImageViewOpaqueCaptureDescriptorDataEXT): return vkGetImageViewOpaqueCaptureDescriptorDataEXT;
+		case nameof(vkGetSamplerOpaqueCaptureDescriptorDataEXT): return vkGetSamplerOpaqueCaptureDescriptorDataEXT;
+		case nameof(vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT): return vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT;
+		case nameof(vkSetDeviceMemoryPriorityEXT): return vkSetDeviceMemoryPriorityEXT;
+		case nameof(vkAcquireDrmDisplayEXT): return vkAcquireDrmDisplayEXT;
+		case nameof(vkGetDrmDisplayEXT): return vkGetDrmDisplayEXT;
+		case nameof(vkWaitForPresent2KHR): return vkWaitForPresent2KHR;
+		case nameof(vkWaitForPresentKHR): return vkWaitForPresentKHR;
+		case nameof(vkCmdBeginRendering): return vkCmdBeginRendering;
+		case nameof(vkCmdEndRendering): return vkCmdEndRendering;
+		case nameof(vkCmdEndRendering2EXT): return vkCmdEndRendering2EXT;
+		case nameof(vkGetDescriptorSetLayoutHostMappingInfoVALVE): return vkGetDescriptorSetLayoutHostMappingInfoVALVE;
+		case nameof(vkGetDescriptorSetHostMappingVALVE): return vkGetDescriptorSetHostMappingVALVE;
+		case nameof(vkCreateMicromapEXT): return vkCreateMicromapEXT;
+		case nameof(vkCmdBuildMicromapsEXT): return vkCmdBuildMicromapsEXT;
+		case nameof(vkBuildMicromapsEXT): return vkBuildMicromapsEXT;
+		case nameof(vkDestroyMicromapEXT): return vkDestroyMicromapEXT;
+		case nameof(vkCmdCopyMicromapEXT): return vkCmdCopyMicromapEXT;
+		case nameof(vkCopyMicromapEXT): return vkCopyMicromapEXT;
+		case nameof(vkCmdCopyMicromapToMemoryEXT): return vkCmdCopyMicromapToMemoryEXT;
+		case nameof(vkCopyMicromapToMemoryEXT): return vkCopyMicromapToMemoryEXT;
+		case nameof(vkCmdCopyMemoryToMicromapEXT): return vkCmdCopyMemoryToMicromapEXT;
+		case nameof(vkCopyMemoryToMicromapEXT): return vkCopyMemoryToMicromapEXT;
+		case nameof(vkCmdWriteMicromapsPropertiesEXT): return vkCmdWriteMicromapsPropertiesEXT;
+		case nameof(vkWriteMicromapsPropertiesEXT): return vkWriteMicromapsPropertiesEXT;
+		case nameof(vkGetDeviceMicromapCompatibilityEXT): return vkGetDeviceMicromapCompatibilityEXT;
+		case nameof(vkGetMicromapBuildSizesEXT): return vkGetMicromapBuildSizesEXT;
+		case nameof(vkGetShaderModuleIdentifierEXT): return vkGetShaderModuleIdentifierEXT;
+		case nameof(vkGetShaderModuleCreateInfoIdentifierEXT): return vkGetShaderModuleCreateInfoIdentifierEXT;
+		case nameof(vkGetImageSubresourceLayout2): return vkGetImageSubresourceLayout2;
+		case nameof(vkGetPipelinePropertiesEXT): return vkGetPipelinePropertiesEXT;
+		case nameof(vkCmdBindTileMemoryQCOM): return vkCmdBindTileMemoryQCOM;
+		case nameof(vkGetFramebufferTilePropertiesQCOM): return vkGetFramebufferTilePropertiesQCOM;
+		case nameof(vkGetDynamicRenderingTilePropertiesQCOM): return vkGetDynamicRenderingTilePropertiesQCOM;
+		case nameof(vkGetPhysicalDeviceOpticalFlowImageFormatsNV): return vkGetPhysicalDeviceOpticalFlowImageFormatsNV;
+		case nameof(vkCreateOpticalFlowSessionNV): return vkCreateOpticalFlowSessionNV;
+		case nameof(vkDestroyOpticalFlowSessionNV): return vkDestroyOpticalFlowSessionNV;
+		case nameof(vkBindOpticalFlowSessionImageNV): return vkBindOpticalFlowSessionImageNV;
+		case nameof(vkCmdOpticalFlowExecuteNV): return vkCmdOpticalFlowExecuteNV;
+		case nameof(vkGetDeviceFaultInfoEXT): return vkGetDeviceFaultInfoEXT;
+		case nameof(vkCmdSetDepthBias2EXT): return vkCmdSetDepthBias2EXT;
+		case nameof(vkReleaseSwapchainImagesKHR): return vkReleaseSwapchainImagesKHR;
+		case nameof(vkGetDeviceImageSubresourceLayout): return vkGetDeviceImageSubresourceLayout;
+		case nameof(vkMapMemory2): return vkMapMemory2;
+		case nameof(vkUnmapMemory2): return vkUnmapMemory2;
+		case nameof(vkCreateShadersEXT): return vkCreateShadersEXT;
+		case nameof(vkDestroyShaderEXT): return vkDestroyShaderEXT;
+		case nameof(vkGetShaderBinaryDataEXT): return vkGetShaderBinaryDataEXT;
+		case nameof(vkCmdBindShadersEXT): return vkCmdBindShadersEXT;
+		case nameof(vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR): return vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR;
+		case nameof(vkCmdBindDescriptorSets2): return vkCmdBindDescriptorSets2;
+		case nameof(vkCmdPushConstants2): return vkCmdPushConstants2;
+		case nameof(vkCmdPushDescriptorSet2): return vkCmdPushDescriptorSet2;
+		case nameof(vkCmdPushDescriptorSetWithTemplate2): return vkCmdPushDescriptorSetWithTemplate2;
+		case nameof(vkCmdSetDescriptorBufferOffsets2EXT): return vkCmdSetDescriptorBufferOffsets2EXT;
+		case nameof(vkCmdBindDescriptorBufferEmbeddedSamplers2EXT): return vkCmdBindDescriptorBufferEmbeddedSamplers2EXT;
+		case nameof(vkSetLatencySleepModeNV): return vkSetLatencySleepModeNV;
+		case nameof(vkLatencySleepNV): return vkLatencySleepNV;
+		case nameof(vkSetLatencyMarkerNV): return vkSetLatencyMarkerNV;
+		case nameof(vkGetLatencyTimingsNV): return vkGetLatencyTimingsNV;
+		case nameof(vkQueueNotifyOutOfBandNV): return vkQueueNotifyOutOfBandNV;
+		case nameof(vkCmdSetRenderingAttachmentLocations): return vkCmdSetRenderingAttachmentLocations;
+		case nameof(vkCmdSetRenderingInputAttachmentIndices): return vkCmdSetRenderingInputAttachmentIndices;
+		case nameof(vkCmdSetDepthClampRangeEXT): return vkCmdSetDepthClampRangeEXT;
+		case nameof(vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV): return vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV;
+		case nameof(vkGetPhysicalDeviceCooperativeVectorPropertiesNV): return vkGetPhysicalDeviceCooperativeVectorPropertiesNV;
+		case nameof(vkConvertCooperativeVectorMatrixNV): return vkConvertCooperativeVectorMatrixNV;
+		case nameof(vkCmdConvertCooperativeVectorMatrixNV): return vkCmdConvertCooperativeVectorMatrixNV;
+		case nameof(vkCmdDispatchTileQCOM): return vkCmdDispatchTileQCOM;
+		case nameof(vkCmdBeginPerTileExecutionQCOM): return vkCmdBeginPerTileExecutionQCOM;
+		case nameof(vkCmdEndPerTileExecutionQCOM): return vkCmdEndPerTileExecutionQCOM;
+		case nameof(vkCreateExternalComputeQueueNV): return vkCreateExternalComputeQueueNV;
+		case nameof(vkDestroyExternalComputeQueueNV): return vkDestroyExternalComputeQueueNV;
+		case nameof(vkGetExternalComputeQueueDataNV): return vkGetExternalComputeQueueDataNV;
+		case nameof(vkCreateTensorARM): return vkCreateTensorARM;
+		case nameof(vkDestroyTensorARM): return vkDestroyTensorARM;
+		case nameof(vkCreateTensorViewARM): return vkCreateTensorViewARM;
+		case nameof(vkDestroyTensorViewARM): return vkDestroyTensorViewARM;
+		case nameof(vkGetTensorMemoryRequirementsARM): return vkGetTensorMemoryRequirementsARM;
+		case nameof(vkBindTensorMemoryARM): return vkBindTensorMemoryARM;
+		case nameof(vkGetDeviceTensorMemoryRequirementsARM): return vkGetDeviceTensorMemoryRequirementsARM;
+		case nameof(vkCmdCopyTensorARM): return vkCmdCopyTensorARM;
+		case nameof(vkGetTensorOpaqueCaptureDescriptorDataARM): return vkGetTensorOpaqueCaptureDescriptorDataARM;
+		case nameof(vkGetTensorViewOpaqueCaptureDescriptorDataARM): return vkGetTensorViewOpaqueCaptureDescriptorDataARM;
+		case nameof(vkGetPhysicalDeviceExternalTensorPropertiesARM): return vkGetPhysicalDeviceExternalTensorPropertiesARM;
+		case nameof(vkCreateDataGraphPipelinesARM): return vkCreateDataGraphPipelinesARM;
+		case nameof(vkCreateDataGraphPipelineSessionARM): return vkCreateDataGraphPipelineSessionARM;
+		case nameof(vkGetDataGraphPipelineSessionBindPointRequirementsARM): return vkGetDataGraphPipelineSessionBindPointRequirementsARM;
+		case nameof(vkGetDataGraphPipelineSessionMemoryRequirementsARM): return vkGetDataGraphPipelineSessionMemoryRequirementsARM;
+		case nameof(vkBindDataGraphPipelineSessionMemoryARM): return vkBindDataGraphPipelineSessionMemoryARM;
+		case nameof(vkDestroyDataGraphPipelineSessionARM): return vkDestroyDataGraphPipelineSessionARM;
+		case nameof(vkCmdDispatchDataGraphARM): return vkCmdDispatchDataGraphARM;
+		case nameof(vkGetDataGraphPipelineAvailablePropertiesARM): return vkGetDataGraphPipelineAvailablePropertiesARM;
+		case nameof(vkGetDataGraphPipelinePropertiesARM): return vkGetDataGraphPipelinePropertiesARM;
+		case nameof(vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM): return vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM;
+		case nameof(vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM): return vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM;
+		default: Runtime.FatalError("Command not found");
+		}
+	}
+
+	public int SuccessCodesCount
+	{
+		get
+		{
+			switch (this)
+			{
+			case vkCreateInstance: return 1;
+			case vkEnumeratePhysicalDevices: return 2;
+			case vkGetPhysicalDeviceImageFormatProperties: return 1;
+			case vkCreateDevice: return 1;
+			case vkEnumerateInstanceVersion: return 1;
+			case vkEnumerateInstanceLayerProperties: return 2;
+			case vkEnumerateInstanceExtensionProperties: return 2;
+			case vkEnumerateDeviceLayerProperties: return 2;
+			case vkEnumerateDeviceExtensionProperties: return 2;
+			case vkQueueSubmit: return 1;
+			case vkQueueWaitIdle: return 1;
+			case vkDeviceWaitIdle: return 1;
+			case vkAllocateMemory: return 1;
+			case vkMapMemory: return 1;
+			case vkFlushMappedMemoryRanges: return 1;
+			case vkInvalidateMappedMemoryRanges: return 1;
+			case vkBindBufferMemory: return 1;
+			case vkBindImageMemory: return 1;
+			case vkQueueBindSparse: return 1;
+			case vkCreateFence: return 1;
+			case vkResetFences: return 1;
+			case vkGetFenceStatus: return 2;
+			case vkWaitForFences: return 2;
+			case vkCreateSemaphore: return 1;
+			case vkCreateEvent: return 1;
+			case vkGetEventStatus: return 2;
+			case vkSetEvent: return 1;
+			case vkResetEvent: return 1;
+			case vkCreateQueryPool: return 1;
+			case vkGetQueryPoolResults: return 2;
+			case vkCreateBuffer: return 1;
+			case vkCreateBufferView: return 1;
+			case vkCreateImage: return 1;
+			case vkCreateImageView: return 1;
+			case vkCreateShaderModule: return 1;
+			case vkCreatePipelineCache: return 1;
+			case vkGetPipelineCacheData: return 2;
+			case vkMergePipelineCaches: return 1;
+			case vkCreatePipelineBinariesKHR: return 3;
+			case vkGetPipelineKeyKHR: return 1;
+			case vkGetPipelineBinaryDataKHR: return 1;
+			case vkReleaseCapturedPipelineDataKHR: return 1;
+			case vkCreateGraphicsPipelines: return 2;
+			case vkCreateComputePipelines: return 2;
+			case vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI: return 1;
+			case vkCreatePipelineLayout: return 1;
+			case vkCreateSampler: return 1;
+			case vkCreateDescriptorSetLayout: return 1;
+			case vkCreateDescriptorPool: return 1;
+			case vkResetDescriptorPool: return 1;
+			case vkAllocateDescriptorSets: return 1;
+			case vkFreeDescriptorSets: return 1;
+			case vkCreateFramebuffer: return 1;
+			case vkCreateRenderPass: return 1;
+			case vkCreateCommandPool: return 1;
+			case vkResetCommandPool: return 1;
+			case vkAllocateCommandBuffers: return 1;
+			case vkBeginCommandBuffer: return 1;
+			case vkEndCommandBuffer: return 1;
+			case vkResetCommandBuffer: return 1;
+			case vkGetPhysicalDeviceDisplayPropertiesKHR: return 2;
+			case vkGetPhysicalDeviceDisplayPlanePropertiesKHR: return 2;
+			case vkGetDisplayPlaneSupportedDisplaysKHR: return 2;
+			case vkGetDisplayModePropertiesKHR: return 2;
+			case vkCreateDisplayModeKHR: return 1;
+			case vkGetDisplayPlaneCapabilitiesKHR: return 1;
+			case vkCreateDisplayPlaneSurfaceKHR: return 1;
+			case vkCreateSharedSwapchainsKHR: return 1;
+			case vkGetPhysicalDeviceSurfaceSupportKHR: return 1;
+			case vkGetPhysicalDeviceSurfaceCapabilitiesKHR: return 1;
+			case vkGetPhysicalDeviceSurfaceFormatsKHR: return 2;
+			case vkGetPhysicalDeviceSurfacePresentModesKHR: return 2;
+			case vkCreateSwapchainKHR: return 1;
+			case vkGetSwapchainImagesKHR: return 2;
+			case vkAcquireNextImageKHR: return 4;
+			case vkQueuePresentKHR: return 2;
+			case vkCreateDebugReportCallbackEXT: return 1;
+			case vkDebugMarkerSetObjectNameEXT: return 1;
+			case vkDebugMarkerSetObjectTagEXT: return 1;
+			case vkGetPhysicalDeviceExternalImageFormatPropertiesNV: return 1;
+			case vkCreateIndirectCommandsLayoutNV: return 1;
+			case vkCreateIndirectCommandsLayoutEXT: return 1;
+			case vkCreateIndirectExecutionSetEXT: return 1;
+			case vkGetPhysicalDeviceImageFormatProperties2: return 1;
+			case vkGetMemoryFdKHR: return 1;
+			case vkGetMemoryFdPropertiesKHR: return 1;
+			case vkGetMemoryRemoteAddressNV: return 1;
+			case vkGetSemaphoreFdKHR: return 1;
+			case vkImportSemaphoreFdKHR: return 1;
+			case vkGetFenceFdKHR: return 1;
+			case vkImportFenceFdKHR: return 1;
+			case vkReleaseDisplayEXT: return 1;
+			case vkDisplayPowerControlEXT: return 1;
+			case vkRegisterDeviceEventEXT: return 1;
+			case vkRegisterDisplayEventEXT: return 1;
+			case vkGetSwapchainCounterEXT: return 1;
+			case vkGetPhysicalDeviceSurfaceCapabilities2EXT: return 1;
+			case vkEnumeratePhysicalDeviceGroups: return 2;
+			case vkBindBufferMemory2: return 1;
+			case vkBindImageMemory2: return 1;
+			case vkGetDeviceGroupPresentCapabilitiesKHR: return 1;
+			case vkGetDeviceGroupSurfacePresentModesKHR: return 1;
+			case vkAcquireNextImage2KHR: return 4;
+			case vkGetPhysicalDevicePresentRectanglesKHR: return 2;
+			case vkCreateDescriptorUpdateTemplate: return 1;
+			case vkGetSwapchainStatusKHR: return 2;
+			case vkGetRefreshCycleDurationGOOGLE: return 1;
+			case vkGetPastPresentationTimingGOOGLE: return 2;
+			case vkGetPhysicalDeviceSurfaceCapabilities2KHR: return 1;
+			case vkGetPhysicalDeviceSurfaceFormats2KHR: return 2;
+			case vkGetPhysicalDeviceDisplayProperties2KHR: return 2;
+			case vkGetPhysicalDeviceDisplayPlaneProperties2KHR: return 2;
+			case vkGetDisplayModeProperties2KHR: return 2;
+			case vkGetDisplayPlaneCapabilities2KHR: return 1;
+			case vkCreateSamplerYcbcrConversion: return 1;
+			case vkCreateValidationCacheEXT: return 1;
+			case vkGetValidationCacheDataEXT: return 2;
+			case vkMergeValidationCachesEXT: return 1;
+			case vkGetShaderInfoAMD: return 2;
+			case vkGetPhysicalDeviceCalibrateableTimeDomainsKHR: return 2;
+			case vkGetCalibratedTimestampsKHR: return 1;
+			case vkSetDebugUtilsObjectNameEXT: return 1;
+			case vkSetDebugUtilsObjectTagEXT: return 1;
+			case vkCreateDebugUtilsMessengerEXT: return 1;
+			case vkGetMemoryHostPointerPropertiesEXT: return 1;
+			case vkCreateRenderPass2: return 1;
+			case vkGetSemaphoreCounterValue: return 1;
+			case vkWaitSemaphores: return 2;
+			case vkSignalSemaphore: return 1;
+			case vkCompileDeferredNV: return 1;
+			case vkCreateAccelerationStructureNV: return 1;
+			case vkBindAccelerationStructureMemoryNV: return 1;
+			case vkCopyAccelerationStructureKHR: return 3;
+			case vkCopyAccelerationStructureToMemoryKHR: return 3;
+			case vkCopyMemoryToAccelerationStructureKHR: return 3;
+			case vkWriteAccelerationStructuresPropertiesKHR: return 1;
+			case vkGetRayTracingShaderGroupHandlesKHR: return 1;
+			case vkGetRayTracingCaptureReplayShaderGroupHandlesKHR: return 1;
+			case vkGetAccelerationStructureHandleNV: return 1;
+			case vkCreateRayTracingPipelinesNV: return 2;
+			case vkCreateRayTracingPipelinesKHR: return 4;
+			case vkGetPhysicalDeviceCooperativeMatrixPropertiesNV: return 2;
+			case vkGetImageViewAddressNVX: return 1;
+			case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR: return 2;
+			case vkAcquireProfilingLockKHR: return 1;
+			case vkGetImageDrmFormatModifierPropertiesEXT: return 1;
+			case vkCreateHeadlessSurfaceEXT: return 1;
+			case vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV: return 2;
+			case vkInitializePerformanceApiINTEL: return 1;
+			case vkCmdSetPerformanceMarkerINTEL: return 1;
+			case vkCmdSetPerformanceStreamMarkerINTEL: return 1;
+			case vkCmdSetPerformanceOverrideINTEL: return 1;
+			case vkAcquirePerformanceConfigurationINTEL: return 1;
+			case vkReleasePerformanceConfigurationINTEL: return 1;
+			case vkQueueSetPerformanceConfigurationINTEL: return 1;
+			case vkGetPerformanceParameterINTEL: return 1;
+			case vkGetPipelineExecutablePropertiesKHR: return 2;
+			case vkGetPipelineExecutableStatisticsKHR: return 2;
+			case vkGetPipelineExecutableInternalRepresentationsKHR: return 2;
+			case vkGetPhysicalDeviceToolProperties: return 2;
+			case vkCreateAccelerationStructureKHR: return 1;
+			case vkBuildAccelerationStructuresKHR: return 3;
+			case vkCreateDeferredOperationKHR: return 1;
+			case vkGetDeferredOperationResultKHR: return 2;
+			case vkDeferredOperationJoinKHR: return 3;
+			case vkCreatePrivateDataSlot: return 1;
+			case vkSetPrivateData: return 1;
+			case vkGetPhysicalDeviceFragmentShadingRatesKHR: return 2;
+			case vkQueueSubmit2: return 1;
+			case vkCopyMemoryToImage: return 1;
+			case vkCopyImageToMemory: return 1;
+			case vkCopyImageToImage: return 1;
+			case vkTransitionImageLayout: return 1;
+			case vkGetPhysicalDeviceVideoCapabilitiesKHR: return 1;
+			case vkGetPhysicalDeviceVideoFormatPropertiesKHR: return 2;
+			case vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR: return 1;
+			case vkCreateVideoSessionKHR: return 1;
+			case vkCreateVideoSessionParametersKHR: return 1;
+			case vkUpdateVideoSessionParametersKHR: return 1;
+			case vkGetEncodedVideoSessionParametersKHR: return 2;
+			case vkGetVideoSessionMemoryRequirementsKHR: return 2;
+			case vkBindVideoSessionMemoryKHR: return 1;
+			case vkCreateCuModuleNVX: return 1;
+			case vkCreateCuFunctionNVX: return 1;
+			case vkGetBufferOpaqueCaptureDescriptorDataEXT: return 1;
+			case vkGetImageOpaqueCaptureDescriptorDataEXT: return 1;
+			case vkGetImageViewOpaqueCaptureDescriptorDataEXT: return 1;
+			case vkGetSamplerOpaqueCaptureDescriptorDataEXT: return 1;
+			case vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT: return 1;
+			case vkAcquireDrmDisplayEXT: return 1;
+			case vkGetDrmDisplayEXT: return 1;
+			case vkWaitForPresent2KHR: return 3;
+			case vkWaitForPresentKHR: return 3;
+			case vkCreateMicromapEXT: return 1;
+			case vkBuildMicromapsEXT: return 3;
+			case vkCopyMicromapEXT: return 3;
+			case vkCopyMicromapToMemoryEXT: return 3;
+			case vkCopyMemoryToMicromapEXT: return 3;
+			case vkWriteMicromapsPropertiesEXT: return 1;
+			case vkGetPipelinePropertiesEXT: return 1;
+			case vkGetFramebufferTilePropertiesQCOM: return 2;
+			case vkGetDynamicRenderingTilePropertiesQCOM: return 1;
+			case vkGetPhysicalDeviceOpticalFlowImageFormatsNV: return 2;
+			case vkCreateOpticalFlowSessionNV: return 1;
+			case vkBindOpticalFlowSessionImageNV: return 1;
+			case vkGetDeviceFaultInfoEXT: return 2;
+			case vkReleaseSwapchainImagesKHR: return 1;
+			case vkMapMemory2: return 1;
+			case vkUnmapMemory2: return 1;
+			case vkCreateShadersEXT: return 2;
+			case vkGetShaderBinaryDataEXT: return 2;
+			case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR: return 2;
+			case vkSetLatencySleepModeNV: return 1;
+			case vkLatencySleepNV: return 1;
+			case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV: return 2;
+			case vkGetPhysicalDeviceCooperativeVectorPropertiesNV: return 2;
+			case vkConvertCooperativeVectorMatrixNV: return 2;
+			case vkCreateExternalComputeQueueNV: return 1;
+			case vkCreateTensorARM: return 1;
+			case vkCreateTensorViewARM: return 1;
+			case vkBindTensorMemoryARM: return 1;
+			case vkGetTensorOpaqueCaptureDescriptorDataARM: return 1;
+			case vkGetTensorViewOpaqueCaptureDescriptorDataARM: return 1;
+			case vkCreateDataGraphPipelinesARM: return 2;
+			case vkCreateDataGraphPipelineSessionARM: return 1;
+			case vkGetDataGraphPipelineSessionBindPointRequirementsARM: return 2;
+			case vkBindDataGraphPipelineSessionMemoryARM: return 1;
+			case vkGetDataGraphPipelineAvailablePropertiesARM: return 2;
+			case vkGetDataGraphPipelinePropertiesARM: return 2;
+			case vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM: return 2;
+			default: return 0;
+			}
+		}
+	}
+
+	public VkResult GetSuccessCodes(int idx)
+	{
+		switch (this)
+		{
+		case vkCreateInstance:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumeratePhysicalDevices:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceImageFormatProperties:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDevice:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateInstanceVersion:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateInstanceLayerProperties:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateInstanceExtensionProperties:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateDeviceLayerProperties:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateDeviceExtensionProperties:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueSubmit:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueWaitIdle:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDeviceWaitIdle:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAllocateMemory:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkMapMemory:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkFlushMappedMemoryRanges:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkInvalidateMappedMemoryRanges:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindBufferMemory:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindImageMemory:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueBindSparse:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateFence:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkResetFences:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetFenceStatus:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkNotReady;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWaitForFences:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkTimeout;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSemaphore:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateEvent:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetEventStatus:
+			switch (idx)
+			{
+			case 0: return .VkEventSet;
+			case 1: return .VkEventReset;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetEvent:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkResetEvent:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateQueryPool:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetQueryPoolResults:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkNotReady;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateBuffer:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateBufferView:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateImage:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateImageView:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateShaderModule:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreatePipelineCache:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineCacheData:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkMergePipelineCaches:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreatePipelineBinariesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			case 2: return .VkPipelineBinaryMissingKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineKeyKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineBinaryDataKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkReleaseCapturedPipelineDataKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateGraphicsPipelines:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkPipelineCompileRequiredEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateComputePipelines:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkPipelineCompileRequiredEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreatePipelineLayout:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSampler:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDescriptorSetLayout:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDescriptorPool:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkResetDescriptorPool:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAllocateDescriptorSets:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkFreeDescriptorSets:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateFramebuffer:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateRenderPass:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCommandPool:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkResetCommandPool:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAllocateCommandBuffers:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBeginCommandBuffer:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEndCommandBuffer:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkResetCommandBuffer:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceDisplayPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceDisplayPlanePropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayPlaneSupportedDisplaysKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayModePropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDisplayModeKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayPlaneCapabilitiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDisplayPlaneSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSharedSwapchainsKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceSupportKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceCapabilitiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceFormatsKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfacePresentModesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSwapchainKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSwapchainImagesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireNextImageKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkTimeout;
+			case 2: return .VkNotReady;
+			case 3: return .VkSuboptimalKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueuePresentKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkSuboptimalKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDebugReportCallbackEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDebugMarkerSetObjectNameEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDebugMarkerSetObjectTagEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceExternalImageFormatPropertiesNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateIndirectCommandsLayoutNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateIndirectCommandsLayoutEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateIndirectExecutionSetEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceImageFormatProperties2:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryFdPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryRemoteAddressNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSemaphoreFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportSemaphoreFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetFenceFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportFenceFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkReleaseDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDisplayPowerControlEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkRegisterDeviceEventEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkRegisterDisplayEventEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSwapchainCounterEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceCapabilities2EXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumeratePhysicalDeviceGroups:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindBufferMemory2:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindImageMemory2:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceGroupPresentCapabilitiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceGroupSurfacePresentModesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireNextImage2KHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkTimeout;
+			case 2: return .VkNotReady;
+			case 3: return .VkSuboptimalKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDevicePresentRectanglesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDescriptorUpdateTemplate:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSwapchainStatusKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkSuboptimalKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetRefreshCycleDurationGOOGLE:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPastPresentationTimingGOOGLE:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceCapabilities2KHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceFormats2KHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceDisplayProperties2KHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceDisplayPlaneProperties2KHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayModeProperties2KHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayPlaneCapabilities2KHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSamplerYcbcrConversion:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateValidationCacheEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetValidationCacheDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkMergeValidationCachesEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetShaderInfoAMD:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCalibrateableTimeDomainsKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetCalibratedTimestampsKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetDebugUtilsObjectNameEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetDebugUtilsObjectTagEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDebugUtilsMessengerEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryHostPointerPropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateRenderPass2:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSemaphoreCounterValue:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWaitSemaphores:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkTimeout;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSignalSemaphore:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCompileDeferredNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateAccelerationStructureNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindAccelerationStructureMemoryNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyAccelerationStructureKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkOperationDeferredKHR;
+			case 2: return .VkOperationNotDeferredKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyAccelerationStructureToMemoryKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkOperationDeferredKHR;
+			case 2: return .VkOperationNotDeferredKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMemoryToAccelerationStructureKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkOperationDeferredKHR;
+			case 2: return .VkOperationNotDeferredKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWriteAccelerationStructuresPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetRayTracingShaderGroupHandlesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetRayTracingCaptureReplayShaderGroupHandlesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetAccelerationStructureHandleNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateRayTracingPipelinesNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkPipelineCompileRequiredEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateRayTracingPipelinesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkOperationDeferredKHR;
+			case 2: return .VkOperationNotDeferredKHR;
+			case 3: return .VkPipelineCompileRequiredEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCooperativeMatrixPropertiesNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetImageViewAddressNVX:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireProfilingLockKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetImageDrmFormatModifierPropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateHeadlessSurfaceEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkInitializePerformanceApiINTEL:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCmdSetPerformanceMarkerINTEL:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCmdSetPerformanceStreamMarkerINTEL:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCmdSetPerformanceOverrideINTEL:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquirePerformanceConfigurationINTEL:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkReleasePerformanceConfigurationINTEL:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueSetPerformanceConfigurationINTEL:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPerformanceParameterINTEL:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineExecutablePropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineExecutableStatisticsKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineExecutableInternalRepresentationsKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceToolProperties:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateAccelerationStructureKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBuildAccelerationStructuresKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkOperationDeferredKHR;
+			case 2: return .VkOperationNotDeferredKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDeferredOperationKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeferredOperationResultKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkNotReady;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDeferredOperationJoinKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkThreadDoneKHR;
+			case 2: return .VkThreadIdleKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreatePrivateDataSlot:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetPrivateData:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceFragmentShadingRatesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueSubmit2:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMemoryToImage:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyImageToMemory:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyImageToImage:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkTransitionImageLayout:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceVideoCapabilitiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceVideoFormatPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateVideoSessionKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateVideoSessionParametersKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkUpdateVideoSessionParametersKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetEncodedVideoSessionParametersKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetVideoSessionMemoryRequirementsKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindVideoSessionMemoryKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCuModuleNVX:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCuFunctionNVX:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetBufferOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetImageOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetImageViewOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSamplerOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireDrmDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDrmDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWaitForPresent2KHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkTimeout;
+			case 2: return .VkSuboptimalKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWaitForPresentKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkTimeout;
+			case 2: return .VkSuboptimalKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateMicromapEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBuildMicromapsEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkOperationDeferredKHR;
+			case 2: return .VkOperationNotDeferredKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMicromapEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkOperationDeferredKHR;
+			case 2: return .VkOperationNotDeferredKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMicromapToMemoryEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkOperationDeferredKHR;
+			case 2: return .VkOperationNotDeferredKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMemoryToMicromapEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkOperationDeferredKHR;
+			case 2: return .VkOperationNotDeferredKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWriteMicromapsPropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelinePropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetFramebufferTilePropertiesQCOM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDynamicRenderingTilePropertiesQCOM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceOpticalFlowImageFormatsNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateOpticalFlowSessionNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindOpticalFlowSessionImageNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceFaultInfoEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkReleaseSwapchainImagesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkMapMemory2:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkUnmapMemory2:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateShadersEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncompatibleShaderBinaryEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetShaderBinaryDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetLatencySleepModeNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkLatencySleepNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCooperativeVectorPropertiesNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkConvertCooperativeVectorMatrixNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateExternalComputeQueueNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateTensorARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateTensorViewARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindTensorMemoryARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetTensorOpaqueCaptureDescriptorDataARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetTensorViewOpaqueCaptureDescriptorDataARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDataGraphPipelinesARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkPipelineCompileRequiredEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDataGraphPipelineSessionARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDataGraphPipelineSessionBindPointRequirementsARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindDataGraphPipelineSessionMemoryARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDataGraphPipelineAvailablePropertiesARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDataGraphPipelinePropertiesARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		default: Runtime.FatalError("Index out of range");
+		}
+	}
+
+	public int ErrorCodesCount
+	{
+		get
+		{
+			switch (this)
+			{
+			case vkCreateInstance: return 6;
+			case vkEnumeratePhysicalDevices: return 3;
+			case vkGetPhysicalDeviceImageFormatProperties: return 3;
+			case vkCreateDevice: return 7;
+			case vkEnumerateInstanceVersion: return 1;
+			case vkEnumerateInstanceLayerProperties: return 2;
+			case vkEnumerateInstanceExtensionProperties: return 3;
+			case vkEnumerateDeviceLayerProperties: return 2;
+			case vkEnumerateDeviceExtensionProperties: return 3;
+			case vkQueueSubmit: return 3;
+			case vkQueueWaitIdle: return 3;
+			case vkDeviceWaitIdle: return 3;
+			case vkAllocateMemory: return 4;
+			case vkMapMemory: return 3;
+			case vkFlushMappedMemoryRanges: return 2;
+			case vkInvalidateMappedMemoryRanges: return 2;
+			case vkBindBufferMemory: return 3;
+			case vkBindImageMemory: return 2;
+			case vkQueueBindSparse: return 3;
+			case vkCreateFence: return 2;
+			case vkResetFences: return 1;
+			case vkGetFenceStatus: return 3;
+			case vkWaitForFences: return 3;
+			case vkCreateSemaphore: return 2;
+			case vkCreateEvent: return 2;
+			case vkGetEventStatus: return 3;
+			case vkSetEvent: return 2;
+			case vkResetEvent: return 1;
+			case vkCreateQueryPool: return 2;
+			case vkGetQueryPoolResults: return 3;
+			case vkCreateBuffer: return 3;
+			case vkCreateBufferView: return 2;
+			case vkCreateImage: return 4;
+			case vkCreateImageView: return 3;
+			case vkCreateShaderModule: return 3;
+			case vkCreatePipelineCache: return 2;
+			case vkGetPipelineCacheData: return 2;
+			case vkMergePipelineCaches: return 2;
+			case vkCreatePipelineBinariesKHR: return 3;
+			case vkGetPipelineKeyKHR: return 2;
+			case vkGetPipelineBinaryDataKHR: return 3;
+			case vkCreateGraphicsPipelines: return 3;
+			case vkCreateComputePipelines: return 3;
+			case vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI: return 3;
+			case vkCreatePipelineLayout: return 2;
+			case vkCreateSampler: return 3;
+			case vkCreateDescriptorSetLayout: return 2;
+			case vkCreateDescriptorPool: return 3;
+			case vkAllocateDescriptorSets: return 4;
+			case vkCreateFramebuffer: return 2;
+			case vkCreateRenderPass: return 2;
+			case vkCreateCommandPool: return 2;
+			case vkResetCommandPool: return 1;
+			case vkAllocateCommandBuffers: return 2;
+			case vkBeginCommandBuffer: return 2;
+			case vkEndCommandBuffer: return 3;
+			case vkResetCommandBuffer: return 1;
+			case vkGetPhysicalDeviceDisplayPropertiesKHR: return 2;
+			case vkGetPhysicalDeviceDisplayPlanePropertiesKHR: return 2;
+			case vkGetDisplayPlaneSupportedDisplaysKHR: return 2;
+			case vkGetDisplayModePropertiesKHR: return 2;
+			case vkCreateDisplayModeKHR: return 3;
+			case vkGetDisplayPlaneCapabilitiesKHR: return 2;
+			case vkCreateDisplayPlaneSurfaceKHR: return 2;
+			case vkCreateSharedSwapchainsKHR: return 5;
+			case vkGetPhysicalDeviceSurfaceSupportKHR: return 3;
+			case vkGetPhysicalDeviceSurfaceCapabilitiesKHR: return 3;
+			case vkGetPhysicalDeviceSurfaceFormatsKHR: return 3;
+			case vkGetPhysicalDeviceSurfacePresentModesKHR: return 3;
+			case vkCreateSwapchainKHR: return 7;
+			case vkGetSwapchainImagesKHR: return 2;
+			case vkAcquireNextImageKHR: return 6;
+			case vkQueuePresentKHR: return 6;
+			case vkCreateDebugReportCallbackEXT: return 1;
+			case vkDebugMarkerSetObjectNameEXT: return 2;
+			case vkDebugMarkerSetObjectTagEXT: return 2;
+			case vkGetPhysicalDeviceExternalImageFormatPropertiesNV: return 3;
+			case vkCreateIndirectCommandsLayoutNV: return 2;
+			case vkCreateIndirectCommandsLayoutEXT: return 2;
+			case vkCreateIndirectExecutionSetEXT: return 2;
+			case vkGetPhysicalDeviceImageFormatProperties2: return 8;
+			case vkGetMemoryFdKHR: return 2;
+			case vkGetMemoryFdPropertiesKHR: return 2;
+			case vkGetMemoryRemoteAddressNV: return 1;
+			case vkGetSemaphoreFdKHR: return 2;
+			case vkImportSemaphoreFdKHR: return 2;
+			case vkGetFenceFdKHR: return 2;
+			case vkImportFenceFdKHR: return 2;
+			case vkDisplayPowerControlEXT: return 1;
+			case vkRegisterDeviceEventEXT: return 1;
+			case vkRegisterDisplayEventEXT: return 1;
+			case vkGetSwapchainCounterEXT: return 3;
+			case vkGetPhysicalDeviceSurfaceCapabilities2EXT: return 3;
+			case vkEnumeratePhysicalDeviceGroups: return 3;
+			case vkBindBufferMemory2: return 3;
+			case vkBindImageMemory2: return 2;
+			case vkGetDeviceGroupPresentCapabilitiesKHR: return 2;
+			case vkGetDeviceGroupSurfacePresentModesKHR: return 3;
+			case vkAcquireNextImage2KHR: return 6;
+			case vkGetPhysicalDevicePresentRectanglesKHR: return 2;
+			case vkCreateDescriptorUpdateTemplate: return 2;
+			case vkGetSwapchainStatusKHR: return 6;
+			case vkGetRefreshCycleDurationGOOGLE: return 3;
+			case vkGetPastPresentationTimingGOOGLE: return 4;
+			case vkGetPhysicalDeviceSurfaceCapabilities2KHR: return 3;
+			case vkGetPhysicalDeviceSurfaceFormats2KHR: return 3;
+			case vkGetPhysicalDeviceDisplayProperties2KHR: return 2;
+			case vkGetPhysicalDeviceDisplayPlaneProperties2KHR: return 2;
+			case vkGetDisplayModeProperties2KHR: return 2;
+			case vkGetDisplayPlaneCapabilities2KHR: return 2;
+			case vkCreateSamplerYcbcrConversion: return 2;
+			case vkCreateValidationCacheEXT: return 1;
+			case vkGetValidationCacheDataEXT: return 2;
+			case vkMergeValidationCachesEXT: return 2;
+			case vkGetShaderInfoAMD: return 2;
+			case vkGetPhysicalDeviceCalibrateableTimeDomainsKHR: return 2;
+			case vkGetCalibratedTimestampsKHR: return 2;
+			case vkSetDebugUtilsObjectNameEXT: return 2;
+			case vkSetDebugUtilsObjectTagEXT: return 2;
+			case vkCreateDebugUtilsMessengerEXT: return 1;
+			case vkGetMemoryHostPointerPropertiesEXT: return 2;
+			case vkCreateRenderPass2: return 2;
+			case vkGetSemaphoreCounterValue: return 3;
+			case vkWaitSemaphores: return 3;
+			case vkSignalSemaphore: return 2;
+			case vkCompileDeferredNV: return 2;
+			case vkCreateAccelerationStructureNV: return 1;
+			case vkBindAccelerationStructureMemoryNV: return 2;
+			case vkCopyAccelerationStructureKHR: return 2;
+			case vkCopyAccelerationStructureToMemoryKHR: return 2;
+			case vkCopyMemoryToAccelerationStructureKHR: return 2;
+			case vkWriteAccelerationStructuresPropertiesKHR: return 2;
+			case vkGetRayTracingShaderGroupHandlesKHR: return 2;
+			case vkGetRayTracingCaptureReplayShaderGroupHandlesKHR: return 2;
+			case vkGetAccelerationStructureHandleNV: return 2;
+			case vkCreateRayTracingPipelinesNV: return 3;
+			case vkCreateRayTracingPipelinesKHR: return 3;
+			case vkGetPhysicalDeviceCooperativeMatrixPropertiesNV: return 2;
+			case vkGetImageViewAddressNVX: return 1;
+			case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR: return 3;
+			case vkAcquireProfilingLockKHR: return 2;
+			case vkGetImageDrmFormatModifierPropertiesEXT: return 1;
+			case vkCreateHeadlessSurfaceEXT: return 2;
+			case vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV: return 2;
+			case vkInitializePerformanceApiINTEL: return 2;
+			case vkCmdSetPerformanceMarkerINTEL: return 2;
+			case vkCmdSetPerformanceStreamMarkerINTEL: return 2;
+			case vkCmdSetPerformanceOverrideINTEL: return 2;
+			case vkAcquirePerformanceConfigurationINTEL: return 2;
+			case vkReleasePerformanceConfigurationINTEL: return 2;
+			case vkQueueSetPerformanceConfigurationINTEL: return 2;
+			case vkGetPerformanceParameterINTEL: return 2;
+			case vkGetPipelineExecutablePropertiesKHR: return 2;
+			case vkGetPipelineExecutableStatisticsKHR: return 2;
+			case vkGetPipelineExecutableInternalRepresentationsKHR: return 2;
+			case vkGetPhysicalDeviceToolProperties: return 1;
+			case vkCreateAccelerationStructureKHR: return 2;
+			case vkBuildAccelerationStructuresKHR: return 2;
+			case vkCreateDeferredOperationKHR: return 1;
+			case vkDeferredOperationJoinKHR: return 2;
+			case vkCreatePrivateDataSlot: return 1;
+			case vkSetPrivateData: return 1;
+			case vkGetPhysicalDeviceFragmentShadingRatesKHR: return 1;
+			case vkQueueSubmit2: return 3;
+			case vkCopyMemoryToImage: return 4;
+			case vkCopyImageToMemory: return 4;
+			case vkCopyImageToImage: return 4;
+			case vkTransitionImageLayout: return 4;
+			case vkGetPhysicalDeviceVideoCapabilitiesKHR: return 6;
+			case vkGetPhysicalDeviceVideoFormatPropertiesKHR: return 7;
+			case vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR: return 6;
+			case vkCreateVideoSessionKHR: return 5;
+			case vkCreateVideoSessionParametersKHR: return 4;
+			case vkUpdateVideoSessionParametersKHR: return 3;
+			case vkGetEncodedVideoSessionParametersKHR: return 2;
+			case vkBindVideoSessionMemoryKHR: return 2;
+			case vkCreateCuModuleNVX: return 2;
+			case vkCreateCuFunctionNVX: return 2;
+			case vkGetBufferOpaqueCaptureDescriptorDataEXT: return 2;
+			case vkGetImageOpaqueCaptureDescriptorDataEXT: return 2;
+			case vkGetImageViewOpaqueCaptureDescriptorDataEXT: return 2;
+			case vkGetSamplerOpaqueCaptureDescriptorDataEXT: return 2;
+			case vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT: return 2;
+			case vkAcquireDrmDisplayEXT: return 1;
+			case vkGetDrmDisplayEXT: return 2;
+			case vkWaitForPresent2KHR: return 6;
+			case vkWaitForPresentKHR: return 6;
+			case vkCreateMicromapEXT: return 2;
+			case vkBuildMicromapsEXT: return 2;
+			case vkCopyMicromapEXT: return 2;
+			case vkCopyMicromapToMemoryEXT: return 2;
+			case vkCopyMemoryToMicromapEXT: return 2;
+			case vkWriteMicromapsPropertiesEXT: return 2;
+			case vkGetPipelinePropertiesEXT: return 1;
+			case vkGetPhysicalDeviceOpticalFlowImageFormatsNV: return 3;
+			case vkCreateOpticalFlowSessionNV: return 2;
+			case vkBindOpticalFlowSessionImageNV: return 2;
+			case vkGetDeviceFaultInfoEXT: return 1;
+			case vkReleaseSwapchainImagesKHR: return 1;
+			case vkMapMemory2: return 3;
+			case vkUnmapMemory2: return 1;
+			case vkCreateShadersEXT: return 3;
+			case vkGetShaderBinaryDataEXT: return 2;
+			case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR: return 2;
+			case vkSetLatencySleepModeNV: return 1;
+			case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV: return 2;
+			case vkGetPhysicalDeviceCooperativeVectorPropertiesNV: return 2;
+			case vkConvertCooperativeVectorMatrixNV: return 1;
+			case vkCreateExternalComputeQueueNV: return 2;
+			case vkCreateTensorARM: return 2;
+			case vkCreateTensorViewARM: return 2;
+			case vkBindTensorMemoryARM: return 2;
+			case vkGetTensorOpaqueCaptureDescriptorDataARM: return 2;
+			case vkGetTensorViewOpaqueCaptureDescriptorDataARM: return 2;
+			case vkCreateDataGraphPipelinesARM: return 2;
+			case vkCreateDataGraphPipelineSessionARM: return 2;
+			case vkGetDataGraphPipelineSessionBindPointRequirementsARM: return 2;
+			case vkBindDataGraphPipelineSessionMemoryARM: return 2;
+			case vkGetDataGraphPipelineAvailablePropertiesARM: return 2;
+			case vkGetDataGraphPipelinePropertiesARM: return 2;
+			case vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM: return 2;
+			default: return 0;
+			}
+		}
+	}
+
+	public VkResult GetErrorCodes(int idx)
+	{
+		switch (this)
+		{
+		case vkCreateInstance:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			case 3: return .VkErrorLayerNotPresent;
+			case 4: return .VkErrorExtensionNotPresent;
+			case 5: return .VkErrorIncompatibleDriver;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumeratePhysicalDevices:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceImageFormatProperties:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorFormatNotSupported;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDevice:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			case 3: return .VkErrorExtensionNotPresent;
+			case 4: return .VkErrorFeatureNotPresent;
+			case 5: return .VkErrorTooManyObjects;
+			case 6: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateInstanceVersion:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateInstanceLayerProperties:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateInstanceExtensionProperties:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorLayerNotPresent;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateDeviceLayerProperties:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumerateDeviceExtensionProperties:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorLayerNotPresent;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueSubmit:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueWaitIdle:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDeviceWaitIdle:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAllocateMemory:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidExternalHandle;
+			case 3: return .VkErrorInvalidOpaqueCaptureAddressKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkMapMemory:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorMemoryMapFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkFlushMappedMemoryRanges:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkInvalidateMappedMemoryRanges:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindBufferMemory:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidOpaqueCaptureAddressKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindImageMemory:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueBindSparse:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateFence:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkResetFences:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetFenceStatus:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWaitForFences:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSemaphore:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateEvent:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetEventStatus:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetEvent:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkResetEvent:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateQueryPool:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetQueryPoolResults:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateBuffer:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidOpaqueCaptureAddressKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateBufferView:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateImage:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorCompressionExhaustedEXT;
+			case 3: return .VkErrorInvalidOpaqueCaptureAddressKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateImageView:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidOpaqueCaptureAddressKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateShaderModule:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidShaderNV;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreatePipelineCache:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineCacheData:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkMergePipelineCaches:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreatePipelineBinariesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineKeyKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineBinaryDataKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorNotEnoughSpaceKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateGraphicsPipelines:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidShaderNV;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateComputePipelines:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidShaderNV;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreatePipelineLayout:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSampler:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidOpaqueCaptureAddressKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDescriptorSetLayout:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDescriptorPool:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorFragmentationEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAllocateDescriptorSets:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorFragmentedPool;
+			case 3: return .VkErrorOutOfPoolMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateFramebuffer:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateRenderPass:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCommandPool:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkResetCommandPool:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAllocateCommandBuffers:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBeginCommandBuffer:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEndCommandBuffer:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidVideoStdParametersKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkResetCommandBuffer:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceDisplayPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceDisplayPlanePropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayPlaneSupportedDisplaysKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayModePropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDisplayModeKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayPlaneCapabilitiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDisplayPlaneSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSharedSwapchainsKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorIncompatibleDisplayKHR;
+			case 3: return .VkErrorDeviceLost;
+			case 4: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceSupportKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceCapabilitiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceFormatsKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfacePresentModesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSwapchainKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			case 3: return .VkErrorSurfaceLostKHR;
+			case 4: return .VkErrorNativeWindowInUseKHR;
+			case 5: return .VkErrorInitializationFailed;
+			case 6: return .VkErrorCompressionExhaustedEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSwapchainImagesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireNextImageKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			case 3: return .VkErrorOutOfDateKHR;
+			case 4: return .VkErrorSurfaceLostKHR;
+			case 5: return .VkErrorFullScreenExclusiveModeLostEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueuePresentKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			case 3: return .VkErrorOutOfDateKHR;
+			case 4: return .VkErrorSurfaceLostKHR;
+			case 5: return .VkErrorFullScreenExclusiveModeLostEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDebugReportCallbackEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDebugMarkerSetObjectNameEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDebugMarkerSetObjectTagEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceExternalImageFormatPropertiesNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorFormatNotSupported;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateIndirectCommandsLayoutNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateIndirectCommandsLayoutEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateIndirectExecutionSetEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceImageFormatProperties2:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorFormatNotSupported;
+			case 3: return .VkErrorImageUsageNotSupportedKHR;
+			case 4: return .VkErrorVideoProfileOperationNotSupportedKHR;
+			case 5: return .VkErrorVideoProfileFormatNotSupportedKHR;
+			case 6: return .VkErrorVideoPictureLayoutNotSupportedKHR;
+			case 7: return .VkErrorVideoProfileCodecNotSupportedKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryFdPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryRemoteAddressNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSemaphoreFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportSemaphoreFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetFenceFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportFenceFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDisplayPowerControlEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkRegisterDeviceEventEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkRegisterDisplayEventEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSwapchainCounterEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorDeviceLost;
+			case 2: return .VkErrorOutOfDateKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceCapabilities2EXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumeratePhysicalDeviceGroups:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindBufferMemory2:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidOpaqueCaptureAddressKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindImageMemory2:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceGroupPresentCapabilitiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceGroupSurfacePresentModesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireNextImage2KHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			case 3: return .VkErrorOutOfDateKHR;
+			case 4: return .VkErrorSurfaceLostKHR;
+			case 5: return .VkErrorFullScreenExclusiveModeLostEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDevicePresentRectanglesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDescriptorUpdateTemplate:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSwapchainStatusKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			case 3: return .VkErrorOutOfDateKHR;
+			case 4: return .VkErrorSurfaceLostKHR;
+			case 5: return .VkErrorFullScreenExclusiveModeLostEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetRefreshCycleDurationGOOGLE:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorDeviceLost;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPastPresentationTimingGOOGLE:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorDeviceLost;
+			case 2: return .VkErrorOutOfDateKHR;
+			case 3: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceCapabilities2KHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfaceFormats2KHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceDisplayProperties2KHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceDisplayPlaneProperties2KHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayModeProperties2KHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDisplayPlaneCapabilities2KHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSamplerYcbcrConversion:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateValidationCacheEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetValidationCacheDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkMergeValidationCachesEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetShaderInfoAMD:
+			switch (idx)
+			{
+			case 0: return .VkErrorFeatureNotPresent;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCalibrateableTimeDomainsKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetCalibratedTimestampsKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetDebugUtilsObjectNameEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetDebugUtilsObjectTagEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDebugUtilsMessengerEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryHostPointerPropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateRenderPass2:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSemaphoreCounterValue:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWaitSemaphores:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSignalSemaphore:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCompileDeferredNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateAccelerationStructureNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindAccelerationStructureMemoryNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyAccelerationStructureKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyAccelerationStructureToMemoryKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMemoryToAccelerationStructureKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWriteAccelerationStructuresPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetRayTracingShaderGroupHandlesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetRayTracingCaptureReplayShaderGroupHandlesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetAccelerationStructureHandleNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateRayTracingPipelinesNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidShaderNV;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateRayTracingPipelinesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidOpaqueCaptureAddress;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCooperativeMatrixPropertiesNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetImageViewAddressNVX:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireProfilingLockKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkTimeout;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetImageDrmFormatModifierPropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateHeadlessSurfaceEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkInitializePerformanceApiINTEL:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCmdSetPerformanceMarkerINTEL:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCmdSetPerformanceStreamMarkerINTEL:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCmdSetPerformanceOverrideINTEL:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquirePerformanceConfigurationINTEL:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkReleasePerformanceConfigurationINTEL:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueSetPerformanceConfigurationINTEL:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPerformanceParameterINTEL:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineExecutablePropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineExecutableStatisticsKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelineExecutableInternalRepresentationsKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceToolProperties:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateAccelerationStructureKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidOpaqueCaptureAddressKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBuildAccelerationStructuresKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDeferredOperationKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkDeferredOperationJoinKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreatePrivateDataSlot:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetPrivateData:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceFragmentShadingRatesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkQueueSubmit2:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMemoryToImage:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			case 1: return .VkErrorOutOfHostMemory;
+			case 2: return .VkErrorOutOfDeviceMemory;
+			case 3: return .VkErrorMemoryMapFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyImageToMemory:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			case 1: return .VkErrorOutOfHostMemory;
+			case 2: return .VkErrorOutOfDeviceMemory;
+			case 3: return .VkErrorMemoryMapFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyImageToImage:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			case 1: return .VkErrorOutOfHostMemory;
+			case 2: return .VkErrorOutOfDeviceMemory;
+			case 3: return .VkErrorMemoryMapFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkTransitionImageLayout:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			case 1: return .VkErrorOutOfHostMemory;
+			case 2: return .VkErrorOutOfDeviceMemory;
+			case 3: return .VkErrorMemoryMapFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceVideoCapabilitiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorVideoProfileOperationNotSupportedKHR;
+			case 3: return .VkErrorVideoProfileFormatNotSupportedKHR;
+			case 4: return .VkErrorVideoPictureLayoutNotSupportedKHR;
+			case 5: return .VkErrorVideoProfileCodecNotSupportedKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceVideoFormatPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorImageUsageNotSupportedKHR;
+			case 3: return .VkErrorVideoProfileOperationNotSupportedKHR;
+			case 4: return .VkErrorVideoProfileFormatNotSupportedKHR;
+			case 5: return .VkErrorVideoPictureLayoutNotSupportedKHR;
+			case 6: return .VkErrorVideoProfileCodecNotSupportedKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorVideoProfileOperationNotSupportedKHR;
+			case 3: return .VkErrorVideoProfileFormatNotSupportedKHR;
+			case 4: return .VkErrorVideoPictureLayoutNotSupportedKHR;
+			case 5: return .VkErrorVideoProfileCodecNotSupportedKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateVideoSessionKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			case 3: return .VkErrorVideoStdVersionNotSupportedKHR;
+			case 4: return .VkErrorInvalidVideoStdParametersKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateVideoSessionParametersKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			case 3: return .VkErrorInvalidVideoStdParametersKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkUpdateVideoSessionParametersKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInvalidVideoStdParametersKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetEncodedVideoSessionParametersKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindVideoSessionMemoryKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCuModuleNVX:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCuFunctionNVX:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetBufferOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetImageOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetImageViewOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSamplerOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireDrmDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDrmDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWaitForPresent2KHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			case 3: return .VkErrorOutOfDateKHR;
+			case 4: return .VkErrorSurfaceLostKHR;
+			case 5: return .VkErrorFullScreenExclusiveModeLostEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWaitForPresentKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorDeviceLost;
+			case 3: return .VkErrorOutOfDateKHR;
+			case 4: return .VkErrorSurfaceLostKHR;
+			case 5: return .VkErrorFullScreenExclusiveModeLostEXT;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateMicromapEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidOpaqueCaptureAddressKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBuildMicromapsEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMicromapEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMicromapToMemoryEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCopyMemoryToMicromapEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkWriteMicromapsPropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPipelinePropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceOpticalFlowImageFormatsNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorExtensionNotPresent;
+			case 1: return .VkErrorInitializationFailed;
+			case 2: return .VkErrorFormatNotSupported;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateOpticalFlowSessionNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindOpticalFlowSessionImageNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceFaultInfoEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkReleaseSwapchainImagesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkMapMemory2:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorMemoryMapFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkUnmapMemory2:
+			switch (idx)
+			{
+			case 0: return .VkErrorMemoryMapFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateShadersEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetShaderBinaryDataEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetLatencySleepModeNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceCooperativeVectorPropertiesNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkConvertCooperativeVectorMatrixNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateExternalComputeQueueNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorTooManyObjects;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateTensorARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateTensorViewARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindTensorMemoryARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetTensorOpaqueCaptureDescriptorDataARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetTensorViewOpaqueCaptureDescriptorDataARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDataGraphPipelinesARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDataGraphPipelineSessionARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDataGraphPipelineSessionBindPointRequirementsARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkBindDataGraphPipelineSessionMemoryARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDataGraphPipelineAvailablePropertiesARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDataGraphPipelinePropertiesARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		default: Runtime.FatalError("Index out of range");
+		}
+	}
+
+	public VkQueueFlags Queues
+	{
+		get
+		{
+			switch (this)
+			{
+			case vkQueueBindSparse: return .SparseBinding;
+			case vkCmdBindPipeline: return .Graphics | .Compute | .DataGraphARM;
+			case vkCmdSetAttachmentFeedbackLoopEnableEXT: return .Graphics;
+			case vkCmdSetViewport: return .Graphics;
+			case vkCmdSetScissor: return .Graphics;
+			case vkCmdSetLineWidth: return .Graphics;
+			case vkCmdSetDepthBias: return .Graphics;
+			case vkCmdSetBlendConstants: return .Graphics;
+			case vkCmdSetDepthBounds: return .Graphics;
+			case vkCmdSetStencilCompareMask: return .Graphics;
+			case vkCmdSetStencilWriteMask: return .Graphics;
+			case vkCmdSetStencilReference: return .Graphics;
+			case vkCmdBindDescriptorSets: return .Graphics | .Compute | .DataGraphARM;
+			case vkCmdBindIndexBuffer: return .Graphics;
+			case vkCmdBindVertexBuffers: return .Graphics;
+			case vkCmdDraw: return .Graphics;
+			case vkCmdDrawIndexed: return .Graphics;
+			case vkCmdDrawMultiEXT: return .Graphics;
+			case vkCmdDrawMultiIndexedEXT: return .Graphics;
+			case vkCmdDrawIndirect: return .Graphics;
+			case vkCmdDrawIndexedIndirect: return .Graphics;
+			case vkCmdDispatch: return .Compute;
+			case vkCmdDispatchIndirect: return .Compute;
+			case vkCmdSubpassShadingHUAWEI: return .Graphics;
+			case vkCmdDrawClusterHUAWEI: return .Graphics;
+			case vkCmdDrawClusterIndirectHUAWEI: return .Graphics;
+			case vkCmdUpdatePipelineIndirectBufferNV: return .Transfer | .Graphics | .Compute;
+			case vkCmdCopyBuffer: return .Transfer | .Graphics | .Compute;
+			case vkCmdCopyImage: return .Transfer | .Graphics | .Compute;
+			case vkCmdBlitImage: return .Graphics;
+			case vkCmdCopyBufferToImage: return .Transfer | .Graphics | .Compute;
+			case vkCmdCopyImageToBuffer: return .Transfer | .Graphics | .Compute;
+			case vkCmdCopyMemoryIndirectNV: return .Transfer | .Graphics | .Compute;
+			case vkCmdCopyMemoryToImageIndirectNV: return .Transfer | .Graphics | .Compute;
+			case vkCmdUpdateBuffer: return .Transfer | .Graphics | .Compute;
+			case vkCmdFillBuffer: return .Transfer | .Graphics | .Compute;
+			case vkCmdClearColorImage: return .Graphics | .Compute;
+			case vkCmdClearDepthStencilImage: return .Graphics;
+			case vkCmdClearAttachments: return .Graphics;
+			case vkCmdResolveImage: return .Graphics;
+			case vkCmdSetEvent: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdResetEvent: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdWaitEvents: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdPipelineBarrier: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdBeginQuery: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdEndQuery: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdBeginConditionalRenderingEXT: return .Graphics | .Compute;
+			case vkCmdEndConditionalRenderingEXT: return .Graphics | .Compute;
+			case vkCmdResetQueryPool: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
+			case vkCmdWriteTimestamp: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
+			case vkCmdCopyQueryPoolResults: return .Graphics | .Compute;
+			case vkCmdPushConstants: return .Graphics | .Compute;
+			case vkCmdBeginRenderPass: return .Graphics;
+			case vkCmdNextSubpass: return .Graphics;
+			case vkCmdEndRenderPass: return .Graphics;
+			case vkCmdExecuteCommands: return .Transfer | .Graphics | .Compute;
+			case vkCmdDebugMarkerBeginEXT: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
+			case vkCmdDebugMarkerEndEXT: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
+			case vkCmdDebugMarkerInsertEXT: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
+			case vkCmdExecuteGeneratedCommandsNV: return .Graphics | .Compute;
+			case vkCmdPreprocessGeneratedCommandsNV: return .Graphics | .Compute;
+			case vkCmdBindPipelineShaderGroupNV: return .Graphics | .Compute;
+			case vkCmdExecuteGeneratedCommandsEXT: return .Graphics | .Compute;
+			case vkCmdPreprocessGeneratedCommandsEXT: return .Graphics | .Compute;
+			case vkCmdPushDescriptorSet: return .Graphics | .Compute;
+			case vkCmdSetDeviceMask: return .Graphics | .Compute | .Transfer;
+			case vkCmdDispatchBase: return .Compute;
+			case vkCmdPushDescriptorSetWithTemplate: return .Graphics | .Compute;
+			case vkCmdSetViewportWScalingNV: return .Graphics;
+			case vkCmdSetDiscardRectangleEXT: return .Graphics;
+			case vkCmdSetDiscardRectangleEnableEXT: return .Graphics;
+			case vkCmdSetDiscardRectangleModeEXT: return .Graphics;
+			case vkCmdSetSampleLocationsEXT: return .Graphics;
+			case vkCmdBeginDebugUtilsLabelEXT: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
+			case vkCmdEndDebugUtilsLabelEXT: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
+			case vkCmdInsertDebugUtilsLabelEXT: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR | .OpticalFlowNV;
+			case vkCmdWriteBufferMarkerAMD: return .Transfer | .Graphics | .Compute;
+			case vkCmdBeginRenderPass2: return .Graphics;
+			case vkCmdNextSubpass2: return .Graphics;
+			case vkCmdEndRenderPass2: return .Graphics;
+			case vkCmdDrawIndirectCount: return .Graphics;
+			case vkCmdDrawIndexedIndirectCount: return .Graphics;
+			case vkCmdSetCheckpointNV: return .Graphics | .Compute | .Transfer;
+			case vkCmdBindTransformFeedbackBuffersEXT: return .Graphics;
+			case vkCmdBeginTransformFeedbackEXT: return .Graphics;
+			case vkCmdEndTransformFeedbackEXT: return .Graphics;
+			case vkCmdBeginQueryIndexedEXT: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdEndQueryIndexedEXT: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdDrawIndirectByteCountEXT: return .Graphics;
+			case vkCmdSetExclusiveScissorNV: return .Graphics;
+			case vkCmdSetExclusiveScissorEnableNV: return .Graphics;
+			case vkCmdBindShadingRateImageNV: return .Graphics;
+			case vkCmdSetViewportShadingRatePaletteNV: return .Graphics;
+			case vkCmdSetCoarseSampleOrderNV: return .Graphics;
+			case vkCmdDrawMeshTasksNV: return .Graphics;
+			case vkCmdDrawMeshTasksIndirectNV: return .Graphics;
+			case vkCmdDrawMeshTasksIndirectCountNV: return .Graphics;
+			case vkCmdDrawMeshTasksEXT: return .Graphics;
+			case vkCmdDrawMeshTasksIndirectEXT: return .Graphics;
+			case vkCmdDrawMeshTasksIndirectCountEXT: return .Graphics;
+			case vkCmdBindInvocationMaskHUAWEI: return .Compute;
+			case vkCmdCopyAccelerationStructureNV: return .Compute;
+			case vkCmdCopyAccelerationStructureKHR: return .Compute;
+			case vkCmdCopyAccelerationStructureToMemoryKHR: return .Compute;
+			case vkCmdCopyMemoryToAccelerationStructureKHR: return .Compute;
+			case vkCmdWriteAccelerationStructuresPropertiesKHR: return .Compute;
+			case vkCmdWriteAccelerationStructuresPropertiesNV: return .Compute;
+			case vkCmdBuildAccelerationStructureNV: return .Compute;
+			case vkCmdTraceRaysKHR: return .Compute;
+			case vkCmdTraceRaysNV: return .Compute;
+			case vkCmdTraceRaysIndirectKHR: return .Compute;
+			case vkCmdTraceRaysIndirect2KHR: return .Compute;
+			case vkCmdBuildClusterAccelerationStructureIndirectNV: return .Compute;
+			case vkCmdSetRayTracingPipelineStackSizeKHR: return .Compute;
+			case vkCmdSetPerformanceMarkerINTEL: return .Graphics | .Compute | .Transfer;
+			case vkCmdSetPerformanceStreamMarkerINTEL: return .Graphics | .Compute | .Transfer;
+			case vkCmdSetPerformanceOverrideINTEL: return .Graphics | .Compute | .Transfer;
+			case vkCmdSetLineStipple: return .Graphics;
+			case vkCmdBuildAccelerationStructuresKHR: return .Compute;
+			case vkCmdBuildAccelerationStructuresIndirectKHR: return .Compute;
+			case vkCmdSetCullMode: return .Graphics;
+			case vkCmdSetFrontFace: return .Graphics;
+			case vkCmdSetPrimitiveTopology: return .Graphics;
+			case vkCmdSetViewportWithCount: return .Graphics;
+			case vkCmdSetScissorWithCount: return .Graphics;
+			case vkCmdBindIndexBuffer2: return .Graphics;
+			case vkCmdBindVertexBuffers2: return .Graphics;
+			case vkCmdSetDepthTestEnable: return .Graphics;
+			case vkCmdSetDepthWriteEnable: return .Graphics;
+			case vkCmdSetDepthCompareOp: return .Graphics;
+			case vkCmdSetDepthBoundsTestEnable: return .Graphics;
+			case vkCmdSetStencilTestEnable: return .Graphics;
+			case vkCmdSetStencilOp: return .Graphics;
+			case vkCmdSetPatchControlPointsEXT: return .Graphics;
+			case vkCmdSetRasterizerDiscardEnable: return .Graphics;
+			case vkCmdSetDepthBiasEnable: return .Graphics;
+			case vkCmdSetLogicOpEXT: return .Graphics;
+			case vkCmdSetPrimitiveRestartEnable: return .Graphics;
+			case vkCmdSetTessellationDomainOriginEXT: return .Graphics;
+			case vkCmdSetDepthClampEnableEXT: return .Graphics;
+			case vkCmdSetPolygonModeEXT: return .Graphics;
+			case vkCmdSetRasterizationSamplesEXT: return .Graphics;
+			case vkCmdSetSampleMaskEXT: return .Graphics;
+			case vkCmdSetAlphaToCoverageEnableEXT: return .Graphics;
+			case vkCmdSetAlphaToOneEnableEXT: return .Graphics;
+			case vkCmdSetLogicOpEnableEXT: return .Graphics;
+			case vkCmdSetColorBlendEnableEXT: return .Graphics;
+			case vkCmdSetColorBlendEquationEXT: return .Graphics;
+			case vkCmdSetColorWriteMaskEXT: return .Graphics;
+			case vkCmdSetRasterizationStreamEXT: return .Graphics;
+			case vkCmdSetConservativeRasterizationModeEXT: return .Graphics;
+			case vkCmdSetExtraPrimitiveOverestimationSizeEXT: return .Graphics;
+			case vkCmdSetDepthClipEnableEXT: return .Graphics;
+			case vkCmdSetSampleLocationsEnableEXT: return .Graphics;
+			case vkCmdSetColorBlendAdvancedEXT: return .Graphics;
+			case vkCmdSetProvokingVertexModeEXT: return .Graphics;
+			case vkCmdSetLineRasterizationModeEXT: return .Graphics;
+			case vkCmdSetLineStippleEnableEXT: return .Graphics;
+			case vkCmdSetDepthClipNegativeOneToOneEXT: return .Graphics;
+			case vkCmdSetViewportWScalingEnableNV: return .Graphics;
+			case vkCmdSetViewportSwizzleNV: return .Graphics;
+			case vkCmdSetCoverageToColorEnableNV: return .Graphics;
+			case vkCmdSetCoverageToColorLocationNV: return .Graphics;
+			case vkCmdSetCoverageModulationModeNV: return .Graphics;
+			case vkCmdSetCoverageModulationTableEnableNV: return .Graphics;
+			case vkCmdSetCoverageModulationTableNV: return .Graphics;
+			case vkCmdSetShadingRateImageEnableNV: return .Graphics;
+			case vkCmdSetCoverageReductionModeNV: return .Graphics;
+			case vkCmdSetRepresentativeFragmentTestEnableNV: return .Graphics;
+			case vkCmdCopyBuffer2: return .Transfer | .Graphics | .Compute;
+			case vkCmdCopyImage2: return .Transfer | .Graphics | .Compute;
+			case vkCmdBlitImage2: return .Graphics;
+			case vkCmdCopyBufferToImage2: return .Transfer | .Graphics | .Compute;
+			case vkCmdCopyImageToBuffer2: return .Transfer | .Graphics | .Compute;
+			case vkCmdResolveImage2: return .Graphics;
+			case vkCmdSetFragmentShadingRateKHR: return .Graphics;
+			case vkCmdSetFragmentShadingRateEnumNV: return .Graphics;
+			case vkCmdSetVertexInputEXT: return .Graphics;
+			case vkCmdSetColorWriteEnableEXT: return .Graphics;
+			case vkCmdSetEvent2: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdResetEvent2: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdWaitEvents2: return .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdPipelineBarrier2: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdWriteTimestamp2: return .Transfer | .Graphics | .Compute | .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdWriteBufferMarker2AMD: return .Transfer | .Graphics | .Compute;
+			case vkCmdDecodeVideoKHR: return .VideoDecodeKHR;
+			case vkCmdBeginVideoCodingKHR: return .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdControlVideoCodingKHR: return .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdEndVideoCodingKHR: return .VideoDecodeKHR | .VideoEncodeKHR;
+			case vkCmdEncodeVideoKHR: return .VideoEncodeKHR;
+			case vkCmdDecompressMemoryNV: return .Graphics | .Compute;
+			case vkCmdDecompressMemoryIndirectCountNV: return .Graphics | .Compute;
+			case vkCmdBuildPartitionedAccelerationStructuresNV: return .Compute;
+			case vkCmdCuLaunchKernelNVX: return .Graphics | .Compute;
+			case vkCmdBindDescriptorBuffersEXT: return .Graphics | .Compute | .DataGraphARM;
+			case vkCmdSetDescriptorBufferOffsetsEXT: return .Graphics | .Compute | .DataGraphARM;
+			case vkCmdBindDescriptorBufferEmbeddedSamplersEXT: return .Graphics | .Compute;
+			case vkCmdBeginRendering: return .Graphics;
+			case vkCmdEndRendering: return .Graphics;
+			case vkCmdEndRendering2EXT: return .Graphics;
+			case vkCmdBuildMicromapsEXT: return .Compute;
+			case vkCmdCopyMicromapEXT: return .Compute;
+			case vkCmdCopyMicromapToMemoryEXT: return .Compute;
+			case vkCmdCopyMemoryToMicromapEXT: return .Compute;
+			case vkCmdWriteMicromapsPropertiesEXT: return .Compute;
+			case vkCmdBindTileMemoryQCOM: return .Graphics | .Compute;
+			case vkCmdOpticalFlowExecuteNV: return .OpticalFlowNV;
+			case vkCmdSetDepthBias2EXT: return .Graphics;
+			case vkCmdBindShadersEXT: return .Graphics | .Compute;
+			case vkCmdBindDescriptorSets2: return .Graphics | .Compute;
+			case vkCmdPushConstants2: return .Graphics | .Compute;
+			case vkCmdPushDescriptorSet2: return .Graphics | .Compute;
+			case vkCmdPushDescriptorSetWithTemplate2: return .Graphics | .Compute;
+			case vkCmdSetDescriptorBufferOffsets2EXT: return .Graphics | .Compute | .DataGraphARM;
+			case vkCmdBindDescriptorBufferEmbeddedSamplers2EXT: return .Graphics | .Compute;
+			case vkCmdSetRenderingAttachmentLocations: return .Graphics;
+			case vkCmdSetRenderingInputAttachmentIndices: return .Graphics;
+			case vkCmdSetDepthClampRangeEXT: return .Graphics;
+			case vkCmdConvertCooperativeVectorMatrixNV: return .Graphics | .Compute;
+			case vkCmdDispatchTileQCOM: return .Compute;
+			case vkCmdBeginPerTileExecutionQCOM: return .Graphics | .Compute;
+			case vkCmdEndPerTileExecutionQCOM: return .Graphics | .Compute;
+			case vkCmdCopyTensorARM: return .Transfer | .Graphics | .Compute;
+			case vkCmdDispatchDataGraphARM: return .DataGraphARM;
+			default: return 0;
+			}
+		}
+	}
+
+	public RenderPassLocation RenderPassLocation
+	{
+		get
+		{
+			switch (this)
+			{
+			case vkCmdBindPipeline: return .Both;
+			case vkCmdSetAttachmentFeedbackLoopEnableEXT: return .Both;
+			case vkCmdSetViewport: return .Both;
+			case vkCmdSetScissor: return .Both;
+			case vkCmdSetLineWidth: return .Both;
+			case vkCmdSetDepthBias: return .Both;
+			case vkCmdSetBlendConstants: return .Both;
+			case vkCmdSetDepthBounds: return .Both;
+			case vkCmdSetStencilCompareMask: return .Both;
+			case vkCmdSetStencilWriteMask: return .Both;
+			case vkCmdSetStencilReference: return .Both;
+			case vkCmdBindDescriptorSets: return .Both;
+			case vkCmdBindIndexBuffer: return .Both;
+			case vkCmdBindVertexBuffers: return .Both;
+			case vkCmdDraw: return .Inside;
+			case vkCmdDrawIndexed: return .Inside;
+			case vkCmdDrawMultiEXT: return .Inside;
+			case vkCmdDrawMultiIndexedEXT: return .Inside;
+			case vkCmdDrawIndirect: return .Inside;
+			case vkCmdDrawIndexedIndirect: return .Inside;
+			case vkCmdDispatch: return .Both;
+			case vkCmdDispatchIndirect: return .Both;
+			case vkCmdSubpassShadingHUAWEI: return .Inside;
+			case vkCmdDrawClusterHUAWEI: return .Inside;
+			case vkCmdDrawClusterIndirectHUAWEI: return .Inside;
+			case vkCmdUpdatePipelineIndirectBufferNV: return .Outside;
+			case vkCmdCopyBuffer: return .Outside;
+			case vkCmdCopyImage: return .Outside;
+			case vkCmdBlitImage: return .Outside;
+			case vkCmdCopyBufferToImage: return .Outside;
+			case vkCmdCopyImageToBuffer: return .Outside;
+			case vkCmdCopyMemoryIndirectNV: return .Outside;
+			case vkCmdCopyMemoryToImageIndirectNV: return .Outside;
+			case vkCmdUpdateBuffer: return .Outside;
+			case vkCmdFillBuffer: return .Outside;
+			case vkCmdClearColorImage: return .Outside;
+			case vkCmdClearDepthStencilImage: return .Outside;
+			case vkCmdClearAttachments: return .Inside;
+			case vkCmdResolveImage: return .Outside;
+			case vkCmdSetEvent: return .Outside;
+			case vkCmdResetEvent: return .Outside;
+			case vkCmdWaitEvents: return .Both;
+			case vkCmdPipelineBarrier: return .Both;
+			case vkCmdBeginQuery: return .Both;
+			case vkCmdEndQuery: return .Both;
+			case vkCmdBeginConditionalRenderingEXT: return .Both;
+			case vkCmdEndConditionalRenderingEXT: return .Both;
+			case vkCmdResetQueryPool: return .Outside;
+			case vkCmdWriteTimestamp: return .Both;
+			case vkCmdCopyQueryPoolResults: return .Outside;
+			case vkCmdPushConstants: return .Both;
+			case vkCmdBeginRenderPass: return .Outside;
+			case vkCmdNextSubpass: return .Inside;
+			case vkCmdEndRenderPass: return .Inside;
+			case vkCmdExecuteCommands: return .Both;
+			case vkCmdDebugMarkerBeginEXT: return .Both;
+			case vkCmdDebugMarkerEndEXT: return .Both;
+			case vkCmdDebugMarkerInsertEXT: return .Both;
+			case vkCmdExecuteGeneratedCommandsNV: return .Inside;
+			case vkCmdPreprocessGeneratedCommandsNV: return .Outside;
+			case vkCmdBindPipelineShaderGroupNV: return .Both;
+			case vkCmdExecuteGeneratedCommandsEXT: return .Both;
+			case vkCmdPreprocessGeneratedCommandsEXT: return .Outside;
+			case vkCmdPushDescriptorSet: return .Both;
+			case vkCmdSetDeviceMask: return .Both;
+			case vkCmdDispatchBase: return .Both;
+			case vkCmdPushDescriptorSetWithTemplate: return .Both;
+			case vkCmdSetViewportWScalingNV: return .Both;
+			case vkCmdSetDiscardRectangleEXT: return .Both;
+			case vkCmdSetDiscardRectangleEnableEXT: return .Both;
+			case vkCmdSetDiscardRectangleModeEXT: return .Both;
+			case vkCmdSetSampleLocationsEXT: return .Both;
+			case vkCmdBeginDebugUtilsLabelEXT: return .Both;
+			case vkCmdEndDebugUtilsLabelEXT: return .Both;
+			case vkCmdInsertDebugUtilsLabelEXT: return .Both;
+			case vkCmdWriteBufferMarkerAMD: return .Both;
+			case vkCmdBeginRenderPass2: return .Outside;
+			case vkCmdNextSubpass2: return .Inside;
+			case vkCmdEndRenderPass2: return .Inside;
+			case vkCmdDrawIndirectCount: return .Inside;
+			case vkCmdDrawIndexedIndirectCount: return .Inside;
+			case vkCmdSetCheckpointNV: return .Both;
+			case vkCmdBindTransformFeedbackBuffersEXT: return .Both;
+			case vkCmdBeginTransformFeedbackEXT: return .Inside;
+			case vkCmdEndTransformFeedbackEXT: return .Inside;
+			case vkCmdBeginQueryIndexedEXT: return .Both;
+			case vkCmdEndQueryIndexedEXT: return .Both;
+			case vkCmdDrawIndirectByteCountEXT: return .Inside;
+			case vkCmdSetExclusiveScissorNV: return .Both;
+			case vkCmdSetExclusiveScissorEnableNV: return .Both;
+			case vkCmdBindShadingRateImageNV: return .Both;
+			case vkCmdSetViewportShadingRatePaletteNV: return .Both;
+			case vkCmdSetCoarseSampleOrderNV: return .Both;
+			case vkCmdDrawMeshTasksNV: return .Inside;
+			case vkCmdDrawMeshTasksIndirectNV: return .Inside;
+			case vkCmdDrawMeshTasksIndirectCountNV: return .Inside;
+			case vkCmdDrawMeshTasksEXT: return .Inside;
+			case vkCmdDrawMeshTasksIndirectEXT: return .Inside;
+			case vkCmdDrawMeshTasksIndirectCountEXT: return .Inside;
+			case vkCmdBindInvocationMaskHUAWEI: return .Outside;
+			case vkCmdCopyAccelerationStructureNV: return .Outside;
+			case vkCmdCopyAccelerationStructureKHR: return .Outside;
+			case vkCmdCopyAccelerationStructureToMemoryKHR: return .Outside;
+			case vkCmdCopyMemoryToAccelerationStructureKHR: return .Outside;
+			case vkCmdWriteAccelerationStructuresPropertiesKHR: return .Outside;
+			case vkCmdWriteAccelerationStructuresPropertiesNV: return .Outside;
+			case vkCmdBuildAccelerationStructureNV: return .Outside;
+			case vkCmdTraceRaysKHR: return .Outside;
+			case vkCmdTraceRaysNV: return .Outside;
+			case vkCmdTraceRaysIndirectKHR: return .Outside;
+			case vkCmdTraceRaysIndirect2KHR: return .Outside;
+			case vkCmdBuildClusterAccelerationStructureIndirectNV: return .Outside;
+			case vkCmdSetRayTracingPipelineStackSizeKHR: return .Outside;
+			case vkCmdSetPerformanceMarkerINTEL: return .Both;
+			case vkCmdSetPerformanceStreamMarkerINTEL: return .Both;
+			case vkCmdSetPerformanceOverrideINTEL: return .Both;
+			case vkCmdSetLineStipple: return .Both;
+			case vkCmdBuildAccelerationStructuresKHR: return .Outside;
+			case vkCmdBuildAccelerationStructuresIndirectKHR: return .Outside;
+			case vkCmdSetCullMode: return .Both;
+			case vkCmdSetFrontFace: return .Both;
+			case vkCmdSetPrimitiveTopology: return .Both;
+			case vkCmdSetViewportWithCount: return .Both;
+			case vkCmdSetScissorWithCount: return .Both;
+			case vkCmdBindIndexBuffer2: return .Both;
+			case vkCmdBindVertexBuffers2: return .Both;
+			case vkCmdSetDepthTestEnable: return .Both;
+			case vkCmdSetDepthWriteEnable: return .Both;
+			case vkCmdSetDepthCompareOp: return .Both;
+			case vkCmdSetDepthBoundsTestEnable: return .Both;
+			case vkCmdSetStencilTestEnable: return .Both;
+			case vkCmdSetStencilOp: return .Both;
+			case vkCmdSetPatchControlPointsEXT: return .Both;
+			case vkCmdSetRasterizerDiscardEnable: return .Both;
+			case vkCmdSetDepthBiasEnable: return .Both;
+			case vkCmdSetLogicOpEXT: return .Both;
+			case vkCmdSetPrimitiveRestartEnable: return .Both;
+			case vkCmdSetTessellationDomainOriginEXT: return .Both;
+			case vkCmdSetDepthClampEnableEXT: return .Both;
+			case vkCmdSetPolygonModeEXT: return .Both;
+			case vkCmdSetRasterizationSamplesEXT: return .Both;
+			case vkCmdSetSampleMaskEXT: return .Both;
+			case vkCmdSetAlphaToCoverageEnableEXT: return .Both;
+			case vkCmdSetAlphaToOneEnableEXT: return .Both;
+			case vkCmdSetLogicOpEnableEXT: return .Both;
+			case vkCmdSetColorBlendEnableEXT: return .Both;
+			case vkCmdSetColorBlendEquationEXT: return .Both;
+			case vkCmdSetColorWriteMaskEXT: return .Both;
+			case vkCmdSetRasterizationStreamEXT: return .Both;
+			case vkCmdSetConservativeRasterizationModeEXT: return .Both;
+			case vkCmdSetExtraPrimitiveOverestimationSizeEXT: return .Both;
+			case vkCmdSetDepthClipEnableEXT: return .Both;
+			case vkCmdSetSampleLocationsEnableEXT: return .Both;
+			case vkCmdSetColorBlendAdvancedEXT: return .Both;
+			case vkCmdSetProvokingVertexModeEXT: return .Both;
+			case vkCmdSetLineRasterizationModeEXT: return .Both;
+			case vkCmdSetLineStippleEnableEXT: return .Both;
+			case vkCmdSetDepthClipNegativeOneToOneEXT: return .Both;
+			case vkCmdSetViewportWScalingEnableNV: return .Both;
+			case vkCmdSetViewportSwizzleNV: return .Both;
+			case vkCmdSetCoverageToColorEnableNV: return .Both;
+			case vkCmdSetCoverageToColorLocationNV: return .Both;
+			case vkCmdSetCoverageModulationModeNV: return .Both;
+			case vkCmdSetCoverageModulationTableEnableNV: return .Both;
+			case vkCmdSetCoverageModulationTableNV: return .Both;
+			case vkCmdSetShadingRateImageEnableNV: return .Both;
+			case vkCmdSetCoverageReductionModeNV: return .Both;
+			case vkCmdSetRepresentativeFragmentTestEnableNV: return .Both;
+			case vkCmdCopyBuffer2: return .Outside;
+			case vkCmdCopyImage2: return .Outside;
+			case vkCmdBlitImage2: return .Outside;
+			case vkCmdCopyBufferToImage2: return .Outside;
+			case vkCmdCopyImageToBuffer2: return .Outside;
+			case vkCmdResolveImage2: return .Outside;
+			case vkCmdSetFragmentShadingRateKHR: return .Both;
+			case vkCmdSetFragmentShadingRateEnumNV: return .Both;
+			case vkCmdSetVertexInputEXT: return .Both;
+			case vkCmdSetColorWriteEnableEXT: return .Both;
+			case vkCmdSetEvent2: return .Outside;
+			case vkCmdResetEvent2: return .Outside;
+			case vkCmdWaitEvents2: return .Both;
+			case vkCmdPipelineBarrier2: return .Both;
+			case vkCmdWriteTimestamp2: return .Both;
+			case vkCmdWriteBufferMarker2AMD: return .Both;
+			case vkCmdDecodeVideoKHR: return .Outside;
+			case vkCmdBeginVideoCodingKHR: return .Outside;
+			case vkCmdControlVideoCodingKHR: return .Outside;
+			case vkCmdEndVideoCodingKHR: return .Outside;
+			case vkCmdEncodeVideoKHR: return .Outside;
+			case vkCmdDecompressMemoryNV: return .Outside;
+			case vkCmdDecompressMemoryIndirectCountNV: return .Outside;
+			case vkCmdBuildPartitionedAccelerationStructuresNV: return .Outside;
+			case vkCmdCuLaunchKernelNVX: return .Both;
+			case vkCmdBindDescriptorBuffersEXT: return .Both;
+			case vkCmdSetDescriptorBufferOffsetsEXT: return .Both;
+			case vkCmdBindDescriptorBufferEmbeddedSamplersEXT: return .Both;
+			case vkCmdBeginRendering: return .Outside;
+			case vkCmdEndRendering: return .Inside;
+			case vkCmdEndRendering2EXT: return .Inside;
+			case vkCmdBuildMicromapsEXT: return .Outside;
+			case vkCmdCopyMicromapEXT: return .Outside;
+			case vkCmdCopyMicromapToMemoryEXT: return .Outside;
+			case vkCmdCopyMemoryToMicromapEXT: return .Outside;
+			case vkCmdWriteMicromapsPropertiesEXT: return .Outside;
+			case vkCmdBindTileMemoryQCOM: return .Outside;
+			case vkCmdOpticalFlowExecuteNV: return .Outside;
+			case vkCmdSetDepthBias2EXT: return .Both;
+			case vkCmdBindShadersEXT: return .Both;
+			case vkCmdBindDescriptorSets2: return .Both;
+			case vkCmdPushConstants2: return .Both;
+			case vkCmdPushDescriptorSet2: return .Both;
+			case vkCmdPushDescriptorSetWithTemplate2: return .Both;
+			case vkCmdSetDescriptorBufferOffsets2EXT: return .Both;
+			case vkCmdBindDescriptorBufferEmbeddedSamplers2EXT: return .Both;
+			case vkCmdSetRenderingAttachmentLocations: return .Inside;
+			case vkCmdSetRenderingInputAttachmentIndices: return .Inside;
+			case vkCmdSetDepthClampRangeEXT: return .Both;
+			case vkCmdConvertCooperativeVectorMatrixNV: return .Outside;
+			case vkCmdDispatchTileQCOM: return .Inside;
+			case vkCmdBeginPerTileExecutionQCOM: return .Inside;
+			case vkCmdEndPerTileExecutionQCOM: return .Inside;
+			case vkCmdCopyTensorARM: return .Outside;
+			case vkCmdDispatchDataGraphARM: return .Outside;
+			default: return 0;
+			}
+		}
+	}
+
+	public CmdBufferLevel CmdBufferLevels
+	{
+		get
+		{
+			switch (this)
+			{
+			case vkCmdBindPipeline: return .Primary | .Secondary;
+			case vkCmdSetAttachmentFeedbackLoopEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetViewport: return .Primary | .Secondary;
+			case vkCmdSetScissor: return .Primary | .Secondary;
+			case vkCmdSetLineWidth: return .Primary | .Secondary;
+			case vkCmdSetDepthBias: return .Primary | .Secondary;
+			case vkCmdSetBlendConstants: return .Primary | .Secondary;
+			case vkCmdSetDepthBounds: return .Primary | .Secondary;
+			case vkCmdSetStencilCompareMask: return .Primary | .Secondary;
+			case vkCmdSetStencilWriteMask: return .Primary | .Secondary;
+			case vkCmdSetStencilReference: return .Primary | .Secondary;
+			case vkCmdBindDescriptorSets: return .Primary | .Secondary;
+			case vkCmdBindIndexBuffer: return .Primary | .Secondary;
+			case vkCmdBindVertexBuffers: return .Primary | .Secondary;
+			case vkCmdDraw: return .Primary | .Secondary;
+			case vkCmdDrawIndexed: return .Primary | .Secondary;
+			case vkCmdDrawMultiEXT: return .Primary | .Secondary;
+			case vkCmdDrawMultiIndexedEXT: return .Primary | .Secondary;
+			case vkCmdDrawIndirect: return .Primary | .Secondary;
+			case vkCmdDrawIndexedIndirect: return .Primary | .Secondary;
+			case vkCmdDispatch: return .Primary | .Secondary;
+			case vkCmdDispatchIndirect: return .Primary | .Secondary;
+			case vkCmdSubpassShadingHUAWEI: return .Primary | .Secondary;
+			case vkCmdDrawClusterHUAWEI: return .Primary | .Secondary;
+			case vkCmdDrawClusterIndirectHUAWEI: return .Primary | .Secondary;
+			case vkCmdUpdatePipelineIndirectBufferNV: return .Primary | .Secondary;
+			case vkCmdCopyBuffer: return .Primary | .Secondary;
+			case vkCmdCopyImage: return .Primary | .Secondary;
+			case vkCmdBlitImage: return .Primary | .Secondary;
+			case vkCmdCopyBufferToImage: return .Primary | .Secondary;
+			case vkCmdCopyImageToBuffer: return .Primary | .Secondary;
+			case vkCmdCopyMemoryIndirectNV: return .Primary | .Secondary;
+			case vkCmdCopyMemoryToImageIndirectNV: return .Primary | .Secondary;
+			case vkCmdUpdateBuffer: return .Primary | .Secondary;
+			case vkCmdFillBuffer: return .Primary | .Secondary;
+			case vkCmdClearColorImage: return .Primary | .Secondary;
+			case vkCmdClearDepthStencilImage: return .Primary | .Secondary;
+			case vkCmdClearAttachments: return .Primary | .Secondary;
+			case vkCmdResolveImage: return .Primary | .Secondary;
+			case vkCmdSetEvent: return .Primary | .Secondary;
+			case vkCmdResetEvent: return .Primary | .Secondary;
+			case vkCmdWaitEvents: return .Primary | .Secondary;
+			case vkCmdPipelineBarrier: return .Primary | .Secondary;
+			case vkCmdBeginQuery: return .Primary | .Secondary;
+			case vkCmdEndQuery: return .Primary | .Secondary;
+			case vkCmdBeginConditionalRenderingEXT: return .Primary | .Secondary;
+			case vkCmdEndConditionalRenderingEXT: return .Primary | .Secondary;
+			case vkCmdResetQueryPool: return .Primary | .Secondary;
+			case vkCmdWriteTimestamp: return .Primary | .Secondary;
+			case vkCmdCopyQueryPoolResults: return .Primary | .Secondary;
+			case vkCmdPushConstants: return .Primary | .Secondary;
+			case vkCmdBeginRenderPass: return .Primary;
+			case vkCmdNextSubpass: return .Primary;
+			case vkCmdEndRenderPass: return .Primary;
+			case vkCmdExecuteCommands: return .Primary | .Secondary;
+			case vkCmdDebugMarkerBeginEXT: return .Primary | .Secondary;
+			case vkCmdDebugMarkerEndEXT: return .Primary | .Secondary;
+			case vkCmdDebugMarkerInsertEXT: return .Primary | .Secondary;
+			case vkCmdExecuteGeneratedCommandsNV: return .Primary | .Secondary;
+			case vkCmdPreprocessGeneratedCommandsNV: return .Primary | .Secondary;
+			case vkCmdBindPipelineShaderGroupNV: return .Primary | .Secondary;
+			case vkCmdExecuteGeneratedCommandsEXT: return .Primary;
+			case vkCmdPreprocessGeneratedCommandsEXT: return .Primary;
+			case vkCmdPushDescriptorSet: return .Primary | .Secondary;
+			case vkCmdSetDeviceMask: return .Primary | .Secondary;
+			case vkCmdDispatchBase: return .Primary | .Secondary;
+			case vkCmdPushDescriptorSetWithTemplate: return .Primary | .Secondary;
+			case vkCmdSetViewportWScalingNV: return .Primary | .Secondary;
+			case vkCmdSetDiscardRectangleEXT: return .Primary | .Secondary;
+			case vkCmdSetDiscardRectangleEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetDiscardRectangleModeEXT: return .Primary | .Secondary;
+			case vkCmdSetSampleLocationsEXT: return .Primary | .Secondary;
+			case vkCmdBeginDebugUtilsLabelEXT: return .Primary | .Secondary;
+			case vkCmdEndDebugUtilsLabelEXT: return .Primary | .Secondary;
+			case vkCmdInsertDebugUtilsLabelEXT: return .Primary | .Secondary;
+			case vkCmdWriteBufferMarkerAMD: return .Primary | .Secondary;
+			case vkCmdBeginRenderPass2: return .Primary;
+			case vkCmdNextSubpass2: return .Primary;
+			case vkCmdEndRenderPass2: return .Primary;
+			case vkCmdDrawIndirectCount: return .Primary | .Secondary;
+			case vkCmdDrawIndexedIndirectCount: return .Primary | .Secondary;
+			case vkCmdSetCheckpointNV: return .Primary | .Secondary;
+			case vkCmdBindTransformFeedbackBuffersEXT: return .Primary | .Secondary;
+			case vkCmdBeginTransformFeedbackEXT: return .Primary | .Secondary;
+			case vkCmdEndTransformFeedbackEXT: return .Primary | .Secondary;
+			case vkCmdBeginQueryIndexedEXT: return .Primary | .Secondary;
+			case vkCmdEndQueryIndexedEXT: return .Primary | .Secondary;
+			case vkCmdDrawIndirectByteCountEXT: return .Primary | .Secondary;
+			case vkCmdSetExclusiveScissorNV: return .Primary | .Secondary;
+			case vkCmdSetExclusiveScissorEnableNV: return .Primary | .Secondary;
+			case vkCmdBindShadingRateImageNV: return .Primary | .Secondary;
+			case vkCmdSetViewportShadingRatePaletteNV: return .Primary | .Secondary;
+			case vkCmdSetCoarseSampleOrderNV: return .Primary | .Secondary;
+			case vkCmdDrawMeshTasksNV: return .Primary | .Secondary;
+			case vkCmdDrawMeshTasksIndirectNV: return .Primary | .Secondary;
+			case vkCmdDrawMeshTasksIndirectCountNV: return .Primary | .Secondary;
+			case vkCmdDrawMeshTasksEXT: return .Primary | .Secondary;
+			case vkCmdDrawMeshTasksIndirectEXT: return .Primary | .Secondary;
+			case vkCmdDrawMeshTasksIndirectCountEXT: return .Primary | .Secondary;
+			case vkCmdBindInvocationMaskHUAWEI: return .Primary | .Secondary;
+			case vkCmdCopyAccelerationStructureNV: return .Primary | .Secondary;
+			case vkCmdCopyAccelerationStructureKHR: return .Primary | .Secondary;
+			case vkCmdCopyAccelerationStructureToMemoryKHR: return .Primary | .Secondary;
+			case vkCmdCopyMemoryToAccelerationStructureKHR: return .Primary | .Secondary;
+			case vkCmdWriteAccelerationStructuresPropertiesKHR: return .Primary | .Secondary;
+			case vkCmdWriteAccelerationStructuresPropertiesNV: return .Primary | .Secondary;
+			case vkCmdBuildAccelerationStructureNV: return .Primary | .Secondary;
+			case vkCmdTraceRaysKHR: return .Primary | .Secondary;
+			case vkCmdTraceRaysNV: return .Primary | .Secondary;
+			case vkCmdTraceRaysIndirectKHR: return .Primary | .Secondary;
+			case vkCmdTraceRaysIndirect2KHR: return .Primary | .Secondary;
+			case vkCmdBuildClusterAccelerationStructureIndirectNV: return .Primary | .Secondary;
+			case vkCmdSetRayTracingPipelineStackSizeKHR: return .Primary | .Secondary;
+			case vkCmdSetPerformanceMarkerINTEL: return .Primary | .Secondary;
+			case vkCmdSetPerformanceStreamMarkerINTEL: return .Primary | .Secondary;
+			case vkCmdSetPerformanceOverrideINTEL: return .Primary | .Secondary;
+			case vkCmdSetLineStipple: return .Primary | .Secondary;
+			case vkCmdBuildAccelerationStructuresKHR: return .Primary | .Secondary;
+			case vkCmdBuildAccelerationStructuresIndirectKHR: return .Primary | .Secondary;
+			case vkCmdSetCullMode: return .Primary | .Secondary;
+			case vkCmdSetFrontFace: return .Primary | .Secondary;
+			case vkCmdSetPrimitiveTopology: return .Primary | .Secondary;
+			case vkCmdSetViewportWithCount: return .Primary | .Secondary;
+			case vkCmdSetScissorWithCount: return .Primary | .Secondary;
+			case vkCmdBindIndexBuffer2: return .Primary | .Secondary;
+			case vkCmdBindVertexBuffers2: return .Primary | .Secondary;
+			case vkCmdSetDepthTestEnable: return .Primary | .Secondary;
+			case vkCmdSetDepthWriteEnable: return .Primary | .Secondary;
+			case vkCmdSetDepthCompareOp: return .Primary | .Secondary;
+			case vkCmdSetDepthBoundsTestEnable: return .Primary | .Secondary;
+			case vkCmdSetStencilTestEnable: return .Primary | .Secondary;
+			case vkCmdSetStencilOp: return .Primary | .Secondary;
+			case vkCmdSetPatchControlPointsEXT: return .Primary | .Secondary;
+			case vkCmdSetRasterizerDiscardEnable: return .Primary | .Secondary;
+			case vkCmdSetDepthBiasEnable: return .Primary | .Secondary;
+			case vkCmdSetLogicOpEXT: return .Primary | .Secondary;
+			case vkCmdSetPrimitiveRestartEnable: return .Primary | .Secondary;
+			case vkCmdSetTessellationDomainOriginEXT: return .Primary | .Secondary;
+			case vkCmdSetDepthClampEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetPolygonModeEXT: return .Primary | .Secondary;
+			case vkCmdSetRasterizationSamplesEXT: return .Primary | .Secondary;
+			case vkCmdSetSampleMaskEXT: return .Primary | .Secondary;
+			case vkCmdSetAlphaToCoverageEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetAlphaToOneEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetLogicOpEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetColorBlendEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetColorBlendEquationEXT: return .Primary | .Secondary;
+			case vkCmdSetColorWriteMaskEXT: return .Primary | .Secondary;
+			case vkCmdSetRasterizationStreamEXT: return .Primary | .Secondary;
+			case vkCmdSetConservativeRasterizationModeEXT: return .Primary | .Secondary;
+			case vkCmdSetExtraPrimitiveOverestimationSizeEXT: return .Primary | .Secondary;
+			case vkCmdSetDepthClipEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetSampleLocationsEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetColorBlendAdvancedEXT: return .Primary | .Secondary;
+			case vkCmdSetProvokingVertexModeEXT: return .Primary | .Secondary;
+			case vkCmdSetLineRasterizationModeEXT: return .Primary | .Secondary;
+			case vkCmdSetLineStippleEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetDepthClipNegativeOneToOneEXT: return .Primary | .Secondary;
+			case vkCmdSetViewportWScalingEnableNV: return .Primary | .Secondary;
+			case vkCmdSetViewportSwizzleNV: return .Primary | .Secondary;
+			case vkCmdSetCoverageToColorEnableNV: return .Primary | .Secondary;
+			case vkCmdSetCoverageToColorLocationNV: return .Primary | .Secondary;
+			case vkCmdSetCoverageModulationModeNV: return .Primary | .Secondary;
+			case vkCmdSetCoverageModulationTableEnableNV: return .Primary | .Secondary;
+			case vkCmdSetCoverageModulationTableNV: return .Primary | .Secondary;
+			case vkCmdSetShadingRateImageEnableNV: return .Primary | .Secondary;
+			case vkCmdSetCoverageReductionModeNV: return .Primary | .Secondary;
+			case vkCmdSetRepresentativeFragmentTestEnableNV: return .Primary | .Secondary;
+			case vkCmdCopyBuffer2: return .Primary | .Secondary;
+			case vkCmdCopyImage2: return .Primary | .Secondary;
+			case vkCmdBlitImage2: return .Primary | .Secondary;
+			case vkCmdCopyBufferToImage2: return .Primary | .Secondary;
+			case vkCmdCopyImageToBuffer2: return .Primary | .Secondary;
+			case vkCmdResolveImage2: return .Primary | .Secondary;
+			case vkCmdSetFragmentShadingRateKHR: return .Primary | .Secondary;
+			case vkCmdSetFragmentShadingRateEnumNV: return .Primary | .Secondary;
+			case vkCmdSetVertexInputEXT: return .Primary | .Secondary;
+			case vkCmdSetColorWriteEnableEXT: return .Primary | .Secondary;
+			case vkCmdSetEvent2: return .Primary | .Secondary;
+			case vkCmdResetEvent2: return .Primary | .Secondary;
+			case vkCmdWaitEvents2: return .Primary | .Secondary;
+			case vkCmdPipelineBarrier2: return .Primary | .Secondary;
+			case vkCmdWriteTimestamp2: return .Primary | .Secondary;
+			case vkCmdWriteBufferMarker2AMD: return .Primary | .Secondary;
+			case vkCmdDecodeVideoKHR: return .Primary;
+			case vkCmdBeginVideoCodingKHR: return .Primary;
+			case vkCmdControlVideoCodingKHR: return .Primary;
+			case vkCmdEndVideoCodingKHR: return .Primary;
+			case vkCmdEncodeVideoKHR: return .Primary;
+			case vkCmdDecompressMemoryNV: return .Primary | .Secondary;
+			case vkCmdDecompressMemoryIndirectCountNV: return .Primary | .Secondary;
+			case vkCmdBuildPartitionedAccelerationStructuresNV: return .Primary | .Secondary;
+			case vkCmdCuLaunchKernelNVX: return .Primary | .Secondary;
+			case vkCmdBindDescriptorBuffersEXT: return .Primary | .Secondary;
+			case vkCmdSetDescriptorBufferOffsetsEXT: return .Primary | .Secondary;
+			case vkCmdBindDescriptorBufferEmbeddedSamplersEXT: return .Primary | .Secondary;
+			case vkCmdBeginRendering: return .Primary | .Secondary;
+			case vkCmdEndRendering: return .Primary | .Secondary;
+			case vkCmdEndRendering2EXT: return .Primary | .Secondary;
+			case vkCmdBuildMicromapsEXT: return .Primary | .Secondary;
+			case vkCmdCopyMicromapEXT: return .Primary | .Secondary;
+			case vkCmdCopyMicromapToMemoryEXT: return .Primary | .Secondary;
+			case vkCmdCopyMemoryToMicromapEXT: return .Primary | .Secondary;
+			case vkCmdWriteMicromapsPropertiesEXT: return .Primary | .Secondary;
+			case vkCmdBindTileMemoryQCOM: return .Primary | .Secondary;
+			case vkCmdOpticalFlowExecuteNV: return .Primary | .Secondary;
+			case vkCmdSetDepthBias2EXT: return .Primary | .Secondary;
+			case vkCmdBindShadersEXT: return .Primary | .Secondary;
+			case vkCmdBindDescriptorSets2: return .Primary | .Secondary;
+			case vkCmdPushConstants2: return .Primary | .Secondary;
+			case vkCmdPushDescriptorSet2: return .Primary | .Secondary;
+			case vkCmdPushDescriptorSetWithTemplate2: return .Primary | .Secondary;
+			case vkCmdSetDescriptorBufferOffsets2EXT: return .Primary | .Secondary;
+			case vkCmdBindDescriptorBufferEmbeddedSamplers2EXT: return .Primary | .Secondary;
+			case vkCmdSetRenderingAttachmentLocations: return .Primary | .Secondary;
+			case vkCmdSetRenderingInputAttachmentIndices: return .Primary | .Secondary;
+			case vkCmdSetDepthClampRangeEXT: return .Primary | .Secondary;
+			case vkCmdConvertCooperativeVectorMatrixNV: return .Primary | .Secondary;
+			case vkCmdDispatchTileQCOM: return .Primary | .Secondary;
+			case vkCmdBeginPerTileExecutionQCOM: return .Primary | .Secondary;
+			case vkCmdEndPerTileExecutionQCOM: return .Primary | .Secondary;
+			case vkCmdCopyTensorARM: return .Primary | .Secondary;
+			case vkCmdDispatchDataGraphARM: return .Primary | .Secondary;
+			default: return 0;
+			}
+		}
+	}
+
+	public Task Tasks
+	{
+		get
+		{
+			switch (this)
+			{
+			case vkCmdBindPipeline: return .State;
+			case vkCmdSetAttachmentFeedbackLoopEnableEXT: return .State;
+			case vkCmdSetViewport: return .State;
+			case vkCmdSetScissor: return .State;
+			case vkCmdSetLineWidth: return .State;
+			case vkCmdSetDepthBias: return .State;
+			case vkCmdSetBlendConstants: return .State;
+			case vkCmdSetDepthBounds: return .State;
+			case vkCmdSetStencilCompareMask: return .State;
+			case vkCmdSetStencilWriteMask: return .State;
+			case vkCmdSetStencilReference: return .State;
+			case vkCmdBindDescriptorSets: return .State;
+			case vkCmdBindIndexBuffer: return .State;
+			case vkCmdBindVertexBuffers: return .State;
+			case vkCmdDraw: return .Action;
+			case vkCmdDrawIndexed: return .Action;
+			case vkCmdDrawMultiEXT: return .Action;
+			case vkCmdDrawMultiIndexedEXT: return .Action;
+			case vkCmdDrawIndirect: return .Action;
+			case vkCmdDrawIndexedIndirect: return .Action;
+			case vkCmdDispatch: return .Action;
+			case vkCmdDispatchIndirect: return .Action;
+			case vkCmdSubpassShadingHUAWEI: return .Action;
+			case vkCmdDrawClusterHUAWEI: return .Action;
+			case vkCmdDrawClusterIndirectHUAWEI: return .Action;
+			case vkCmdUpdatePipelineIndirectBufferNV: return .Action;
+			case vkCmdCopyBuffer: return .Action;
+			case vkCmdCopyImage: return .Action;
+			case vkCmdBlitImage: return .Action;
+			case vkCmdCopyBufferToImage: return .Action;
+			case vkCmdCopyImageToBuffer: return .Action;
+			case vkCmdCopyMemoryIndirectNV: return .Action;
+			case vkCmdCopyMemoryToImageIndirectNV: return .Action;
+			case vkCmdUpdateBuffer: return .Action;
+			case vkCmdFillBuffer: return .Action;
+			case vkCmdClearColorImage: return .Action;
+			case vkCmdClearDepthStencilImage: return .Action;
+			case vkCmdClearAttachments: return .Action;
+			case vkCmdResolveImage: return .Action;
+			case vkCmdSetEvent: return .Synchronization;
+			case vkCmdResetEvent: return .Synchronization;
+			case vkCmdWaitEvents: return .Synchronization;
+			case vkCmdPipelineBarrier: return .Synchronization;
+			case vkCmdBeginQuery: return .Action | .State;
+			case vkCmdEndQuery: return .Action | .State;
+			case vkCmdBeginConditionalRenderingEXT: return .Action | .State;
+			case vkCmdEndConditionalRenderingEXT: return .Action | .State;
+			case vkCmdResetQueryPool: return .Action;
+			case vkCmdWriteTimestamp: return .Action;
+			case vkCmdCopyQueryPoolResults: return .Action;
+			case vkCmdPushConstants: return .State;
+			case vkCmdBeginRenderPass: return .Action | .State | .Synchronization;
+			case vkCmdNextSubpass: return .Action | .State | .Synchronization;
+			case vkCmdEndRenderPass: return .Action | .State | .Synchronization;
+			case vkCmdExecuteCommands: return .Indirection;
+			case vkCmdDebugMarkerBeginEXT: return .Action;
+			case vkCmdDebugMarkerEndEXT: return .Action;
+			case vkCmdDebugMarkerInsertEXT: return .Action;
+			case vkCmdExecuteGeneratedCommandsNV: return .Action | .Indirection;
+			case vkCmdPreprocessGeneratedCommandsNV: return .Action;
+			case vkCmdBindPipelineShaderGroupNV: return .State;
+			case vkCmdExecuteGeneratedCommandsEXT: return .Action | .Indirection;
+			case vkCmdPreprocessGeneratedCommandsEXT: return .Action;
+			case vkCmdPushDescriptorSet: return .State;
+			case vkCmdSetDeviceMask: return .State;
+			case vkCmdDispatchBase: return .Action;
+			case vkCmdPushDescriptorSetWithTemplate: return .State;
+			case vkCmdSetViewportWScalingNV: return .State;
+			case vkCmdSetDiscardRectangleEXT: return .State;
+			case vkCmdSetDiscardRectangleEnableEXT: return .State;
+			case vkCmdSetDiscardRectangleModeEXT: return .State;
+			case vkCmdSetSampleLocationsEXT: return .State;
+			case vkCmdBeginDebugUtilsLabelEXT: return .Action | .State;
+			case vkCmdEndDebugUtilsLabelEXT: return .Action | .State;
+			case vkCmdInsertDebugUtilsLabelEXT: return .Action;
+			case vkCmdWriteBufferMarkerAMD: return .Action;
+			case vkCmdBeginRenderPass2: return .Action | .State | .Synchronization;
+			case vkCmdNextSubpass2: return .Action | .State | .Synchronization;
+			case vkCmdEndRenderPass2: return .Action | .State | .Synchronization;
+			case vkCmdDrawIndirectCount: return .Action;
+			case vkCmdDrawIndexedIndirectCount: return .Action;
+			case vkCmdSetCheckpointNV: return .Action;
+			case vkCmdBindTransformFeedbackBuffersEXT: return .State;
+			case vkCmdBeginTransformFeedbackEXT: return .State;
+			case vkCmdEndTransformFeedbackEXT: return .State;
+			case vkCmdBeginQueryIndexedEXT: return .Action | .State;
+			case vkCmdEndQueryIndexedEXT: return .Action | .State;
+			case vkCmdDrawIndirectByteCountEXT: return .Action;
+			case vkCmdSetExclusiveScissorNV: return .State;
+			case vkCmdSetExclusiveScissorEnableNV: return .State;
+			case vkCmdBindShadingRateImageNV: return .State;
+			case vkCmdSetViewportShadingRatePaletteNV: return .State;
+			case vkCmdSetCoarseSampleOrderNV: return .State;
+			case vkCmdDrawMeshTasksNV: return .Action;
+			case vkCmdDrawMeshTasksIndirectNV: return .Action;
+			case vkCmdDrawMeshTasksIndirectCountNV: return .Action;
+			case vkCmdDrawMeshTasksEXT: return .Action;
+			case vkCmdDrawMeshTasksIndirectEXT: return .Action;
+			case vkCmdDrawMeshTasksIndirectCountEXT: return .Action;
+			case vkCmdBindInvocationMaskHUAWEI: return .State;
+			case vkCmdCopyAccelerationStructureNV: return .Action;
+			case vkCmdCopyAccelerationStructureKHR: return .Action;
+			case vkCmdCopyAccelerationStructureToMemoryKHR: return .Action;
+			case vkCmdCopyMemoryToAccelerationStructureKHR: return .Action;
+			case vkCmdWriteAccelerationStructuresPropertiesKHR: return .Action;
+			case vkCmdWriteAccelerationStructuresPropertiesNV: return .Action;
+			case vkCmdBuildAccelerationStructureNV: return .Action;
+			case vkCmdTraceRaysKHR: return .Action;
+			case vkCmdTraceRaysNV: return .Action;
+			case vkCmdTraceRaysIndirectKHR: return .Action;
+			case vkCmdTraceRaysIndirect2KHR: return .Action;
+			case vkCmdBuildClusterAccelerationStructureIndirectNV: return .Action;
+			case vkCmdSetRayTracingPipelineStackSizeKHR: return .State;
+			case vkCmdSetPerformanceMarkerINTEL: return .Action | .State;
+			case vkCmdSetPerformanceStreamMarkerINTEL: return .Action | .State;
+			case vkCmdSetPerformanceOverrideINTEL: return .State;
+			case vkCmdSetLineStipple: return .State;
+			case vkCmdBuildAccelerationStructuresKHR: return .Action;
+			case vkCmdBuildAccelerationStructuresIndirectKHR: return .Action;
+			case vkCmdSetCullMode: return .State;
+			case vkCmdSetFrontFace: return .State;
+			case vkCmdSetPrimitiveTopology: return .State;
+			case vkCmdSetViewportWithCount: return .State;
+			case vkCmdSetScissorWithCount: return .State;
+			case vkCmdBindIndexBuffer2: return .State;
+			case vkCmdBindVertexBuffers2: return .State;
+			case vkCmdSetDepthTestEnable: return .State;
+			case vkCmdSetDepthWriteEnable: return .State;
+			case vkCmdSetDepthCompareOp: return .State;
+			case vkCmdSetDepthBoundsTestEnable: return .State;
+			case vkCmdSetStencilTestEnable: return .State;
+			case vkCmdSetStencilOp: return .State;
+			case vkCmdSetPatchControlPointsEXT: return .State;
+			case vkCmdSetRasterizerDiscardEnable: return .State;
+			case vkCmdSetDepthBiasEnable: return .State;
+			case vkCmdSetLogicOpEXT: return .State;
+			case vkCmdSetPrimitiveRestartEnable: return .State;
+			case vkCmdSetTessellationDomainOriginEXT: return .State;
+			case vkCmdSetDepthClampEnableEXT: return .State;
+			case vkCmdSetPolygonModeEXT: return .State;
+			case vkCmdSetRasterizationSamplesEXT: return .State;
+			case vkCmdSetSampleMaskEXT: return .State;
+			case vkCmdSetAlphaToCoverageEnableEXT: return .State;
+			case vkCmdSetAlphaToOneEnableEXT: return .State;
+			case vkCmdSetLogicOpEnableEXT: return .State;
+			case vkCmdSetColorBlendEnableEXT: return .State;
+			case vkCmdSetColorBlendEquationEXT: return .State;
+			case vkCmdSetColorWriteMaskEXT: return .State;
+			case vkCmdSetRasterizationStreamEXT: return .State;
+			case vkCmdSetConservativeRasterizationModeEXT: return .State;
+			case vkCmdSetExtraPrimitiveOverestimationSizeEXT: return .State;
+			case vkCmdSetDepthClipEnableEXT: return .State;
+			case vkCmdSetSampleLocationsEnableEXT: return .State;
+			case vkCmdSetColorBlendAdvancedEXT: return .State;
+			case vkCmdSetProvokingVertexModeEXT: return .State;
+			case vkCmdSetLineRasterizationModeEXT: return .State;
+			case vkCmdSetLineStippleEnableEXT: return .State;
+			case vkCmdSetDepthClipNegativeOneToOneEXT: return .State;
+			case vkCmdSetViewportWScalingEnableNV: return .State;
+			case vkCmdSetViewportSwizzleNV: return .State;
+			case vkCmdSetCoverageToColorEnableNV: return .State;
+			case vkCmdSetCoverageToColorLocationNV: return .State;
+			case vkCmdSetCoverageModulationModeNV: return .State;
+			case vkCmdSetCoverageModulationTableEnableNV: return .State;
+			case vkCmdSetCoverageModulationTableNV: return .State;
+			case vkCmdSetShadingRateImageEnableNV: return .State;
+			case vkCmdSetCoverageReductionModeNV: return .State;
+			case vkCmdSetRepresentativeFragmentTestEnableNV: return .State;
+			case vkCmdCopyBuffer2: return .Action;
+			case vkCmdCopyImage2: return .Action;
+			case vkCmdBlitImage2: return .Action;
+			case vkCmdCopyBufferToImage2: return .Action;
+			case vkCmdCopyImageToBuffer2: return .Action;
+			case vkCmdResolveImage2: return .Action;
+			case vkCmdSetFragmentShadingRateKHR: return .State;
+			case vkCmdSetFragmentShadingRateEnumNV: return .State;
+			case vkCmdSetVertexInputEXT: return .State;
+			case vkCmdSetColorWriteEnableEXT: return .State;
+			case vkCmdSetEvent2: return .Synchronization;
+			case vkCmdResetEvent2: return .Synchronization;
+			case vkCmdWaitEvents2: return .Synchronization;
+			case vkCmdPipelineBarrier2: return .Synchronization;
+			case vkCmdWriteTimestamp2: return .Action;
+			case vkCmdWriteBufferMarker2AMD: return .Action;
+			case vkCmdDecodeVideoKHR: return .Action;
+			case vkCmdBeginVideoCodingKHR: return .Action | .State;
+			case vkCmdControlVideoCodingKHR: return .Action;
+			case vkCmdEndVideoCodingKHR: return .Action | .State;
+			case vkCmdEncodeVideoKHR: return .Action;
+			case vkCmdDecompressMemoryNV: return .Action;
+			case vkCmdDecompressMemoryIndirectCountNV: return .Action;
+			case vkCmdBuildPartitionedAccelerationStructuresNV: return .Action;
+			case vkCmdCuLaunchKernelNVX: return .Action;
+			case vkCmdBindDescriptorBuffersEXT: return .State;
+			case vkCmdSetDescriptorBufferOffsetsEXT: return .State;
+			case vkCmdBindDescriptorBufferEmbeddedSamplersEXT: return .State;
+			case vkCmdBeginRendering: return .Action | .State;
+			case vkCmdEndRendering: return .Action | .State;
+			case vkCmdEndRendering2EXT: return .Action | .State;
+			case vkCmdBuildMicromapsEXT: return .Action;
+			case vkCmdCopyMicromapEXT: return .Action;
+			case vkCmdCopyMicromapToMemoryEXT: return .Action;
+			case vkCmdCopyMemoryToMicromapEXT: return .Action;
+			case vkCmdWriteMicromapsPropertiesEXT: return .Action;
+			case vkCmdBindTileMemoryQCOM: return .State;
+			case vkCmdOpticalFlowExecuteNV: return .Action;
+			case vkCmdSetDepthBias2EXT: return .State;
+			case vkCmdBindShadersEXT: return .State;
+			case vkCmdBindDescriptorSets2: return .State;
+			case vkCmdPushConstants2: return .State;
+			case vkCmdPushDescriptorSet2: return .State;
+			case vkCmdPushDescriptorSetWithTemplate2: return .State;
+			case vkCmdSetDescriptorBufferOffsets2EXT: return .State;
+			case vkCmdBindDescriptorBufferEmbeddedSamplers2EXT: return .State;
+			case vkCmdSetRenderingAttachmentLocations: return .State;
+			case vkCmdSetRenderingInputAttachmentIndices: return .State;
+			case vkCmdSetDepthClampRangeEXT: return .State;
+			case vkCmdConvertCooperativeVectorMatrixNV: return .Action;
+			case vkCmdDispatchTileQCOM: return .Action;
+			case vkCmdBeginPerTileExecutionQCOM: return .State;
+			case vkCmdEndPerTileExecutionQCOM: return .State;
+			case vkCmdCopyTensorARM: return .Action;
+			case vkCmdDispatchDataGraphARM: return .Action;
+			default: return 0;
+			}
+		}
+	}
+}
+
+enum VulkanFeature
+{
+	case robustBufferAccess;
+	case storageBuffer16BitAccess;
+	case multiview;
+	case shaderDrawParameters;
+	case subgroupBroadcastDynamicId;
+	case samplerMirrorClampToEdge;
+	case drawIndirectCount;
+	case storageBuffer8BitAccess;
+	case shaderInt64;
+	case descriptorIndexing;
+	case shaderSampledImageArrayDynamicIndexing;
+	case shaderStorageBufferArrayDynamicIndexing;
+	case shaderUniformTexelBufferArrayDynamicIndexing;
+	case shaderStorageTexelBufferArrayDynamicIndexing;
+	case shaderSampledImageArrayNonUniformIndexing;
+	case shaderStorageBufferArrayNonUniformIndexing;
+	case shaderUniformTexelBufferArrayNonUniformIndexing;
+	case descriptorBindingSampledImageUpdateAfterBind;
+	case descriptorBindingStorageImageUpdateAfterBind;
+	case descriptorBindingStorageBufferUpdateAfterBind;
+	case descriptorBindingUniformTexelBufferUpdateAfterBind;
+	case descriptorBindingStorageTexelBufferUpdateAfterBind;
+	case descriptorBindingUpdateUnusedWhilePending;
+	case descriptorBindingPartiallyBound;
+	case runtimeDescriptorArray;
+	case shaderOutputViewportIndex;
+	case shaderOutputLayer;
+	case samplerFilterMinmax;
+	case imagelessFramebuffer;
+	case uniformBufferStandardLayout;
+	case shaderSubgroupExtendedTypes;
+	case separateDepthStencilLayouts;
+	case hostQueryReset;
+	case timelineSemaphore;
+	case shaderTerminateInvocation;
+	case shaderDemoteToHelperInvocation;
+	case privateData;
+	case pipelineCreationCacheControl;
+	case synchronization2;
+	case shaderZeroInitializeWorkgroupMemory;
+	case robustImageAccess;
+	case subgroupSizeControl;
+	case computeFullSubgroups;
+	case dynamicRendering;
+	case shaderIntegerDotProduct;
+	case maintenance4;
+	case vulkanMemoryModel;
+	case vulkanMemoryModelDeviceScope;
+	case inlineUniformBlock;
+	case bufferDeviceAddress;
+	case descriptorBindingInlineUniformBlockUpdateAfterBind;
+	case fullDrawIndexUint32;
+	case imageCubeArray;
+	case independentBlend;
+	case sampleRateShading;
+	case drawIndirectFirstInstance;
+	case depthClamp;
+	case depthBiasClamp;
+	case samplerAnisotropy;
+	case fragmentStoresAndAtomics;
+	case shaderStorageImageExtendedFormats;
+	case shaderUniformBufferArrayDynamicIndexing;
+	case shaderStorageImageArrayDynamicIndexing;
+	case shaderImageGatherExtended;
+	case shaderInt16;
+	case largePoints;
+	case samplerYcbcrConversion;
+	case variablePointers;
+	case variablePointersStorageBuffer;
+	case scalarBlockLayout;
+	case shaderInt8;
+	case globalPriorityQuery;
+	case shaderSubgroupRotate;
+	case shaderSubgroupRotateClustered;
+	case shaderFloatControls2;
+	case shaderExpectAssume;
+	case bresenhamLines;
+	case vertexAttributeInstanceRateDivisor;
+	case indexTypeUint8;
+	case maintenance5;
+	case pushDescriptor;
+	case dynamicRenderingLocalRead;
+	case maintenance6;
+	case pipelineProtectedAccess;
+	case pipelineRobustness;
+	case transformFeedback;
+	case cornerSampledImage;
+	case textureCompressionASTC_HDR;
+	case conditionalRendering;
+	case shaderFloat16;
+	case depthClipEnable;
+	case relaxedLineRasterization;
+	case performanceCounterQueryPools;
+	case shaderBFloat16Type;
+	case shaderBFloat16CooperativeMatrix;
+	case shaderBFloat16DotProduct;
+	case accelerationStructure;
+	case descriptorBindingAccelerationStructureUpdateAfterBind;
+	case rayTracingPipeline;
+	case rayTracingPipelineTraceRaysIndirect;
+	case rayTraversalPrimitiveCulling;
+	case rayQuery;
+	case shaderSMBuiltins;
+	case shadingRateImage;
+	case representativeFragmentTest;
+	case shaderBufferInt64Atomics;
+	case shaderSubgroupClock;
+	case computeDerivativeGroupQuads;
+	case computeDerivativeGroupLinear;
+	case meshShader;
+	case imageFootprint;
+	case exclusiveScissor;
+	case shaderIntegerFunctions2;
+	case fragmentDensityMap;
+	case pipelineFragmentShadingRate;
+	case deviceCoherentMemory;
+	case shaderImageInt64Atomics;
+	case shaderQuadControl;
+	case memoryPriority;
+	case dedicatedAllocationImageAliasing;
+	case presentWait;
+	case cooperativeMatrix;
+	case coverageReductionMode;
+	case fragmentShaderSampleInterlock;
+	case fragmentShaderPixelInterlock;
+	case fragmentShaderShadingRateInterlock;
+	case ycbcrImageArrays;
+	case provokingVertexLast;
+	case rectangularLines;
+	case smoothLines;
+	case stippledRectangularLines;
+	case stippledBresenhamLines;
+	case stippledSmoothLines;
+	case shaderBufferFloat32Atomics;
+	case shaderBufferFloat32AtomicAdd;
+	case shaderBufferFloat64Atomics;
+	case shaderBufferFloat64AtomicAdd;
+	case shaderSharedFloat32Atomics;
+	case shaderSharedFloat32AtomicAdd;
+	case shaderSharedFloat64Atomics;
+	case shaderSharedFloat64AtomicAdd;
+	case shaderImageFloat32Atomics;
+	case shaderImageFloat32AtomicAdd;
+	case extendedDynamicState;
+	case pipelineExecutableInfo;
+	case hostImageCopy;
+	case memoryMapPlaced;
+	case shaderBufferFloat16Atomics;
+	case shaderBufferFloat16AtomicAdd;
+	case shaderBufferFloat16AtomicMinMax;
+	case shaderBufferFloat32AtomicMinMax;
+	case shaderBufferFloat64AtomicMinMax;
+	case shaderSharedFloat16Atomics;
+	case shaderSharedFloat16AtomicAdd;
+	case shaderSharedFloat16AtomicMinMax;
+	case shaderSharedFloat32AtomicMinMax;
+	case shaderSharedFloat64AtomicMinMax;
+	case shaderImageFloat32AtomicMinMax;
+	case swapchainMaintenance1;
+	case deviceGeneratedCommands;
+	case inheritedViewportScissor2D;
+	case texelBufferAlignment;
+	case depthBiasControl;
+	case deviceMemoryReport;
+	case robustBufferAccess2;
+	case robustImageAccess2;
+	case nullDescriptor;
+	case customBorderColors;
+	case presentBarrier;
+	case presentId;
+	case diagnosticsConfig;
+	case tileShading;
+	case tileShadingFragmentStage;
+	case tileShadingPerTileDispatch;
+	case tileShadingAtomicOps;
+	case tileShadingColorAttachments;
+	case tileShadingPerTileDraw;
+	case tileShadingApron;
+	case tileShadingDepthAttachments;
+	case tileShadingStencilAttachments;
+	case tileShadingInputAttachments;
+	case tileShadingSampledAttachments;
+	case descriptorBuffer;
+	case graphicsPipelineLibrary;
+	case shaderEarlyAndLateFragmentTests;
+	case fragmentShaderBarycentric;
+	case shaderSubgroupUniformControlFlow;
+	case fragmentShadingRateEnums;
+	case rayTracingMotionBlur;
+	case taskShader;
+	case primitiveFragmentShadingRate;
+	case ycbcr2plane444Formats;
+	case fragmentDensityMapDeferred;
+	case workgroupMemoryExplicitLayout;
+	case imageCompressionControl;
+	case attachmentFeedbackLoopLayout;
+	case formatA4R4G4B4;
+	case deviceFault;
+	case formatRgba10x6WithoutYCbCrSampler;
+	case mutableDescriptorType;
+	case vertexInputDynamicState;
+	case reportAddressBinding;
+	case depthClipControl;
+	case primitiveTopologyListRestart;
+	case presentModeFifoLatestReady;
+	case subpassShading;
+	case invocationMask;
+	case externalMemoryRDMA;
+	case pipelinePropertiesIdentifier;
+	case frameBoundary;
+	case multisampledRenderToSingleSampled;
+	case extendedDynamicState2;
+	case colorWriteEnable;
+	case primitivesGeneratedQuery;
+	case rayTracingMaintenance1;
+	case minLod;
+	case multiDraw;
+	case image2DViewOf3D;
+	case shaderTileImageColorReadAccess;
+	case micromap;
+	case clustercullingShader;
+	case borderColorSwizzle;
+	case pageableDeviceLocalMemory;
+	case schedulingControls;
+	case imageSlicedViewOf3D;
+	case descriptorSetHostMapping;
+	case depthClampZeroOne;
+	case nonSeamlessCubeMap;
+	case renderPassStriped;
+	case fragmentDensityMapOffset;
+	case indirectCopy;
+	case memoryDecompression;
+	case deviceGeneratedCompute;
+	case spheres;
+	case linearSweptSpheres;
+	case linearColorAttachment;
+	case shaderMaximalReconvergence;
+	case imageCompressionControlSwapchain;
+	case textureSampleWeighted;
+	case textureBlockMatch;
+	case textureBoxFilter;
+	case nestedCommandBuffer;
+	case tessellationShader;
+	case fillModeNonSolid;
+	case alphaToOne;
+	case logicOp;
+	case geometryStreams;
+	case subpassMergeFeedback;
+	case tensors;
+	case shaderModuleIdentifier;
+	case opticalFlow;
+	case legacyDithering;
+	case antiLag;
+	case presentId2;
+	case presentWait2;
+	case rayTracingPositionFetch;
+	case shaderObject;
+	case pipelineBinaries;
+	case tileProperties;
+	case amigoProfiling;
+	case multiviewPerViewViewports;
+	case rayTracingInvocationReorder;
+	case cooperativeVector;
+	case extendedSparseAddressSpace;
+	case legacyVertexAttributes;
+	case shaderCoreBuiltins;
+	case pipelineLibraryGroupHandles;
+	case dynamicRenderingUnusedAttachments;
+	case dataGraph;
+	case multiviewPerViewRenderAreas;
+	case videoEncodeAV1;
+	case videoDecodeVP9;
+	case videoMaintenance1;
+	case perStageDescriptorSet;
+	case textureBlockMatch2;
+	case selectableCubicWeights;
+	case ycbcrDegamma;
+	case cubicRangeClamp;
+	case attachmentFeedbackLoopDynamicState;
+	case unifiedImageLayouts;
+	case descriptorPoolOverallocation;
+	case tileMemoryHeap;
+	case videoEncodeIntraRefresh;
+	case videoEncodeQuantizationMap;
+	case shaderRawAccessChains;
+	case shaderRelaxedExtendedInstruction;
+	case commandBufferInheritance;
+	case maintenance7;
+	case shaderFloat16VectorAtomics;
+	case shaderReplicatedComposites;
+	case shaderFloat8;
+	case rayTracingValidation;
+	case clusterAccelerationStructure;
+	case partitionedAccelerationStructure;
+	case maintenance8;
+	case imageAlignmentControl;
+	case depthClampControl;
+	case maintenance9;
+	case videoMaintenance2;
+	case hdrVivid;
+	case cooperativeMatrixWorkgroupScope;
+	case cooperativeMatrixFlexibleDimensions;
+	case cooperativeMatrixReductions;
+	case cooperativeMatrixConversions;
+	case cooperativeMatrixPerElementOperations;
+	case cooperativeMatrixTensorAddressing;
+	case cooperativeMatrixBlockLoads;
+	case pipelineOpacityMicromap;
+	case vertexAttributeRobustness;
+	case formatPack;
+	case fragmentDensityMapLayered;
+	case zeroInitializeDeviceMemory;
+	case pipelineCacheIncrementalMode;
+
+	public VulkanApi Api
+	{
+		get
+		{
+			switch (this)
+			{
+			case robustBufferAccess: return VulkanApi.ApiVersion(.VK_VERSION_1_0);
+			case storageBuffer16BitAccess: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case multiview: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case shaderDrawParameters: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case subgroupBroadcastDynamicId: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case samplerMirrorClampToEdge: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case drawIndirectCount: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case storageBuffer8BitAccess: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderInt64: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case descriptorIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderSampledImageArrayDynamicIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderStorageBufferArrayDynamicIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderUniformTexelBufferArrayDynamicIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderStorageTexelBufferArrayDynamicIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderSampledImageArrayNonUniformIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderStorageBufferArrayNonUniformIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderUniformTexelBufferArrayNonUniformIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case descriptorBindingSampledImageUpdateAfterBind: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case descriptorBindingStorageImageUpdateAfterBind: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case descriptorBindingStorageBufferUpdateAfterBind: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case descriptorBindingUniformTexelBufferUpdateAfterBind: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case descriptorBindingStorageTexelBufferUpdateAfterBind: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case descriptorBindingUpdateUnusedWhilePending: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case descriptorBindingPartiallyBound: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case runtimeDescriptorArray: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderOutputViewportIndex: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderOutputLayer: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case samplerFilterMinmax: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case imagelessFramebuffer: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case uniformBufferStandardLayout: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderSubgroupExtendedTypes: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case separateDepthStencilLayouts: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case hostQueryReset: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case timelineSemaphore: return VulkanApi.ApiVersion(.VK_VERSION_1_2);
+			case shaderTerminateInvocation: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case shaderDemoteToHelperInvocation: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case privateData: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case pipelineCreationCacheControl: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case synchronization2: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case shaderZeroInitializeWorkgroupMemory: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case robustImageAccess: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case subgroupSizeControl: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case computeFullSubgroups: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case dynamicRendering: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case shaderIntegerDotProduct: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case maintenance4: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case vulkanMemoryModel: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case vulkanMemoryModelDeviceScope: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case inlineUniformBlock: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case bufferDeviceAddress: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case descriptorBindingInlineUniformBlockUpdateAfterBind: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
+			case fullDrawIndexUint32: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case imageCubeArray: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case independentBlend: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case sampleRateShading: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case drawIndirectFirstInstance: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case depthClamp: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case depthBiasClamp: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case samplerAnisotropy: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case fragmentStoresAndAtomics: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderStorageImageExtendedFormats: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderUniformBufferArrayDynamicIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderStorageImageArrayDynamicIndexing: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderImageGatherExtended: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderInt16: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case largePoints: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case samplerYcbcrConversion: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case variablePointers: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case variablePointersStorageBuffer: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case scalarBlockLayout: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderInt8: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case globalPriorityQuery: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderSubgroupRotate: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderSubgroupRotateClustered: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderFloatControls2: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case shaderExpectAssume: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case bresenhamLines: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case vertexAttributeInstanceRateDivisor: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case indexTypeUint8: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case maintenance5: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case pushDescriptor: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case dynamicRenderingLocalRead: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case maintenance6: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case pipelineProtectedAccess: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case pipelineRobustness: return VulkanApi.ApiVersion(.VK_VERSION_1_4);
+			case transformFeedback: return VulkanApi.Extension(.VK_EXT_transform_feedback);
+			case cornerSampledImage: return VulkanApi.Extension(.VK_NV_corner_sampled_image);
+			case textureCompressionASTC_HDR: return VulkanApi.Extension(.VK_EXT_texture_compression_astc_hdr);
+			case conditionalRendering: return VulkanApi.Extension(.VK_EXT_conditional_rendering);
+			case shaderFloat16: return VulkanApi.Extension(.VK_KHR_shader_float16_int8);
+			case depthClipEnable: return VulkanApi.Extension(.VK_EXT_depth_clip_enable);
+			case relaxedLineRasterization: return VulkanApi.Extension(.VK_IMG_relaxed_line_rasterization);
+			case performanceCounterQueryPools: return VulkanApi.Extension(.VK_KHR_performance_query);
+			case shaderBFloat16Type: return VulkanApi.Extension(.VK_KHR_shader_bfloat16);
+			case shaderBFloat16CooperativeMatrix: return VulkanApi.Extension(.VK_KHR_shader_bfloat16);
+			case shaderBFloat16DotProduct: return VulkanApi.Extension(.VK_KHR_shader_bfloat16);
+			case accelerationStructure: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
+			case descriptorBindingAccelerationStructureUpdateAfterBind: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
+			case rayTracingPipeline: return VulkanApi.Extension(.VK_KHR_ray_tracing_pipeline);
+			case rayTracingPipelineTraceRaysIndirect: return VulkanApi.Extension(.VK_KHR_ray_tracing_pipeline);
+			case rayTraversalPrimitiveCulling: return VulkanApi.Extension(.VK_KHR_ray_tracing_pipeline);
+			case rayQuery: return VulkanApi.Extension(.VK_KHR_ray_query);
+			case shaderSMBuiltins: return VulkanApi.Extension(.VK_NV_shader_sm_builtins);
+			case shadingRateImage: return VulkanApi.Extension(.VK_NV_shading_rate_image);
+			case representativeFragmentTest: return VulkanApi.Extension(.VK_NV_representative_fragment_test);
+			case shaderBufferInt64Atomics: return VulkanApi.Extension(.VK_KHR_shader_atomic_int64);
+			case shaderSubgroupClock: return VulkanApi.Extension(.VK_KHR_shader_clock);
+			case computeDerivativeGroupQuads: return VulkanApi.Extension(.VK_NV_compute_shader_derivatives);
+			case computeDerivativeGroupLinear: return VulkanApi.Extension(.VK_NV_compute_shader_derivatives);
+			case meshShader: return VulkanApi.Extension(.VK_NV_mesh_shader);
+			case imageFootprint: return VulkanApi.Extension(.VK_NV_shader_image_footprint);
+			case exclusiveScissor: return VulkanApi.Extension(.VK_NV_scissor_exclusive);
+			case shaderIntegerFunctions2: return VulkanApi.Extension(.VK_INTEL_shader_integer_functions2);
+			case fragmentDensityMap: return VulkanApi.Extension(.VK_EXT_fragment_density_map);
+			case pipelineFragmentShadingRate: return VulkanApi.Extension(.VK_KHR_fragment_shading_rate);
+			case deviceCoherentMemory: return VulkanApi.Extension(.VK_AMD_device_coherent_memory);
+			case shaderImageInt64Atomics: return VulkanApi.Extension(.VK_EXT_shader_image_atomic_int64);
+			case shaderQuadControl: return VulkanApi.Extension(.VK_KHR_shader_quad_control);
+			case memoryPriority: return VulkanApi.Extension(.VK_EXT_memory_priority);
+			case dedicatedAllocationImageAliasing: return VulkanApi.Extension(.VK_NV_dedicated_allocation_image_aliasing);
+			case presentWait: return VulkanApi.Extension(.VK_KHR_present_wait);
+			case cooperativeMatrix: return VulkanApi.Extension(.VK_NV_cooperative_matrix);
+			case coverageReductionMode: return VulkanApi.Extension(.VK_NV_coverage_reduction_mode);
+			case fragmentShaderSampleInterlock: return VulkanApi.Extension(.VK_EXT_fragment_shader_interlock);
+			case fragmentShaderPixelInterlock: return VulkanApi.Extension(.VK_EXT_fragment_shader_interlock);
+			case fragmentShaderShadingRateInterlock: return VulkanApi.Extension(.VK_EXT_fragment_shader_interlock);
+			case ycbcrImageArrays: return VulkanApi.Extension(.VK_EXT_ycbcr_image_arrays);
+			case provokingVertexLast: return VulkanApi.Extension(.VK_EXT_provoking_vertex);
+			case rectangularLines: return VulkanApi.Extension(.VK_EXT_line_rasterization);
+			case smoothLines: return VulkanApi.Extension(.VK_EXT_line_rasterization);
+			case stippledRectangularLines: return VulkanApi.Extension(.VK_EXT_line_rasterization);
+			case stippledBresenhamLines: return VulkanApi.Extension(.VK_EXT_line_rasterization);
+			case stippledSmoothLines: return VulkanApi.Extension(.VK_EXT_line_rasterization);
+			case shaderBufferFloat32Atomics: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case shaderBufferFloat32AtomicAdd: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case shaderBufferFloat64Atomics: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case shaderBufferFloat64AtomicAdd: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case shaderSharedFloat32Atomics: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case shaderSharedFloat32AtomicAdd: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case shaderSharedFloat64Atomics: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case shaderSharedFloat64AtomicAdd: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case shaderImageFloat32Atomics: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case shaderImageFloat32AtomicAdd: return VulkanApi.Extension(.VK_EXT_shader_atomic_float);
+			case extendedDynamicState: return VulkanApi.Extension(.VK_EXT_extended_dynamic_state);
+			case pipelineExecutableInfo: return VulkanApi.Extension(.VK_KHR_pipeline_executable_properties);
+			case hostImageCopy: return VulkanApi.Extension(.VK_EXT_host_image_copy);
+			case memoryMapPlaced: return VulkanApi.Extension(.VK_EXT_map_memory_placed);
+			case shaderBufferFloat16Atomics: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderBufferFloat16AtomicAdd: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderBufferFloat16AtomicMinMax: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderBufferFloat32AtomicMinMax: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderBufferFloat64AtomicMinMax: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderSharedFloat16Atomics: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderSharedFloat16AtomicAdd: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderSharedFloat16AtomicMinMax: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderSharedFloat32AtomicMinMax: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderSharedFloat64AtomicMinMax: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case shaderImageFloat32AtomicMinMax: return VulkanApi.Extension(.VK_EXT_shader_atomic_float2);
+			case swapchainMaintenance1: return VulkanApi.Extension(.VK_EXT_swapchain_maintenance1);
+			case deviceGeneratedCommands: return VulkanApi.Extension(.VK_NV_device_generated_commands);
+			case inheritedViewportScissor2D: return VulkanApi.Extension(.VK_NV_inherited_viewport_scissor);
+			case texelBufferAlignment: return VulkanApi.Extension(.VK_EXT_texel_buffer_alignment);
+			case depthBiasControl: return VulkanApi.Extension(.VK_EXT_depth_bias_control);
+			case deviceMemoryReport: return VulkanApi.Extension(.VK_EXT_device_memory_report);
+			case robustBufferAccess2: return VulkanApi.Extension(.VK_EXT_robustness2);
+			case robustImageAccess2: return VulkanApi.Extension(.VK_EXT_robustness2);
+			case nullDescriptor: return VulkanApi.Extension(.VK_EXT_robustness2);
+			case customBorderColors: return VulkanApi.Extension(.VK_EXT_custom_border_color);
+			case presentBarrier: return VulkanApi.Extension(.VK_NV_present_barrier);
+			case presentId: return VulkanApi.Extension(.VK_KHR_present_id);
+			case diagnosticsConfig: return VulkanApi.Extension(.VK_NV_device_diagnostics_config);
+			case tileShading: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingFragmentStage: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingPerTileDispatch: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingAtomicOps: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingColorAttachments: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingPerTileDraw: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingApron: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingDepthAttachments: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingStencilAttachments: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingInputAttachments: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case tileShadingSampledAttachments: return VulkanApi.Extension(.VK_QCOM_tile_shading);
+			case descriptorBuffer: return VulkanApi.Extension(.VK_EXT_descriptor_buffer);
+			case graphicsPipelineLibrary: return VulkanApi.Extension(.VK_EXT_graphics_pipeline_library);
+			case shaderEarlyAndLateFragmentTests: return VulkanApi.Extension(.VK_AMD_shader_early_and_late_fragment_tests);
+			case fragmentShaderBarycentric: return VulkanApi.Extension(.VK_KHR_fragment_shader_barycentric);
+			case shaderSubgroupUniformControlFlow: return VulkanApi.Extension(.VK_KHR_shader_subgroup_uniform_control_flow);
+			case fragmentShadingRateEnums: return VulkanApi.Extension(.VK_NV_fragment_shading_rate_enums);
+			case rayTracingMotionBlur: return VulkanApi.Extension(.VK_NV_ray_tracing_motion_blur);
+			case taskShader: return VulkanApi.Extension(.VK_EXT_mesh_shader);
+			case primitiveFragmentShadingRate: return VulkanApi.Extension(.VK_EXT_mesh_shader);
+			case ycbcr2plane444Formats: return VulkanApi.Extension(.VK_EXT_ycbcr_2plane_444_formats);
+			case fragmentDensityMapDeferred: return VulkanApi.Extension(.VK_EXT_fragment_density_map2);
+			case workgroupMemoryExplicitLayout: return VulkanApi.Extension(.VK_KHR_workgroup_memory_explicit_layout);
+			case imageCompressionControl: return VulkanApi.Extension(.VK_EXT_image_compression_control);
+			case attachmentFeedbackLoopLayout: return VulkanApi.Extension(.VK_EXT_attachment_feedback_loop_layout);
+			case formatA4R4G4B4: return VulkanApi.Extension(.VK_EXT_4444_formats);
+			case deviceFault: return VulkanApi.Extension(.VK_EXT_device_fault);
+			case formatRgba10x6WithoutYCbCrSampler: return VulkanApi.Extension(.VK_EXT_rgba10x6_formats);
+			case mutableDescriptorType: return VulkanApi.Extension(.VK_VALVE_mutable_descriptor_type);
+			case vertexInputDynamicState: return VulkanApi.Extension(.VK_EXT_vertex_input_dynamic_state);
+			case reportAddressBinding: return VulkanApi.Extension(.VK_EXT_device_address_binding_report);
+			case depthClipControl: return VulkanApi.Extension(.VK_EXT_depth_clip_control);
+			case primitiveTopologyListRestart: return VulkanApi.Extension(.VK_EXT_primitive_topology_list_restart);
+			case presentModeFifoLatestReady: return VulkanApi.Extension(.VK_EXT_present_mode_fifo_latest_ready);
+			case subpassShading: return VulkanApi.Extension(.VK_HUAWEI_subpass_shading);
+			case invocationMask: return VulkanApi.Extension(.VK_HUAWEI_invocation_mask);
+			case externalMemoryRDMA: return VulkanApi.Extension(.VK_NV_external_memory_rdma);
+			case pipelinePropertiesIdentifier: return VulkanApi.Extension(.VK_EXT_pipeline_properties);
+			case frameBoundary: return VulkanApi.Extension(.VK_EXT_frame_boundary);
+			case multisampledRenderToSingleSampled: return VulkanApi.Extension(.VK_EXT_multisampled_render_to_single_sampled);
+			case extendedDynamicState2: return VulkanApi.Extension(.VK_EXT_extended_dynamic_state2);
+			case colorWriteEnable: return VulkanApi.Extension(.VK_EXT_color_write_enable);
+			case primitivesGeneratedQuery: return VulkanApi.Extension(.VK_EXT_primitives_generated_query);
+			case rayTracingMaintenance1: return VulkanApi.Extension(.VK_KHR_ray_tracing_maintenance1);
+			case minLod: return VulkanApi.Extension(.VK_EXT_image_view_min_lod);
+			case multiDraw: return VulkanApi.Extension(.VK_EXT_multi_draw);
+			case image2DViewOf3D: return VulkanApi.Extension(.VK_EXT_image_2d_view_of_3d);
+			case shaderTileImageColorReadAccess: return VulkanApi.Extension(.VK_EXT_shader_tile_image);
+			case micromap: return VulkanApi.Extension(.VK_EXT_opacity_micromap);
+			case clustercullingShader: return VulkanApi.Extension(.VK_HUAWEI_cluster_culling_shader);
+			case borderColorSwizzle: return VulkanApi.Extension(.VK_EXT_border_color_swizzle);
+			case pageableDeviceLocalMemory: return VulkanApi.Extension(.VK_EXT_pageable_device_local_memory);
+			case schedulingControls: return VulkanApi.Extension(.VK_ARM_scheduling_controls);
+			case imageSlicedViewOf3D: return VulkanApi.Extension(.VK_EXT_image_sliced_view_of_3d);
+			case descriptorSetHostMapping: return VulkanApi.Extension(.VK_VALVE_descriptor_set_host_mapping);
+			case depthClampZeroOne: return VulkanApi.Extension(.VK_EXT_depth_clamp_zero_one);
+			case nonSeamlessCubeMap: return VulkanApi.Extension(.VK_EXT_non_seamless_cube_map);
+			case renderPassStriped: return VulkanApi.Extension(.VK_ARM_render_pass_striped);
+			case fragmentDensityMapOffset: return VulkanApi.Extension(.VK_QCOM_fragment_density_map_offset);
+			case indirectCopy: return VulkanApi.Extension(.VK_NV_copy_memory_indirect);
+			case memoryDecompression: return VulkanApi.Extension(.VK_NV_memory_decompression);
+			case deviceGeneratedCompute: return VulkanApi.Extension(.VK_NV_device_generated_commands_compute);
+			case spheres: return VulkanApi.Extension(.VK_NV_ray_tracing_linear_swept_spheres);
+			case linearSweptSpheres: return VulkanApi.Extension(.VK_NV_ray_tracing_linear_swept_spheres);
+			case linearColorAttachment: return VulkanApi.Extension(.VK_NV_linear_color_attachment);
+			case shaderMaximalReconvergence: return VulkanApi.Extension(.VK_KHR_shader_maximal_reconvergence);
+			case imageCompressionControlSwapchain: return VulkanApi.Extension(.VK_EXT_image_compression_control_swapchain);
+			case textureSampleWeighted: return VulkanApi.Extension(.VK_QCOM_image_processing);
+			case textureBlockMatch: return VulkanApi.Extension(.VK_QCOM_image_processing);
+			case textureBoxFilter: return VulkanApi.Extension(.VK_QCOM_image_processing);
+			case nestedCommandBuffer: return VulkanApi.Extension(.VK_EXT_nested_command_buffer);
+			case tessellationShader: return VulkanApi.Extension(.VK_EXT_extended_dynamic_state3);
+			case fillModeNonSolid: return VulkanApi.Extension(.VK_EXT_extended_dynamic_state3);
+			case alphaToOne: return VulkanApi.Extension(.VK_EXT_extended_dynamic_state3);
+			case logicOp: return VulkanApi.Extension(.VK_EXT_extended_dynamic_state3);
+			case geometryStreams: return VulkanApi.Extension(.VK_EXT_extended_dynamic_state3);
+			case subpassMergeFeedback: return VulkanApi.Extension(.VK_EXT_subpass_merge_feedback);
+			case tensors: return VulkanApi.Extension(.VK_ARM_tensors);
+			case shaderModuleIdentifier: return VulkanApi.Extension(.VK_EXT_shader_module_identifier);
+			case opticalFlow: return VulkanApi.Extension(.VK_NV_optical_flow);
+			case legacyDithering: return VulkanApi.Extension(.VK_EXT_legacy_dithering);
+			case antiLag: return VulkanApi.Extension(.VK_AMD_anti_lag);
+			case presentId2: return VulkanApi.Extension(.VK_KHR_present_id2);
+			case presentWait2: return VulkanApi.Extension(.VK_KHR_present_wait2);
+			case rayTracingPositionFetch: return VulkanApi.Extension(.VK_KHR_ray_tracing_position_fetch);
+			case shaderObject: return VulkanApi.Extension(.VK_EXT_shader_object);
+			case pipelineBinaries: return VulkanApi.Extension(.VK_KHR_pipeline_binary);
+			case tileProperties: return VulkanApi.Extension(.VK_QCOM_tile_properties);
+			case amigoProfiling: return VulkanApi.Extension(.VK_SEC_amigo_profiling);
+			case multiviewPerViewViewports: return VulkanApi.Extension(.VK_QCOM_multiview_per_view_viewports);
+			case rayTracingInvocationReorder: return VulkanApi.Extension(.VK_NV_ray_tracing_invocation_reorder);
+			case cooperativeVector: return VulkanApi.Extension(.VK_NV_cooperative_vector);
+			case extendedSparseAddressSpace: return VulkanApi.Extension(.VK_NV_extended_sparse_address_space);
+			case legacyVertexAttributes: return VulkanApi.Extension(.VK_EXT_legacy_vertex_attributes);
+			case shaderCoreBuiltins: return VulkanApi.Extension(.VK_ARM_shader_core_builtins);
+			case pipelineLibraryGroupHandles: return VulkanApi.Extension(.VK_EXT_pipeline_library_group_handles);
+			case dynamicRenderingUnusedAttachments: return VulkanApi.Extension(.VK_EXT_dynamic_rendering_unused_attachments);
+			case dataGraph: return VulkanApi.Extension(.VK_ARM_data_graph);
+			case multiviewPerViewRenderAreas: return VulkanApi.Extension(.VK_QCOM_multiview_per_view_render_areas);
+			case videoEncodeAV1: return VulkanApi.Extension(.VK_KHR_video_encode_av1);
+			case videoDecodeVP9: return VulkanApi.Extension(.VK_KHR_video_decode_vp9);
+			case videoMaintenance1: return VulkanApi.Extension(.VK_KHR_video_maintenance1);
+			case perStageDescriptorSet: return VulkanApi.Extension(.VK_NV_per_stage_descriptor_set);
+			case textureBlockMatch2: return VulkanApi.Extension(.VK_QCOM_image_processing2);
+			case selectableCubicWeights: return VulkanApi.Extension(.VK_QCOM_filter_cubic_weights);
+			case ycbcrDegamma: return VulkanApi.Extension(.VK_QCOM_ycbcr_degamma);
+			case cubicRangeClamp: return VulkanApi.Extension(.VK_QCOM_filter_cubic_clamp);
+			case attachmentFeedbackLoopDynamicState: return VulkanApi.Extension(.VK_EXT_attachment_feedback_loop_dynamic_state);
+			case unifiedImageLayouts: return VulkanApi.Extension(.VK_KHR_unified_image_layouts);
+			case descriptorPoolOverallocation: return VulkanApi.Extension(.VK_NV_descriptor_pool_overallocation);
+			case tileMemoryHeap: return VulkanApi.Extension(.VK_QCOM_tile_memory_heap);
+			case videoEncodeIntraRefresh: return VulkanApi.Extension(.VK_KHR_video_encode_intra_refresh);
+			case videoEncodeQuantizationMap: return VulkanApi.Extension(.VK_KHR_video_encode_quantization_map);
+			case shaderRawAccessChains: return VulkanApi.Extension(.VK_NV_raw_access_chains);
+			case shaderRelaxedExtendedInstruction: return VulkanApi.Extension(.VK_KHR_shader_relaxed_extended_instruction);
+			case commandBufferInheritance: return VulkanApi.Extension(.VK_NV_command_buffer_inheritance);
+			case maintenance7: return VulkanApi.Extension(.VK_KHR_maintenance7);
+			case shaderFloat16VectorAtomics: return VulkanApi.Extension(.VK_NV_shader_atomic_float16_vector);
+			case shaderReplicatedComposites: return VulkanApi.Extension(.VK_EXT_shader_replicated_composites);
+			case shaderFloat8: return VulkanApi.Extension(.VK_EXT_shader_float8);
+			case rayTracingValidation: return VulkanApi.Extension(.VK_NV_ray_tracing_validation);
+			case clusterAccelerationStructure: return VulkanApi.Extension(.VK_NV_cluster_acceleration_structure);
+			case partitionedAccelerationStructure: return VulkanApi.Extension(.VK_NV_partitioned_acceleration_structure);
+			case maintenance8: return VulkanApi.Extension(.VK_KHR_maintenance8);
+			case imageAlignmentControl: return VulkanApi.Extension(.VK_MESA_image_alignment_control);
+			case depthClampControl: return VulkanApi.Extension(.VK_EXT_depth_clamp_control);
+			case maintenance9: return VulkanApi.Extension(.VK_KHR_maintenance9);
+			case videoMaintenance2: return VulkanApi.Extension(.VK_KHR_video_maintenance2);
+			case hdrVivid: return VulkanApi.Extension(.VK_HUAWEI_hdr_vivid);
+			case cooperativeMatrixWorkgroupScope: return VulkanApi.Extension(.VK_NV_cooperative_matrix2);
+			case cooperativeMatrixFlexibleDimensions: return VulkanApi.Extension(.VK_NV_cooperative_matrix2);
+			case cooperativeMatrixReductions: return VulkanApi.Extension(.VK_NV_cooperative_matrix2);
+			case cooperativeMatrixConversions: return VulkanApi.Extension(.VK_NV_cooperative_matrix2);
+			case cooperativeMatrixPerElementOperations: return VulkanApi.Extension(.VK_NV_cooperative_matrix2);
+			case cooperativeMatrixTensorAddressing: return VulkanApi.Extension(.VK_NV_cooperative_matrix2);
+			case cooperativeMatrixBlockLoads: return VulkanApi.Extension(.VK_NV_cooperative_matrix2);
+			case pipelineOpacityMicromap: return VulkanApi.Extension(.VK_ARM_pipeline_opacity_micromap);
+			case vertexAttributeRobustness: return VulkanApi.Extension(.VK_EXT_vertex_attribute_robustness);
+			case formatPack: return VulkanApi.Extension(.VK_ARM_format_pack);
+			case fragmentDensityMapLayered: return VulkanApi.Extension(.VK_VALVE_fragment_density_map_layered);
+			case zeroInitializeDeviceMemory: return VulkanApi.Extension(.VK_EXT_zero_initialize_device_memory);
+			case pipelineCacheIncrementalMode: return VulkanApi.Extension(.VK_SEC_pipeline_cache_incremental_mode);
+			}
+		}
+	}
+
+	public VkStructureType Struct
+	{
+		get
+		{
+			switch (this)
+			{
+			case robustBufferAccess: return .VkPhysicalDeviceFeatures2;
+			case storageBuffer16BitAccess: return VkPhysicalDevice16BitStorageFeatures.SType;
+			case multiview: return VkPhysicalDeviceMultiviewFeatures.SType;
+			case shaderDrawParameters: return VkPhysicalDeviceShaderDrawParametersFeatures.SType;
+			case subgroupBroadcastDynamicId: return VkPhysicalDeviceVulkan12Features.SType;
+			case samplerMirrorClampToEdge: return VkPhysicalDeviceVulkan12Features.SType;
+			case drawIndirectCount: return VkPhysicalDeviceVulkan12Features.SType;
+			case storageBuffer8BitAccess: return VkPhysicalDevice8BitStorageFeatures.SType;
+			case shaderInt64: return .VkPhysicalDeviceFeatures2;
+			case descriptorIndexing: return VkPhysicalDeviceVulkan12Features.SType;
+			case shaderSampledImageArrayDynamicIndexing: return .VkPhysicalDeviceFeatures2;
+			case shaderStorageBufferArrayDynamicIndexing: return .VkPhysicalDeviceFeatures2;
+			case shaderUniformTexelBufferArrayDynamicIndexing: return VkPhysicalDeviceVulkan12Features.SType;
+			case shaderStorageTexelBufferArrayDynamicIndexing: return VkPhysicalDeviceVulkan12Features.SType;
+			case shaderSampledImageArrayNonUniformIndexing: return VkPhysicalDeviceVulkan12Features.SType;
+			case shaderStorageBufferArrayNonUniformIndexing: return VkPhysicalDeviceVulkan12Features.SType;
+			case shaderUniformTexelBufferArrayNonUniformIndexing: return VkPhysicalDeviceVulkan12Features.SType;
+			case descriptorBindingSampledImageUpdateAfterBind: return VkPhysicalDeviceVulkan12Features.SType;
+			case descriptorBindingStorageImageUpdateAfterBind: return VkPhysicalDeviceVulkan12Features.SType;
+			case descriptorBindingStorageBufferUpdateAfterBind: return VkPhysicalDeviceVulkan12Features.SType;
+			case descriptorBindingUniformTexelBufferUpdateAfterBind: return VkPhysicalDeviceVulkan12Features.SType;
+			case descriptorBindingStorageTexelBufferUpdateAfterBind: return VkPhysicalDeviceVulkan12Features.SType;
+			case descriptorBindingUpdateUnusedWhilePending: return VkPhysicalDeviceVulkan12Features.SType;
+			case descriptorBindingPartiallyBound: return VkPhysicalDeviceVulkan12Features.SType;
+			case runtimeDescriptorArray: return VkPhysicalDeviceVulkan12Features.SType;
+			case shaderOutputViewportIndex: return VkPhysicalDeviceVulkan12Features.SType;
+			case shaderOutputLayer: return VkPhysicalDeviceVulkan12Features.SType;
+			case samplerFilterMinmax: return VkPhysicalDeviceVulkan12Features.SType;
+			case imagelessFramebuffer: return VkPhysicalDeviceImagelessFramebufferFeatures.SType;
+			case uniformBufferStandardLayout: return VkPhysicalDeviceUniformBufferStandardLayoutFeatures.SType;
+			case shaderSubgroupExtendedTypes: return VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures.SType;
+			case separateDepthStencilLayouts: return VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures.SType;
+			case hostQueryReset: return VkPhysicalDeviceHostQueryResetFeatures.SType;
+			case timelineSemaphore: return VkPhysicalDeviceTimelineSemaphoreFeatures.SType;
+			case shaderTerminateInvocation: return VkPhysicalDeviceShaderTerminateInvocationFeatures.SType;
+			case shaderDemoteToHelperInvocation: return VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures.SType;
+			case privateData: return VkPhysicalDevicePrivateDataFeatures.SType;
+			case pipelineCreationCacheControl: return VkPhysicalDevicePipelineCreationCacheControlFeatures.SType;
+			case synchronization2: return VkPhysicalDeviceSynchronization2Features.SType;
+			case shaderZeroInitializeWorkgroupMemory: return VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures.SType;
+			case robustImageAccess: return VkPhysicalDeviceImageRobustnessFeatures.SType;
+			case subgroupSizeControl: return VkPhysicalDeviceSubgroupSizeControlFeatures.SType;
+			case computeFullSubgroups: return VkPhysicalDeviceSubgroupSizeControlFeatures.SType;
+			case dynamicRendering: return VkPhysicalDeviceDynamicRenderingFeatures.SType;
+			case shaderIntegerDotProduct: return VkPhysicalDeviceShaderIntegerDotProductFeatures.SType;
+			case maintenance4: return VkPhysicalDeviceMaintenance4Features.SType;
+			case vulkanMemoryModel: return VkPhysicalDeviceVulkanMemoryModelFeatures.SType;
+			case vulkanMemoryModelDeviceScope: return VkPhysicalDeviceVulkanMemoryModelFeatures.SType;
+			case inlineUniformBlock: return VkPhysicalDeviceInlineUniformBlockFeatures.SType;
+			case bufferDeviceAddress: return VkPhysicalDeviceBufferDeviceAddressFeatures.SType;
+			case descriptorBindingInlineUniformBlockUpdateAfterBind: return VkPhysicalDeviceInlineUniformBlockFeatures.SType;
+			case fullDrawIndexUint32: return .VkPhysicalDeviceFeatures2;
+			case imageCubeArray: return .VkPhysicalDeviceFeatures2;
+			case independentBlend: return .VkPhysicalDeviceFeatures2;
+			case sampleRateShading: return .VkPhysicalDeviceFeatures2;
+			case drawIndirectFirstInstance: return .VkPhysicalDeviceFeatures2;
+			case depthClamp: return .VkPhysicalDeviceFeatures2;
+			case depthBiasClamp: return .VkPhysicalDeviceFeatures2;
+			case samplerAnisotropy: return .VkPhysicalDeviceFeatures2;
+			case fragmentStoresAndAtomics: return .VkPhysicalDeviceFeatures2;
+			case shaderStorageImageExtendedFormats: return .VkPhysicalDeviceFeatures2;
+			case shaderUniformBufferArrayDynamicIndexing: return .VkPhysicalDeviceFeatures2;
+			case shaderStorageImageArrayDynamicIndexing: return .VkPhysicalDeviceFeatures2;
+			case shaderImageGatherExtended: return .VkPhysicalDeviceFeatures2;
+			case shaderInt16: return .VkPhysicalDeviceFeatures2;
+			case largePoints: return .VkPhysicalDeviceFeatures2;
+			case samplerYcbcrConversion: return VkPhysicalDeviceVulkan11Features.SType;
+			case variablePointers: return VkPhysicalDeviceVulkan11Features.SType;
+			case variablePointersStorageBuffer: return VkPhysicalDeviceVulkan11Features.SType;
+			case scalarBlockLayout: return VkPhysicalDeviceVulkan12Features.SType;
+			case shaderInt8: return VkPhysicalDeviceVulkan12Features.SType;
+			case globalPriorityQuery: return VkPhysicalDeviceGlobalPriorityQueryFeatures.SType;
+			case shaderSubgroupRotate: return VkPhysicalDeviceShaderSubgroupRotateFeatures.SType;
+			case shaderSubgroupRotateClustered: return VkPhysicalDeviceShaderSubgroupRotateFeatures.SType;
+			case shaderFloatControls2: return VkPhysicalDeviceShaderFloatControls2Features.SType;
+			case shaderExpectAssume: return VkPhysicalDeviceShaderExpectAssumeFeatures.SType;
+			case bresenhamLines: return VkPhysicalDeviceLineRasterizationFeatures.SType;
+			case vertexAttributeInstanceRateDivisor: return VkPhysicalDeviceVertexAttributeDivisorFeatures.SType;
+			case indexTypeUint8: return VkPhysicalDeviceIndexTypeUint8Features.SType;
+			case maintenance5: return VkPhysicalDeviceMaintenance5Features.SType;
+			case pushDescriptor: return VkPhysicalDeviceVulkan14Features.SType;
+			case dynamicRenderingLocalRead: return VkPhysicalDeviceDynamicRenderingLocalReadFeatures.SType;
+			case maintenance6: return VkPhysicalDeviceMaintenance6Features.SType;
+			case pipelineProtectedAccess: return VkPhysicalDevicePipelineProtectedAccessFeatures.SType;
+			case pipelineRobustness: return VkPhysicalDevicePipelineRobustnessFeatures.SType;
+			case transformFeedback: return VkPhysicalDeviceTransformFeedbackFeaturesEXT.SType;
+			case cornerSampledImage: return VkPhysicalDeviceCornerSampledImageFeaturesNV.SType;
+			case textureCompressionASTC_HDR: return VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT.SType;
+			case conditionalRendering: return VkPhysicalDeviceConditionalRenderingFeaturesEXT.SType;
+			case shaderFloat16: return VkPhysicalDeviceShaderFloat16Int8FeaturesKHR.SType;
+			case depthClipEnable: return VkPhysicalDeviceDepthClipEnableFeaturesEXT.SType;
+			case relaxedLineRasterization: return VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG.SType;
+			case performanceCounterQueryPools: return VkPhysicalDevicePerformanceQueryFeaturesKHR.SType;
+			case shaderBFloat16Type: return VkPhysicalDeviceShaderBfloat16FeaturesKHR.SType;
+			case shaderBFloat16CooperativeMatrix: return VkPhysicalDeviceShaderBfloat16FeaturesKHR.SType;
+			case shaderBFloat16DotProduct: return VkPhysicalDeviceShaderBfloat16FeaturesKHR.SType;
+			case accelerationStructure: return VkPhysicalDeviceAccelerationStructureFeaturesKHR.SType;
+			case descriptorBindingAccelerationStructureUpdateAfterBind: return VkPhysicalDeviceAccelerationStructureFeaturesKHR.SType;
+			case rayTracingPipeline: return VkPhysicalDeviceRayTracingPipelineFeaturesKHR.SType;
+			case rayTracingPipelineTraceRaysIndirect: return VkPhysicalDeviceRayTracingPipelineFeaturesKHR.SType;
+			case rayTraversalPrimitiveCulling: return VkPhysicalDeviceRayTracingPipelineFeaturesKHR.SType;
+			case rayQuery: return VkPhysicalDeviceRayQueryFeaturesKHR.SType;
+			case shaderSMBuiltins: return VkPhysicalDeviceShaderSMBuiltinsFeaturesNV.SType;
+			case shadingRateImage: return VkPhysicalDeviceShadingRateImageFeaturesNV.SType;
+			case representativeFragmentTest: return VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV.SType;
+			case shaderBufferInt64Atomics: return VkPhysicalDeviceShaderAtomicInt64FeaturesKHR.SType;
+			case shaderSubgroupClock: return VkPhysicalDeviceShaderClockFeaturesKHR.SType;
+			case computeDerivativeGroupQuads: return VkPhysicalDeviceComputeShaderDerivativesFeaturesNV.SType;
+			case computeDerivativeGroupLinear: return VkPhysicalDeviceComputeShaderDerivativesFeaturesNV.SType;
+			case meshShader: return VkPhysicalDeviceMeshShaderFeaturesNV.SType;
+			case imageFootprint: return VkPhysicalDeviceShaderImageFootprintFeaturesNV.SType;
+			case exclusiveScissor: return VkPhysicalDeviceExclusiveScissorFeaturesNV.SType;
+			case shaderIntegerFunctions2: return VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL.SType;
+			case fragmentDensityMap: return VkPhysicalDeviceFragmentDensityMapFeaturesEXT.SType;
+			case pipelineFragmentShadingRate: return VkPhysicalDeviceFragmentShadingRateFeaturesKHR.SType;
+			case deviceCoherentMemory: return VkPhysicalDeviceCoherentMemoryFeaturesAMD.SType;
+			case shaderImageInt64Atomics: return VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT.SType;
+			case shaderQuadControl: return VkPhysicalDeviceShaderQuadControlFeaturesKHR.SType;
+			case memoryPriority: return VkPhysicalDeviceMemoryPriorityFeaturesEXT.SType;
+			case dedicatedAllocationImageAliasing: return VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV.SType;
+			case presentWait: return VkPhysicalDevicePresentWaitFeaturesKHR.SType;
+			case cooperativeMatrix: return VkPhysicalDeviceCooperativeMatrixFeaturesNV.SType;
+			case coverageReductionMode: return VkPhysicalDeviceCoverageReductionModeFeaturesNV.SType;
+			case fragmentShaderSampleInterlock: return VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT.SType;
+			case fragmentShaderPixelInterlock: return VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT.SType;
+			case fragmentShaderShadingRateInterlock: return VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT.SType;
+			case ycbcrImageArrays: return VkPhysicalDeviceYcbcrImageArraysFeaturesEXT.SType;
+			case provokingVertexLast: return VkPhysicalDeviceProvokingVertexFeaturesEXT.SType;
+			case rectangularLines: return VkPhysicalDeviceLineRasterizationFeaturesEXT.SType;
+			case smoothLines: return VkPhysicalDeviceLineRasterizationFeaturesEXT.SType;
+			case stippledRectangularLines: return VkPhysicalDeviceLineRasterizationFeaturesEXT.SType;
+			case stippledBresenhamLines: return VkPhysicalDeviceLineRasterizationFeaturesEXT.SType;
+			case stippledSmoothLines: return VkPhysicalDeviceLineRasterizationFeaturesEXT.SType;
+			case shaderBufferFloat32Atomics: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case shaderBufferFloat32AtomicAdd: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case shaderBufferFloat64Atomics: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case shaderBufferFloat64AtomicAdd: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case shaderSharedFloat32Atomics: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case shaderSharedFloat32AtomicAdd: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case shaderSharedFloat64Atomics: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case shaderSharedFloat64AtomicAdd: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case shaderImageFloat32Atomics: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case shaderImageFloat32AtomicAdd: return VkPhysicalDeviceShaderAtomicFloatFeaturesEXT.SType;
+			case extendedDynamicState: return VkPhysicalDeviceExtendedDynamicStateFeaturesEXT.SType;
+			case pipelineExecutableInfo: return VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR.SType;
+			case hostImageCopy: return VkPhysicalDeviceHostImageCopyFeaturesEXT.SType;
+			case memoryMapPlaced: return VkPhysicalDeviceMapMemoryPlacedFeaturesEXT.SType;
+			case shaderBufferFloat16Atomics: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderBufferFloat16AtomicAdd: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderBufferFloat16AtomicMinMax: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderBufferFloat32AtomicMinMax: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderBufferFloat64AtomicMinMax: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderSharedFloat16Atomics: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderSharedFloat16AtomicAdd: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderSharedFloat16AtomicMinMax: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderSharedFloat32AtomicMinMax: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderSharedFloat64AtomicMinMax: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case shaderImageFloat32AtomicMinMax: return VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT.SType;
+			case swapchainMaintenance1: return VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT.SType;
+			case deviceGeneratedCommands: return VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV.SType;
+			case inheritedViewportScissor2D: return VkPhysicalDeviceInheritedViewportScissorFeaturesNV.SType;
+			case texelBufferAlignment: return VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT.SType;
+			case depthBiasControl: return VkPhysicalDeviceDepthBiasControlFeaturesEXT.SType;
+			case deviceMemoryReport: return VkPhysicalDeviceDeviceMemoryReportFeaturesEXT.SType;
+			case robustBufferAccess2: return VkPhysicalDeviceRobustness2FeaturesEXT.SType;
+			case robustImageAccess2: return VkPhysicalDeviceRobustness2FeaturesEXT.SType;
+			case nullDescriptor: return VkPhysicalDeviceRobustness2FeaturesEXT.SType;
+			case customBorderColors: return VkPhysicalDeviceCustomBorderColorFeaturesEXT.SType;
+			case presentBarrier: return VkPhysicalDevicePresentBarrierFeaturesNV.SType;
+			case presentId: return VkPhysicalDevicePresentIdFeaturesKHR.SType;
+			case diagnosticsConfig: return VkPhysicalDeviceDiagnosticsConfigFeaturesNV.SType;
+			case tileShading: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingFragmentStage: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingPerTileDispatch: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingAtomicOps: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingColorAttachments: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingPerTileDraw: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingApron: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingDepthAttachments: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingStencilAttachments: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingInputAttachments: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case tileShadingSampledAttachments: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
+			case descriptorBuffer: return VkPhysicalDeviceDescriptorBufferFeaturesEXT.SType;
+			case graphicsPipelineLibrary: return VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT.SType;
+			case shaderEarlyAndLateFragmentTests: return VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD.SType;
+			case fragmentShaderBarycentric: return VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR.SType;
+			case shaderSubgroupUniformControlFlow: return VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR.SType;
+			case fragmentShadingRateEnums: return VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV.SType;
+			case rayTracingMotionBlur: return VkPhysicalDeviceRayTracingMotionBlurFeaturesNV.SType;
+			case taskShader: return VkPhysicalDeviceMeshShaderFeaturesEXT.SType;
+			case primitiveFragmentShadingRate: return VkPhysicalDeviceFragmentShadingRateFeaturesKHR.SType;
+			case ycbcr2plane444Formats: return VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT.SType;
+			case fragmentDensityMapDeferred: return VkPhysicalDeviceFragmentDensityMap2FeaturesEXT.SType;
+			case workgroupMemoryExplicitLayout: return VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR.SType;
+			case imageCompressionControl: return VkPhysicalDeviceImageCompressionControlFeaturesEXT.SType;
+			case attachmentFeedbackLoopLayout: return VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT.SType;
+			case formatA4R4G4B4: return VkPhysicalDevice4444FormatsFeaturesEXT.SType;
+			case deviceFault: return VkPhysicalDeviceFaultFeaturesEXT.SType;
+			case formatRgba10x6WithoutYCbCrSampler: return VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT.SType;
+			case mutableDescriptorType: return VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE.SType;
+			case vertexInputDynamicState: return VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT.SType;
+			case reportAddressBinding: return VkPhysicalDeviceAddressBindingReportFeaturesEXT.SType;
+			case depthClipControl: return VkPhysicalDeviceDepthClipControlFeaturesEXT.SType;
+			case primitiveTopologyListRestart: return VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT.SType;
+			case presentModeFifoLatestReady: return VkPhysicalDevicePresentModeFifoLatestReadyFeaturesEXT.SType;
+			case subpassShading: return VkPhysicalDeviceSubpassShadingFeaturesHUAWEI.SType;
+			case invocationMask: return VkPhysicalDeviceInvocationMaskFeaturesHUAWEI.SType;
+			case externalMemoryRDMA: return VkPhysicalDeviceExternalMemoryRDMAFeaturesNV.SType;
+			case pipelinePropertiesIdentifier: return VkPhysicalDevicePipelinePropertiesFeaturesEXT.SType;
+			case frameBoundary: return VkPhysicalDeviceFrameBoundaryFeaturesEXT.SType;
+			case multisampledRenderToSingleSampled: return VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT.SType;
+			case extendedDynamicState2: return VkPhysicalDeviceExtendedDynamicState2FeaturesEXT.SType;
+			case colorWriteEnable: return VkPhysicalDeviceColorWriteEnableFeaturesEXT.SType;
+			case primitivesGeneratedQuery: return VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT.SType;
+			case rayTracingMaintenance1: return VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR.SType;
+			case minLod: return VkPhysicalDeviceImageViewMinLodFeaturesEXT.SType;
+			case multiDraw: return VkPhysicalDeviceMultiDrawFeaturesEXT.SType;
+			case image2DViewOf3D: return VkPhysicalDeviceImage2DViewOf3DFeaturesEXT.SType;
+			case shaderTileImageColorReadAccess: return VkPhysicalDeviceShaderTileImageFeaturesEXT.SType;
+			case micromap: return VkPhysicalDeviceOpacityMicromapFeaturesEXT.SType;
+			case clustercullingShader: return VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI.SType;
+			case borderColorSwizzle: return VkPhysicalDeviceBorderColorSwizzleFeaturesEXT.SType;
+			case pageableDeviceLocalMemory: return VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT.SType;
+			case schedulingControls: return VkPhysicalDeviceSchedulingControlsFeaturesARM.SType;
+			case imageSlicedViewOf3D: return VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT.SType;
+			case descriptorSetHostMapping: return VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE.SType;
+			case depthClampZeroOne: return VkPhysicalDeviceDepthClampZeroOneFeaturesEXT.SType;
+			case nonSeamlessCubeMap: return VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT.SType;
+			case renderPassStriped: return VkPhysicalDeviceRenderPassStripedFeaturesARM.SType;
+			case fragmentDensityMapOffset: return VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM.SType;
+			case indirectCopy: return VkPhysicalDeviceCopyMemoryIndirectFeaturesNV.SType;
+			case memoryDecompression: return VkPhysicalDeviceMemoryDecompressionFeaturesNV.SType;
+			case deviceGeneratedCompute: return VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV.SType;
+			case spheres: return VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV.SType;
+			case linearSweptSpheres: return VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV.SType;
+			case linearColorAttachment: return VkPhysicalDeviceLinearColorAttachmentFeaturesNV.SType;
+			case shaderMaximalReconvergence: return VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR.SType;
+			case imageCompressionControlSwapchain: return VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT.SType;
+			case textureSampleWeighted: return VkPhysicalDeviceImageProcessingFeaturesQCOM.SType;
+			case textureBlockMatch: return VkPhysicalDeviceImageProcessingFeaturesQCOM.SType;
+			case textureBoxFilter: return VkPhysicalDeviceImageProcessingFeaturesQCOM.SType;
+			case nestedCommandBuffer: return VkPhysicalDeviceNestedCommandBufferFeaturesEXT.SType;
+			case tessellationShader: return .VkPhysicalDeviceFeatures2;
+			case fillModeNonSolid: return .VkPhysicalDeviceFeatures2;
+			case alphaToOne: return .VkPhysicalDeviceFeatures2;
+			case logicOp: return .VkPhysicalDeviceFeatures2;
+			case geometryStreams: return VkPhysicalDeviceTransformFeedbackFeaturesEXT.SType;
+			case subpassMergeFeedback: return VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT.SType;
+			case tensors: return VkPhysicalDeviceTensorFeaturesARM.SType;
+			case shaderModuleIdentifier: return VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT.SType;
+			case opticalFlow: return VkPhysicalDeviceOpticalFlowFeaturesNV.SType;
+			case legacyDithering: return VkPhysicalDeviceLegacyDitheringFeaturesEXT.SType;
+			case antiLag: return VkPhysicalDeviceAntiLagFeaturesAMD.SType;
+			case presentId2: return VkPhysicalDevicePresentId2FeaturesKHR.SType;
+			case presentWait2: return VkPhysicalDevicePresentWait2FeaturesKHR.SType;
+			case rayTracingPositionFetch: return VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR.SType;
+			case shaderObject: return VkPhysicalDeviceShaderObjectFeaturesEXT.SType;
+			case pipelineBinaries: return VkPhysicalDevicePipelineBinaryFeaturesKHR.SType;
+			case tileProperties: return VkPhysicalDeviceTilePropertiesFeaturesQCOM.SType;
+			case amigoProfiling: return VkPhysicalDeviceAmigoProfilingFeaturesSEC.SType;
+			case multiviewPerViewViewports: return VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM.SType;
+			case rayTracingInvocationReorder: return VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV.SType;
+			case cooperativeVector: return VkPhysicalDeviceCooperativeVectorFeaturesNV.SType;
+			case extendedSparseAddressSpace: return VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV.SType;
+			case legacyVertexAttributes: return VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT.SType;
+			case shaderCoreBuiltins: return VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM.SType;
+			case pipelineLibraryGroupHandles: return VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT.SType;
+			case dynamicRenderingUnusedAttachments: return VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT.SType;
+			case dataGraph: return VkPhysicalDeviceDataGraphFeaturesARM.SType;
+			case multiviewPerViewRenderAreas: return VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM.SType;
+			case videoEncodeAV1: return VkPhysicalDeviceVideoEncodeAV1FeaturesKHR.SType;
+			case videoDecodeVP9: return VkPhysicalDeviceVideoDecodeVP9FeaturesKHR.SType;
+			case videoMaintenance1: return VkPhysicalDeviceVideoMaintenance1FeaturesKHR.SType;
+			case perStageDescriptorSet: return VkPhysicalDevicePerStageDescriptorSetFeaturesNV.SType;
+			case textureBlockMatch2: return VkPhysicalDeviceImageProcessing2FeaturesQCOM.SType;
+			case selectableCubicWeights: return VkPhysicalDeviceCubicWeightsFeaturesQCOM.SType;
+			case ycbcrDegamma: return VkPhysicalDeviceYcbcrDegammaFeaturesQCOM.SType;
+			case cubicRangeClamp: return VkPhysicalDeviceCubicClampFeaturesQCOM.SType;
+			case attachmentFeedbackLoopDynamicState: return VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT.SType;
+			case unifiedImageLayouts: return VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR.SType;
+			case descriptorPoolOverallocation: return VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV.SType;
+			case tileMemoryHeap: return VkPhysicalDeviceTileMemoryHeapFeaturesQCOM.SType;
+			case videoEncodeIntraRefresh: return VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR.SType;
+			case videoEncodeQuantizationMap: return VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR.SType;
+			case shaderRawAccessChains: return VkPhysicalDeviceRawAccessChainsFeaturesNV.SType;
+			case shaderRelaxedExtendedInstruction: return VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR.SType;
+			case commandBufferInheritance: return VkPhysicalDeviceCommandBufferInheritanceFeaturesNV.SType;
+			case maintenance7: return VkPhysicalDeviceMaintenance7FeaturesKHR.SType;
+			case shaderFloat16VectorAtomics: return VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV.SType;
+			case shaderReplicatedComposites: return VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT.SType;
+			case shaderFloat8: return VkPhysicalDeviceShaderFloat8FeaturesEXT.SType;
+			case rayTracingValidation: return VkPhysicalDeviceRayTracingValidationFeaturesNV.SType;
+			case clusterAccelerationStructure: return VkPhysicalDeviceClusterAccelerationStructureFeaturesNV.SType;
+			case partitionedAccelerationStructure: return VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV.SType;
+			case maintenance8: return VkPhysicalDeviceMaintenance8FeaturesKHR.SType;
+			case imageAlignmentControl: return VkPhysicalDeviceImageAlignmentControlFeaturesMESA.SType;
+			case depthClampControl: return VkPhysicalDeviceDepthClampControlFeaturesEXT.SType;
+			case maintenance9: return VkPhysicalDeviceMaintenance9FeaturesKHR.SType;
+			case videoMaintenance2: return VkPhysicalDeviceVideoMaintenance2FeaturesKHR.SType;
+			case hdrVivid: return VkPhysicalDeviceHdrVividFeaturesHUAWEI.SType;
+			case cooperativeMatrixWorkgroupScope: return VkPhysicalDeviceCooperativeMatrix2FeaturesNV.SType;
+			case cooperativeMatrixFlexibleDimensions: return VkPhysicalDeviceCooperativeMatrix2FeaturesNV.SType;
+			case cooperativeMatrixReductions: return VkPhysicalDeviceCooperativeMatrix2FeaturesNV.SType;
+			case cooperativeMatrixConversions: return VkPhysicalDeviceCooperativeMatrix2FeaturesNV.SType;
+			case cooperativeMatrixPerElementOperations: return VkPhysicalDeviceCooperativeMatrix2FeaturesNV.SType;
+			case cooperativeMatrixTensorAddressing: return VkPhysicalDeviceCooperativeMatrix2FeaturesNV.SType;
+			case cooperativeMatrixBlockLoads: return VkPhysicalDeviceCooperativeMatrix2FeaturesNV.SType;
+			case pipelineOpacityMicromap: return VkPhysicalDevicePipelineOpacityMicromapFeaturesARM.SType;
+			case vertexAttributeRobustness: return VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT.SType;
+			case formatPack: return VkPhysicalDeviceFormatPackFeaturesARM.SType;
+			case fragmentDensityMapLayered: return VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE.SType;
+			case zeroInitializeDeviceMemory: return VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT.SType;
+			case pipelineCacheIncrementalMode: return VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC.SType;
+			}
+		}
+	}
 }

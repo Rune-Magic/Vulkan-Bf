@@ -153,6 +153,9 @@ namespace Vulkan
 
 	extension VkResult
 	{
+		// from VK_EXT_full_screen_exclusive which is excluded because it's platform dependent
+		case VkErrorFullScreenExclusiveModeLostEXT = -1000255000;
+
 		// NOTE: NoDiscard doesn't seem to work
 		[SkipCall, Warn("VkResult discarded")]
 		public void ReturnValueDiscarded();
@@ -306,11 +309,11 @@ namespace Vulkan.Metadata
 		public DependencyEnumerator Dependencies => .(this);
 	}
 
-	extension VulkanCommandMetadata
+	extension VulkanCommand
 	{
 		public enum RenderPassLocation { Inside = 1, Outside = 2, Both = Inside | Outside }
 		public enum CmdBufferLevel { Primary = 1, Secondary = 2 }
-		public enum Task { Action = 1, State = 2, Synchronization = 4, /** executes other command buffers */ Indirection }
+		public enum Task { Action = 1, State = 2, Synchronization = 4, /** executes other command buffers */ Indirection = 8 }
 	}
 }
 
