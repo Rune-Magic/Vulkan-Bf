@@ -155,6 +155,7 @@ static class Program
 	public struct PhysicalDeviceInfo
 	{
 		public const VulkanExtension[?] requiredExtensions = .(.VK_KHR_swapchain, .VK_EXT_swapchain_maintenance1);
+		public const VulkanFeature[?] requiredFeatures = .(.fillModeNonSolid, .swapchainMaintenance1);
 
 		public VkPhysicalDevice device;
 		public VkPhysicalDeviceProperties properties;
@@ -166,7 +167,19 @@ static class Program
 
 		public char8*[requiredExtensions.Count] extensionBuffer;
 		public uint32 extensionCount;
-		public VkPhysicalDeviceFeatures enabledFeatures = .() { fillModeNonSolid=true };
+
+		public struct Features
+		{
+			public VkPhysicalDeviceFeatures2 features = .();
+			public VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT swapcahinMaintenace1 = .();
+
+			public void SetPointers() mut
+			{
+				features.pNext = &swapcahinMaintenace1;
+				swapcahinMaintenace1.pNext = null;
+			}
+		}
+		public Features features;
 
 		public static Result<Self> GetFor(VkPhysicalDevice device)
 		{
@@ -209,12 +222,28 @@ static class Program
 						continue;
 				for (var extProperties in extensionProperties)
 				{
-					if (String.Equals(&extProperties.extensionName, ext.Name))
-						break;
+					if (!String.Equals(&extProperties.extensionName, ext.Name))
+						continue;
 					extensionBuffer[extensionCount++] = ext.Name;
 					continue findExts;
 				}
-				Runtime.FatalError(scope $"[Error] Missing extension {ext}");
+				Runtime.FatalError(scope $"Missing device extension {ext}");
+			}
+
+			device.GetFeatures2(var features);
+			VkBaseOutStructure* nextFeatures = (.)&features;
+			Features features = .();
+			while (nextFeatures != null)
+			{
+				switch (nextFeatures.sType)
+				{
+				case features.features.sType:
+					for (let feature in requiredFeatures)
+					{
+						if (feature.Struct != _) continue;
+
+					}
+				}
 			}
 
 			if (queueFamilyIndex < 0) return .Err;
@@ -337,19 +366,55 @@ static class Program
 		Runtime.Assert(Glfw.VulkanSupported());
 
 		VkResult result;
+		instance:
 		{
-			List<char8*> extensions = scope .(16);
-
-			{
-				uint32 count = ?;
-				char8** exts = Glfw.[Friend]glfwGetRequiredInstanceExtensions(&count);
-				for (let i < count) extensions.Add(exts[i]);
-			}
-			extensions.Add(VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME);
-			extensions.Add(VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME);
-			extensions.Add(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME); //TODO: helper struct
+			const VulkanExtension[?] requiredInstanceExtensions = .(
+				.VK_EXT_surface_maintenance1, .VK_KHR_get_physical_device_properties2,
 #if DEBUG
-			extensions.Add(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+				.VK_EXT_debug_utils
+#endif
+			);
+			List<char8*> instanceExtensions = scope .(16);
+			{
+				HashSet<VulkanExtension> extensions = scope .(16);
+				for (let ext in requiredInstanceExtensions)
+					extensions.Add(ext);
+				for (let ext in Glfw.GetRequiredInstanceExtensions(..scope .(16)))
+					extensions.Add(EnumParser<VulkanExtension>.Parse(ext));
+
+				HashSet<VulkanExtension> dependencies = scope .(16);
+				void AddDeps(VulkanExtension ext)
+				{
+					for (let dep in ext.Dependencies)
+						switch (dep)
+						{
+						case .ApiVersion(let version):
+							if (version > .VK_VERSION_1_0)
+								Runtime.FatalError();
+						case .Extension(let exten):
+							dependencies.Add(exten);
+							AddDeps(exten);
+						}
+				}
+				for (let ext in extensions) AddDeps(ext);
+				for (let dep in dependencies) extensions.Add(dep);
+
+				result = vkEnumerateInstanceExtensionProperties_Scope!(null, let extensionProperties);
+				CheckResult(result);
+				findExt: for (let ext in extensions)
+				{
+					for (var properties in extensionProperties)
+						if (String.Equals(&properties.extensionName, ext.Name))
+						{
+							// you might also want to check for promotion
+							instanceExtensions.Add(ext.Name);
+							continue findExt;
+						}
+					Runtime.FatalError(scope $"Missing instance extension {ext}");
+				}
+			}
+
+#if DEBUG
 			VkDebugUtilsMessengerCreateInfoEXT* debugMessengerCI = scope .(null, 0,
 				messageSeverity: .ErrorEXT | .WarningEXT,
 				messageType: .ValidationEXT | .PerformanceEXT,
@@ -360,20 +425,11 @@ static class Program
 				}
 			);
 #endif
-			result = vkEnumerateInstanceExtensionProperties_Scope!(null, let extensionProperties);
-			CheckResult(result);
-			findExt: for (let ext in extensions)
-			{
-				for (var properties in extensionProperties)
-					if (String.Equals(ext, &properties.extensionName))
-						continue findExt;
-				Runtime.FatalError(scope $"Missing instance extension {StringView(ext)}");
-			}
 
 			result = vkCreateInstance(scope .(
 				pApplicationInfo: scope .(null,
 					pApplicationName: "Vulkan-Bf Example",
-					applicationVersion: VK_MAKE_VERSION(0, 0, 1),
+					applicationVersion: VK_MAKE_VERSION(1, 0, 0),
 					pEngineName: null,
 					engineVersion: 0,
 					apiVersion: VK_API_VERSION_1_0
@@ -382,7 +438,7 @@ static class Program
 				pNext: debugMessengerCI,
 				enabledLayerNames: .("VK_LAYER_KHRONOS_validation"),
 #endif
-				enabledExtensionNames: extensions
+				enabledExtensionNames: instanceExtensions
 			), gVkAlloc, out instance);
 			CheckResult(result);
 			VulkanLoader.LoadInstance(instance);
@@ -430,15 +486,16 @@ static class Program
 		}
 
 		{
+			physicalDevice.features.SetPointers();
 			result = physicalDevice.device.CreateDevice(scope .()
 			{
+				pNext = &physicalDevice.features.features,
 				queueCreateInfos = .(.()
 				{
 					queueFamilyIndex = physicalDevice.queueFamilyIndex,
 					queuePriorities = .(1.f),
 				}),
 				enabledExtensionNames = .(physicalDevice.extensionCount, &physicalDevice.extensionBuffer),
-				pEnabledFeatures = &physicalDevice.enabledFeatures,
 			}, gVkAlloc, out gDevice);
 			CheckResult(result);
 			VulkanLoader.LoadDevice(gDevice);

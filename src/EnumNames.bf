@@ -315,6 +315,7 @@ extension VkBufferUsageFlagBits
 		case .TransformFeedbackBufferEXT: strBuffer.Append("VK_BUFFER_USAGE_TRANSFORM_FEEDBACK_BUFFER_BIT_EXT");
 		case .TransformFeedbackCounterBufferEXT: strBuffer.Append("VK_BUFFER_USAGE_TRANSFORM_FEEDBACK_COUNTER_BUFFER_BIT_EXT");
 		case .ConditionalRenderingEXT: strBuffer.Append("VK_BUFFER_USAGE_CONDITIONAL_RENDERING_BIT_EXT");
+		case .ExecutionGraphScratchAMDX: strBuffer.Append("VK_BUFFER_USAGE_EXECUTION_GRAPH_SCRATCH_BIT_AMDX");
 		case .AccelerationStructureBuildInputReadOnlyKHR: strBuffer.Append("VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_BUILD_INPUT_READ_ONLY_BIT_KHR");
 		case .AccelerationStructureStorageKHR: strBuffer.Append("VK_BUFFER_USAGE_ACCELERATION_STRUCTURE_STORAGE_BIT_KHR");
 		case .ShaderBindingTableKHR: strBuffer.Append("VK_BUFFER_USAGE_SHADER_BINDING_TABLE_BIT_KHR");
@@ -1319,6 +1320,7 @@ extension VkPipelineBindPoint
 		{
 		case .Graphics: strBuffer.Append("VK_PIPELINE_BIND_POINT_GRAPHICS");
 		case .Compute: strBuffer.Append("VK_PIPELINE_BIND_POINT_COMPUTE");
+		case .ExecutionGraphAMDX: strBuffer.Append("VK_PIPELINE_BIND_POINT_EXECUTION_GRAPH_AMDX");
 		case .RayTracingKHR: strBuffer.Append("VK_PIPELINE_BIND_POINT_RAY_TRACING_KHR");
 		case .SubpassShadingHUAWEI: strBuffer.Append("VK_PIPELINE_BIND_POINT_SUBPASS_SHADING_HUAWEI");
 		case .DataGraphARM: strBuffer.Append("VK_PIPELINE_BIND_POINT_DATA_GRAPH_ARM");
@@ -1363,6 +1365,7 @@ extension VkPipelineCreateFlagBits
 		case .ColorAttachmentFeedbackLoopEXT: strBuffer.Append("VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT");
 		case .DepthStencilAttachmentFeedbackLoopEXT: strBuffer.Append("VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT");
 		case .RayTracingOpacityMicromapEXT: strBuffer.Append("VK_PIPELINE_CREATE_RAY_TRACING_OPACITY_MICROMAP_BIT_EXT");
+		case .RayTracingDisplacementMicromapNV: strBuffer.Append("VK_PIPELINE_CREATE_RAY_TRACING_DISPLACEMENT_MICROMAP_BIT_NV");
 		default: Underlying.ToString(strBuffer);
 		}
 	}
@@ -1550,6 +1553,7 @@ extension VkResult
 		case .VkErrorVideoProfileCodecNotSupportedKHR: strBuffer.Append("VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR");
 		case .VkErrorVideoStdVersionNotSupportedKHR: strBuffer.Append("VK_ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR");
 		case .VkErrorInvalidDrmFormatModifierPlaneLayoutEXT: strBuffer.Append("VK_ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT");
+		case .VkErrorFullScreenExclusiveModeLostEXT: strBuffer.Append("VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT");
 		case .VkThreadIdleKHR: strBuffer.Append("VK_THREAD_IDLE_KHR");
 		case .VkThreadDoneKHR: strBuffer.Append("VK_THREAD_DONE_KHR");
 		case .VkOperationDeferredKHR: strBuffer.Append("VK_OPERATION_DEFERRED_KHR");
@@ -1921,6 +1925,11 @@ extension VkStructureType
 		case .VkDisplayModeCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR");
 		case .VkDisplaySurfaceCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR");
 		case .VkDisplayPresentInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR");
+		case .VkXlibSurfaceCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR");
+		case .VkXcbSurfaceCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR");
+		case .VkWaylandSurfaceCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR");
+		case .VkAndroidSurfaceCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_ANDROID_SURFACE_CREATE_INFO_KHR");
+		case .VkWin32SurfaceCreateInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR");
 		case .VkDebugReportCallbackCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT");
 		case .VkPipelineRasterizationStateRasterizationOrderAMD: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD");
 		case .VkDebugMarkerObjectNameInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT");
@@ -1993,15 +2002,29 @@ extension VkStructureType
 		case .VkVideoDecodeH264SessionParametersAddInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR");
 		case .VkVideoDecodeH264DpbSlotInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_DPB_SLOT_INFO_KHR");
 		case .VkTextureLodGatherFormatPropertiesAMD: strBuffer.Append("VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD");
+		case .VkStreamDescriptorSurfaceCreateInfoGGP: strBuffer.Append("VK_STRUCTURE_TYPE_STREAM_DESCRIPTOR_SURFACE_CREATE_INFO_GGP");
 		case .VkPhysicalDeviceCornerSampledImageFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES_NV");
 		case .VkExternalMemoryImageCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV");
 		case .VkExportMemoryAllocateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV");
+		case .VkImportMemoryWin32HandleInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_NV");
+		case .VkExportMemoryWin32HandleInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_NV");
+		case .VkWin32KeyedMutexAcquireReleaseInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_NV");
 		case .VkValidationFlagsEXT: strBuffer.Append("VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT");
+		case .VkViSurfaceCreateInfoNN: strBuffer.Append("VK_STRUCTURE_TYPE_VI_SURFACE_CREATE_INFO_NN");
 		case .VkImageViewAstcDecodeModeEXT: strBuffer.Append("VK_STRUCTURE_TYPE_IMAGE_VIEW_ASTC_DECODE_MODE_EXT");
 		case .VkPhysicalDeviceAstcDecodeFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ASTC_DECODE_FEATURES_EXT");
+		case .VkImportMemoryWin32HandleInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_MEMORY_WIN32_HANDLE_INFO_KHR");
+		case .VkExportMemoryWin32HandleInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_MEMORY_WIN32_HANDLE_INFO_KHR");
+		case .VkMemoryWin32HandlePropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_WIN32_HANDLE_PROPERTIES_KHR");
+		case .VkMemoryGetWin32HandleInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_GET_WIN32_HANDLE_INFO_KHR");
 		case .VkImportMemoryFdInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR");
 		case .VkMemoryFdPropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR");
 		case .VkMemoryGetFdInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR");
+		case .VkWin32KeyedMutexAcquireReleaseInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_WIN32_KEYED_MUTEX_ACQUIRE_RELEASE_INFO_KHR");
+		case .VkImportSemaphoreWin32HandleInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR");
+		case .VkExportSemaphoreWin32HandleInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR");
+		case .VkD3d12FenceSubmitInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_D3D12_FENCE_SUBMIT_INFO_KHR");
+		case .VkSemaphoreGetWin32HandleInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SEMAPHORE_GET_WIN32_HANDLE_INFO_KHR");
 		case .VkImportSemaphoreFdInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR");
 		case .VkSemaphoreGetFdInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR");
 		case .VkCommandBufferInheritanceConditionalRenderingInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO_EXT");
@@ -2027,6 +2050,9 @@ extension VkStructureType
 		case .VkHdrMetadataEXT: strBuffer.Append("VK_STRUCTURE_TYPE_HDR_METADATA_EXT");
 		case .VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RELAXED_LINE_RASTERIZATION_FEATURES_IMG");
 		case .VkSharedPresentSurfaceCapabilitiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR");
+		case .VkImportFenceWin32HandleInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_FENCE_WIN32_HANDLE_INFO_KHR");
+		case .VkExportFenceWin32HandleInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_FENCE_WIN32_HANDLE_INFO_KHR");
+		case .VkFenceGetWin32HandleInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_FENCE_GET_WIN32_HANDLE_INFO_KHR");
 		case .VkImportFenceFdInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR");
 		case .VkFenceGetFdInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_FENCE_GET_FD_INFO_KHR");
 		case .VkPhysicalDevicePerformanceQueryFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_FEATURES_KHR");
@@ -2044,11 +2070,25 @@ extension VkStructureType
 		case .VkDisplayModeProperties2KHR: strBuffer.Append("VK_STRUCTURE_TYPE_DISPLAY_MODE_PROPERTIES_2_KHR");
 		case .VkDisplayPlaneInfo2KHR: strBuffer.Append("VK_STRUCTURE_TYPE_DISPLAY_PLANE_INFO_2_KHR");
 		case .VkDisplayPlaneCapabilities2KHR: strBuffer.Append("VK_STRUCTURE_TYPE_DISPLAY_PLANE_CAPABILITIES_2_KHR");
+		case .VkIosSurfaceCreateInfoMVK: strBuffer.Append("VK_STRUCTURE_TYPE_IOS_SURFACE_CREATE_INFO_MVK");
+		case .VkMacosSurfaceCreateInfoMVK: strBuffer.Append("VK_STRUCTURE_TYPE_MACOS_SURFACE_CREATE_INFO_MVK");
 		case .VkDebugUtilsObjectNameInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_NAME_INFO_EXT");
 		case .VkDebugUtilsObjectTagInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_TAG_INFO_EXT");
 		case .VkDebugUtilsLabelEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEBUG_UTILS_LABEL_EXT");
 		case .VkDebugUtilsMessengerCallbackDataEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CALLBACK_DATA_EXT");
 		case .VkDebugUtilsMessengerCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT");
+		case .VkAndroidHardwareBufferUsageANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_USAGE_ANDROID");
+		case .VkAndroidHardwareBufferPropertiesANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_PROPERTIES_ANDROID");
+		case .VkAndroidHardwareBufferFormatPropertiesANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_ANDROID");
+		case .VkImportAndroidHardwareBufferInfoANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_ANDROID_HARDWARE_BUFFER_INFO_ANDROID");
+		case .VkMemoryGetAndroidHardwareBufferInfoANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_GET_ANDROID_HARDWARE_BUFFER_INFO_ANDROID");
+		case .VkExternalFormatANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_ANDROID");
+		case .VkAndroidHardwareBufferFormatProperties2ANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_PROPERTIES_2_ANDROID");
+		case .VkPhysicalDeviceShaderEnqueueFeaturesAMDX: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_FEATURES_AMDX");
+		case .VkPhysicalDeviceShaderEnqueuePropertiesAMDX: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ENQUEUE_PROPERTIES_AMDX");
+		case .VkExecutionGraphPipelineScratchSizeAMDX: strBuffer.Append("VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_SCRATCH_SIZE_AMDX");
+		case .VkExecutionGraphPipelineCreateInfoAMDX: strBuffer.Append("VK_STRUCTURE_TYPE_EXECUTION_GRAPH_PIPELINE_CREATE_INFO_AMDX");
+		case .VkPipelineShaderStageNodeCreateInfoAMDX: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_NODE_CREATE_INFO_AMDX");
 		case .VkAttachmentSampleCountInfoAMD: strBuffer.Append("VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD");
 		case .VkPhysicalDeviceShaderBfloat16FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_BFLOAT16_FEATURES_KHR");
 		case .VkSampleLocationsInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SAMPLE_LOCATIONS_INFO_EXT");
@@ -2092,6 +2132,8 @@ extension VkStructureType
 		case .VkDrmFormatModifierPropertiesList2EXT: strBuffer.Append("VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2_EXT");
 		case .VkValidationCacheCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_VALIDATION_CACHE_CREATE_INFO_EXT");
 		case .VkShaderModuleValidationCacheCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT");
+		case .VkPhysicalDevicePortabilitySubsetFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_FEATURES_KHR");
+		case .VkPhysicalDevicePortabilitySubsetPropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PORTABILITY_SUBSET_PROPERTIES_KHR");
 		case .VkPipelineViewportShadingRateImageStateCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO_NV");
 		case .VkPhysicalDeviceShadingRateImageFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES_NV");
 		case .VkPhysicalDeviceShadingRateImagePropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES_NV");
@@ -2125,6 +2167,7 @@ extension VkStructureType
 		case .VkVideoDecodeH265DpbSlotInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_DPB_SLOT_INFO_KHR");
 		case .VkDeviceMemoryOverallocationCreateInfoAMD: strBuffer.Append("VK_STRUCTURE_TYPE_DEVICE_MEMORY_OVERALLOCATION_CREATE_INFO_AMD");
 		case .VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_EXT");
+		case .VkPresentFrameTokenGGP: strBuffer.Append("VK_STRUCTURE_TYPE_PRESENT_FRAME_TOKEN_GGP");
 		case .VkPhysicalDeviceMeshShaderFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_NV");
 		case .VkPhysicalDeviceMeshShaderPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_NV");
 		case .VkPhysicalDeviceShaderImageFootprintFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES_NV");
@@ -2144,6 +2187,8 @@ extension VkStructureType
 		case .VkPhysicalDevicePciBusInfoPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PCI_BUS_INFO_PROPERTIES_EXT");
 		case .VkDisplayNativeHdrSurfaceCapabilitiesAMD: strBuffer.Append("VK_STRUCTURE_TYPE_DISPLAY_NATIVE_HDR_SURFACE_CAPABILITIES_AMD");
 		case .VkSwapchainDisplayNativeHdrCreateInfoAMD: strBuffer.Append("VK_STRUCTURE_TYPE_SWAPCHAIN_DISPLAY_NATIVE_HDR_CREATE_INFO_AMD");
+		case .VkImagepipeSurfaceCreateInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_IMAGEPIPE_SURFACE_CREATE_INFO_FUCHSIA");
+		case .VkMetalSurfaceCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_METAL_SURFACE_CREATE_INFO_EXT");
 		case .VkPhysicalDeviceFragmentDensityMapFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES_EXT");
 		case .VkPhysicalDeviceFragmentDensityMapPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES_EXT");
 		case .VkRenderPassFragmentDensityMapCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO_EXT");
@@ -2178,6 +2223,9 @@ extension VkStructureType
 		case .VkPhysicalDeviceProvokingVertexFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES_EXT");
 		case .VkPipelineRasterizationProvokingVertexStateCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO_EXT");
 		case .VkPhysicalDeviceProvokingVertexPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_PROPERTIES_EXT");
+		case .VkSurfaceFullScreenExclusiveInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_INFO_EXT");
+		case .VkSurfaceCapabilitiesFullScreenExclusiveEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_FULL_SCREEN_EXCLUSIVE_EXT");
+		case .VkSurfaceFullScreenExclusiveWin32InfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SURFACE_FULL_SCREEN_EXCLUSIVE_WIN32_INFO_EXT");
 		case .VkHeadlessSurfaceCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT");
 		case .VkPhysicalDeviceShaderAtomicFloatFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES_EXT");
 		case .VkPhysicalDeviceExtendedDynamicStateFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES_EXT");
@@ -2232,6 +2280,11 @@ extension VkStructureType
 		case .VkVideoEncodeSessionParametersFeedbackInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_ENCODE_SESSION_PARAMETERS_FEEDBACK_INFO_KHR");
 		case .VkPhysicalDeviceDiagnosticsConfigFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV");
 		case .VkDeviceDiagnosticsConfigCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV");
+		case .VkCudaModuleCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_CUDA_MODULE_CREATE_INFO_NV");
+		case .VkCudaFunctionCreateInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_CUDA_FUNCTION_CREATE_INFO_NV");
+		case .VkCudaLaunchInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_CUDA_LAUNCH_INFO_NV");
+		case .VkPhysicalDeviceCudaKernelLaunchFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_FEATURES_NV");
+		case .VkPhysicalDeviceCudaKernelLaunchPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUDA_KERNEL_LAUNCH_PROPERTIES_NV");
 		case .VkPhysicalDeviceTileShadingFeaturesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_FEATURES_QCOM");
 		case .VkPhysicalDeviceTileShadingPropertiesQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_SHADING_PROPERTIES_QCOM");
 		case .VkRenderPassTileShadingCreateInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_TILE_SHADING_CREATE_INFO_QCOM");
@@ -2239,6 +2292,18 @@ extension VkStructureType
 		case .VkPerTileEndInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_PER_TILE_END_INFO_QCOM");
 		case .VkDispatchTileInfoQCOM: strBuffer.Append("VK_STRUCTURE_TYPE_DISPATCH_TILE_INFO_QCOM");
 		case .VkQueryLowLatencySupportNV: strBuffer.Append("VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV");
+		case .VkExportMetalObjectCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECT_CREATE_INFO_EXT");
+		case .VkExportMetalObjectsInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECTS_INFO_EXT");
+		case .VkExportMetalDeviceInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_METAL_DEVICE_INFO_EXT");
+		case .VkExportMetalCommandQueueInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_METAL_COMMAND_QUEUE_INFO_EXT");
+		case .VkExportMetalBufferInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_METAL_BUFFER_INFO_EXT");
+		case .VkImportMetalBufferInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_METAL_BUFFER_INFO_EXT");
+		case .VkExportMetalTextureInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_METAL_TEXTURE_INFO_EXT");
+		case .VkImportMetalTextureInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_METAL_TEXTURE_INFO_EXT");
+		case .VkExportMetalIoSurfaceInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_METAL_IO_SURFACE_INFO_EXT");
+		case .VkImportMetalIoSurfaceInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_METAL_IO_SURFACE_INFO_EXT");
+		case .VkExportMetalSharedEventInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_EXPORT_METAL_SHARED_EVENT_INFO_EXT");
+		case .VkImportMetalSharedEventInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_METAL_SHARED_EVENT_INFO_EXT");
 		case .VkPhysicalDeviceDescriptorBufferPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES_EXT");
 		case .VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT");
 		case .VkPhysicalDeviceDescriptorBufferFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_FEATURES_EXT");
@@ -2281,6 +2346,7 @@ extension VkStructureType
 		case .VkDeviceFaultCountsEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEVICE_FAULT_COUNTS_EXT");
 		case .VkDeviceFaultInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_EXT");
 		case .VkPhysicalDeviceRgba10x6FormatsFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES_EXT");
+		case .VkDirectfbSurfaceCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_DIRECTFB_SURFACE_CREATE_INFO_EXT");
 		case .VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT");
 		case .VkVertexInputBindingDescription2EXT: strBuffer.Append("VK_STRUCTURE_TYPE_VERTEX_INPUT_BINDING_DESCRIPTION_2_EXT");
 		case .VkVertexInputAttributeDescription2EXT: strBuffer.Append("VK_STRUCTURE_TYPE_VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2_EXT");
@@ -2290,6 +2356,21 @@ extension VkStructureType
 		case .VkPhysicalDeviceDepthClipControlFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT");
 		case .VkPipelineViewportDepthClipControlCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT");
 		case .VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT");
+		case .VkImportMemoryZirconHandleInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_MEMORY_ZIRCON_HANDLE_INFO_FUCHSIA");
+		case .VkMemoryZirconHandlePropertiesFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_ZIRCON_HANDLE_PROPERTIES_FUCHSIA");
+		case .VkMemoryGetZirconHandleInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_GET_ZIRCON_HANDLE_INFO_FUCHSIA");
+		case .VkImportSemaphoreZirconHandleInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_ZIRCON_HANDLE_INFO_FUCHSIA");
+		case .VkSemaphoreGetZirconHandleInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_SEMAPHORE_GET_ZIRCON_HANDLE_INFO_FUCHSIA");
+		case .VkBufferCollectionCreateInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CREATE_INFO_FUCHSIA");
+		case .VkImportMemoryBufferCollectionFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_MEMORY_BUFFER_COLLECTION_FUCHSIA");
+		case .VkBufferCollectionImageCreateInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_BUFFER_COLLECTION_IMAGE_CREATE_INFO_FUCHSIA");
+		case .VkBufferCollectionPropertiesFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_BUFFER_COLLECTION_PROPERTIES_FUCHSIA");
+		case .VkBufferConstraintsInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_BUFFER_CONSTRAINTS_INFO_FUCHSIA");
+		case .VkBufferCollectionBufferCreateInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_BUFFER_COLLECTION_BUFFER_CREATE_INFO_FUCHSIA");
+		case .VkImageConstraintsInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_IMAGE_CONSTRAINTS_INFO_FUCHSIA");
+		case .VkImageFormatConstraintsInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_IMAGE_FORMAT_CONSTRAINTS_INFO_FUCHSIA");
+		case .VkSysmemColorSpaceFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_SYSMEM_COLOR_SPACE_FUCHSIA");
+		case .VkBufferCollectionConstraintsInfoFUCHSIA: strBuffer.Append("VK_STRUCTURE_TYPE_BUFFER_COLLECTION_CONSTRAINTS_INFO_FUCHSIA");
 		case .VkSubpassShadingPipelineCreateInfoHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI");
 		case .VkPhysicalDeviceSubpassShadingFeaturesHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI");
 		case .VkPhysicalDeviceSubpassShadingPropertiesHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI");
@@ -2304,6 +2385,7 @@ extension VkStructureType
 		case .VkSubpassResolvePerformanceQueryEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SUBPASS_RESOLVE_PERFORMANCE_QUERY_EXT");
 		case .VkMultisampledRenderToSingleSampledInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO_EXT");
 		case .VkPhysicalDeviceExtendedDynamicState2FeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES_EXT");
+		case .VkScreenSurfaceCreateInfoQNX: strBuffer.Append("VK_STRUCTURE_TYPE_SCREEN_SURFACE_CREATE_INFO_QNX");
 		case .VkPhysicalDeviceColorWriteEnableFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES_EXT");
 		case .VkPipelineColorWriteCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_COLOR_WRITE_CREATE_INFO_EXT");
 		case .VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES_EXT");
@@ -2325,6 +2407,9 @@ extension VkStructureType
 		case .VkMicromapCreateInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_MICROMAP_CREATE_INFO_EXT");
 		case .VkMicromapBuildSizesInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_MICROMAP_BUILD_SIZES_INFO_EXT");
 		case .VkAccelerationStructureTrianglesOpacityMicromapEXT: strBuffer.Append("VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT");
+		case .VkPhysicalDeviceDisplacementMicromapFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES_NV");
+		case .VkPhysicalDeviceDisplacementMicromapPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES_NV");
+		case .VkAccelerationStructureTrianglesDisplacementMicromapNV: strBuffer.Append("VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP_NV");
 		case .VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI");
 		case .VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI");
 		case .VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_VRS_FEATURES_HUAWEI");
@@ -2410,6 +2495,9 @@ extension VkStructureType
 		case .VkOpticalFlowExecuteInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_OPTICAL_FLOW_EXECUTE_INFO_NV");
 		case .VkOpticalFlowSessionCreatePrivateDataInfoNV: strBuffer.Append("VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV");
 		case .VkPhysicalDeviceLegacyDitheringFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT");
+		case .VkPhysicalDeviceExternalFormatResolveFeaturesANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES_ANDROID");
+		case .VkPhysicalDeviceExternalFormatResolvePropertiesANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES_ANDROID");
+		case .VkAndroidHardwareBufferFormatResolvePropertiesANDROID: strBuffer.Append("VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES_ANDROID");
 		case .VkPhysicalDeviceAntiLagFeaturesAMD: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ANTI_LAG_FEATURES_AMD");
 		case .VkAntiLagDataAMD: strBuffer.Append("VK_STRUCTURE_TYPE_ANTI_LAG_DATA_AMD");
 		case .VkAntiLagPresentationInfoAMD: strBuffer.Append("VK_STRUCTURE_TYPE_ANTI_LAG_PRESENTATION_INFO_AMD");
@@ -2535,6 +2623,11 @@ extension VkStructureType
 		case .VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES_EXT");
 		case .VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFIED_IMAGE_LAYOUTS_FEATURES_KHR");
 		case .VkAttachmentFeedbackLoopInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_ATTACHMENT_FEEDBACK_LOOP_INFO_EXT");
+		case .VkScreenBufferPropertiesQNX: strBuffer.Append("VK_STRUCTURE_TYPE_SCREEN_BUFFER_PROPERTIES_QNX");
+		case .VkScreenBufferFormatPropertiesQNX: strBuffer.Append("VK_STRUCTURE_TYPE_SCREEN_BUFFER_FORMAT_PROPERTIES_QNX");
+		case .VkImportScreenBufferInfoQNX: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_SCREEN_BUFFER_INFO_QNX");
+		case .VkExternalFormatQNX: strBuffer.Append("VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_QNX");
+		case .VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES_QNX");
 		case .VkPhysicalDeviceLayeredDriverPropertiesMSFT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT");
 		case .VkCalibratedTimestampInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_KHR");
 		case .VkSetDescriptorBufferOffsetsInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_SET_DESCRIPTOR_BUFFER_OFFSETS_INFO_EXT");
@@ -2620,12 +2713,16 @@ extension VkStructureType
 		case .VkVideoDecodeH264InlineSessionParametersInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_INLINE_SESSION_PARAMETERS_INFO_KHR");
 		case .VkVideoDecodeH265InlineSessionParametersInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_INLINE_SESSION_PARAMETERS_INFO_KHR");
 		case .VkVideoDecodeAv1InlineSessionParametersInfoKHR: strBuffer.Append("VK_STRUCTURE_TYPE_VIDEO_DECODE_AV1_INLINE_SESSION_PARAMETERS_INFO_KHR");
+		case .VkOhSurfaceCreateInfoOHOS: strBuffer.Append("VK_STRUCTURE_TYPE_OH_SURFACE_CREATE_INFO_OHOS");
 		case .VkPhysicalDeviceHdrVividFeaturesHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HDR_VIVID_FEATURES_HUAWEI");
 		case .VkHdrVividDynamicMetadataHUAWEI: strBuffer.Append("VK_STRUCTURE_TYPE_HDR_VIVID_DYNAMIC_METADATA_HUAWEI");
 		case .VkPhysicalDeviceCooperativeMatrix2FeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_FEATURES_NV");
 		case .VkCooperativeMatrixFlexibleDimensionsPropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_FLEXIBLE_DIMENSIONS_PROPERTIES_NV");
 		case .VkPhysicalDeviceCooperativeMatrix2PropertiesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_2_PROPERTIES_NV");
 		case .VkPhysicalDevicePipelineOpacityMicromapFeaturesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_OPACITY_MICROMAP_FEATURES_ARM");
+		case .VkImportMemoryMetalHandleInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_IMPORT_MEMORY_METAL_HANDLE_INFO_EXT");
+		case .VkMemoryMetalHandlePropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_METAL_HANDLE_PROPERTIES_EXT");
+		case .VkMemoryGetMetalHandleInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_MEMORY_GET_METAL_HANDLE_INFO_EXT");
 		case .VkPhysicalDeviceDepthClampZeroOneFeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_KHR");
 		case .VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_ROBUSTNESS_FEATURES_EXT");
 		case .VkPhysicalDeviceFormatPackFeaturesARM: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FORMAT_PACK_FEATURES_ARM");
@@ -2634,6 +2731,8 @@ extension VkStructureType
 		case .VkPipelineFragmentDensityMapLayeredCreateInfoVALVE: strBuffer.Append("VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_DENSITY_MAP_LAYERED_CREATE_INFO_VALVE");
 		case .VkPhysicalDeviceRobustness2FeaturesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_KHR");
 		case .VkPhysicalDeviceRobustness2PropertiesKHR: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_KHR");
+		case .VkSetPresentConfigNV: strBuffer.Append("VK_STRUCTURE_TYPE_SET_PRESENT_CONFIG_NV");
+		case .VkPhysicalDevicePresentMeteringFeaturesNV: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_METERING_FEATURES_NV");
 		case .VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_EXT");
 		case .VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT: strBuffer.Append("VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_EXT");
 		case .VkRenderPassFragmentDensityMapOffsetEndInfoEXT: strBuffer.Append("VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_EXT");
@@ -2955,6 +3054,9 @@ extension VkObjectType
 		case .PerformanceConfigurationINTEL: strBuffer.Append("VK_OBJECT_TYPE_PERFORMANCE_CONFIGURATION_INTEL");
 		case .DeferredOperationKHR: strBuffer.Append("VK_OBJECT_TYPE_DEFERRED_OPERATION_KHR");
 		case .IndirectCommandsLayoutNV: strBuffer.Append("VK_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NV");
+		case .CudaModuleNV: strBuffer.Append("VK_OBJECT_TYPE_CUDA_MODULE_NV");
+		case .CudaFunctionNV: strBuffer.Append("VK_OBJECT_TYPE_CUDA_FUNCTION_NV");
+		case .BufferCollectionFUCHSIA: strBuffer.Append("VK_OBJECT_TYPE_BUFFER_COLLECTION_FUCHSIA");
 		case .MicromapEXT: strBuffer.Append("VK_OBJECT_TYPE_MICROMAP_EXT");
 		case .TensorARM: strBuffer.Append("VK_OBJECT_TYPE_TENSOR_ARM");
 		case .TensorViewARM: strBuffer.Append("VK_OBJECT_TYPE_TENSOR_VIEW_ARM");
@@ -3242,6 +3344,7 @@ extension VkResolveModeFlagBits
 		case .Average: strBuffer.Append("VK_RESOLVE_MODE_AVERAGE_BIT");
 		case .Min: strBuffer.Append("VK_RESOLVE_MODE_MIN_BIT");
 		case .Max: strBuffer.Append("VK_RESOLVE_MODE_MAX_BIT");
+		case .ExternalFormatDownsampleANDROID: strBuffer.Append("VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_BIT_ANDROID");
 		default: Underlying.ToString(strBuffer);
 		}
 	}
@@ -3376,6 +3479,7 @@ extension VkBuildAccelerationStructureFlagBitsKHR
 		case .VkBuildAccelerationStructureAllowOpacityMicromapUpdateEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_BIT_EXT");
 		case .VkBuildAccelerationStructureAllowDisableOpacityMicromapsEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_BIT_EXT");
 		case .VkBuildAccelerationStructureAllowOpacityMicromapDataUpdateEXT: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_BIT_EXT");
+		case .VkBuildAccelerationStructureAllowDisplacementMicromapUpdateNV: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_BIT_NV");
 		case .AllowDataAccessKHR: strBuffer.Append("VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DATA_ACCESS_BIT_KHR");
 		default: Underlying.ToString(strBuffer);
 		}
@@ -4002,6 +4106,22 @@ extension VkHostImageCopyFlagBits
 	}
 }
 
+extension VkImageConstraintsInfoFlagBitsFUCHSIA
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CpuReadRarelyFUCHSIA: strBuffer.Append("VK_IMAGE_CONSTRAINTS_INFO_CPU_READ_RARELY_FUCHSIA");
+		case .CpuReadOftenFUCHSIA: strBuffer.Append("VK_IMAGE_CONSTRAINTS_INFO_CPU_READ_OFTEN_FUCHSIA");
+		case .CpuWriteRarelyFUCHSIA: strBuffer.Append("VK_IMAGE_CONSTRAINTS_INFO_CPU_WRITE_RARELY_FUCHSIA");
+		case .CpuWriteOftenFUCHSIA: strBuffer.Append("VK_IMAGE_CONSTRAINTS_INFO_CPU_WRITE_OFTEN_FUCHSIA");
+		case .ProtectedOptionalFUCHSIA: strBuffer.Append("VK_IMAGE_CONSTRAINTS_INFO_PROTECTED_OPTIONAL_FUCHSIA");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
+}
+
 extension VkFormatFeatureFlagBits2
 {
 	public override void ToString(String strBuffer)
@@ -4155,6 +4275,23 @@ extension VkImageCompressionFixedRateFlagBitsEXT
 	}
 }
 
+extension VkExportMetalObjectTypeFlagBitsEXT
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MetalDeviceEXT: strBuffer.Append("VK_EXPORT_METAL_OBJECT_TYPE_METAL_DEVICE_BIT_EXT");
+		case .MetalCommandQueueEXT: strBuffer.Append("VK_EXPORT_METAL_OBJECT_TYPE_METAL_COMMAND_QUEUE_BIT_EXT");
+		case .MetalBufferEXT: strBuffer.Append("VK_EXPORT_METAL_OBJECT_TYPE_METAL_BUFFER_BIT_EXT");
+		case .MetalTextureEXT: strBuffer.Append("VK_EXPORT_METAL_OBJECT_TYPE_METAL_TEXTURE_BIT_EXT");
+		case .MetalIosurfaceEXT: strBuffer.Append("VK_EXPORT_METAL_OBJECT_TYPE_METAL_IOSURFACE_BIT_EXT");
+		case .MetalSharedEventEXT: strBuffer.Append("VK_EXPORT_METAL_OBJECT_TYPE_METAL_SHARED_EVENT_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
+}
+
 extension VkPipelineRobustnessBufferBehavior
 {
 	public override void ToString(String strBuffer)
@@ -4217,6 +4354,7 @@ extension VkMicromapTypeEXT
 		switch (this)
 		{
 		case .OpacityMicromapEXT: strBuffer.Append("VK_MICROMAP_TYPE_OPACITY_MICROMAP_EXT");
+		case .VkMicromapTypeDisplacementMicromapNV: strBuffer.Append("VK_MICROMAP_TYPE_DISPLACEMENT_MICROMAP_NV");
 		default: Underlying.ToString(strBuffer);
 		}
 	}
@@ -4421,6 +4559,7 @@ extension VkPipelineCreateFlagBits2
 		case .EarlyReturnOnFailure: strBuffer.Append("VK_PIPELINE_CREATE_2_EARLY_RETURN_ON_FAILURE_BIT");
 		case .NoProtectedAccess: strBuffer.Append("VK_PIPELINE_CREATE_2_NO_PROTECTED_ACCESS_BIT");
 		case .ProtectedAccessOnly: strBuffer.Append("VK_PIPELINE_CREATE_2_PROTECTED_ACCESS_ONLY_BIT");
+		case .ExecutionGraphAMDX: strBuffer.Append("VK_PIPELINE_CREATE_2_EXECUTION_GRAPH_BIT_AMDX");
 		case .RayTracingAllowSpheresAndLinearSweptSpheresNV: strBuffer.Append("VK_PIPELINE_CREATE_2_RAY_TRACING_ALLOW_SPHERES_AND_LINEAR_SWEPT_SPHERES_BIT_NV");
 		case .EnableLegacyDitheringEXT: strBuffer.Append("VK_PIPELINE_CREATE_2_ENABLE_LEGACY_DITHERING_BIT_EXT");
 		case .DeferCompileNV: strBuffer.Append("VK_PIPELINE_CREATE_2_DEFER_COMPILE_BIT_NV");
@@ -4470,6 +4609,7 @@ extension VkBufferUsageFlagBits2
 		case .VertexBuffer: strBuffer.Append("VK_BUFFER_USAGE_2_VERTEX_BUFFER_BIT");
 		case .IndirectBuffer: strBuffer.Append("VK_BUFFER_USAGE_2_INDIRECT_BUFFER_BIT");
 		case .ShaderDeviceAddress: strBuffer.Append("VK_BUFFER_USAGE_2_SHADER_DEVICE_ADDRESS_BIT");
+		case .ExecutionGraphScratchAMDX: strBuffer.Append("VK_BUFFER_USAGE_2_EXECUTION_GRAPH_SCRATCH_BIT_AMDX");
 		case .ConditionalRenderingEXT: strBuffer.Append("VK_BUFFER_USAGE_2_CONDITIONAL_RENDERING_BIT_EXT");
 		case .ShaderBindingTableKHR: strBuffer.Append("VK_BUFFER_USAGE_2_SHADER_BINDING_TABLE_BIT_KHR");
 		case .TransformFeedbackBufferEXT: strBuffer.Append("VK_BUFFER_USAGE_2_TRANSFORM_FEEDBACK_BUFFER_BIT_EXT");
@@ -4545,6 +4685,20 @@ extension VkAntiLagStageAMD
 		{
 		case .InputAMD: strBuffer.Append("VK_ANTI_LAG_STAGE_INPUT_AMD");
 		case .PresentAMD: strBuffer.Append("VK_ANTI_LAG_STAGE_PRESENT_AMD");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
+}
+
+extension VkDisplacementMicromapFormatNV
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_64Triangles64BytesNV: strBuffer.Append("VK_DISPLACEMENT_MICROMAP_FORMAT_64_TRIANGLES_64_BYTES_NV");
+		case .VK_256Triangles128BytesNV: strBuffer.Append("VK_DISPLACEMENT_MICROMAP_FORMAT_256_TRIANGLES_128_BYTES_NV");
+		case .VK_1024Triangles128BytesNV: strBuffer.Append("VK_DISPLACEMENT_MICROMAP_FORMAT_1024_TRIANGLES_128_BYTES_NV");
 		default: Underlying.ToString(strBuffer);
 		}
 	}
@@ -5031,6 +5185,9 @@ extension VkDebugReportObjectTypeEXT
 		case .CuFunctionNvxEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_CU_FUNCTION_NVX_EXT");
 		case .AccelerationStructureKhrEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_KHR_EXT");
 		case .AccelerationStructureNvEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_ACCELERATION_STRUCTURE_NV_EXT");
+		case .CudaModuleNvEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_CUDA_MODULE_NV_EXT");
+		case .CudaFunctionNvEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_CUDA_FUNCTION_NV_EXT");
+		case .BufferCollectionFuchsiaEXT: strBuffer.Append("VK_DEBUG_REPORT_OBJECT_TYPE_BUFFER_COLLECTION_FUCHSIA_EXT");
 		default: Underlying.ToString(strBuffer);
 		}
 	}
@@ -5156,9 +5313,15 @@ extension VkExternalMemoryHandleTypeFlagBits
 		case .D3d12Heap: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_HEAP_BIT");
 		case .D3d12Resource: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D12_RESOURCE_BIT");
 		case .DmaBufEXT: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_DMA_BUF_BIT_EXT");
+		case .AndroidHardwareBufferANDROID: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_ANDROID_HARDWARE_BUFFER_BIT_ANDROID");
 		case .HostAllocationEXT: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_ALLOCATION_BIT_EXT");
 		case .HostMappedForeignMemoryEXT: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_HOST_MAPPED_FOREIGN_MEMORY_BIT_EXT");
+		case .ZirconVmoFUCHSIA: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_ZIRCON_VMO_BIT_FUCHSIA");
 		case .RdmaAddressNV: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_RDMA_ADDRESS_BIT_NV");
+		case .ScreenBufferQNX: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_SCREEN_BUFFER_BIT_QNX");
+		case .MtlbufferEXT: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLBUFFER_BIT_EXT");
+		case .MtltextureEXT: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLTEXTURE_BIT_EXT");
+		case .MtlheapEXT: strBuffer.Append("VK_EXTERNAL_MEMORY_HANDLE_TYPE_MTLHEAP_BIT_EXT");
 		default: Underlying.ToString(strBuffer);
 		}
 	}
@@ -5189,6 +5352,7 @@ extension VkExternalSemaphoreHandleTypeFlagBits
 		case .OpaqueWin32Kmt: strBuffer.Append("VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT");
 		case .D3d12Fence: strBuffer.Append("VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT");
 		case .SyncFd: strBuffer.Append("VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_SYNC_FD_BIT");
+		case .ZirconEventFUCHSIA: strBuffer.Append("VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_ZIRCON_EVENT_BIT_FUCHSIA");
 		default: Underlying.ToString(strBuffer);
 		}
 	}
@@ -5502,6 +5666,21 @@ extension VkDebugUtilsMessageTypeFlagBitsEXT
 		case .ValidationEXT: strBuffer.Append("VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT");
 		case .PerformanceEXT: strBuffer.Append("VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT");
 		case .DeviceAddressBindingEXT: strBuffer.Append("VK_DEBUG_UTILS_MESSAGE_TYPE_DEVICE_ADDRESS_BINDING_BIT_EXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
+}
+
+extension VkFullScreenExclusiveEXT
+{
+	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultEXT: strBuffer.Append("VK_FULL_SCREEN_EXCLUSIVE_DEFAULT_EXT");
+		case .AllowedEXT: strBuffer.Append("VK_FULL_SCREEN_EXCLUSIVE_ALLOWED_EXT");
+		case .DisallowedEXT: strBuffer.Append("VK_FULL_SCREEN_EXCLUSIVE_DISALLOWED_EXT");
+		case .ApplicationControlledEXT: strBuffer.Append("VK_FULL_SCREEN_EXCLUSIVE_APPLICATION_CONTROLLED_EXT");
 		default: Underlying.ToString(strBuffer);
 		}
 	}

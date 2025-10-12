@@ -11,12 +11,17 @@ class Program
 {
 	[CLink] static extern char8* getenv(char8*);
 
+	static HashSet<StringView> platformHandles = new .(16) ~ delete _;
 	static void WriteType(StringView type, String outString)
 	{
 		switch (type)
 		{
+		case "void": outString.Append("void");
 		case "char": outString.Append("c_char");
 		case "size_t": outString.Append("c_size");
+		case "int": outString.Append("c_int");
+		case "float": outString.Append("float");
+		case "double": outString.Append("double");
 		case "int8_t": outString.Append("int8");
 		case "int16_t": outString.Append("int16");
 		case "int32_t": outString.Append("int32");
@@ -25,7 +30,11 @@ class Program
 		case "uint16_t": outString.Append("uint16");
 		case "uint32_t": outString.Append("uint32");
 		case "uint64_t": outString.Append("uint64");
-		default: outString.Append(type);
+		case "DWORD": outString.Append("DWORD");
+		default:
+			if (!type.StartsWith("Vk") && !type.StartsWith("Std") && !type.StartsWith("PFN_vk"))
+				platformHandles.Add(type);
+			outString.Append(type);
 		}
 	}
 
@@ -96,7 +105,7 @@ class Program
 	{
 		if (type.EndsWith(']') || type.EndsWith('>') || type.StartsWith("VkExtent"))
 			outString.Append(" = .()");
-		else if (type.EndsWith('*') || handles.ContainsKey(type))
+		else if (type.EndsWith('*') || handles.ContainsKey(type) || platformHandles.Contains(type))
 			outString.Append(" = null");
 		else
 			outString.Append(" = 0");
@@ -153,7 +162,7 @@ class Program
 					}
 
 					if (((node case .Attribute("api", var apis) || node case .Attribute("supported", out apis)) && NotVulkan(apis))
-						|| (node case .OpeningTag && TagDepth.Back == "implicitexternsyncparams") || (node case .Attribute("platform", ?)))
+						|| (node case .OpeningTag && TagDepth.Back == "implicitexternsyncparams") /*|| (node case .Attribute("platform", ?))*/)
 					{
 						ignore = TagDepth.Back;
 						ignoreDepth = TagDepth.Count;
@@ -377,6 +386,9 @@ class Program
 
 				""");
 			DoFile(vk, entries, apiVersions);
+			vk.WriteLine();
+			for (let handle in platformHandles)
+				vk.Write($"typealias {handle} = void*;\n");
 		}
 
 		switch (Xml.Open!::(scope $"{vulkanSdk}/share/vulkan/registry/video.xml"))
@@ -913,13 +925,35 @@ class Program
 							{
 
 				""");
+			List<StringView> deps = scope .(8);
+			void EvalDeps(FeatureVisitor.Extension ext)
+			{
+				deps.Clear();
+				for (let dep in ext.dependencies.Split('+'))
+				{
+					StringView extDep = null;
+					for (var either in dep.Split(','))
+					{
+						either..TrimStart('(')..TrimEnd(')');
+						bool isVersion = either.StartsWith("VK_VERSION");
+						if (isVersion && extDep.IsNull)
+							extDep = either;
+						else if (!isVersion)
+						{
+							if (!extDep.IsNull && !extDep.StartsWith("VK_VERSION"))
+								deps.Add(extDep);
+							extDep = either;
+						}	
+					}
+					deps.Add(extDep);
+				}
+			}
 			for (let ext in featureVistor.extensions.Values)
 			{
 				if (ext.dependencies.IsEmpty) continue;
-				int depCount = 0;
-				for (ext.dependencies.Split('+')) depCount++;
+				EvalDeps(ext);
 				str.Append("\t\t\tcase .", ext.name, ": return ");
-				depCount.ToString(str);
+				deps.Count.ToString(str);
 				str.Append(";\n");
 			}
 			writer.Write(str); str.Clear();
@@ -935,34 +969,16 @@ class Program
 						{
 
 				""");
-			List<StringView> deps = scope .(8);
 			for (let ext in featureVistor.extensions.Values)
 			{
 				if (ext.dependencies.IsEmpty) continue;
-				deps.Clear();
-				for (let dep in ext.dependencies.Split('+'))
-				{
-					StringView extDep = null;
-					for (var either in dep.Split(','))
-					{
-						either..TrimStart('(')..TrimEnd(')');
-						bool isVersion = either.StartsWith("VK_VERSION");
-						if (isVersion && extDep.IsNull)
-							extDep = either;
-						else if (!isVersion)
-						{
-							if (extDep.IsNull || extDep.StartsWith("VK_VERSION"))
-								extDep = either;
-						}	
-					}
-					deps.Add(extDep);
-				}
 				str.Append("\t\tcase .", ext.name, """
 					:
 								switch (idx)
 								{
 
 					""");
+				EvalDeps(ext);
 				for (let dep in deps)
 				{
 					str.Append("\t\t\tcase ");
@@ -1416,8 +1432,8 @@ class Program
 
 						""");
 				}
-				ReturnResults("SuccessCodes", (metadata) => metadata.successcodes);
-				ReturnResults("ErrorCodes", (metadata) => metadata.errorcodes);
+				ReturnResults("SuccessCode", (metadata) => metadata.successcodes);
+				ReturnResults("ErrorCode", (metadata) => metadata.errorcodes);
 				void Values(StringView name, StringView type, function StringView(CommandEntry.Metadata) getValues)
 				{
 					str.Append("\n\tpublic ", type, " ", name, """

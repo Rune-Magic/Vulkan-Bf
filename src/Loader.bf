@@ -169,6 +169,8 @@ static
 	public static PFN_vkCmdNextSubpass vkCmdNextSubpass;
 	public static PFN_vkCmdEndRenderPass vkCmdEndRenderPass;
 	public static PFN_vkCmdExecuteCommands vkCmdExecuteCommands;
+	public static PFN_vkCreateAndroidSurfaceKHR vkCreateAndroidSurfaceKHR;
+	public static PFN_vkCreateSurfaceOHOS vkCreateSurfaceOHOS;
 	public static PFN_vkGetPhysicalDeviceDisplayPropertiesKHR vkGetPhysicalDeviceDisplayPropertiesKHR;
 	public static PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR vkGetPhysicalDeviceDisplayPlanePropertiesKHR;
 	public static PFN_vkGetDisplayPlaneSupportedDisplaysKHR vkGetDisplayPlaneSupportedDisplaysKHR;
@@ -187,6 +189,21 @@ static
 	public static PFN_vkGetSwapchainImagesKHR vkGetSwapchainImagesKHR;
 	public static PFN_vkAcquireNextImageKHR vkAcquireNextImageKHR;
 	public static PFN_vkQueuePresentKHR vkQueuePresentKHR;
+	public static PFN_vkCreateViSurfaceNN vkCreateViSurfaceNN;
+	public static PFN_vkCreateWaylandSurfaceKHR vkCreateWaylandSurfaceKHR;
+	public static PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR vkGetPhysicalDeviceWaylandPresentationSupportKHR;
+	public static PFN_vkCreateWin32SurfaceKHR vkCreateWin32SurfaceKHR;
+	public static PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR vkGetPhysicalDeviceWin32PresentationSupportKHR;
+	public static PFN_vkCreateXlibSurfaceKHR vkCreateXlibSurfaceKHR;
+	public static PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR vkGetPhysicalDeviceXlibPresentationSupportKHR;
+	public static PFN_vkCreateXcbSurfaceKHR vkCreateXcbSurfaceKHR;
+	public static PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR vkGetPhysicalDeviceXcbPresentationSupportKHR;
+	public static PFN_vkCreateDirectFBSurfaceEXT vkCreateDirectFBSurfaceEXT;
+	public static PFN_vkGetPhysicalDeviceDirectFBPresentationSupportEXT vkGetPhysicalDeviceDirectFBPresentationSupportEXT;
+	public static PFN_vkCreateImagePipeSurfaceFUCHSIA vkCreateImagePipeSurfaceFUCHSIA;
+	public static PFN_vkCreateStreamDescriptorSurfaceGGP vkCreateStreamDescriptorSurfaceGGP;
+	public static PFN_vkCreateScreenSurfaceQNX vkCreateScreenSurfaceQNX;
+	public static PFN_vkGetPhysicalDeviceScreenPresentationSupportQNX vkGetPhysicalDeviceScreenPresentationSupportQNX;
 	public static PFN_vkCreateDebugReportCallbackEXT vkCreateDebugReportCallbackEXT;
 	public static PFN_vkDestroyDebugReportCallbackEXT vkDestroyDebugReportCallbackEXT;
 	public static PFN_vkDebugReportMessageEXT vkDebugReportMessageEXT;
@@ -196,6 +213,7 @@ static
 	public static PFN_vkCmdDebugMarkerEndEXT vkCmdDebugMarkerEndEXT;
 	public static PFN_vkCmdDebugMarkerInsertEXT vkCmdDebugMarkerInsertEXT;
 	public static PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV vkGetPhysicalDeviceExternalImageFormatPropertiesNV;
+	public static PFN_vkGetMemoryWin32HandleNV vkGetMemoryWin32HandleNV;
 	public static PFN_vkCmdExecuteGeneratedCommandsNV vkCmdExecuteGeneratedCommandsNV;
 	public static PFN_vkCmdPreprocessGeneratedCommandsNV vkCmdPreprocessGeneratedCommandsNV;
 	public static PFN_vkCmdBindPipelineShaderGroupNV vkCmdBindPipelineShaderGroupNV;
@@ -221,16 +239,30 @@ static
 	public static PFN_vkCmdPushDescriptorSet vkCmdPushDescriptorSet;
 	public static PFN_vkTrimCommandPool vkTrimCommandPool;
 	public static PFN_vkGetPhysicalDeviceExternalBufferProperties vkGetPhysicalDeviceExternalBufferProperties;
+	public static PFN_vkGetMemoryWin32HandleKHR vkGetMemoryWin32HandleKHR;
+	public static PFN_vkGetMemoryWin32HandlePropertiesKHR vkGetMemoryWin32HandlePropertiesKHR;
 	public static PFN_vkGetMemoryFdKHR vkGetMemoryFdKHR;
 	public static PFN_vkGetMemoryFdPropertiesKHR vkGetMemoryFdPropertiesKHR;
+	public static PFN_vkGetMemoryZirconHandleFUCHSIA vkGetMemoryZirconHandleFUCHSIA;
+	public static PFN_vkGetMemoryZirconHandlePropertiesFUCHSIA vkGetMemoryZirconHandlePropertiesFUCHSIA;
 	public static PFN_vkGetMemoryRemoteAddressNV vkGetMemoryRemoteAddressNV;
 	public static PFN_vkGetPhysicalDeviceExternalSemaphoreProperties vkGetPhysicalDeviceExternalSemaphoreProperties;
+	public static PFN_vkGetSemaphoreWin32HandleKHR vkGetSemaphoreWin32HandleKHR;
+	public static PFN_vkImportSemaphoreWin32HandleKHR vkImportSemaphoreWin32HandleKHR;
 	public static PFN_vkGetSemaphoreFdKHR vkGetSemaphoreFdKHR;
 	public static PFN_vkImportSemaphoreFdKHR vkImportSemaphoreFdKHR;
+	public static PFN_vkGetSemaphoreZirconHandleFUCHSIA vkGetSemaphoreZirconHandleFUCHSIA;
+	public static PFN_vkImportSemaphoreZirconHandleFUCHSIA vkImportSemaphoreZirconHandleFUCHSIA;
 	public static PFN_vkGetPhysicalDeviceExternalFenceProperties vkGetPhysicalDeviceExternalFenceProperties;
+	public static PFN_vkGetFenceWin32HandleKHR vkGetFenceWin32HandleKHR;
+	public static PFN_vkImportFenceWin32HandleKHR vkImportFenceWin32HandleKHR;
 	public static PFN_vkGetFenceFdKHR vkGetFenceFdKHR;
 	public static PFN_vkImportFenceFdKHR vkImportFenceFdKHR;
 	public static PFN_vkReleaseDisplayEXT vkReleaseDisplayEXT;
+	public static PFN_vkAcquireXlibDisplayEXT vkAcquireXlibDisplayEXT;
+	public static PFN_vkGetRandROutputDisplayEXT vkGetRandROutputDisplayEXT;
+	public static PFN_vkAcquireWinrtDisplayNV vkAcquireWinrtDisplayNV;
+	public static PFN_vkGetWinrtDisplayNV vkGetWinrtDisplayNV;
 	public static PFN_vkDisplayPowerControlEXT vkDisplayPowerControlEXT;
 	public static PFN_vkRegisterDeviceEventEXT vkRegisterDeviceEventEXT;
 	public static PFN_vkRegisterDisplayEventEXT vkRegisterDisplayEventEXT;
@@ -254,6 +286,9 @@ static
 	public static PFN_vkGetSwapchainStatusKHR vkGetSwapchainStatusKHR;
 	public static PFN_vkGetRefreshCycleDurationGOOGLE vkGetRefreshCycleDurationGOOGLE;
 	public static PFN_vkGetPastPresentationTimingGOOGLE vkGetPastPresentationTimingGOOGLE;
+	public static PFN_vkCreateIOSSurfaceMVK vkCreateIOSSurfaceMVK;
+	public static PFN_vkCreateMacOSSurfaceMVK vkCreateMacOSSurfaceMVK;
+	public static PFN_vkCreateMetalSurfaceEXT vkCreateMetalSurfaceEXT;
 	public static PFN_vkCmdSetViewportWScalingNV vkCmdSetViewportWScalingNV;
 	public static PFN_vkCmdSetDiscardRectangleEXT vkCmdSetDiscardRectangleEXT;
 	public static PFN_vkCmdSetDiscardRectangleEnableEXT vkCmdSetDiscardRectangleEnableEXT;
@@ -304,6 +339,8 @@ static
 	public static PFN_vkGetSemaphoreCounterValue vkGetSemaphoreCounterValue;
 	public static PFN_vkWaitSemaphores vkWaitSemaphores;
 	public static PFN_vkSignalSemaphore vkSignalSemaphore;
+	public static PFN_vkGetAndroidHardwareBufferPropertiesANDROID vkGetAndroidHardwareBufferPropertiesANDROID;
+	public static PFN_vkGetMemoryAndroidHardwareBufferANDROID vkGetMemoryAndroidHardwareBufferANDROID;
 	public static PFN_vkCmdDrawIndirectCount vkCmdDrawIndirectCount;
 	public static PFN_vkCmdDrawIndexedIndirectCount vkCmdDrawIndexedIndirectCount;
 	public static PFN_vkCmdSetCheckpointNV vkCmdSetCheckpointNV;
@@ -361,6 +398,10 @@ static
 	public static PFN_vkGetImageViewHandleNVX vkGetImageViewHandleNVX;
 	public static PFN_vkGetImageViewHandle64NVX vkGetImageViewHandle64NVX;
 	public static PFN_vkGetImageViewAddressNVX vkGetImageViewAddressNVX;
+	public static PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT vkGetPhysicalDeviceSurfacePresentModes2EXT;
+	public static PFN_vkGetDeviceGroupSurfacePresentModes2EXT vkGetDeviceGroupSurfacePresentModes2EXT;
+	public static PFN_vkAcquireFullScreenExclusiveModeEXT vkAcquireFullScreenExclusiveModeEXT;
+	public static PFN_vkReleaseFullScreenExclusiveModeEXT vkReleaseFullScreenExclusiveModeEXT;
 	public static PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR;
 	public static PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR;
 	public static PFN_vkAcquireProfilingLockKHR vkAcquireProfilingLockKHR;
@@ -516,6 +557,17 @@ static
 	public static PFN_vkGetDrmDisplayEXT vkGetDrmDisplayEXT;
 	public static PFN_vkWaitForPresent2KHR vkWaitForPresent2KHR;
 	public static PFN_vkWaitForPresentKHR vkWaitForPresentKHR;
+	public static PFN_vkCreateBufferCollectionFUCHSIA vkCreateBufferCollectionFUCHSIA;
+	public static PFN_vkSetBufferCollectionBufferConstraintsFUCHSIA vkSetBufferCollectionBufferConstraintsFUCHSIA;
+	public static PFN_vkSetBufferCollectionImageConstraintsFUCHSIA vkSetBufferCollectionImageConstraintsFUCHSIA;
+	public static PFN_vkDestroyBufferCollectionFUCHSIA vkDestroyBufferCollectionFUCHSIA;
+	public static PFN_vkGetBufferCollectionPropertiesFUCHSIA vkGetBufferCollectionPropertiesFUCHSIA;
+	public static PFN_vkCreateCudaModuleNV vkCreateCudaModuleNV;
+	public static PFN_vkGetCudaModuleCacheNV vkGetCudaModuleCacheNV;
+	public static PFN_vkCreateCudaFunctionNV vkCreateCudaFunctionNV;
+	public static PFN_vkDestroyCudaModuleNV vkDestroyCudaModuleNV;
+	public static PFN_vkDestroyCudaFunctionNV vkDestroyCudaFunctionNV;
+	public static PFN_vkCmdCudaLaunchKernelNV vkCmdCudaLaunchKernelNV;
 	public static PFN_vkCmdBeginRendering vkCmdBeginRendering;
 	public static PFN_vkCmdEndRendering vkCmdEndRendering;
 	public static PFN_vkCmdEndRendering2EXT vkCmdEndRendering2EXT;
@@ -539,6 +591,7 @@ static
 	public static PFN_vkGetShaderModuleCreateInfoIdentifierEXT vkGetShaderModuleCreateInfoIdentifierEXT;
 	public static PFN_vkGetImageSubresourceLayout2 vkGetImageSubresourceLayout2;
 	public static PFN_vkGetPipelinePropertiesEXT vkGetPipelinePropertiesEXT;
+	public static PFN_vkExportMetalObjectsEXT vkExportMetalObjectsEXT;
 	public static PFN_vkCmdBindTileMemoryQCOM vkCmdBindTileMemoryQCOM;
 	public static PFN_vkGetFramebufferTilePropertiesQCOM vkGetFramebufferTilePropertiesQCOM;
 	public static PFN_vkGetDynamicRenderingTilePropertiesQCOM vkGetDynamicRenderingTilePropertiesQCOM;
@@ -557,7 +610,15 @@ static
 	public static PFN_vkDestroyShaderEXT vkDestroyShaderEXT;
 	public static PFN_vkGetShaderBinaryDataEXT vkGetShaderBinaryDataEXT;
 	public static PFN_vkCmdBindShadersEXT vkCmdBindShadersEXT;
+	public static PFN_vkGetScreenBufferPropertiesQNX vkGetScreenBufferPropertiesQNX;
 	public static PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR;
+	public static PFN_vkGetExecutionGraphPipelineScratchSizeAMDX vkGetExecutionGraphPipelineScratchSizeAMDX;
+	public static PFN_vkGetExecutionGraphPipelineNodeIndexAMDX vkGetExecutionGraphPipelineNodeIndexAMDX;
+	public static PFN_vkCreateExecutionGraphPipelinesAMDX vkCreateExecutionGraphPipelinesAMDX;
+	public static PFN_vkCmdInitializeGraphScratchMemoryAMDX vkCmdInitializeGraphScratchMemoryAMDX;
+	public static PFN_vkCmdDispatchGraphAMDX vkCmdDispatchGraphAMDX;
+	public static PFN_vkCmdDispatchGraphIndirectAMDX vkCmdDispatchGraphIndirectAMDX;
+	public static PFN_vkCmdDispatchGraphIndirectCountAMDX vkCmdDispatchGraphIndirectCountAMDX;
 	public static PFN_vkCmdBindDescriptorSets2 vkCmdBindDescriptorSets2;
 	public static PFN_vkCmdPushConstants2 vkCmdPushConstants2;
 	public static PFN_vkCmdPushDescriptorSet2 vkCmdPushDescriptorSet2;
@@ -573,6 +634,8 @@ static
 	public static PFN_vkCmdSetRenderingInputAttachmentIndices vkCmdSetRenderingInputAttachmentIndices;
 	public static PFN_vkCmdSetDepthClampRangeEXT vkCmdSetDepthClampRangeEXT;
 	public static PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV;
+	public static PFN_vkGetMemoryMetalHandleEXT vkGetMemoryMetalHandleEXT;
+	public static PFN_vkGetMemoryMetalHandlePropertiesEXT vkGetMemoryMetalHandlePropertiesEXT;
 	public static PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV vkGetPhysicalDeviceCooperativeVectorPropertiesNV;
 	public static PFN_vkConvertCooperativeVectorMatrixNV vkConvertCooperativeVectorMatrixNV;
 	public static PFN_vkCmdConvertCooperativeVectorMatrixNV vkCmdConvertCooperativeVectorMatrixNV;
@@ -632,6 +695,8 @@ extension VulkanLoader
 		vkEnumerateDeviceLayerProperties = (.)(void*)vkGetInstanceProcAddr(instance, "vkEnumerateDeviceLayerProperties");
 		vkEnumerateDeviceExtensionProperties = (.)(void*)vkGetInstanceProcAddr(instance, "vkEnumerateDeviceExtensionProperties");
 		vkGetPhysicalDeviceSparseImageFormatProperties = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceSparseImageFormatProperties");
+		vkCreateAndroidSurfaceKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateAndroidSurfaceKHR");
+		vkCreateSurfaceOHOS = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateSurfaceOHOS");
 		vkGetPhysicalDeviceDisplayPropertiesKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceDisplayPropertiesKHR");
 		vkGetPhysicalDeviceDisplayPlanePropertiesKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
 		vkGetDisplayPlaneSupportedDisplaysKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetDisplayPlaneSupportedDisplaysKHR");
@@ -644,6 +709,21 @@ extension VulkanLoader
 		vkGetPhysicalDeviceSurfaceCapabilitiesKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
 		vkGetPhysicalDeviceSurfaceFormatsKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceSurfaceFormatsKHR");
 		vkGetPhysicalDeviceSurfacePresentModesKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceSurfacePresentModesKHR");
+		vkCreateViSurfaceNN = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateViSurfaceNN");
+		vkCreateWaylandSurfaceKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateWaylandSurfaceKHR");
+		vkGetPhysicalDeviceWaylandPresentationSupportKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceWaylandPresentationSupportKHR");
+		vkCreateWin32SurfaceKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateWin32SurfaceKHR");
+		vkGetPhysicalDeviceWin32PresentationSupportKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceWin32PresentationSupportKHR");
+		vkCreateXlibSurfaceKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateXlibSurfaceKHR");
+		vkGetPhysicalDeviceXlibPresentationSupportKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceXlibPresentationSupportKHR");
+		vkCreateXcbSurfaceKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateXcbSurfaceKHR");
+		vkGetPhysicalDeviceXcbPresentationSupportKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceXcbPresentationSupportKHR");
+		vkCreateDirectFBSurfaceEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateDirectFBSurfaceEXT");
+		vkGetPhysicalDeviceDirectFBPresentationSupportEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceDirectFBPresentationSupportEXT");
+		vkCreateImagePipeSurfaceFUCHSIA = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateImagePipeSurfaceFUCHSIA");
+		vkCreateStreamDescriptorSurfaceGGP = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateStreamDescriptorSurfaceGGP");
+		vkCreateScreenSurfaceQNX = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateScreenSurfaceQNX");
+		vkGetPhysicalDeviceScreenPresentationSupportQNX = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceScreenPresentationSupportQNX");
 		vkCreateDebugReportCallbackEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateDebugReportCallbackEXT");
 		vkDestroyDebugReportCallbackEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkDestroyDebugReportCallbackEXT");
 		vkDebugReportMessageEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkDebugReportMessageEXT");
@@ -659,9 +739,16 @@ extension VulkanLoader
 		vkGetPhysicalDeviceExternalSemaphoreProperties = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceExternalSemaphoreProperties");
 		vkGetPhysicalDeviceExternalFenceProperties = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceExternalFenceProperties");
 		vkReleaseDisplayEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkReleaseDisplayEXT");
+		vkAcquireXlibDisplayEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkAcquireXlibDisplayEXT");
+		vkGetRandROutputDisplayEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetRandROutputDisplayEXT");
+		vkAcquireWinrtDisplayNV = (.)(void*)vkGetInstanceProcAddr(instance, "vkAcquireWinrtDisplayNV");
+		vkGetWinrtDisplayNV = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetWinrtDisplayNV");
 		vkGetPhysicalDeviceSurfaceCapabilities2EXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceSurfaceCapabilities2EXT");
 		vkEnumeratePhysicalDeviceGroups = (.)(void*)vkGetInstanceProcAddr(instance, "vkEnumeratePhysicalDeviceGroups");
 		vkGetPhysicalDevicePresentRectanglesKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDevicePresentRectanglesKHR");
+		vkCreateIOSSurfaceMVK = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateIOSSurfaceMVK");
+		vkCreateMacOSSurfaceMVK = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateMacOSSurfaceMVK");
+		vkCreateMetalSurfaceEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateMetalSurfaceEXT");
 		vkGetPhysicalDeviceMultisamplePropertiesEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceMultisamplePropertiesEXT");
 		vkGetPhysicalDeviceSurfaceCapabilities2KHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceSurfaceCapabilities2KHR");
 		vkGetPhysicalDeviceSurfaceFormats2KHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceSurfaceFormats2KHR");
@@ -674,6 +761,7 @@ extension VulkanLoader
 		vkDestroyDebugUtilsMessengerEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkDestroyDebugUtilsMessengerEXT");
 		vkSubmitDebugUtilsMessageEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkSubmitDebugUtilsMessageEXT");
 		vkGetPhysicalDeviceCooperativeMatrixPropertiesNV = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV");
+		vkGetPhysicalDeviceSurfacePresentModes2EXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceSurfacePresentModes2EXT");
 		vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR");
 		vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR = (.)(void*)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR");
 		vkCreateHeadlessSurfaceEXT = (.)(void*)vkGetInstanceProcAddr(instance, "vkCreateHeadlessSurfaceEXT");
@@ -846,6 +934,7 @@ extension VulkanLoader
 		vkCmdDebugMarkerBeginEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDebugMarkerBeginEXT");
 		vkCmdDebugMarkerEndEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDebugMarkerEndEXT");
 		vkCmdDebugMarkerInsertEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDebugMarkerInsertEXT");
+		vkGetMemoryWin32HandleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryWin32HandleNV");
 		vkCmdExecuteGeneratedCommandsNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdExecuteGeneratedCommandsNV");
 		vkCmdPreprocessGeneratedCommandsNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdPreprocessGeneratedCommandsNV");
 		vkCmdBindPipelineShaderGroupNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindPipelineShaderGroupNV");
@@ -863,11 +952,21 @@ extension VulkanLoader
 		vkUpdateIndirectExecutionSetShaderEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkUpdateIndirectExecutionSetShaderEXT");
 		vkCmdPushDescriptorSet = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdPushDescriptorSet");
 		vkTrimCommandPool = (.)(void*)vkGetDeviceProcAddr(device, "vkTrimCommandPool");
+		vkGetMemoryWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryWin32HandleKHR");
+		vkGetMemoryWin32HandlePropertiesKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryWin32HandlePropertiesKHR");
 		vkGetMemoryFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryFdKHR");
 		vkGetMemoryFdPropertiesKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryFdPropertiesKHR");
+		vkGetMemoryZirconHandleFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryZirconHandleFUCHSIA");
+		vkGetMemoryZirconHandlePropertiesFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryZirconHandlePropertiesFUCHSIA");
 		vkGetMemoryRemoteAddressNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryRemoteAddressNV");
+		vkGetSemaphoreWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSemaphoreWin32HandleKHR");
+		vkImportSemaphoreWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkImportSemaphoreWin32HandleKHR");
 		vkGetSemaphoreFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSemaphoreFdKHR");
 		vkImportSemaphoreFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkImportSemaphoreFdKHR");
+		vkGetSemaphoreZirconHandleFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSemaphoreZirconHandleFUCHSIA");
+		vkImportSemaphoreZirconHandleFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkImportSemaphoreZirconHandleFUCHSIA");
+		vkGetFenceWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetFenceWin32HandleKHR");
+		vkImportFenceWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkImportFenceWin32HandleKHR");
 		vkGetFenceFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetFenceFdKHR");
 		vkImportFenceFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkImportFenceFdKHR");
 		vkDisplayPowerControlEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkDisplayPowerControlEXT");
@@ -929,6 +1028,8 @@ extension VulkanLoader
 		vkGetSemaphoreCounterValue = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSemaphoreCounterValue");
 		vkWaitSemaphores = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitSemaphores");
 		vkSignalSemaphore = (.)(void*)vkGetDeviceProcAddr(device, "vkSignalSemaphore");
+		vkGetAndroidHardwareBufferPropertiesANDROID = (.)(void*)vkGetDeviceProcAddr(device, "vkGetAndroidHardwareBufferPropertiesANDROID");
+		vkGetMemoryAndroidHardwareBufferANDROID = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryAndroidHardwareBufferANDROID");
 		vkCmdDrawIndirectCount = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDrawIndirectCount");
 		vkCmdDrawIndexedIndirectCount = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDrawIndexedIndirectCount");
 		vkCmdSetCheckpointNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetCheckpointNV");
@@ -985,6 +1086,9 @@ extension VulkanLoader
 		vkGetImageViewHandleNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageViewHandleNVX");
 		vkGetImageViewHandle64NVX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageViewHandle64NVX");
 		vkGetImageViewAddressNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageViewAddressNVX");
+		vkGetDeviceGroupSurfacePresentModes2EXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceGroupSurfacePresentModes2EXT");
+		vkAcquireFullScreenExclusiveModeEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkAcquireFullScreenExclusiveModeEXT");
+		vkReleaseFullScreenExclusiveModeEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkReleaseFullScreenExclusiveModeEXT");
 		vkAcquireProfilingLockKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkAcquireProfilingLockKHR");
 		vkReleaseProfilingLockKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkReleaseProfilingLockKHR");
 		vkGetImageDrmFormatModifierPropertiesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageDrmFormatModifierPropertiesEXT");
@@ -1129,6 +1233,17 @@ extension VulkanLoader
 		vkSetDeviceMemoryPriorityEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkSetDeviceMemoryPriorityEXT");
 		vkWaitForPresent2KHR = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitForPresent2KHR");
 		vkWaitForPresentKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitForPresentKHR");
+		vkCreateBufferCollectionFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateBufferCollectionFUCHSIA");
+		vkSetBufferCollectionBufferConstraintsFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkSetBufferCollectionBufferConstraintsFUCHSIA");
+		vkSetBufferCollectionImageConstraintsFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkSetBufferCollectionImageConstraintsFUCHSIA");
+		vkDestroyBufferCollectionFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyBufferCollectionFUCHSIA");
+		vkGetBufferCollectionPropertiesFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkGetBufferCollectionPropertiesFUCHSIA");
+		vkCreateCudaModuleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCudaModuleNV");
+		vkGetCudaModuleCacheNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetCudaModuleCacheNV");
+		vkCreateCudaFunctionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCudaFunctionNV");
+		vkDestroyCudaModuleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCudaModuleNV");
+		vkDestroyCudaFunctionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCudaFunctionNV");
+		vkCmdCudaLaunchKernelNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdCudaLaunchKernelNV");
 		vkCmdBeginRendering = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBeginRendering");
 		vkCmdEndRendering = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndRendering");
 		vkCmdEndRendering2EXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndRendering2EXT");
@@ -1152,6 +1267,7 @@ extension VulkanLoader
 		vkGetShaderModuleCreateInfoIdentifierEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetShaderModuleCreateInfoIdentifierEXT");
 		vkGetImageSubresourceLayout2 = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageSubresourceLayout2");
 		vkGetPipelinePropertiesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetPipelinePropertiesEXT");
+		vkExportMetalObjectsEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkExportMetalObjectsEXT");
 		vkCmdBindTileMemoryQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindTileMemoryQCOM");
 		vkGetFramebufferTilePropertiesQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetFramebufferTilePropertiesQCOM");
 		vkGetDynamicRenderingTilePropertiesQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDynamicRenderingTilePropertiesQCOM");
@@ -1169,6 +1285,14 @@ extension VulkanLoader
 		vkDestroyShaderEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyShaderEXT");
 		vkGetShaderBinaryDataEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetShaderBinaryDataEXT");
 		vkCmdBindShadersEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindShadersEXT");
+		vkGetScreenBufferPropertiesQNX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetScreenBufferPropertiesQNX");
+		vkGetExecutionGraphPipelineScratchSizeAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetExecutionGraphPipelineScratchSizeAMDX");
+		vkGetExecutionGraphPipelineNodeIndexAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetExecutionGraphPipelineNodeIndexAMDX");
+		vkCreateExecutionGraphPipelinesAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateExecutionGraphPipelinesAMDX");
+		vkCmdInitializeGraphScratchMemoryAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdInitializeGraphScratchMemoryAMDX");
+		vkCmdDispatchGraphAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchGraphAMDX");
+		vkCmdDispatchGraphIndirectAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchGraphIndirectAMDX");
+		vkCmdDispatchGraphIndirectCountAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchGraphIndirectCountAMDX");
 		vkCmdBindDescriptorSets2 = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindDescriptorSets2");
 		vkCmdPushConstants2 = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdPushConstants2");
 		vkCmdPushDescriptorSet2 = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdPushDescriptorSet2");
@@ -1183,6 +1307,8 @@ extension VulkanLoader
 		vkCmdSetRenderingAttachmentLocations = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRenderingAttachmentLocations");
 		vkCmdSetRenderingInputAttachmentIndices = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRenderingInputAttachmentIndices");
 		vkCmdSetDepthClampRangeEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetDepthClampRangeEXT");
+		vkGetMemoryMetalHandleEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryMetalHandleEXT");
+		vkGetMemoryMetalHandlePropertiesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryMetalHandlePropertiesEXT");
 		vkConvertCooperativeVectorMatrixNV = (.)(void*)vkGetDeviceProcAddr(device, "vkConvertCooperativeVectorMatrixNV");
 		vkCmdConvertCooperativeVectorMatrixNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdConvertCooperativeVectorMatrixNV");
 		vkCmdDispatchTileQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchTileQCOM");
@@ -1365,6 +1491,7 @@ struct VulkanDeviceTable
 	public PFN_vkCmdDebugMarkerBeginEXT vkCmdDebugMarkerBeginEXT;
 	public PFN_vkCmdDebugMarkerEndEXT vkCmdDebugMarkerEndEXT;
 	public PFN_vkCmdDebugMarkerInsertEXT vkCmdDebugMarkerInsertEXT;
+	public PFN_vkGetMemoryWin32HandleNV vkGetMemoryWin32HandleNV;
 	public PFN_vkCmdExecuteGeneratedCommandsNV vkCmdExecuteGeneratedCommandsNV;
 	public PFN_vkCmdPreprocessGeneratedCommandsNV vkCmdPreprocessGeneratedCommandsNV;
 	public PFN_vkCmdBindPipelineShaderGroupNV vkCmdBindPipelineShaderGroupNV;
@@ -1382,11 +1509,21 @@ struct VulkanDeviceTable
 	public PFN_vkUpdateIndirectExecutionSetShaderEXT vkUpdateIndirectExecutionSetShaderEXT;
 	public PFN_vkCmdPushDescriptorSet vkCmdPushDescriptorSet;
 	public PFN_vkTrimCommandPool vkTrimCommandPool;
+	public PFN_vkGetMemoryWin32HandleKHR vkGetMemoryWin32HandleKHR;
+	public PFN_vkGetMemoryWin32HandlePropertiesKHR vkGetMemoryWin32HandlePropertiesKHR;
 	public PFN_vkGetMemoryFdKHR vkGetMemoryFdKHR;
 	public PFN_vkGetMemoryFdPropertiesKHR vkGetMemoryFdPropertiesKHR;
+	public PFN_vkGetMemoryZirconHandleFUCHSIA vkGetMemoryZirconHandleFUCHSIA;
+	public PFN_vkGetMemoryZirconHandlePropertiesFUCHSIA vkGetMemoryZirconHandlePropertiesFUCHSIA;
 	public PFN_vkGetMemoryRemoteAddressNV vkGetMemoryRemoteAddressNV;
+	public PFN_vkGetSemaphoreWin32HandleKHR vkGetSemaphoreWin32HandleKHR;
+	public PFN_vkImportSemaphoreWin32HandleKHR vkImportSemaphoreWin32HandleKHR;
 	public PFN_vkGetSemaphoreFdKHR vkGetSemaphoreFdKHR;
 	public PFN_vkImportSemaphoreFdKHR vkImportSemaphoreFdKHR;
+	public PFN_vkGetSemaphoreZirconHandleFUCHSIA vkGetSemaphoreZirconHandleFUCHSIA;
+	public PFN_vkImportSemaphoreZirconHandleFUCHSIA vkImportSemaphoreZirconHandleFUCHSIA;
+	public PFN_vkGetFenceWin32HandleKHR vkGetFenceWin32HandleKHR;
+	public PFN_vkImportFenceWin32HandleKHR vkImportFenceWin32HandleKHR;
 	public PFN_vkGetFenceFdKHR vkGetFenceFdKHR;
 	public PFN_vkImportFenceFdKHR vkImportFenceFdKHR;
 	public PFN_vkDisplayPowerControlEXT vkDisplayPowerControlEXT;
@@ -1448,6 +1585,8 @@ struct VulkanDeviceTable
 	public PFN_vkGetSemaphoreCounterValue vkGetSemaphoreCounterValue;
 	public PFN_vkWaitSemaphores vkWaitSemaphores;
 	public PFN_vkSignalSemaphore vkSignalSemaphore;
+	public PFN_vkGetAndroidHardwareBufferPropertiesANDROID vkGetAndroidHardwareBufferPropertiesANDROID;
+	public PFN_vkGetMemoryAndroidHardwareBufferANDROID vkGetMemoryAndroidHardwareBufferANDROID;
 	public PFN_vkCmdDrawIndirectCount vkCmdDrawIndirectCount;
 	public PFN_vkCmdDrawIndexedIndirectCount vkCmdDrawIndexedIndirectCount;
 	public PFN_vkCmdSetCheckpointNV vkCmdSetCheckpointNV;
@@ -1504,6 +1643,9 @@ struct VulkanDeviceTable
 	public PFN_vkGetImageViewHandleNVX vkGetImageViewHandleNVX;
 	public PFN_vkGetImageViewHandle64NVX vkGetImageViewHandle64NVX;
 	public PFN_vkGetImageViewAddressNVX vkGetImageViewAddressNVX;
+	public PFN_vkGetDeviceGroupSurfacePresentModes2EXT vkGetDeviceGroupSurfacePresentModes2EXT;
+	public PFN_vkAcquireFullScreenExclusiveModeEXT vkAcquireFullScreenExclusiveModeEXT;
+	public PFN_vkReleaseFullScreenExclusiveModeEXT vkReleaseFullScreenExclusiveModeEXT;
 	public PFN_vkAcquireProfilingLockKHR vkAcquireProfilingLockKHR;
 	public PFN_vkReleaseProfilingLockKHR vkReleaseProfilingLockKHR;
 	public PFN_vkGetImageDrmFormatModifierPropertiesEXT vkGetImageDrmFormatModifierPropertiesEXT;
@@ -1648,6 +1790,17 @@ struct VulkanDeviceTable
 	public PFN_vkSetDeviceMemoryPriorityEXT vkSetDeviceMemoryPriorityEXT;
 	public PFN_vkWaitForPresent2KHR vkWaitForPresent2KHR;
 	public PFN_vkWaitForPresentKHR vkWaitForPresentKHR;
+	public PFN_vkCreateBufferCollectionFUCHSIA vkCreateBufferCollectionFUCHSIA;
+	public PFN_vkSetBufferCollectionBufferConstraintsFUCHSIA vkSetBufferCollectionBufferConstraintsFUCHSIA;
+	public PFN_vkSetBufferCollectionImageConstraintsFUCHSIA vkSetBufferCollectionImageConstraintsFUCHSIA;
+	public PFN_vkDestroyBufferCollectionFUCHSIA vkDestroyBufferCollectionFUCHSIA;
+	public PFN_vkGetBufferCollectionPropertiesFUCHSIA vkGetBufferCollectionPropertiesFUCHSIA;
+	public PFN_vkCreateCudaModuleNV vkCreateCudaModuleNV;
+	public PFN_vkGetCudaModuleCacheNV vkGetCudaModuleCacheNV;
+	public PFN_vkCreateCudaFunctionNV vkCreateCudaFunctionNV;
+	public PFN_vkDestroyCudaModuleNV vkDestroyCudaModuleNV;
+	public PFN_vkDestroyCudaFunctionNV vkDestroyCudaFunctionNV;
+	public PFN_vkCmdCudaLaunchKernelNV vkCmdCudaLaunchKernelNV;
 	public PFN_vkCmdBeginRendering vkCmdBeginRendering;
 	public PFN_vkCmdEndRendering vkCmdEndRendering;
 	public PFN_vkCmdEndRendering2EXT vkCmdEndRendering2EXT;
@@ -1671,6 +1824,7 @@ struct VulkanDeviceTable
 	public PFN_vkGetShaderModuleCreateInfoIdentifierEXT vkGetShaderModuleCreateInfoIdentifierEXT;
 	public PFN_vkGetImageSubresourceLayout2 vkGetImageSubresourceLayout2;
 	public PFN_vkGetPipelinePropertiesEXT vkGetPipelinePropertiesEXT;
+	public PFN_vkExportMetalObjectsEXT vkExportMetalObjectsEXT;
 	public PFN_vkCmdBindTileMemoryQCOM vkCmdBindTileMemoryQCOM;
 	public PFN_vkGetFramebufferTilePropertiesQCOM vkGetFramebufferTilePropertiesQCOM;
 	public PFN_vkGetDynamicRenderingTilePropertiesQCOM vkGetDynamicRenderingTilePropertiesQCOM;
@@ -1688,6 +1842,14 @@ struct VulkanDeviceTable
 	public PFN_vkDestroyShaderEXT vkDestroyShaderEXT;
 	public PFN_vkGetShaderBinaryDataEXT vkGetShaderBinaryDataEXT;
 	public PFN_vkCmdBindShadersEXT vkCmdBindShadersEXT;
+	public PFN_vkGetScreenBufferPropertiesQNX vkGetScreenBufferPropertiesQNX;
+	public PFN_vkGetExecutionGraphPipelineScratchSizeAMDX vkGetExecutionGraphPipelineScratchSizeAMDX;
+	public PFN_vkGetExecutionGraphPipelineNodeIndexAMDX vkGetExecutionGraphPipelineNodeIndexAMDX;
+	public PFN_vkCreateExecutionGraphPipelinesAMDX vkCreateExecutionGraphPipelinesAMDX;
+	public PFN_vkCmdInitializeGraphScratchMemoryAMDX vkCmdInitializeGraphScratchMemoryAMDX;
+	public PFN_vkCmdDispatchGraphAMDX vkCmdDispatchGraphAMDX;
+	public PFN_vkCmdDispatchGraphIndirectAMDX vkCmdDispatchGraphIndirectAMDX;
+	public PFN_vkCmdDispatchGraphIndirectCountAMDX vkCmdDispatchGraphIndirectCountAMDX;
 	public PFN_vkCmdBindDescriptorSets2 vkCmdBindDescriptorSets2;
 	public PFN_vkCmdPushConstants2 vkCmdPushConstants2;
 	public PFN_vkCmdPushDescriptorSet2 vkCmdPushDescriptorSet2;
@@ -1702,6 +1864,8 @@ struct VulkanDeviceTable
 	public PFN_vkCmdSetRenderingAttachmentLocations vkCmdSetRenderingAttachmentLocations;
 	public PFN_vkCmdSetRenderingInputAttachmentIndices vkCmdSetRenderingInputAttachmentIndices;
 	public PFN_vkCmdSetDepthClampRangeEXT vkCmdSetDepthClampRangeEXT;
+	public PFN_vkGetMemoryMetalHandleEXT vkGetMemoryMetalHandleEXT;
+	public PFN_vkGetMemoryMetalHandlePropertiesEXT vkGetMemoryMetalHandlePropertiesEXT;
 	public PFN_vkConvertCooperativeVectorMatrixNV vkConvertCooperativeVectorMatrixNV;
 	public PFN_vkCmdConvertCooperativeVectorMatrixNV vkCmdConvertCooperativeVectorMatrixNV;
 	public PFN_vkCmdDispatchTileQCOM vkCmdDispatchTileQCOM;
@@ -1882,6 +2046,7 @@ struct VulkanDeviceTable
 		vkCmdDebugMarkerBeginEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDebugMarkerBeginEXT");
 		vkCmdDebugMarkerEndEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDebugMarkerEndEXT");
 		vkCmdDebugMarkerInsertEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDebugMarkerInsertEXT");
+		vkGetMemoryWin32HandleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryWin32HandleNV");
 		vkCmdExecuteGeneratedCommandsNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdExecuteGeneratedCommandsNV");
 		vkCmdPreprocessGeneratedCommandsNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdPreprocessGeneratedCommandsNV");
 		vkCmdBindPipelineShaderGroupNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindPipelineShaderGroupNV");
@@ -1899,11 +2064,21 @@ struct VulkanDeviceTable
 		vkUpdateIndirectExecutionSetShaderEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkUpdateIndirectExecutionSetShaderEXT");
 		vkCmdPushDescriptorSet = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdPushDescriptorSet");
 		vkTrimCommandPool = (.)(void*)vkGetDeviceProcAddr(device, "vkTrimCommandPool");
+		vkGetMemoryWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryWin32HandleKHR");
+		vkGetMemoryWin32HandlePropertiesKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryWin32HandlePropertiesKHR");
 		vkGetMemoryFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryFdKHR");
 		vkGetMemoryFdPropertiesKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryFdPropertiesKHR");
+		vkGetMemoryZirconHandleFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryZirconHandleFUCHSIA");
+		vkGetMemoryZirconHandlePropertiesFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryZirconHandlePropertiesFUCHSIA");
 		vkGetMemoryRemoteAddressNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryRemoteAddressNV");
+		vkGetSemaphoreWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSemaphoreWin32HandleKHR");
+		vkImportSemaphoreWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkImportSemaphoreWin32HandleKHR");
 		vkGetSemaphoreFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSemaphoreFdKHR");
 		vkImportSemaphoreFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkImportSemaphoreFdKHR");
+		vkGetSemaphoreZirconHandleFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSemaphoreZirconHandleFUCHSIA");
+		vkImportSemaphoreZirconHandleFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkImportSemaphoreZirconHandleFUCHSIA");
+		vkGetFenceWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetFenceWin32HandleKHR");
+		vkImportFenceWin32HandleKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkImportFenceWin32HandleKHR");
 		vkGetFenceFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkGetFenceFdKHR");
 		vkImportFenceFdKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkImportFenceFdKHR");
 		vkDisplayPowerControlEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkDisplayPowerControlEXT");
@@ -1965,6 +2140,8 @@ struct VulkanDeviceTable
 		vkGetSemaphoreCounterValue = (.)(void*)vkGetDeviceProcAddr(device, "vkGetSemaphoreCounterValue");
 		vkWaitSemaphores = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitSemaphores");
 		vkSignalSemaphore = (.)(void*)vkGetDeviceProcAddr(device, "vkSignalSemaphore");
+		vkGetAndroidHardwareBufferPropertiesANDROID = (.)(void*)vkGetDeviceProcAddr(device, "vkGetAndroidHardwareBufferPropertiesANDROID");
+		vkGetMemoryAndroidHardwareBufferANDROID = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryAndroidHardwareBufferANDROID");
 		vkCmdDrawIndirectCount = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDrawIndirectCount");
 		vkCmdDrawIndexedIndirectCount = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDrawIndexedIndirectCount");
 		vkCmdSetCheckpointNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetCheckpointNV");
@@ -2021,6 +2198,9 @@ struct VulkanDeviceTable
 		vkGetImageViewHandleNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageViewHandleNVX");
 		vkGetImageViewHandle64NVX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageViewHandle64NVX");
 		vkGetImageViewAddressNVX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageViewAddressNVX");
+		vkGetDeviceGroupSurfacePresentModes2EXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDeviceGroupSurfacePresentModes2EXT");
+		vkAcquireFullScreenExclusiveModeEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkAcquireFullScreenExclusiveModeEXT");
+		vkReleaseFullScreenExclusiveModeEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkReleaseFullScreenExclusiveModeEXT");
 		vkAcquireProfilingLockKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkAcquireProfilingLockKHR");
 		vkReleaseProfilingLockKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkReleaseProfilingLockKHR");
 		vkGetImageDrmFormatModifierPropertiesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageDrmFormatModifierPropertiesEXT");
@@ -2165,6 +2345,17 @@ struct VulkanDeviceTable
 		vkSetDeviceMemoryPriorityEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkSetDeviceMemoryPriorityEXT");
 		vkWaitForPresent2KHR = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitForPresent2KHR");
 		vkWaitForPresentKHR = (.)(void*)vkGetDeviceProcAddr(device, "vkWaitForPresentKHR");
+		vkCreateBufferCollectionFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateBufferCollectionFUCHSIA");
+		vkSetBufferCollectionBufferConstraintsFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkSetBufferCollectionBufferConstraintsFUCHSIA");
+		vkSetBufferCollectionImageConstraintsFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkSetBufferCollectionImageConstraintsFUCHSIA");
+		vkDestroyBufferCollectionFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyBufferCollectionFUCHSIA");
+		vkGetBufferCollectionPropertiesFUCHSIA = (.)(void*)vkGetDeviceProcAddr(device, "vkGetBufferCollectionPropertiesFUCHSIA");
+		vkCreateCudaModuleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCudaModuleNV");
+		vkGetCudaModuleCacheNV = (.)(void*)vkGetDeviceProcAddr(device, "vkGetCudaModuleCacheNV");
+		vkCreateCudaFunctionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateCudaFunctionNV");
+		vkDestroyCudaModuleNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCudaModuleNV");
+		vkDestroyCudaFunctionNV = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyCudaFunctionNV");
+		vkCmdCudaLaunchKernelNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdCudaLaunchKernelNV");
 		vkCmdBeginRendering = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBeginRendering");
 		vkCmdEndRendering = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndRendering");
 		vkCmdEndRendering2EXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdEndRendering2EXT");
@@ -2188,6 +2379,7 @@ struct VulkanDeviceTable
 		vkGetShaderModuleCreateInfoIdentifierEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetShaderModuleCreateInfoIdentifierEXT");
 		vkGetImageSubresourceLayout2 = (.)(void*)vkGetDeviceProcAddr(device, "vkGetImageSubresourceLayout2");
 		vkGetPipelinePropertiesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetPipelinePropertiesEXT");
+		vkExportMetalObjectsEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkExportMetalObjectsEXT");
 		vkCmdBindTileMemoryQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindTileMemoryQCOM");
 		vkGetFramebufferTilePropertiesQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetFramebufferTilePropertiesQCOM");
 		vkGetDynamicRenderingTilePropertiesQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkGetDynamicRenderingTilePropertiesQCOM");
@@ -2205,6 +2397,14 @@ struct VulkanDeviceTable
 		vkDestroyShaderEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkDestroyShaderEXT");
 		vkGetShaderBinaryDataEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetShaderBinaryDataEXT");
 		vkCmdBindShadersEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindShadersEXT");
+		vkGetScreenBufferPropertiesQNX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetScreenBufferPropertiesQNX");
+		vkGetExecutionGraphPipelineScratchSizeAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetExecutionGraphPipelineScratchSizeAMDX");
+		vkGetExecutionGraphPipelineNodeIndexAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkGetExecutionGraphPipelineNodeIndexAMDX");
+		vkCreateExecutionGraphPipelinesAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCreateExecutionGraphPipelinesAMDX");
+		vkCmdInitializeGraphScratchMemoryAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdInitializeGraphScratchMemoryAMDX");
+		vkCmdDispatchGraphAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchGraphAMDX");
+		vkCmdDispatchGraphIndirectAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchGraphIndirectAMDX");
+		vkCmdDispatchGraphIndirectCountAMDX = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchGraphIndirectCountAMDX");
 		vkCmdBindDescriptorSets2 = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdBindDescriptorSets2");
 		vkCmdPushConstants2 = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdPushConstants2");
 		vkCmdPushDescriptorSet2 = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdPushDescriptorSet2");
@@ -2219,6 +2419,8 @@ struct VulkanDeviceTable
 		vkCmdSetRenderingAttachmentLocations = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRenderingAttachmentLocations");
 		vkCmdSetRenderingInputAttachmentIndices = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetRenderingInputAttachmentIndices");
 		vkCmdSetDepthClampRangeEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdSetDepthClampRangeEXT");
+		vkGetMemoryMetalHandleEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryMetalHandleEXT");
+		vkGetMemoryMetalHandlePropertiesEXT = (.)(void*)vkGetDeviceProcAddr(device, "vkGetMemoryMetalHandlePropertiesEXT");
 		vkConvertCooperativeVectorMatrixNV = (.)(void*)vkGetDeviceProcAddr(device, "vkConvertCooperativeVectorMatrixNV");
 		vkCmdConvertCooperativeVectorMatrixNV = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdConvertCooperativeVectorMatrixNV");
 		vkCmdDispatchTileQCOM = (.)(void*)vkGetDeviceProcAddr(device, "vkCmdDispatchTileQCOM");
@@ -2404,6 +2606,8 @@ static
 	[Inline] public static void CmdNextSubpass(this VkCommandBuffer commandBuffer, VkSubpassContents contents) => vkCmdNextSubpass(commandBuffer, contents);
 	[Inline] public static void CmdEndRenderPass(this VkCommandBuffer commandBuffer) => vkCmdEndRenderPass(commandBuffer);
 	[Inline] public static void CmdExecuteCommands(this VkCommandBuffer commandBuffer, VulkanSpan<VkCommandBuffer> commandBuffers) => vkCmdExecuteCommands(commandBuffer, commandBuffers.count, commandBuffers.ptr);
+	[Inline] public static VkResult CreateAndroidSurfaceKHR(this VkInstance instance, VkAndroidSurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateAndroidSurfaceKHR(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkResult CreateSurfaceOHOS(this VkInstance instance, VkSurfaceCreateInfoOHOS* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateSurfaceOHOS(instance, pCreateInfo, pAllocator, out pSurface);
 	[Inline] public static VkResult GetDisplayPropertiesKHR(this VkPhysicalDevice physicalDevice, out uint32 pPropertyCount, VkDisplayPropertiesKHR* pProperties = null) => vkGetPhysicalDeviceDisplayPropertiesKHR(physicalDevice, out pPropertyCount, pProperties);
 	[Inline] public static VkResult GetDisplayPlanePropertiesKHR(this VkPhysicalDevice physicalDevice, out uint32 pPropertyCount, VkDisplayPlanePropertiesKHR* pProperties = null) => vkGetPhysicalDeviceDisplayPlanePropertiesKHR(physicalDevice, out pPropertyCount, pProperties);
 	[Inline] public static VkResult GetDisplayPlaneSupportedDisplaysKHR(this VkPhysicalDevice physicalDevice, uint32 planeIndex, out uint32 pDisplayCount, VkDisplayKHR* pDisplays = null) => vkGetDisplayPlaneSupportedDisplaysKHR(physicalDevice, planeIndex, out pDisplayCount, pDisplays);
@@ -2422,6 +2626,21 @@ static
 	[Inline] public static VkResult GetImagesKHR(this VkSwapchainKHR swapchain, VkDevice device, out uint32 pSwapchainImageCount, VkImage* pSwapchainImages = null) => vkGetSwapchainImagesKHR(device, swapchain, out pSwapchainImageCount, pSwapchainImages);
 	[Inline] public static VkResult AcquireNextImageKHR(this VkSwapchainKHR swapchain, VkDevice device, uint64 timeout, VkSemaphore semaphore, VkFence fence, out uint32 pImageIndex) => vkAcquireNextImageKHR(device, swapchain, timeout, semaphore, fence, out pImageIndex);
 	[Inline] public static VkResult PresentKHR(this VkQueue queue, VkPresentInfoKHR* pPresentInfo) => vkQueuePresentKHR(queue, pPresentInfo);
+	[Inline] public static VkResult CreateViSurfaceNN(this VkInstance instance, VkViSurfaceCreateInfoNN* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateViSurfaceNN(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkResult CreateWaylandSurfaceKHR(this VkInstance instance, VkWaylandSurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateWaylandSurfaceKHR(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkBool32 GetWaylandPresentationSupportKHR(this VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out wl_display display) => vkGetPhysicalDeviceWaylandPresentationSupportKHR(physicalDevice, queueFamilyIndex, out display);
+	[Inline] public static VkResult CreateWin32SurfaceKHR(this VkInstance instance, VkWin32SurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateWin32SurfaceKHR(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkBool32 GetWin32PresentationSupportKHR(this VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex) => vkGetPhysicalDeviceWin32PresentationSupportKHR(physicalDevice, queueFamilyIndex);
+	[Inline] public static VkResult CreateXlibSurfaceKHR(this VkInstance instance, VkXlibSurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateXlibSurfaceKHR(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkBool32 GetXlibPresentationSupportKHR(this VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out Display dpy, VisualID visualID) => vkGetPhysicalDeviceXlibPresentationSupportKHR(physicalDevice, queueFamilyIndex, out dpy, visualID);
+	[Inline] public static VkResult CreateXcbSurfaceKHR(this VkInstance instance, VkXcbSurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateXcbSurfaceKHR(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkBool32 GetXcbPresentationSupportKHR(this VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out xcb_connection_t connection, xcb_visualid_t visual_id) => vkGetPhysicalDeviceXcbPresentationSupportKHR(physicalDevice, queueFamilyIndex, out connection, visual_id);
+	[Inline] public static VkResult CreateDirectFBSurfaceEXT(this VkInstance instance, VkDirectFBSurfaceCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateDirectFBSurfaceEXT(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkBool32 GetDirectFBPresentationSupportEXT(this VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out IDirectFB dfb) => vkGetPhysicalDeviceDirectFBPresentationSupportEXT(physicalDevice, queueFamilyIndex, out dfb);
+	[Inline] public static VkResult CreateImagePipeSurfaceFUCHSIA(this VkInstance instance, VkImagePipeSurfaceCreateInfoFUCHSIA* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateImagePipeSurfaceFUCHSIA(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkResult CreateStreamDescriptorSurfaceGGP(this VkInstance instance, VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateStreamDescriptorSurfaceGGP(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkResult CreateScreenSurfaceQNX(this VkInstance instance, VkScreenSurfaceCreateInfoQNX* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateScreenSurfaceQNX(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkBool32 GetScreenPresentationSupportQNX(this VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out _screen_window window) => vkGetPhysicalDeviceScreenPresentationSupportQNX(physicalDevice, queueFamilyIndex, out window);
 	[Inline] public static VkResult CreateDebugReportCallbackEXT(this VkInstance instance, VkDebugReportCallbackCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkDebugReportCallbackEXT pCallback) => vkCreateDebugReportCallbackEXT(instance, pCreateInfo, pAllocator, out pCallback);
 	[Inline] public static void DestroyEXT(this VkDebugReportCallbackEXT callback, VkInstance instance, VkAllocationCallbacks* pAllocator = null) => vkDestroyDebugReportCallbackEXT(instance, callback, pAllocator);
 	[Inline] public static void DebugReportMessageEXT(this VkInstance instance, VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objectType, uint64 object, c_size location, int32 messageCode, c_char* pLayerPrefix, c_char* pMessage) => vkDebugReportMessageEXT(instance, flags, objectType, object, location, messageCode, pLayerPrefix, pMessage);
@@ -2431,6 +2650,7 @@ static
 	[Inline] public static void CmdDebugMarkerEndEXT(this VkCommandBuffer commandBuffer) => vkCmdDebugMarkerEndEXT(commandBuffer);
 	[Inline] public static void CmdDebugMarkerInsertEXT(this VkCommandBuffer commandBuffer, VkDebugMarkerMarkerInfoEXT* pMarkerInfo) => vkCmdDebugMarkerInsertEXT(commandBuffer, pMarkerInfo);
 	[Inline] public static VkResult GetExternalImageFormatPropertiesNV(this VkPhysicalDevice physicalDevice, VkFormat format, VkImageType type, VkImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkExternalMemoryHandleTypeFlagsNV externalHandleType, out VkExternalImageFormatPropertiesNV pExternalImageFormatProperties) => vkGetPhysicalDeviceExternalImageFormatPropertiesNV(physicalDevice, format, type, tiling, usage, flags, externalHandleType, out pExternalImageFormatProperties);
+	[Inline] public static VkResult GetMemoryWin32HandleNV(this VkDeviceMemory memory, VkDevice device, VkExternalMemoryHandleTypeFlagsNV handleType, out HANDLE pHandle) => vkGetMemoryWin32HandleNV(device, memory, handleType, out pHandle);
 	[Inline] public static void CmdExecuteGeneratedCommandsNV(this VkCommandBuffer commandBuffer, VkBool32 isPreprocessed, VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo) => vkCmdExecuteGeneratedCommandsNV(commandBuffer, isPreprocessed, pGeneratedCommandsInfo);
 	[Inline] public static void CmdPreprocessGeneratedCommandsNV(this VkCommandBuffer commandBuffer, VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo) => vkCmdPreprocessGeneratedCommandsNV(commandBuffer, pGeneratedCommandsInfo);
 	[Inline] public static void CmdBindPipelineShaderGroupNV(this VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline, uint32 groupIndex) => vkCmdBindPipelineShaderGroupNV(commandBuffer, pipelineBindPoint, pipeline, groupIndex);
@@ -2456,16 +2676,30 @@ static
 	[Inline] public static void CmdPushDescriptorSet(this VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32 set, VulkanSpan<VkWriteDescriptorSet> descriptorWrites) => vkCmdPushDescriptorSet(commandBuffer, pipelineBindPoint, layout, set, descriptorWrites.count, descriptorWrites.ptr);
 	[Inline] public static void Trim(this VkCommandPool commandPool, VkDevice device, VkCommandPoolTrimFlags flags = 0) => vkTrimCommandPool(device, commandPool, flags);
 	[Inline] public static void GetExternalBufferProperties(this VkPhysicalDevice physicalDevice, VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, out VkExternalBufferProperties pExternalBufferProperties) => vkGetPhysicalDeviceExternalBufferProperties(physicalDevice, pExternalBufferInfo, out pExternalBufferProperties);
-	[Inline] public static VkResult GetMemoryFdKHR(this VkDevice device, VkMemoryGetFdInfoKHR* pGetFdInfo, out int pFd) => vkGetMemoryFdKHR(device, pGetFdInfo, out pFd);
-	[Inline] public static VkResult GetMemoryFdPropertiesKHR(this VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, int fd, out VkMemoryFdPropertiesKHR pMemoryFdProperties) => vkGetMemoryFdPropertiesKHR(device, handleType, fd, out pMemoryFdProperties);
+	[Inline] public static VkResult GetMemoryWin32HandleKHR(this VkDevice device, VkMemoryGetWin32HandleInfoKHR* pGetWin32HandleInfo, out HANDLE pHandle) => vkGetMemoryWin32HandleKHR(device, pGetWin32HandleInfo, out pHandle);
+	[Inline] public static VkResult GetMemoryWin32HandlePropertiesKHR(this VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, HANDLE handle, out VkMemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties) => vkGetMemoryWin32HandlePropertiesKHR(device, handleType, handle, out pMemoryWin32HandleProperties);
+	[Inline] public static VkResult GetMemoryFdKHR(this VkDevice device, VkMemoryGetFdInfoKHR* pGetFdInfo, out c_int pFd) => vkGetMemoryFdKHR(device, pGetFdInfo, out pFd);
+	[Inline] public static VkResult GetMemoryFdPropertiesKHR(this VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, c_int fd, out VkMemoryFdPropertiesKHR pMemoryFdProperties) => vkGetMemoryFdPropertiesKHR(device, handleType, fd, out pMemoryFdProperties);
+	[Inline] public static VkResult GetMemoryZirconHandleFUCHSIA(this VkDevice device, VkMemoryGetZirconHandleInfoFUCHSIA* pGetZirconHandleInfo, out zx_handle_t pZirconHandle) => vkGetMemoryZirconHandleFUCHSIA(device, pGetZirconHandleInfo, out pZirconHandle);
+	[Inline] public static VkResult GetMemoryZirconHandlePropertiesFUCHSIA(this VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, zx_handle_t zirconHandle, out VkMemoryZirconHandlePropertiesFUCHSIA pMemoryZirconHandleProperties) => vkGetMemoryZirconHandlePropertiesFUCHSIA(device, handleType, zirconHandle, out pMemoryZirconHandleProperties);
 	[Inline] public static VkResult GetMemoryRemoteAddressNV(this VkDevice device, VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo, out VkRemoteAddressNV pAddress) => vkGetMemoryRemoteAddressNV(device, pMemoryGetRemoteAddressInfo, out pAddress);
 	[Inline] public static void GetExternalSemaphoreProperties(this VkPhysicalDevice physicalDevice, VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, out VkExternalSemaphoreProperties pExternalSemaphoreProperties) => vkGetPhysicalDeviceExternalSemaphoreProperties(physicalDevice, pExternalSemaphoreInfo, out pExternalSemaphoreProperties);
-	[Inline] public static VkResult GetSemaphoreFdKHR(this VkDevice device, VkSemaphoreGetFdInfoKHR* pGetFdInfo, out int pFd) => vkGetSemaphoreFdKHR(device, pGetFdInfo, out pFd);
+	[Inline] public static VkResult GetSemaphoreWin32HandleKHR(this VkDevice device, VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, out HANDLE pHandle) => vkGetSemaphoreWin32HandleKHR(device, pGetWin32HandleInfo, out pHandle);
+	[Inline] public static VkResult ImportSemaphoreWin32HandleKHR(this VkDevice device, VkImportSemaphoreWin32HandleInfoKHR* pImportSemaphoreWin32HandleInfo) => vkImportSemaphoreWin32HandleKHR(device, pImportSemaphoreWin32HandleInfo);
+	[Inline] public static VkResult GetSemaphoreFdKHR(this VkDevice device, VkSemaphoreGetFdInfoKHR* pGetFdInfo, out c_int pFd) => vkGetSemaphoreFdKHR(device, pGetFdInfo, out pFd);
 	[Inline] public static VkResult ImportSemaphoreFdKHR(this VkDevice device, VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo) => vkImportSemaphoreFdKHR(device, pImportSemaphoreFdInfo);
+	[Inline] public static VkResult GetSemaphoreZirconHandleFUCHSIA(this VkDevice device, VkSemaphoreGetZirconHandleInfoFUCHSIA* pGetZirconHandleInfo, out zx_handle_t pZirconHandle) => vkGetSemaphoreZirconHandleFUCHSIA(device, pGetZirconHandleInfo, out pZirconHandle);
+	[Inline] public static VkResult ImportSemaphoreZirconHandleFUCHSIA(this VkDevice device, VkImportSemaphoreZirconHandleInfoFUCHSIA* pImportSemaphoreZirconHandleInfo) => vkImportSemaphoreZirconHandleFUCHSIA(device, pImportSemaphoreZirconHandleInfo);
 	[Inline] public static void GetExternalFenceProperties(this VkPhysicalDevice physicalDevice, VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, out VkExternalFenceProperties pExternalFenceProperties) => vkGetPhysicalDeviceExternalFenceProperties(physicalDevice, pExternalFenceInfo, out pExternalFenceProperties);
-	[Inline] public static VkResult GetFenceFdKHR(this VkDevice device, VkFenceGetFdInfoKHR* pGetFdInfo, out int pFd) => vkGetFenceFdKHR(device, pGetFdInfo, out pFd);
+	[Inline] public static VkResult GetFenceWin32HandleKHR(this VkDevice device, VkFenceGetWin32HandleInfoKHR* pGetWin32HandleInfo, out HANDLE pHandle) => vkGetFenceWin32HandleKHR(device, pGetWin32HandleInfo, out pHandle);
+	[Inline] public static VkResult ImportFenceWin32HandleKHR(this VkDevice device, VkImportFenceWin32HandleInfoKHR* pImportFenceWin32HandleInfo) => vkImportFenceWin32HandleKHR(device, pImportFenceWin32HandleInfo);
+	[Inline] public static VkResult GetFenceFdKHR(this VkDevice device, VkFenceGetFdInfoKHR* pGetFdInfo, out c_int pFd) => vkGetFenceFdKHR(device, pGetFdInfo, out pFd);
 	[Inline] public static VkResult ImportFenceFdKHR(this VkDevice device, VkImportFenceFdInfoKHR* pImportFenceFdInfo) => vkImportFenceFdKHR(device, pImportFenceFdInfo);
 	[Inline] public static VkResult ReleaseEXT(this VkDisplayKHR display, VkPhysicalDevice physicalDevice) => vkReleaseDisplayEXT(physicalDevice, display);
+	[Inline] public static VkResult AcquireXlibDisplayEXT(this VkPhysicalDevice physicalDevice, out Display dpy, VkDisplayKHR display) => vkAcquireXlibDisplayEXT(physicalDevice, out dpy, display);
+	[Inline] public static VkResult GetRandROutputDisplayEXT(this VkPhysicalDevice physicalDevice, out Display dpy, RROutput rrOutput, out VkDisplayKHR pDisplay) => vkGetRandROutputDisplayEXT(physicalDevice, out dpy, rrOutput, out pDisplay);
+	[Inline] public static VkResult AcquireWinrtNV(this VkDisplayKHR display, VkPhysicalDevice physicalDevice) => vkAcquireWinrtDisplayNV(physicalDevice, display);
+	[Inline] public static VkResult GetWinrtDisplayNV(this VkPhysicalDevice physicalDevice, uint32 deviceRelativeId, out VkDisplayKHR pDisplay) => vkGetWinrtDisplayNV(physicalDevice, deviceRelativeId, out pDisplay);
 	[Inline] public static VkResult PowerControlEXT(this VkDisplayKHR display, VkDevice device, VkDisplayPowerInfoEXT* pDisplayPowerInfo) => vkDisplayPowerControlEXT(device, display, pDisplayPowerInfo);
 	[Inline] public static VkResult RegisterEventEXT(this VkDevice device, VkDeviceEventInfoEXT* pDeviceEventInfo, VkAllocationCallbacks* pAllocator, out VkFence pFence) => vkRegisterDeviceEventEXT(device, pDeviceEventInfo, pAllocator, out pFence);
 	[Inline] public static VkResult RegisterEventEXT(this VkDisplayKHR display, VkDevice device, VkDisplayEventInfoEXT* pDisplayEventInfo, VkAllocationCallbacks* pAllocator, out VkFence pFence) => vkRegisterDisplayEventEXT(device, display, pDisplayEventInfo, pAllocator, out pFence);
@@ -2489,6 +2723,9 @@ static
 	[Inline] public static VkResult GetStatusKHR(this VkSwapchainKHR swapchain, VkDevice device) => vkGetSwapchainStatusKHR(device, swapchain);
 	[Inline] public static VkResult GetRefreshCycleDurationGOOGLE(this VkSwapchainKHR swapchain, VkDevice device, out VkRefreshCycleDurationGOOGLE pDisplayTimingProperties) => vkGetRefreshCycleDurationGOOGLE(device, swapchain, out pDisplayTimingProperties);
 	[Inline] public static VkResult GetPastPresentationTimingGOOGLE(this VkSwapchainKHR swapchain, VkDevice device, out uint32 pPresentationTimingCount, VkPastPresentationTimingGOOGLE* pPresentationTimings = null) => vkGetPastPresentationTimingGOOGLE(device, swapchain, out pPresentationTimingCount, pPresentationTimings);
+	[Inline] public static VkResult CreateIOSSurfaceMVK(this VkInstance instance, VkIOSSurfaceCreateInfoMVK* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateIOSSurfaceMVK(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkResult CreateMacOSSurfaceMVK(this VkInstance instance, VkMacOSSurfaceCreateInfoMVK* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateMacOSSurfaceMVK(instance, pCreateInfo, pAllocator, out pSurface);
+	[Inline] public static VkResult CreateMetalSurfaceEXT(this VkInstance instance, VkMetalSurfaceCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface) => vkCreateMetalSurfaceEXT(instance, pCreateInfo, pAllocator, out pSurface);
 	[Inline] public static void CmdSetViewportWScalingNV(this VkCommandBuffer commandBuffer, uint32 firstViewport, VulkanSpan<VkViewportWScalingNV> viewportWScalings) => vkCmdSetViewportWScalingNV(commandBuffer, firstViewport, viewportWScalings.count, viewportWScalings.ptr);
 	[Inline] public static void CmdSetDiscardRectangleEXT(this VkCommandBuffer commandBuffer, uint32 firstDiscardRectangle, VulkanSpan<VkRect2D> discardRectangles) => vkCmdSetDiscardRectangleEXT(commandBuffer, firstDiscardRectangle, discardRectangles.count, discardRectangles.ptr);
 	[Inline] public static void CmdSetDiscardRectangleEnableEXT(this VkCommandBuffer commandBuffer, VkBool32 discardRectangleEnable) => vkCmdSetDiscardRectangleEnableEXT(commandBuffer, discardRectangleEnable);
@@ -2539,6 +2776,8 @@ static
 	[Inline] public static VkResult GetCounterValue(this VkSemaphore semaphore, VkDevice device, out uint64 pValue) => vkGetSemaphoreCounterValue(device, semaphore, out pValue);
 	[Inline] public static VkResult WaitSemaphores(this VkDevice device, VkSemaphoreWaitInfo* pWaitInfo, uint64 timeout) => vkWaitSemaphores(device, pWaitInfo, timeout);
 	[Inline] public static VkResult SignalSemaphore(this VkDevice device, VkSemaphoreSignalInfo* pSignalInfo) => vkSignalSemaphore(device, pSignalInfo);
+	[Inline] public static VkResult GetAndroidHardwareBufferPropertiesANDROID(this VkDevice device, AHardwareBuffer* buffer, out VkAndroidHardwareBufferPropertiesANDROID pProperties) => vkGetAndroidHardwareBufferPropertiesANDROID(device, buffer, out pProperties);
+	[Inline] public static VkResult GetMemoryAndroidHardwareBufferANDROID(this VkDevice device, VkMemoryGetAndroidHardwareBufferInfoANDROID* pInfo, out AHardwareBuffer* pBuffer) => vkGetMemoryAndroidHardwareBufferANDROID(device, pInfo, out pBuffer);
 	[Inline] public static void CmdDrawIndirectCount(this VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkBuffer countBuffer, VkDeviceSize countBufferOffset, uint32 maxDrawCount, uint32 stride) => vkCmdDrawIndirectCount(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
 	[Inline] public static void CmdDrawIndexedIndirectCount(this VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkBuffer countBuffer, VkDeviceSize countBufferOffset, uint32 maxDrawCount, uint32 stride) => vkCmdDrawIndexedIndirectCount(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
 	[Inline] public static void CmdSetCheckpointNV(this VkCommandBuffer commandBuffer, void* pCheckpointMarker) => vkCmdSetCheckpointNV(commandBuffer, pCheckpointMarker);
@@ -2596,6 +2835,10 @@ static
 	[Inline] public static uint32 GetImageViewHandleNVX(this VkDevice device, VkImageViewHandleInfoNVX* pInfo) => vkGetImageViewHandleNVX(device, pInfo);
 	[Inline] public static uint64 GetImageViewHandle64NVX(this VkDevice device, VkImageViewHandleInfoNVX* pInfo) => vkGetImageViewHandle64NVX(device, pInfo);
 	[Inline] public static VkResult GetAddressNVX(this VkImageView imageView, VkDevice device, out VkImageViewAddressPropertiesNVX pProperties) => vkGetImageViewAddressNVX(device, imageView, out pProperties);
+	[Inline] public static VkResult GetSurfacePresentModes2EXT(this VkPhysicalDevice physicalDevice, VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, out uint32 pPresentModeCount, VkPresentModeKHR* pPresentModes = null) => vkGetPhysicalDeviceSurfacePresentModes2EXT(physicalDevice, pSurfaceInfo, out pPresentModeCount, pPresentModes);
+	[Inline] public static VkResult GetGroupSurfacePresentModes2EXT(this VkDevice device, VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, out VkDeviceGroupPresentModeFlagsKHR pModes) => vkGetDeviceGroupSurfacePresentModes2EXT(device, pSurfaceInfo, out pModes);
+	[Inline] public static VkResult AcquireFullScreenExclusiveModeEXT(this VkSwapchainKHR swapchain, VkDevice device) => vkAcquireFullScreenExclusiveModeEXT(device, swapchain);
+	[Inline] public static VkResult ReleaseFullScreenExclusiveModeEXT(this VkSwapchainKHR swapchain, VkDevice device) => vkReleaseFullScreenExclusiveModeEXT(device, swapchain);
 	[Inline] public static VkResult EnumerateQueueFamilyPerformanceQueryCountersKHR(this VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out uint32 pCounterCount, VkPerformanceCounterKHR* pCounters = null, VkPerformanceCounterDescriptionKHR* pCounterDescriptions = null) => vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(physicalDevice, queueFamilyIndex, out pCounterCount, pCounters, pCounterDescriptions);
 	[Inline] public static void GetQueueFamilyPerformanceQueryPassesKHR(this VkPhysicalDevice physicalDevice, VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, out uint32 pNumPasses) => vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(physicalDevice, pPerformanceQueryCreateInfo, out pNumPasses);
 	[Inline] public static VkResult AcquireProfilingLockKHR(this VkDevice device, VkAcquireProfilingLockInfoKHR* pInfo) => vkAcquireProfilingLockKHR(device, pInfo);
@@ -2751,6 +2994,17 @@ static
 	[Inline] public static VkResult GetDrmDisplayEXT(this VkPhysicalDevice physicalDevice, int32 drmFd, uint32 connectorId, out VkDisplayKHR display) => vkGetDrmDisplayEXT(physicalDevice, drmFd, connectorId, out display);
 	[Inline] public static VkResult WaitForPresent2KHR(this VkSwapchainKHR swapchain, VkDevice device, VkPresentWait2InfoKHR* pPresentWait2Info) => vkWaitForPresent2KHR(device, swapchain, pPresentWait2Info);
 	[Inline] public static VkResult WaitForPresentKHR(this VkSwapchainKHR swapchain, VkDevice device, uint64 presentId, uint64 timeout) => vkWaitForPresentKHR(device, swapchain, presentId, timeout);
+	[Inline] public static VkResult CreateBufferCollectionFUCHSIA(this VkDevice device, VkBufferCollectionCreateInfoFUCHSIA* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkBufferCollectionFUCHSIA pCollection) => vkCreateBufferCollectionFUCHSIA(device, pCreateInfo, pAllocator, out pCollection);
+	[Inline] public static VkResult SetBufferConstraintsFUCHSIA(this VkBufferCollectionFUCHSIA collection, VkDevice device, VkBufferConstraintsInfoFUCHSIA* pBufferConstraintsInfo) => vkSetBufferCollectionBufferConstraintsFUCHSIA(device, collection, pBufferConstraintsInfo);
+	[Inline] public static VkResult SetImageConstraintsFUCHSIA(this VkBufferCollectionFUCHSIA collection, VkDevice device, VkImageConstraintsInfoFUCHSIA* pImageConstraintsInfo) => vkSetBufferCollectionImageConstraintsFUCHSIA(device, collection, pImageConstraintsInfo);
+	[Inline] public static void DestroyFUCHSIA(this VkBufferCollectionFUCHSIA collection, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyBufferCollectionFUCHSIA(device, collection, pAllocator);
+	[Inline] public static VkResult GetPropertiesFUCHSIA(this VkBufferCollectionFUCHSIA collection, VkDevice device, out VkBufferCollectionPropertiesFUCHSIA pProperties) => vkGetBufferCollectionPropertiesFUCHSIA(device, collection, out pProperties);
+	[Inline] public static VkResult CreateCudaModuleNV(this VkDevice device, VkCudaModuleCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCudaModuleNV pModule) => vkCreateCudaModuleNV(device, pCreateInfo, pAllocator, out pModule);
+	[Inline] public static VkResult GetCacheNV(this VkCudaModuleNV module, VkDevice device, out c_size pCacheSize, out void pCacheData) => vkGetCudaModuleCacheNV(device, module, out pCacheSize, out pCacheData);
+	[Inline] public static VkResult CreateCudaFunctionNV(this VkDevice device, VkCudaFunctionCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCudaFunctionNV pFunction) => vkCreateCudaFunctionNV(device, pCreateInfo, pAllocator, out pFunction);
+	[Inline] public static void DestroyNV(this VkCudaModuleNV module, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyCudaModuleNV(device, module, pAllocator);
+	[Inline] public static void DestroyNV(this VkCudaFunctionNV @function, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyCudaFunctionNV(device, @function, pAllocator);
+	[Inline] public static void CmdCudaLaunchKernelNV(this VkCommandBuffer commandBuffer, VkCudaLaunchInfoNV* pLaunchInfo) => vkCmdCudaLaunchKernelNV(commandBuffer, pLaunchInfo);
 	[Inline] public static void CmdBeginRendering(this VkCommandBuffer commandBuffer, VkRenderingInfo* pRenderingInfo) => vkCmdBeginRendering(commandBuffer, pRenderingInfo);
 	[Inline] public static void CmdEndRendering(this VkCommandBuffer commandBuffer) => vkCmdEndRendering(commandBuffer);
 	[Inline] public static void CmdEndRendering2EXT(this VkCommandBuffer commandBuffer, VkRenderingEndInfoEXT* pRenderingEndInfo = null) => vkCmdEndRendering2EXT(commandBuffer, pRenderingEndInfo);
@@ -2774,6 +3028,7 @@ static
 	[Inline] public static void GetShaderModuleCreateInfoIdentifierEXT(this VkDevice device, VkShaderModuleCreateInfo* pCreateInfo, out VkShaderModuleIdentifierEXT pIdentifier) => vkGetShaderModuleCreateInfoIdentifierEXT(device, pCreateInfo, out pIdentifier);
 	[Inline] public static void GetSubresourceLayout2(this VkImage image, VkDevice device, VkImageSubresource2* pSubresource, out VkSubresourceLayout2 pLayout) => vkGetImageSubresourceLayout2(device, image, pSubresource, out pLayout);
 	[Inline] public static VkResult GetPipelinePropertiesEXT(this VkDevice device, VkPipelineInfoEXT* pPipelineInfo, out VkBaseOutStructure pPipelineProperties) => vkGetPipelinePropertiesEXT(device, pPipelineInfo, out pPipelineProperties);
+	[Inline] public static void ExportMetalObjectsEXT(this VkDevice device, out VkExportMetalObjectsInfoEXT pMetalObjectsInfo) => vkExportMetalObjectsEXT(device, out pMetalObjectsInfo);
 	[Inline] public static void CmdBindTileMemoryQCOM(this VkCommandBuffer commandBuffer, VkTileMemoryBindInfoQCOM* pTileMemoryBindInfo = null) => vkCmdBindTileMemoryQCOM(commandBuffer, pTileMemoryBindInfo);
 	[Inline] public static VkResult GetTilePropertiesQCOM(this VkFramebuffer framebuffer, VkDevice device, out uint32 pPropertiesCount, VkTilePropertiesQCOM* pProperties = null) => vkGetFramebufferTilePropertiesQCOM(device, framebuffer, out pPropertiesCount, pProperties);
 	[Inline] public static VkResult GetDynamicRenderingTilePropertiesQCOM(this VkDevice device, VkRenderingInfo* pRenderingInfo, out VkTilePropertiesQCOM pProperties) => vkGetDynamicRenderingTilePropertiesQCOM(device, pRenderingInfo, out pProperties);
@@ -2792,7 +3047,15 @@ static
 	[Inline] public static void DestroyEXT(this VkShaderEXT shader, VkDevice device, VkAllocationCallbacks* pAllocator = null) => vkDestroyShaderEXT(device, shader, pAllocator);
 	[Inline] public static VkResult GetBinaryDataEXT(this VkShaderEXT shader, VkDevice device, out c_size pDataSize, out void pData) => vkGetShaderBinaryDataEXT(device, shader, out pDataSize, out pData);
 	[Inline] public static void CmdBindShadersEXT(this VkCommandBuffer commandBuffer, VulkanDuoSpan<VkShaderStageFlagBits, VkShaderEXT> stages_shaders) => vkCmdBindShadersEXT(commandBuffer, stages_shaders.count, stages_shaders.ptr1, stages_shaders.ptr2);
+	[Inline] public static VkResult GetScreenBufferPropertiesQNX(this VkDevice device, _screen_buffer* buffer, out VkScreenBufferPropertiesQNX pProperties) => vkGetScreenBufferPropertiesQNX(device, buffer, out pProperties);
 	[Inline] public static VkResult GetCooperativeMatrixPropertiesKHR(this VkPhysicalDevice physicalDevice, out uint32 pPropertyCount, VkCooperativeMatrixPropertiesKHR* pProperties = null) => vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(physicalDevice, out pPropertyCount, pProperties);
+	[Inline] public static VkResult GetExecutionGraphScratchSizeAMDX(this VkPipeline executionGraph, VkDevice device, out VkExecutionGraphPipelineScratchSizeAMDX pSizeInfo) => vkGetExecutionGraphPipelineScratchSizeAMDX(device, executionGraph, out pSizeInfo);
+	[Inline] public static VkResult GetExecutionGraphNodeIndexAMDX(this VkPipeline executionGraph, VkDevice device, VkPipelineShaderStageNodeCreateInfoAMDX* pNodeInfo, out uint32 pNodeIndex) => vkGetExecutionGraphPipelineNodeIndexAMDX(device, executionGraph, pNodeInfo, out pNodeIndex);
+	[Inline] public static VkResult CreateExecutionGraphPipelinesAMDX(this VkPipelineCache pipelineCache, VkDevice device, VulkanSpan<VkExecutionGraphPipelineCreateInfoAMDX> createInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines) => vkCreateExecutionGraphPipelinesAMDX(device, pipelineCache, createInfos.count, createInfos.ptr, pAllocator, out pPipelines);
+	[Inline] public static void CmdInitializeGraphScratchMemoryAMDX(this VkCommandBuffer commandBuffer, VkPipeline executionGraph, VkDeviceAddress scratch, VkDeviceSize scratchSize) => vkCmdInitializeGraphScratchMemoryAMDX(commandBuffer, executionGraph, scratch, scratchSize);
+	[Inline] public static void CmdDispatchGraphAMDX(this VkCommandBuffer commandBuffer, VkDeviceAddress scratch, VkDeviceSize scratchSize, VkDispatchGraphCountInfoAMDX* pCountInfo) => vkCmdDispatchGraphAMDX(commandBuffer, scratch, scratchSize, pCountInfo);
+	[Inline] public static void CmdDispatchGraphIndirectAMDX(this VkCommandBuffer commandBuffer, VkDeviceAddress scratch, VkDeviceSize scratchSize, VkDispatchGraphCountInfoAMDX* pCountInfo) => vkCmdDispatchGraphIndirectAMDX(commandBuffer, scratch, scratchSize, pCountInfo);
+	[Inline] public static void CmdDispatchGraphIndirectCountAMDX(this VkCommandBuffer commandBuffer, VkDeviceAddress scratch, VkDeviceSize scratchSize, VkDeviceAddress countInfo) => vkCmdDispatchGraphIndirectCountAMDX(commandBuffer, scratch, scratchSize, countInfo);
 	[Inline] public static void CmdBindDescriptorSets2(this VkCommandBuffer commandBuffer, VkBindDescriptorSetsInfo* pBindDescriptorSetsInfo) => vkCmdBindDescriptorSets2(commandBuffer, pBindDescriptorSetsInfo);
 	[Inline] public static void CmdPushConstants2(this VkCommandBuffer commandBuffer, VkPushConstantsInfo* pPushConstantsInfo) => vkCmdPushConstants2(commandBuffer, pPushConstantsInfo);
 	[Inline] public static void CmdPushDescriptorSet2(this VkCommandBuffer commandBuffer, VkPushDescriptorSetInfo* pPushDescriptorSetInfo) => vkCmdPushDescriptorSet2(commandBuffer, pPushDescriptorSetInfo);
@@ -2808,6 +3071,8 @@ static
 	[Inline] public static void CmdSetRenderingInputAttachmentIndices(this VkCommandBuffer commandBuffer, VkRenderingInputAttachmentIndexInfo* pInputAttachmentIndexInfo) => vkCmdSetRenderingInputAttachmentIndices(commandBuffer, pInputAttachmentIndexInfo);
 	[Inline] public static void CmdSetDepthClampRangeEXT(this VkCommandBuffer commandBuffer, VkDepthClampModeEXT depthClampMode, VkDepthClampRangeEXT* pDepthClampRange = null) => vkCmdSetDepthClampRangeEXT(commandBuffer, depthClampMode, pDepthClampRange);
 	[Inline] public static VkResult GetCooperativeMatrixFlexibleDimensionsPropertiesNV(this VkPhysicalDevice physicalDevice, out uint32 pPropertyCount, VkCooperativeMatrixFlexibleDimensionsPropertiesNV* pProperties = null) => vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV(physicalDevice, out pPropertyCount, pProperties);
+	[Inline] public static VkResult GetMemoryMetalHandleEXT(this VkDevice device, VkMemoryGetMetalHandleInfoEXT* pGetMetalHandleInfo, out void* pHandle) => vkGetMemoryMetalHandleEXT(device, pGetMetalHandleInfo, out pHandle);
+	[Inline] public static VkResult GetMemoryMetalHandlePropertiesEXT(this VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, void* pHandle, out VkMemoryMetalHandlePropertiesEXT pMemoryMetalHandleProperties) => vkGetMemoryMetalHandlePropertiesEXT(device, handleType, pHandle, out pMemoryMetalHandleProperties);
 	[Inline] public static VkResult GetCooperativeVectorPropertiesNV(this VkPhysicalDevice physicalDevice, out uint32 pPropertyCount, VkCooperativeVectorPropertiesNV* pProperties = null) => vkGetPhysicalDeviceCooperativeVectorPropertiesNV(physicalDevice, out pPropertyCount, pProperties);
 	[Inline] public static VkResult ConvertCooperativeVectorMatrixNV(this VkDevice device, VkConvertCooperativeVectorMatrixInfoNV* pInfo) => vkConvertCooperativeVectorMatrixNV(device, pInfo);
 	[Inline] public static void CmdConvertCooperativeVectorMatrixNV(this VkCommandBuffer commandBuffer, VulkanSpan<VkConvertCooperativeVectorMatrixInfoNV> infos) => vkCmdConvertCooperativeVectorMatrixNV(commandBuffer, infos.count, infos.ptr);
@@ -4061,6 +4326,55 @@ extension VkPhysicalDevice
 		else
 		{
 			pProperties = null;
+		}
+		result
+	}
+}
+
+extension VkPhysicalDevice
+{
+	public mixin GetSurfacePresentModes2EXT_Scope(VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, out VkPresentModeKHR[] pPresentModes)
+	{
+		let physicalDevice = this;
+		var result = vkGetPhysicalDeviceSurfacePresentModes2EXT(physicalDevice, pSurfaceInfo, var pPresentModeCount, null);
+		if (result == .VkSuccess)
+		{
+			pPresentModes = scope:mixin .[pPresentModeCount];
+			result = vkGetPhysicalDeviceSurfacePresentModes2EXT(physicalDevice, pSurfaceInfo, out pPresentModeCount, pPresentModes.Ptr);
+		}
+		else
+		{
+			pPresentModes = null;
+		}
+		result
+	}
+	public mixin GetSurfacePresentModes2EXT_New(VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, out VkPresentModeKHR[] pPresentModes)
+	{
+		let physicalDevice = this;
+		var result = vkGetPhysicalDeviceSurfacePresentModes2EXT(physicalDevice, pSurfaceInfo, var pPresentModeCount, null);
+		if (result == .VkSuccess)
+		{
+			pPresentModes = new .[pPresentModeCount];
+			result = vkGetPhysicalDeviceSurfacePresentModes2EXT(physicalDevice, pSurfaceInfo, out pPresentModeCount, pPresentModes.Ptr);
+		}
+		else
+		{
+			pPresentModes = null;
+		}
+		result
+	}
+	public mixin GetSurfacePresentModes2EXT_New(VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, out VkPresentModeKHR[] pPresentModes, IRawAllocator alloc)
+	{
+		let physicalDevice = this;
+		var result = vkGetPhysicalDeviceSurfacePresentModes2EXT(physicalDevice, pSurfaceInfo, var pPresentModeCount, null);
+		if (result == .VkSuccess)
+		{
+			pPresentModes = new:alloc .[pPresentModeCount];
+			result = vkGetPhysicalDeviceSurfacePresentModes2EXT(physicalDevice, pSurfaceInfo, out pPresentModeCount, pPresentModes.Ptr);
+		}
+		else
+		{
+			pPresentModes = null;
 		}
 		result
 	}

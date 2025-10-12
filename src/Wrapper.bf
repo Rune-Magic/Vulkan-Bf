@@ -3,6 +3,8 @@ using System.Collections;
 using System.Diagnostics;
 
 using Vulkan;
+using Vulkan.Loader;
+using Vulkan.Metadata;
 
 namespace Vulkan
 {
@@ -150,12 +152,10 @@ namespace Vulkan
 	typealias VkDeviceSize = uint64;
 	typealias VkDeviceAddress = uint64;
 	typealias VkRemoteAddressNV = void*;
+	typealias DWORD = uint32;
 
 	extension VkResult
 	{
-		// from VK_EXT_full_screen_exclusive which is excluded because it's platform dependent
-		case VkErrorFullScreenExclusiveModeLostEXT = -1000255000;
-
 		// NOTE: NoDiscard doesn't seem to work
 		[SkipCall, Warn("VkResult discarded")]
 		public void ReturnValueDiscarded();
@@ -176,7 +176,7 @@ namespace Vulkan
 		public FormatClass Class => GetBasicMetadata(this).clazz;
 		public int BlockSize => GetBasicMetadata(this).blockSize;
 		public int TexelsPerBlock => GetBasicMetadata(this).texelsPerBlock;
-		public VkExtent3D blockExtent => GetBasicMetadata(this).blockExtent;
+		public VkExtent3D BlockExtent => GetBasicMetadata(this).blockExtent;
 
 		public int Packed => GetBasicMetadata(this).packed;
 		public bool IsPacked => Packed >= 0;
@@ -193,40 +193,18 @@ namespace Vulkan
 		public ComponentEnumerator Components => .(this);
 		public PlaneEnumerator Planes => .(this);
 
-		public struct ComponentEnumerator : IEnumerator<ComponentMetadata>
+		[MetadataEnumerator<VkFormat, ComponentMetadata>]
+		public struct ComponentEnumerator
 		{
-			VkFormat self;
-			int count, index = 0;
-
-			public this(VkFormat format)
-			{
-				self = format;
-				count = self.ComponentCount;
-			}
-
-			public Result<ComponentMetadata> GetNext()
-			{
-				if (index >= count) return .Err;
-				return self.GetComponent(index);
-			}
+			int Count() => self.ComponentCount;
+			ComponentMetadata GetElement(int idx) => self.GetComponent(idx);
 		}
 
-		public struct PlaneEnumerator : IEnumerator<PlaneMetadata>
+		[MetadataEnumerator<VkFormat, PlaneMetadata>]
+		public struct PlaneEnumerator
 		{
-			VkFormat self;
-			int count, index = 0;
-
-			public this(VkFormat format)
-			{
-				self = format;
-				count = self.PlaneCount;
-			}
-
-			public Result<PlaneMetadata> GetNext()
-			{
-				if (index >= count) return .Err;
-				return self.GetPlane(index);
-			}
+			int Count() => self.PlaneCount;
+			PlaneMetadata GetElement(int idx) => self.GetPlane(idx);
 		}
 	}
 }
@@ -284,29 +262,50 @@ namespace Vulkan.Metadata
 		case Extension(VulkanExtension ext);
 	}
 
+	struct MetadataEnumeratorAttribute<TSelf, TElement> : Attribute, IComptimeTypeApply
+	{
+		[Comptime]
+		public void ApplyToType(Type type)
+		{
+			Compiler.EmitAddInterface(type, typeof(IEnumerator<TElement>));
+			Compiler.EmitAddInterface(type, typeof(IResettable));
+			Compiler.EmitTypeBody(type, scope $$"""
+				public {{typeof(TSelf)}} self;
+				public int count, index;
+	
+				public this({{typeof(TSelf)}} self)
+				{
+					this.self = self;
+					this.count = Count();
+					this.index = 0;
+				}
+	
+				public Result<{{typeof(TElement)}}> GetNext() mut
+				{
+					if (index >= count) return .Err;
+					return GetElement(index++);
+				}
+	
+				public void Reset() mut
+				{
+					index = 0;
+				}
+				""");
+		}
+	}
+
 	extension VulkanExtension
 	{
 		public enum Kind { Instance, Device }
 
-		public struct DependencyEnumerator : IEnumerator<VulkanApi>
-		{
-			VulkanExtension self;
-			int count, index = 0;
-
-			public this(VulkanExtension ext)
-			{
-				self = ext;
-				count = self.DependencyCount;
-			}
-
-			public Result<VulkanApi> GetNext()
-			{
-				if (index >= count) return .Err;
-				return self.GetDependency(index);
-			}
-		}
-
 		public DependencyEnumerator Dependencies => .(this);
+
+		[MetadataEnumerator<VulkanExtension, VulkanApi>]
+		public struct DependencyEnumerator
+		{
+			int Count() => self.DependencyCount;
+			VulkanApi GetElement(int idx) => self.GetDependency(idx);
+		}
 	}
 
 	extension VulkanCommand
@@ -314,6 +313,23 @@ namespace Vulkan.Metadata
 		public enum RenderPassLocation { Inside = 1, Outside = 2, Both = Inside | Outside }
 		public enum CmdBufferLevel { Primary = 1, Secondary = 2 }
 		public enum Task { Action = 1, State = 2, Synchronization = 4, /** executes other command buffers */ Indirection = 8 }
+
+		public SuccessCodeEnumerator SuccessCodes => .(this);
+		//public ErrorCodeEnumerator ErrorCodes => .(this);
+
+		[MetadataEnumerator<VulkanCommand, VkResult>]
+		public struct SuccessCodeEnumerator
+		{
+			int Count() => self.SuccessCodeCount;
+			VkResult GetElement(int idx) => self.GetSuccessCode(idx);
+		}
+
+		[MetadataEnumerator<VulkanCommand, VkResult>]
+		public struct ErrorCodeEnumerator
+		{
+			int Count() => self.ErrorCodeCount;
+			VkResult GetElement(int idx) => self.GetErrorCode(idx);
+		}
 	}
 }
 
@@ -330,5 +346,4 @@ namespace System
 #unwarn
 		public static operator VulkanSpan<T>(Self self) => .((.)CSize, &self.mVal);
 	}
-
 }

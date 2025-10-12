@@ -25,6 +25,11 @@ enum VulkanExtension
 	case VK_KHR_swapchain = 2;
 	case VK_KHR_display = 3;
 	case VK_KHR_display_swapchain = 4;
+	case VK_KHR_xlib_surface = 5;
+	case VK_KHR_xcb_surface = 6;
+	case VK_KHR_wayland_surface = 7;
+	case VK_KHR_android_surface = 9;
+	case VK_KHR_win32_surface = 10;
 	case VK_EXT_debug_report = 12;
 	case VK_NV_glsl_shader = 13;
 	case VK_EXT_depth_range_unrestricted = 14;
@@ -52,14 +57,18 @@ enum VulkanExtension
 	case VK_AMD_shader_info = 43;
 	case VK_KHR_dynamic_rendering = 45;
 	case VK_AMD_shader_image_load_store_lod = 47;
+	case VK_GGP_stream_descriptor_surface = 50;
 	case VK_NV_corner_sampled_image = 51;
 	case VK_KHR_multiview = 54;
 	case VK_IMG_format_pvrtc = 55;
 	case VK_NV_external_memory_capabilities = 56;
 	case VK_NV_external_memory = 57;
+	case VK_NV_external_memory_win32 = 58;
+	case VK_NV_win32_keyed_mutex = 59;
 	case VK_KHR_get_physical_device_properties2 = 60;
 	case VK_KHR_device_group = 61;
 	case VK_EXT_validation_flags = 62;
+	case VK_NN_vi_surface = 63;
 	case VK_KHR_shader_draw_parameters = 64;
 	case VK_EXT_shader_subgroup_ballot = 65;
 	case VK_EXT_shader_subgroup_vote = 66;
@@ -70,9 +79,12 @@ enum VulkanExtension
 	case VK_KHR_device_group_creation = 71;
 	case VK_KHR_external_memory_capabilities = 72;
 	case VK_KHR_external_memory = 73;
+	case VK_KHR_external_memory_win32 = 74;
 	case VK_KHR_external_memory_fd = 75;
+	case VK_KHR_win32_keyed_mutex = 76;
 	case VK_KHR_external_semaphore_capabilities = 77;
 	case VK_KHR_external_semaphore = 78;
+	case VK_KHR_external_semaphore_win32 = 79;
 	case VK_KHR_external_semaphore_fd = 80;
 	case VK_KHR_push_descriptor = 81;
 	case VK_EXT_conditional_rendering = 82;
@@ -82,6 +94,7 @@ enum VulkanExtension
 	case VK_KHR_descriptor_update_template = 86;
 	case VK_NV_clip_space_w_scaling = 88;
 	case VK_EXT_direct_mode_display = 89;
+	case VK_EXT_acquire_xlib_display = 90;
 	case VK_EXT_display_surface_counter = 91;
 	case VK_EXT_display_control = 92;
 	case VK_GOOGLE_display_timing = 93;
@@ -101,19 +114,24 @@ enum VulkanExtension
 	case VK_KHR_shared_presentable_image = 112;
 	case VK_KHR_external_fence_capabilities = 113;
 	case VK_KHR_external_fence = 114;
+	case VK_KHR_external_fence_win32 = 115;
 	case VK_KHR_external_fence_fd = 116;
 	case VK_KHR_performance_query = 117;
 	case VK_KHR_maintenance2 = 118;
 	case VK_KHR_get_surface_capabilities2 = 120;
 	case VK_KHR_variable_pointers = 121;
 	case VK_KHR_get_display_properties2 = 122;
+	case VK_MVK_ios_surface = 123;
+	case VK_MVK_macos_surface = 124;
 	case VK_EXT_external_memory_dma_buf = 126;
 	case VK_EXT_queue_family_foreign = 127;
 	case VK_KHR_dedicated_allocation = 128;
 	case VK_EXT_debug_utils = 129;
+	case VK_ANDROID_external_memory_android_hardware_buffer = 130;
 	case VK_EXT_sampler_filter_minmax = 131;
 	case VK_KHR_storage_buffer_storage_class = 132;
 	case VK_AMD_gpu_shader_int16 = 133;
+	case VK_AMDX_shader_enqueue = 135;
 	case VK_AMD_mixed_attachment_samples = 137;
 	case VK_AMD_shader_fragment_mask = 138;
 	case VK_EXT_inline_uniform_block = 139;
@@ -138,6 +156,7 @@ enum VulkanExtension
 	case VK_EXT_validation_cache = 161;
 	case VK_EXT_descriptor_indexing = 162;
 	case VK_EXT_shader_viewport_index_layer = 163;
+	case VK_KHR_portability_subset = 164;
 	case VK_NV_shading_rate_image = 165;
 	case VK_NV_ray_tracing = 166;
 	case VK_NV_representative_fragment_test = 167;
@@ -159,6 +178,7 @@ enum VulkanExtension
 	case VK_KHR_global_priority = 189;
 	case VK_AMD_memory_overallocation_behavior = 190;
 	case VK_EXT_vertex_attribute_divisor = 191;
+	case VK_GGP_frame_token = 192;
 	case VK_EXT_pipeline_creation_feedback = 193;
 	case VK_KHR_driver_properties = 197;
 	case VK_KHR_shader_float_controls = 198;
@@ -177,7 +197,9 @@ enum VulkanExtension
 	case VK_KHR_vulkan_memory_model = 212;
 	case VK_EXT_pci_bus_info = 213;
 	case VK_AMD_display_native_hdr = 214;
+	case VK_FUCHSIA_imagepipe_surface = 215;
 	case VK_KHR_shader_terminate_invocation = 216;
+	case VK_EXT_metal_surface = 218;
 	case VK_EXT_fragment_density_map = 219;
 	case VK_EXT_scalar_block_layout = 222;
 	case VK_GOOGLE_hlsl_functionality1 = 224;
@@ -206,6 +228,7 @@ enum VulkanExtension
 	case VK_EXT_ycbcr_image_arrays = 253;
 	case VK_KHR_uniform_buffer_standard_layout = 254;
 	case VK_EXT_provoking_vertex = 255;
+	case VK_EXT_full_screen_exclusive = 256;
 	case VK_EXT_headless_surface = 257;
 	case VK_KHR_buffer_device_address = 258;
 	case VK_EXT_line_rasterization = 260;
@@ -242,8 +265,10 @@ enum VulkanExtension
 	case VK_KHR_video_encode_queue = 300;
 	case VK_NV_device_diagnostics_config = 301;
 	case VK_QCOM_render_pass_store_ops = 302;
+	case VK_NV_cuda_kernel_launch = 308;
 	case VK_QCOM_tile_shading = 310;
 	case VK_NV_low_latency = 311;
+	case VK_EXT_metal_objects = 312;
 	case VK_KHR_synchronization2 = 315;
 	case VK_EXT_descriptor_buffer = 317;
 	case VK_EXT_graphics_pipeline_library = 321;
@@ -266,6 +291,8 @@ enum VulkanExtension
 	case VK_EXT_device_fault = 342;
 	case VK_ARM_rasterization_order_attachment_access = 343;
 	case VK_EXT_rgba10x6_formats = 345;
+	case VK_NV_acquire_winrt_display = 346;
+	case VK_EXT_directfb_surface = 347;
 	case VK_VALVE_mutable_descriptor_type = 352;
 	case VK_EXT_vertex_input_dynamic_state = 353;
 	case VK_EXT_physical_device_drm = 354;
@@ -274,6 +301,9 @@ enum VulkanExtension
 	case VK_EXT_primitive_topology_list_restart = 357;
 	case VK_KHR_format_feature_flags2 = 361;
 	case VK_EXT_present_mode_fifo_latest_ready = 362;
+	case VK_FUCHSIA_external_memory = 365;
+	case VK_FUCHSIA_external_semaphore = 366;
+	case VK_FUCHSIA_buffer_collection = 367;
 	case VK_HUAWEI_subpass_shading = 370;
 	case VK_HUAWEI_invocation_mask = 371;
 	case VK_NV_external_memory_rdma = 372;
@@ -281,6 +311,7 @@ enum VulkanExtension
 	case VK_EXT_frame_boundary = 376;
 	case VK_EXT_multisampled_render_to_single_sampled = 377;
 	case VK_EXT_extended_dynamic_state2 = 378;
+	case VK_QNX_screen_surface = 379;
 	case VK_EXT_color_write_enable = 382;
 	case VK_EXT_primitives_generated_query = 383;
 	case VK_KHR_ray_tracing_maintenance1 = 387;
@@ -291,6 +322,7 @@ enum VulkanExtension
 	case VK_KHR_portability_enumeration = 395;
 	case VK_EXT_shader_tile_image = 396;
 	case VK_EXT_opacity_micromap = 397;
+	case VK_NV_displacement_micromap = 398;
 	case VK_EXT_load_store_op_none = 401;
 	case VK_HUAWEI_cluster_culling_shader = 405;
 	case VK_EXT_border_color_swizzle = 412;
@@ -325,6 +357,7 @@ enum VulkanExtension
 	case VK_NV_optical_flow = 465;
 	case VK_EXT_legacy_dithering = 466;
 	case VK_EXT_pipeline_protected_access = 467;
+	case VK_ANDROID_external_format_resolve = 469;
 	case VK_KHR_maintenance5 = 471;
 	case VK_AMD_anti_lag = 477;
 	case VK_KHR_present_id2 = 480;
@@ -365,6 +398,7 @@ enum VulkanExtension
 	case VK_KHR_load_store_op_none = 527;
 	case VK_KHR_unified_image_layouts = 528;
 	case VK_KHR_shader_float_controls2 = 529;
+	case VK_QNX_external_memory_screen_buffer = 530;
 	case VK_MSFT_layered_driver = 531;
 	case VK_KHR_index_type_uint8 = 534;
 	case VK_KHR_line_rasterization = 535;
@@ -393,14 +427,17 @@ enum VulkanExtension
 	case VK_EXT_depth_clamp_control = 583;
 	case VK_KHR_maintenance9 = 585;
 	case VK_KHR_video_maintenance2 = 587;
+	case VK_OHOS_surface = 588;
 	case VK_HUAWEI_hdr_vivid = 591;
 	case VK_NV_cooperative_matrix2 = 594;
 	case VK_ARM_pipeline_opacity_micromap = 597;
+	case VK_EXT_external_memory_metal = 603;
 	case VK_KHR_depth_clamp_zero_one = 605;
 	case VK_EXT_vertex_attribute_robustness = 609;
 	case VK_ARM_format_pack = 610;
 	case VK_VALVE_fragment_density_map_layered = 612;
 	case VK_KHR_robustness2 = 613;
+	case VK_NV_present_metering = 614;
 	case VK_EXT_fragment_density_map_offset = 620;
 	case VK_EXT_zero_initialize_device_memory = 621;
 	case VK_KHR_present_mode_fifo_latest_ready = 622;
@@ -416,6 +453,11 @@ enum VulkanExtension
 			case .VK_KHR_swapchain: return nameof(VK_KHR_swapchain);
 			case .VK_KHR_display: return nameof(VK_KHR_display);
 			case .VK_KHR_display_swapchain: return nameof(VK_KHR_display_swapchain);
+			case .VK_KHR_xlib_surface: return nameof(VK_KHR_xlib_surface);
+			case .VK_KHR_xcb_surface: return nameof(VK_KHR_xcb_surface);
+			case .VK_KHR_wayland_surface: return nameof(VK_KHR_wayland_surface);
+			case .VK_KHR_android_surface: return nameof(VK_KHR_android_surface);
+			case .VK_KHR_win32_surface: return nameof(VK_KHR_win32_surface);
 			case .VK_EXT_debug_report: return nameof(VK_EXT_debug_report);
 			case .VK_NV_glsl_shader: return nameof(VK_NV_glsl_shader);
 			case .VK_EXT_depth_range_unrestricted: return nameof(VK_EXT_depth_range_unrestricted);
@@ -443,14 +485,18 @@ enum VulkanExtension
 			case .VK_AMD_shader_info: return nameof(VK_AMD_shader_info);
 			case .VK_KHR_dynamic_rendering: return nameof(VK_KHR_dynamic_rendering);
 			case .VK_AMD_shader_image_load_store_lod: return nameof(VK_AMD_shader_image_load_store_lod);
+			case .VK_GGP_stream_descriptor_surface: return nameof(VK_GGP_stream_descriptor_surface);
 			case .VK_NV_corner_sampled_image: return nameof(VK_NV_corner_sampled_image);
 			case .VK_KHR_multiview: return nameof(VK_KHR_multiview);
 			case .VK_IMG_format_pvrtc: return nameof(VK_IMG_format_pvrtc);
 			case .VK_NV_external_memory_capabilities: return nameof(VK_NV_external_memory_capabilities);
 			case .VK_NV_external_memory: return nameof(VK_NV_external_memory);
+			case .VK_NV_external_memory_win32: return nameof(VK_NV_external_memory_win32);
+			case .VK_NV_win32_keyed_mutex: return nameof(VK_NV_win32_keyed_mutex);
 			case .VK_KHR_get_physical_device_properties2: return nameof(VK_KHR_get_physical_device_properties2);
 			case .VK_KHR_device_group: return nameof(VK_KHR_device_group);
 			case .VK_EXT_validation_flags: return nameof(VK_EXT_validation_flags);
+			case .VK_NN_vi_surface: return nameof(VK_NN_vi_surface);
 			case .VK_KHR_shader_draw_parameters: return nameof(VK_KHR_shader_draw_parameters);
 			case .VK_EXT_shader_subgroup_ballot: return nameof(VK_EXT_shader_subgroup_ballot);
 			case .VK_EXT_shader_subgroup_vote: return nameof(VK_EXT_shader_subgroup_vote);
@@ -461,9 +507,12 @@ enum VulkanExtension
 			case .VK_KHR_device_group_creation: return nameof(VK_KHR_device_group_creation);
 			case .VK_KHR_external_memory_capabilities: return nameof(VK_KHR_external_memory_capabilities);
 			case .VK_KHR_external_memory: return nameof(VK_KHR_external_memory);
+			case .VK_KHR_external_memory_win32: return nameof(VK_KHR_external_memory_win32);
 			case .VK_KHR_external_memory_fd: return nameof(VK_KHR_external_memory_fd);
+			case .VK_KHR_win32_keyed_mutex: return nameof(VK_KHR_win32_keyed_mutex);
 			case .VK_KHR_external_semaphore_capabilities: return nameof(VK_KHR_external_semaphore_capabilities);
 			case .VK_KHR_external_semaphore: return nameof(VK_KHR_external_semaphore);
+			case .VK_KHR_external_semaphore_win32: return nameof(VK_KHR_external_semaphore_win32);
 			case .VK_KHR_external_semaphore_fd: return nameof(VK_KHR_external_semaphore_fd);
 			case .VK_KHR_push_descriptor: return nameof(VK_KHR_push_descriptor);
 			case .VK_EXT_conditional_rendering: return nameof(VK_EXT_conditional_rendering);
@@ -473,6 +522,7 @@ enum VulkanExtension
 			case .VK_KHR_descriptor_update_template: return nameof(VK_KHR_descriptor_update_template);
 			case .VK_NV_clip_space_w_scaling: return nameof(VK_NV_clip_space_w_scaling);
 			case .VK_EXT_direct_mode_display: return nameof(VK_EXT_direct_mode_display);
+			case .VK_EXT_acquire_xlib_display: return nameof(VK_EXT_acquire_xlib_display);
 			case .VK_EXT_display_surface_counter: return nameof(VK_EXT_display_surface_counter);
 			case .VK_EXT_display_control: return nameof(VK_EXT_display_control);
 			case .VK_GOOGLE_display_timing: return nameof(VK_GOOGLE_display_timing);
@@ -492,19 +542,24 @@ enum VulkanExtension
 			case .VK_KHR_shared_presentable_image: return nameof(VK_KHR_shared_presentable_image);
 			case .VK_KHR_external_fence_capabilities: return nameof(VK_KHR_external_fence_capabilities);
 			case .VK_KHR_external_fence: return nameof(VK_KHR_external_fence);
+			case .VK_KHR_external_fence_win32: return nameof(VK_KHR_external_fence_win32);
 			case .VK_KHR_external_fence_fd: return nameof(VK_KHR_external_fence_fd);
 			case .VK_KHR_performance_query: return nameof(VK_KHR_performance_query);
 			case .VK_KHR_maintenance2: return nameof(VK_KHR_maintenance2);
 			case .VK_KHR_get_surface_capabilities2: return nameof(VK_KHR_get_surface_capabilities2);
 			case .VK_KHR_variable_pointers: return nameof(VK_KHR_variable_pointers);
 			case .VK_KHR_get_display_properties2: return nameof(VK_KHR_get_display_properties2);
+			case .VK_MVK_ios_surface: return nameof(VK_MVK_ios_surface);
+			case .VK_MVK_macos_surface: return nameof(VK_MVK_macos_surface);
 			case .VK_EXT_external_memory_dma_buf: return nameof(VK_EXT_external_memory_dma_buf);
 			case .VK_EXT_queue_family_foreign: return nameof(VK_EXT_queue_family_foreign);
 			case .VK_KHR_dedicated_allocation: return nameof(VK_KHR_dedicated_allocation);
 			case .VK_EXT_debug_utils: return nameof(VK_EXT_debug_utils);
+			case .VK_ANDROID_external_memory_android_hardware_buffer: return nameof(VK_ANDROID_external_memory_android_hardware_buffer);
 			case .VK_EXT_sampler_filter_minmax: return nameof(VK_EXT_sampler_filter_minmax);
 			case .VK_KHR_storage_buffer_storage_class: return nameof(VK_KHR_storage_buffer_storage_class);
 			case .VK_AMD_gpu_shader_int16: return nameof(VK_AMD_gpu_shader_int16);
+			case .VK_AMDX_shader_enqueue: return nameof(VK_AMDX_shader_enqueue);
 			case .VK_AMD_mixed_attachment_samples: return nameof(VK_AMD_mixed_attachment_samples);
 			case .VK_AMD_shader_fragment_mask: return nameof(VK_AMD_shader_fragment_mask);
 			case .VK_EXT_inline_uniform_block: return nameof(VK_EXT_inline_uniform_block);
@@ -529,6 +584,7 @@ enum VulkanExtension
 			case .VK_EXT_validation_cache: return nameof(VK_EXT_validation_cache);
 			case .VK_EXT_descriptor_indexing: return nameof(VK_EXT_descriptor_indexing);
 			case .VK_EXT_shader_viewport_index_layer: return nameof(VK_EXT_shader_viewport_index_layer);
+			case .VK_KHR_portability_subset: return nameof(VK_KHR_portability_subset);
 			case .VK_NV_shading_rate_image: return nameof(VK_NV_shading_rate_image);
 			case .VK_NV_ray_tracing: return nameof(VK_NV_ray_tracing);
 			case .VK_NV_representative_fragment_test: return nameof(VK_NV_representative_fragment_test);
@@ -550,6 +606,7 @@ enum VulkanExtension
 			case .VK_KHR_global_priority: return nameof(VK_KHR_global_priority);
 			case .VK_AMD_memory_overallocation_behavior: return nameof(VK_AMD_memory_overallocation_behavior);
 			case .VK_EXT_vertex_attribute_divisor: return nameof(VK_EXT_vertex_attribute_divisor);
+			case .VK_GGP_frame_token: return nameof(VK_GGP_frame_token);
 			case .VK_EXT_pipeline_creation_feedback: return nameof(VK_EXT_pipeline_creation_feedback);
 			case .VK_KHR_driver_properties: return nameof(VK_KHR_driver_properties);
 			case .VK_KHR_shader_float_controls: return nameof(VK_KHR_shader_float_controls);
@@ -568,7 +625,9 @@ enum VulkanExtension
 			case .VK_KHR_vulkan_memory_model: return nameof(VK_KHR_vulkan_memory_model);
 			case .VK_EXT_pci_bus_info: return nameof(VK_EXT_pci_bus_info);
 			case .VK_AMD_display_native_hdr: return nameof(VK_AMD_display_native_hdr);
+			case .VK_FUCHSIA_imagepipe_surface: return nameof(VK_FUCHSIA_imagepipe_surface);
 			case .VK_KHR_shader_terminate_invocation: return nameof(VK_KHR_shader_terminate_invocation);
+			case .VK_EXT_metal_surface: return nameof(VK_EXT_metal_surface);
 			case .VK_EXT_fragment_density_map: return nameof(VK_EXT_fragment_density_map);
 			case .VK_EXT_scalar_block_layout: return nameof(VK_EXT_scalar_block_layout);
 			case .VK_GOOGLE_hlsl_functionality1: return nameof(VK_GOOGLE_hlsl_functionality1);
@@ -597,6 +656,7 @@ enum VulkanExtension
 			case .VK_EXT_ycbcr_image_arrays: return nameof(VK_EXT_ycbcr_image_arrays);
 			case .VK_KHR_uniform_buffer_standard_layout: return nameof(VK_KHR_uniform_buffer_standard_layout);
 			case .VK_EXT_provoking_vertex: return nameof(VK_EXT_provoking_vertex);
+			case .VK_EXT_full_screen_exclusive: return nameof(VK_EXT_full_screen_exclusive);
 			case .VK_EXT_headless_surface: return nameof(VK_EXT_headless_surface);
 			case .VK_KHR_buffer_device_address: return nameof(VK_KHR_buffer_device_address);
 			case .VK_EXT_line_rasterization: return nameof(VK_EXT_line_rasterization);
@@ -633,8 +693,10 @@ enum VulkanExtension
 			case .VK_KHR_video_encode_queue: return nameof(VK_KHR_video_encode_queue);
 			case .VK_NV_device_diagnostics_config: return nameof(VK_NV_device_diagnostics_config);
 			case .VK_QCOM_render_pass_store_ops: return nameof(VK_QCOM_render_pass_store_ops);
+			case .VK_NV_cuda_kernel_launch: return nameof(VK_NV_cuda_kernel_launch);
 			case .VK_QCOM_tile_shading: return nameof(VK_QCOM_tile_shading);
 			case .VK_NV_low_latency: return nameof(VK_NV_low_latency);
+			case .VK_EXT_metal_objects: return nameof(VK_EXT_metal_objects);
 			case .VK_KHR_synchronization2: return nameof(VK_KHR_synchronization2);
 			case .VK_EXT_descriptor_buffer: return nameof(VK_EXT_descriptor_buffer);
 			case .VK_EXT_graphics_pipeline_library: return nameof(VK_EXT_graphics_pipeline_library);
@@ -657,6 +719,8 @@ enum VulkanExtension
 			case .VK_EXT_device_fault: return nameof(VK_EXT_device_fault);
 			case .VK_ARM_rasterization_order_attachment_access: return nameof(VK_ARM_rasterization_order_attachment_access);
 			case .VK_EXT_rgba10x6_formats: return nameof(VK_EXT_rgba10x6_formats);
+			case .VK_NV_acquire_winrt_display: return nameof(VK_NV_acquire_winrt_display);
+			case .VK_EXT_directfb_surface: return nameof(VK_EXT_directfb_surface);
 			case .VK_VALVE_mutable_descriptor_type: return nameof(VK_VALVE_mutable_descriptor_type);
 			case .VK_EXT_vertex_input_dynamic_state: return nameof(VK_EXT_vertex_input_dynamic_state);
 			case .VK_EXT_physical_device_drm: return nameof(VK_EXT_physical_device_drm);
@@ -665,6 +729,9 @@ enum VulkanExtension
 			case .VK_EXT_primitive_topology_list_restart: return nameof(VK_EXT_primitive_topology_list_restart);
 			case .VK_KHR_format_feature_flags2: return nameof(VK_KHR_format_feature_flags2);
 			case .VK_EXT_present_mode_fifo_latest_ready: return nameof(VK_EXT_present_mode_fifo_latest_ready);
+			case .VK_FUCHSIA_external_memory: return nameof(VK_FUCHSIA_external_memory);
+			case .VK_FUCHSIA_external_semaphore: return nameof(VK_FUCHSIA_external_semaphore);
+			case .VK_FUCHSIA_buffer_collection: return nameof(VK_FUCHSIA_buffer_collection);
 			case .VK_HUAWEI_subpass_shading: return nameof(VK_HUAWEI_subpass_shading);
 			case .VK_HUAWEI_invocation_mask: return nameof(VK_HUAWEI_invocation_mask);
 			case .VK_NV_external_memory_rdma: return nameof(VK_NV_external_memory_rdma);
@@ -672,6 +739,7 @@ enum VulkanExtension
 			case .VK_EXT_frame_boundary: return nameof(VK_EXT_frame_boundary);
 			case .VK_EXT_multisampled_render_to_single_sampled: return nameof(VK_EXT_multisampled_render_to_single_sampled);
 			case .VK_EXT_extended_dynamic_state2: return nameof(VK_EXT_extended_dynamic_state2);
+			case .VK_QNX_screen_surface: return nameof(VK_QNX_screen_surface);
 			case .VK_EXT_color_write_enable: return nameof(VK_EXT_color_write_enable);
 			case .VK_EXT_primitives_generated_query: return nameof(VK_EXT_primitives_generated_query);
 			case .VK_KHR_ray_tracing_maintenance1: return nameof(VK_KHR_ray_tracing_maintenance1);
@@ -682,6 +750,7 @@ enum VulkanExtension
 			case .VK_KHR_portability_enumeration: return nameof(VK_KHR_portability_enumeration);
 			case .VK_EXT_shader_tile_image: return nameof(VK_EXT_shader_tile_image);
 			case .VK_EXT_opacity_micromap: return nameof(VK_EXT_opacity_micromap);
+			case .VK_NV_displacement_micromap: return nameof(VK_NV_displacement_micromap);
 			case .VK_EXT_load_store_op_none: return nameof(VK_EXT_load_store_op_none);
 			case .VK_HUAWEI_cluster_culling_shader: return nameof(VK_HUAWEI_cluster_culling_shader);
 			case .VK_EXT_border_color_swizzle: return nameof(VK_EXT_border_color_swizzle);
@@ -716,6 +785,7 @@ enum VulkanExtension
 			case .VK_NV_optical_flow: return nameof(VK_NV_optical_flow);
 			case .VK_EXT_legacy_dithering: return nameof(VK_EXT_legacy_dithering);
 			case .VK_EXT_pipeline_protected_access: return nameof(VK_EXT_pipeline_protected_access);
+			case .VK_ANDROID_external_format_resolve: return nameof(VK_ANDROID_external_format_resolve);
 			case .VK_KHR_maintenance5: return nameof(VK_KHR_maintenance5);
 			case .VK_AMD_anti_lag: return nameof(VK_AMD_anti_lag);
 			case .VK_KHR_present_id2: return nameof(VK_KHR_present_id2);
@@ -756,6 +826,7 @@ enum VulkanExtension
 			case .VK_KHR_load_store_op_none: return nameof(VK_KHR_load_store_op_none);
 			case .VK_KHR_unified_image_layouts: return nameof(VK_KHR_unified_image_layouts);
 			case .VK_KHR_shader_float_controls2: return nameof(VK_KHR_shader_float_controls2);
+			case .VK_QNX_external_memory_screen_buffer: return nameof(VK_QNX_external_memory_screen_buffer);
 			case .VK_MSFT_layered_driver: return nameof(VK_MSFT_layered_driver);
 			case .VK_KHR_index_type_uint8: return nameof(VK_KHR_index_type_uint8);
 			case .VK_KHR_line_rasterization: return nameof(VK_KHR_line_rasterization);
@@ -784,14 +855,17 @@ enum VulkanExtension
 			case .VK_EXT_depth_clamp_control: return nameof(VK_EXT_depth_clamp_control);
 			case .VK_KHR_maintenance9: return nameof(VK_KHR_maintenance9);
 			case .VK_KHR_video_maintenance2: return nameof(VK_KHR_video_maintenance2);
+			case .VK_OHOS_surface: return nameof(VK_OHOS_surface);
 			case .VK_HUAWEI_hdr_vivid: return nameof(VK_HUAWEI_hdr_vivid);
 			case .VK_NV_cooperative_matrix2: return nameof(VK_NV_cooperative_matrix2);
 			case .VK_ARM_pipeline_opacity_micromap: return nameof(VK_ARM_pipeline_opacity_micromap);
+			case .VK_EXT_external_memory_metal: return nameof(VK_EXT_external_memory_metal);
 			case .VK_KHR_depth_clamp_zero_one: return nameof(VK_KHR_depth_clamp_zero_one);
 			case .VK_EXT_vertex_attribute_robustness: return nameof(VK_EXT_vertex_attribute_robustness);
 			case .VK_ARM_format_pack: return nameof(VK_ARM_format_pack);
 			case .VK_VALVE_fragment_density_map_layered: return nameof(VK_VALVE_fragment_density_map_layered);
 			case .VK_KHR_robustness2: return nameof(VK_KHR_robustness2);
+			case .VK_NV_present_metering: return nameof(VK_NV_present_metering);
 			case .VK_EXT_fragment_density_map_offset: return nameof(VK_EXT_fragment_density_map_offset);
 			case .VK_EXT_zero_initialize_device_memory: return nameof(VK_EXT_zero_initialize_device_memory);
 			case .VK_KHR_present_mode_fifo_latest_ready: return nameof(VK_KHR_present_mode_fifo_latest_ready);
@@ -810,6 +884,11 @@ enum VulkanExtension
 			case .VK_KHR_swapchain: return .Device;
 			case .VK_KHR_display: return .Instance;
 			case .VK_KHR_display_swapchain: return .Device;
+			case .VK_KHR_xlib_surface: return .Instance;
+			case .VK_KHR_xcb_surface: return .Instance;
+			case .VK_KHR_wayland_surface: return .Instance;
+			case .VK_KHR_android_surface: return .Instance;
+			case .VK_KHR_win32_surface: return .Instance;
 			case .VK_EXT_debug_report: return .Instance;
 			case .VK_NV_glsl_shader: return .Device;
 			case .VK_EXT_depth_range_unrestricted: return .Device;
@@ -837,14 +916,18 @@ enum VulkanExtension
 			case .VK_AMD_shader_info: return .Device;
 			case .VK_KHR_dynamic_rendering: return .Device;
 			case .VK_AMD_shader_image_load_store_lod: return .Device;
+			case .VK_GGP_stream_descriptor_surface: return .Instance;
 			case .VK_NV_corner_sampled_image: return .Device;
 			case .VK_KHR_multiview: return .Device;
 			case .VK_IMG_format_pvrtc: return .Device;
 			case .VK_NV_external_memory_capabilities: return .Instance;
 			case .VK_NV_external_memory: return .Device;
+			case .VK_NV_external_memory_win32: return .Device;
+			case .VK_NV_win32_keyed_mutex: return .Device;
 			case .VK_KHR_get_physical_device_properties2: return .Instance;
 			case .VK_KHR_device_group: return .Device;
 			case .VK_EXT_validation_flags: return .Instance;
+			case .VK_NN_vi_surface: return .Instance;
 			case .VK_KHR_shader_draw_parameters: return .Device;
 			case .VK_EXT_shader_subgroup_ballot: return .Device;
 			case .VK_EXT_shader_subgroup_vote: return .Device;
@@ -855,9 +938,12 @@ enum VulkanExtension
 			case .VK_KHR_device_group_creation: return .Instance;
 			case .VK_KHR_external_memory_capabilities: return .Instance;
 			case .VK_KHR_external_memory: return .Device;
+			case .VK_KHR_external_memory_win32: return .Device;
 			case .VK_KHR_external_memory_fd: return .Device;
+			case .VK_KHR_win32_keyed_mutex: return .Device;
 			case .VK_KHR_external_semaphore_capabilities: return .Instance;
 			case .VK_KHR_external_semaphore: return .Device;
+			case .VK_KHR_external_semaphore_win32: return .Device;
 			case .VK_KHR_external_semaphore_fd: return .Device;
 			case .VK_KHR_push_descriptor: return .Device;
 			case .VK_EXT_conditional_rendering: return .Device;
@@ -867,6 +953,7 @@ enum VulkanExtension
 			case .VK_KHR_descriptor_update_template: return .Device;
 			case .VK_NV_clip_space_w_scaling: return .Device;
 			case .VK_EXT_direct_mode_display: return .Instance;
+			case .VK_EXT_acquire_xlib_display: return .Instance;
 			case .VK_EXT_display_surface_counter: return .Instance;
 			case .VK_EXT_display_control: return .Device;
 			case .VK_GOOGLE_display_timing: return .Device;
@@ -886,19 +973,24 @@ enum VulkanExtension
 			case .VK_KHR_shared_presentable_image: return .Device;
 			case .VK_KHR_external_fence_capabilities: return .Instance;
 			case .VK_KHR_external_fence: return .Device;
+			case .VK_KHR_external_fence_win32: return .Device;
 			case .VK_KHR_external_fence_fd: return .Device;
 			case .VK_KHR_performance_query: return .Device;
 			case .VK_KHR_maintenance2: return .Device;
 			case .VK_KHR_get_surface_capabilities2: return .Instance;
 			case .VK_KHR_variable_pointers: return .Device;
 			case .VK_KHR_get_display_properties2: return .Instance;
+			case .VK_MVK_ios_surface: return .Instance;
+			case .VK_MVK_macos_surface: return .Instance;
 			case .VK_EXT_external_memory_dma_buf: return .Device;
 			case .VK_EXT_queue_family_foreign: return .Device;
 			case .VK_KHR_dedicated_allocation: return .Device;
 			case .VK_EXT_debug_utils: return .Instance;
+			case .VK_ANDROID_external_memory_android_hardware_buffer: return .Device;
 			case .VK_EXT_sampler_filter_minmax: return .Device;
 			case .VK_KHR_storage_buffer_storage_class: return .Device;
 			case .VK_AMD_gpu_shader_int16: return .Device;
+			case .VK_AMDX_shader_enqueue: return .Device;
 			case .VK_AMD_mixed_attachment_samples: return .Device;
 			case .VK_AMD_shader_fragment_mask: return .Device;
 			case .VK_EXT_inline_uniform_block: return .Device;
@@ -923,6 +1015,7 @@ enum VulkanExtension
 			case .VK_EXT_validation_cache: return .Device;
 			case .VK_EXT_descriptor_indexing: return .Device;
 			case .VK_EXT_shader_viewport_index_layer: return .Device;
+			case .VK_KHR_portability_subset: return .Device;
 			case .VK_NV_shading_rate_image: return .Device;
 			case .VK_NV_ray_tracing: return .Device;
 			case .VK_NV_representative_fragment_test: return .Device;
@@ -944,6 +1037,7 @@ enum VulkanExtension
 			case .VK_KHR_global_priority: return .Device;
 			case .VK_AMD_memory_overallocation_behavior: return .Device;
 			case .VK_EXT_vertex_attribute_divisor: return .Device;
+			case .VK_GGP_frame_token: return .Device;
 			case .VK_EXT_pipeline_creation_feedback: return .Device;
 			case .VK_KHR_driver_properties: return .Device;
 			case .VK_KHR_shader_float_controls: return .Device;
@@ -962,7 +1056,9 @@ enum VulkanExtension
 			case .VK_KHR_vulkan_memory_model: return .Device;
 			case .VK_EXT_pci_bus_info: return .Device;
 			case .VK_AMD_display_native_hdr: return .Device;
+			case .VK_FUCHSIA_imagepipe_surface: return .Instance;
 			case .VK_KHR_shader_terminate_invocation: return .Device;
+			case .VK_EXT_metal_surface: return .Instance;
 			case .VK_EXT_fragment_density_map: return .Device;
 			case .VK_EXT_scalar_block_layout: return .Device;
 			case .VK_GOOGLE_hlsl_functionality1: return .Device;
@@ -991,6 +1087,7 @@ enum VulkanExtension
 			case .VK_EXT_ycbcr_image_arrays: return .Device;
 			case .VK_KHR_uniform_buffer_standard_layout: return .Device;
 			case .VK_EXT_provoking_vertex: return .Device;
+			case .VK_EXT_full_screen_exclusive: return .Device;
 			case .VK_EXT_headless_surface: return .Instance;
 			case .VK_KHR_buffer_device_address: return .Device;
 			case .VK_EXT_line_rasterization: return .Device;
@@ -1027,8 +1124,10 @@ enum VulkanExtension
 			case .VK_KHR_video_encode_queue: return .Device;
 			case .VK_NV_device_diagnostics_config: return .Device;
 			case .VK_QCOM_render_pass_store_ops: return .Device;
+			case .VK_NV_cuda_kernel_launch: return .Device;
 			case .VK_QCOM_tile_shading: return .Device;
 			case .VK_NV_low_latency: return .Device;
+			case .VK_EXT_metal_objects: return .Device;
 			case .VK_KHR_synchronization2: return .Device;
 			case .VK_EXT_descriptor_buffer: return .Device;
 			case .VK_EXT_graphics_pipeline_library: return .Device;
@@ -1051,6 +1150,8 @@ enum VulkanExtension
 			case .VK_EXT_device_fault: return .Device;
 			case .VK_ARM_rasterization_order_attachment_access: return .Device;
 			case .VK_EXT_rgba10x6_formats: return .Device;
+			case .VK_NV_acquire_winrt_display: return .Device;
+			case .VK_EXT_directfb_surface: return .Instance;
 			case .VK_VALVE_mutable_descriptor_type: return .Device;
 			case .VK_EXT_vertex_input_dynamic_state: return .Device;
 			case .VK_EXT_physical_device_drm: return .Device;
@@ -1059,6 +1160,9 @@ enum VulkanExtension
 			case .VK_EXT_primitive_topology_list_restart: return .Device;
 			case .VK_KHR_format_feature_flags2: return .Device;
 			case .VK_EXT_present_mode_fifo_latest_ready: return .Device;
+			case .VK_FUCHSIA_external_memory: return .Device;
+			case .VK_FUCHSIA_external_semaphore: return .Device;
+			case .VK_FUCHSIA_buffer_collection: return .Device;
 			case .VK_HUAWEI_subpass_shading: return .Device;
 			case .VK_HUAWEI_invocation_mask: return .Device;
 			case .VK_NV_external_memory_rdma: return .Device;
@@ -1066,6 +1170,7 @@ enum VulkanExtension
 			case .VK_EXT_frame_boundary: return .Device;
 			case .VK_EXT_multisampled_render_to_single_sampled: return .Device;
 			case .VK_EXT_extended_dynamic_state2: return .Device;
+			case .VK_QNX_screen_surface: return .Instance;
 			case .VK_EXT_color_write_enable: return .Device;
 			case .VK_EXT_primitives_generated_query: return .Device;
 			case .VK_KHR_ray_tracing_maintenance1: return .Device;
@@ -1076,6 +1181,7 @@ enum VulkanExtension
 			case .VK_KHR_portability_enumeration: return .Instance;
 			case .VK_EXT_shader_tile_image: return .Device;
 			case .VK_EXT_opacity_micromap: return .Device;
+			case .VK_NV_displacement_micromap: return .Device;
 			case .VK_EXT_load_store_op_none: return .Device;
 			case .VK_HUAWEI_cluster_culling_shader: return .Device;
 			case .VK_EXT_border_color_swizzle: return .Device;
@@ -1110,6 +1216,7 @@ enum VulkanExtension
 			case .VK_NV_optical_flow: return .Device;
 			case .VK_EXT_legacy_dithering: return .Device;
 			case .VK_EXT_pipeline_protected_access: return .Device;
+			case .VK_ANDROID_external_format_resolve: return .Device;
 			case .VK_KHR_maintenance5: return .Device;
 			case .VK_AMD_anti_lag: return .Device;
 			case .VK_KHR_present_id2: return .Device;
@@ -1150,6 +1257,7 @@ enum VulkanExtension
 			case .VK_KHR_load_store_op_none: return .Device;
 			case .VK_KHR_unified_image_layouts: return .Device;
 			case .VK_KHR_shader_float_controls2: return .Device;
+			case .VK_QNX_external_memory_screen_buffer: return .Device;
 			case .VK_MSFT_layered_driver: return .Device;
 			case .VK_KHR_index_type_uint8: return .Device;
 			case .VK_KHR_line_rasterization: return .Device;
@@ -1178,14 +1286,17 @@ enum VulkanExtension
 			case .VK_EXT_depth_clamp_control: return .Device;
 			case .VK_KHR_maintenance9: return .Device;
 			case .VK_KHR_video_maintenance2: return .Device;
+			case .VK_OHOS_surface: return .Instance;
 			case .VK_HUAWEI_hdr_vivid: return .Device;
 			case .VK_NV_cooperative_matrix2: return .Device;
 			case .VK_ARM_pipeline_opacity_micromap: return .Device;
+			case .VK_EXT_external_memory_metal: return .Device;
 			case .VK_KHR_depth_clamp_zero_one: return .Device;
 			case .VK_EXT_vertex_attribute_robustness: return .Device;
 			case .VK_ARM_format_pack: return .Device;
 			case .VK_VALVE_fragment_density_map_layered: return .Device;
 			case .VK_KHR_robustness2: return .Device;
+			case .VK_NV_present_metering: return .Device;
 			case .VK_EXT_fragment_density_map_offset: return .Device;
 			case .VK_EXT_zero_initialize_device_memory: return .Device;
 			case .VK_KHR_present_mode_fifo_latest_ready: return .Device;
@@ -1204,6 +1315,11 @@ enum VulkanExtension
 			case .VK_KHR_swapchain: return "KHR";
 			case .VK_KHR_display: return "KHR";
 			case .VK_KHR_display_swapchain: return "KHR";
+			case .VK_KHR_xlib_surface: return "KHR";
+			case .VK_KHR_xcb_surface: return "KHR";
+			case .VK_KHR_wayland_surface: return "KHR";
+			case .VK_KHR_android_surface: return "KHR";
+			case .VK_KHR_win32_surface: return "KHR";
 			case .VK_EXT_debug_report: return "GOOGLE";
 			case .VK_NV_glsl_shader: return "NV";
 			case .VK_EXT_depth_range_unrestricted: return "NV";
@@ -1231,14 +1347,18 @@ enum VulkanExtension
 			case .VK_AMD_shader_info: return "AMD";
 			case .VK_KHR_dynamic_rendering: return "KHR";
 			case .VK_AMD_shader_image_load_store_lod: return "AMD";
+			case .VK_GGP_stream_descriptor_surface: return "GGP";
 			case .VK_NV_corner_sampled_image: return "NV";
 			case .VK_KHR_multiview: return "KHR";
 			case .VK_IMG_format_pvrtc: return "IMG";
 			case .VK_NV_external_memory_capabilities: return "NV";
 			case .VK_NV_external_memory: return "NV";
+			case .VK_NV_external_memory_win32: return "NV";
+			case .VK_NV_win32_keyed_mutex: return "NV";
 			case .VK_KHR_get_physical_device_properties2: return "KHR";
 			case .VK_KHR_device_group: return "KHR";
 			case .VK_EXT_validation_flags: return "GOOGLE";
+			case .VK_NN_vi_surface: return "NN";
 			case .VK_KHR_shader_draw_parameters: return "KHR";
 			case .VK_EXT_shader_subgroup_ballot: return "NV";
 			case .VK_EXT_shader_subgroup_vote: return "NV";
@@ -1249,9 +1369,12 @@ enum VulkanExtension
 			case .VK_KHR_device_group_creation: return "KHR";
 			case .VK_KHR_external_memory_capabilities: return "KHR";
 			case .VK_KHR_external_memory: return "KHR";
+			case .VK_KHR_external_memory_win32: return "KHR";
 			case .VK_KHR_external_memory_fd: return "KHR";
+			case .VK_KHR_win32_keyed_mutex: return "KHR";
 			case .VK_KHR_external_semaphore_capabilities: return "KHR";
 			case .VK_KHR_external_semaphore: return "KHR";
+			case .VK_KHR_external_semaphore_win32: return "KHR";
 			case .VK_KHR_external_semaphore_fd: return "KHR";
 			case .VK_KHR_push_descriptor: return "KHR";
 			case .VK_EXT_conditional_rendering: return "NV";
@@ -1261,6 +1384,7 @@ enum VulkanExtension
 			case .VK_KHR_descriptor_update_template: return "KHR";
 			case .VK_NV_clip_space_w_scaling: return "NV";
 			case .VK_EXT_direct_mode_display: return "NV";
+			case .VK_EXT_acquire_xlib_display: return "NV";
 			case .VK_EXT_display_surface_counter: return "NV";
 			case .VK_EXT_display_control: return "NV";
 			case .VK_GOOGLE_display_timing: return "GOOGLE";
@@ -1280,19 +1404,24 @@ enum VulkanExtension
 			case .VK_KHR_shared_presentable_image: return "KHR";
 			case .VK_KHR_external_fence_capabilities: return "KHR";
 			case .VK_KHR_external_fence: return "KHR";
+			case .VK_KHR_external_fence_win32: return "KHR";
 			case .VK_KHR_external_fence_fd: return "KHR";
 			case .VK_KHR_performance_query: return "KHR";
 			case .VK_KHR_maintenance2: return "KHR";
 			case .VK_KHR_get_surface_capabilities2: return "KHR";
 			case .VK_KHR_variable_pointers: return "KHR";
 			case .VK_KHR_get_display_properties2: return "KHR";
+			case .VK_MVK_ios_surface: return "MVK";
+			case .VK_MVK_macos_surface: return "MVK";
 			case .VK_EXT_external_memory_dma_buf: return "EXT";
 			case .VK_EXT_queue_family_foreign: return "EXT";
 			case .VK_KHR_dedicated_allocation: return "KHR";
 			case .VK_EXT_debug_utils: return "EXT";
+			case .VK_ANDROID_external_memory_android_hardware_buffer: return "ANDROID";
 			case .VK_EXT_sampler_filter_minmax: return "NV";
 			case .VK_KHR_storage_buffer_storage_class: return "KHR";
 			case .VK_AMD_gpu_shader_int16: return "AMD";
+			case .VK_AMDX_shader_enqueue: return "AMD";
 			case .VK_AMD_mixed_attachment_samples: return "AMD";
 			case .VK_AMD_shader_fragment_mask: return "AMD";
 			case .VK_EXT_inline_uniform_block: return "EXT";
@@ -1317,6 +1446,7 @@ enum VulkanExtension
 			case .VK_EXT_validation_cache: return "GOOGLE";
 			case .VK_EXT_descriptor_indexing: return "NV";
 			case .VK_EXT_shader_viewport_index_layer: return "NV";
+			case .VK_KHR_portability_subset: return "KHR";
 			case .VK_NV_shading_rate_image: return "NV";
 			case .VK_NV_ray_tracing: return "NV";
 			case .VK_NV_representative_fragment_test: return "NV";
@@ -1338,6 +1468,7 @@ enum VulkanExtension
 			case .VK_KHR_global_priority: return "KHR";
 			case .VK_AMD_memory_overallocation_behavior: return "AMD";
 			case .VK_EXT_vertex_attribute_divisor: return "NV";
+			case .VK_GGP_frame_token: return "GGP";
 			case .VK_EXT_pipeline_creation_feedback: return "GOOGLE";
 			case .VK_KHR_driver_properties: return "KHR";
 			case .VK_KHR_shader_float_controls: return "KHR";
@@ -1356,7 +1487,9 @@ enum VulkanExtension
 			case .VK_KHR_vulkan_memory_model: return "KHR";
 			case .VK_EXT_pci_bus_info: return "EXT";
 			case .VK_AMD_display_native_hdr: return "AMD";
+			case .VK_FUCHSIA_imagepipe_surface: return "FUCHSIA";
 			case .VK_KHR_shader_terminate_invocation: return "KHR";
+			case .VK_EXT_metal_surface: return "EXT";
 			case .VK_EXT_fragment_density_map: return "EXT";
 			case .VK_EXT_scalar_block_layout: return "EXT";
 			case .VK_GOOGLE_hlsl_functionality1: return "GOOGLE";
@@ -1385,6 +1518,7 @@ enum VulkanExtension
 			case .VK_EXT_ycbcr_image_arrays: return "EXT";
 			case .VK_KHR_uniform_buffer_standard_layout: return "KHR";
 			case .VK_EXT_provoking_vertex: return "EXT";
+			case .VK_EXT_full_screen_exclusive: return "EXT";
 			case .VK_EXT_headless_surface: return "EXT";
 			case .VK_KHR_buffer_device_address: return "KHR";
 			case .VK_EXT_line_rasterization: return "EXT";
@@ -1421,8 +1555,10 @@ enum VulkanExtension
 			case .VK_KHR_video_encode_queue: return "KHR";
 			case .VK_NV_device_diagnostics_config: return "NV";
 			case .VK_QCOM_render_pass_store_ops: return "QCOM";
+			case .VK_NV_cuda_kernel_launch: return "NV";
 			case .VK_QCOM_tile_shading: return "QCOM";
 			case .VK_NV_low_latency: return "NV";
+			case .VK_EXT_metal_objects: return "EXT";
 			case .VK_KHR_synchronization2: return "KHR";
 			case .VK_EXT_descriptor_buffer: return "EXT";
 			case .VK_EXT_graphics_pipeline_library: return "AMD";
@@ -1445,6 +1581,8 @@ enum VulkanExtension
 			case .VK_EXT_device_fault: return "EXT";
 			case .VK_ARM_rasterization_order_attachment_access: return "ARM";
 			case .VK_EXT_rgba10x6_formats: return "EXT";
+			case .VK_NV_acquire_winrt_display: return "NV";
+			case .VK_EXT_directfb_surface: return "EXT";
 			case .VK_VALVE_mutable_descriptor_type: return "VALVE";
 			case .VK_EXT_vertex_input_dynamic_state: return "EXT";
 			case .VK_EXT_physical_device_drm: return "EXT";
@@ -1453,6 +1591,9 @@ enum VulkanExtension
 			case .VK_EXT_primitive_topology_list_restart: return "EXT";
 			case .VK_KHR_format_feature_flags2: return "KHR";
 			case .VK_EXT_present_mode_fifo_latest_ready: return "EXT";
+			case .VK_FUCHSIA_external_memory: return "FUCHSIA";
+			case .VK_FUCHSIA_external_semaphore: return "FUCHSIA";
+			case .VK_FUCHSIA_buffer_collection: return "FUCHSIA";
 			case .VK_HUAWEI_subpass_shading: return "HUAWEI";
 			case .VK_HUAWEI_invocation_mask: return "Huawei";
 			case .VK_NV_external_memory_rdma: return "NV";
@@ -1460,6 +1601,7 @@ enum VulkanExtension
 			case .VK_EXT_frame_boundary: return "EXT";
 			case .VK_EXT_multisampled_render_to_single_sampled: return "EXT";
 			case .VK_EXT_extended_dynamic_state2: return "EXT";
+			case .VK_QNX_screen_surface: return "QNX";
 			case .VK_EXT_color_write_enable: return "EXT";
 			case .VK_EXT_primitives_generated_query: return "EXT";
 			case .VK_KHR_ray_tracing_maintenance1: return "KHR";
@@ -1470,6 +1612,7 @@ enum VulkanExtension
 			case .VK_KHR_portability_enumeration: return "KHR";
 			case .VK_EXT_shader_tile_image: return "EXT";
 			case .VK_EXT_opacity_micromap: return "EXT";
+			case .VK_NV_displacement_micromap: return "NV";
 			case .VK_EXT_load_store_op_none: return "EXT";
 			case .VK_HUAWEI_cluster_culling_shader: return "HUAWEI";
 			case .VK_EXT_border_color_swizzle: return "EXT";
@@ -1504,6 +1647,7 @@ enum VulkanExtension
 			case .VK_NV_optical_flow: return "NV";
 			case .VK_EXT_legacy_dithering: return "EXT";
 			case .VK_EXT_pipeline_protected_access: return "EXT";
+			case .VK_ANDROID_external_format_resolve: return "ANDROID";
 			case .VK_KHR_maintenance5: return "KHR";
 			case .VK_AMD_anti_lag: return "AMD";
 			case .VK_KHR_present_id2: return "KHR";
@@ -1544,6 +1688,7 @@ enum VulkanExtension
 			case .VK_KHR_load_store_op_none: return "KHR";
 			case .VK_KHR_unified_image_layouts: return "KHR";
 			case .VK_KHR_shader_float_controls2: return "KHR";
+			case .VK_QNX_external_memory_screen_buffer: return "QNX";
 			case .VK_MSFT_layered_driver: return "MSFT";
 			case .VK_KHR_index_type_uint8: return "KHR";
 			case .VK_KHR_line_rasterization: return "KHR";
@@ -1572,14 +1717,17 @@ enum VulkanExtension
 			case .VK_EXT_depth_clamp_control: return "EXT";
 			case .VK_KHR_maintenance9: return "KHR";
 			case .VK_KHR_video_maintenance2: return "KHR";
+			case .VK_OHOS_surface: return "HUAWEI";
 			case .VK_HUAWEI_hdr_vivid: return "HUAWEI";
 			case .VK_NV_cooperative_matrix2: return "NV";
 			case .VK_ARM_pipeline_opacity_micromap: return "ARM";
+			case .VK_EXT_external_memory_metal: return "EXT";
 			case .VK_KHR_depth_clamp_zero_one: return "KHR";
 			case .VK_EXT_vertex_attribute_robustness: return "EXT";
 			case .VK_ARM_format_pack: return "ARM";
 			case .VK_VALVE_fragment_density_map_layered: return "VALVE";
 			case .VK_KHR_robustness2: return "KHR";
+			case .VK_NV_present_metering: return "NV";
 			case .VK_EXT_fragment_density_map_offset: return "EXT";
 			case .VK_EXT_zero_initialize_device_memory: return "EXT";
 			case .VK_KHR_present_mode_fifo_latest_ready: return "KHR";
@@ -1599,6 +1747,7 @@ enum VulkanExtension
 			case .VK_AMD_draw_indirect_count: return VulkanApi.Extension(.VK_KHR_draw_indirect_count);
 			case .VK_KHR_dynamic_rendering: return VulkanApi.ApiVersion(.VK_VERSION_1_3);
 			case .VK_KHR_multiview: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
+			case .VK_NV_win32_keyed_mutex: return VulkanApi.Extension(.VK_KHR_win32_keyed_mutex);
 			case .VK_KHR_get_physical_device_properties2: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			case .VK_KHR_device_group: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			case .VK_KHR_shader_draw_parameters: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
@@ -1719,11 +1868,15 @@ enum VulkanExtension
 			case .VK_AMD_gpu_shader_half_float: return VK_KHR_shader_float16_int8;
 			case .VK_NV_external_memory_capabilities: return VK_KHR_external_memory_capabilities;
 			case .VK_NV_external_memory: return VK_KHR_external_memory;
+			case .VK_NV_external_memory_win32: return VK_KHR_external_memory_win32;
 			case .VK_EXT_validation_flags: return VK_EXT_layer_settings;
+			case .VK_MVK_ios_surface: return VK_EXT_metal_surface;
+			case .VK_MVK_macos_surface: return VK_EXT_metal_surface;
 			case .VK_AMD_gpu_shader_int16: return VK_KHR_shader_float16_int8;
 			case .VK_NV_ray_tracing: return VK_KHR_ray_tracing_pipeline;
 			case .VK_EXT_buffer_device_address: return VK_KHR_buffer_device_address;
 			case .VK_EXT_validation_features: return VK_EXT_layer_settings;
+			case .VK_NV_displacement_micromap: return VK_NV_cluster_acceleration_structure;
 			default: return null;
 			}
 		}
@@ -1756,6 +1909,7 @@ enum VulkanExtension
 			case .VK_KHR_variable_pointers: return "SPV_KHR_variable_pointers";
 			case .VK_KHR_storage_buffer_storage_class: return "SPV_KHR_storage_buffer_storage_class";
 			case .VK_AMD_gpu_shader_int16: return "SPV_AMD_gpu_shader_int16";
+			case .VK_AMDX_shader_enqueue: return "SPV_AMDX_shader_enqueue";
 			case .VK_AMD_shader_fragment_mask: return "SPV_AMD_shader_fragment_mask";
 			case .VK_EXT_shader_stencil_export: return "SPV_EXT_shader_stencil_export";
 			case .VK_KHR_shader_bfloat16: return "SPV_KHR_bfloat16";
@@ -1858,6 +2012,7 @@ enum VulkanExtension
 		case -7737067537225194459 when spirvExtension == "SPV_KHR_variable_pointers": return VK_KHR_variable_pointers;
 		case 7425979768969522084 when spirvExtension == "SPV_KHR_storage_buffer_storage_class": return VK_KHR_storage_buffer_storage_class;
 		case -1330403930211020129 when spirvExtension == "SPV_AMD_gpu_shader_int16": return VK_AMD_gpu_shader_int16;
+		case -1352261839719302997 when spirvExtension == "SPV_AMDX_shader_enqueue": return VK_AMDX_shader_enqueue;
 		case 1800713547621171110 when spirvExtension == "SPV_AMD_shader_fragment_mask": return VK_AMD_shader_fragment_mask;
 		case 8142135915646196216 when spirvExtension == "SPV_EXT_shader_stencil_export": return VK_EXT_shader_stencil_export;
 		case -4374577291123316518 when spirvExtension == "SPV_KHR_bfloat16": return VK_KHR_shader_bfloat16;
@@ -1943,6 +2098,11 @@ enum VulkanExtension
 			case .VK_KHR_swapchain: return 1;
 			case .VK_KHR_display: return 1;
 			case .VK_KHR_display_swapchain: return 2;
+			case .VK_KHR_xlib_surface: return 1;
+			case .VK_KHR_xcb_surface: return 1;
+			case .VK_KHR_wayland_surface: return 1;
+			case .VK_KHR_android_surface: return 1;
+			case .VK_KHR_win32_surface: return 1;
 			case .VK_EXT_debug_marker: return 1;
 			case .VK_KHR_video_queue: return 2;
 			case .VK_KHR_video_decode_queue: return 2;
@@ -1952,18 +2112,25 @@ enum VulkanExtension
 			case .VK_KHR_video_decode_h264: return 1;
 			case .VK_AMD_texture_gather_bias_lod: return 1;
 			case .VK_KHR_dynamic_rendering: return 2;
+			case .VK_GGP_stream_descriptor_surface: return 1;
 			case .VK_NV_corner_sampled_image: return 1;
 			case .VK_KHR_multiview: return 1;
 			case .VK_NV_external_memory: return 1;
+			case .VK_NV_external_memory_win32: return 1;
+			case .VK_NV_win32_keyed_mutex: return 1;
 			case .VK_KHR_device_group: return 1;
+			case .VK_NN_vi_surface: return 1;
 			case .VK_EXT_texture_compression_astc_hdr: return 1;
 			case .VK_EXT_astc_decode_mode: return 1;
 			case .VK_EXT_pipeline_robustness: return 1;
 			case .VK_KHR_external_memory_capabilities: return 1;
 			case .VK_KHR_external_memory: return 1;
+			case .VK_KHR_external_memory_win32: return 1;
 			case .VK_KHR_external_memory_fd: return 1;
+			case .VK_KHR_win32_keyed_mutex: return 1;
 			case .VK_KHR_external_semaphore_capabilities: return 1;
 			case .VK_KHR_external_semaphore: return 1;
+			case .VK_KHR_external_semaphore_win32: return 1;
 			case .VK_KHR_external_semaphore_fd: return 1;
 			case .VK_KHR_push_descriptor: return 1;
 			case .VK_EXT_conditional_rendering: return 1;
@@ -1971,6 +2138,7 @@ enum VulkanExtension
 			case .VK_KHR_16bit_storage: return 2;
 			case .VK_KHR_incremental_present: return 1;
 			case .VK_EXT_direct_mode_display: return 1;
+			case .VK_EXT_acquire_xlib_display: return 1;
 			case .VK_EXT_display_surface_counter: return 1;
 			case .VK_EXT_display_control: return 2;
 			case .VK_GOOGLE_display_timing: return 1;
@@ -1986,15 +2154,20 @@ enum VulkanExtension
 			case .VK_KHR_shared_presentable_image: return 3;
 			case .VK_KHR_external_fence_capabilities: return 1;
 			case .VK_KHR_external_fence: return 1;
+			case .VK_KHR_external_fence_win32: return 1;
 			case .VK_KHR_external_fence_fd: return 1;
 			case .VK_KHR_performance_query: return 1;
 			case .VK_KHR_get_surface_capabilities2: return 1;
 			case .VK_KHR_variable_pointers: return 2;
 			case .VK_KHR_get_display_properties2: return 1;
+			case .VK_MVK_ios_surface: return 1;
+			case .VK_MVK_macos_surface: return 1;
 			case .VK_EXT_external_memory_dma_buf: return 1;
 			case .VK_EXT_queue_family_foreign: return 1;
 			case .VK_KHR_dedicated_allocation: return 1;
+			case .VK_ANDROID_external_memory_android_hardware_buffer: return 4;
 			case .VK_EXT_sampler_filter_minmax: return 1;
+			case .VK_AMDX_shader_enqueue: return 5;
 			case .VK_EXT_inline_uniform_block: return 2;
 			case .VK_KHR_shader_bfloat16: return 1;
 			case .VK_EXT_sample_locations: return 1;
@@ -2006,6 +2179,7 @@ enum VulkanExtension
 			case .VK_KHR_sampler_ycbcr_conversion: return 4;
 			case .VK_EXT_image_drm_format_modifier: return 4;
 			case .VK_EXT_descriptor_indexing: return 2;
+			case .VK_KHR_portability_subset: return 1;
 			case .VK_NV_shading_rate_image: return 1;
 			case .VK_NV_ray_tracing: return 2;
 			case .VK_NV_representative_fragment_test: return 1;
@@ -2020,6 +2194,7 @@ enum VulkanExtension
 			case .VK_KHR_video_decode_h265: return 1;
 			case .VK_KHR_global_priority: return 1;
 			case .VK_EXT_vertex_attribute_divisor: return 1;
+			case .VK_GGP_frame_token: return 2;
 			case .VK_KHR_driver_properties: return 1;
 			case .VK_KHR_shader_float_controls: return 1;
 			case .VK_NV_shader_subgroup_partitioned: return 1;
@@ -2036,7 +2211,9 @@ enum VulkanExtension
 			case .VK_KHR_vulkan_memory_model: return 1;
 			case .VK_EXT_pci_bus_info: return 1;
 			case .VK_AMD_display_native_hdr: return 3;
+			case .VK_FUCHSIA_imagepipe_surface: return 1;
 			case .VK_KHR_shader_terminate_invocation: return 1;
+			case .VK_EXT_metal_surface: return 1;
 			case .VK_EXT_fragment_density_map: return 1;
 			case .VK_EXT_scalar_block_layout: return 1;
 			case .VK_EXT_subgroup_size_control: return 1;
@@ -2060,6 +2237,7 @@ enum VulkanExtension
 			case .VK_EXT_ycbcr_image_arrays: return 1;
 			case .VK_KHR_uniform_buffer_standard_layout: return 1;
 			case .VK_EXT_provoking_vertex: return 1;
+			case .VK_EXT_full_screen_exclusive: return 4;
 			case .VK_EXT_headless_surface: return 1;
 			case .VK_KHR_buffer_device_address: return 2;
 			case .VK_EXT_line_rasterization: return 1;
@@ -2089,7 +2267,7 @@ enum VulkanExtension
 			case .VK_EXT_pipeline_creation_cache_control: return 1;
 			case .VK_KHR_video_encode_queue: return 2;
 			case .VK_NV_device_diagnostics_config: return 1;
-			case .VK_QCOM_tile_shading: return 1;
+			case .VK_QCOM_tile_shading: return 2;
 			case .VK_KHR_synchronization2: return 1;
 			case .VK_EXT_descriptor_buffer: return 4;
 			case .VK_EXT_graphics_pipeline_library: return 2;
@@ -2112,6 +2290,8 @@ enum VulkanExtension
 			case .VK_EXT_device_fault: return 1;
 			case .VK_ARM_rasterization_order_attachment_access: return 1;
 			case .VK_EXT_rgba10x6_formats: return 1;
+			case .VK_NV_acquire_winrt_display: return 1;
+			case .VK_EXT_directfb_surface: return 1;
 			case .VK_VALVE_mutable_descriptor_type: return 1;
 			case .VK_EXT_vertex_input_dynamic_state: return 1;
 			case .VK_EXT_physical_device_drm: return 1;
@@ -2120,12 +2300,16 @@ enum VulkanExtension
 			case .VK_EXT_primitive_topology_list_restart: return 1;
 			case .VK_KHR_format_feature_flags2: return 1;
 			case .VK_EXT_present_mode_fifo_latest_ready: return 1;
+			case .VK_FUCHSIA_external_memory: return 2;
+			case .VK_FUCHSIA_external_semaphore: return 2;
+			case .VK_FUCHSIA_buffer_collection: return 2;
 			case .VK_HUAWEI_subpass_shading: return 2;
 			case .VK_HUAWEI_invocation_mask: return 2;
 			case .VK_NV_external_memory_rdma: return 1;
 			case .VK_EXT_pipeline_properties: return 1;
 			case .VK_EXT_multisampled_render_to_single_sampled: return 2;
 			case .VK_EXT_extended_dynamic_state2: return 1;
+			case .VK_QNX_screen_surface: return 1;
 			case .VK_EXT_color_write_enable: return 1;
 			case .VK_EXT_primitives_generated_query: return 1;
 			case .VK_KHR_ray_tracing_maintenance1: return 1;
@@ -2135,6 +2319,7 @@ enum VulkanExtension
 			case .VK_EXT_image_2d_view_of_3d: return 2;
 			case .VK_EXT_shader_tile_image: return 1;
 			case .VK_EXT_opacity_micromap: return 2;
+			case .VK_NV_displacement_micromap: return 1;
 			case .VK_HUAWEI_cluster_culling_shader: return 1;
 			case .VK_EXT_border_color_swizzle: return 1;
 			case .VK_EXT_pageable_device_local_memory: return 1;
@@ -2166,6 +2351,7 @@ enum VulkanExtension
 			case .VK_NV_optical_flow: return 3;
 			case .VK_EXT_legacy_dithering: return 1;
 			case .VK_EXT_pipeline_protected_access: return 1;
+			case .VK_ANDROID_external_format_resolve: return 1;
 			case .VK_KHR_maintenance5: return 2;
 			case .VK_KHR_present_id2: return 3;
 			case .VK_KHR_present_wait2: return 4;
@@ -2174,8 +2360,8 @@ enum VulkanExtension
 			case .VK_KHR_pipeline_binary: return 1;
 			case .VK_QCOM_tile_properties: return 1;
 			case .VK_SEC_amigo_profiling: return 1;
-			case .VK_KHR_surface_maintenance1: return 1;
-			case .VK_KHR_swapchain_maintenance1: return 1;
+			case .VK_KHR_surface_maintenance1: return 2;
+			case .VK_KHR_swapchain_maintenance1: return 3;
 			case .VK_QCOM_multiview_per_view_viewports: return 1;
 			case .VK_NV_ray_tracing_invocation_reorder: return 1;
 			case .VK_EXT_mutable_descriptor_type: return 1;
@@ -2183,7 +2369,7 @@ enum VulkanExtension
 			case .VK_ARM_shader_core_builtins: return 1;
 			case .VK_EXT_pipeline_library_group_handles: return 2;
 			case .VK_EXT_dynamic_rendering_unused_attachments: return 2;
-			case .VK_NV_low_latency2: return 2;
+			case .VK_NV_low_latency2: return 3;
 			case .VK_KHR_cooperative_matrix: return 1;
 			case .VK_ARM_data_graph: return 3;
 			case .VK_KHR_compute_shader_derivatives: return 1;
@@ -2198,6 +2384,7 @@ enum VulkanExtension
 			case .VK_EXT_attachment_feedback_loop_dynamic_state: return 2;
 			case .VK_KHR_vertex_attribute_divisor: return 1;
 			case .VK_KHR_shader_float_controls2: return 2;
+			case .VK_QNX_external_memory_screen_buffer: return 4;
 			case .VK_MSFT_layered_driver: return 1;
 			case .VK_KHR_index_type_uint8: return 1;
 			case .VK_KHR_line_rasterization: return 1;
@@ -2218,9 +2405,11 @@ enum VulkanExtension
 			case .VK_EXT_depth_clamp_control: return 1;
 			case .VK_KHR_maintenance9: return 1;
 			case .VK_KHR_video_maintenance2: return 1;
+			case .VK_OHOS_surface: return 1;
 			case .VK_HUAWEI_hdr_vivid: return 3;
 			case .VK_NV_cooperative_matrix2: return 1;
 			case .VK_ARM_pipeline_opacity_micromap: return 1;
+			case .VK_EXT_external_memory_metal: return 1;
 			case .VK_KHR_depth_clamp_zero_one: return 1;
 			case .VK_EXT_vertex_attribute_robustness: return 1;
 			case .VK_VALVE_fragment_density_map_layered: return 2;
@@ -2256,6 +2445,41 @@ enum VulkanExtension
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
 			case 1: return VulkanApi.Extension(.VK_KHR_display);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_xlib_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_xcb_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_wayland_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_android_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_win32_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -2325,6 +2549,13 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_GGP_stream_descriptor_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_NV_corner_sampled_image:
 			switch (idx)
 			{
@@ -2346,10 +2577,31 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_NV_external_memory_win32:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_NV_external_memory);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_NV_win32_keyed_mutex:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_NV_external_memory_win32);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_KHR_device_group:
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_device_group_creation);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_NN_vi_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -2388,10 +2640,24 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_KHR_external_memory_win32:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_KHR_external_memory_fd:
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_external_memory);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_win32_keyed_mutex:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory_win32);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -2406,6 +2672,13 @@ enum VulkanExtension
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_external_semaphore_capabilities);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_external_semaphore_win32:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_external_semaphore);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -2456,6 +2729,13 @@ enum VulkanExtension
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_display);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_EXT_acquire_xlib_display:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_EXT_direct_mode_display);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -2570,6 +2850,13 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_KHR_external_fence_win32:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_external_fence);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_KHR_external_fence_fd:
 			switch (idx)
 			{
@@ -2606,6 +2893,20 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_MVK_ios_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_MVK_macos_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_EXT_external_memory_dma_buf:
 			switch (idx)
 			{
@@ -2627,10 +2928,31 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_ANDROID_external_memory_android_hardware_buffer:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_sampler_ycbcr_conversion);
+			case 1: return VulkanApi.Extension(.VK_KHR_external_memory);
+			case 2: return VulkanApi.Extension(.VK_KHR_dedicated_allocation);
+			case 3: return VulkanApi.Extension(.VK_EXT_queue_family_foreign);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_EXT_sampler_filter_minmax:
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_AMDX_shader_enqueue:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_synchronization2);
+			case 1: return VulkanApi.Extension(.VK_KHR_spirv_1_4);
+			case 2: return VulkanApi.Extension(.VK_EXT_extended_dynamic_state);
+			case 3: return VulkanApi.Extension(.VK_KHR_maintenance5);
+			case 4: return VulkanApi.Extension(.VK_KHR_pipeline_library);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -2721,6 +3043,13 @@ enum VulkanExtension
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			case 1: return VulkanApi.Extension(.VK_KHR_maintenance3);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_KHR_portability_subset:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -2821,6 +3150,14 @@ enum VulkanExtension
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_GGP_frame_token:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 1: return VulkanApi.Extension(.VK_GGP_stream_descriptor_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -2940,10 +3277,24 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_FUCHSIA_imagepipe_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_KHR_shader_terminate_invocation:
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_EXT_metal_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -3114,6 +3465,16 @@ enum VulkanExtension
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_EXT_full_screen_exclusive:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			case 1: return VulkanApi.Extension(.VK_KHR_surface);
+			case 2: return VulkanApi.Extension(.VK_KHR_get_surface_capabilities2);
+			case 3: return VulkanApi.Extension(.VK_KHR_swapchain);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -3336,6 +3697,7 @@ enum VulkanExtension
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_QCOM_tile_properties);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -3497,6 +3859,20 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_NV_acquire_winrt_display:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_EXT_direct_mode_display);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_EXT_directfb_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_VALVE_mutable_descriptor_type:
 			switch (idx)
 			{
@@ -3554,6 +3930,30 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_FUCHSIA_external_memory:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory_capabilities);
+			case 1: return VulkanApi.Extension(.VK_KHR_external_memory);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_FUCHSIA_external_semaphore:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_external_semaphore_capabilities);
+			case 1: return VulkanApi.Extension(.VK_KHR_external_semaphore);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_FUCHSIA_buffer_collection:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_FUCHSIA_external_memory);
+			case 1: return VulkanApi.Extension(.VK_KHR_sampler_ycbcr_conversion);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_HUAWEI_subpass_shading:
 			switch (idx)
 			{
@@ -3596,6 +3996,13 @@ enum VulkanExtension
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_QNX_screen_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -3662,6 +4069,13 @@ enum VulkanExtension
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_acceleration_structure);
 			case 1: return VulkanApi.Extension(.VK_KHR_synchronization2);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_NV_displacement_micromap:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_EXT_opacity_micromap);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -3890,6 +4304,13 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_ANDROID_external_format_resolve:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_ANDROID_external_memory_android_hardware_buffer);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_KHR_maintenance5:
 			switch (idx)
 			{
@@ -3957,6 +4378,7 @@ enum VulkanExtension
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			case 1: return VulkanApi.Extension(.VK_KHR_get_surface_capabilities2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -3964,6 +4386,8 @@ enum VulkanExtension
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_swapchain);
+			case 1: return VulkanApi.Extension(.VK_KHR_surface_maintenance1);
+			case 2: return VulkanApi.Extension(.VK_KHR_get_physical_device_properties2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -4023,6 +4447,7 @@ enum VulkanExtension
 			{
 			case 0: return VulkanApi.Extension(.VK_KHR_timeline_semaphore);
 			case 1: return VulkanApi.Extension(.VK_KHR_present_id);
+			case 2: return VulkanApi.Extension(.VK_KHR_present_id2);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -4126,6 +4551,16 @@ enum VulkanExtension
 			{
 			case 0: return VulkanApi.ApiVersion(.VK_VERSION_1_1);
 			case 1: return VulkanApi.Extension(.VK_KHR_shader_float_controls);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_QNX_external_memory_screen_buffer:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_sampler_ycbcr_conversion);
+			case 1: return VulkanApi.Extension(.VK_KHR_external_memory);
+			case 2: return VulkanApi.Extension(.VK_KHR_dedicated_allocation);
+			case 3: return VulkanApi.Extension(.VK_EXT_queue_family_foreign);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -4273,6 +4708,13 @@ enum VulkanExtension
 			default:
 				Runtime.FatalError("Index out of range");
 			}
+		case .VK_OHOS_surface:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_surface);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
 		case .VK_HUAWEI_hdr_vivid:
 			switch (idx)
 			{
@@ -4293,6 +4735,13 @@ enum VulkanExtension
 			switch (idx)
 			{
 			case 0: return VulkanApi.Extension(.VK_EXT_opacity_micromap);
+			default:
+				Runtime.FatalError("Index out of range");
+			}
+		case .VK_EXT_external_memory_metal:
+			switch (idx)
+			{
+			case 0: return VulkanApi.Extension(.VK_KHR_external_memory);
 			default:
 				Runtime.FatalError("Index out of range");
 			}
@@ -9846,6 +10295,11 @@ extension VkStructureType
 			case .VkDisplayModeCreateInfoKHR: return typeof(VkDisplayModeCreateInfoKHR);
 			case .VkDisplaySurfaceCreateInfoKHR: return typeof(VkDisplaySurfaceCreateInfoKHR);
 			case .VkDisplayPresentInfoKHR: return typeof(VkDisplayPresentInfoKHR);
+			case .VkXlibSurfaceCreateInfoKHR: return typeof(VkXlibSurfaceCreateInfoKHR);
+			case .VkXcbSurfaceCreateInfoKHR: return typeof(VkXcbSurfaceCreateInfoKHR);
+			case .VkWaylandSurfaceCreateInfoKHR: return typeof(VkWaylandSurfaceCreateInfoKHR);
+			case .VkAndroidSurfaceCreateInfoKHR: return typeof(VkAndroidSurfaceCreateInfoKHR);
+			case .VkWin32SurfaceCreateInfoKHR: return typeof(VkWin32SurfaceCreateInfoKHR);
 			case .VkDebugReportCallbackCreateInfoEXT: return typeof(VkDebugReportCallbackCreateInfoEXT);
 			case .VkPipelineRasterizationStateRasterizationOrderAMD: return typeof(VkPipelineRasterizationStateRasterizationOrderAMD);
 			case .VkDebugMarkerObjectNameInfoEXT: return typeof(VkDebugMarkerObjectNameInfoEXT);
@@ -9918,15 +10372,29 @@ extension VkStructureType
 			case .VkVideoDecodeH264SessionParametersAddInfoKHR: return typeof(VkVideoDecodeH264SessionParametersAddInfoKHR);
 			case .VkVideoDecodeH264DpbSlotInfoKHR: return typeof(VkVideoDecodeH264DpbSlotInfoKHR);
 			case .VkTextureLodGatherFormatPropertiesAMD: return typeof(VkTextureLODGatherFormatPropertiesAMD);
+			case .VkStreamDescriptorSurfaceCreateInfoGGP: return typeof(VkStreamDescriptorSurfaceCreateInfoGGP);
 			case .VkPhysicalDeviceCornerSampledImageFeaturesNV: return typeof(VkPhysicalDeviceCornerSampledImageFeaturesNV);
 			case .VkExternalMemoryImageCreateInfoNV: return typeof(VkExternalMemoryImageCreateInfoNV);
 			case .VkExportMemoryAllocateInfoNV: return typeof(VkExportMemoryAllocateInfoNV);
+			case .VkImportMemoryWin32HandleInfoNV: return typeof(VkImportMemoryWin32HandleInfoNV);
+			case .VkExportMemoryWin32HandleInfoNV: return typeof(VkExportMemoryWin32HandleInfoNV);
+			case .VkWin32KeyedMutexAcquireReleaseInfoNV: return typeof(VkWin32KeyedMutexAcquireReleaseInfoNV);
 			case .VkValidationFlagsEXT: return typeof(VkValidationFlagsEXT);
+			case .VkViSurfaceCreateInfoNN: return typeof(VkViSurfaceCreateInfoNN);
 			case .VkImageViewAstcDecodeModeEXT: return typeof(VkImageViewASTCDecodeModeEXT);
 			case .VkPhysicalDeviceAstcDecodeFeaturesEXT: return typeof(VkPhysicalDeviceASTCDecodeFeaturesEXT);
+			case .VkImportMemoryWin32HandleInfoKHR: return typeof(VkImportMemoryWin32HandleInfoKHR);
+			case .VkExportMemoryWin32HandleInfoKHR: return typeof(VkExportMemoryWin32HandleInfoKHR);
+			case .VkMemoryWin32HandlePropertiesKHR: return typeof(VkMemoryWin32HandlePropertiesKHR);
+			case .VkMemoryGetWin32HandleInfoKHR: return typeof(VkMemoryGetWin32HandleInfoKHR);
 			case .VkImportMemoryFdInfoKHR: return typeof(VkImportMemoryFdInfoKHR);
 			case .VkMemoryFdPropertiesKHR: return typeof(VkMemoryFdPropertiesKHR);
 			case .VkMemoryGetFdInfoKHR: return typeof(VkMemoryGetFdInfoKHR);
+			case .VkWin32KeyedMutexAcquireReleaseInfoKHR: return typeof(VkWin32KeyedMutexAcquireReleaseInfoKHR);
+			case .VkImportSemaphoreWin32HandleInfoKHR: return typeof(VkImportSemaphoreWin32HandleInfoKHR);
+			case .VkExportSemaphoreWin32HandleInfoKHR: return typeof(VkExportSemaphoreWin32HandleInfoKHR);
+			case .VkD3d12FenceSubmitInfoKHR: return typeof(VkD3D12FenceSubmitInfoKHR);
+			case .VkSemaphoreGetWin32HandleInfoKHR: return typeof(VkSemaphoreGetWin32HandleInfoKHR);
 			case .VkImportSemaphoreFdInfoKHR: return typeof(VkImportSemaphoreFdInfoKHR);
 			case .VkSemaphoreGetFdInfoKHR: return typeof(VkSemaphoreGetFdInfoKHR);
 			case .VkCommandBufferInheritanceConditionalRenderingInfoEXT: return typeof(VkCommandBufferInheritanceConditionalRenderingInfoEXT);
@@ -9952,6 +10420,9 @@ extension VkStructureType
 			case .VkHdrMetadataEXT: return typeof(VkHdrMetadataEXT);
 			case .VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG: return typeof(VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG);
 			case .VkSharedPresentSurfaceCapabilitiesKHR: return typeof(VkSharedPresentSurfaceCapabilitiesKHR);
+			case .VkImportFenceWin32HandleInfoKHR: return typeof(VkImportFenceWin32HandleInfoKHR);
+			case .VkExportFenceWin32HandleInfoKHR: return typeof(VkExportFenceWin32HandleInfoKHR);
+			case .VkFenceGetWin32HandleInfoKHR: return typeof(VkFenceGetWin32HandleInfoKHR);
 			case .VkImportFenceFdInfoKHR: return typeof(VkImportFenceFdInfoKHR);
 			case .VkFenceGetFdInfoKHR: return typeof(VkFenceGetFdInfoKHR);
 			case .VkPhysicalDevicePerformanceQueryFeaturesKHR: return typeof(VkPhysicalDevicePerformanceQueryFeaturesKHR);
@@ -9969,11 +10440,25 @@ extension VkStructureType
 			case .VkDisplayModeProperties2KHR: return typeof(VkDisplayModeProperties2KHR);
 			case .VkDisplayPlaneInfo2KHR: return typeof(VkDisplayPlaneInfo2KHR);
 			case .VkDisplayPlaneCapabilities2KHR: return typeof(VkDisplayPlaneCapabilities2KHR);
+			case .VkIosSurfaceCreateInfoMVK: return typeof(VkIOSSurfaceCreateInfoMVK);
+			case .VkMacosSurfaceCreateInfoMVK: return typeof(VkMacOSSurfaceCreateInfoMVK);
 			case .VkDebugUtilsObjectNameInfoEXT: return typeof(VkDebugUtilsObjectNameInfoEXT);
 			case .VkDebugUtilsObjectTagInfoEXT: return typeof(VkDebugUtilsObjectTagInfoEXT);
 			case .VkDebugUtilsLabelEXT: return typeof(VkDebugUtilsLabelEXT);
 			case .VkDebugUtilsMessengerCallbackDataEXT: return typeof(VkDebugUtilsMessengerCallbackDataEXT);
 			case .VkDebugUtilsMessengerCreateInfoEXT: return typeof(VkDebugUtilsMessengerCreateInfoEXT);
+			case .VkAndroidHardwareBufferUsageANDROID: return typeof(VkAndroidHardwareBufferUsageANDROID);
+			case .VkAndroidHardwareBufferPropertiesANDROID: return typeof(VkAndroidHardwareBufferPropertiesANDROID);
+			case .VkAndroidHardwareBufferFormatPropertiesANDROID: return typeof(VkAndroidHardwareBufferFormatPropertiesANDROID);
+			case .VkImportAndroidHardwareBufferInfoANDROID: return typeof(VkImportAndroidHardwareBufferInfoANDROID);
+			case .VkMemoryGetAndroidHardwareBufferInfoANDROID: return typeof(VkMemoryGetAndroidHardwareBufferInfoANDROID);
+			case .VkExternalFormatANDROID: return typeof(VkExternalFormatANDROID);
+			case .VkAndroidHardwareBufferFormatProperties2ANDROID: return typeof(VkAndroidHardwareBufferFormatProperties2ANDROID);
+			case .VkPhysicalDeviceShaderEnqueueFeaturesAMDX: return typeof(VkPhysicalDeviceShaderEnqueueFeaturesAMDX);
+			case .VkPhysicalDeviceShaderEnqueuePropertiesAMDX: return typeof(VkPhysicalDeviceShaderEnqueuePropertiesAMDX);
+			case .VkExecutionGraphPipelineScratchSizeAMDX: return typeof(VkExecutionGraphPipelineScratchSizeAMDX);
+			case .VkExecutionGraphPipelineCreateInfoAMDX: return typeof(VkExecutionGraphPipelineCreateInfoAMDX);
+			case .VkPipelineShaderStageNodeCreateInfoAMDX: return typeof(VkPipelineShaderStageNodeCreateInfoAMDX);
 			case .VkAttachmentSampleCountInfoAMD: return typeof(VkAttachmentSampleCountInfoAMD);
 			case .VkPhysicalDeviceShaderBfloat16FeaturesKHR: return typeof(VkPhysicalDeviceShaderBfloat16FeaturesKHR);
 			case .VkSampleLocationsInfoEXT: return typeof(VkSampleLocationsInfoEXT);
@@ -10017,6 +10502,8 @@ extension VkStructureType
 			case .VkDrmFormatModifierPropertiesList2EXT: return typeof(VkDrmFormatModifierPropertiesList2EXT);
 			case .VkValidationCacheCreateInfoEXT: return typeof(VkValidationCacheCreateInfoEXT);
 			case .VkShaderModuleValidationCacheCreateInfoEXT: return typeof(VkShaderModuleValidationCacheCreateInfoEXT);
+			case .VkPhysicalDevicePortabilitySubsetFeaturesKHR: return typeof(VkPhysicalDevicePortabilitySubsetFeaturesKHR);
+			case .VkPhysicalDevicePortabilitySubsetPropertiesKHR: return typeof(VkPhysicalDevicePortabilitySubsetPropertiesKHR);
 			case .VkPipelineViewportShadingRateImageStateCreateInfoNV: return typeof(VkPipelineViewportShadingRateImageStateCreateInfoNV);
 			case .VkPhysicalDeviceShadingRateImageFeaturesNV: return typeof(VkPhysicalDeviceShadingRateImageFeaturesNV);
 			case .VkPhysicalDeviceShadingRateImagePropertiesNV: return typeof(VkPhysicalDeviceShadingRateImagePropertiesNV);
@@ -10050,6 +10537,7 @@ extension VkStructureType
 			case .VkVideoDecodeH265DpbSlotInfoKHR: return typeof(VkVideoDecodeH265DpbSlotInfoKHR);
 			case .VkDeviceMemoryOverallocationCreateInfoAMD: return typeof(VkDeviceMemoryOverallocationCreateInfoAMD);
 			case .VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT: return typeof(VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT);
+			case .VkPresentFrameTokenGGP: return typeof(VkPresentFrameTokenGGP);
 			case .VkPhysicalDeviceMeshShaderFeaturesNV: return typeof(VkPhysicalDeviceMeshShaderFeaturesNV);
 			case .VkPhysicalDeviceMeshShaderPropertiesNV: return typeof(VkPhysicalDeviceMeshShaderPropertiesNV);
 			case .VkPhysicalDeviceShaderImageFootprintFeaturesNV: return typeof(VkPhysicalDeviceShaderImageFootprintFeaturesNV);
@@ -10069,6 +10557,8 @@ extension VkStructureType
 			case .VkPhysicalDevicePciBusInfoPropertiesEXT: return typeof(VkPhysicalDevicePCIBusInfoPropertiesEXT);
 			case .VkDisplayNativeHdrSurfaceCapabilitiesAMD: return typeof(VkDisplayNativeHdrSurfaceCapabilitiesAMD);
 			case .VkSwapchainDisplayNativeHdrCreateInfoAMD: return typeof(VkSwapchainDisplayNativeHdrCreateInfoAMD);
+			case .VkImagepipeSurfaceCreateInfoFUCHSIA: return typeof(VkImagePipeSurfaceCreateInfoFUCHSIA);
+			case .VkMetalSurfaceCreateInfoEXT: return typeof(VkMetalSurfaceCreateInfoEXT);
 			case .VkPhysicalDeviceFragmentDensityMapFeaturesEXT: return typeof(VkPhysicalDeviceFragmentDensityMapFeaturesEXT);
 			case .VkPhysicalDeviceFragmentDensityMapPropertiesEXT: return typeof(VkPhysicalDeviceFragmentDensityMapPropertiesEXT);
 			case .VkRenderPassFragmentDensityMapCreateInfoEXT: return typeof(VkRenderPassFragmentDensityMapCreateInfoEXT);
@@ -10103,6 +10593,9 @@ extension VkStructureType
 			case .VkPhysicalDeviceProvokingVertexFeaturesEXT: return typeof(VkPhysicalDeviceProvokingVertexFeaturesEXT);
 			case .VkPipelineRasterizationProvokingVertexStateCreateInfoEXT: return typeof(VkPipelineRasterizationProvokingVertexStateCreateInfoEXT);
 			case .VkPhysicalDeviceProvokingVertexPropertiesEXT: return typeof(VkPhysicalDeviceProvokingVertexPropertiesEXT);
+			case .VkSurfaceFullScreenExclusiveInfoEXT: return typeof(VkSurfaceFullScreenExclusiveInfoEXT);
+			case .VkSurfaceCapabilitiesFullScreenExclusiveEXT: return typeof(VkSurfaceCapabilitiesFullScreenExclusiveEXT);
+			case .VkSurfaceFullScreenExclusiveWin32InfoEXT: return typeof(VkSurfaceFullScreenExclusiveWin32InfoEXT);
 			case .VkHeadlessSurfaceCreateInfoEXT: return typeof(VkHeadlessSurfaceCreateInfoEXT);
 			case .VkPhysicalDeviceShaderAtomicFloatFeaturesEXT: return typeof(VkPhysicalDeviceShaderAtomicFloatFeaturesEXT);
 			case .VkPhysicalDeviceExtendedDynamicStateFeaturesEXT: return typeof(VkPhysicalDeviceExtendedDynamicStateFeaturesEXT);
@@ -10157,6 +10650,11 @@ extension VkStructureType
 			case .VkVideoEncodeSessionParametersFeedbackInfoKHR: return typeof(VkVideoEncodeSessionParametersFeedbackInfoKHR);
 			case .VkPhysicalDeviceDiagnosticsConfigFeaturesNV: return typeof(VkPhysicalDeviceDiagnosticsConfigFeaturesNV);
 			case .VkDeviceDiagnosticsConfigCreateInfoNV: return typeof(VkDeviceDiagnosticsConfigCreateInfoNV);
+			case .VkCudaModuleCreateInfoNV: return typeof(VkCudaModuleCreateInfoNV);
+			case .VkCudaFunctionCreateInfoNV: return typeof(VkCudaFunctionCreateInfoNV);
+			case .VkCudaLaunchInfoNV: return typeof(VkCudaLaunchInfoNV);
+			case .VkPhysicalDeviceCudaKernelLaunchFeaturesNV: return typeof(VkPhysicalDeviceCudaKernelLaunchFeaturesNV);
+			case .VkPhysicalDeviceCudaKernelLaunchPropertiesNV: return typeof(VkPhysicalDeviceCudaKernelLaunchPropertiesNV);
 			case .VkPhysicalDeviceTileShadingFeaturesQCOM: return typeof(VkPhysicalDeviceTileShadingFeaturesQCOM);
 			case .VkPhysicalDeviceTileShadingPropertiesQCOM: return typeof(VkPhysicalDeviceTileShadingPropertiesQCOM);
 			case .VkRenderPassTileShadingCreateInfoQCOM: return typeof(VkRenderPassTileShadingCreateInfoQCOM);
@@ -10164,6 +10662,18 @@ extension VkStructureType
 			case .VkPerTileEndInfoQCOM: return typeof(VkPerTileEndInfoQCOM);
 			case .VkDispatchTileInfoQCOM: return typeof(VkDispatchTileInfoQCOM);
 			case .VkQueryLowLatencySupportNV: return typeof(VkQueryLowLatencySupportNV);
+			case .VkExportMetalObjectCreateInfoEXT: return typeof(VkExportMetalObjectCreateInfoEXT);
+			case .VkExportMetalObjectsInfoEXT: return typeof(VkExportMetalObjectsInfoEXT);
+			case .VkExportMetalDeviceInfoEXT: return typeof(VkExportMetalDeviceInfoEXT);
+			case .VkExportMetalCommandQueueInfoEXT: return typeof(VkExportMetalCommandQueueInfoEXT);
+			case .VkExportMetalBufferInfoEXT: return typeof(VkExportMetalBufferInfoEXT);
+			case .VkImportMetalBufferInfoEXT: return typeof(VkImportMetalBufferInfoEXT);
+			case .VkExportMetalTextureInfoEXT: return typeof(VkExportMetalTextureInfoEXT);
+			case .VkImportMetalTextureInfoEXT: return typeof(VkImportMetalTextureInfoEXT);
+			case .VkExportMetalIoSurfaceInfoEXT: return typeof(VkExportMetalIOSurfaceInfoEXT);
+			case .VkImportMetalIoSurfaceInfoEXT: return typeof(VkImportMetalIOSurfaceInfoEXT);
+			case .VkExportMetalSharedEventInfoEXT: return typeof(VkExportMetalSharedEventInfoEXT);
+			case .VkImportMetalSharedEventInfoEXT: return typeof(VkImportMetalSharedEventInfoEXT);
 			case .VkPhysicalDeviceDescriptorBufferPropertiesEXT: return typeof(VkPhysicalDeviceDescriptorBufferPropertiesEXT);
 			case .VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT: return typeof(VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT);
 			case .VkPhysicalDeviceDescriptorBufferFeaturesEXT: return typeof(VkPhysicalDeviceDescriptorBufferFeaturesEXT);
@@ -10206,6 +10716,7 @@ extension VkStructureType
 			case .VkDeviceFaultCountsEXT: return typeof(VkDeviceFaultCountsEXT);
 			case .VkDeviceFaultInfoEXT: return typeof(VkDeviceFaultInfoEXT);
 			case .VkPhysicalDeviceRgba10x6FormatsFeaturesEXT: return typeof(VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT);
+			case .VkDirectfbSurfaceCreateInfoEXT: return typeof(VkDirectFBSurfaceCreateInfoEXT);
 			case .VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT: return typeof(VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT);
 			case .VkVertexInputBindingDescription2EXT: return typeof(VkVertexInputBindingDescription2EXT);
 			case .VkVertexInputAttributeDescription2EXT: return typeof(VkVertexInputAttributeDescription2EXT);
@@ -10215,6 +10726,21 @@ extension VkStructureType
 			case .VkPhysicalDeviceDepthClipControlFeaturesEXT: return typeof(VkPhysicalDeviceDepthClipControlFeaturesEXT);
 			case .VkPipelineViewportDepthClipControlCreateInfoEXT: return typeof(VkPipelineViewportDepthClipControlCreateInfoEXT);
 			case .VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT: return typeof(VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT);
+			case .VkImportMemoryZirconHandleInfoFUCHSIA: return typeof(VkImportMemoryZirconHandleInfoFUCHSIA);
+			case .VkMemoryZirconHandlePropertiesFUCHSIA: return typeof(VkMemoryZirconHandlePropertiesFUCHSIA);
+			case .VkMemoryGetZirconHandleInfoFUCHSIA: return typeof(VkMemoryGetZirconHandleInfoFUCHSIA);
+			case .VkImportSemaphoreZirconHandleInfoFUCHSIA: return typeof(VkImportSemaphoreZirconHandleInfoFUCHSIA);
+			case .VkSemaphoreGetZirconHandleInfoFUCHSIA: return typeof(VkSemaphoreGetZirconHandleInfoFUCHSIA);
+			case .VkBufferCollectionCreateInfoFUCHSIA: return typeof(VkBufferCollectionCreateInfoFUCHSIA);
+			case .VkImportMemoryBufferCollectionFUCHSIA: return typeof(VkImportMemoryBufferCollectionFUCHSIA);
+			case .VkBufferCollectionImageCreateInfoFUCHSIA: return typeof(VkBufferCollectionImageCreateInfoFUCHSIA);
+			case .VkBufferCollectionPropertiesFUCHSIA: return typeof(VkBufferCollectionPropertiesFUCHSIA);
+			case .VkBufferConstraintsInfoFUCHSIA: return typeof(VkBufferConstraintsInfoFUCHSIA);
+			case .VkBufferCollectionBufferCreateInfoFUCHSIA: return typeof(VkBufferCollectionBufferCreateInfoFUCHSIA);
+			case .VkImageConstraintsInfoFUCHSIA: return typeof(VkImageConstraintsInfoFUCHSIA);
+			case .VkImageFormatConstraintsInfoFUCHSIA: return typeof(VkImageFormatConstraintsInfoFUCHSIA);
+			case .VkSysmemColorSpaceFUCHSIA: return typeof(VkSysmemColorSpaceFUCHSIA);
+			case .VkBufferCollectionConstraintsInfoFUCHSIA: return typeof(VkBufferCollectionConstraintsInfoFUCHSIA);
 			case .VkSubpassShadingPipelineCreateInfoHUAWEI: return typeof(VkSubpassShadingPipelineCreateInfoHUAWEI);
 			case .VkPhysicalDeviceSubpassShadingFeaturesHUAWEI: return typeof(VkPhysicalDeviceSubpassShadingFeaturesHUAWEI);
 			case .VkPhysicalDeviceSubpassShadingPropertiesHUAWEI: return typeof(VkPhysicalDeviceSubpassShadingPropertiesHUAWEI);
@@ -10229,6 +10755,7 @@ extension VkStructureType
 			case .VkSubpassResolvePerformanceQueryEXT: return typeof(VkSubpassResolvePerformanceQueryEXT);
 			case .VkMultisampledRenderToSingleSampledInfoEXT: return typeof(VkMultisampledRenderToSingleSampledInfoEXT);
 			case .VkPhysicalDeviceExtendedDynamicState2FeaturesEXT: return typeof(VkPhysicalDeviceExtendedDynamicState2FeaturesEXT);
+			case .VkScreenSurfaceCreateInfoQNX: return typeof(VkScreenSurfaceCreateInfoQNX);
 			case .VkPhysicalDeviceColorWriteEnableFeaturesEXT: return typeof(VkPhysicalDeviceColorWriteEnableFeaturesEXT);
 			case .VkPipelineColorWriteCreateInfoEXT: return typeof(VkPipelineColorWriteCreateInfoEXT);
 			case .VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT: return typeof(VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT);
@@ -10250,6 +10777,9 @@ extension VkStructureType
 			case .VkMicromapCreateInfoEXT: return typeof(VkMicromapCreateInfoEXT);
 			case .VkMicromapBuildSizesInfoEXT: return typeof(VkMicromapBuildSizesInfoEXT);
 			case .VkAccelerationStructureTrianglesOpacityMicromapEXT: return typeof(VkAccelerationStructureTrianglesOpacityMicromapEXT);
+			case .VkPhysicalDeviceDisplacementMicromapFeaturesNV: return typeof(VkPhysicalDeviceDisplacementMicromapFeaturesNV);
+			case .VkPhysicalDeviceDisplacementMicromapPropertiesNV: return typeof(VkPhysicalDeviceDisplacementMicromapPropertiesNV);
+			case .VkAccelerationStructureTrianglesDisplacementMicromapNV: return typeof(VkAccelerationStructureTrianglesDisplacementMicromapNV);
 			case .VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI: return typeof(VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI);
 			case .VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI: return typeof(VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI);
 			case .VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI: return typeof(VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI);
@@ -10335,6 +10865,9 @@ extension VkStructureType
 			case .VkOpticalFlowExecuteInfoNV: return typeof(VkOpticalFlowExecuteInfoNV);
 			case .VkOpticalFlowSessionCreatePrivateDataInfoNV: return typeof(VkOpticalFlowSessionCreatePrivateDataInfoNV);
 			case .VkPhysicalDeviceLegacyDitheringFeaturesEXT: return typeof(VkPhysicalDeviceLegacyDitheringFeaturesEXT);
+			case .VkPhysicalDeviceExternalFormatResolveFeaturesANDROID: return typeof(VkPhysicalDeviceExternalFormatResolveFeaturesANDROID);
+			case .VkPhysicalDeviceExternalFormatResolvePropertiesANDROID: return typeof(VkPhysicalDeviceExternalFormatResolvePropertiesANDROID);
+			case .VkAndroidHardwareBufferFormatResolvePropertiesANDROID: return typeof(VkAndroidHardwareBufferFormatResolvePropertiesANDROID);
 			case .VkPhysicalDeviceAntiLagFeaturesAMD: return typeof(VkPhysicalDeviceAntiLagFeaturesAMD);
 			case .VkAntiLagDataAMD: return typeof(VkAntiLagDataAMD);
 			case .VkAntiLagPresentationInfoAMD: return typeof(VkAntiLagPresentationInfoAMD);
@@ -10460,6 +10993,11 @@ extension VkStructureType
 			case .VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT: return typeof(VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT);
 			case .VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR: return typeof(VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR);
 			case .VkAttachmentFeedbackLoopInfoEXT: return typeof(VkAttachmentFeedbackLoopInfoEXT);
+			case .VkScreenBufferPropertiesQNX: return typeof(VkScreenBufferPropertiesQNX);
+			case .VkScreenBufferFormatPropertiesQNX: return typeof(VkScreenBufferFormatPropertiesQNX);
+			case .VkImportScreenBufferInfoQNX: return typeof(VkImportScreenBufferInfoQNX);
+			case .VkExternalFormatQNX: return typeof(VkExternalFormatQNX);
+			case .VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX: return typeof(VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX);
 			case .VkPhysicalDeviceLayeredDriverPropertiesMSFT: return typeof(VkPhysicalDeviceLayeredDriverPropertiesMSFT);
 			case .VkCalibratedTimestampInfoKHR: return typeof(VkCalibratedTimestampInfoKHR);
 			case .VkSetDescriptorBufferOffsetsInfoEXT: return typeof(VkSetDescriptorBufferOffsetsInfoEXT);
@@ -10545,12 +11083,16 @@ extension VkStructureType
 			case .VkVideoDecodeH264InlineSessionParametersInfoKHR: return typeof(VkVideoDecodeH264InlineSessionParametersInfoKHR);
 			case .VkVideoDecodeH265InlineSessionParametersInfoKHR: return typeof(VkVideoDecodeH265InlineSessionParametersInfoKHR);
 			case .VkVideoDecodeAv1InlineSessionParametersInfoKHR: return typeof(VkVideoDecodeAV1InlineSessionParametersInfoKHR);
+			case .VkOhSurfaceCreateInfoOHOS: return typeof(VkOHSurfaceCreateInfoOHOS);
 			case .VkPhysicalDeviceHdrVividFeaturesHUAWEI: return typeof(VkPhysicalDeviceHdrVividFeaturesHUAWEI);
 			case .VkHdrVividDynamicMetadataHUAWEI: return typeof(VkHdrVividDynamicMetadataHUAWEI);
 			case .VkPhysicalDeviceCooperativeMatrix2FeaturesNV: return typeof(VkPhysicalDeviceCooperativeMatrix2FeaturesNV);
 			case .VkCooperativeMatrixFlexibleDimensionsPropertiesNV: return typeof(VkCooperativeMatrixFlexibleDimensionsPropertiesNV);
 			case .VkPhysicalDeviceCooperativeMatrix2PropertiesNV: return typeof(VkPhysicalDeviceCooperativeMatrix2PropertiesNV);
 			case .VkPhysicalDevicePipelineOpacityMicromapFeaturesARM: return typeof(VkPhysicalDevicePipelineOpacityMicromapFeaturesARM);
+			case .VkImportMemoryMetalHandleInfoEXT: return typeof(VkImportMemoryMetalHandleInfoEXT);
+			case .VkMemoryMetalHandlePropertiesEXT: return typeof(VkMemoryMetalHandlePropertiesEXT);
+			case .VkMemoryGetMetalHandleInfoEXT: return typeof(VkMemoryGetMetalHandleInfoEXT);
 			case .VkPhysicalDeviceDepthClampZeroOneFeaturesKHR: return typeof(VkPhysicalDeviceDepthClampZeroOneFeaturesKHR);
 			case .VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT: return typeof(VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT);
 			case .VkPhysicalDeviceFormatPackFeaturesARM: return typeof(VkPhysicalDeviceFormatPackFeaturesARM);
@@ -10559,6 +11101,8 @@ extension VkStructureType
 			case .VkPipelineFragmentDensityMapLayeredCreateInfoVALVE: return typeof(VkPipelineFragmentDensityMapLayeredCreateInfoVALVE);
 			case .VkPhysicalDeviceRobustness2FeaturesKHR: return typeof(VkPhysicalDeviceRobustness2FeaturesKHR);
 			case .VkPhysicalDeviceRobustness2PropertiesKHR: return typeof(VkPhysicalDeviceRobustness2PropertiesKHR);
+			case .VkSetPresentConfigNV: return typeof(VkSetPresentConfigNV);
+			case .VkPhysicalDevicePresentMeteringFeaturesNV: return typeof(VkPhysicalDevicePresentMeteringFeaturesNV);
 			case .VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT: return typeof(VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT);
 			case .VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT: return typeof(VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT);
 			case .VkRenderPassFragmentDensityMapOffsetEndInfoEXT: return typeof(VkRenderPassFragmentDensityMapOffsetEndInfoEXT);
@@ -10733,6 +11277,8 @@ enum VulkanCommand
 	case vkCmdNextSubpass;
 	case vkCmdEndRenderPass;
 	case vkCmdExecuteCommands;
+	case vkCreateAndroidSurfaceKHR;
+	case vkCreateSurfaceOHOS;
 	case vkGetPhysicalDeviceDisplayPropertiesKHR;
 	case vkGetPhysicalDeviceDisplayPlanePropertiesKHR;
 	case vkGetDisplayPlaneSupportedDisplaysKHR;
@@ -10751,6 +11297,21 @@ enum VulkanCommand
 	case vkGetSwapchainImagesKHR;
 	case vkAcquireNextImageKHR;
 	case vkQueuePresentKHR;
+	case vkCreateViSurfaceNN;
+	case vkCreateWaylandSurfaceKHR;
+	case vkGetPhysicalDeviceWaylandPresentationSupportKHR;
+	case vkCreateWin32SurfaceKHR;
+	case vkGetPhysicalDeviceWin32PresentationSupportKHR;
+	case vkCreateXlibSurfaceKHR;
+	case vkGetPhysicalDeviceXlibPresentationSupportKHR;
+	case vkCreateXcbSurfaceKHR;
+	case vkGetPhysicalDeviceXcbPresentationSupportKHR;
+	case vkCreateDirectFBSurfaceEXT;
+	case vkGetPhysicalDeviceDirectFBPresentationSupportEXT;
+	case vkCreateImagePipeSurfaceFUCHSIA;
+	case vkCreateStreamDescriptorSurfaceGGP;
+	case vkCreateScreenSurfaceQNX;
+	case vkGetPhysicalDeviceScreenPresentationSupportQNX;
 	case vkCreateDebugReportCallbackEXT;
 	case vkDestroyDebugReportCallbackEXT;
 	case vkDebugReportMessageEXT;
@@ -10760,6 +11321,7 @@ enum VulkanCommand
 	case vkCmdDebugMarkerEndEXT;
 	case vkCmdDebugMarkerInsertEXT;
 	case vkGetPhysicalDeviceExternalImageFormatPropertiesNV;
+	case vkGetMemoryWin32HandleNV;
 	case vkCmdExecuteGeneratedCommandsNV;
 	case vkCmdPreprocessGeneratedCommandsNV;
 	case vkCmdBindPipelineShaderGroupNV;
@@ -10785,16 +11347,30 @@ enum VulkanCommand
 	case vkCmdPushDescriptorSet;
 	case vkTrimCommandPool;
 	case vkGetPhysicalDeviceExternalBufferProperties;
+	case vkGetMemoryWin32HandleKHR;
+	case vkGetMemoryWin32HandlePropertiesKHR;
 	case vkGetMemoryFdKHR;
 	case vkGetMemoryFdPropertiesKHR;
+	case vkGetMemoryZirconHandleFUCHSIA;
+	case vkGetMemoryZirconHandlePropertiesFUCHSIA;
 	case vkGetMemoryRemoteAddressNV;
 	case vkGetPhysicalDeviceExternalSemaphoreProperties;
+	case vkGetSemaphoreWin32HandleKHR;
+	case vkImportSemaphoreWin32HandleKHR;
 	case vkGetSemaphoreFdKHR;
 	case vkImportSemaphoreFdKHR;
+	case vkGetSemaphoreZirconHandleFUCHSIA;
+	case vkImportSemaphoreZirconHandleFUCHSIA;
 	case vkGetPhysicalDeviceExternalFenceProperties;
+	case vkGetFenceWin32HandleKHR;
+	case vkImportFenceWin32HandleKHR;
 	case vkGetFenceFdKHR;
 	case vkImportFenceFdKHR;
 	case vkReleaseDisplayEXT;
+	case vkAcquireXlibDisplayEXT;
+	case vkGetRandROutputDisplayEXT;
+	case vkAcquireWinrtDisplayNV;
+	case vkGetWinrtDisplayNV;
 	case vkDisplayPowerControlEXT;
 	case vkRegisterDeviceEventEXT;
 	case vkRegisterDisplayEventEXT;
@@ -10818,6 +11394,9 @@ enum VulkanCommand
 	case vkGetSwapchainStatusKHR;
 	case vkGetRefreshCycleDurationGOOGLE;
 	case vkGetPastPresentationTimingGOOGLE;
+	case vkCreateIOSSurfaceMVK;
+	case vkCreateMacOSSurfaceMVK;
+	case vkCreateMetalSurfaceEXT;
 	case vkCmdSetViewportWScalingNV;
 	case vkCmdSetDiscardRectangleEXT;
 	case vkCmdSetDiscardRectangleEnableEXT;
@@ -10868,6 +11447,8 @@ enum VulkanCommand
 	case vkGetSemaphoreCounterValue;
 	case vkWaitSemaphores;
 	case vkSignalSemaphore;
+	case vkGetAndroidHardwareBufferPropertiesANDROID;
+	case vkGetMemoryAndroidHardwareBufferANDROID;
 	case vkCmdDrawIndirectCount;
 	case vkCmdDrawIndexedIndirectCount;
 	case vkCmdSetCheckpointNV;
@@ -10925,6 +11506,10 @@ enum VulkanCommand
 	case vkGetImageViewHandleNVX;
 	case vkGetImageViewHandle64NVX;
 	case vkGetImageViewAddressNVX;
+	case vkGetPhysicalDeviceSurfacePresentModes2EXT;
+	case vkGetDeviceGroupSurfacePresentModes2EXT;
+	case vkAcquireFullScreenExclusiveModeEXT;
+	case vkReleaseFullScreenExclusiveModeEXT;
 	case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR;
 	case vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR;
 	case vkAcquireProfilingLockKHR;
@@ -11080,6 +11665,17 @@ enum VulkanCommand
 	case vkGetDrmDisplayEXT;
 	case vkWaitForPresent2KHR;
 	case vkWaitForPresentKHR;
+	case vkCreateBufferCollectionFUCHSIA;
+	case vkSetBufferCollectionBufferConstraintsFUCHSIA;
+	case vkSetBufferCollectionImageConstraintsFUCHSIA;
+	case vkDestroyBufferCollectionFUCHSIA;
+	case vkGetBufferCollectionPropertiesFUCHSIA;
+	case vkCreateCudaModuleNV;
+	case vkGetCudaModuleCacheNV;
+	case vkCreateCudaFunctionNV;
+	case vkDestroyCudaModuleNV;
+	case vkDestroyCudaFunctionNV;
+	case vkCmdCudaLaunchKernelNV;
 	case vkCmdBeginRendering;
 	case vkCmdEndRendering;
 	case vkCmdEndRendering2EXT;
@@ -11103,6 +11699,7 @@ enum VulkanCommand
 	case vkGetShaderModuleCreateInfoIdentifierEXT;
 	case vkGetImageSubresourceLayout2;
 	case vkGetPipelinePropertiesEXT;
+	case vkExportMetalObjectsEXT;
 	case vkCmdBindTileMemoryQCOM;
 	case vkGetFramebufferTilePropertiesQCOM;
 	case vkGetDynamicRenderingTilePropertiesQCOM;
@@ -11121,7 +11718,15 @@ enum VulkanCommand
 	case vkDestroyShaderEXT;
 	case vkGetShaderBinaryDataEXT;
 	case vkCmdBindShadersEXT;
+	case vkGetScreenBufferPropertiesQNX;
 	case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR;
+	case vkGetExecutionGraphPipelineScratchSizeAMDX;
+	case vkGetExecutionGraphPipelineNodeIndexAMDX;
+	case vkCreateExecutionGraphPipelinesAMDX;
+	case vkCmdInitializeGraphScratchMemoryAMDX;
+	case vkCmdDispatchGraphAMDX;
+	case vkCmdDispatchGraphIndirectAMDX;
+	case vkCmdDispatchGraphIndirectCountAMDX;
 	case vkCmdBindDescriptorSets2;
 	case vkCmdPushConstants2;
 	case vkCmdPushDescriptorSet2;
@@ -11137,6 +11742,8 @@ enum VulkanCommand
 	case vkCmdSetRenderingInputAttachmentIndices;
 	case vkCmdSetDepthClampRangeEXT;
 	case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV;
+	case vkGetMemoryMetalHandleEXT;
+	case vkGetMemoryMetalHandlePropertiesEXT;
 	case vkGetPhysicalDeviceCooperativeVectorPropertiesNV;
 	case vkConvertCooperativeVectorMatrixNV;
 	case vkCmdConvertCooperativeVectorMatrixNV;
@@ -11332,6 +11939,8 @@ enum VulkanCommand
 			case vkCmdNextSubpass: return typeof(PFN_vkCmdNextSubpass);
 			case vkCmdEndRenderPass: return typeof(PFN_vkCmdEndRenderPass);
 			case vkCmdExecuteCommands: return typeof(PFN_vkCmdExecuteCommands);
+			case vkCreateAndroidSurfaceKHR: return typeof(PFN_vkCreateAndroidSurfaceKHR);
+			case vkCreateSurfaceOHOS: return typeof(PFN_vkCreateSurfaceOHOS);
 			case vkGetPhysicalDeviceDisplayPropertiesKHR: return typeof(PFN_vkGetPhysicalDeviceDisplayPropertiesKHR);
 			case vkGetPhysicalDeviceDisplayPlanePropertiesKHR: return typeof(PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR);
 			case vkGetDisplayPlaneSupportedDisplaysKHR: return typeof(PFN_vkGetDisplayPlaneSupportedDisplaysKHR);
@@ -11350,6 +11959,21 @@ enum VulkanCommand
 			case vkGetSwapchainImagesKHR: return typeof(PFN_vkGetSwapchainImagesKHR);
 			case vkAcquireNextImageKHR: return typeof(PFN_vkAcquireNextImageKHR);
 			case vkQueuePresentKHR: return typeof(PFN_vkQueuePresentKHR);
+			case vkCreateViSurfaceNN: return typeof(PFN_vkCreateViSurfaceNN);
+			case vkCreateWaylandSurfaceKHR: return typeof(PFN_vkCreateWaylandSurfaceKHR);
+			case vkGetPhysicalDeviceWaylandPresentationSupportKHR: return typeof(PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR);
+			case vkCreateWin32SurfaceKHR: return typeof(PFN_vkCreateWin32SurfaceKHR);
+			case vkGetPhysicalDeviceWin32PresentationSupportKHR: return typeof(PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR);
+			case vkCreateXlibSurfaceKHR: return typeof(PFN_vkCreateXlibSurfaceKHR);
+			case vkGetPhysicalDeviceXlibPresentationSupportKHR: return typeof(PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR);
+			case vkCreateXcbSurfaceKHR: return typeof(PFN_vkCreateXcbSurfaceKHR);
+			case vkGetPhysicalDeviceXcbPresentationSupportKHR: return typeof(PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR);
+			case vkCreateDirectFBSurfaceEXT: return typeof(PFN_vkCreateDirectFBSurfaceEXT);
+			case vkGetPhysicalDeviceDirectFBPresentationSupportEXT: return typeof(PFN_vkGetPhysicalDeviceDirectFBPresentationSupportEXT);
+			case vkCreateImagePipeSurfaceFUCHSIA: return typeof(PFN_vkCreateImagePipeSurfaceFUCHSIA);
+			case vkCreateStreamDescriptorSurfaceGGP: return typeof(PFN_vkCreateStreamDescriptorSurfaceGGP);
+			case vkCreateScreenSurfaceQNX: return typeof(PFN_vkCreateScreenSurfaceQNX);
+			case vkGetPhysicalDeviceScreenPresentationSupportQNX: return typeof(PFN_vkGetPhysicalDeviceScreenPresentationSupportQNX);
 			case vkCreateDebugReportCallbackEXT: return typeof(PFN_vkCreateDebugReportCallbackEXT);
 			case vkDestroyDebugReportCallbackEXT: return typeof(PFN_vkDestroyDebugReportCallbackEXT);
 			case vkDebugReportMessageEXT: return typeof(PFN_vkDebugReportMessageEXT);
@@ -11359,6 +11983,7 @@ enum VulkanCommand
 			case vkCmdDebugMarkerEndEXT: return typeof(PFN_vkCmdDebugMarkerEndEXT);
 			case vkCmdDebugMarkerInsertEXT: return typeof(PFN_vkCmdDebugMarkerInsertEXT);
 			case vkGetPhysicalDeviceExternalImageFormatPropertiesNV: return typeof(PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV);
+			case vkGetMemoryWin32HandleNV: return typeof(PFN_vkGetMemoryWin32HandleNV);
 			case vkCmdExecuteGeneratedCommandsNV: return typeof(PFN_vkCmdExecuteGeneratedCommandsNV);
 			case vkCmdPreprocessGeneratedCommandsNV: return typeof(PFN_vkCmdPreprocessGeneratedCommandsNV);
 			case vkCmdBindPipelineShaderGroupNV: return typeof(PFN_vkCmdBindPipelineShaderGroupNV);
@@ -11384,16 +12009,30 @@ enum VulkanCommand
 			case vkCmdPushDescriptorSet: return typeof(PFN_vkCmdPushDescriptorSet);
 			case vkTrimCommandPool: return typeof(PFN_vkTrimCommandPool);
 			case vkGetPhysicalDeviceExternalBufferProperties: return typeof(PFN_vkGetPhysicalDeviceExternalBufferProperties);
+			case vkGetMemoryWin32HandleKHR: return typeof(PFN_vkGetMemoryWin32HandleKHR);
+			case vkGetMemoryWin32HandlePropertiesKHR: return typeof(PFN_vkGetMemoryWin32HandlePropertiesKHR);
 			case vkGetMemoryFdKHR: return typeof(PFN_vkGetMemoryFdKHR);
 			case vkGetMemoryFdPropertiesKHR: return typeof(PFN_vkGetMemoryFdPropertiesKHR);
+			case vkGetMemoryZirconHandleFUCHSIA: return typeof(PFN_vkGetMemoryZirconHandleFUCHSIA);
+			case vkGetMemoryZirconHandlePropertiesFUCHSIA: return typeof(PFN_vkGetMemoryZirconHandlePropertiesFUCHSIA);
 			case vkGetMemoryRemoteAddressNV: return typeof(PFN_vkGetMemoryRemoteAddressNV);
 			case vkGetPhysicalDeviceExternalSemaphoreProperties: return typeof(PFN_vkGetPhysicalDeviceExternalSemaphoreProperties);
+			case vkGetSemaphoreWin32HandleKHR: return typeof(PFN_vkGetSemaphoreWin32HandleKHR);
+			case vkImportSemaphoreWin32HandleKHR: return typeof(PFN_vkImportSemaphoreWin32HandleKHR);
 			case vkGetSemaphoreFdKHR: return typeof(PFN_vkGetSemaphoreFdKHR);
 			case vkImportSemaphoreFdKHR: return typeof(PFN_vkImportSemaphoreFdKHR);
+			case vkGetSemaphoreZirconHandleFUCHSIA: return typeof(PFN_vkGetSemaphoreZirconHandleFUCHSIA);
+			case vkImportSemaphoreZirconHandleFUCHSIA: return typeof(PFN_vkImportSemaphoreZirconHandleFUCHSIA);
 			case vkGetPhysicalDeviceExternalFenceProperties: return typeof(PFN_vkGetPhysicalDeviceExternalFenceProperties);
+			case vkGetFenceWin32HandleKHR: return typeof(PFN_vkGetFenceWin32HandleKHR);
+			case vkImportFenceWin32HandleKHR: return typeof(PFN_vkImportFenceWin32HandleKHR);
 			case vkGetFenceFdKHR: return typeof(PFN_vkGetFenceFdKHR);
 			case vkImportFenceFdKHR: return typeof(PFN_vkImportFenceFdKHR);
 			case vkReleaseDisplayEXT: return typeof(PFN_vkReleaseDisplayEXT);
+			case vkAcquireXlibDisplayEXT: return typeof(PFN_vkAcquireXlibDisplayEXT);
+			case vkGetRandROutputDisplayEXT: return typeof(PFN_vkGetRandROutputDisplayEXT);
+			case vkAcquireWinrtDisplayNV: return typeof(PFN_vkAcquireWinrtDisplayNV);
+			case vkGetWinrtDisplayNV: return typeof(PFN_vkGetWinrtDisplayNV);
 			case vkDisplayPowerControlEXT: return typeof(PFN_vkDisplayPowerControlEXT);
 			case vkRegisterDeviceEventEXT: return typeof(PFN_vkRegisterDeviceEventEXT);
 			case vkRegisterDisplayEventEXT: return typeof(PFN_vkRegisterDisplayEventEXT);
@@ -11417,6 +12056,9 @@ enum VulkanCommand
 			case vkGetSwapchainStatusKHR: return typeof(PFN_vkGetSwapchainStatusKHR);
 			case vkGetRefreshCycleDurationGOOGLE: return typeof(PFN_vkGetRefreshCycleDurationGOOGLE);
 			case vkGetPastPresentationTimingGOOGLE: return typeof(PFN_vkGetPastPresentationTimingGOOGLE);
+			case vkCreateIOSSurfaceMVK: return typeof(PFN_vkCreateIOSSurfaceMVK);
+			case vkCreateMacOSSurfaceMVK: return typeof(PFN_vkCreateMacOSSurfaceMVK);
+			case vkCreateMetalSurfaceEXT: return typeof(PFN_vkCreateMetalSurfaceEXT);
 			case vkCmdSetViewportWScalingNV: return typeof(PFN_vkCmdSetViewportWScalingNV);
 			case vkCmdSetDiscardRectangleEXT: return typeof(PFN_vkCmdSetDiscardRectangleEXT);
 			case vkCmdSetDiscardRectangleEnableEXT: return typeof(PFN_vkCmdSetDiscardRectangleEnableEXT);
@@ -11467,6 +12109,8 @@ enum VulkanCommand
 			case vkGetSemaphoreCounterValue: return typeof(PFN_vkGetSemaphoreCounterValue);
 			case vkWaitSemaphores: return typeof(PFN_vkWaitSemaphores);
 			case vkSignalSemaphore: return typeof(PFN_vkSignalSemaphore);
+			case vkGetAndroidHardwareBufferPropertiesANDROID: return typeof(PFN_vkGetAndroidHardwareBufferPropertiesANDROID);
+			case vkGetMemoryAndroidHardwareBufferANDROID: return typeof(PFN_vkGetMemoryAndroidHardwareBufferANDROID);
 			case vkCmdDrawIndirectCount: return typeof(PFN_vkCmdDrawIndirectCount);
 			case vkCmdDrawIndexedIndirectCount: return typeof(PFN_vkCmdDrawIndexedIndirectCount);
 			case vkCmdSetCheckpointNV: return typeof(PFN_vkCmdSetCheckpointNV);
@@ -11524,6 +12168,10 @@ enum VulkanCommand
 			case vkGetImageViewHandleNVX: return typeof(PFN_vkGetImageViewHandleNVX);
 			case vkGetImageViewHandle64NVX: return typeof(PFN_vkGetImageViewHandle64NVX);
 			case vkGetImageViewAddressNVX: return typeof(PFN_vkGetImageViewAddressNVX);
+			case vkGetPhysicalDeviceSurfacePresentModes2EXT: return typeof(PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT);
+			case vkGetDeviceGroupSurfacePresentModes2EXT: return typeof(PFN_vkGetDeviceGroupSurfacePresentModes2EXT);
+			case vkAcquireFullScreenExclusiveModeEXT: return typeof(PFN_vkAcquireFullScreenExclusiveModeEXT);
+			case vkReleaseFullScreenExclusiveModeEXT: return typeof(PFN_vkReleaseFullScreenExclusiveModeEXT);
 			case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR: return typeof(PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR);
 			case vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR: return typeof(PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR);
 			case vkAcquireProfilingLockKHR: return typeof(PFN_vkAcquireProfilingLockKHR);
@@ -11679,6 +12327,17 @@ enum VulkanCommand
 			case vkGetDrmDisplayEXT: return typeof(PFN_vkGetDrmDisplayEXT);
 			case vkWaitForPresent2KHR: return typeof(PFN_vkWaitForPresent2KHR);
 			case vkWaitForPresentKHR: return typeof(PFN_vkWaitForPresentKHR);
+			case vkCreateBufferCollectionFUCHSIA: return typeof(PFN_vkCreateBufferCollectionFUCHSIA);
+			case vkSetBufferCollectionBufferConstraintsFUCHSIA: return typeof(PFN_vkSetBufferCollectionBufferConstraintsFUCHSIA);
+			case vkSetBufferCollectionImageConstraintsFUCHSIA: return typeof(PFN_vkSetBufferCollectionImageConstraintsFUCHSIA);
+			case vkDestroyBufferCollectionFUCHSIA: return typeof(PFN_vkDestroyBufferCollectionFUCHSIA);
+			case vkGetBufferCollectionPropertiesFUCHSIA: return typeof(PFN_vkGetBufferCollectionPropertiesFUCHSIA);
+			case vkCreateCudaModuleNV: return typeof(PFN_vkCreateCudaModuleNV);
+			case vkGetCudaModuleCacheNV: return typeof(PFN_vkGetCudaModuleCacheNV);
+			case vkCreateCudaFunctionNV: return typeof(PFN_vkCreateCudaFunctionNV);
+			case vkDestroyCudaModuleNV: return typeof(PFN_vkDestroyCudaModuleNV);
+			case vkDestroyCudaFunctionNV: return typeof(PFN_vkDestroyCudaFunctionNV);
+			case vkCmdCudaLaunchKernelNV: return typeof(PFN_vkCmdCudaLaunchKernelNV);
 			case vkCmdBeginRendering: return typeof(PFN_vkCmdBeginRendering);
 			case vkCmdEndRendering: return typeof(PFN_vkCmdEndRendering);
 			case vkCmdEndRendering2EXT: return typeof(PFN_vkCmdEndRendering2EXT);
@@ -11702,6 +12361,7 @@ enum VulkanCommand
 			case vkGetShaderModuleCreateInfoIdentifierEXT: return typeof(PFN_vkGetShaderModuleCreateInfoIdentifierEXT);
 			case vkGetImageSubresourceLayout2: return typeof(PFN_vkGetImageSubresourceLayout2);
 			case vkGetPipelinePropertiesEXT: return typeof(PFN_vkGetPipelinePropertiesEXT);
+			case vkExportMetalObjectsEXT: return typeof(PFN_vkExportMetalObjectsEXT);
 			case vkCmdBindTileMemoryQCOM: return typeof(PFN_vkCmdBindTileMemoryQCOM);
 			case vkGetFramebufferTilePropertiesQCOM: return typeof(PFN_vkGetFramebufferTilePropertiesQCOM);
 			case vkGetDynamicRenderingTilePropertiesQCOM: return typeof(PFN_vkGetDynamicRenderingTilePropertiesQCOM);
@@ -11720,7 +12380,15 @@ enum VulkanCommand
 			case vkDestroyShaderEXT: return typeof(PFN_vkDestroyShaderEXT);
 			case vkGetShaderBinaryDataEXT: return typeof(PFN_vkGetShaderBinaryDataEXT);
 			case vkCmdBindShadersEXT: return typeof(PFN_vkCmdBindShadersEXT);
+			case vkGetScreenBufferPropertiesQNX: return typeof(PFN_vkGetScreenBufferPropertiesQNX);
 			case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR: return typeof(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR);
+			case vkGetExecutionGraphPipelineScratchSizeAMDX: return typeof(PFN_vkGetExecutionGraphPipelineScratchSizeAMDX);
+			case vkGetExecutionGraphPipelineNodeIndexAMDX: return typeof(PFN_vkGetExecutionGraphPipelineNodeIndexAMDX);
+			case vkCreateExecutionGraphPipelinesAMDX: return typeof(PFN_vkCreateExecutionGraphPipelinesAMDX);
+			case vkCmdInitializeGraphScratchMemoryAMDX: return typeof(PFN_vkCmdInitializeGraphScratchMemoryAMDX);
+			case vkCmdDispatchGraphAMDX: return typeof(PFN_vkCmdDispatchGraphAMDX);
+			case vkCmdDispatchGraphIndirectAMDX: return typeof(PFN_vkCmdDispatchGraphIndirectAMDX);
+			case vkCmdDispatchGraphIndirectCountAMDX: return typeof(PFN_vkCmdDispatchGraphIndirectCountAMDX);
 			case vkCmdBindDescriptorSets2: return typeof(PFN_vkCmdBindDescriptorSets2);
 			case vkCmdPushConstants2: return typeof(PFN_vkCmdPushConstants2);
 			case vkCmdPushDescriptorSet2: return typeof(PFN_vkCmdPushDescriptorSet2);
@@ -11736,6 +12404,8 @@ enum VulkanCommand
 			case vkCmdSetRenderingInputAttachmentIndices: return typeof(PFN_vkCmdSetRenderingInputAttachmentIndices);
 			case vkCmdSetDepthClampRangeEXT: return typeof(PFN_vkCmdSetDepthClampRangeEXT);
 			case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV: return typeof(PFN_vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV);
+			case vkGetMemoryMetalHandleEXT: return typeof(PFN_vkGetMemoryMetalHandleEXT);
+			case vkGetMemoryMetalHandlePropertiesEXT: return typeof(PFN_vkGetMemoryMetalHandlePropertiesEXT);
 			case vkGetPhysicalDeviceCooperativeVectorPropertiesNV: return typeof(PFN_vkGetPhysicalDeviceCooperativeVectorPropertiesNV);
 			case vkConvertCooperativeVectorMatrixNV: return typeof(PFN_vkConvertCooperativeVectorMatrixNV);
 			case vkCmdConvertCooperativeVectorMatrixNV: return typeof(PFN_vkCmdConvertCooperativeVectorMatrixNV);
@@ -11932,6 +12602,8 @@ enum VulkanCommand
 		case nameof(vkCmdNextSubpass): return vkCmdNextSubpass;
 		case nameof(vkCmdEndRenderPass): return vkCmdEndRenderPass;
 		case nameof(vkCmdExecuteCommands): return vkCmdExecuteCommands;
+		case nameof(vkCreateAndroidSurfaceKHR): return vkCreateAndroidSurfaceKHR;
+		case nameof(vkCreateSurfaceOHOS): return vkCreateSurfaceOHOS;
 		case nameof(vkGetPhysicalDeviceDisplayPropertiesKHR): return vkGetPhysicalDeviceDisplayPropertiesKHR;
 		case nameof(vkGetPhysicalDeviceDisplayPlanePropertiesKHR): return vkGetPhysicalDeviceDisplayPlanePropertiesKHR;
 		case nameof(vkGetDisplayPlaneSupportedDisplaysKHR): return vkGetDisplayPlaneSupportedDisplaysKHR;
@@ -11950,6 +12622,21 @@ enum VulkanCommand
 		case nameof(vkGetSwapchainImagesKHR): return vkGetSwapchainImagesKHR;
 		case nameof(vkAcquireNextImageKHR): return vkAcquireNextImageKHR;
 		case nameof(vkQueuePresentKHR): return vkQueuePresentKHR;
+		case nameof(vkCreateViSurfaceNN): return vkCreateViSurfaceNN;
+		case nameof(vkCreateWaylandSurfaceKHR): return vkCreateWaylandSurfaceKHR;
+		case nameof(vkGetPhysicalDeviceWaylandPresentationSupportKHR): return vkGetPhysicalDeviceWaylandPresentationSupportKHR;
+		case nameof(vkCreateWin32SurfaceKHR): return vkCreateWin32SurfaceKHR;
+		case nameof(vkGetPhysicalDeviceWin32PresentationSupportKHR): return vkGetPhysicalDeviceWin32PresentationSupportKHR;
+		case nameof(vkCreateXlibSurfaceKHR): return vkCreateXlibSurfaceKHR;
+		case nameof(vkGetPhysicalDeviceXlibPresentationSupportKHR): return vkGetPhysicalDeviceXlibPresentationSupportKHR;
+		case nameof(vkCreateXcbSurfaceKHR): return vkCreateXcbSurfaceKHR;
+		case nameof(vkGetPhysicalDeviceXcbPresentationSupportKHR): return vkGetPhysicalDeviceXcbPresentationSupportKHR;
+		case nameof(vkCreateDirectFBSurfaceEXT): return vkCreateDirectFBSurfaceEXT;
+		case nameof(vkGetPhysicalDeviceDirectFBPresentationSupportEXT): return vkGetPhysicalDeviceDirectFBPresentationSupportEXT;
+		case nameof(vkCreateImagePipeSurfaceFUCHSIA): return vkCreateImagePipeSurfaceFUCHSIA;
+		case nameof(vkCreateStreamDescriptorSurfaceGGP): return vkCreateStreamDescriptorSurfaceGGP;
+		case nameof(vkCreateScreenSurfaceQNX): return vkCreateScreenSurfaceQNX;
+		case nameof(vkGetPhysicalDeviceScreenPresentationSupportQNX): return vkGetPhysicalDeviceScreenPresentationSupportQNX;
 		case nameof(vkCreateDebugReportCallbackEXT): return vkCreateDebugReportCallbackEXT;
 		case nameof(vkDestroyDebugReportCallbackEXT): return vkDestroyDebugReportCallbackEXT;
 		case nameof(vkDebugReportMessageEXT): return vkDebugReportMessageEXT;
@@ -11959,6 +12646,7 @@ enum VulkanCommand
 		case nameof(vkCmdDebugMarkerEndEXT): return vkCmdDebugMarkerEndEXT;
 		case nameof(vkCmdDebugMarkerInsertEXT): return vkCmdDebugMarkerInsertEXT;
 		case nameof(vkGetPhysicalDeviceExternalImageFormatPropertiesNV): return vkGetPhysicalDeviceExternalImageFormatPropertiesNV;
+		case nameof(vkGetMemoryWin32HandleNV): return vkGetMemoryWin32HandleNV;
 		case nameof(vkCmdExecuteGeneratedCommandsNV): return vkCmdExecuteGeneratedCommandsNV;
 		case nameof(vkCmdPreprocessGeneratedCommandsNV): return vkCmdPreprocessGeneratedCommandsNV;
 		case nameof(vkCmdBindPipelineShaderGroupNV): return vkCmdBindPipelineShaderGroupNV;
@@ -11984,16 +12672,30 @@ enum VulkanCommand
 		case nameof(vkCmdPushDescriptorSet): return vkCmdPushDescriptorSet;
 		case nameof(vkTrimCommandPool): return vkTrimCommandPool;
 		case nameof(vkGetPhysicalDeviceExternalBufferProperties): return vkGetPhysicalDeviceExternalBufferProperties;
+		case nameof(vkGetMemoryWin32HandleKHR): return vkGetMemoryWin32HandleKHR;
+		case nameof(vkGetMemoryWin32HandlePropertiesKHR): return vkGetMemoryWin32HandlePropertiesKHR;
 		case nameof(vkGetMemoryFdKHR): return vkGetMemoryFdKHR;
 		case nameof(vkGetMemoryFdPropertiesKHR): return vkGetMemoryFdPropertiesKHR;
+		case nameof(vkGetMemoryZirconHandleFUCHSIA): return vkGetMemoryZirconHandleFUCHSIA;
+		case nameof(vkGetMemoryZirconHandlePropertiesFUCHSIA): return vkGetMemoryZirconHandlePropertiesFUCHSIA;
 		case nameof(vkGetMemoryRemoteAddressNV): return vkGetMemoryRemoteAddressNV;
 		case nameof(vkGetPhysicalDeviceExternalSemaphoreProperties): return vkGetPhysicalDeviceExternalSemaphoreProperties;
+		case nameof(vkGetSemaphoreWin32HandleKHR): return vkGetSemaphoreWin32HandleKHR;
+		case nameof(vkImportSemaphoreWin32HandleKHR): return vkImportSemaphoreWin32HandleKHR;
 		case nameof(vkGetSemaphoreFdKHR): return vkGetSemaphoreFdKHR;
 		case nameof(vkImportSemaphoreFdKHR): return vkImportSemaphoreFdKHR;
+		case nameof(vkGetSemaphoreZirconHandleFUCHSIA): return vkGetSemaphoreZirconHandleFUCHSIA;
+		case nameof(vkImportSemaphoreZirconHandleFUCHSIA): return vkImportSemaphoreZirconHandleFUCHSIA;
 		case nameof(vkGetPhysicalDeviceExternalFenceProperties): return vkGetPhysicalDeviceExternalFenceProperties;
+		case nameof(vkGetFenceWin32HandleKHR): return vkGetFenceWin32HandleKHR;
+		case nameof(vkImportFenceWin32HandleKHR): return vkImportFenceWin32HandleKHR;
 		case nameof(vkGetFenceFdKHR): return vkGetFenceFdKHR;
 		case nameof(vkImportFenceFdKHR): return vkImportFenceFdKHR;
 		case nameof(vkReleaseDisplayEXT): return vkReleaseDisplayEXT;
+		case nameof(vkAcquireXlibDisplayEXT): return vkAcquireXlibDisplayEXT;
+		case nameof(vkGetRandROutputDisplayEXT): return vkGetRandROutputDisplayEXT;
+		case nameof(vkAcquireWinrtDisplayNV): return vkAcquireWinrtDisplayNV;
+		case nameof(vkGetWinrtDisplayNV): return vkGetWinrtDisplayNV;
 		case nameof(vkDisplayPowerControlEXT): return vkDisplayPowerControlEXT;
 		case nameof(vkRegisterDeviceEventEXT): return vkRegisterDeviceEventEXT;
 		case nameof(vkRegisterDisplayEventEXT): return vkRegisterDisplayEventEXT;
@@ -12017,6 +12719,9 @@ enum VulkanCommand
 		case nameof(vkGetSwapchainStatusKHR): return vkGetSwapchainStatusKHR;
 		case nameof(vkGetRefreshCycleDurationGOOGLE): return vkGetRefreshCycleDurationGOOGLE;
 		case nameof(vkGetPastPresentationTimingGOOGLE): return vkGetPastPresentationTimingGOOGLE;
+		case nameof(vkCreateIOSSurfaceMVK): return vkCreateIOSSurfaceMVK;
+		case nameof(vkCreateMacOSSurfaceMVK): return vkCreateMacOSSurfaceMVK;
+		case nameof(vkCreateMetalSurfaceEXT): return vkCreateMetalSurfaceEXT;
 		case nameof(vkCmdSetViewportWScalingNV): return vkCmdSetViewportWScalingNV;
 		case nameof(vkCmdSetDiscardRectangleEXT): return vkCmdSetDiscardRectangleEXT;
 		case nameof(vkCmdSetDiscardRectangleEnableEXT): return vkCmdSetDiscardRectangleEnableEXT;
@@ -12067,6 +12772,8 @@ enum VulkanCommand
 		case nameof(vkGetSemaphoreCounterValue): return vkGetSemaphoreCounterValue;
 		case nameof(vkWaitSemaphores): return vkWaitSemaphores;
 		case nameof(vkSignalSemaphore): return vkSignalSemaphore;
+		case nameof(vkGetAndroidHardwareBufferPropertiesANDROID): return vkGetAndroidHardwareBufferPropertiesANDROID;
+		case nameof(vkGetMemoryAndroidHardwareBufferANDROID): return vkGetMemoryAndroidHardwareBufferANDROID;
 		case nameof(vkCmdDrawIndirectCount): return vkCmdDrawIndirectCount;
 		case nameof(vkCmdDrawIndexedIndirectCount): return vkCmdDrawIndexedIndirectCount;
 		case nameof(vkCmdSetCheckpointNV): return vkCmdSetCheckpointNV;
@@ -12124,6 +12831,10 @@ enum VulkanCommand
 		case nameof(vkGetImageViewHandleNVX): return vkGetImageViewHandleNVX;
 		case nameof(vkGetImageViewHandle64NVX): return vkGetImageViewHandle64NVX;
 		case nameof(vkGetImageViewAddressNVX): return vkGetImageViewAddressNVX;
+		case nameof(vkGetPhysicalDeviceSurfacePresentModes2EXT): return vkGetPhysicalDeviceSurfacePresentModes2EXT;
+		case nameof(vkGetDeviceGroupSurfacePresentModes2EXT): return vkGetDeviceGroupSurfacePresentModes2EXT;
+		case nameof(vkAcquireFullScreenExclusiveModeEXT): return vkAcquireFullScreenExclusiveModeEXT;
+		case nameof(vkReleaseFullScreenExclusiveModeEXT): return vkReleaseFullScreenExclusiveModeEXT;
 		case nameof(vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR): return vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR;
 		case nameof(vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR): return vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR;
 		case nameof(vkAcquireProfilingLockKHR): return vkAcquireProfilingLockKHR;
@@ -12279,6 +12990,17 @@ enum VulkanCommand
 		case nameof(vkGetDrmDisplayEXT): return vkGetDrmDisplayEXT;
 		case nameof(vkWaitForPresent2KHR): return vkWaitForPresent2KHR;
 		case nameof(vkWaitForPresentKHR): return vkWaitForPresentKHR;
+		case nameof(vkCreateBufferCollectionFUCHSIA): return vkCreateBufferCollectionFUCHSIA;
+		case nameof(vkSetBufferCollectionBufferConstraintsFUCHSIA): return vkSetBufferCollectionBufferConstraintsFUCHSIA;
+		case nameof(vkSetBufferCollectionImageConstraintsFUCHSIA): return vkSetBufferCollectionImageConstraintsFUCHSIA;
+		case nameof(vkDestroyBufferCollectionFUCHSIA): return vkDestroyBufferCollectionFUCHSIA;
+		case nameof(vkGetBufferCollectionPropertiesFUCHSIA): return vkGetBufferCollectionPropertiesFUCHSIA;
+		case nameof(vkCreateCudaModuleNV): return vkCreateCudaModuleNV;
+		case nameof(vkGetCudaModuleCacheNV): return vkGetCudaModuleCacheNV;
+		case nameof(vkCreateCudaFunctionNV): return vkCreateCudaFunctionNV;
+		case nameof(vkDestroyCudaModuleNV): return vkDestroyCudaModuleNV;
+		case nameof(vkDestroyCudaFunctionNV): return vkDestroyCudaFunctionNV;
+		case nameof(vkCmdCudaLaunchKernelNV): return vkCmdCudaLaunchKernelNV;
 		case nameof(vkCmdBeginRendering): return vkCmdBeginRendering;
 		case nameof(vkCmdEndRendering): return vkCmdEndRendering;
 		case nameof(vkCmdEndRendering2EXT): return vkCmdEndRendering2EXT;
@@ -12302,6 +13024,7 @@ enum VulkanCommand
 		case nameof(vkGetShaderModuleCreateInfoIdentifierEXT): return vkGetShaderModuleCreateInfoIdentifierEXT;
 		case nameof(vkGetImageSubresourceLayout2): return vkGetImageSubresourceLayout2;
 		case nameof(vkGetPipelinePropertiesEXT): return vkGetPipelinePropertiesEXT;
+		case nameof(vkExportMetalObjectsEXT): return vkExportMetalObjectsEXT;
 		case nameof(vkCmdBindTileMemoryQCOM): return vkCmdBindTileMemoryQCOM;
 		case nameof(vkGetFramebufferTilePropertiesQCOM): return vkGetFramebufferTilePropertiesQCOM;
 		case nameof(vkGetDynamicRenderingTilePropertiesQCOM): return vkGetDynamicRenderingTilePropertiesQCOM;
@@ -12320,7 +13043,15 @@ enum VulkanCommand
 		case nameof(vkDestroyShaderEXT): return vkDestroyShaderEXT;
 		case nameof(vkGetShaderBinaryDataEXT): return vkGetShaderBinaryDataEXT;
 		case nameof(vkCmdBindShadersEXT): return vkCmdBindShadersEXT;
+		case nameof(vkGetScreenBufferPropertiesQNX): return vkGetScreenBufferPropertiesQNX;
 		case nameof(vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR): return vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR;
+		case nameof(vkGetExecutionGraphPipelineScratchSizeAMDX): return vkGetExecutionGraphPipelineScratchSizeAMDX;
+		case nameof(vkGetExecutionGraphPipelineNodeIndexAMDX): return vkGetExecutionGraphPipelineNodeIndexAMDX;
+		case nameof(vkCreateExecutionGraphPipelinesAMDX): return vkCreateExecutionGraphPipelinesAMDX;
+		case nameof(vkCmdInitializeGraphScratchMemoryAMDX): return vkCmdInitializeGraphScratchMemoryAMDX;
+		case nameof(vkCmdDispatchGraphAMDX): return vkCmdDispatchGraphAMDX;
+		case nameof(vkCmdDispatchGraphIndirectAMDX): return vkCmdDispatchGraphIndirectAMDX;
+		case nameof(vkCmdDispatchGraphIndirectCountAMDX): return vkCmdDispatchGraphIndirectCountAMDX;
 		case nameof(vkCmdBindDescriptorSets2): return vkCmdBindDescriptorSets2;
 		case nameof(vkCmdPushConstants2): return vkCmdPushConstants2;
 		case nameof(vkCmdPushDescriptorSet2): return vkCmdPushDescriptorSet2;
@@ -12336,6 +13067,8 @@ enum VulkanCommand
 		case nameof(vkCmdSetRenderingInputAttachmentIndices): return vkCmdSetRenderingInputAttachmentIndices;
 		case nameof(vkCmdSetDepthClampRangeEXT): return vkCmdSetDepthClampRangeEXT;
 		case nameof(vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV): return vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV;
+		case nameof(vkGetMemoryMetalHandleEXT): return vkGetMemoryMetalHandleEXT;
+		case nameof(vkGetMemoryMetalHandlePropertiesEXT): return vkGetMemoryMetalHandlePropertiesEXT;
 		case nameof(vkGetPhysicalDeviceCooperativeVectorPropertiesNV): return vkGetPhysicalDeviceCooperativeVectorPropertiesNV;
 		case nameof(vkConvertCooperativeVectorMatrixNV): return vkConvertCooperativeVectorMatrixNV;
 		case nameof(vkCmdConvertCooperativeVectorMatrixNV): return vkCmdConvertCooperativeVectorMatrixNV;
@@ -12371,7 +13104,7 @@ enum VulkanCommand
 		}
 	}
 
-	public int SuccessCodesCount
+	public int SuccessCodeCount
 	{
 		get
 		{
@@ -12437,6 +13170,8 @@ enum VulkanCommand
 			case vkBeginCommandBuffer: return 1;
 			case vkEndCommandBuffer: return 1;
 			case vkResetCommandBuffer: return 1;
+			case vkCreateAndroidSurfaceKHR: return 1;
+			case vkCreateSurfaceOHOS: return 1;
 			case vkGetPhysicalDeviceDisplayPropertiesKHR: return 2;
 			case vkGetPhysicalDeviceDisplayPlanePropertiesKHR: return 2;
 			case vkGetDisplayPlaneSupportedDisplaysKHR: return 2;
@@ -12453,22 +13188,46 @@ enum VulkanCommand
 			case vkGetSwapchainImagesKHR: return 2;
 			case vkAcquireNextImageKHR: return 4;
 			case vkQueuePresentKHR: return 2;
+			case vkCreateViSurfaceNN: return 1;
+			case vkCreateWaylandSurfaceKHR: return 1;
+			case vkCreateWin32SurfaceKHR: return 1;
+			case vkCreateXlibSurfaceKHR: return 1;
+			case vkCreateXcbSurfaceKHR: return 1;
+			case vkCreateDirectFBSurfaceEXT: return 1;
+			case vkCreateImagePipeSurfaceFUCHSIA: return 1;
+			case vkCreateStreamDescriptorSurfaceGGP: return 1;
+			case vkCreateScreenSurfaceQNX: return 1;
 			case vkCreateDebugReportCallbackEXT: return 1;
 			case vkDebugMarkerSetObjectNameEXT: return 1;
 			case vkDebugMarkerSetObjectTagEXT: return 1;
 			case vkGetPhysicalDeviceExternalImageFormatPropertiesNV: return 1;
+			case vkGetMemoryWin32HandleNV: return 1;
 			case vkCreateIndirectCommandsLayoutNV: return 1;
 			case vkCreateIndirectCommandsLayoutEXT: return 1;
 			case vkCreateIndirectExecutionSetEXT: return 1;
 			case vkGetPhysicalDeviceImageFormatProperties2: return 1;
+			case vkGetMemoryWin32HandleKHR: return 1;
+			case vkGetMemoryWin32HandlePropertiesKHR: return 1;
 			case vkGetMemoryFdKHR: return 1;
 			case vkGetMemoryFdPropertiesKHR: return 1;
+			case vkGetMemoryZirconHandleFUCHSIA: return 1;
+			case vkGetMemoryZirconHandlePropertiesFUCHSIA: return 1;
 			case vkGetMemoryRemoteAddressNV: return 1;
+			case vkGetSemaphoreWin32HandleKHR: return 1;
+			case vkImportSemaphoreWin32HandleKHR: return 1;
 			case vkGetSemaphoreFdKHR: return 1;
 			case vkImportSemaphoreFdKHR: return 1;
+			case vkGetSemaphoreZirconHandleFUCHSIA: return 1;
+			case vkImportSemaphoreZirconHandleFUCHSIA: return 1;
+			case vkGetFenceWin32HandleKHR: return 1;
+			case vkImportFenceWin32HandleKHR: return 1;
 			case vkGetFenceFdKHR: return 1;
 			case vkImportFenceFdKHR: return 1;
 			case vkReleaseDisplayEXT: return 1;
+			case vkAcquireXlibDisplayEXT: return 1;
+			case vkGetRandROutputDisplayEXT: return 1;
+			case vkAcquireWinrtDisplayNV: return 1;
+			case vkGetWinrtDisplayNV: return 1;
 			case vkDisplayPowerControlEXT: return 1;
 			case vkRegisterDeviceEventEXT: return 1;
 			case vkRegisterDisplayEventEXT: return 1;
@@ -12485,6 +13244,9 @@ enum VulkanCommand
 			case vkGetSwapchainStatusKHR: return 2;
 			case vkGetRefreshCycleDurationGOOGLE: return 1;
 			case vkGetPastPresentationTimingGOOGLE: return 2;
+			case vkCreateIOSSurfaceMVK: return 1;
+			case vkCreateMacOSSurfaceMVK: return 1;
+			case vkCreateMetalSurfaceEXT: return 1;
 			case vkGetPhysicalDeviceSurfaceCapabilities2KHR: return 1;
 			case vkGetPhysicalDeviceSurfaceFormats2KHR: return 2;
 			case vkGetPhysicalDeviceDisplayProperties2KHR: return 2;
@@ -12506,6 +13268,8 @@ enum VulkanCommand
 			case vkGetSemaphoreCounterValue: return 1;
 			case vkWaitSemaphores: return 2;
 			case vkSignalSemaphore: return 1;
+			case vkGetAndroidHardwareBufferPropertiesANDROID: return 1;
+			case vkGetMemoryAndroidHardwareBufferANDROID: return 1;
 			case vkCompileDeferredNV: return 1;
 			case vkCreateAccelerationStructureNV: return 1;
 			case vkBindAccelerationStructureMemoryNV: return 1;
@@ -12520,6 +13284,10 @@ enum VulkanCommand
 			case vkCreateRayTracingPipelinesKHR: return 4;
 			case vkGetPhysicalDeviceCooperativeMatrixPropertiesNV: return 2;
 			case vkGetImageViewAddressNVX: return 1;
+			case vkGetPhysicalDeviceSurfacePresentModes2EXT: return 2;
+			case vkGetDeviceGroupSurfacePresentModes2EXT: return 1;
+			case vkAcquireFullScreenExclusiveModeEXT: return 1;
+			case vkReleaseFullScreenExclusiveModeEXT: return 1;
 			case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR: return 2;
 			case vkAcquireProfilingLockKHR: return 1;
 			case vkGetImageDrmFormatModifierPropertiesEXT: return 1;
@@ -12570,6 +13338,13 @@ enum VulkanCommand
 			case vkGetDrmDisplayEXT: return 1;
 			case vkWaitForPresent2KHR: return 3;
 			case vkWaitForPresentKHR: return 3;
+			case vkCreateBufferCollectionFUCHSIA: return 1;
+			case vkSetBufferCollectionBufferConstraintsFUCHSIA: return 1;
+			case vkSetBufferCollectionImageConstraintsFUCHSIA: return 1;
+			case vkGetBufferCollectionPropertiesFUCHSIA: return 1;
+			case vkCreateCudaModuleNV: return 1;
+			case vkGetCudaModuleCacheNV: return 2;
+			case vkCreateCudaFunctionNV: return 1;
 			case vkCreateMicromapEXT: return 1;
 			case vkBuildMicromapsEXT: return 3;
 			case vkCopyMicromapEXT: return 3;
@@ -12588,10 +13363,16 @@ enum VulkanCommand
 			case vkUnmapMemory2: return 1;
 			case vkCreateShadersEXT: return 2;
 			case vkGetShaderBinaryDataEXT: return 2;
+			case vkGetScreenBufferPropertiesQNX: return 1;
 			case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR: return 2;
+			case vkGetExecutionGraphPipelineScratchSizeAMDX: return 1;
+			case vkGetExecutionGraphPipelineNodeIndexAMDX: return 1;
+			case vkCreateExecutionGraphPipelinesAMDX: return 2;
 			case vkSetLatencySleepModeNV: return 1;
 			case vkLatencySleepNV: return 1;
 			case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV: return 2;
+			case vkGetMemoryMetalHandleEXT: return 1;
+			case vkGetMemoryMetalHandlePropertiesEXT: return 1;
 			case vkGetPhysicalDeviceCooperativeVectorPropertiesNV: return 2;
 			case vkConvertCooperativeVectorMatrixNV: return 2;
 			case vkCreateExternalComputeQueueNV: return 1;
@@ -12612,7 +13393,7 @@ enum VulkanCommand
 		}
 	}
 
-	public VkResult GetSuccessCodes(int idx)
+	public VkResult GetSuccessCode(int idx)
 	{
 		switch (this)
 		{
@@ -12990,6 +13771,18 @@ enum VulkanCommand
 			case 0: return .VkSuccess;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkCreateAndroidSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSurfaceOHOS:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkGetPhysicalDeviceDisplayPropertiesKHR:
 			switch (idx)
 			{
@@ -13097,6 +13890,60 @@ enum VulkanCommand
 			case 1: return .VkSuboptimalKHR;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkCreateViSurfaceNN:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateWaylandSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateWin32SurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateXlibSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateXcbSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDirectFBSurfaceEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateImagePipeSurfaceFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateStreamDescriptorSurfaceGGP:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateScreenSurfaceQNX:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkCreateDebugReportCallbackEXT:
 			switch (idx)
 			{
@@ -13116,6 +13963,12 @@ enum VulkanCommand
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkGetPhysicalDeviceExternalImageFormatPropertiesNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryWin32HandleNV:
 			switch (idx)
 			{
 			case 0: return .VkSuccess;
@@ -13145,6 +13998,18 @@ enum VulkanCommand
 			case 0: return .VkSuccess;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkGetMemoryWin32HandleKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryWin32HandlePropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkGetMemoryFdKHR:
 			switch (idx)
 			{
@@ -13157,7 +14022,31 @@ enum VulkanCommand
 			case 0: return .VkSuccess;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkGetMemoryZirconHandleFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryZirconHandlePropertiesFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkGetMemoryRemoteAddressNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSemaphoreWin32HandleKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportSemaphoreWin32HandleKHR:
 			switch (idx)
 			{
 			case 0: return .VkSuccess;
@@ -13170,6 +14059,30 @@ enum VulkanCommand
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkImportSemaphoreFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSemaphoreZirconHandleFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportSemaphoreZirconHandleFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetFenceWin32HandleKHR:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportFenceWin32HandleKHR:
 			switch (idx)
 			{
 			case 0: return .VkSuccess;
@@ -13188,6 +14101,30 @@ enum VulkanCommand
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkReleaseDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireXlibDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetRandROutputDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireWinrtDisplayNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetWinrtDisplayNV:
 			switch (idx)
 			{
 			case 0: return .VkSuccess;
@@ -13294,6 +14231,24 @@ enum VulkanCommand
 			{
 			case 0: return .VkSuccess;
 			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateIOSSurfaceMVK:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateMacOSSurfaceMVK:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateMetalSurfaceEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkGetPhysicalDeviceSurfaceCapabilities2KHR:
@@ -13430,6 +14385,18 @@ enum VulkanCommand
 			case 0: return .VkSuccess;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkGetAndroidHardwareBufferPropertiesANDROID:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryAndroidHardwareBufferANDROID:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkCompileDeferredNV:
 			switch (idx)
 			{
@@ -13520,6 +14487,31 @@ enum VulkanCommand
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkGetImageViewAddressNVX:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfacePresentModes2EXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceGroupSurfacePresentModes2EXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireFullScreenExclusiveModeEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkReleaseFullScreenExclusiveModeEXT:
 			switch (idx)
 			{
 			case 0: return .VkSuccess;
@@ -13844,6 +14836,49 @@ enum VulkanCommand
 			case 2: return .VkSuboptimalKHR;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkCreateBufferCollectionFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetBufferCollectionBufferConstraintsFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetBufferCollectionImageConstraintsFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetBufferCollectionPropertiesFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCudaModuleNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetCudaModuleCacheNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCudaFunctionNV:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkCreateMicromapEXT:
 			switch (idx)
 			{
@@ -13965,11 +15000,36 @@ enum VulkanCommand
 			case 1: return .VkIncomplete;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkGetScreenBufferPropertiesQNX:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR:
 			switch (idx)
 			{
 			case 0: return .VkSuccess;
 			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetExecutionGraphPipelineScratchSizeAMDX:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetExecutionGraphPipelineNodeIndexAMDX:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateExecutionGraphPipelinesAMDX:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			case 1: return .VkPipelineCompileRequiredEXT;
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkSetLatencySleepModeNV:
@@ -13989,6 +15049,18 @@ enum VulkanCommand
 			{
 			case 0: return .VkSuccess;
 			case 1: return .VkIncomplete;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryMetalHandleEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryMetalHandlePropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkSuccess;
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkGetPhysicalDeviceCooperativeVectorPropertiesNV:
@@ -14092,7 +15164,7 @@ enum VulkanCommand
 		}
 	}
 
-	public int ErrorCodesCount
+	public int ErrorCodeCount
 	{
 		get
 		{
@@ -14155,6 +15227,8 @@ enum VulkanCommand
 			case vkBeginCommandBuffer: return 2;
 			case vkEndCommandBuffer: return 3;
 			case vkResetCommandBuffer: return 1;
+			case vkCreateAndroidSurfaceKHR: return 3;
+			case vkCreateSurfaceOHOS: return 2;
 			case vkGetPhysicalDeviceDisplayPropertiesKHR: return 2;
 			case vkGetPhysicalDeviceDisplayPlanePropertiesKHR: return 2;
 			case vkGetDisplayPlaneSupportedDisplaysKHR: return 2;
@@ -14171,21 +15245,45 @@ enum VulkanCommand
 			case vkGetSwapchainImagesKHR: return 2;
 			case vkAcquireNextImageKHR: return 6;
 			case vkQueuePresentKHR: return 6;
+			case vkCreateViSurfaceNN: return 3;
+			case vkCreateWaylandSurfaceKHR: return 2;
+			case vkCreateWin32SurfaceKHR: return 2;
+			case vkCreateXlibSurfaceKHR: return 2;
+			case vkCreateXcbSurfaceKHR: return 2;
+			case vkCreateDirectFBSurfaceEXT: return 2;
+			case vkCreateImagePipeSurfaceFUCHSIA: return 2;
+			case vkCreateStreamDescriptorSurfaceGGP: return 3;
+			case vkCreateScreenSurfaceQNX: return 2;
 			case vkCreateDebugReportCallbackEXT: return 1;
 			case vkDebugMarkerSetObjectNameEXT: return 2;
 			case vkDebugMarkerSetObjectTagEXT: return 2;
 			case vkGetPhysicalDeviceExternalImageFormatPropertiesNV: return 3;
+			case vkGetMemoryWin32HandleNV: return 2;
 			case vkCreateIndirectCommandsLayoutNV: return 2;
 			case vkCreateIndirectCommandsLayoutEXT: return 2;
 			case vkCreateIndirectExecutionSetEXT: return 2;
 			case vkGetPhysicalDeviceImageFormatProperties2: return 8;
+			case vkGetMemoryWin32HandleKHR: return 2;
+			case vkGetMemoryWin32HandlePropertiesKHR: return 2;
 			case vkGetMemoryFdKHR: return 2;
 			case vkGetMemoryFdPropertiesKHR: return 2;
+			case vkGetMemoryZirconHandleFUCHSIA: return 2;
+			case vkGetMemoryZirconHandlePropertiesFUCHSIA: return 1;
 			case vkGetMemoryRemoteAddressNV: return 1;
+			case vkGetSemaphoreWin32HandleKHR: return 2;
+			case vkImportSemaphoreWin32HandleKHR: return 2;
 			case vkGetSemaphoreFdKHR: return 2;
 			case vkImportSemaphoreFdKHR: return 2;
+			case vkGetSemaphoreZirconHandleFUCHSIA: return 2;
+			case vkImportSemaphoreZirconHandleFUCHSIA: return 2;
+			case vkGetFenceWin32HandleKHR: return 2;
+			case vkImportFenceWin32HandleKHR: return 2;
 			case vkGetFenceFdKHR: return 2;
 			case vkImportFenceFdKHR: return 2;
+			case vkAcquireXlibDisplayEXT: return 2;
+			case vkGetRandROutputDisplayEXT: return 1;
+			case vkAcquireWinrtDisplayNV: return 3;
+			case vkGetWinrtDisplayNV: return 3;
 			case vkDisplayPowerControlEXT: return 1;
 			case vkRegisterDeviceEventEXT: return 1;
 			case vkRegisterDisplayEventEXT: return 1;
@@ -14202,6 +15300,9 @@ enum VulkanCommand
 			case vkGetSwapchainStatusKHR: return 6;
 			case vkGetRefreshCycleDurationGOOGLE: return 3;
 			case vkGetPastPresentationTimingGOOGLE: return 4;
+			case vkCreateIOSSurfaceMVK: return 3;
+			case vkCreateMacOSSurfaceMVK: return 3;
+			case vkCreateMetalSurfaceEXT: return 3;
 			case vkGetPhysicalDeviceSurfaceCapabilities2KHR: return 3;
 			case vkGetPhysicalDeviceSurfaceFormats2KHR: return 3;
 			case vkGetPhysicalDeviceDisplayProperties2KHR: return 2;
@@ -14223,6 +15324,8 @@ enum VulkanCommand
 			case vkGetSemaphoreCounterValue: return 3;
 			case vkWaitSemaphores: return 3;
 			case vkSignalSemaphore: return 2;
+			case vkGetAndroidHardwareBufferPropertiesANDROID: return 2;
+			case vkGetMemoryAndroidHardwareBufferANDROID: return 2;
 			case vkCompileDeferredNV: return 2;
 			case vkCreateAccelerationStructureNV: return 1;
 			case vkBindAccelerationStructureMemoryNV: return 2;
@@ -14237,6 +15340,10 @@ enum VulkanCommand
 			case vkCreateRayTracingPipelinesKHR: return 3;
 			case vkGetPhysicalDeviceCooperativeMatrixPropertiesNV: return 2;
 			case vkGetImageViewAddressNVX: return 1;
+			case vkGetPhysicalDeviceSurfacePresentModes2EXT: return 3;
+			case vkGetDeviceGroupSurfacePresentModes2EXT: return 3;
+			case vkAcquireFullScreenExclusiveModeEXT: return 4;
+			case vkReleaseFullScreenExclusiveModeEXT: return 3;
 			case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR: return 3;
 			case vkAcquireProfilingLockKHR: return 2;
 			case vkGetImageDrmFormatModifierPropertiesEXT: return 1;
@@ -14285,6 +15392,13 @@ enum VulkanCommand
 			case vkGetDrmDisplayEXT: return 2;
 			case vkWaitForPresent2KHR: return 6;
 			case vkWaitForPresentKHR: return 6;
+			case vkCreateBufferCollectionFUCHSIA: return 3;
+			case vkSetBufferCollectionBufferConstraintsFUCHSIA: return 3;
+			case vkSetBufferCollectionImageConstraintsFUCHSIA: return 3;
+			case vkGetBufferCollectionPropertiesFUCHSIA: return 2;
+			case vkCreateCudaModuleNV: return 2;
+			case vkGetCudaModuleCacheNV: return 1;
+			case vkCreateCudaFunctionNV: return 2;
 			case vkCreateMicromapEXT: return 2;
 			case vkBuildMicromapsEXT: return 2;
 			case vkCopyMicromapEXT: return 2;
@@ -14301,9 +15415,15 @@ enum VulkanCommand
 			case vkUnmapMemory2: return 1;
 			case vkCreateShadersEXT: return 3;
 			case vkGetShaderBinaryDataEXT: return 2;
+			case vkGetScreenBufferPropertiesQNX: return 2;
 			case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR: return 2;
+			case vkGetExecutionGraphPipelineScratchSizeAMDX: return 1;
+			case vkGetExecutionGraphPipelineNodeIndexAMDX: return 1;
+			case vkCreateExecutionGraphPipelinesAMDX: return 2;
 			case vkSetLatencySleepModeNV: return 1;
 			case vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV: return 2;
+			case vkGetMemoryMetalHandleEXT: return 2;
+			case vkGetMemoryMetalHandlePropertiesEXT: return 2;
 			case vkGetPhysicalDeviceCooperativeVectorPropertiesNV: return 2;
 			case vkConvertCooperativeVectorMatrixNV: return 1;
 			case vkCreateExternalComputeQueueNV: return 2;
@@ -14324,7 +15444,7 @@ enum VulkanCommand
 		}
 	}
 
-	public VkResult GetErrorCodes(int idx)
+	public VkResult GetErrorCode(int idx)
 	{
 		switch (this)
 		{
@@ -14762,6 +15882,21 @@ enum VulkanCommand
 			case 0: return .VkErrorOutOfDeviceMemory;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkCreateAndroidSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorNativeWindowInUseKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateSurfaceOHOS:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkGetPhysicalDeviceDisplayPropertiesKHR:
 			switch (idx)
 			{
@@ -14895,6 +16030,71 @@ enum VulkanCommand
 			case 5: return .VkErrorFullScreenExclusiveModeLostEXT;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkCreateViSurfaceNN:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorNativeWindowInUseKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateWaylandSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateWin32SurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateXlibSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateXcbSurfaceKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateDirectFBSurfaceEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateImagePipeSurfaceFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateStreamDescriptorSurfaceGGP:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorNativeWindowInUseKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateScreenSurfaceQNX:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkCreateDebugReportCallbackEXT:
 			switch (idx)
 			{
@@ -14921,6 +16121,13 @@ enum VulkanCommand
 			case 0: return .VkErrorOutOfHostMemory;
 			case 1: return .VkErrorOutOfDeviceMemory;
 			case 2: return .VkErrorFormatNotSupported;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryWin32HandleNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkCreateIndirectCommandsLayoutNV:
@@ -14957,6 +16164,20 @@ enum VulkanCommand
 			case 7: return .VkErrorVideoProfileCodecNotSupportedKHR;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkGetMemoryWin32HandleKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryWin32HandlePropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkGetMemoryFdKHR:
 			switch (idx)
 			{
@@ -14971,10 +16192,37 @@ enum VulkanCommand
 			case 1: return .VkErrorInvalidExternalHandle;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkGetMemoryZirconHandleFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryZirconHandlePropertiesFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkGetMemoryRemoteAddressNV:
 			switch (idx)
 			{
 			case 0: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSemaphoreWin32HandleKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportSemaphoreWin32HandleKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkGetSemaphoreFdKHR:
@@ -14985,6 +16233,34 @@ enum VulkanCommand
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkImportSemaphoreFdKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetSemaphoreZirconHandleFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportSemaphoreZirconHandleFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetFenceWin32HandleKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkImportFenceWin32HandleKHR:
 			switch (idx)
 			{
 			case 0: return .VkErrorOutOfHostMemory;
@@ -15003,6 +16279,35 @@ enum VulkanCommand
 			{
 			case 0: return .VkErrorOutOfHostMemory;
 			case 1: return .VkErrorInvalidExternalHandle;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireXlibDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetRandROutputDisplayEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireWinrtDisplayNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorDeviceLost;
+			case 2: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetWinrtDisplayNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorDeviceLost;
+			case 2: return .VkErrorInitializationFailed;
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkDisplayPowerControlEXT:
@@ -15128,6 +16433,30 @@ enum VulkanCommand
 			case 1: return .VkErrorDeviceLost;
 			case 2: return .VkErrorOutOfDateKHR;
 			case 3: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateIOSSurfaceMVK:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorNativeWindowInUseKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateMacOSSurfaceMVK:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorNativeWindowInUseKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateMetalSurfaceEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorNativeWindowInUseKHR;
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkGetPhysicalDeviceSurfaceCapabilities2KHR:
@@ -15279,6 +16608,20 @@ enum VulkanCommand
 			case 1: return .VkErrorOutOfDeviceMemory;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkGetAndroidHardwareBufferPropertiesANDROID:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandleKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryAndroidHardwareBufferANDROID:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkCompileDeferredNV:
 			switch (idx)
 			{
@@ -15375,6 +16718,39 @@ enum VulkanCommand
 			switch (idx)
 			{
 			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetPhysicalDeviceSurfacePresentModes2EXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetDeviceGroupSurfacePresentModes2EXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkAcquireFullScreenExclusiveModeEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorInitializationFailed;
+			case 3: return .VkErrorSurfaceLostKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkReleaseFullScreenExclusiveModeEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			case 2: return .VkErrorSurfaceLostKHR;
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR:
@@ -15743,6 +17119,57 @@ enum VulkanCommand
 			case 5: return .VkErrorFullScreenExclusiveModeLostEXT;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkCreateBufferCollectionFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
+			case 2: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetBufferCollectionBufferConstraintsFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			case 1: return .VkErrorOutOfHostMemory;
+			case 2: return .VkErrorFormatNotSupported;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkSetBufferCollectionImageConstraintsFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			case 1: return .VkErrorOutOfHostMemory;
+			case 2: return .VkErrorFormatNotSupported;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetBufferCollectionPropertiesFUCHSIA:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCudaModuleNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetCudaModuleCacheNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateCudaFunctionNV:
+			switch (idx)
+			{
+			case 0: return .VkErrorInitializationFailed;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkCreateMicromapEXT:
 			switch (idx)
 			{
@@ -15854,7 +17281,33 @@ enum VulkanCommand
 			case 1: return .VkErrorOutOfDeviceMemory;
 			default: Runtime.FatalError("Index out of range");
 			}
+		case vkGetScreenBufferPropertiesQNX:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandleKHR;
+			default: Runtime.FatalError("Index out of range");
+			}
 		case vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetExecutionGraphPipelineScratchSizeAMDX:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetExecutionGraphPipelineNodeIndexAMDX:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkCreateExecutionGraphPipelinesAMDX:
 			switch (idx)
 			{
 			case 0: return .VkErrorOutOfHostMemory;
@@ -15872,6 +17325,20 @@ enum VulkanCommand
 			{
 			case 0: return .VkErrorOutOfHostMemory;
 			case 1: return .VkErrorOutOfDeviceMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryMetalHandleEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorTooManyObjects;
+			case 1: return .VkErrorOutOfHostMemory;
+			default: Runtime.FatalError("Index out of range");
+			}
+		case vkGetMemoryMetalHandlePropertiesEXT:
+			switch (idx)
+			{
+			case 0: return .VkErrorOutOfHostMemory;
+			case 1: return .VkErrorInvalidExternalHandle;
 			default: Runtime.FatalError("Index out of range");
 			}
 		case vkGetPhysicalDeviceCooperativeVectorPropertiesNV:
@@ -16185,6 +17652,7 @@ enum VulkanCommand
 			case vkCmdBindDescriptorBuffersEXT: return .Graphics | .Compute | .DataGraphARM;
 			case vkCmdSetDescriptorBufferOffsetsEXT: return .Graphics | .Compute | .DataGraphARM;
 			case vkCmdBindDescriptorBufferEmbeddedSamplersEXT: return .Graphics | .Compute;
+			case vkCmdCudaLaunchKernelNV: return .Graphics | .Compute;
 			case vkCmdBeginRendering: return .Graphics;
 			case vkCmdEndRendering: return .Graphics;
 			case vkCmdEndRendering2EXT: return .Graphics;
@@ -16197,6 +17665,10 @@ enum VulkanCommand
 			case vkCmdOpticalFlowExecuteNV: return .OpticalFlowNV;
 			case vkCmdSetDepthBias2EXT: return .Graphics;
 			case vkCmdBindShadersEXT: return .Graphics | .Compute;
+			case vkCmdInitializeGraphScratchMemoryAMDX: return .Graphics | .Compute;
+			case vkCmdDispatchGraphAMDX: return .Graphics | .Compute;
+			case vkCmdDispatchGraphIndirectAMDX: return .Graphics | .Compute;
+			case vkCmdDispatchGraphIndirectCountAMDX: return .Graphics | .Compute;
 			case vkCmdBindDescriptorSets2: return .Graphics | .Compute;
 			case vkCmdPushConstants2: return .Graphics | .Compute;
 			case vkCmdPushDescriptorSet2: return .Graphics | .Compute;
@@ -16419,6 +17891,7 @@ enum VulkanCommand
 			case vkCmdBindDescriptorBuffersEXT: return .Both;
 			case vkCmdSetDescriptorBufferOffsetsEXT: return .Both;
 			case vkCmdBindDescriptorBufferEmbeddedSamplersEXT: return .Both;
+			case vkCmdCudaLaunchKernelNV: return .Both;
 			case vkCmdBeginRendering: return .Outside;
 			case vkCmdEndRendering: return .Inside;
 			case vkCmdEndRendering2EXT: return .Inside;
@@ -16431,6 +17904,10 @@ enum VulkanCommand
 			case vkCmdOpticalFlowExecuteNV: return .Outside;
 			case vkCmdSetDepthBias2EXT: return .Both;
 			case vkCmdBindShadersEXT: return .Both;
+			case vkCmdInitializeGraphScratchMemoryAMDX: return .Both;
+			case vkCmdDispatchGraphAMDX: return .Both;
+			case vkCmdDispatchGraphIndirectAMDX: return .Both;
+			case vkCmdDispatchGraphIndirectCountAMDX: return .Both;
 			case vkCmdBindDescriptorSets2: return .Both;
 			case vkCmdPushConstants2: return .Both;
 			case vkCmdPushDescriptorSet2: return .Both;
@@ -16653,6 +18130,7 @@ enum VulkanCommand
 			case vkCmdBindDescriptorBuffersEXT: return .Primary | .Secondary;
 			case vkCmdSetDescriptorBufferOffsetsEXT: return .Primary | .Secondary;
 			case vkCmdBindDescriptorBufferEmbeddedSamplersEXT: return .Primary | .Secondary;
+			case vkCmdCudaLaunchKernelNV: return .Primary | .Secondary;
 			case vkCmdBeginRendering: return .Primary | .Secondary;
 			case vkCmdEndRendering: return .Primary | .Secondary;
 			case vkCmdEndRendering2EXT: return .Primary | .Secondary;
@@ -16665,6 +18143,10 @@ enum VulkanCommand
 			case vkCmdOpticalFlowExecuteNV: return .Primary | .Secondary;
 			case vkCmdSetDepthBias2EXT: return .Primary | .Secondary;
 			case vkCmdBindShadersEXT: return .Primary | .Secondary;
+			case vkCmdInitializeGraphScratchMemoryAMDX: return .Primary;
+			case vkCmdDispatchGraphAMDX: return .Primary;
+			case vkCmdDispatchGraphIndirectAMDX: return .Primary;
+			case vkCmdDispatchGraphIndirectCountAMDX: return .Primary;
 			case vkCmdBindDescriptorSets2: return .Primary | .Secondary;
 			case vkCmdPushConstants2: return .Primary | .Secondary;
 			case vkCmdPushDescriptorSet2: return .Primary | .Secondary;
@@ -16887,6 +18369,7 @@ enum VulkanCommand
 			case vkCmdBindDescriptorBuffersEXT: return .State;
 			case vkCmdSetDescriptorBufferOffsetsEXT: return .State;
 			case vkCmdBindDescriptorBufferEmbeddedSamplersEXT: return .State;
+			case vkCmdCudaLaunchKernelNV: return .Action;
 			case vkCmdBeginRendering: return .Action | .State;
 			case vkCmdEndRendering: return .Action | .State;
 			case vkCmdEndRendering2EXT: return .Action | .State;
@@ -16899,6 +18382,10 @@ enum VulkanCommand
 			case vkCmdOpticalFlowExecuteNV: return .Action;
 			case vkCmdSetDepthBias2EXT: return .State;
 			case vkCmdBindShadersEXT: return .State;
+			case vkCmdInitializeGraphScratchMemoryAMDX: return .Action;
+			case vkCmdDispatchGraphAMDX: return .Action;
+			case vkCmdDispatchGraphIndirectAMDX: return .Action;
+			case vkCmdDispatchGraphIndirectCountAMDX: return .Action;
 			case vkCmdBindDescriptorSets2: return .State;
 			case vkCmdPushConstants2: return .State;
 			case vkCmdPushDescriptorSet2: return .State;
@@ -17015,6 +18502,8 @@ enum VulkanFeature
 	case depthClipEnable;
 	case relaxedLineRasterization;
 	case performanceCounterQueryPools;
+	case shaderEnqueue;
+	case shaderMeshEnqueue;
 	case shaderBFloat16Type;
 	case shaderBFloat16CooperativeMatrix;
 	case shaderBFloat16DotProduct;
@@ -17093,6 +18582,7 @@ enum VulkanFeature
 	case presentBarrier;
 	case presentId;
 	case diagnosticsConfig;
+	case cudaKernelLaunchFeatures;
 	case tileShading;
 	case tileShadingFragmentStage;
 	case tileShadingPerTileDispatch;
@@ -17142,6 +18632,7 @@ enum VulkanFeature
 	case image2DViewOf3D;
 	case shaderTileImageColorReadAccess;
 	case micromap;
+	case displacementMicromap;
 	case clustercullingShader;
 	case borderColorSwizzle;
 	case pageableDeviceLocalMemory;
@@ -17174,6 +18665,7 @@ enum VulkanFeature
 	case shaderModuleIdentifier;
 	case opticalFlow;
 	case legacyDithering;
+	case externalFormatResolve;
 	case antiLag;
 	case presentId2;
 	case presentWait2;
@@ -17202,6 +18694,7 @@ enum VulkanFeature
 	case cubicRangeClamp;
 	case attachmentFeedbackLoopDynamicState;
 	case unifiedImageLayouts;
+	case screenBufferImport;
 	case descriptorPoolOverallocation;
 	case tileMemoryHeap;
 	case videoEncodeIntraRefresh;
@@ -17233,6 +18726,7 @@ enum VulkanFeature
 	case vertexAttributeRobustness;
 	case formatPack;
 	case fragmentDensityMapLayered;
+	case presentMetering;
 	case zeroInitializeDeviceMemory;
 	case pipelineCacheIncrementalMode;
 
@@ -17335,6 +18829,8 @@ enum VulkanFeature
 			case depthClipEnable: return VulkanApi.Extension(.VK_EXT_depth_clip_enable);
 			case relaxedLineRasterization: return VulkanApi.Extension(.VK_IMG_relaxed_line_rasterization);
 			case performanceCounterQueryPools: return VulkanApi.Extension(.VK_KHR_performance_query);
+			case shaderEnqueue: return VulkanApi.Extension(.VK_AMDX_shader_enqueue);
+			case shaderMeshEnqueue: return VulkanApi.Extension(.VK_AMDX_shader_enqueue);
 			case shaderBFloat16Type: return VulkanApi.Extension(.VK_KHR_shader_bfloat16);
 			case shaderBFloat16CooperativeMatrix: return VulkanApi.Extension(.VK_KHR_shader_bfloat16);
 			case shaderBFloat16DotProduct: return VulkanApi.Extension(.VK_KHR_shader_bfloat16);
@@ -17413,6 +18909,7 @@ enum VulkanFeature
 			case presentBarrier: return VulkanApi.Extension(.VK_NV_present_barrier);
 			case presentId: return VulkanApi.Extension(.VK_KHR_present_id);
 			case diagnosticsConfig: return VulkanApi.Extension(.VK_NV_device_diagnostics_config);
+			case cudaKernelLaunchFeatures: return VulkanApi.Extension(.VK_NV_cuda_kernel_launch);
 			case tileShading: return VulkanApi.Extension(.VK_QCOM_tile_shading);
 			case tileShadingFragmentStage: return VulkanApi.Extension(.VK_QCOM_tile_shading);
 			case tileShadingPerTileDispatch: return VulkanApi.Extension(.VK_QCOM_tile_shading);
@@ -17462,6 +18959,7 @@ enum VulkanFeature
 			case image2DViewOf3D: return VulkanApi.Extension(.VK_EXT_image_2d_view_of_3d);
 			case shaderTileImageColorReadAccess: return VulkanApi.Extension(.VK_EXT_shader_tile_image);
 			case micromap: return VulkanApi.Extension(.VK_EXT_opacity_micromap);
+			case displacementMicromap: return VulkanApi.Extension(.VK_NV_displacement_micromap);
 			case clustercullingShader: return VulkanApi.Extension(.VK_HUAWEI_cluster_culling_shader);
 			case borderColorSwizzle: return VulkanApi.Extension(.VK_EXT_border_color_swizzle);
 			case pageableDeviceLocalMemory: return VulkanApi.Extension(.VK_EXT_pageable_device_local_memory);
@@ -17494,6 +18992,7 @@ enum VulkanFeature
 			case shaderModuleIdentifier: return VulkanApi.Extension(.VK_EXT_shader_module_identifier);
 			case opticalFlow: return VulkanApi.Extension(.VK_NV_optical_flow);
 			case legacyDithering: return VulkanApi.Extension(.VK_EXT_legacy_dithering);
+			case externalFormatResolve: return VulkanApi.Extension(.VK_ANDROID_external_format_resolve);
 			case antiLag: return VulkanApi.Extension(.VK_AMD_anti_lag);
 			case presentId2: return VulkanApi.Extension(.VK_KHR_present_id2);
 			case presentWait2: return VulkanApi.Extension(.VK_KHR_present_wait2);
@@ -17522,6 +19021,7 @@ enum VulkanFeature
 			case cubicRangeClamp: return VulkanApi.Extension(.VK_QCOM_filter_cubic_clamp);
 			case attachmentFeedbackLoopDynamicState: return VulkanApi.Extension(.VK_EXT_attachment_feedback_loop_dynamic_state);
 			case unifiedImageLayouts: return VulkanApi.Extension(.VK_KHR_unified_image_layouts);
+			case screenBufferImport: return VulkanApi.Extension(.VK_QNX_external_memory_screen_buffer);
 			case descriptorPoolOverallocation: return VulkanApi.Extension(.VK_NV_descriptor_pool_overallocation);
 			case tileMemoryHeap: return VulkanApi.Extension(.VK_QCOM_tile_memory_heap);
 			case videoEncodeIntraRefresh: return VulkanApi.Extension(.VK_KHR_video_encode_intra_refresh);
@@ -17553,6 +19053,7 @@ enum VulkanFeature
 			case vertexAttributeRobustness: return VulkanApi.Extension(.VK_EXT_vertex_attribute_robustness);
 			case formatPack: return VulkanApi.Extension(.VK_ARM_format_pack);
 			case fragmentDensityMapLayered: return VulkanApi.Extension(.VK_VALVE_fragment_density_map_layered);
+			case presentMetering: return VulkanApi.Extension(.VK_NV_present_metering);
 			case zeroInitializeDeviceMemory: return VulkanApi.Extension(.VK_EXT_zero_initialize_device_memory);
 			case pipelineCacheIncrementalMode: return VulkanApi.Extension(.VK_SEC_pipeline_cache_incremental_mode);
 			}
@@ -17658,6 +19159,8 @@ enum VulkanFeature
 			case depthClipEnable: return VkPhysicalDeviceDepthClipEnableFeaturesEXT.SType;
 			case relaxedLineRasterization: return VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG.SType;
 			case performanceCounterQueryPools: return VkPhysicalDevicePerformanceQueryFeaturesKHR.SType;
+			case shaderEnqueue: return VkPhysicalDeviceShaderEnqueueFeaturesAMDX.SType;
+			case shaderMeshEnqueue: return VkPhysicalDeviceShaderEnqueueFeaturesAMDX.SType;
 			case shaderBFloat16Type: return VkPhysicalDeviceShaderBfloat16FeaturesKHR.SType;
 			case shaderBFloat16CooperativeMatrix: return VkPhysicalDeviceShaderBfloat16FeaturesKHR.SType;
 			case shaderBFloat16DotProduct: return VkPhysicalDeviceShaderBfloat16FeaturesKHR.SType;
@@ -17736,6 +19239,7 @@ enum VulkanFeature
 			case presentBarrier: return VkPhysicalDevicePresentBarrierFeaturesNV.SType;
 			case presentId: return VkPhysicalDevicePresentIdFeaturesKHR.SType;
 			case diagnosticsConfig: return VkPhysicalDeviceDiagnosticsConfigFeaturesNV.SType;
+			case cudaKernelLaunchFeatures: return VkPhysicalDeviceCudaKernelLaunchFeaturesNV.SType;
 			case tileShading: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
 			case tileShadingFragmentStage: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
 			case tileShadingPerTileDispatch: return VkPhysicalDeviceTileShadingFeaturesQCOM.SType;
@@ -17785,6 +19289,7 @@ enum VulkanFeature
 			case image2DViewOf3D: return VkPhysicalDeviceImage2DViewOf3DFeaturesEXT.SType;
 			case shaderTileImageColorReadAccess: return VkPhysicalDeviceShaderTileImageFeaturesEXT.SType;
 			case micromap: return VkPhysicalDeviceOpacityMicromapFeaturesEXT.SType;
+			case displacementMicromap: return VkPhysicalDeviceDisplacementMicromapFeaturesNV.SType;
 			case clustercullingShader: return VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI.SType;
 			case borderColorSwizzle: return VkPhysicalDeviceBorderColorSwizzleFeaturesEXT.SType;
 			case pageableDeviceLocalMemory: return VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT.SType;
@@ -17817,6 +19322,7 @@ enum VulkanFeature
 			case shaderModuleIdentifier: return VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT.SType;
 			case opticalFlow: return VkPhysicalDeviceOpticalFlowFeaturesNV.SType;
 			case legacyDithering: return VkPhysicalDeviceLegacyDitheringFeaturesEXT.SType;
+			case externalFormatResolve: return VkPhysicalDeviceExternalFormatResolveFeaturesANDROID.SType;
 			case antiLag: return VkPhysicalDeviceAntiLagFeaturesAMD.SType;
 			case presentId2: return VkPhysicalDevicePresentId2FeaturesKHR.SType;
 			case presentWait2: return VkPhysicalDevicePresentWait2FeaturesKHR.SType;
@@ -17845,6 +19351,7 @@ enum VulkanFeature
 			case cubicRangeClamp: return VkPhysicalDeviceCubicClampFeaturesQCOM.SType;
 			case attachmentFeedbackLoopDynamicState: return VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT.SType;
 			case unifiedImageLayouts: return VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR.SType;
+			case screenBufferImport: return VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX.SType;
 			case descriptorPoolOverallocation: return VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV.SType;
 			case tileMemoryHeap: return VkPhysicalDeviceTileMemoryHeapFeaturesQCOM.SType;
 			case videoEncodeIntraRefresh: return VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR.SType;
@@ -17876,6 +19383,7 @@ enum VulkanFeature
 			case vertexAttributeRobustness: return VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT.SType;
 			case formatPack: return VkPhysicalDeviceFormatPackFeaturesARM.SType;
 			case fragmentDensityMapLayered: return VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE.SType;
+			case presentMetering: return VkPhysicalDevicePresentMeteringFeaturesNV.SType;
 			case zeroInitializeDeviceMemory: return VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT.SType;
 			case pipelineCacheIncrementalMode: return VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC.SType;
 			}

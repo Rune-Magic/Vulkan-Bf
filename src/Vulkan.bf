@@ -147,6 +147,7 @@ namespace Vulkan;
 	VkErrorNotPermittedEXT = VkErrorNotPermitted,
 	VkErrorNotPermittedKHR = VkErrorNotPermitted,
 	VkErrorInvalidDeviceAddressEXT = VkErrorInvalidOpaqueCaptureAddress,
+	VkErrorFullScreenExclusiveModeLostEXT = -1000255000,
 	VkErrorInvalidOpaqueCaptureAddressKHR = VkErrorInvalidOpaqueCaptureAddress,
 	VkThreadIdleKHR = 1000268000,
 	VkThreadDoneKHR = 1000268001,
@@ -443,6 +444,11 @@ namespace Vulkan;
 	VkDisplayModeCreateInfoKHR = 1000002000,
 	VkDisplaySurfaceCreateInfoKHR = 1000002001,
 	VkDisplayPresentInfoKHR = 1000003000,
+	VkXlibSurfaceCreateInfoKHR = 1000004000,
+	VkXcbSurfaceCreateInfoKHR = 1000005000,
+	VkWaylandSurfaceCreateInfoKHR = 1000006000,
+	VkAndroidSurfaceCreateInfoKHR = 1000008000,
+	VkWin32SurfaceCreateInfoKHR = 1000009000,
 	VkDebugReportCallbackCreateInfoEXT = 1000011000,
 	VkDebugReportCreateInfoEXT = VkDebugReportCallbackCreateInfoEXT,
 	VkPipelineRasterizationStateRasterizationOrderAMD = 1000018000,
@@ -521,12 +527,16 @@ namespace Vulkan;
 	VkPipelineRenderingCreateInfoKHR = VkPipelineRenderingCreateInfo,
 	VkPhysicalDeviceDynamicRenderingFeaturesKHR = VkPhysicalDeviceDynamicRenderingFeatures,
 	VkCommandBufferInheritanceRenderingInfoKHR = VkCommandBufferInheritanceRenderingInfo,
+	VkStreamDescriptorSurfaceCreateInfoGGP = 1000049000,
 	VkPhysicalDeviceCornerSampledImageFeaturesNV = 1000050000,
 	VkRenderPassMultiviewCreateInfoKHR = VkRenderPassMultiviewCreateInfo,
 	VkPhysicalDeviceMultiviewFeaturesKHR = VkPhysicalDeviceMultiviewFeatures,
 	VkPhysicalDeviceMultiviewPropertiesKHR = VkPhysicalDeviceMultiviewProperties,
 	VkExternalMemoryImageCreateInfoNV = 1000056000,
 	VkExportMemoryAllocateInfoNV = 1000056001,
+	VkImportMemoryWin32HandleInfoNV = 1000057000,
+	VkExportMemoryWin32HandleInfoNV = 1000057001,
+	VkWin32KeyedMutexAcquireReleaseInfoNV = 1000058000,
 	VkPhysicalDeviceFeatures2KHR = VkPhysicalDeviceFeatures2,
 	VkPhysicalDeviceProperties2KHR = VkPhysicalDeviceProperties2,
 	VkFormatProperties2KHR = VkFormatProperties2,
@@ -544,6 +554,7 @@ namespace Vulkan;
 	VkBindBufferMemoryDeviceGroupInfoKHR = VkBindBufferMemoryDeviceGroupInfo,
 	VkBindImageMemoryDeviceGroupInfoKHR = VkBindImageMemoryDeviceGroupInfo,
 	VkValidationFlagsEXT = 1000061000,
+	VkViSurfaceCreateInfoNN = 1000062000,
 	VkPhysicalDeviceTextureCompressionAstcHdrFeaturesEXT = VkPhysicalDeviceTextureCompressionAstcHdrFeatures,
 	VkImageViewAstcDecodeModeEXT = 1000067000,
 	VkPhysicalDeviceAstcDecodeFeaturesEXT = 1000067001,
@@ -560,12 +571,21 @@ namespace Vulkan;
 	VkExternalMemoryBufferCreateInfoKHR = VkExternalMemoryBufferCreateInfo,
 	VkExternalMemoryImageCreateInfoKHR = VkExternalMemoryImageCreateInfo,
 	VkExportMemoryAllocateInfoKHR = VkExportMemoryAllocateInfo,
+	VkImportMemoryWin32HandleInfoKHR = 1000073000,
+	VkExportMemoryWin32HandleInfoKHR = 1000073001,
+	VkMemoryWin32HandlePropertiesKHR = 1000073002,
+	VkMemoryGetWin32HandleInfoKHR = 1000073003,
 	VkImportMemoryFdInfoKHR = 1000074000,
 	VkMemoryFdPropertiesKHR = 1000074001,
 	VkMemoryGetFdInfoKHR = 1000074002,
+	VkWin32KeyedMutexAcquireReleaseInfoKHR = 1000075000,
 	VkPhysicalDeviceExternalSemaphoreInfoKHR = VkPhysicalDeviceExternalSemaphoreInfo,
 	VkExternalSemaphorePropertiesKHR = VkExternalSemaphoreProperties,
 	VkExportSemaphoreCreateInfoKHR = VkExportSemaphoreCreateInfo,
+	VkImportSemaphoreWin32HandleInfoKHR = 1000078000,
+	VkExportSemaphoreWin32HandleInfoKHR = 1000078001,
+	VkD3d12FenceSubmitInfoKHR = 1000078002,
+	VkSemaphoreGetWin32HandleInfoKHR = 1000078003,
 	VkImportSemaphoreFdInfoKHR = 1000079000,
 	VkSemaphoreGetFdInfoKHR = 1000079001,
 	VkPhysicalDevicePushDescriptorPropertiesKHR = VkPhysicalDevicePushDescriptorProperties,
@@ -610,6 +630,9 @@ namespace Vulkan;
 	VkPhysicalDeviceExternalFenceInfoKHR = VkPhysicalDeviceExternalFenceInfo,
 	VkExternalFencePropertiesKHR = VkExternalFenceProperties,
 	VkExportFenceCreateInfoKHR = VkExportFenceCreateInfo,
+	VkImportFenceWin32HandleInfoKHR = 1000114000,
+	VkExportFenceWin32HandleInfoKHR = 1000114001,
+	VkFenceGetWin32HandleInfoKHR = 1000114002,
 	VkImportFenceFdInfoKHR = 1000115000,
 	VkFenceGetFdInfoKHR = 1000115001,
 	VkPhysicalDevicePerformanceQueryFeaturesKHR = 1000116000,
@@ -633,6 +656,8 @@ namespace Vulkan;
 	VkDisplayModeProperties2KHR = 1000121002,
 	VkDisplayPlaneInfo2KHR = 1000121003,
 	VkDisplayPlaneCapabilities2KHR = 1000121004,
+	VkIosSurfaceCreateInfoMVK = 1000122000,
+	VkMacosSurfaceCreateInfoMVK = 1000123000,
 	VkMemoryDedicatedRequirementsKHR = VkMemoryDedicatedRequirements,
 	VkMemoryDedicatedAllocateInfoKHR = VkMemoryDedicatedAllocateInfo,
 	VkDebugUtilsObjectNameInfoEXT = 1000128000,
@@ -640,8 +665,20 @@ namespace Vulkan;
 	VkDebugUtilsLabelEXT = 1000128002,
 	VkDebugUtilsMessengerCallbackDataEXT = 1000128003,
 	VkDebugUtilsMessengerCreateInfoEXT = 1000128004,
+	VkAndroidHardwareBufferUsageANDROID = 1000129000,
+	VkAndroidHardwareBufferPropertiesANDROID = 1000129001,
+	VkAndroidHardwareBufferFormatPropertiesANDROID = 1000129002,
+	VkImportAndroidHardwareBufferInfoANDROID = 1000129003,
+	VkMemoryGetAndroidHardwareBufferInfoANDROID = 1000129004,
+	VkExternalFormatANDROID = 1000129005,
+	VkAndroidHardwareBufferFormatProperties2ANDROID = 1000129006,
 	VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT = VkPhysicalDeviceSamplerFilterMinmaxProperties,
 	VkSamplerReductionModeCreateInfoEXT = VkSamplerReductionModeCreateInfo,
+	VkPhysicalDeviceShaderEnqueueFeaturesAMDX = 1000134000,
+	VkPhysicalDeviceShaderEnqueuePropertiesAMDX = 1000134001,
+	VkExecutionGraphPipelineScratchSizeAMDX = 1000134002,
+	VkExecutionGraphPipelineCreateInfoAMDX = 1000134003,
+	VkPipelineShaderStageNodeCreateInfoAMDX = 1000134004,
 	VkAttachmentSampleCountInfoAMD = 1000044008,
 	VkPhysicalDeviceInlineUniformBlockFeaturesEXT = VkPhysicalDeviceInlineUniformBlockFeatures,
 	VkPhysicalDeviceInlineUniformBlockPropertiesEXT = VkPhysicalDeviceInlineUniformBlockProperties,
@@ -709,6 +746,8 @@ namespace Vulkan;
 	VkPhysicalDeviceDescriptorIndexingPropertiesEXT = VkPhysicalDeviceDescriptorIndexingProperties,
 	VkDescriptorSetVariableDescriptorCountAllocateInfoEXT = VkDescriptorSetVariableDescriptorCountAllocateInfo,
 	VkDescriptorSetVariableDescriptorCountLayoutSupportEXT = VkDescriptorSetVariableDescriptorCountLayoutSupport,
+	VkPhysicalDevicePortabilitySubsetFeaturesKHR = 1000163000,
+	VkPhysicalDevicePortabilitySubsetPropertiesKHR = 1000163001,
 	VkPipelineViewportShadingRateImageStateCreateInfoNV = 1000164000,
 	VkPhysicalDeviceShadingRateImageFeaturesNV = 1000164001,
 	VkPhysicalDeviceShadingRateImagePropertiesNV = 1000164002,
@@ -754,6 +793,7 @@ namespace Vulkan;
 	VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT = 1000190000,
 	VkPipelineVertexInputDivisorStateCreateInfoEXT = VkPipelineVertexInputDivisorStateCreateInfo,
 	VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT = VkPhysicalDeviceVertexAttributeDivisorFeatures,
+	VkPresentFrameTokenGGP = 1000191000,
 	VkPipelineCreationFeedbackCreateInfoEXT = VkPipelineCreationFeedbackCreateInfo,
 	VkPhysicalDeviceDriverPropertiesKHR = VkPhysicalDeviceDriverProperties,
 	VkPhysicalDeviceFloatControlsPropertiesKHR = VkPhysicalDeviceFloatControlsProperties,
@@ -788,7 +828,9 @@ namespace Vulkan;
 	VkPhysicalDevicePciBusInfoPropertiesEXT = 1000212000,
 	VkDisplayNativeHdrSurfaceCapabilitiesAMD = 1000213000,
 	VkSwapchainDisplayNativeHdrCreateInfoAMD = 1000213001,
+	VkImagepipeSurfaceCreateInfoFUCHSIA = 1000214000,
 	VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR = VkPhysicalDeviceShaderTerminateInvocationFeatures,
+	VkMetalSurfaceCreateInfoEXT = 1000217000,
 	VkPhysicalDeviceFragmentDensityMapFeaturesEXT = 1000218000,
 	VkPhysicalDeviceFragmentDensityMapPropertiesEXT = 1000218001,
 	VkRenderPassFragmentDensityMapCreateInfoEXT = 1000218002,
@@ -838,6 +880,9 @@ namespace Vulkan;
 	VkPhysicalDeviceProvokingVertexFeaturesEXT = 1000254000,
 	VkPipelineRasterizationProvokingVertexStateCreateInfoEXT = 1000254001,
 	VkPhysicalDeviceProvokingVertexPropertiesEXT = 1000254002,
+	VkSurfaceFullScreenExclusiveInfoEXT = 1000255000,
+	VkSurfaceCapabilitiesFullScreenExclusiveEXT = 1000255002,
+	VkSurfaceFullScreenExclusiveWin32InfoEXT = 1000255001,
 	VkHeadlessSurfaceCreateInfoEXT = 1000256000,
 	VkPhysicalDeviceBufferDeviceAddressFeaturesKHR = VkPhysicalDeviceBufferDeviceAddressFeatures,
 	VkBufferDeviceAddressInfoKHR = VkBufferDeviceAddressInfo,
@@ -933,6 +978,11 @@ namespace Vulkan;
 	VkVideoEncodeSessionParametersFeedbackInfoKHR = 1000299010,
 	VkPhysicalDeviceDiagnosticsConfigFeaturesNV = 1000300000,
 	VkDeviceDiagnosticsConfigCreateInfoNV = 1000300001,
+	VkCudaModuleCreateInfoNV = 1000307000,
+	VkCudaFunctionCreateInfoNV = 1000307001,
+	VkCudaLaunchInfoNV = 1000307002,
+	VkPhysicalDeviceCudaKernelLaunchFeaturesNV = 1000307003,
+	VkPhysicalDeviceCudaKernelLaunchPropertiesNV = 1000307004,
 	VkPhysicalDeviceTileShadingFeaturesQCOM = 1000309000,
 	VkPhysicalDeviceTileShadingPropertiesQCOM = 1000309001,
 	VkRenderPassTileShadingCreateInfoQCOM = 1000309002,
@@ -940,6 +990,18 @@ namespace Vulkan;
 	VkPerTileEndInfoQCOM = 1000309004,
 	VkDispatchTileInfoQCOM = 1000309005,
 	VkQueryLowLatencySupportNV = 1000310000,
+	VkExportMetalObjectCreateInfoEXT = 1000311000,
+	VkExportMetalObjectsInfoEXT = 1000311001,
+	VkExportMetalDeviceInfoEXT = 1000311002,
+	VkExportMetalCommandQueueInfoEXT = 1000311003,
+	VkExportMetalBufferInfoEXT = 1000311004,
+	VkImportMetalBufferInfoEXT = 1000311005,
+	VkExportMetalTextureInfoEXT = 1000311006,
+	VkImportMetalTextureInfoEXT = 1000311007,
+	VkExportMetalIoSurfaceInfoEXT = 1000311008,
+	VkImportMetalIoSurfaceInfoEXT = 1000311009,
+	VkExportMetalSharedEventInfoEXT = 1000311010,
+	VkImportMetalSharedEventInfoEXT = 1000311011,
 	VkMemoryBarrier2KHR = VkMemoryBarrier2,
 	VkBufferMemoryBarrier2KHR = VkBufferMemoryBarrier2,
 	VkImageMemoryBarrier2KHR = VkImageMemoryBarrier2,
@@ -1006,6 +1068,7 @@ namespace Vulkan;
 	VkDeviceFaultInfoEXT = 1000341002,
 	VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM = VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT,
 	VkPhysicalDeviceRgba10x6FormatsFeaturesEXT = 1000344000,
+	VkDirectfbSurfaceCreateInfoEXT = 1000346000,
 	VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE = VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT,
 	VkMutableDescriptorTypeCreateInfoVALVE = VkMutableDescriptorTypeCreateInfoEXT,
 	VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT = 1000352000,
@@ -1019,6 +1082,21 @@ namespace Vulkan;
 	VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT = 1000356000,
 	VkFormatProperties3KHR = VkFormatProperties3,
 	VkPhysicalDevicePresentModeFifoLatestReadyFeaturesEXT = VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR,
+	VkImportMemoryZirconHandleInfoFUCHSIA = 1000364000,
+	VkMemoryZirconHandlePropertiesFUCHSIA = 1000364001,
+	VkMemoryGetZirconHandleInfoFUCHSIA = 1000364002,
+	VkImportSemaphoreZirconHandleInfoFUCHSIA = 1000365000,
+	VkSemaphoreGetZirconHandleInfoFUCHSIA = 1000365001,
+	VkBufferCollectionCreateInfoFUCHSIA = 1000366000,
+	VkImportMemoryBufferCollectionFUCHSIA = 1000366001,
+	VkBufferCollectionImageCreateInfoFUCHSIA = 1000366002,
+	VkBufferCollectionPropertiesFUCHSIA = 1000366003,
+	VkBufferConstraintsInfoFUCHSIA = 1000366004,
+	VkBufferCollectionBufferCreateInfoFUCHSIA = 1000366005,
+	VkImageConstraintsInfoFUCHSIA = 1000366006,
+	VkImageFormatConstraintsInfoFUCHSIA = 1000366007,
+	VkSysmemColorSpaceFUCHSIA = 1000366008,
+	VkBufferCollectionConstraintsInfoFUCHSIA = 1000366009,
 	VkSubpassShadingPipelineCreateInfoHUAWEI = 1000369000,
 	VkPhysicalDeviceSubpassShadingFeaturesHUAWEI = 1000369001,
 	VkPhysicalDeviceSubpassShadingPropertiesHUAWEI = 1000369002,
@@ -1034,6 +1112,7 @@ namespace Vulkan;
 	VkSubpassResolvePerformanceQueryEXT = 1000376001,
 	VkMultisampledRenderToSingleSampledInfoEXT = 1000376002,
 	VkPhysicalDeviceExtendedDynamicState2FeaturesEXT = 1000377000, // Not promoted to 1.3
+	VkScreenSurfaceCreateInfoQNX = 1000378000,
 	VkPhysicalDeviceColorWriteEnableFeaturesEXT = 1000381000,
 	VkPipelineColorWriteCreateInfoEXT = 1000381001,
 	VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT = 1000382000,
@@ -1057,6 +1136,9 @@ namespace Vulkan;
 	VkMicromapCreateInfoEXT = 1000396007,
 	VkMicromapBuildSizesInfoEXT = 1000396008,
 	VkAccelerationStructureTrianglesOpacityMicromapEXT = 1000396009,
+	VkPhysicalDeviceDisplacementMicromapFeaturesNV = 1000397000,
+	VkPhysicalDeviceDisplacementMicromapPropertiesNV = 1000397001,
+	VkAccelerationStructureTrianglesDisplacementMicromapNV = 1000397002,
 	VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI = 1000404000,
 	VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI = 1000404001,
 	VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI = 1000404002,
@@ -1152,6 +1234,9 @@ namespace Vulkan;
 	VkOpticalFlowSessionCreatePrivateDataInfoNV = 1000464010,
 	VkPhysicalDeviceLegacyDitheringFeaturesEXT = 1000465000,
 	VkPhysicalDevicePipelineProtectedAccessFeaturesEXT = VkPhysicalDevicePipelineProtectedAccessFeatures,
+	VkPhysicalDeviceExternalFormatResolveFeaturesANDROID = 1000468000,
+	VkPhysicalDeviceExternalFormatResolvePropertiesANDROID = 1000468001,
+	VkAndroidHardwareBufferFormatResolvePropertiesANDROID = 1000468002,
 	VkPhysicalDeviceMaintenance5FeaturesKHR = VkPhysicalDeviceMaintenance5Features,
 	VkPhysicalDeviceMaintenance5PropertiesKHR = VkPhysicalDeviceMaintenance5Properties,
 	VkRenderingAreaInfoKHR = VkRenderingAreaInfo,
@@ -1290,6 +1375,11 @@ namespace Vulkan;
 	VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR = 1000527000,
 	VkAttachmentFeedbackLoopInfoEXT = 1000527001,
 	VkPhysicalDeviceShaderFloatControls2FeaturesKHR = VkPhysicalDeviceShaderFloatControls2Features,
+	VkScreenBufferPropertiesQNX = 1000529000,
+	VkScreenBufferFormatPropertiesQNX = 1000529001,
+	VkImportScreenBufferInfoQNX = 1000529002,
+	VkExternalFormatQNX = 1000529003,
+	VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX = 1000529004,
 	VkPhysicalDeviceLayeredDriverPropertiesMSFT = 1000530000,
 	VkPhysicalDeviceIndexTypeUint8FeaturesKHR = VkPhysicalDeviceIndexTypeUint8Features,
 	VkPhysicalDeviceLineRasterizationFeaturesKHR = VkPhysicalDeviceLineRasterizationFeatures,
@@ -1387,12 +1477,16 @@ namespace Vulkan;
 	VkVideoDecodeH264InlineSessionParametersInfoKHR = 1000586001,
 	VkVideoDecodeH265InlineSessionParametersInfoKHR = 1000586002,
 	VkVideoDecodeAv1InlineSessionParametersInfoKHR = 1000586003,
+	VkOhSurfaceCreateInfoOHOS = 1000587000,
 	VkPhysicalDeviceHdrVividFeaturesHUAWEI = 1000590000,
 	VkHdrVividDynamicMetadataHUAWEI = 1000590001,
 	VkPhysicalDeviceCooperativeMatrix2FeaturesNV = 1000593000,
 	VkCooperativeMatrixFlexibleDimensionsPropertiesNV = 1000593001,
 	VkPhysicalDeviceCooperativeMatrix2PropertiesNV = 1000593002,
 	VkPhysicalDevicePipelineOpacityMicromapFeaturesARM = 1000596000,
+	VkImportMemoryMetalHandleInfoEXT = 1000602000,
+	VkMemoryMetalHandlePropertiesEXT = 1000602001,
+	VkMemoryGetMetalHandleInfoEXT = 1000602002,
 	VkPhysicalDeviceDepthClampZeroOneFeaturesKHR = 1000421000,
 	VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT = 1000608000,
 	VkPhysicalDeviceFormatPackFeaturesARM = 1000609000,
@@ -1401,6 +1495,8 @@ namespace Vulkan;
 	VkPipelineFragmentDensityMapLayeredCreateInfoVALVE = 1000611002,
 	VkPhysicalDeviceRobustness2FeaturesKHR = 1000286000,
 	VkPhysicalDeviceRobustness2PropertiesKHR = 1000286001,
+	VkSetPresentConfigNV = 1000613000,
+	VkPhysicalDevicePresentMeteringFeaturesNV = 1000613001,
 	VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT = 1000425000,
 	VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT = 1000425001,
 	VkRenderPassFragmentDensityMapOffsetEndInfoEXT = 1000425002,
@@ -1668,6 +1764,9 @@ static { public const uint32 VK_MAX_MEMORY_HEAPS = 16; } // The maximum number o
 	DeferredOperationKHR = 1000268000,
 	IndirectCommandsLayoutNV = 1000277000,
 	PrivateDataSlotEXT = PrivateDataSlot,
+	CudaModuleNV = 1000307000,
+	CudaFunctionNV = 1000307001,
+	BufferCollectionFUCHSIA = 1000366000, // VkBufferCollectionFUCHSIA
 	MicromapEXT = 1000396000,
 	TensorARM = 1000460000,
 	TensorViewARM = 1000460001,
@@ -3482,6 +3581,7 @@ typealias VkBufferCreateFlags = VkBufferCreateFlagBits;
 	TransformFeedbackBufferEXT = 1 << 11,
 	TransformFeedbackCounterBufferEXT = 1 << 12,
 	ConditionalRenderingEXT = 1 << 9, // Specifies the buffer can be used as predicate in conditional rendering
+	ExecutionGraphScratchAMDX = 1 << 25,
 	AccelerationStructureBuildInputReadOnlyKHR = 1 << 19,
 	AccelerationStructureStorageKHR = 1 << 20,
 	ShaderBindingTableKHR = 1 << 10,
@@ -4266,6 +4366,7 @@ typealias VkPipelineColorBlendStateCreateFlags = VkPipelineColorBlendStateCreate
 	ColorAttachmentFeedbackLoopEXT = 1 << 25,
 	DepthStencilAttachmentFeedbackLoopEXT = 1 << 26,
 	RayTracingOpacityMicromapEXT = 1 << 24,
+	RayTracingDisplacementMicromapNV = 1 << 28,
 	NoProtectedAccessEXT = NoProtectedAccess,
 	ProtectedAccessOnlyEXT = ProtectedAccessOnly,
 }
@@ -5442,6 +5543,7 @@ typealias VkFramebufferCreateFlags = VkFramebufferCreateFlagBits;
 {
 	Graphics = 0,
 	Compute = 1,
+	ExecutionGraphAMDX = 1000134000,
 	RayTracingKHR = 1000165000,
 	RayTracingNV = RayTracingKHR,
 	SubpassShadingHUAWEI = 1000369003,
@@ -7252,9 +7354,15 @@ typealias VkExternalMemoryHandleTypeFlags = VkExternalMemoryHandleTypeFlagBits;
 	D3d12HeapKHR = D3d12Heap,
 	D3d12ResourceKHR = D3d12Resource,
 	DmaBufEXT = 1 << 9,
+	AndroidHardwareBufferANDROID = 1 << 10,
 	HostAllocationEXT = 1 << 7,
 	HostMappedForeignMemoryEXT = 1 << 8,
+	ZirconVmoFUCHSIA = 1 << 11,
 	RdmaAddressNV = 1 << 12,
+	ScreenBufferQNX = 1 << 14,
+	MtlbufferEXT = 1 << 16,
+	MtltextureEXT = 1 << 17,
+	MtlheapEXT = 1 << 18,
 }
 
 typealias VkExternalMemoryFeatureFlags = VkExternalMemoryFeatureFlagBits;
@@ -7544,6 +7652,7 @@ typealias VkExternalSemaphoreHandleTypeFlags = VkExternalSemaphoreHandleTypeFlag
 	OpaqueWin32KmtKHR = OpaqueWin32Kmt,
 	D3d12FenceKHR = D3d12Fence,
 	SyncFdKHR = SyncFd,
+	ZirconEventFUCHSIA = 1 << 7,
 }
 
 typealias VkExternalSemaphoreFeatureFlags = VkExternalSemaphoreFeatureFlagBits;
@@ -8537,6 +8646,7 @@ typealias VkDescriptorBindingFlags = VkDescriptorBindingFlagBits;
 	AverageKHR = Average,
 	MinKHR = Min,
 	MaxKHR = Max,
+	ExternalFormatDownsampleANDROID = 1 << 4,
 }
 
 typealias VkResolveModeFlags = VkResolveModeFlagBits;
@@ -11482,6 +11592,7 @@ typealias VkPipelineCreateFlags2 = VkPipelineCreateFlagBits2;
 	EarlyReturnOnFailure = 1 << 9,
 	NoProtectedAccess = 1 << 27,
 	ProtectedAccessOnly = 1 << 30,
+	ExecutionGraphAMDX = 1 << 32,
 	RayTracingSkipBuiltInPrimitivesKHR = RayTracingSkipTrianglesKHR,
 	RayTracingAllowSpheresAndLinearSweptSpheresNV = 1 << 33,
 	EnableLegacyDitheringEXT = 1 << 34,
@@ -11556,6 +11667,7 @@ typealias VkBufferUsageFlags2 = VkBufferUsageFlagBits2;
 	VertexBuffer = 1 << 7,
 	IndirectBuffer = 1 << 8,
 	ShaderDeviceAddress = 1 << 17,
+	ExecutionGraphScratchAMDX = 1 << 25,
 	TransferSrcKHR = TransferSrc,
 	TransferDstKHR = TransferDst,
 	UniformTexelBufferKHR = UniformTexelBuffer,
@@ -12775,6 +12887,163 @@ static { public const c_char* VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME = "VK_KHR_
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateSharedSwapchainsKHR(VkDevice device, uint32 swapchainCount, VkSwapchainCreateInfoKHR* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkSwapchainKHR pSwapchains);
 
+static { public const uint32 VK_KHR_XLIB_SURFACE_SPEC_VERSION = 6; }
+static { public const c_char* VK_KHR_XLIB_SURFACE_EXTENSION_NAME = "VK_KHR_xlib_surface"; }
+
+typealias VkXlibSurfaceCreateFlagsKHR = VkFlags;
+
+[CRepr] struct VkXlibSurfaceCreateInfoKHR
+{
+	public const VkStructureType SType = .VkXlibSurfaceCreateInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkXlibSurfaceCreateFlagsKHR flags;
+	public Display* dpy;
+	public Window window;
+
+	public this(void* pNext, VkXlibSurfaceCreateFlagsKHR flags, Display* dpy, Window window)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.dpy = dpy;
+		this.window = window;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateXlibSurfaceKHR(VkInstance instance, VkXlibSurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+[CallingConvention(VKAPI_PTR)] function VkBool32 PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR(VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out Display dpy, VisualID visualID);
+
+static { public const uint32 VK_KHR_XCB_SURFACE_SPEC_VERSION = 6; }
+static { public const c_char* VK_KHR_XCB_SURFACE_EXTENSION_NAME = "VK_KHR_xcb_surface"; }
+
+typealias VkXcbSurfaceCreateFlagsKHR = VkFlags;
+
+[CRepr] struct VkXcbSurfaceCreateInfoKHR
+{
+	public const VkStructureType SType = .VkXcbSurfaceCreateInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkXcbSurfaceCreateFlagsKHR flags;
+	public xcb_connection_t* connection;
+	public xcb_window_t window;
+
+	public this(void* pNext, VkXcbSurfaceCreateFlagsKHR flags, xcb_connection_t* connection, xcb_window_t window)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.connection = connection;
+		this.window = window;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateXcbSurfaceKHR(VkInstance instance, VkXcbSurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+[CallingConvention(VKAPI_PTR)] function VkBool32 PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR(VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out xcb_connection_t connection, xcb_visualid_t visual_id);
+
+static { public const uint32 VK_KHR_WAYLAND_SURFACE_SPEC_VERSION = 6; }
+static { public const c_char* VK_KHR_WAYLAND_SURFACE_EXTENSION_NAME = "VK_KHR_wayland_surface"; }
+
+typealias VkWaylandSurfaceCreateFlagsKHR = VkFlags;
+
+[CRepr] struct VkWaylandSurfaceCreateInfoKHR
+{
+	public const VkStructureType SType = .VkWaylandSurfaceCreateInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkWaylandSurfaceCreateFlagsKHR flags;
+	public wl_display* display;
+	public wl_surface* surface;
+
+	public this(void* pNext, VkWaylandSurfaceCreateFlagsKHR flags, wl_display* display, wl_surface* surface)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.display = display;
+		this.surface = surface;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateWaylandSurfaceKHR(VkInstance instance, VkWaylandSurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+[CallingConvention(VKAPI_PTR)] function VkBool32 PFN_vkGetPhysicalDeviceWaylandPresentationSupportKHR(VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out wl_display display);
+
+static { public const uint32 VK_KHR_ANDROID_SURFACE_SPEC_VERSION = 6; }
+static { public const c_char* VK_KHR_ANDROID_SURFACE_EXTENSION_NAME = "VK_KHR_android_surface"; }
+
+typealias VkAndroidSurfaceCreateFlagsKHR = VkFlags;
+
+[CRepr] struct VkAndroidSurfaceCreateInfoKHR
+{
+	public const VkStructureType SType = .VkAndroidSurfaceCreateInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkAndroidSurfaceCreateFlagsKHR flags;
+	public ANativeWindow* window;
+
+	public this(void* pNext, VkAndroidSurfaceCreateFlagsKHR flags, ANativeWindow* window)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.window = window;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateAndroidSurfaceKHR(VkInstance instance, VkAndroidSurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+
+static { public const uint32 VK_KHR_WIN32_SURFACE_SPEC_VERSION = 6; }
+static { public const c_char* VK_KHR_WIN32_SURFACE_EXTENSION_NAME = "VK_KHR_win32_surface"; }
+
+typealias VkWin32SurfaceCreateFlagsKHR = VkFlags;
+
+[CRepr] struct VkWin32SurfaceCreateInfoKHR
+{
+	public const VkStructureType SType = .VkWin32SurfaceCreateInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkWin32SurfaceCreateFlagsKHR flags;
+	public HINSTANCE hinstance;
+	public HWND hwnd;
+
+	public this(void* pNext, VkWin32SurfaceCreateFlagsKHR flags, HINSTANCE hinstance, HWND hwnd)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.hinstance = hinstance;
+		this.hwnd = hwnd;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateWin32SurfaceKHR(VkInstance instance, VkWin32SurfaceCreateInfoKHR* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+[CallingConvention(VKAPI_PTR)] function VkBool32 PFN_vkGetPhysicalDeviceWin32PresentationSupportKHR(VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex);
+
 static { public const uint32 VK_EXT_DEBUG_REPORT_SPEC_VERSION = 10; }
 static { public const c_char* VK_EXT_DEBUG_REPORT_EXTENSION_NAME = "VK_EXT_debug_report"; }
 
@@ -12837,6 +13106,9 @@ typealias VkDebugReportFlagsEXT = VkDebugReportFlagBitsEXT;
 	AccelerationStructureKhrEXT = 1000150000,
 	SamplerYcbcrConversionKhrEXT = SamplerYcbcrConversionEXT,
 	AccelerationStructureNvEXT = 1000165000,
+	CudaModuleNvEXT = 1000307000,
+	CudaFunctionNvEXT = 1000307001,
+	BufferCollectionFuchsiaEXT = 1000366000,
 }
 
 [CRepr] struct VkDebugReportCallbackCreateInfoEXT
@@ -14919,6 +15191,35 @@ typealias VkRenderingFlagBitsKHR = VkRenderingFlagBits;
 
 static { public const uint32 VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_SPEC_VERSION = 1; }
 static { public const c_char* VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_EXTENSION_NAME = "VK_AMD_shader_image_load_store_lod"; }
+static { public const uint32 VK_GGP_STREAM_DESCRIPTOR_SURFACE_SPEC_VERSION = 1; }
+static { public const c_char* VK_GGP_STREAM_DESCRIPTOR_SURFACE_EXTENSION_NAME = "VK_GGP_stream_descriptor_surface"; }
+
+typealias VkStreamDescriptorSurfaceCreateFlagsGGP = VkFlags;
+
+[CRepr] struct VkStreamDescriptorSurfaceCreateInfoGGP
+{
+	public const VkStructureType SType = .VkStreamDescriptorSurfaceCreateInfoGGP;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkStreamDescriptorSurfaceCreateFlagsGGP flags;
+	public GgpStreamDescriptor streamDescriptor;
+
+	public this(void* pNext, VkStreamDescriptorSurfaceCreateFlagsGGP flags, GgpStreamDescriptor streamDescriptor)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.streamDescriptor = streamDescriptor;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateStreamDescriptorSurfaceGGP(VkInstance instance, VkStreamDescriptorSurfaceCreateInfoGGP* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+
 static { public const uint32 VK_NV_CORNER_SAMPLED_IMAGE_SPEC_VERSION = 2; }
 static { public const c_char* VK_NV_CORNER_SAMPLED_IMAGE_EXTENSION_NAME = "VK_NV_corner_sampled_image"; }
 
@@ -15026,6 +15327,95 @@ static { public const c_char* VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME = "VK_NV_exte
 	}
 }
 
+static { public const uint32 VK_NV_EXTERNAL_MEMORY_WIN32_SPEC_VERSION = 1; }
+static { public const c_char* VK_NV_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME = "VK_NV_external_memory_win32"; }
+
+[CRepr] struct VkImportMemoryWin32HandleInfoNV
+{
+	public const VkStructureType SType = .VkImportMemoryWin32HandleInfoNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkExternalMemoryHandleTypeFlagsNV handleType;
+	public HANDLE handle;
+
+	public this(void* pNext = null, VkExternalMemoryHandleTypeFlagsNV handleType = 0, HANDLE handle = null)
+	{
+		this.pNext = pNext;
+		this.handleType = handleType;
+		this.handle = handle;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportMemoryWin32HandleInfoNV
+{
+	public const VkStructureType SType = .VkExportMemoryWin32HandleInfoNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public SECURITY_ATTRIBUTES* pAttributes;
+	public DWORD dwAccess;
+
+	public this(void* pNext = null, SECURITY_ATTRIBUTES* pAttributes = null, DWORD dwAccess = 0)
+	{
+		this.pNext = pNext;
+		this.pAttributes = pAttributes;
+		this.dwAccess = dwAccess;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryWin32HandleNV(VkDevice device, VkDeviceMemory memory, VkExternalMemoryHandleTypeFlagsNV handleType, out HANDLE pHandle);
+
+static { public const uint32 VK_NV_WIN32_KEYED_MUTEX_SPEC_VERSION = 2; }
+static { public const c_char* VK_NV_WIN32_KEYED_MUTEX_EXTENSION_NAME = "VK_NV_win32_keyed_mutex"; }
+
+[CRepr] struct VkWin32KeyedMutexAcquireReleaseInfoNV
+{
+	public const VkStructureType SType = .VkWin32KeyedMutexAcquireReleaseInfoNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 acquireCount;
+	public VkDeviceMemory* pAcquireSyncs;
+	public uint64* pAcquireKeys;
+	public uint32* pAcquireTimeoutMilliseconds;
+	public VulkanTrioSpan<VkDeviceMemory, uint64, uint32> acquireSyncs_acquireKeys_acquireTimeoutMilliseconds
+	{
+		[Inline] get => .(acquireCount, pAcquireSyncs, pAcquireKeys, pAcquireTimeoutMilliseconds);
+		[Inline] set mut { acquireCount = value.count; pAcquireSyncs = value.ptr1; pAcquireKeys = value.ptr2; pAcquireTimeoutMilliseconds = value.ptr3; }
+	}
+	public uint32 releaseCount;
+	public VkDeviceMemory* pReleaseSyncs;
+	public uint64* pReleaseKeys;
+	public VulkanDuoSpan<VkDeviceMemory, uint64> releaseSyncs_releaseKeys
+	{
+		[Inline] get => .(releaseCount, pReleaseSyncs, pReleaseKeys);
+		[Inline] set mut { releaseCount = value.count; pReleaseSyncs = value.ptr1; pReleaseKeys = value.ptr2; }
+	}
+
+	public this(void* pNext = null, VulkanTrioSpan<VkDeviceMemory, uint64, uint32> acquireSyncs_acquireKeys_acquireTimeoutMilliseconds = .(), VulkanDuoSpan<VkDeviceMemory, uint64> releaseSyncs_releaseKeys = .()) : this()
+	{
+		this.pNext = pNext;
+		this.acquireSyncs_acquireKeys_acquireTimeoutMilliseconds = acquireSyncs_acquireKeys_acquireTimeoutMilliseconds;
+		this.releaseSyncs_releaseKeys = releaseSyncs_releaseKeys;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
 static { public const uint32 VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_SPEC_VERSION = 2; }
 static { public const c_char* VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME = "VK_KHR_get_physical_device_properties2"; }
 
@@ -15088,6 +15478,35 @@ static { public const c_char* VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME = "VK_EXT_v
 	AllEXT = 0,
 	ShadersEXT = 1,
 }
+
+static { public const uint32 VK_NN_VI_SURFACE_SPEC_VERSION = 1; }
+static { public const c_char* VK_NN_VI_SURFACE_EXTENSION_NAME = "VK_NN_vi_surface"; }
+
+typealias VkViSurfaceCreateFlagsNN = VkFlags;
+
+[CRepr] struct VkViSurfaceCreateInfoNN
+{
+	public const VkStructureType SType = .VkViSurfaceCreateInfoNN;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkViSurfaceCreateFlagsNN flags;
+	public void* window;
+
+	public this(void* pNext, VkViSurfaceCreateFlagsNN flags, void* window)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.window = window;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateViSurfaceNN(VkInstance instance, VkViSurfaceCreateInfoNN* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
 
 static { public const uint32 VK_KHR_SHADER_DRAW_PARAMETERS_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_SHADER_DRAW_PARAMETERS_EXTENSION_NAME = "VK_KHR_shader_draw_parameters"; }
@@ -15189,6 +15608,90 @@ typealias VkExternalMemoryImageCreateInfoKHR = VkExternalMemoryImageCreateInfo;
 typealias VkExternalMemoryBufferCreateInfoKHR = VkExternalMemoryBufferCreateInfo;
 typealias VkExportMemoryAllocateInfoKHR = VkExportMemoryAllocateInfo;
 
+static { public const uint32 VK_KHR_EXTERNAL_MEMORY_WIN32_SPEC_VERSION = 1; }
+static { public const c_char* VK_KHR_EXTERNAL_MEMORY_WIN32_EXTENSION_NAME = "VK_KHR_external_memory_win32"; }
+
+[CRepr] struct VkImportMemoryWin32HandleInfoKHR
+{
+	public const VkStructureType SType = .VkImportMemoryWin32HandleInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkExternalMemoryHandleTypeFlagBits handleType;
+	public HANDLE handle;
+	public LPCWSTR name;
+
+	public this(void* pNext = null, VkExternalMemoryHandleTypeFlagBits handleType = 0, HANDLE handle = null, LPCWSTR name = null)
+	{
+		this.pNext = pNext;
+		this.handleType = handleType;
+		this.handle = handle;
+		this.name = name;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportMemoryWin32HandleInfoKHR
+{
+	public const VkStructureType SType = .VkExportMemoryWin32HandleInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public SECURITY_ATTRIBUTES* pAttributes;
+	public DWORD dwAccess;
+	public LPCWSTR name;
+
+	public this(void* pNext, SECURITY_ATTRIBUTES* pAttributes, DWORD dwAccess, LPCWSTR name)
+	{
+		this.pNext = pNext;
+		this.pAttributes = pAttributes;
+		this.dwAccess = dwAccess;
+		this.name = name;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkMemoryWin32HandlePropertiesKHR
+{
+	public const VkStructureType SType = .VkMemoryWin32HandlePropertiesKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 memoryTypeBits;
+}
+
+[CRepr] struct VkMemoryGetWin32HandleInfoKHR
+{
+	public const VkStructureType SType = .VkMemoryGetWin32HandleInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkDeviceMemory memory;
+	public VkExternalMemoryHandleTypeFlagBits handleType;
+
+	public this(void* pNext, VkDeviceMemory memory, VkExternalMemoryHandleTypeFlagBits handleType)
+	{
+		this.pNext = pNext;
+		this.memory = memory;
+		this.handleType = handleType;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryWin32HandleKHR(VkDevice device, VkMemoryGetWin32HandleInfoKHR* pGetWin32HandleInfo, out HANDLE pHandle);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryWin32HandlePropertiesKHR(VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, HANDLE handle, out VkMemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties);
+
 static { public const uint32 VK_KHR_EXTERNAL_MEMORY_FD_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_EXTERNAL_MEMORY_FD_EXTENSION_NAME = "VK_KHR_external_memory_fd"; }
 
@@ -15198,9 +15701,9 @@ static { public const c_char* VK_KHR_EXTERNAL_MEMORY_FD_EXTENSION_NAME = "VK_KHR
 	public VkStructureType sType = SType;
 	public void* pNext;
 	public VkExternalMemoryHandleTypeFlagBits handleType;
-	public int fd;
+	public c_int fd;
 
-	public this(void* pNext, VkExternalMemoryHandleTypeFlagBits handleType, int fd)
+	public this(void* pNext, VkExternalMemoryHandleTypeFlagBits handleType, c_int fd)
 	{
 		this.pNext = pNext;
 		this.handleType = handleType;
@@ -15244,8 +15747,48 @@ static { public const c_char* VK_KHR_EXTERNAL_MEMORY_FD_EXTENSION_NAME = "VK_KHR
 	}
 }
 
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryFdKHR(VkDevice device, VkMemoryGetFdInfoKHR* pGetFdInfo, out int pFd);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryFdPropertiesKHR(VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, int fd, out VkMemoryFdPropertiesKHR pMemoryFdProperties);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryFdKHR(VkDevice device, VkMemoryGetFdInfoKHR* pGetFdInfo, out c_int pFd);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryFdPropertiesKHR(VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, c_int fd, out VkMemoryFdPropertiesKHR pMemoryFdProperties);
+
+static { public const uint32 VK_KHR_WIN32_KEYED_MUTEX_SPEC_VERSION = 1; }
+static { public const c_char* VK_KHR_WIN32_KEYED_MUTEX_EXTENSION_NAME = "VK_KHR_win32_keyed_mutex"; }
+
+[CRepr] struct VkWin32KeyedMutexAcquireReleaseInfoKHR
+{
+	public const VkStructureType SType = .VkWin32KeyedMutexAcquireReleaseInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 acquireCount;
+	public VkDeviceMemory* pAcquireSyncs;
+	public uint64* pAcquireKeys;
+	public uint32* pAcquireTimeouts;
+	public VulkanTrioSpan<VkDeviceMemory, uint64, uint32> acquireSyncs_acquireKeys_acquireTimeouts
+	{
+		[Inline] get => .(acquireCount, pAcquireSyncs, pAcquireKeys, pAcquireTimeouts);
+		[Inline] set mut { acquireCount = value.count; pAcquireSyncs = value.ptr1; pAcquireKeys = value.ptr2; pAcquireTimeouts = value.ptr3; }
+	}
+	public uint32 releaseCount;
+	public VkDeviceMemory* pReleaseSyncs;
+	public uint64* pReleaseKeys;
+	public VulkanDuoSpan<VkDeviceMemory, uint64> releaseSyncs_releaseKeys
+	{
+		[Inline] get => .(releaseCount, pReleaseSyncs, pReleaseKeys);
+		[Inline] set mut { releaseCount = value.count; pReleaseSyncs = value.ptr1; pReleaseKeys = value.ptr2; }
+	}
+
+	public this(void* pNext = null, VulkanTrioSpan<VkDeviceMemory, uint64, uint32> acquireSyncs_acquireKeys_acquireTimeouts = .(), VulkanDuoSpan<VkDeviceMemory, uint64> releaseSyncs_releaseKeys = .()) : this()
+	{
+		this.pNext = pNext;
+		this.acquireSyncs_acquireKeys_acquireTimeouts = acquireSyncs_acquireKeys_acquireTimeouts;
+		this.releaseSyncs_releaseKeys = releaseSyncs_releaseKeys;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
 
 static { public const uint32 VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME = "VK_KHR_external_semaphore_capabilities"; }
@@ -15262,6 +15805,120 @@ typealias VkSemaphoreImportFlagsKHR = VkSemaphoreImportFlags;
 typealias VkSemaphoreImportFlagBitsKHR = VkSemaphoreImportFlagBits;
 typealias VkExportSemaphoreCreateInfoKHR = VkExportSemaphoreCreateInfo;
 
+static { public const uint32 VK_KHR_EXTERNAL_SEMAPHORE_WIN32_SPEC_VERSION = 1; }
+static { public const c_char* VK_KHR_EXTERNAL_SEMAPHORE_WIN32_EXTENSION_NAME = "VK_KHR_external_semaphore_win32"; }
+
+[CRepr] struct VkImportSemaphoreWin32HandleInfoKHR
+{
+	public const VkStructureType SType = .VkImportSemaphoreWin32HandleInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkSemaphore semaphore;
+	public VkSemaphoreImportFlags flags;
+	public VkExternalSemaphoreHandleTypeFlagBits handleType;
+	public HANDLE handle;
+	public LPCWSTR name;
+
+	public this(void* pNext, VkSemaphore semaphore, VkSemaphoreImportFlags flags, VkExternalSemaphoreHandleTypeFlagBits handleType, HANDLE handle = null, LPCWSTR name = null)
+	{
+		this.pNext = pNext;
+		this.semaphore = semaphore;
+		this.flags = flags;
+		this.handleType = handleType;
+		this.handle = handle;
+		this.name = name;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportSemaphoreWin32HandleInfoKHR
+{
+	public const VkStructureType SType = .VkExportSemaphoreWin32HandleInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public SECURITY_ATTRIBUTES* pAttributes;
+	public DWORD dwAccess;
+	public LPCWSTR name;
+
+	public this(void* pNext, SECURITY_ATTRIBUTES* pAttributes, DWORD dwAccess, LPCWSTR name)
+	{
+		this.pNext = pNext;
+		this.pAttributes = pAttributes;
+		this.dwAccess = dwAccess;
+		this.name = name;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkD3D12FenceSubmitInfoKHR
+{
+	public const VkStructureType SType = .VkD3d12FenceSubmitInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 waitSemaphoreValuesCount;
+	public uint64* pWaitSemaphoreValues;
+	public VulkanSpan<uint64> waitSemaphoreValues
+	{
+		[Inline] get => .(waitSemaphoreValuesCount, pWaitSemaphoreValues);
+		[Inline] set mut { waitSemaphoreValuesCount = value.count; pWaitSemaphoreValues = value.ptr; }
+	}
+	public uint32 signalSemaphoreValuesCount;
+	public uint64* pSignalSemaphoreValues;
+	public VulkanSpan<uint64> signalSemaphoreValues
+	{
+		[Inline] get => .(signalSemaphoreValuesCount, pSignalSemaphoreValues);
+		[Inline] set mut { signalSemaphoreValuesCount = value.count; pSignalSemaphoreValues = value.ptr; }
+	}
+
+	public this(void* pNext = null, VulkanSpan<uint64> waitSemaphoreValues = .(), VulkanSpan<uint64> signalSemaphoreValues = .()) : this()
+	{
+		this.pNext = pNext;
+		this.waitSemaphoreValues = waitSemaphoreValues;
+		this.signalSemaphoreValues = signalSemaphoreValues;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkSemaphoreGetWin32HandleInfoKHR
+{
+	public const VkStructureType SType = .VkSemaphoreGetWin32HandleInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkSemaphore semaphore;
+	public VkExternalSemaphoreHandleTypeFlagBits handleType;
+
+	public this(void* pNext, VkSemaphore semaphore, VkExternalSemaphoreHandleTypeFlagBits handleType)
+	{
+		this.pNext = pNext;
+		this.semaphore = semaphore;
+		this.handleType = handleType;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkImportSemaphoreWin32HandleKHR(VkDevice device, VkImportSemaphoreWin32HandleInfoKHR* pImportSemaphoreWin32HandleInfo);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetSemaphoreWin32HandleKHR(VkDevice device, VkSemaphoreGetWin32HandleInfoKHR* pGetWin32HandleInfo, out HANDLE pHandle);
+
 static { public const uint32 VK_KHR_EXTERNAL_SEMAPHORE_FD_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME = "VK_KHR_external_semaphore_fd"; }
 
@@ -15273,9 +15930,9 @@ static { public const c_char* VK_KHR_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME = "VK_
 	public VkSemaphore semaphore;
 	public VkSemaphoreImportFlags flags;
 	public VkExternalSemaphoreHandleTypeFlagBits handleType;
-	public int fd;
+	public c_int fd;
 
-	public this(void* pNext, VkSemaphore semaphore, VkSemaphoreImportFlags flags, VkExternalSemaphoreHandleTypeFlagBits handleType, int fd)
+	public this(void* pNext, VkSemaphore semaphore, VkSemaphoreImportFlags flags, VkExternalSemaphoreHandleTypeFlagBits handleType, c_int fd)
 	{
 		this.pNext = pNext;
 		this.semaphore = semaphore;
@@ -15314,7 +15971,7 @@ static { public const c_char* VK_KHR_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME = "VK_
 }
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkImportSemaphoreFdKHR(VkDevice device, VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetSemaphoreFdKHR(VkDevice device, VkSemaphoreGetFdInfoKHR* pGetFdInfo, out int pFd);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetSemaphoreFdKHR(VkDevice device, VkSemaphoreGetFdInfoKHR* pGetFdInfo, out c_int pFd);
 
 static { public const uint32 VK_KHR_PUSH_DESCRIPTOR_SPEC_VERSION = 2; }
 static { public const c_char* VK_KHR_PUSH_DESCRIPTOR_EXTENSION_NAME = "VK_KHR_push_descriptor"; }
@@ -15542,6 +16199,12 @@ static { public const uint32 VK_EXT_DIRECT_MODE_DISPLAY_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME = "VK_EXT_direct_mode_display"; }
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkReleaseDisplayEXT(VkPhysicalDevice physicalDevice, VkDisplayKHR display);
+
+static { public const uint32 VK_EXT_ACQUIRE_XLIB_DISPLAY_SPEC_VERSION = 1; }
+static { public const c_char* VK_EXT_ACQUIRE_XLIB_DISPLAY_EXTENSION_NAME = "VK_EXT_acquire_xlib_display"; }
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkAcquireXlibDisplayEXT(VkPhysicalDevice physicalDevice, out Display dpy, VkDisplayKHR display);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetRandROutputDisplayEXT(VkPhysicalDevice physicalDevice, out Display dpy, RROutput rrOutput, out VkDisplayKHR pDisplay);
 
 static { public const uint32 VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME = "VK_EXT_display_surface_counter"; }
@@ -16131,6 +16794,86 @@ typealias VkFenceImportFlagsKHR = VkFenceImportFlags;
 typealias VkFenceImportFlagBitsKHR = VkFenceImportFlagBits;
 typealias VkExportFenceCreateInfoKHR = VkExportFenceCreateInfo;
 
+static { public const uint32 VK_KHR_EXTERNAL_FENCE_WIN32_SPEC_VERSION = 1; }
+static { public const c_char* VK_KHR_EXTERNAL_FENCE_WIN32_EXTENSION_NAME = "VK_KHR_external_fence_win32"; }
+
+[CRepr] struct VkImportFenceWin32HandleInfoKHR
+{
+	public const VkStructureType SType = .VkImportFenceWin32HandleInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkFence fence;
+	public VkFenceImportFlags flags;
+	public VkExternalFenceHandleTypeFlagBits handleType;
+	public HANDLE handle;
+	public LPCWSTR name;
+
+	public this(void* pNext, VkFence fence, VkFenceImportFlags flags, VkExternalFenceHandleTypeFlagBits handleType, HANDLE handle = null, LPCWSTR name = null)
+	{
+		this.pNext = pNext;
+		this.fence = fence;
+		this.flags = flags;
+		this.handleType = handleType;
+		this.handle = handle;
+		this.name = name;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportFenceWin32HandleInfoKHR
+{
+	public const VkStructureType SType = .VkExportFenceWin32HandleInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public SECURITY_ATTRIBUTES* pAttributes;
+	public DWORD dwAccess;
+	public LPCWSTR name;
+
+	public this(void* pNext, SECURITY_ATTRIBUTES* pAttributes, DWORD dwAccess, LPCWSTR name)
+	{
+		this.pNext = pNext;
+		this.pAttributes = pAttributes;
+		this.dwAccess = dwAccess;
+		this.name = name;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkFenceGetWin32HandleInfoKHR
+{
+	public const VkStructureType SType = .VkFenceGetWin32HandleInfoKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkFence fence;
+	public VkExternalFenceHandleTypeFlagBits handleType;
+
+	public this(void* pNext, VkFence fence, VkExternalFenceHandleTypeFlagBits handleType)
+	{
+		this.pNext = pNext;
+		this.fence = fence;
+		this.handleType = handleType;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkImportFenceWin32HandleKHR(VkDevice device, VkImportFenceWin32HandleInfoKHR* pImportFenceWin32HandleInfo);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetFenceWin32HandleKHR(VkDevice device, VkFenceGetWin32HandleInfoKHR* pGetWin32HandleInfo, out HANDLE pHandle);
+
 static { public const uint32 VK_KHR_EXTERNAL_FENCE_FD_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_EXTERNAL_FENCE_FD_EXTENSION_NAME = "VK_KHR_external_fence_fd"; }
 
@@ -16142,9 +16885,9 @@ static { public const c_char* VK_KHR_EXTERNAL_FENCE_FD_EXTENSION_NAME = "VK_KHR_
 	public VkFence fence;
 	public VkFenceImportFlags flags;
 	public VkExternalFenceHandleTypeFlagBits handleType;
-	public int fd;
+	public c_int fd;
 
-	public this(void* pNext, VkFence fence, VkFenceImportFlags flags, VkExternalFenceHandleTypeFlagBits handleType, int fd)
+	public this(void* pNext, VkFence fence, VkFenceImportFlags flags, VkExternalFenceHandleTypeFlagBits handleType, c_int fd)
 	{
 		this.pNext = pNext;
 		this.fence = fence;
@@ -16183,7 +16926,7 @@ static { public const c_char* VK_KHR_EXTERNAL_FENCE_FD_EXTENSION_NAME = "VK_KHR_
 }
 
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkImportFenceFdKHR(VkDevice device, VkImportFenceFdInfoKHR* pImportFenceFdInfo);
-[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetFenceFdKHR(VkDevice device, VkFenceGetFdInfoKHR* pGetFdInfo, out int pFd);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetFenceFdKHR(VkDevice device, VkFenceGetFdInfoKHR* pGetFdInfo, out c_int pFd);
 
 static { public const uint32 VK_KHR_PERFORMANCE_QUERY_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_PERFORMANCE_QUERY_EXTENSION_NAME = "VK_KHR_performance_query"; }
@@ -16498,6 +17241,64 @@ static { public const c_char* VK_KHR_GET_DISPLAY_PROPERTIES_2_EXTENSION_NAME = "
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetDisplayModeProperties2KHR(VkPhysicalDevice physicalDevice, VkDisplayKHR display, out uint32 pPropertyCount, VkDisplayModeProperties2KHR* pProperties = null);
 [CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetDisplayPlaneCapabilities2KHR(VkPhysicalDevice physicalDevice, VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo, out VkDisplayPlaneCapabilities2KHR pCapabilities);
 
+static { public const uint32 VK_MVK_IOS_SURFACE_SPEC_VERSION = 3; }
+static { public const c_char* VK_MVK_IOS_SURFACE_EXTENSION_NAME = "VK_MVK_ios_surface"; }
+
+typealias VkIOSSurfaceCreateFlagsMVK = VkFlags;
+
+[CRepr] struct VkIOSSurfaceCreateInfoMVK
+{
+	public const VkStructureType SType = .VkIosSurfaceCreateInfoMVK;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkIOSSurfaceCreateFlagsMVK flags;
+	public void* pView;
+
+	public this(void* pNext, VkIOSSurfaceCreateFlagsMVK flags, void* pView)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.pView = pView;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateIOSSurfaceMVK(VkInstance instance, VkIOSSurfaceCreateInfoMVK* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+
+static { public const uint32 VK_MVK_MACOS_SURFACE_SPEC_VERSION = 3; }
+static { public const c_char* VK_MVK_MACOS_SURFACE_EXTENSION_NAME = "VK_MVK_macos_surface"; }
+
+typealias VkMacOSSurfaceCreateFlagsMVK = VkFlags;
+
+[CRepr] struct VkMacOSSurfaceCreateInfoMVK
+{
+	public const VkStructureType SType = .VkMacosSurfaceCreateInfoMVK;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkMacOSSurfaceCreateFlagsMVK flags;
+	public void* pView;
+
+	public this(void* pNext, VkMacOSSurfaceCreateFlagsMVK flags, void* pView)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.pView = pView;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateMacOSSurfaceMVK(VkInstance instance, VkMacOSSurfaceCreateInfoMVK* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+
 static { public const uint32 VK_EXT_EXTERNAL_MEMORY_DMA_BUF_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_EXTERNAL_MEMORY_DMA_BUF_EXTENSION_NAME = "VK_EXT_external_memory_dma_buf"; }
 static { public const uint32 VK_EXT_QUEUE_FAMILY_FOREIGN_SPEC_VERSION = 1; }
@@ -16703,6 +17504,119 @@ class VkDebugUtilsMessengerEXT { private this() { } }
 [CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT messenger = null, VkAllocationCallbacks* pAllocator = null);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkSubmitDebugUtilsMessageEXT(VkInstance instance, VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, VkDebugUtilsMessengerCallbackDataEXT* pCallbackData);
 
+static { public const uint32 VK_ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_SPEC_VERSION = 5; }
+static { public const c_char* VK_ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_EXTENSION_NAME = "VK_ANDROID_external_memory_android_hardware_buffer"; }
+
+[CRepr] struct VkAndroidHardwareBufferUsageANDROID
+{
+	public const VkStructureType SType = .VkAndroidHardwareBufferUsageANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint64 androidHardwareBufferUsage;
+}
+
+[CRepr] struct VkAndroidHardwareBufferPropertiesANDROID
+{
+	public const VkStructureType SType = .VkAndroidHardwareBufferPropertiesANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkDeviceSize allocationSize;
+	public uint32 memoryTypeBits;
+}
+
+[CRepr] struct VkAndroidHardwareBufferFormatPropertiesANDROID
+{
+	public const VkStructureType SType = .VkAndroidHardwareBufferFormatPropertiesANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkFormat format;
+	public uint64 externalFormat;
+	public VkFormatFeatureFlags formatFeatures;
+	public VkComponentMapping samplerYcbcrConversionComponents;
+	public VkSamplerYcbcrModelConversion suggestedYcbcrModel;
+	public VkSamplerYcbcrRange suggestedYcbcrRange;
+	public VkChromaLocation suggestedXChromaOffset;
+	public VkChromaLocation suggestedYChromaOffset;
+}
+
+[CRepr] struct VkImportAndroidHardwareBufferInfoANDROID
+{
+	public const VkStructureType SType = .VkImportAndroidHardwareBufferInfoANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public AHardwareBuffer* buffer;
+
+	public this(void* pNext, AHardwareBuffer* buffer)
+	{
+		this.pNext = pNext;
+		this.buffer = buffer;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkMemoryGetAndroidHardwareBufferInfoANDROID
+{
+	public const VkStructureType SType = .VkMemoryGetAndroidHardwareBufferInfoANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkDeviceMemory memory;
+
+	public this(void* pNext, VkDeviceMemory memory)
+	{
+		this.pNext = pNext;
+		this.memory = memory;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExternalFormatANDROID
+{
+	public const VkStructureType SType = .VkExternalFormatANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint64 externalFormat;
+
+	public this(void* pNext, uint64 externalFormat)
+	{
+		this.pNext = pNext;
+		this.externalFormat = externalFormat;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetAndroidHardwareBufferPropertiesANDROID(VkDevice device, AHardwareBuffer* buffer, out VkAndroidHardwareBufferPropertiesANDROID pProperties);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryAndroidHardwareBufferANDROID(VkDevice device, VkMemoryGetAndroidHardwareBufferInfoANDROID* pInfo, out AHardwareBuffer* pBuffer);
+
+[CRepr] struct VkAndroidHardwareBufferFormatProperties2ANDROID
+{
+	public const VkStructureType SType = .VkAndroidHardwareBufferFormatProperties2ANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkFormat format;
+	public uint64 externalFormat;
+	public VkFormatFeatureFlags2 formatFeatures;
+	public VkComponentMapping samplerYcbcrConversionComponents;
+	public VkSamplerYcbcrModelConversion suggestedYcbcrModel;
+	public VkSamplerYcbcrRange suggestedYcbcrRange;
+	public VkChromaLocation suggestedXChromaOffset;
+	public VkChromaLocation suggestedYChromaOffset;
+}
+
 static { public const uint32 VK_EXT_SAMPLER_FILTER_MINMAX_SPEC_VERSION = 2; }
 static { public const c_char* VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME = "VK_EXT_sampler_filter_minmax"; }
 
@@ -16714,6 +17628,182 @@ static { public const uint32 VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_SPEC_VERSION = 
 static { public const c_char* VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_EXTENSION_NAME = "VK_KHR_storage_buffer_storage_class"; }
 static { public const uint32 VK_AMD_GPU_SHADER_INT16_SPEC_VERSION = 2; }
 static { public const c_char* VK_AMD_GPU_SHADER_INT16_EXTENSION_NAME = "VK_AMD_gpu_shader_int16"; }
+static { public const uint32 VK_AMDX_SHADER_ENQUEUE_SPEC_VERSION = 2; }
+static { public const c_char* VK_AMDX_SHADER_ENQUEUE_EXTENSION_NAME = "VK_AMDX_shader_enqueue"; }
+static { public const uint32 VK_SHADER_INDEX_UNUSED_AMDX = (.)(~0U); }
+
+[CRepr] struct VkPhysicalDeviceShaderEnqueueFeaturesAMDX
+{
+	public const VkStructureType SType = .VkPhysicalDeviceShaderEnqueueFeaturesAMDX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBool32 shaderEnqueue;
+	public VkBool32 shaderMeshEnqueue;
+
+	public this(void* pNext, VkBool32 shaderEnqueue, VkBool32 shaderMeshEnqueue)
+	{
+		this.pNext = pNext;
+		this.shaderEnqueue = shaderEnqueue;
+		this.shaderMeshEnqueue = shaderMeshEnqueue;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkPhysicalDeviceShaderEnqueuePropertiesAMDX
+{
+	public const VkStructureType SType = .VkPhysicalDeviceShaderEnqueuePropertiesAMDX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 maxExecutionGraphDepth;
+	public uint32 maxExecutionGraphShaderOutputNodes;
+	public uint32 maxExecutionGraphShaderPayloadSize;
+	public uint32 maxExecutionGraphShaderPayloadCount;
+	public uint32 executionGraphDispatchAddressAlignment;
+	public uint32[3] maxExecutionGraphWorkgroupCount;
+	public uint32 maxExecutionGraphWorkgroups;
+}
+
+[CRepr] struct VkExecutionGraphPipelineScratchSizeAMDX
+{
+	public const VkStructureType SType = .VkExecutionGraphPipelineScratchSizeAMDX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkDeviceSize minSize;
+	public VkDeviceSize maxSize;
+	public VkDeviceSize sizeGranularity;
+
+	public this(void* pNext, VkDeviceSize minSize, VkDeviceSize maxSize, VkDeviceSize sizeGranularity)
+	{
+		this.pNext = pNext;
+		this.minSize = minSize;
+		this.maxSize = maxSize;
+		this.sizeGranularity = sizeGranularity;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExecutionGraphPipelineCreateInfoAMDX
+{
+	public const VkStructureType SType = .VkExecutionGraphPipelineCreateInfoAMDX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkPipelineCreateFlags flags;
+	public uint32 stageCount;
+	public VkPipelineShaderStageCreateInfo* pStages;
+	public VulkanSpan<VkPipelineShaderStageCreateInfo> stages
+	{
+		[Inline] get => .(stageCount, pStages);
+		[Inline] set mut { stageCount = value.count; pStages = value.ptr; }
+	}
+	public VkPipelineLibraryCreateInfoKHR* pLibraryInfo;
+	public VkPipelineLayout layout;
+	public VkPipeline basePipelineHandle;
+	public int32 basePipelineIndex;
+
+	public this(void* pNext, VkPipelineCreateFlags flags, VulkanSpan<VkPipelineShaderStageCreateInfo> stages, VkPipelineLibraryCreateInfoKHR* pLibraryInfo, VkPipelineLayout layout, VkPipeline basePipelineHandle, int32 basePipelineIndex) : this()
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.stages = stages;
+		this.pLibraryInfo = pLibraryInfo;
+		this.layout = layout;
+		this.basePipelineHandle = basePipelineHandle;
+		this.basePipelineIndex = basePipelineIndex;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkDispatchGraphInfoAMDX
+{
+	public uint32 nodeIndex;
+	public uint32 payloadCount;
+	public VkDeviceOrHostAddressConstAMDX payloads;
+	public uint64 payloadStride;
+
+	public this(uint32 nodeIndex, uint32 payloadCount, VkDeviceOrHostAddressConstAMDX payloads, uint64 payloadStride)
+	{
+		this.nodeIndex = nodeIndex;
+		this.payloadCount = payloadCount;
+		this.payloads = payloads;
+		this.payloadStride = payloadStride;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
+[CRepr] struct VkDispatchGraphCountInfoAMDX
+{
+	public uint32 count;
+	public VkDeviceOrHostAddressConstAMDX infos;
+	public uint64 stride;
+
+	public this(uint32 count, VkDeviceOrHostAddressConstAMDX infos, uint64 stride)
+	{
+		this.count = count;
+		this.infos = infos;
+		this.stride = stride;
+	}
+
+	public this()
+	{
+		this = default;
+	}
+}
+
+[CRepr] struct VkPipelineShaderStageNodeCreateInfoAMDX
+{
+	public const VkStructureType SType = .VkPipelineShaderStageNodeCreateInfoAMDX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public c_char* pName;
+	public uint32 index;
+
+	public this(void* pNext, c_char* pName, uint32 index)
+	{
+		this.pNext = pNext;
+		this.pName = pName;
+		this.index = index;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[Union, CRepr] struct VkDeviceOrHostAddressConstAMDX
+{
+	public VkDeviceAddress deviceAddress;
+	public void* hostAddress;
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateExecutionGraphPipelinesAMDX(VkDevice device, VkPipelineCache pipelineCache, uint32 createInfoCount, VkExecutionGraphPipelineCreateInfoAMDX* pCreateInfos, VkAllocationCallbacks* pAllocator, out VkPipeline pPipelines);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetExecutionGraphPipelineScratchSizeAMDX(VkDevice device, VkPipeline executionGraph, out VkExecutionGraphPipelineScratchSizeAMDX pSizeInfo);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetExecutionGraphPipelineNodeIndexAMDX(VkDevice device, VkPipeline executionGraph, VkPipelineShaderStageNodeCreateInfoAMDX* pNodeInfo, out uint32 pNodeIndex);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdInitializeGraphScratchMemoryAMDX(VkCommandBuffer commandBuffer, VkPipeline executionGraph, VkDeviceAddress scratch, VkDeviceSize scratchSize);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDispatchGraphAMDX(VkCommandBuffer commandBuffer, VkDeviceAddress scratch, VkDeviceSize scratchSize, VkDispatchGraphCountInfoAMDX* pCountInfo);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDispatchGraphIndirectAMDX(VkCommandBuffer commandBuffer, VkDeviceAddress scratch, VkDeviceSize scratchSize, VkDispatchGraphCountInfoAMDX* pCountInfo);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdDispatchGraphIndirectCountAMDX(VkCommandBuffer commandBuffer, VkDeviceAddress scratch, VkDeviceSize scratchSize, VkDeviceAddress countInfo);
+
 static { public const uint32 VK_AMD_MIXED_ATTACHMENT_SAMPLES_SPEC_VERSION = 1; }
 static { public const c_char* VK_AMD_MIXED_ATTACHMENT_SAMPLES_EXTENSION_NAME = "VK_AMD_mixed_attachment_samples"; }
 
@@ -17399,6 +18489,7 @@ class VkAccelerationStructureKHR { private this() { } }
 	VkBuildAccelerationStructureAllowOpacityMicromapUpdateEXT = 1 << 6,
 	VkBuildAccelerationStructureAllowDisableOpacityMicromapsEXT = 1 << 7,
 	VkBuildAccelerationStructureAllowOpacityMicromapDataUpdateEXT = 1 << 8,
+	VkBuildAccelerationStructureAllowDisplacementMicromapUpdateNV = 1 << 9,
 	AllowDataAccessKHR = 1 << 11,
 }
 
@@ -18205,6 +19296,65 @@ typealias VkDescriptorBindingFlagsEXT = VkDescriptorBindingFlags;
 
 static { public const uint32 VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_EXTENSION_NAME = "VK_EXT_shader_viewport_index_layer"; }
+static { public const uint32 VK_KHR_PORTABILITY_SUBSET_SPEC_VERSION = 1; }
+static { public const c_char* VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME = "VK_KHR_portability_subset"; }
+
+[CRepr] struct VkPhysicalDevicePortabilitySubsetFeaturesKHR
+{
+	public const VkStructureType SType = .VkPhysicalDevicePortabilitySubsetFeaturesKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBool32 constantAlphaColorBlendFactors;
+	public VkBool32 events;
+	public VkBool32 imageViewFormatReinterpretation;
+	public VkBool32 imageViewFormatSwizzle;
+	public VkBool32 imageView2DOn3DImage;
+	public VkBool32 multisampleArrayImage;
+	public VkBool32 mutableComparisonSamplers;
+	public VkBool32 pointPolygons;
+	public VkBool32 samplerMipLodBias;
+	public VkBool32 separateStencilMaskRef;
+	public VkBool32 shaderSampleRateInterpolationFunctions;
+	public VkBool32 tessellationIsolines;
+	public VkBool32 tessellationPointMode;
+	public VkBool32 triangleFans;
+	public VkBool32 vertexAttributeAccessBeyondStride;
+
+	public this(void* pNext, VkBool32 constantAlphaColorBlendFactors, VkBool32 events, VkBool32 imageViewFormatReinterpretation, VkBool32 imageViewFormatSwizzle, VkBool32 imageView2DOn3DImage, VkBool32 multisampleArrayImage, VkBool32 mutableComparisonSamplers, VkBool32 pointPolygons, VkBool32 samplerMipLodBias, VkBool32 separateStencilMaskRef, VkBool32 shaderSampleRateInterpolationFunctions, VkBool32 tessellationIsolines, VkBool32 tessellationPointMode, VkBool32 triangleFans, VkBool32 vertexAttributeAccessBeyondStride)
+	{
+		this.pNext = pNext;
+		this.constantAlphaColorBlendFactors = constantAlphaColorBlendFactors;
+		this.events = events;
+		this.imageViewFormatReinterpretation = imageViewFormatReinterpretation;
+		this.imageViewFormatSwizzle = imageViewFormatSwizzle;
+		this.imageView2DOn3DImage = imageView2DOn3DImage;
+		this.multisampleArrayImage = multisampleArrayImage;
+		this.mutableComparisonSamplers = mutableComparisonSamplers;
+		this.pointPolygons = pointPolygons;
+		this.samplerMipLodBias = samplerMipLodBias;
+		this.separateStencilMaskRef = separateStencilMaskRef;
+		this.shaderSampleRateInterpolationFunctions = shaderSampleRateInterpolationFunctions;
+		this.tessellationIsolines = tessellationIsolines;
+		this.tessellationPointMode = tessellationPointMode;
+		this.triangleFans = triangleFans;
+		this.vertexAttributeAccessBeyondStride = vertexAttributeAccessBeyondStride;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkPhysicalDevicePortabilitySubsetPropertiesKHR
+{
+	public const VkStructureType SType = .VkPhysicalDevicePortabilitySubsetPropertiesKHR;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 minVertexInputBindingStrideAlignment;
+}
+
 static { public const uint32 VK_NV_SHADING_RATE_IMAGE_SPEC_VERSION = 3; }
 static { public const c_char* VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME = "VK_NV_shading_rate_image"; }
 
@@ -19202,6 +20352,29 @@ typealias VkVertexInputBindingDivisorDescriptionEXT = VkVertexInputBindingDiviso
 typealias VkPipelineVertexInputDivisorStateCreateInfoEXT = VkPipelineVertexInputDivisorStateCreateInfo;
 typealias VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT = VkPhysicalDeviceVertexAttributeDivisorFeatures;
 
+static { public const uint32 VK_GGP_FRAME_TOKEN_SPEC_VERSION = 1; }
+static { public const c_char* VK_GGP_FRAME_TOKEN_EXTENSION_NAME = "VK_GGP_frame_token"; }
+
+[CRepr] struct VkPresentFrameTokenGGP
+{
+	public const VkStructureType SType = .VkPresentFrameTokenGGP;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public GgpFrameToken frameToken;
+
+	public this(void* pNext, GgpFrameToken frameToken)
+	{
+		this.pNext = pNext;
+		this.frameToken = frameToken;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
 static { public const uint32 VK_EXT_PIPELINE_CREATION_FEEDBACK_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_PIPELINE_CREATION_FEEDBACK_EXTENSION_NAME = "VK_EXT_pipeline_creation_feedback"; }
 
@@ -19706,10 +20879,68 @@ static { public const c_char* VK_AMD_DISPLAY_NATIVE_HDR_EXTENSION_NAME = "VK_AMD
 
 [CallingConvention(VKAPI_PTR)] function void PFN_vkSetLocalDimmingAMD(VkDevice device, VkSwapchainKHR swapChain, VkBool32 localDimmingEnable);
 
+static { public const uint32 VK_FUCHSIA_IMAGEPIPE_SURFACE_SPEC_VERSION = 1; }
+static { public const c_char* VK_FUCHSIA_IMAGEPIPE_SURFACE_EXTENSION_NAME = "VK_FUCHSIA_imagepipe_surface"; }
+
+typealias VkImagePipeSurfaceCreateFlagsFUCHSIA = VkFlags;
+
+[CRepr] struct VkImagePipeSurfaceCreateInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkImagepipeSurfaceCreateInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkImagePipeSurfaceCreateFlagsFUCHSIA flags;
+	public zx_handle_t imagePipeHandle;
+
+	public this(void* pNext, VkImagePipeSurfaceCreateFlagsFUCHSIA flags, zx_handle_t imagePipeHandle)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.imagePipeHandle = imagePipeHandle;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateImagePipeSurfaceFUCHSIA(VkInstance instance, VkImagePipeSurfaceCreateInfoFUCHSIA* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+
 static { public const uint32 VK_KHR_SHADER_TERMINATE_INVOCATION_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_SHADER_TERMINATE_INVOCATION_EXTENSION_NAME = "VK_KHR_shader_terminate_invocation"; }
 
 typealias VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR = VkPhysicalDeviceShaderTerminateInvocationFeatures;
+
+static { public const uint32 VK_EXT_METAL_SURFACE_SPEC_VERSION = 1; }
+static { public const c_char* VK_EXT_METAL_SURFACE_EXTENSION_NAME = "VK_EXT_metal_surface"; }
+
+typealias VkMetalSurfaceCreateFlagsEXT = VkFlags;
+
+[CRepr] struct VkMetalSurfaceCreateInfoEXT
+{
+	public const VkStructureType SType = .VkMetalSurfaceCreateInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkMetalSurfaceCreateFlagsEXT flags;
+	public CAMetalLayer* pLayer;
+
+	public this(void* pNext, VkMetalSurfaceCreateFlagsEXT flags, CAMetalLayer* pLayer)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.pLayer = pLayer;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateMetalSurfaceEXT(VkInstance instance, VkMetalSurfaceCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
 
 static { public const uint32 VK_EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION = 2; }
 static { public const c_char* VK_EXT_FRAGMENT_DENSITY_MAP_EXTENSION_NAME = "VK_EXT_fragment_density_map"; }
@@ -20522,6 +21753,71 @@ static { public const c_char* VK_EXT_PROVOKING_VERTEX_EXTENSION_NAME = "VK_EXT_p
 	FirstVertexEXT = 0,
 	LastVertexEXT = 1,
 }
+
+static { public const uint32 VK_EXT_FULL_SCREEN_EXCLUSIVE_SPEC_VERSION = 4; }
+static { public const c_char* VK_EXT_FULL_SCREEN_EXCLUSIVE_EXTENSION_NAME = "VK_EXT_full_screen_exclusive"; }
+
+[AllowDuplicates] enum VkFullScreenExclusiveEXT : int32
+{
+	DefaultEXT = 0,
+	AllowedEXT = 1,
+	DisallowedEXT = 2,
+	ApplicationControlledEXT = 3,
+}
+
+[CRepr] struct VkSurfaceFullScreenExclusiveInfoEXT
+{
+	public const VkStructureType SType = .VkSurfaceFullScreenExclusiveInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkFullScreenExclusiveEXT fullScreenExclusive;
+
+	public this(void* pNext, VkFullScreenExclusiveEXT fullScreenExclusive)
+	{
+		this.pNext = pNext;
+		this.fullScreenExclusive = fullScreenExclusive;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkSurfaceCapabilitiesFullScreenExclusiveEXT
+{
+	public const VkStructureType SType = .VkSurfaceCapabilitiesFullScreenExclusiveEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBool32 fullScreenExclusiveSupported;
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetPhysicalDeviceSurfacePresentModes2EXT(VkPhysicalDevice physicalDevice, VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, out uint32 pPresentModeCount, VkPresentModeKHR* pPresentModes = null);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkAcquireFullScreenExclusiveModeEXT(VkDevice device, VkSwapchainKHR swapchain);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkReleaseFullScreenExclusiveModeEXT(VkDevice device, VkSwapchainKHR swapchain);
+
+[CRepr] struct VkSurfaceFullScreenExclusiveWin32InfoEXT
+{
+	public const VkStructureType SType = .VkSurfaceFullScreenExclusiveWin32InfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public HMONITOR hmonitor;
+
+	public this(void* pNext, HMONITOR hmonitor)
+	{
+		this.pNext = pNext;
+		this.hmonitor = hmonitor;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetDeviceGroupSurfacePresentModes2EXT(VkDevice device, VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, out VkDeviceGroupPresentModeFlagsKHR pModes);
 
 static { public const uint32 VK_EXT_HEADLESS_SURFACE_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME = "VK_EXT_headless_surface"; }
@@ -22177,6 +23473,134 @@ typealias VkDeviceDiagnosticsConfigFlagsNV = VkDeviceDiagnosticsConfigFlagBitsNV
 
 static { public const uint32 VK_QCOM_RENDER_PASS_STORE_OPS_SPEC_VERSION = 2; }
 static { public const c_char* VK_QCOM_RENDER_PASS_STORE_OPS_EXTENSION_NAME = "VK_QCOM_render_pass_store_ops"; }
+static { public const uint32 VK_NV_CUDA_KERNEL_LAUNCH_SPEC_VERSION = 2; }
+static { public const c_char* VK_NV_CUDA_KERNEL_LAUNCH_EXTENSION_NAME = "VK_NV_cuda_kernel_launch"; }
+
+class VkCudaModuleNV { private this() { } }
+class VkCudaFunctionNV { private this() { } }
+
+[CRepr] struct VkCudaModuleCreateInfoNV
+{
+	public const VkStructureType SType = .VkCudaModuleCreateInfoNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public c_size dataSize;
+	public void* pData;
+
+	public this(void* pNext, c_size dataSize, void* pData)
+	{
+		this.pNext = pNext;
+		this.dataSize = dataSize;
+		this.pData = pData;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkCudaFunctionCreateInfoNV
+{
+	public const VkStructureType SType = .VkCudaFunctionCreateInfoNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkCudaModuleNV module;
+	public c_char* pName;
+
+	public this(void* pNext, VkCudaModuleNV module, c_char* pName)
+	{
+		this.pNext = pNext;
+		this.module = module;
+		this.pName = pName;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkCudaLaunchInfoNV
+{
+	public const VkStructureType SType = .VkCudaLaunchInfoNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkCudaFunctionNV @function;
+	public uint32 gridDimX;
+	public uint32 gridDimY;
+	public uint32 gridDimZ;
+	public uint32 blockDimX;
+	public uint32 blockDimY;
+	public uint32 blockDimZ;
+	public uint32 sharedMemBytes;
+	public c_size paramCount;
+	public void** pParams;
+	public c_size extraCount;
+	public void** pExtras;
+
+	public this(void* pNext, VkCudaFunctionNV @function, uint32 gridDimX, uint32 gridDimY, uint32 gridDimZ, uint32 blockDimX, uint32 blockDimY, uint32 blockDimZ, uint32 sharedMemBytes, c_size paramCount, void** pParams, c_size extraCount, void** pExtras)
+	{
+		this.pNext = pNext;
+		this.@function = @function;
+		this.gridDimX = gridDimX;
+		this.gridDimY = gridDimY;
+		this.gridDimZ = gridDimZ;
+		this.blockDimX = blockDimX;
+		this.blockDimY = blockDimY;
+		this.blockDimZ = blockDimZ;
+		this.sharedMemBytes = sharedMemBytes;
+		this.paramCount = paramCount;
+		this.pParams = pParams;
+		this.extraCount = extraCount;
+		this.pExtras = pExtras;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkPhysicalDeviceCudaKernelLaunchFeaturesNV
+{
+	public const VkStructureType SType = .VkPhysicalDeviceCudaKernelLaunchFeaturesNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBool32 cudaKernelLaunchFeatures;
+
+	public this(void* pNext, VkBool32 cudaKernelLaunchFeatures)
+	{
+		this.pNext = pNext;
+		this.cudaKernelLaunchFeatures = cudaKernelLaunchFeatures;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkPhysicalDeviceCudaKernelLaunchPropertiesNV
+{
+	public const VkStructureType SType = .VkPhysicalDeviceCudaKernelLaunchPropertiesNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 computeCapabilityMinor;
+	public uint32 computeCapabilityMajor;
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateCudaModuleNV(VkDevice device, VkCudaModuleCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCudaModuleNV pModule);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetCudaModuleCacheNV(VkDevice device, VkCudaModuleNV module, out c_size pCacheSize, out void pCacheData);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateCudaFunctionNV(VkDevice device, VkCudaFunctionCreateInfoNV* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkCudaFunctionNV pFunction);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyCudaModuleNV(VkDevice device, VkCudaModuleNV module, VkAllocationCallbacks* pAllocator = null);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyCudaFunctionNV(VkDevice device, VkCudaFunctionNV @function, VkAllocationCallbacks* pAllocator = null);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkCmdCudaLaunchKernelNV(VkCommandBuffer commandBuffer, VkCudaLaunchInfoNV* pLaunchInfo);
+
 static { public const uint32 VK_QCOM_TILE_SHADING_SPEC_VERSION = 1; }
 static { public const c_char* VK_QCOM_TILE_SHADING_EXTENSION_NAME = "VK_QCOM_tile_shading"; }
 
@@ -22347,6 +23771,281 @@ static { public const c_char* VK_NV_LOW_LATENCY_EXTENSION_NAME = "VK_NV_low_late
 		sType = SType;
 	}
 }
+
+static { public const uint32 VK_EXT_METAL_OBJECTS_SPEC_VERSION = 2; }
+static { public const c_char* VK_EXT_METAL_OBJECTS_EXTENSION_NAME = "VK_EXT_metal_objects"; }
+
+[AllowDuplicates] enum VkExportMetalObjectTypeFlagBitsEXT : int32
+{
+	MetalDeviceEXT = 1 << 0,
+	MetalCommandQueueEXT = 1 << 1,
+	MetalBufferEXT = 1 << 2,
+	MetalTextureEXT = 1 << 3,
+	MetalIosurfaceEXT = 1 << 4,
+	MetalSharedEventEXT = 1 << 5,
+}
+
+typealias VkExportMetalObjectTypeFlagsEXT = VkExportMetalObjectTypeFlagBitsEXT;
+
+[CRepr] struct VkExportMetalObjectCreateInfoEXT
+{
+	public const VkStructureType SType = .VkExportMetalObjectCreateInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkExportMetalObjectTypeFlagBitsEXT exportObjectType;
+
+	public this(void* pNext = null, VkExportMetalObjectTypeFlagBitsEXT exportObjectType = 0)
+	{
+		this.pNext = pNext;
+		this.exportObjectType = exportObjectType;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportMetalObjectsInfoEXT
+{
+	public const VkStructureType SType = .VkExportMetalObjectsInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+
+	public this(void* pNext = null)
+	{
+		this.pNext = pNext;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportMetalDeviceInfoEXT
+{
+	public const VkStructureType SType = .VkExportMetalDeviceInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public MTLDevice_id mtlDevice;
+
+	public this(void* pNext, MTLDevice_id mtlDevice)
+	{
+		this.pNext = pNext;
+		this.mtlDevice = mtlDevice;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportMetalCommandQueueInfoEXT
+{
+	public const VkStructureType SType = .VkExportMetalCommandQueueInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkQueue queue;
+	public MTLCommandQueue_id mtlCommandQueue;
+
+	public this(void* pNext, VkQueue queue, MTLCommandQueue_id mtlCommandQueue)
+	{
+		this.pNext = pNext;
+		this.queue = queue;
+		this.mtlCommandQueue = mtlCommandQueue;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportMetalBufferInfoEXT
+{
+	public const VkStructureType SType = .VkExportMetalBufferInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkDeviceMemory memory;
+	public MTLBuffer_id mtlBuffer;
+
+	public this(void* pNext, VkDeviceMemory memory, MTLBuffer_id mtlBuffer)
+	{
+		this.pNext = pNext;
+		this.memory = memory;
+		this.mtlBuffer = mtlBuffer;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkImportMetalBufferInfoEXT
+{
+	public const VkStructureType SType = .VkImportMetalBufferInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public MTLBuffer_id mtlBuffer;
+
+	public this(void* pNext, MTLBuffer_id mtlBuffer)
+	{
+		this.pNext = pNext;
+		this.mtlBuffer = mtlBuffer;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportMetalTextureInfoEXT
+{
+	public const VkStructureType SType = .VkExportMetalTextureInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkImage image;
+	public VkImageView imageView;
+	public VkBufferView bufferView;
+	public VkImageAspectFlagBits plane;
+	public MTLTexture_id mtlTexture;
+
+	public this(void* pNext, VkImage image, VkImageView imageView, VkBufferView bufferView, VkImageAspectFlagBits plane, MTLTexture_id mtlTexture)
+	{
+		this.pNext = pNext;
+		this.image = image;
+		this.imageView = imageView;
+		this.bufferView = bufferView;
+		this.plane = plane;
+		this.mtlTexture = mtlTexture;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkImportMetalTextureInfoEXT
+{
+	public const VkStructureType SType = .VkImportMetalTextureInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkImageAspectFlagBits plane;
+	public MTLTexture_id mtlTexture;
+
+	public this(void* pNext, VkImageAspectFlagBits plane, MTLTexture_id mtlTexture)
+	{
+		this.pNext = pNext;
+		this.plane = plane;
+		this.mtlTexture = mtlTexture;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportMetalIOSurfaceInfoEXT
+{
+	public const VkStructureType SType = .VkExportMetalIoSurfaceInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkImage image;
+	public IOSurfaceRef ioSurface;
+
+	public this(void* pNext, VkImage image, IOSurfaceRef ioSurface)
+	{
+		this.pNext = pNext;
+		this.image = image;
+		this.ioSurface = ioSurface;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkImportMetalIOSurfaceInfoEXT
+{
+	public const VkStructureType SType = .VkImportMetalIoSurfaceInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public IOSurfaceRef ioSurface;
+
+	public this(void* pNext = null, IOSurfaceRef ioSurface = null)
+	{
+		this.pNext = pNext;
+		this.ioSurface = ioSurface;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExportMetalSharedEventInfoEXT
+{
+	public const VkStructureType SType = .VkExportMetalSharedEventInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkSemaphore semaphore;
+	public VkEvent event;
+	public MTLSharedEvent_id mtlSharedEvent;
+
+	public this(void* pNext, VkSemaphore semaphore, VkEvent event, MTLSharedEvent_id mtlSharedEvent)
+	{
+		this.pNext = pNext;
+		this.semaphore = semaphore;
+		this.event = event;
+		this.mtlSharedEvent = mtlSharedEvent;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkImportMetalSharedEventInfoEXT
+{
+	public const VkStructureType SType = .VkImportMetalSharedEventInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public MTLSharedEvent_id mtlSharedEvent;
+
+	public this(void* pNext, MTLSharedEvent_id mtlSharedEvent)
+	{
+		this.pNext = pNext;
+		this.mtlSharedEvent = mtlSharedEvent;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function void PFN_vkExportMetalObjectsEXT(VkDevice device, out VkExportMetalObjectsInfoEXT pMetalObjectsInfo);
 
 static { public const uint32 VK_KHR_SYNCHRONIZATION_2_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_SYNCHRONIZATION_2_EXTENSION_NAME = "VK_KHR_synchronization2"; }
@@ -23668,6 +25367,44 @@ static { public const c_char* VK_EXT_RGBA10X6_FORMATS_EXTENSION_NAME = "VK_EXT_r
 	}
 }
 
+static { public const uint32 VK_NV_ACQUIRE_WINRT_DISPLAY_SPEC_VERSION = 1; }
+static { public const c_char* VK_NV_ACQUIRE_WINRT_DISPLAY_EXTENSION_NAME = "VK_NV_acquire_winrt_display"; }
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkAcquireWinrtDisplayNV(VkPhysicalDevice physicalDevice, VkDisplayKHR display);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetWinrtDisplayNV(VkPhysicalDevice physicalDevice, uint32 deviceRelativeId, out VkDisplayKHR pDisplay);
+
+static { public const uint32 VK_EXT_DIRECTFB_SURFACE_SPEC_VERSION = 1; }
+static { public const c_char* VK_EXT_DIRECTFB_SURFACE_EXTENSION_NAME = "VK_EXT_directfb_surface"; }
+
+typealias VkDirectFBSurfaceCreateFlagsEXT = VkFlags;
+
+[CRepr] struct VkDirectFBSurfaceCreateInfoEXT
+{
+	public const VkStructureType SType = .VkDirectfbSurfaceCreateInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkDirectFBSurfaceCreateFlagsEXT flags;
+	public IDirectFB* dfb;
+	public IDirectFBSurface* surface;
+
+	public this(void* pNext, VkDirectFBSurfaceCreateFlagsEXT flags, IDirectFB* dfb, IDirectFBSurface* surface)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.dfb = dfb;
+		this.surface = surface;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateDirectFBSurfaceEXT(VkInstance instance, VkDirectFBSurfaceCreateInfoEXT* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+[CallingConvention(VKAPI_PTR)] function VkBool32 PFN_vkGetPhysicalDeviceDirectFBPresentationSupportEXT(VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out IDirectFB dfb);
+
 static { public const uint32 VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_SPEC_VERSION = 1; }
 static { public const c_char* VK_VALVE_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME = "VK_VALVE_mutable_descriptor_type"; }
 
@@ -23909,6 +25646,382 @@ static { public const uint32 VK_EXT_PRESENT_MODE_FIFO_LATEST_READY_SPEC_VERSION 
 static { public const c_char* VK_EXT_PRESENT_MODE_FIFO_LATEST_READY_EXTENSION_NAME = "VK_EXT_present_mode_fifo_latest_ready"; }
 
 typealias VkPhysicalDevicePresentModeFifoLatestReadyFeaturesEXT = VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR;
+
+static { public const uint32 VK_FUCHSIA_EXTERNAL_MEMORY_SPEC_VERSION = 1; }
+static { public const c_char* VK_FUCHSIA_EXTERNAL_MEMORY_EXTENSION_NAME = "VK_FUCHSIA_external_memory"; }
+
+[CRepr] struct VkImportMemoryZirconHandleInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkImportMemoryZirconHandleInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkExternalMemoryHandleTypeFlagBits handleType;
+	public zx_handle_t handle;
+
+	public this(void* pNext = null, VkExternalMemoryHandleTypeFlagBits handleType = 0, zx_handle_t handle = null)
+	{
+		this.pNext = pNext;
+		this.handleType = handleType;
+		this.handle = handle;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkMemoryZirconHandlePropertiesFUCHSIA
+{
+	public const VkStructureType SType = .VkMemoryZirconHandlePropertiesFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 memoryTypeBits;
+}
+
+[CRepr] struct VkMemoryGetZirconHandleInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkMemoryGetZirconHandleInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkDeviceMemory memory;
+	public VkExternalMemoryHandleTypeFlagBits handleType;
+
+	public this(void* pNext, VkDeviceMemory memory, VkExternalMemoryHandleTypeFlagBits handleType)
+	{
+		this.pNext = pNext;
+		this.memory = memory;
+		this.handleType = handleType;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryZirconHandleFUCHSIA(VkDevice device, VkMemoryGetZirconHandleInfoFUCHSIA* pGetZirconHandleInfo, out zx_handle_t pZirconHandle);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryZirconHandlePropertiesFUCHSIA(VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, zx_handle_t zirconHandle, out VkMemoryZirconHandlePropertiesFUCHSIA pMemoryZirconHandleProperties);
+
+static { public const uint32 VK_FUCHSIA_EXTERNAL_SEMAPHORE_SPEC_VERSION = 1; }
+static { public const c_char* VK_FUCHSIA_EXTERNAL_SEMAPHORE_EXTENSION_NAME = "VK_FUCHSIA_external_semaphore"; }
+
+[CRepr] struct VkImportSemaphoreZirconHandleInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkImportSemaphoreZirconHandleInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkSemaphore semaphore;
+	public VkSemaphoreImportFlags flags;
+	public VkExternalSemaphoreHandleTypeFlagBits handleType;
+	public zx_handle_t zirconHandle;
+
+	public this(void* pNext, VkSemaphore semaphore, VkSemaphoreImportFlags flags, VkExternalSemaphoreHandleTypeFlagBits handleType, zx_handle_t zirconHandle)
+	{
+		this.pNext = pNext;
+		this.semaphore = semaphore;
+		this.flags = flags;
+		this.handleType = handleType;
+		this.zirconHandle = zirconHandle;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkSemaphoreGetZirconHandleInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkSemaphoreGetZirconHandleInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkSemaphore semaphore;
+	public VkExternalSemaphoreHandleTypeFlagBits handleType;
+
+	public this(void* pNext, VkSemaphore semaphore, VkExternalSemaphoreHandleTypeFlagBits handleType)
+	{
+		this.pNext = pNext;
+		this.semaphore = semaphore;
+		this.handleType = handleType;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkImportSemaphoreZirconHandleFUCHSIA(VkDevice device, VkImportSemaphoreZirconHandleInfoFUCHSIA* pImportSemaphoreZirconHandleInfo);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetSemaphoreZirconHandleFUCHSIA(VkDevice device, VkSemaphoreGetZirconHandleInfoFUCHSIA* pGetZirconHandleInfo, out zx_handle_t pZirconHandle);
+
+static { public const uint32 VK_FUCHSIA_BUFFER_COLLECTION_SPEC_VERSION = 2; }
+static { public const c_char* VK_FUCHSIA_BUFFER_COLLECTION_EXTENSION_NAME = "VK_FUCHSIA_buffer_collection"; }
+
+class VkBufferCollectionFUCHSIA { private this() { } }
+
+[CRepr] struct VkBufferCollectionCreateInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkBufferCollectionCreateInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public zx_handle_t collectionToken;
+
+	public this(void* pNext, zx_handle_t collectionToken)
+	{
+		this.pNext = pNext;
+		this.collectionToken = collectionToken;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkImportMemoryBufferCollectionFUCHSIA
+{
+	public const VkStructureType SType = .VkImportMemoryBufferCollectionFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBufferCollectionFUCHSIA collection;
+	public uint32 index;
+
+	public this(void* pNext, VkBufferCollectionFUCHSIA collection, uint32 index)
+	{
+		this.pNext = pNext;
+		this.collection = collection;
+		this.index = index;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkBufferCollectionImageCreateInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkBufferCollectionImageCreateInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBufferCollectionFUCHSIA collection;
+	public uint32 index;
+
+	public this(void* pNext, VkBufferCollectionFUCHSIA collection, uint32 index)
+	{
+		this.pNext = pNext;
+		this.collection = collection;
+		this.index = index;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkBufferConstraintsInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkBufferConstraintsInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBufferCreateInfo createInfo;
+	public VkFormatFeatureFlags requiredFormatFeatures;
+	public VkBufferCollectionConstraintsInfoFUCHSIA bufferCollectionConstraints;
+
+	public this(void* pNext, VkBufferCreateInfo createInfo, VkFormatFeatureFlags requiredFormatFeatures, VkBufferCollectionConstraintsInfoFUCHSIA bufferCollectionConstraints)
+	{
+		this.pNext = pNext;
+		this.createInfo = createInfo;
+		this.requiredFormatFeatures = requiredFormatFeatures;
+		this.bufferCollectionConstraints = bufferCollectionConstraints;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkBufferCollectionBufferCreateInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkBufferCollectionBufferCreateInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBufferCollectionFUCHSIA collection;
+	public uint32 index;
+
+	public this(void* pNext, VkBufferCollectionFUCHSIA collection, uint32 index)
+	{
+		this.pNext = pNext;
+		this.collection = collection;
+		this.index = index;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkBufferCollectionPropertiesFUCHSIA
+{
+	public const VkStructureType SType = .VkBufferCollectionPropertiesFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 memoryTypeBits;
+	public uint32 bufferCount;
+	public uint32 createInfoIndex;
+	public uint64 sysmemPixelFormat;
+	public VkFormatFeatureFlags formatFeatures;
+	public VkSysmemColorSpaceFUCHSIA sysmemColorSpaceIndex;
+	public VkComponentMapping samplerYcbcrConversionComponents;
+	public VkSamplerYcbcrModelConversion suggestedYcbcrModel;
+	public VkSamplerYcbcrRange suggestedYcbcrRange;
+	public VkChromaLocation suggestedXChromaOffset;
+	public VkChromaLocation suggestedYChromaOffset;
+}
+
+typealias VkImageFormatConstraintsFlagsFUCHSIA = VkFlags;
+
+[CRepr] struct VkSysmemColorSpaceFUCHSIA
+{
+	public const VkStructureType SType = .VkSysmemColorSpaceFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 colorSpace;
+
+	public this(void* pNext, uint32 colorSpace)
+	{
+		this.pNext = pNext;
+		this.colorSpace = colorSpace;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[AllowDuplicates] enum VkImageConstraintsInfoFlagBitsFUCHSIA : int32
+{
+	CpuReadRarelyFUCHSIA = 1 << 0,
+	CpuReadOftenFUCHSIA = 1 << 1,
+	CpuWriteRarelyFUCHSIA = 1 << 2,
+	CpuWriteOftenFUCHSIA = 1 << 3,
+	ProtectedOptionalFUCHSIA = 1 << 4,
+}
+
+typealias VkImageConstraintsInfoFlagsFUCHSIA = VkImageConstraintsInfoFlagBitsFUCHSIA;
+
+[CRepr] struct VkImageConstraintsInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkImageConstraintsInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 formatConstraintsCount;
+	public VkImageFormatConstraintsInfoFUCHSIA* pFormatConstraints;
+	public VulkanSpan<VkImageFormatConstraintsInfoFUCHSIA> formatConstraints
+	{
+		[Inline] get => .(formatConstraintsCount, pFormatConstraints);
+		[Inline] set mut { formatConstraintsCount = value.count; pFormatConstraints = value.ptr; }
+	}
+	public VkBufferCollectionConstraintsInfoFUCHSIA bufferCollectionConstraints;
+	public VkImageConstraintsInfoFlagsFUCHSIA flags;
+
+	public this(void* pNext, VulkanSpan<VkImageFormatConstraintsInfoFUCHSIA> formatConstraints, VkBufferCollectionConstraintsInfoFUCHSIA bufferCollectionConstraints, VkImageConstraintsInfoFlagsFUCHSIA flags = 0) : this()
+	{
+		this.pNext = pNext;
+		this.formatConstraints = formatConstraints;
+		this.bufferCollectionConstraints = bufferCollectionConstraints;
+		this.flags = flags;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkImageFormatConstraintsInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkImageFormatConstraintsInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkImageCreateInfo imageCreateInfo;
+	public VkFormatFeatureFlags requiredFormatFeatures;
+	public VkImageFormatConstraintsFlagsFUCHSIA flags;
+	public uint64 sysmemPixelFormat;
+	public uint32 colorSpaceCount;
+	public VkSysmemColorSpaceFUCHSIA* pColorSpaces;
+	public VulkanSpan<VkSysmemColorSpaceFUCHSIA> colorSpaces
+	{
+		[Inline] get => .(colorSpaceCount, pColorSpaces);
+		[Inline] set mut { colorSpaceCount = value.count; pColorSpaces = value.ptr; }
+	}
+
+	public this(void* pNext, VkImageCreateInfo imageCreateInfo, VkFormatFeatureFlags requiredFormatFeatures, VkImageFormatConstraintsFlagsFUCHSIA flags, uint64 sysmemPixelFormat, VulkanSpan<VkSysmemColorSpaceFUCHSIA> colorSpaces) : this()
+	{
+		this.pNext = pNext;
+		this.imageCreateInfo = imageCreateInfo;
+		this.requiredFormatFeatures = requiredFormatFeatures;
+		this.flags = flags;
+		this.sysmemPixelFormat = sysmemPixelFormat;
+		this.colorSpaces = colorSpaces;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkBufferCollectionConstraintsInfoFUCHSIA
+{
+	public const VkStructureType SType = .VkBufferCollectionConstraintsInfoFUCHSIA;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 minBufferCount;
+	public uint32 maxBufferCount;
+	public uint32 minBufferCountForCamping;
+	public uint32 minBufferCountForDedicatedSlack;
+	public uint32 minBufferCountForSharedSlack;
+
+	public this(void* pNext, uint32 minBufferCount, uint32 maxBufferCount, uint32 minBufferCountForCamping, uint32 minBufferCountForDedicatedSlack, uint32 minBufferCountForSharedSlack)
+	{
+		this.pNext = pNext;
+		this.minBufferCount = minBufferCount;
+		this.maxBufferCount = maxBufferCount;
+		this.minBufferCountForCamping = minBufferCountForCamping;
+		this.minBufferCountForDedicatedSlack = minBufferCountForDedicatedSlack;
+		this.minBufferCountForSharedSlack = minBufferCountForSharedSlack;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateBufferCollectionFUCHSIA(VkDevice device, VkBufferCollectionCreateInfoFUCHSIA* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkBufferCollectionFUCHSIA pCollection);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkSetBufferCollectionImageConstraintsFUCHSIA(VkDevice device, VkBufferCollectionFUCHSIA collection, VkImageConstraintsInfoFUCHSIA* pImageConstraintsInfo);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkSetBufferCollectionBufferConstraintsFUCHSIA(VkDevice device, VkBufferCollectionFUCHSIA collection, VkBufferConstraintsInfoFUCHSIA* pBufferConstraintsInfo);
+[CallingConvention(VKAPI_PTR)] function void PFN_vkDestroyBufferCollectionFUCHSIA(VkDevice device, VkBufferCollectionFUCHSIA collection, VkAllocationCallbacks* pAllocator = null);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetBufferCollectionPropertiesFUCHSIA(VkDevice device, VkBufferCollectionFUCHSIA collection, out VkBufferCollectionPropertiesFUCHSIA pProperties);
 
 static { public const uint32 VK_HUAWEI_SUBPASS_SHADING_SPEC_VERSION = 3; }
 static { public const c_char* VK_HUAWEI_SUBPASS_SHADING_EXTENSION_NAME = "VK_HUAWEI_subpass_shading"; }
@@ -24229,6 +26342,38 @@ static { public const c_char* VK_EXT_EXTENDED_DYNAMIC_STATE_2_EXTENSION_NAME = "
 
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetPatchControlPointsEXT(VkCommandBuffer commandBuffer, uint32 patchControlPoints);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdSetLogicOpEXT(VkCommandBuffer commandBuffer, VkLogicOp logicOp);
+
+static { public const uint32 VK_QNX_SCREEN_SURFACE_SPEC_VERSION = 1; }
+static { public const c_char* VK_QNX_SCREEN_SURFACE_EXTENSION_NAME = "VK_QNX_screen_surface"; }
+
+typealias VkScreenSurfaceCreateFlagsQNX = VkFlags;
+
+[CRepr] struct VkScreenSurfaceCreateInfoQNX
+{
+	public const VkStructureType SType = .VkScreenSurfaceCreateInfoQNX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkScreenSurfaceCreateFlagsQNX flags;
+	public _screen_context* context;
+	public _screen_window* window;
+
+	public this(void* pNext, VkScreenSurfaceCreateFlagsQNX flags, _screen_context* context, _screen_window* window)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.context = context;
+		this.window = window;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateScreenSurfaceQNX(VkInstance instance, VkScreenSurfaceCreateInfoQNX* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+[CallingConvention(VKAPI_PTR)] function VkBool32 PFN_vkGetPhysicalDeviceScreenPresentationSupportQNX(VkPhysicalDevice physicalDevice, uint32 queueFamilyIndex, out _screen_window window);
 
 static { public const uint32 VK_EXT_COLOR_WRITE_ENABLE_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_COLOR_WRITE_ENABLE_EXTENSION_NAME = "VK_EXT_color_write_enable"; }
@@ -24566,6 +26711,7 @@ static { public const c_char* VK_EXT_OPACITY_MICROMAP_EXTENSION_NAME = "VK_EXT_o
 [AllowDuplicates] enum VkMicromapTypeEXT : int32
 {
 	OpacityMicromapEXT = 0,
+	VkMicromapTypeDisplacementMicromapNV = 1000397000,
 }
 
 [CRepr] struct VkMicromapBuildInfoEXT
@@ -24925,6 +27071,97 @@ typealias VkMicromapCreateFlagsEXT = VkMicromapCreateFlagBitsEXT;
 [CallingConvention(VKAPI_PTR)] function void PFN_vkCmdWriteMicromapsPropertiesEXT(VkCommandBuffer commandBuffer, uint32 micromapCount, VkMicromapEXT* pMicromaps, VkQueryType queryType, VkQueryPool queryPool, uint32 firstQuery);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetDeviceMicromapCompatibilityEXT(VkDevice device, VkMicromapVersionInfoEXT* pVersionInfo, out VkAccelerationStructureCompatibilityKHR pCompatibility);
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetMicromapBuildSizesEXT(VkDevice device, VkAccelerationStructureBuildTypeKHR buildType, VkMicromapBuildInfoEXT* pBuildInfo, out VkMicromapBuildSizesInfoEXT pSizeInfo);
+
+static { public const uint32 VK_NV_DISPLACEMENT_MICROMAP_SPEC_VERSION = 2; }
+static { public const c_char* VK_NV_DISPLACEMENT_MICROMAP_EXTENSION_NAME = "VK_NV_displacement_micromap"; }
+
+[CRepr] struct VkPhysicalDeviceDisplacementMicromapFeaturesNV
+{
+	public const VkStructureType SType = .VkPhysicalDeviceDisplacementMicromapFeaturesNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBool32 displacementMicromap;
+
+	public this(void* pNext, VkBool32 displacementMicromap)
+	{
+		this.pNext = pNext;
+		this.displacementMicromap = displacementMicromap;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkPhysicalDeviceDisplacementMicromapPropertiesNV
+{
+	public const VkStructureType SType = .VkPhysicalDeviceDisplacementMicromapPropertiesNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 maxDisplacementMicromapSubdivisionLevel;
+}
+
+[CRepr] struct VkAccelerationStructureTrianglesDisplacementMicromapNV
+{
+	public const VkStructureType SType = .VkAccelerationStructureTrianglesDisplacementMicromapNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkFormat displacementBiasAndScaleFormat;
+	public VkFormat displacementVectorFormat;
+	public VkDeviceOrHostAddressConstKHR displacementBiasAndScaleBuffer;
+	public VkDeviceSize displacementBiasAndScaleStride;
+	public VkDeviceOrHostAddressConstKHR displacementVectorBuffer;
+	public VkDeviceSize displacementVectorStride;
+	public VkDeviceOrHostAddressConstKHR displacedMicromapPrimitiveFlags;
+	public VkDeviceSize displacedMicromapPrimitiveFlagsStride;
+	public VkIndexType indexType;
+	public VkDeviceOrHostAddressConstKHR indexBuffer;
+	public VkDeviceSize indexStride;
+	public uint32 baseTriangle;
+	public uint32 usageCountsCount;
+	public VkMicromapUsageEXT* pUsageCounts;
+	public VkMicromapUsageEXT** ppUsageCounts;
+	public VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> usageCounts_usageCounts
+	{
+		[Inline] get => .(usageCountsCount, pUsageCounts, ppUsageCounts);
+		[Inline] set mut { usageCountsCount = value.count; pUsageCounts = value.ptr1; ppUsageCounts = value.ptr2; }
+	}
+	public VkMicromapEXT micromap;
+
+	public this(void* pNext, VkFormat displacementBiasAndScaleFormat, VkFormat displacementVectorFormat, VkDeviceOrHostAddressConstKHR displacementBiasAndScaleBuffer, VkDeviceSize displacementBiasAndScaleStride, VkDeviceOrHostAddressConstKHR displacementVectorBuffer, VkDeviceSize displacementVectorStride, VkDeviceOrHostAddressConstKHR displacedMicromapPrimitiveFlags, VkDeviceSize displacedMicromapPrimitiveFlagsStride, VkIndexType indexType, VkDeviceOrHostAddressConstKHR indexBuffer, VkDeviceSize indexStride, uint32 baseTriangle, VulkanDuoSpan<VkMicromapUsageEXT, VkMicromapUsageEXT*> usageCounts_usageCounts = .(), VkMicromapEXT micromap = null) : this()
+	{
+		this.pNext = pNext;
+		this.displacementBiasAndScaleFormat = displacementBiasAndScaleFormat;
+		this.displacementVectorFormat = displacementVectorFormat;
+		this.displacementBiasAndScaleBuffer = displacementBiasAndScaleBuffer;
+		this.displacementBiasAndScaleStride = displacementBiasAndScaleStride;
+		this.displacementVectorBuffer = displacementVectorBuffer;
+		this.displacementVectorStride = displacementVectorStride;
+		this.displacedMicromapPrimitiveFlags = displacedMicromapPrimitiveFlags;
+		this.displacedMicromapPrimitiveFlagsStride = displacedMicromapPrimitiveFlagsStride;
+		this.indexType = indexType;
+		this.indexBuffer = indexBuffer;
+		this.indexStride = indexStride;
+		this.baseTriangle = baseTriangle;
+		this.usageCounts_usageCounts = usageCounts_usageCounts;
+		this.micromap = micromap;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[AllowDuplicates] enum VkDisplacementMicromapFormatNV : int32
+{
+	VK_64Triangles64BytesNV = 1,
+	VK_256Triangles128BytesNV = 2,
+	VK_1024Triangles128BytesNV = 3,
+}
 
 static { public const uint32 VK_EXT_LOAD_STORE_OP_NONE_SPEC_VERSION = 1; }
 static { public const c_char* VK_EXT_LOAD_STORE_OP_NONE_EXTENSION_NAME = "VK_EXT_load_store_op_none"; }
@@ -27265,6 +29502,47 @@ static { public const uint32 VK_EXT_PIPELINE_PROTECTED_ACCESS_SPEC_VERSION = 1; 
 static { public const c_char* VK_EXT_PIPELINE_PROTECTED_ACCESS_EXTENSION_NAME = "VK_EXT_pipeline_protected_access"; }
 
 typealias VkPhysicalDevicePipelineProtectedAccessFeaturesEXT = VkPhysicalDevicePipelineProtectedAccessFeatures;
+
+static { public const uint32 VK_ANDROID_EXTERNAL_FORMAT_RESOLVE_SPEC_VERSION = 1; }
+static { public const c_char* VK_ANDROID_EXTERNAL_FORMAT_RESOLVE_EXTENSION_NAME = "VK_ANDROID_external_format_resolve"; }
+
+[CRepr] struct VkPhysicalDeviceExternalFormatResolveFeaturesANDROID
+{
+	public const VkStructureType SType = .VkPhysicalDeviceExternalFormatResolveFeaturesANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBool32 externalFormatResolve;
+
+	public this(void* pNext, VkBool32 externalFormatResolve)
+	{
+		this.pNext = pNext;
+		this.externalFormatResolve = externalFormatResolve;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkPhysicalDeviceExternalFormatResolvePropertiesANDROID
+{
+	public const VkStructureType SType = .VkPhysicalDeviceExternalFormatResolvePropertiesANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBool32 nullColorAttachmentWithExternalFormatResolve;
+	public VkChromaLocation externalFormatResolveChromaOffsetX;
+	public VkChromaLocation externalFormatResolveChromaOffsetY;
+}
+
+[CRepr] struct VkAndroidHardwareBufferFormatResolvePropertiesANDROID
+{
+	public const VkStructureType SType = .VkAndroidHardwareBufferFormatResolvePropertiesANDROID;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkFormat colorAttachmentFormat;
+}
 
 static { public const uint32 VK_KHR_MAINTENANCE_5_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_MAINTENANCE_5_EXTENSION_NAME = "VK_KHR_maintenance5"; }
@@ -30611,6 +32889,96 @@ static { public const c_char* VK_KHR_SHADER_FLOAT_CONTROLS_2_EXTENSION_NAME = "V
 
 typealias VkPhysicalDeviceShaderFloatControls2FeaturesKHR = VkPhysicalDeviceShaderFloatControls2Features;
 
+static { public const uint32 VK_QNX_EXTERNAL_MEMORY_SCREEN_BUFFER_SPEC_VERSION = 1; }
+static { public const c_char* VK_QNX_EXTERNAL_MEMORY_SCREEN_BUFFER_EXTENSION_NAME = "VK_QNX_external_memory_screen_buffer"; }
+
+[CRepr] struct VkScreenBufferPropertiesQNX
+{
+	public const VkStructureType SType = .VkScreenBufferPropertiesQNX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkDeviceSize allocationSize;
+	public uint32 memoryTypeBits;
+}
+
+[CRepr] struct VkScreenBufferFormatPropertiesQNX
+{
+	public const VkStructureType SType = .VkScreenBufferFormatPropertiesQNX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkFormat format;
+	public uint64 externalFormat;
+	public uint64 screenUsage;
+	public VkFormatFeatureFlags formatFeatures;
+	public VkComponentMapping samplerYcbcrConversionComponents;
+	public VkSamplerYcbcrModelConversion suggestedYcbcrModel;
+	public VkSamplerYcbcrRange suggestedYcbcrRange;
+	public VkChromaLocation suggestedXChromaOffset;
+	public VkChromaLocation suggestedYChromaOffset;
+}
+
+[CRepr] struct VkImportScreenBufferInfoQNX
+{
+	public const VkStructureType SType = .VkImportScreenBufferInfoQNX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public _screen_buffer* buffer;
+
+	public this(void* pNext, _screen_buffer* buffer)
+	{
+		this.pNext = pNext;
+		this.buffer = buffer;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkExternalFormatQNX
+{
+	public const VkStructureType SType = .VkExternalFormatQNX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint64 externalFormat;
+
+	public this(void* pNext, uint64 externalFormat)
+	{
+		this.pNext = pNext;
+		this.externalFormat = externalFormat;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX
+{
+	public const VkStructureType SType = .VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBool32 screenBufferImport;
+
+	public this(void* pNext, VkBool32 screenBufferImport)
+	{
+		this.pNext = pNext;
+		this.screenBufferImport = screenBufferImport;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetScreenBufferPropertiesQNX(VkDevice device, _screen_buffer* buffer, out VkScreenBufferPropertiesQNX pProperties);
+
 static { public const uint32 VK_MSFT_LAYERED_DRIVER_SPEC_VERSION = 1; }
 static { public const c_char* VK_MSFT_LAYERED_DRIVER_EXTENSION_NAME = "VK_MSFT_layered_driver"; }
 
@@ -33087,6 +35455,37 @@ static { public const c_char* VK_KHR_VIDEO_MAINTENANCE_2_EXTENSION_NAME = "VK_KH
 	}
 }
 
+static { public const uint32 VK_OHOS_SURFACE_SPEC_VERSION = 1; }
+static { public const c_char* VK_OHOS_SURFACE_EXTENSION_NAME = "VK_OHOS_surface"; }
+
+typealias VkSurfaceCreateFlagsOHOS = VkFlags;
+
+[CRepr] struct VkOHSurfaceCreateInfoOHOS
+{
+	public const VkStructureType SType = .VkOhSurfaceCreateInfoOHOS;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkSurfaceCreateFlagsOHOS flags;
+	public OHNativeWindow* window;
+
+	public this(void* pNext, VkSurfaceCreateFlagsOHOS flags, OHNativeWindow* window)
+	{
+		this.pNext = pNext;
+		this.flags = flags;
+		this.window = window;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+typealias VkSurfaceCreateInfoOHOS = VkOHSurfaceCreateInfoOHOS;
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkCreateSurfaceOHOS(VkInstance instance, VkSurfaceCreateInfoOHOS* pCreateInfo, VkAllocationCallbacks* pAllocator, out VkSurfaceKHR pSurface);
+
 static { public const uint32 VK_HUAWEI_HDR_VIVID_SPEC_VERSION = 1; }
 static { public const c_char* VK_HUAWEI_HDR_VIVID_EXTENSION_NAME = "VK_HUAWEI_hdr_vivid"; }
 
@@ -33218,6 +35617,64 @@ static { public const c_char* VK_ARM_PIPELINE_OPACITY_MICROMAP_EXTENSION_NAME = 
 		sType = SType;
 	}
 }
+
+static { public const uint32 VK_EXT_EXTERNAL_MEMORY_METAL_SPEC_VERSION = 1; }
+static { public const c_char* VK_EXT_EXTERNAL_MEMORY_METAL_EXTENSION_NAME = "VK_EXT_external_memory_metal"; }
+
+[CRepr] struct VkImportMemoryMetalHandleInfoEXT
+{
+	public const VkStructureType SType = .VkImportMemoryMetalHandleInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkExternalMemoryHandleTypeFlagBits handleType;
+	public void* handle;
+
+	public this(void* pNext = null, VkExternalMemoryHandleTypeFlagBits handleType = 0, void* handle = null)
+	{
+		this.pNext = pNext;
+		this.handleType = handleType;
+		this.handle = handle;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkMemoryMetalHandlePropertiesEXT
+{
+	public const VkStructureType SType = .VkMemoryMetalHandlePropertiesEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 memoryTypeBits;
+}
+
+[CRepr] struct VkMemoryGetMetalHandleInfoEXT
+{
+	public const VkStructureType SType = .VkMemoryGetMetalHandleInfoEXT;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkDeviceMemory memory;
+	public VkExternalMemoryHandleTypeFlagBits handleType;
+
+	public this(void* pNext, VkDeviceMemory memory, VkExternalMemoryHandleTypeFlagBits handleType)
+	{
+		this.pNext = pNext;
+		this.memory = memory;
+		this.handleType = handleType;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryMetalHandleEXT(VkDevice device, VkMemoryGetMetalHandleInfoEXT* pGetMetalHandleInfo, out void* pHandle);
+[CallingConvention(VKAPI_PTR)] function VkResult PFN_vkGetMemoryMetalHandlePropertiesEXT(VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, void* pHandle, out VkMemoryMetalHandlePropertiesEXT pMemoryMetalHandleProperties);
 
 static { public const uint32 VK_KHR_DEPTH_CLAMP_ZERO_ONE_SPEC_VERSION = 1; }
 static { public const c_char* VK_KHR_DEPTH_CLAMP_ZERO_ONE_EXTENSION_NAME = "VK_KHR_depth_clamp_zero_one"; }
@@ -33361,6 +35818,51 @@ static { public const c_char* VK_KHR_ROBUSTNESS_2_EXTENSION_NAME = "VK_KHR_robus
 	public void* pNext;
 	public VkDeviceSize robustStorageBufferAccessSizeAlignment;
 	public VkDeviceSize robustUniformBufferAccessSizeAlignment;
+}
+
+static { public const uint32 VK_NV_PRESENT_METERING_SPEC_VERSION = 1; }
+static { public const c_char* VK_NV_PRESENT_METERING_EXTENSION_NAME = "VK_NV_present_metering"; }
+
+[CRepr] struct VkSetPresentConfigNV
+{
+	public const VkStructureType SType = .VkSetPresentConfigNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public uint32 numFramesPerBatch;
+	public uint32 presentConfigFeedback;
+
+	public this(void* pNext, uint32 numFramesPerBatch, uint32 presentConfigFeedback)
+	{
+		this.pNext = pNext;
+		this.numFramesPerBatch = numFramesPerBatch;
+		this.presentConfigFeedback = presentConfigFeedback;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
+}
+
+[CRepr] struct VkPhysicalDevicePresentMeteringFeaturesNV
+{
+	public const VkStructureType SType = .VkPhysicalDevicePresentMeteringFeaturesNV;
+	public VkStructureType sType = SType;
+	public void* pNext;
+	public VkBool32 presentMetering;
+
+	public this(void* pNext, VkBool32 presentMetering)
+	{
+		this.pNext = pNext;
+		this.presentMetering = presentMetering;
+	}
+
+	public this()
+	{
+		this = default;
+		sType = SType;
+	}
 }
 
 static { public const uint32 VK_EXT_FRAGMENT_DENSITY_MAP_OFFSET_SPEC_VERSION = 1; }
@@ -33508,3 +36010,42 @@ static { public const c_char* VK_SEC_PIPELINE_CACHE_INCREMENTAL_MODE_EXTENSION_N
 		sType = SType;
 	}
 }
+
+typealias ANativeWindow = void*;
+typealias wl_display = void*;
+typealias wl_surface = void*;
+typealias HINSTANCE = void*;
+typealias HWND = void*;
+typealias Display = void*;
+typealias Window = void*;
+typealias xcb_connection_t = void*;
+typealias xcb_window_t = void*;
+typealias IDirectFB = void*;
+typealias IDirectFBSurface = void*;
+typealias zx_handle_t = void*;
+typealias GgpStreamDescriptor = void*;
+typealias _screen_context = void*;
+typealias _screen_window = void*;
+typealias HANDLE = void*;
+typealias SECURITY_ATTRIBUTES = void*;
+typealias NvSciBufAttrList = void*;
+typealias NvSciBufObj = void*;
+typealias LPCWSTR = void*;
+typealias NvSciSyncAttrList = void*;
+typealias NvSciSyncObj = void*;
+typealias NvSciSyncFence = void*;
+typealias CAMetalLayer = void*;
+typealias AHardwareBuffer = void*;
+typealias GgpFrameToken = void*;
+typealias HMONITOR = void*;
+typealias MTLDevice_id = void*;
+typealias MTLCommandQueue_id = void*;
+typealias MTLBuffer_id = void*;
+typealias MTLTexture_id = void*;
+typealias IOSurfaceRef = void*;
+typealias MTLSharedEvent_id = void*;
+typealias _screen_buffer = void*;
+typealias OHNativeWindow = void*;
+typealias VisualID = void*;
+typealias xcb_visualid_t = void*;
+typealias RROutput = void*;
