@@ -6590,7 +6590,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkBufferMemoryRequirementsInfo2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkBuffer buffer;
+#unwarn
+	public using public VkBuffer buffer;
 
 	public this(void* pNext, VkBuffer buffer)
 	{
@@ -6610,7 +6611,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkImageMemoryRequirementsInfo2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkImage image;
+#unwarn
+	public using public VkImage image;
 
 	public this(void* pNext, VkImage image)
 	{
@@ -6630,7 +6632,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkImageSparseMemoryRequirementsInfo2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkImage image;
+#unwarn
+	public using public VkImage image;
 
 	public this(void* pNext, VkImage image)
 	{
@@ -6650,7 +6653,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkMemoryRequirements2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkMemoryRequirements memoryRequirements;
+#unwarn
+	public using public VkMemoryRequirements memoryRequirements;
 }
 
 [CRepr] struct VkSparseImageMemoryRequirements2
@@ -6658,7 +6662,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkSparseImageMemoryRequirements2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkSparseImageMemoryRequirements memoryRequirements;
+#unwarn
+	public using public VkSparseImageMemoryRequirements memoryRequirements;
 }
 
 [CallingConvention(VKAPI_PTR)] function void PFN_vkGetImageMemoryRequirements2(VkDevice device, VkImageMemoryRequirementsInfo2* pInfo, out VkMemoryRequirements2 pMemoryRequirements);
@@ -6671,7 +6676,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkPhysicalDeviceFeatures2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkPhysicalDeviceFeatures features;
+#unwarn
+	public using public VkPhysicalDeviceFeatures features;
 
 	public this(void* pNext, VkPhysicalDeviceFeatures features)
 	{
@@ -6691,7 +6697,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkPhysicalDeviceProperties2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkPhysicalDeviceProperties properties;
+#unwarn
+	public using public VkPhysicalDeviceProperties properties;
 }
 
 [CRepr] struct VkFormatProperties2
@@ -6699,7 +6706,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkFormatProperties2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkFormatProperties formatProperties;
+#unwarn
+	public using public VkFormatProperties formatProperties;
 }
 
 [CRepr] struct VkImageFormatProperties2
@@ -6707,7 +6715,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkImageFormatProperties2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkImageFormatProperties imageFormatProperties;
+#unwarn
+	public using public VkImageFormatProperties imageFormatProperties;
 }
 
 [CRepr] struct VkPhysicalDeviceImageFormatInfo2
@@ -6743,7 +6752,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkQueueFamilyProperties2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkQueueFamilyProperties queueFamilyProperties;
+#unwarn
+	public using public VkQueueFamilyProperties queueFamilyProperties;
 }
 
 [CRepr] struct VkPhysicalDeviceMemoryProperties2
@@ -6751,7 +6761,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkPhysicalDeviceMemoryProperties2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkPhysicalDeviceMemoryProperties memoryProperties;
+#unwarn
+	public using public VkPhysicalDeviceMemoryProperties memoryProperties;
 }
 
 [CRepr] struct VkSparseImageFormatProperties2
@@ -6759,7 +6770,8 @@ static { public const uint32 VK_MAX_DEVICE_GROUP_SIZE = 32; }
 	public const VkStructureType SType = .VkSparseImageFormatProperties2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkSparseImageFormatProperties properties;
+#unwarn
+	public using public VkSparseImageFormatProperties properties;
 }
 
 [CRepr] struct VkPhysicalDeviceSparseImageFormatInfo2
@@ -7134,7 +7146,8 @@ typealias VkPhysicalDeviceVariablePointerFeatures = VkPhysicalDeviceVariablePoin
 	public const VkStructureType SType = .VkSamplerYcbcrConversionInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkSamplerYcbcrConversion conversion;
+#unwarn
+	public using public VkSamplerYcbcrConversion conversion;
 
 	public this(void* pNext, VkSamplerYcbcrConversion conversion)
 	{
@@ -8711,7 +8724,8 @@ typealias VkResolveModeFlags = VkResolveModeFlagBits;
 	public const VkStructureType SType = .VkSamplerReductionModeCreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkSamplerReductionMode reductionMode;
+#unwarn
+	public using public VkSamplerReductionMode reductionMode;
 
 	public this(void* pNext, VkSamplerReductionMode reductionMode)
 	{
@@ -9184,7 +9198,8 @@ typealias VkSemaphoreWaitFlags = VkSemaphoreWaitFlagBits;
 	public const VkStructureType SType = .VkBufferDeviceAddressInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkBuffer buffer;
+#unwarn
+	public using public VkBuffer buffer;
 
 	public this(void* pNext, VkBuffer buffer)
 	{
@@ -9244,7 +9259,8 @@ typealias VkSemaphoreWaitFlags = VkSemaphoreWaitFlagBits;
 	public const VkStructureType SType = .VkDeviceMemoryOpaqueCaptureAddressInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkDeviceMemory memory;
+#unwarn
+	public using public VkDeviceMemory memory;
 
 	public this(void* pNext, VkDeviceMemory memory)
 	{
@@ -11556,7 +11572,8 @@ typealias VkMemoryUnmapFlags = VkMemoryUnmapFlagBits;
 	public const VkStructureType SType = .VkImageSubresource2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkImageSubresource imageSubresource;
+#unwarn
+	public using public VkImageSubresource imageSubresource;
 
 	public this(void* pNext, VkImageSubresource imageSubresource)
 	{
@@ -11576,7 +11593,8 @@ typealias VkMemoryUnmapFlags = VkMemoryUnmapFlagBits;
 	public const VkStructureType SType = .VkSubresourceLayout2;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkSubresourceLayout subresourceLayout;
+#unwarn
+	public using public VkSubresourceLayout subresourceLayout;
 }
 
 typealias VkPipelineCreateFlags2 = VkPipelineCreateFlagBits2;
@@ -11638,7 +11656,8 @@ typealias VkPipelineCreateFlags2 = VkPipelineCreateFlagBits2;
 	public const VkStructureType SType = .VkPipelineCreateFlags2CreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkPipelineCreateFlags2 flags;
+#unwarn
+	public using public VkPipelineCreateFlags2 flags;
 
 	public this(void* pNext, VkPipelineCreateFlags2 flags)
 	{
@@ -11704,7 +11723,8 @@ typealias VkBufferUsageFlags2 = VkBufferUsageFlagBits2;
 	public const VkStructureType SType = .VkBufferUsageFlags2CreateInfo;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkBufferUsageFlags2 usage;
+#unwarn
+	public using public VkBufferUsageFlags2 usage;
 
 	public this(void* pNext, VkBufferUsageFlags2 usage)
 	{
@@ -21980,7 +22000,8 @@ static { public const c_char* VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_EXTENSION_NA
 	public const VkStructureType SType = .VkPipelineInfoKHR;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkPipeline pipeline;
+#unwarn
+	public using public VkPipeline pipeline;
 
 	public this(void* pNext, VkPipeline pipeline)
 	{
@@ -24249,7 +24270,8 @@ static { public const c_char* VK_EXT_DESCRIPTOR_BUFFER_EXTENSION_NAME = "VK_EXT_
 	public const VkStructureType SType = .VkBufferCaptureDescriptorDataInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkBuffer buffer;
+#unwarn
+	public using public VkBuffer buffer;
 
 	public this(void* pNext, VkBuffer buffer)
 	{
@@ -24269,7 +24291,8 @@ static { public const c_char* VK_EXT_DESCRIPTOR_BUFFER_EXTENSION_NAME = "VK_EXT_
 	public const VkStructureType SType = .VkImageCaptureDescriptorDataInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkImage image;
+#unwarn
+	public using public VkImage image;
 
 	public this(void* pNext, VkImage image)
 	{
@@ -24289,7 +24312,8 @@ static { public const c_char* VK_EXT_DESCRIPTOR_BUFFER_EXTENSION_NAME = "VK_EXT_
 	public const VkStructureType SType = .VkImageViewCaptureDescriptorDataInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkImageView imageView;
+#unwarn
+	public using public VkImageView imageView;
 
 	public this(void* pNext, VkImageView imageView)
 	{
@@ -24309,7 +24333,8 @@ static { public const c_char* VK_EXT_DESCRIPTOR_BUFFER_EXTENSION_NAME = "VK_EXT_
 	public const VkStructureType SType = .VkSamplerCaptureDescriptorDataInfoEXT;
 	public VkStructureType sType = SType;
 	public void* pNext;
-	public VkSampler sampler;
+#unwarn
+	public using public VkSampler sampler;
 
 	public this(void* pNext, VkSampler sampler)
 	{

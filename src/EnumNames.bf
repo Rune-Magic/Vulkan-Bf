@@ -1,10 +1,10 @@
-#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 using System;
 
 namespace Vulkan;
 
 extension VkAttachmentLoadOp
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -16,10 +16,24 @@ extension VkAttachmentLoadOp
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Load: strBuffer.Append("Load");
+		case .Clear: strBuffer.Append("Clear");
+		case .DontCare: strBuffer.Append("DontCare");
+		case .None: strBuffer.Append("None");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAttachmentStoreOp
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -30,10 +44,23 @@ extension VkAttachmentStoreOp
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Store: strBuffer.Append("Store");
+		case .DontCare: strBuffer.Append("DontCare");
+		case .None: strBuffer.Append("None");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBlendFactor
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -60,10 +87,39 @@ extension VkBlendFactor
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Zero: strBuffer.Append("Zero");
+		case .One: strBuffer.Append("One");
+		case .SrcColor: strBuffer.Append("SrcColor");
+		case .OneMinusSrcColor: strBuffer.Append("OneMinusSrcColor");
+		case .DstColor: strBuffer.Append("DstColor");
+		case .OneMinusDstColor: strBuffer.Append("OneMinusDstColor");
+		case .SrcAlpha: strBuffer.Append("SrcAlpha");
+		case .OneMinusSrcAlpha: strBuffer.Append("OneMinusSrcAlpha");
+		case .DstAlpha: strBuffer.Append("DstAlpha");
+		case .OneMinusDstAlpha: strBuffer.Append("OneMinusDstAlpha");
+		case .ConstantColor: strBuffer.Append("ConstantColor");
+		case .OneMinusConstantColor: strBuffer.Append("OneMinusConstantColor");
+		case .ConstantAlpha: strBuffer.Append("ConstantAlpha");
+		case .OneMinusConstantAlpha: strBuffer.Append("OneMinusConstantAlpha");
+		case .SrcAlphaSaturate: strBuffer.Append("SrcAlphaSaturate");
+		case .Src1Color: strBuffer.Append("Src1Color");
+		case .OneMinusSrc1Color: strBuffer.Append("OneMinusSrc1Color");
+		case .Src1Alpha: strBuffer.Append("Src1Alpha");
+		case .OneMinusSrc1Alpha: strBuffer.Append("OneMinusSrc1Alpha");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBlendOp
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -122,10 +178,71 @@ extension VkBlendOp
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Add: strBuffer.Append("Add");
+		case .Subtract: strBuffer.Append("Subtract");
+		case .ReverseSubtract: strBuffer.Append("ReverseSubtract");
+		case .Min: strBuffer.Append("Min");
+		case .Max: strBuffer.Append("Max");
+		case .ZeroEXT: strBuffer.Append("ZeroEXT");
+		case .SrcEXT: strBuffer.Append("SrcEXT");
+		case .DstEXT: strBuffer.Append("DstEXT");
+		case .SrcOverEXT: strBuffer.Append("SrcOverEXT");
+		case .DstOverEXT: strBuffer.Append("DstOverEXT");
+		case .SrcInEXT: strBuffer.Append("SrcInEXT");
+		case .DstInEXT: strBuffer.Append("DstInEXT");
+		case .SrcOutEXT: strBuffer.Append("SrcOutEXT");
+		case .DstOutEXT: strBuffer.Append("DstOutEXT");
+		case .SrcAtopEXT: strBuffer.Append("SrcAtopEXT");
+		case .DstAtopEXT: strBuffer.Append("DstAtopEXT");
+		case .XorEXT: strBuffer.Append("XorEXT");
+		case .MultiplyEXT: strBuffer.Append("MultiplyEXT");
+		case .ScreenEXT: strBuffer.Append("ScreenEXT");
+		case .OverlayEXT: strBuffer.Append("OverlayEXT");
+		case .DarkenEXT: strBuffer.Append("DarkenEXT");
+		case .LightenEXT: strBuffer.Append("LightenEXT");
+		case .ColordodgeEXT: strBuffer.Append("ColordodgeEXT");
+		case .ColorburnEXT: strBuffer.Append("ColorburnEXT");
+		case .HardlightEXT: strBuffer.Append("HardlightEXT");
+		case .SoftlightEXT: strBuffer.Append("SoftlightEXT");
+		case .DifferenceEXT: strBuffer.Append("DifferenceEXT");
+		case .ExclusionEXT: strBuffer.Append("ExclusionEXT");
+		case .InvertEXT: strBuffer.Append("InvertEXT");
+		case .InvertRgbEXT: strBuffer.Append("InvertRgbEXT");
+		case .LineardodgeEXT: strBuffer.Append("LineardodgeEXT");
+		case .LinearburnEXT: strBuffer.Append("LinearburnEXT");
+		case .VividlightEXT: strBuffer.Append("VividlightEXT");
+		case .LinearlightEXT: strBuffer.Append("LinearlightEXT");
+		case .PinlightEXT: strBuffer.Append("PinlightEXT");
+		case .HardmixEXT: strBuffer.Append("HardmixEXT");
+		case .HslHueEXT: strBuffer.Append("HslHueEXT");
+		case .HslSaturationEXT: strBuffer.Append("HslSaturationEXT");
+		case .HslColorEXT: strBuffer.Append("HslColorEXT");
+		case .HslLuminosityEXT: strBuffer.Append("HslLuminosityEXT");
+		case .PlusEXT: strBuffer.Append("PlusEXT");
+		case .PlusClampedEXT: strBuffer.Append("PlusClampedEXT");
+		case .PlusClampedAlphaEXT: strBuffer.Append("PlusClampedAlphaEXT");
+		case .PlusDarkerEXT: strBuffer.Append("PlusDarkerEXT");
+		case .MinusEXT: strBuffer.Append("MinusEXT");
+		case .MinusClampedEXT: strBuffer.Append("MinusClampedEXT");
+		case .ContrastEXT: strBuffer.Append("ContrastEXT");
+		case .InvertOvgEXT: strBuffer.Append("InvertOvgEXT");
+		case .RedEXT: strBuffer.Append("RedEXT");
+		case .GreenEXT: strBuffer.Append("GreenEXT");
+		case .BlueEXT: strBuffer.Append("BlueEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBorderColor
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -141,10 +258,28 @@ extension VkBorderColor
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FloatTransparentBlack: strBuffer.Append("FloatTransparentBlack");
+		case .IntTransparentBlack: strBuffer.Append("IntTransparentBlack");
+		case .FloatOpaqueBlack: strBuffer.Append("FloatOpaqueBlack");
+		case .IntOpaqueBlack: strBuffer.Append("IntOpaqueBlack");
+		case .FloatOpaqueWhite: strBuffer.Append("FloatOpaqueWhite");
+		case .IntOpaqueWhite: strBuffer.Append("IntOpaqueWhite");
+		case .FloatCustomEXT: strBuffer.Append("FloatCustomEXT");
+		case .IntCustomEXT: strBuffer.Append("IntCustomEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFramebufferCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -153,10 +288,21 @@ extension VkFramebufferCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Imageless: strBuffer.Append("Imageless");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkQueryPoolCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -165,10 +311,21 @@ extension VkQueryPoolCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ResetKHR: strBuffer.Append("ResetKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkRenderPassCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -178,10 +335,22 @@ extension VkRenderPassCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TransformQCOM: strBuffer.Append("TransformQCOM");
+		case .PerLayerFragmentDensityVALVE: strBuffer.Append("PerLayerFragmentDensityVALVE");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSamplerCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -194,10 +363,25 @@ extension VkSamplerCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SubsampledEXT: strBuffer.Append("SubsampledEXT");
+		case .SubsampledCoarseReconstructionEXT: strBuffer.Append("SubsampledCoarseReconstructionEXT");
+		case .DescriptorBufferCaptureReplayEXT: strBuffer.Append("DescriptorBufferCaptureReplayEXT");
+		case .NonSeamlessCubeMapEXT: strBuffer.Append("NonSeamlessCubeMapEXT");
+		case .ImageProcessingQCOM: strBuffer.Append("ImageProcessingQCOM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineCacheHeaderVersion
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -206,10 +390,21 @@ extension VkPipelineCacheHeaderVersion
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .One: strBuffer.Append("One");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineCacheCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -219,10 +414,22 @@ extension VkPipelineCacheCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ExternallySynchronized: strBuffer.Append("ExternallySynchronized");
+		case .InternallySynchronizedMergeKHR: strBuffer.Append("InternallySynchronizedMergeKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineShaderStageCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -232,10 +439,22 @@ extension VkPipelineShaderStageCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AllowVaryingSubgroupSize: strBuffer.Append("AllowVaryingSubgroupSize");
+		case .RequireFullSubgroups: strBuffer.Append("RequireFullSubgroups");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDescriptorSetLayoutCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -250,10 +469,27 @@ extension VkDescriptorSetLayoutCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UpdateAfterBindPool: strBuffer.Append("UpdateAfterBindPool");
+		case .PushDescriptor: strBuffer.Append("PushDescriptor");
+		case .DescriptorBufferEXT: strBuffer.Append("DescriptorBufferEXT");
+		case .EmbeddedImmutableSamplersEXT: strBuffer.Append("EmbeddedImmutableSamplersEXT");
+		case .IndirectBindableNV: strBuffer.Append("IndirectBindableNV");
+		case .HostOnlyPoolEXT: strBuffer.Append("HostOnlyPoolEXT");
+		case .PerStageNV: strBuffer.Append("PerStageNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkInstanceCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -262,10 +498,21 @@ extension VkInstanceCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .EnumeratePortabilityKHR: strBuffer.Append("EnumeratePortabilityKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDeviceQueueCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -274,10 +521,21 @@ extension VkDeviceQueueCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Protected: strBuffer.Append("Protected");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBufferCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -292,10 +550,27 @@ extension VkBufferCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SparseBinding: strBuffer.Append("SparseBinding");
+		case .SparseResidency: strBuffer.Append("SparseResidency");
+		case .SparseAliased: strBuffer.Append("SparseAliased");
+		case .Protected: strBuffer.Append("Protected");
+		case .DeviceAddressCaptureReplay: strBuffer.Append("DeviceAddressCaptureReplay");
+		case .DescriptorBufferCaptureReplayEXT: strBuffer.Append("DescriptorBufferCaptureReplayEXT");
+		case .VideoProfileIndependentKHR: strBuffer.Append("VideoProfileIndependentKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBufferUsageFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -330,10 +605,47 @@ extension VkBufferUsageFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TransferSrc: strBuffer.Append("TransferSrc");
+		case .TransferDst: strBuffer.Append("TransferDst");
+		case .UniformTexelBuffer: strBuffer.Append("UniformTexelBuffer");
+		case .StorageTexelBuffer: strBuffer.Append("StorageTexelBuffer");
+		case .UniformBuffer: strBuffer.Append("UniformBuffer");
+		case .StorageBuffer: strBuffer.Append("StorageBuffer");
+		case .IndexBuffer: strBuffer.Append("IndexBuffer");
+		case .VertexBuffer: strBuffer.Append("VertexBuffer");
+		case .IndirectBuffer: strBuffer.Append("IndirectBuffer");
+		case .ShaderDeviceAddress: strBuffer.Append("ShaderDeviceAddress");
+		case .VideoDecodeSrcKHR: strBuffer.Append("VideoDecodeSrcKHR");
+		case .VideoDecodeDstKHR: strBuffer.Append("VideoDecodeDstKHR");
+		case .TransformFeedbackBufferEXT: strBuffer.Append("TransformFeedbackBufferEXT");
+		case .TransformFeedbackCounterBufferEXT: strBuffer.Append("TransformFeedbackCounterBufferEXT");
+		case .ConditionalRenderingEXT: strBuffer.Append("ConditionalRenderingEXT");
+		case .ExecutionGraphScratchAMDX: strBuffer.Append("ExecutionGraphScratchAMDX");
+		case .AccelerationStructureBuildInputReadOnlyKHR: strBuffer.Append("AccelerationStructureBuildInputReadOnlyKHR");
+		case .AccelerationStructureStorageKHR: strBuffer.Append("AccelerationStructureStorageKHR");
+		case .ShaderBindingTableKHR: strBuffer.Append("ShaderBindingTableKHR");
+		case .VideoEncodeDstKHR: strBuffer.Append("VideoEncodeDstKHR");
+		case .VideoEncodeSrcKHR: strBuffer.Append("VideoEncodeSrcKHR");
+		case .SamplerDescriptorBufferEXT: strBuffer.Append("SamplerDescriptorBufferEXT");
+		case .ResourceDescriptorBufferEXT: strBuffer.Append("ResourceDescriptorBufferEXT");
+		case .PushDescriptorsDescriptorBufferEXT: strBuffer.Append("PushDescriptorsDescriptorBufferEXT");
+		case .MicromapBuildInputReadOnlyEXT: strBuffer.Append("MicromapBuildInputReadOnlyEXT");
+		case .MicromapStorageEXT: strBuffer.Append("MicromapStorageEXT");
+		case .TileMemoryQCOM: strBuffer.Append("TileMemoryQCOM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkColorComponentFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -345,10 +657,24 @@ extension VkColorComponentFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .R: strBuffer.Append("R");
+		case .G: strBuffer.Append("G");
+		case .B: strBuffer.Append("B");
+		case .A: strBuffer.Append("A");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkComponentSwizzle
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -363,10 +689,27 @@ extension VkComponentSwizzle
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Identity: strBuffer.Append("Identity");
+		case .Zero: strBuffer.Append("Zero");
+		case .One: strBuffer.Append("One");
+		case .R: strBuffer.Append("R");
+		case .G: strBuffer.Append("G");
+		case .B: strBuffer.Append("B");
+		case .A: strBuffer.Append("A");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCommandPoolCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -377,10 +720,23 @@ extension VkCommandPoolCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Transient: strBuffer.Append("Transient");
+		case .ResetCommandBuffer: strBuffer.Append("ResetCommandBuffer");
+		case .Protected: strBuffer.Append("Protected");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCommandPoolResetFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -389,10 +745,21 @@ extension VkCommandPoolResetFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ReleaseResources: strBuffer.Append("ReleaseResources");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCommandBufferResetFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -401,10 +768,21 @@ extension VkCommandBufferResetFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ReleaseResources: strBuffer.Append("ReleaseResources");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCommandBufferLevel
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -414,10 +792,22 @@ extension VkCommandBufferLevel
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Primary: strBuffer.Append("Primary");
+		case .Secondary: strBuffer.Append("Secondary");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCommandBufferUsageFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -428,10 +818,23 @@ extension VkCommandBufferUsageFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OneTimeSubmit: strBuffer.Append("OneTimeSubmit");
+		case .RenderPassContinue: strBuffer.Append("RenderPassContinue");
+		case .SimultaneousUse: strBuffer.Append("SimultaneousUse");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCompareOp
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -447,10 +850,28 @@ extension VkCompareOp
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Never: strBuffer.Append("Never");
+		case .Less: strBuffer.Append("Less");
+		case .Equal: strBuffer.Append("Equal");
+		case .LessOrEqual: strBuffer.Append("LessOrEqual");
+		case .Greater: strBuffer.Append("Greater");
+		case .NotEqual: strBuffer.Append("NotEqual");
+		case .GreaterOrEqual: strBuffer.Append("GreaterOrEqual");
+		case .Always: strBuffer.Append("Always");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCullModeFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -462,10 +883,24 @@ extension VkCullModeFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .None: strBuffer.Append("None");
+		case .Front: strBuffer.Append("Front");
+		case .Back: strBuffer.Append("Back");
+		case .FrontAndBack: strBuffer.Append("FrontAndBack");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDescriptorType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -492,10 +927,39 @@ extension VkDescriptorType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Sampler: strBuffer.Append("Sampler");
+		case .CombinedImageSampler: strBuffer.Append("CombinedImageSampler");
+		case .SampledImage: strBuffer.Append("SampledImage");
+		case .StorageImage: strBuffer.Append("StorageImage");
+		case .UniformTexelBuffer: strBuffer.Append("UniformTexelBuffer");
+		case .StorageTexelBuffer: strBuffer.Append("StorageTexelBuffer");
+		case .UniformBuffer: strBuffer.Append("UniformBuffer");
+		case .StorageBuffer: strBuffer.Append("StorageBuffer");
+		case .UniformBufferDynamic: strBuffer.Append("UniformBufferDynamic");
+		case .StorageBufferDynamic: strBuffer.Append("StorageBufferDynamic");
+		case .InputAttachment: strBuffer.Append("InputAttachment");
+		case .InlineUniformBlock: strBuffer.Append("InlineUniformBlock");
+		case .AccelerationStructureKHR: strBuffer.Append("AccelerationStructureKHR");
+		case .AccelerationStructureNV: strBuffer.Append("AccelerationStructureNV");
+		case .SampleWeightImageQCOM: strBuffer.Append("SampleWeightImageQCOM");
+		case .BlockMatchImageQCOM: strBuffer.Append("BlockMatchImageQCOM");
+		case .TensorARM: strBuffer.Append("TensorARM");
+		case .MutableEXT: strBuffer.Append("MutableEXT");
+		case .PartitionedAccelerationStructureNV: strBuffer.Append("PartitionedAccelerationStructureNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDynamicState
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -576,10 +1040,93 @@ extension VkDynamicState
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Viewport: strBuffer.Append("Viewport");
+		case .Scissor: strBuffer.Append("Scissor");
+		case .LineWidth: strBuffer.Append("LineWidth");
+		case .DepthBias: strBuffer.Append("DepthBias");
+		case .BlendConstants: strBuffer.Append("BlendConstants");
+		case .DepthBounds: strBuffer.Append("DepthBounds");
+		case .StencilCompareMask: strBuffer.Append("StencilCompareMask");
+		case .StencilWriteMask: strBuffer.Append("StencilWriteMask");
+		case .StencilReference: strBuffer.Append("StencilReference");
+		case .CullMode: strBuffer.Append("CullMode");
+		case .FrontFace: strBuffer.Append("FrontFace");
+		case .PrimitiveTopology: strBuffer.Append("PrimitiveTopology");
+		case .ViewportWithCount: strBuffer.Append("ViewportWithCount");
+		case .ScissorWithCount: strBuffer.Append("ScissorWithCount");
+		case .VertexInputBindingStride: strBuffer.Append("VertexInputBindingStride");
+		case .DepthTestEnable: strBuffer.Append("DepthTestEnable");
+		case .DepthWriteEnable: strBuffer.Append("DepthWriteEnable");
+		case .DepthCompareOp: strBuffer.Append("DepthCompareOp");
+		case .DepthBoundsTestEnable: strBuffer.Append("DepthBoundsTestEnable");
+		case .StencilTestEnable: strBuffer.Append("StencilTestEnable");
+		case .StencilOp: strBuffer.Append("StencilOp");
+		case .RasterizerDiscardEnable: strBuffer.Append("RasterizerDiscardEnable");
+		case .DepthBiasEnable: strBuffer.Append("DepthBiasEnable");
+		case .PrimitiveRestartEnable: strBuffer.Append("PrimitiveRestartEnable");
+		case .LineStipple: strBuffer.Append("LineStipple");
+		case .ViewportWScalingNV: strBuffer.Append("ViewportWScalingNV");
+		case .DiscardRectangleEXT: strBuffer.Append("DiscardRectangleEXT");
+		case .DiscardRectangleEnableEXT: strBuffer.Append("DiscardRectangleEnableEXT");
+		case .DiscardRectangleModeEXT: strBuffer.Append("DiscardRectangleModeEXT");
+		case .SampleLocationsEXT: strBuffer.Append("SampleLocationsEXT");
+		case .RayTracingPipelineStackSizeKHR: strBuffer.Append("RayTracingPipelineStackSizeKHR");
+		case .ViewportShadingRatePaletteNV: strBuffer.Append("ViewportShadingRatePaletteNV");
+		case .ViewportCoarseSampleOrderNV: strBuffer.Append("ViewportCoarseSampleOrderNV");
+		case .ExclusiveScissorEnableNV: strBuffer.Append("ExclusiveScissorEnableNV");
+		case .ExclusiveScissorNV: strBuffer.Append("ExclusiveScissorNV");
+		case .FragmentShadingRateKHR: strBuffer.Append("FragmentShadingRateKHR");
+		case .VertexInputEXT: strBuffer.Append("VertexInputEXT");
+		case .PatchControlPointsEXT: strBuffer.Append("PatchControlPointsEXT");
+		case .LogicOpEXT: strBuffer.Append("LogicOpEXT");
+		case .ColorWriteEnableEXT: strBuffer.Append("ColorWriteEnableEXT");
+		case .DepthClampEnableEXT: strBuffer.Append("DepthClampEnableEXT");
+		case .PolygonModeEXT: strBuffer.Append("PolygonModeEXT");
+		case .RasterizationSamplesEXT: strBuffer.Append("RasterizationSamplesEXT");
+		case .SampleMaskEXT: strBuffer.Append("SampleMaskEXT");
+		case .AlphaToCoverageEnableEXT: strBuffer.Append("AlphaToCoverageEnableEXT");
+		case .AlphaToOneEnableEXT: strBuffer.Append("AlphaToOneEnableEXT");
+		case .LogicOpEnableEXT: strBuffer.Append("LogicOpEnableEXT");
+		case .ColorBlendEnableEXT: strBuffer.Append("ColorBlendEnableEXT");
+		case .ColorBlendEquationEXT: strBuffer.Append("ColorBlendEquationEXT");
+		case .ColorWriteMaskEXT: strBuffer.Append("ColorWriteMaskEXT");
+		case .TessellationDomainOriginEXT: strBuffer.Append("TessellationDomainOriginEXT");
+		case .RasterizationStreamEXT: strBuffer.Append("RasterizationStreamEXT");
+		case .ConservativeRasterizationModeEXT: strBuffer.Append("ConservativeRasterizationModeEXT");
+		case .ExtraPrimitiveOverestimationSizeEXT: strBuffer.Append("ExtraPrimitiveOverestimationSizeEXT");
+		case .DepthClipEnableEXT: strBuffer.Append("DepthClipEnableEXT");
+		case .SampleLocationsEnableEXT: strBuffer.Append("SampleLocationsEnableEXT");
+		case .ColorBlendAdvancedEXT: strBuffer.Append("ColorBlendAdvancedEXT");
+		case .ProvokingVertexModeEXT: strBuffer.Append("ProvokingVertexModeEXT");
+		case .LineRasterizationModeEXT: strBuffer.Append("LineRasterizationModeEXT");
+		case .LineStippleEnableEXT: strBuffer.Append("LineStippleEnableEXT");
+		case .DepthClipNegativeOneToOneEXT: strBuffer.Append("DepthClipNegativeOneToOneEXT");
+		case .ViewportWScalingEnableNV: strBuffer.Append("ViewportWScalingEnableNV");
+		case .ViewportSwizzleNV: strBuffer.Append("ViewportSwizzleNV");
+		case .CoverageToColorEnableNV: strBuffer.Append("CoverageToColorEnableNV");
+		case .CoverageToColorLocationNV: strBuffer.Append("CoverageToColorLocationNV");
+		case .CoverageModulationModeNV: strBuffer.Append("CoverageModulationModeNV");
+		case .CoverageModulationTableEnableNV: strBuffer.Append("CoverageModulationTableEnableNV");
+		case .CoverageModulationTableNV: strBuffer.Append("CoverageModulationTableNV");
+		case .ShadingRateImageEnableNV: strBuffer.Append("ShadingRateImageEnableNV");
+		case .RepresentativeFragmentTestEnableNV: strBuffer.Append("RepresentativeFragmentTestEnableNV");
+		case .CoverageReductionModeNV: strBuffer.Append("CoverageReductionModeNV");
+		case .AttachmentFeedbackLoopEnableEXT: strBuffer.Append("AttachmentFeedbackLoopEnableEXT");
+		case .DepthClampRangeEXT: strBuffer.Append("DepthClampRangeEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFenceCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -588,10 +1135,21 @@ extension VkFenceCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Signaled: strBuffer.Append("Signaled");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPolygonMode
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -603,10 +1161,24 @@ extension VkPolygonMode
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Fill: strBuffer.Append("Fill");
+		case .Line: strBuffer.Append("Line");
+		case .Point: strBuffer.Append("Point");
+		case .FillRectangleNV: strBuffer.Append("FillRectangleNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFormat
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -879,10 +1451,285 @@ extension VkFormat
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UNDEFINED: strBuffer.Append("UNDEFINED");
+		case .R4G4_UNORM_PACK8: strBuffer.Append("R4G4_UNORM_PACK8");
+		case .R4G4B4A4_UNORM_PACK16: strBuffer.Append("R4G4B4A4_UNORM_PACK16");
+		case .B4G4R4A4_UNORM_PACK16: strBuffer.Append("B4G4R4A4_UNORM_PACK16");
+		case .R5G6B5_UNORM_PACK16: strBuffer.Append("R5G6B5_UNORM_PACK16");
+		case .B5G6R5_UNORM_PACK16: strBuffer.Append("B5G6R5_UNORM_PACK16");
+		case .R5G5B5A1_UNORM_PACK16: strBuffer.Append("R5G5B5A1_UNORM_PACK16");
+		case .B5G5R5A1_UNORM_PACK16: strBuffer.Append("B5G5R5A1_UNORM_PACK16");
+		case .A1R5G5B5_UNORM_PACK16: strBuffer.Append("A1R5G5B5_UNORM_PACK16");
+		case .R8_UNORM: strBuffer.Append("R8_UNORM");
+		case .R8_SNORM: strBuffer.Append("R8_SNORM");
+		case .R8_USCALED: strBuffer.Append("R8_USCALED");
+		case .R8_SSCALED: strBuffer.Append("R8_SSCALED");
+		case .R8_UINT: strBuffer.Append("R8_UINT");
+		case .R8_SINT: strBuffer.Append("R8_SINT");
+		case .R8_SRGB: strBuffer.Append("R8_SRGB");
+		case .R8G8_UNORM: strBuffer.Append("R8G8_UNORM");
+		case .R8G8_SNORM: strBuffer.Append("R8G8_SNORM");
+		case .R8G8_USCALED: strBuffer.Append("R8G8_USCALED");
+		case .R8G8_SSCALED: strBuffer.Append("R8G8_SSCALED");
+		case .R8G8_UINT: strBuffer.Append("R8G8_UINT");
+		case .R8G8_SINT: strBuffer.Append("R8G8_SINT");
+		case .R8G8_SRGB: strBuffer.Append("R8G8_SRGB");
+		case .R8G8B8_UNORM: strBuffer.Append("R8G8B8_UNORM");
+		case .R8G8B8_SNORM: strBuffer.Append("R8G8B8_SNORM");
+		case .R8G8B8_USCALED: strBuffer.Append("R8G8B8_USCALED");
+		case .R8G8B8_SSCALED: strBuffer.Append("R8G8B8_SSCALED");
+		case .R8G8B8_UINT: strBuffer.Append("R8G8B8_UINT");
+		case .R8G8B8_SINT: strBuffer.Append("R8G8B8_SINT");
+		case .R8G8B8_SRGB: strBuffer.Append("R8G8B8_SRGB");
+		case .B8G8R8_UNORM: strBuffer.Append("B8G8R8_UNORM");
+		case .B8G8R8_SNORM: strBuffer.Append("B8G8R8_SNORM");
+		case .B8G8R8_USCALED: strBuffer.Append("B8G8R8_USCALED");
+		case .B8G8R8_SSCALED: strBuffer.Append("B8G8R8_SSCALED");
+		case .B8G8R8_UINT: strBuffer.Append("B8G8R8_UINT");
+		case .B8G8R8_SINT: strBuffer.Append("B8G8R8_SINT");
+		case .B8G8R8_SRGB: strBuffer.Append("B8G8R8_SRGB");
+		case .R8G8B8A8_UNORM: strBuffer.Append("R8G8B8A8_UNORM");
+		case .R8G8B8A8_SNORM: strBuffer.Append("R8G8B8A8_SNORM");
+		case .R8G8B8A8_USCALED: strBuffer.Append("R8G8B8A8_USCALED");
+		case .R8G8B8A8_SSCALED: strBuffer.Append("R8G8B8A8_SSCALED");
+		case .R8G8B8A8_UINT: strBuffer.Append("R8G8B8A8_UINT");
+		case .R8G8B8A8_SINT: strBuffer.Append("R8G8B8A8_SINT");
+		case .R8G8B8A8_SRGB: strBuffer.Append("R8G8B8A8_SRGB");
+		case .B8G8R8A8_UNORM: strBuffer.Append("B8G8R8A8_UNORM");
+		case .B8G8R8A8_SNORM: strBuffer.Append("B8G8R8A8_SNORM");
+		case .B8G8R8A8_USCALED: strBuffer.Append("B8G8R8A8_USCALED");
+		case .B8G8R8A8_SSCALED: strBuffer.Append("B8G8R8A8_SSCALED");
+		case .B8G8R8A8_UINT: strBuffer.Append("B8G8R8A8_UINT");
+		case .B8G8R8A8_SINT: strBuffer.Append("B8G8R8A8_SINT");
+		case .B8G8R8A8_SRGB: strBuffer.Append("B8G8R8A8_SRGB");
+		case .A8B8G8R8_UNORM_PACK32: strBuffer.Append("A8B8G8R8_UNORM_PACK32");
+		case .A8B8G8R8_SNORM_PACK32: strBuffer.Append("A8B8G8R8_SNORM_PACK32");
+		case .A8B8G8R8_USCALED_PACK32: strBuffer.Append("A8B8G8R8_USCALED_PACK32");
+		case .A8B8G8R8_SSCALED_PACK32: strBuffer.Append("A8B8G8R8_SSCALED_PACK32");
+		case .A8B8G8R8_UINT_PACK32: strBuffer.Append("A8B8G8R8_UINT_PACK32");
+		case .A8B8G8R8_SINT_PACK32: strBuffer.Append("A8B8G8R8_SINT_PACK32");
+		case .A8B8G8R8_SRGB_PACK32: strBuffer.Append("A8B8G8R8_SRGB_PACK32");
+		case .A2R10G10B10_UNORM_PACK32: strBuffer.Append("A2R10G10B10_UNORM_PACK32");
+		case .A2R10G10B10_SNORM_PACK32: strBuffer.Append("A2R10G10B10_SNORM_PACK32");
+		case .A2R10G10B10_USCALED_PACK32: strBuffer.Append("A2R10G10B10_USCALED_PACK32");
+		case .A2R10G10B10_SSCALED_PACK32: strBuffer.Append("A2R10G10B10_SSCALED_PACK32");
+		case .A2R10G10B10_UINT_PACK32: strBuffer.Append("A2R10G10B10_UINT_PACK32");
+		case .A2R10G10B10_SINT_PACK32: strBuffer.Append("A2R10G10B10_SINT_PACK32");
+		case .A2B10G10R10_UNORM_PACK32: strBuffer.Append("A2B10G10R10_UNORM_PACK32");
+		case .A2B10G10R10_SNORM_PACK32: strBuffer.Append("A2B10G10R10_SNORM_PACK32");
+		case .A2B10G10R10_USCALED_PACK32: strBuffer.Append("A2B10G10R10_USCALED_PACK32");
+		case .A2B10G10R10_SSCALED_PACK32: strBuffer.Append("A2B10G10R10_SSCALED_PACK32");
+		case .A2B10G10R10_UINT_PACK32: strBuffer.Append("A2B10G10R10_UINT_PACK32");
+		case .A2B10G10R10_SINT_PACK32: strBuffer.Append("A2B10G10R10_SINT_PACK32");
+		case .R16_UNORM: strBuffer.Append("R16_UNORM");
+		case .R16_SNORM: strBuffer.Append("R16_SNORM");
+		case .R16_USCALED: strBuffer.Append("R16_USCALED");
+		case .R16_SSCALED: strBuffer.Append("R16_SSCALED");
+		case .R16_UINT: strBuffer.Append("R16_UINT");
+		case .R16_SINT: strBuffer.Append("R16_SINT");
+		case .R16_SFLOAT: strBuffer.Append("R16_SFLOAT");
+		case .R16G16_UNORM: strBuffer.Append("R16G16_UNORM");
+		case .R16G16_SNORM: strBuffer.Append("R16G16_SNORM");
+		case .R16G16_USCALED: strBuffer.Append("R16G16_USCALED");
+		case .R16G16_SSCALED: strBuffer.Append("R16G16_SSCALED");
+		case .R16G16_UINT: strBuffer.Append("R16G16_UINT");
+		case .R16G16_SINT: strBuffer.Append("R16G16_SINT");
+		case .R16G16_SFLOAT: strBuffer.Append("R16G16_SFLOAT");
+		case .R16G16B16_UNORM: strBuffer.Append("R16G16B16_UNORM");
+		case .R16G16B16_SNORM: strBuffer.Append("R16G16B16_SNORM");
+		case .R16G16B16_USCALED: strBuffer.Append("R16G16B16_USCALED");
+		case .R16G16B16_SSCALED: strBuffer.Append("R16G16B16_SSCALED");
+		case .R16G16B16_UINT: strBuffer.Append("R16G16B16_UINT");
+		case .R16G16B16_SINT: strBuffer.Append("R16G16B16_SINT");
+		case .R16G16B16_SFLOAT: strBuffer.Append("R16G16B16_SFLOAT");
+		case .R16G16B16A16_UNORM: strBuffer.Append("R16G16B16A16_UNORM");
+		case .R16G16B16A16_SNORM: strBuffer.Append("R16G16B16A16_SNORM");
+		case .R16G16B16A16_USCALED: strBuffer.Append("R16G16B16A16_USCALED");
+		case .R16G16B16A16_SSCALED: strBuffer.Append("R16G16B16A16_SSCALED");
+		case .R16G16B16A16_UINT: strBuffer.Append("R16G16B16A16_UINT");
+		case .R16G16B16A16_SINT: strBuffer.Append("R16G16B16A16_SINT");
+		case .R16G16B16A16_SFLOAT: strBuffer.Append("R16G16B16A16_SFLOAT");
+		case .R32_UINT: strBuffer.Append("R32_UINT");
+		case .R32_SINT: strBuffer.Append("R32_SINT");
+		case .R32_SFLOAT: strBuffer.Append("R32_SFLOAT");
+		case .R32G32_UINT: strBuffer.Append("R32G32_UINT");
+		case .R32G32_SINT: strBuffer.Append("R32G32_SINT");
+		case .R32G32_SFLOAT: strBuffer.Append("R32G32_SFLOAT");
+		case .R32G32B32_UINT: strBuffer.Append("R32G32B32_UINT");
+		case .R32G32B32_SINT: strBuffer.Append("R32G32B32_SINT");
+		case .R32G32B32_SFLOAT: strBuffer.Append("R32G32B32_SFLOAT");
+		case .R32G32B32A32_UINT: strBuffer.Append("R32G32B32A32_UINT");
+		case .R32G32B32A32_SINT: strBuffer.Append("R32G32B32A32_SINT");
+		case .R32G32B32A32_SFLOAT: strBuffer.Append("R32G32B32A32_SFLOAT");
+		case .R64_UINT: strBuffer.Append("R64_UINT");
+		case .R64_SINT: strBuffer.Append("R64_SINT");
+		case .R64_SFLOAT: strBuffer.Append("R64_SFLOAT");
+		case .R64G64_UINT: strBuffer.Append("R64G64_UINT");
+		case .R64G64_SINT: strBuffer.Append("R64G64_SINT");
+		case .R64G64_SFLOAT: strBuffer.Append("R64G64_SFLOAT");
+		case .R64G64B64_UINT: strBuffer.Append("R64G64B64_UINT");
+		case .R64G64B64_SINT: strBuffer.Append("R64G64B64_SINT");
+		case .R64G64B64_SFLOAT: strBuffer.Append("R64G64B64_SFLOAT");
+		case .R64G64B64A64_UINT: strBuffer.Append("R64G64B64A64_UINT");
+		case .R64G64B64A64_SINT: strBuffer.Append("R64G64B64A64_SINT");
+		case .R64G64B64A64_SFLOAT: strBuffer.Append("R64G64B64A64_SFLOAT");
+		case .B10G11R11_UFLOAT_PACK32: strBuffer.Append("B10G11R11_UFLOAT_PACK32");
+		case .E5B9G9R9_UFLOAT_PACK32: strBuffer.Append("E5B9G9R9_UFLOAT_PACK32");
+		case .D16_UNORM: strBuffer.Append("D16_UNORM");
+		case .X8_D24_UNORM_PACK32: strBuffer.Append("X8_D24_UNORM_PACK32");
+		case .D32_SFLOAT: strBuffer.Append("D32_SFLOAT");
+		case .S8_UINT: strBuffer.Append("S8_UINT");
+		case .D16_UNORM_S8_UINT: strBuffer.Append("D16_UNORM_S8_UINT");
+		case .D24_UNORM_S8_UINT: strBuffer.Append("D24_UNORM_S8_UINT");
+		case .D32_SFLOAT_S8_UINT: strBuffer.Append("D32_SFLOAT_S8_UINT");
+		case .BC1_RGB_UNORM_BLOCK: strBuffer.Append("BC1_RGB_UNORM_BLOCK");
+		case .BC1_RGB_SRGB_BLOCK: strBuffer.Append("BC1_RGB_SRGB_BLOCK");
+		case .BC1_RGBA_UNORM_BLOCK: strBuffer.Append("BC1_RGBA_UNORM_BLOCK");
+		case .BC1_RGBA_SRGB_BLOCK: strBuffer.Append("BC1_RGBA_SRGB_BLOCK");
+		case .BC2_UNORM_BLOCK: strBuffer.Append("BC2_UNORM_BLOCK");
+		case .BC2_SRGB_BLOCK: strBuffer.Append("BC2_SRGB_BLOCK");
+		case .BC3_UNORM_BLOCK: strBuffer.Append("BC3_UNORM_BLOCK");
+		case .BC3_SRGB_BLOCK: strBuffer.Append("BC3_SRGB_BLOCK");
+		case .BC4_UNORM_BLOCK: strBuffer.Append("BC4_UNORM_BLOCK");
+		case .BC4_SNORM_BLOCK: strBuffer.Append("BC4_SNORM_BLOCK");
+		case .BC5_UNORM_BLOCK: strBuffer.Append("BC5_UNORM_BLOCK");
+		case .BC5_SNORM_BLOCK: strBuffer.Append("BC5_SNORM_BLOCK");
+		case .BC6H_UFLOAT_BLOCK: strBuffer.Append("BC6H_UFLOAT_BLOCK");
+		case .BC6H_SFLOAT_BLOCK: strBuffer.Append("BC6H_SFLOAT_BLOCK");
+		case .BC7_UNORM_BLOCK: strBuffer.Append("BC7_UNORM_BLOCK");
+		case .BC7_SRGB_BLOCK: strBuffer.Append("BC7_SRGB_BLOCK");
+		case .ETC2_R8G8B8_UNORM_BLOCK: strBuffer.Append("ETC2_R8G8B8_UNORM_BLOCK");
+		case .ETC2_R8G8B8_SRGB_BLOCK: strBuffer.Append("ETC2_R8G8B8_SRGB_BLOCK");
+		case .ETC2_R8G8B8A1_UNORM_BLOCK: strBuffer.Append("ETC2_R8G8B8A1_UNORM_BLOCK");
+		case .ETC2_R8G8B8A1_SRGB_BLOCK: strBuffer.Append("ETC2_R8G8B8A1_SRGB_BLOCK");
+		case .ETC2_R8G8B8A8_UNORM_BLOCK: strBuffer.Append("ETC2_R8G8B8A8_UNORM_BLOCK");
+		case .ETC2_R8G8B8A8_SRGB_BLOCK: strBuffer.Append("ETC2_R8G8B8A8_SRGB_BLOCK");
+		case .EAC_R11_UNORM_BLOCK: strBuffer.Append("EAC_R11_UNORM_BLOCK");
+		case .EAC_R11_SNORM_BLOCK: strBuffer.Append("EAC_R11_SNORM_BLOCK");
+		case .EAC_R11G11_UNORM_BLOCK: strBuffer.Append("EAC_R11G11_UNORM_BLOCK");
+		case .EAC_R11G11_SNORM_BLOCK: strBuffer.Append("EAC_R11G11_SNORM_BLOCK");
+		case .ASTC_4x4_UNORM_BLOCK: strBuffer.Append("ASTC_4x4_UNORM_BLOCK");
+		case .ASTC_4x4_SRGB_BLOCK: strBuffer.Append("ASTC_4x4_SRGB_BLOCK");
+		case .ASTC_5x4_UNORM_BLOCK: strBuffer.Append("ASTC_5x4_UNORM_BLOCK");
+		case .ASTC_5x4_SRGB_BLOCK: strBuffer.Append("ASTC_5x4_SRGB_BLOCK");
+		case .ASTC_5x5_UNORM_BLOCK: strBuffer.Append("ASTC_5x5_UNORM_BLOCK");
+		case .ASTC_5x5_SRGB_BLOCK: strBuffer.Append("ASTC_5x5_SRGB_BLOCK");
+		case .ASTC_6x5_UNORM_BLOCK: strBuffer.Append("ASTC_6x5_UNORM_BLOCK");
+		case .ASTC_6x5_SRGB_BLOCK: strBuffer.Append("ASTC_6x5_SRGB_BLOCK");
+		case .ASTC_6x6_UNORM_BLOCK: strBuffer.Append("ASTC_6x6_UNORM_BLOCK");
+		case .ASTC_6x6_SRGB_BLOCK: strBuffer.Append("ASTC_6x6_SRGB_BLOCK");
+		case .ASTC_8x5_UNORM_BLOCK: strBuffer.Append("ASTC_8x5_UNORM_BLOCK");
+		case .ASTC_8x5_SRGB_BLOCK: strBuffer.Append("ASTC_8x5_SRGB_BLOCK");
+		case .ASTC_8x6_UNORM_BLOCK: strBuffer.Append("ASTC_8x6_UNORM_BLOCK");
+		case .ASTC_8x6_SRGB_BLOCK: strBuffer.Append("ASTC_8x6_SRGB_BLOCK");
+		case .ASTC_8x8_UNORM_BLOCK: strBuffer.Append("ASTC_8x8_UNORM_BLOCK");
+		case .ASTC_8x8_SRGB_BLOCK: strBuffer.Append("ASTC_8x8_SRGB_BLOCK");
+		case .ASTC_10x5_UNORM_BLOCK: strBuffer.Append("ASTC_10x5_UNORM_BLOCK");
+		case .ASTC_10x5_SRGB_BLOCK: strBuffer.Append("ASTC_10x5_SRGB_BLOCK");
+		case .ASTC_10x6_UNORM_BLOCK: strBuffer.Append("ASTC_10x6_UNORM_BLOCK");
+		case .ASTC_10x6_SRGB_BLOCK: strBuffer.Append("ASTC_10x6_SRGB_BLOCK");
+		case .ASTC_10x8_UNORM_BLOCK: strBuffer.Append("ASTC_10x8_UNORM_BLOCK");
+		case .ASTC_10x8_SRGB_BLOCK: strBuffer.Append("ASTC_10x8_SRGB_BLOCK");
+		case .ASTC_10x10_UNORM_BLOCK: strBuffer.Append("ASTC_10x10_UNORM_BLOCK");
+		case .ASTC_10x10_SRGB_BLOCK: strBuffer.Append("ASTC_10x10_SRGB_BLOCK");
+		case .ASTC_12x10_UNORM_BLOCK: strBuffer.Append("ASTC_12x10_UNORM_BLOCK");
+		case .ASTC_12x10_SRGB_BLOCK: strBuffer.Append("ASTC_12x10_SRGB_BLOCK");
+		case .ASTC_12x12_UNORM_BLOCK: strBuffer.Append("ASTC_12x12_UNORM_BLOCK");
+		case .ASTC_12x12_SRGB_BLOCK: strBuffer.Append("ASTC_12x12_SRGB_BLOCK");
+		case .G8B8G8R8_422_UNORM: strBuffer.Append("G8B8G8R8_422_UNORM");
+		case .B8G8R8G8_422_UNORM: strBuffer.Append("B8G8R8G8_422_UNORM");
+		case .G8_B8_R8_3PLANE_420_UNORM: strBuffer.Append("G8_B8_R8_3PLANE_420_UNORM");
+		case .G8_B8R8_2PLANE_420_UNORM: strBuffer.Append("G8_B8R8_2PLANE_420_UNORM");
+		case .G8_B8_R8_3PLANE_422_UNORM: strBuffer.Append("G8_B8_R8_3PLANE_422_UNORM");
+		case .G8_B8R8_2PLANE_422_UNORM: strBuffer.Append("G8_B8R8_2PLANE_422_UNORM");
+		case .G8_B8_R8_3PLANE_444_UNORM: strBuffer.Append("G8_B8_R8_3PLANE_444_UNORM");
+		case .R10X6_UNORM_PACK16: strBuffer.Append("R10X6_UNORM_PACK16");
+		case .R10X6G10X6_UNORM_2PACK16: strBuffer.Append("R10X6G10X6_UNORM_2PACK16");
+		case .R10X6G10X6B10X6A10X6_UNORM_4PACK16: strBuffer.Append("R10X6G10X6B10X6A10X6_UNORM_4PACK16");
+		case .G10X6B10X6G10X6R10X6_422_UNORM_4PACK16: strBuffer.Append("G10X6B10X6G10X6R10X6_422_UNORM_4PACK16");
+		case .B10X6G10X6R10X6G10X6_422_UNORM_4PACK16: strBuffer.Append("B10X6G10X6R10X6G10X6_422_UNORM_4PACK16");
+		case .G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16: strBuffer.Append("G10X6_B10X6_R10X6_3PLANE_420_UNORM_3PACK16");
+		case .G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16: strBuffer.Append("G10X6_B10X6R10X6_2PLANE_420_UNORM_3PACK16");
+		case .G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16: strBuffer.Append("G10X6_B10X6_R10X6_3PLANE_422_UNORM_3PACK16");
+		case .G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16: strBuffer.Append("G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16");
+		case .G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16: strBuffer.Append("G10X6_B10X6_R10X6_3PLANE_444_UNORM_3PACK16");
+		case .R12X4_UNORM_PACK16: strBuffer.Append("R12X4_UNORM_PACK16");
+		case .R12X4G12X4_UNORM_2PACK16: strBuffer.Append("R12X4G12X4_UNORM_2PACK16");
+		case .R12X4G12X4B12X4A12X4_UNORM_4PACK16: strBuffer.Append("R12X4G12X4B12X4A12X4_UNORM_4PACK16");
+		case .G12X4B12X4G12X4R12X4_422_UNORM_4PACK16: strBuffer.Append("G12X4B12X4G12X4R12X4_422_UNORM_4PACK16");
+		case .B12X4G12X4R12X4G12X4_422_UNORM_4PACK16: strBuffer.Append("B12X4G12X4R12X4G12X4_422_UNORM_4PACK16");
+		case .G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16: strBuffer.Append("G12X4_B12X4_R12X4_3PLANE_420_UNORM_3PACK16");
+		case .G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16: strBuffer.Append("G12X4_B12X4R12X4_2PLANE_420_UNORM_3PACK16");
+		case .G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16: strBuffer.Append("G12X4_B12X4_R12X4_3PLANE_422_UNORM_3PACK16");
+		case .G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16: strBuffer.Append("G12X4_B12X4R12X4_2PLANE_422_UNORM_3PACK16");
+		case .G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16: strBuffer.Append("G12X4_B12X4_R12X4_3PLANE_444_UNORM_3PACK16");
+		case .G16B16G16R16_422_UNORM: strBuffer.Append("G16B16G16R16_422_UNORM");
+		case .B16G16R16G16_422_UNORM: strBuffer.Append("B16G16R16G16_422_UNORM");
+		case .G16_B16_R16_3PLANE_420_UNORM: strBuffer.Append("G16_B16_R16_3PLANE_420_UNORM");
+		case .G16_B16R16_2PLANE_420_UNORM: strBuffer.Append("G16_B16R16_2PLANE_420_UNORM");
+		case .G16_B16_R16_3PLANE_422_UNORM: strBuffer.Append("G16_B16_R16_3PLANE_422_UNORM");
+		case .G16_B16R16_2PLANE_422_UNORM: strBuffer.Append("G16_B16R16_2PLANE_422_UNORM");
+		case .G16_B16_R16_3PLANE_444_UNORM: strBuffer.Append("G16_B16_R16_3PLANE_444_UNORM");
+		case .G8_B8R8_2PLANE_444_UNORM: strBuffer.Append("G8_B8R8_2PLANE_444_UNORM");
+		case .G10X6_B10X6R10X6_2PLANE_444_UNORM_3PACK16: strBuffer.Append("G10X6_B10X6R10X6_2PLANE_444_UNORM_3PACK16");
+		case .G12X4_B12X4R12X4_2PLANE_444_UNORM_3PACK16: strBuffer.Append("G12X4_B12X4R12X4_2PLANE_444_UNORM_3PACK16");
+		case .G16_B16R16_2PLANE_444_UNORM: strBuffer.Append("G16_B16R16_2PLANE_444_UNORM");
+		case .A4R4G4B4_UNORM_PACK16: strBuffer.Append("A4R4G4B4_UNORM_PACK16");
+		case .A4B4G4R4_UNORM_PACK16: strBuffer.Append("A4B4G4R4_UNORM_PACK16");
+		case .ASTC_4x4_SFLOAT_BLOCK: strBuffer.Append("ASTC_4x4_SFLOAT_BLOCK");
+		case .ASTC_5x4_SFLOAT_BLOCK: strBuffer.Append("ASTC_5x4_SFLOAT_BLOCK");
+		case .ASTC_5x5_SFLOAT_BLOCK: strBuffer.Append("ASTC_5x5_SFLOAT_BLOCK");
+		case .ASTC_6x5_SFLOAT_BLOCK: strBuffer.Append("ASTC_6x5_SFLOAT_BLOCK");
+		case .ASTC_6x6_SFLOAT_BLOCK: strBuffer.Append("ASTC_6x6_SFLOAT_BLOCK");
+		case .ASTC_8x5_SFLOAT_BLOCK: strBuffer.Append("ASTC_8x5_SFLOAT_BLOCK");
+		case .ASTC_8x6_SFLOAT_BLOCK: strBuffer.Append("ASTC_8x6_SFLOAT_BLOCK");
+		case .ASTC_8x8_SFLOAT_BLOCK: strBuffer.Append("ASTC_8x8_SFLOAT_BLOCK");
+		case .ASTC_10x5_SFLOAT_BLOCK: strBuffer.Append("ASTC_10x5_SFLOAT_BLOCK");
+		case .ASTC_10x6_SFLOAT_BLOCK: strBuffer.Append("ASTC_10x6_SFLOAT_BLOCK");
+		case .ASTC_10x8_SFLOAT_BLOCK: strBuffer.Append("ASTC_10x8_SFLOAT_BLOCK");
+		case .ASTC_10x10_SFLOAT_BLOCK: strBuffer.Append("ASTC_10x10_SFLOAT_BLOCK");
+		case .ASTC_12x10_SFLOAT_BLOCK: strBuffer.Append("ASTC_12x10_SFLOAT_BLOCK");
+		case .ASTC_12x12_SFLOAT_BLOCK: strBuffer.Append("ASTC_12x12_SFLOAT_BLOCK");
+		case .A1B5G5R5_UNORM_PACK16: strBuffer.Append("A1B5G5R5_UNORM_PACK16");
+		case .A8_UNORM: strBuffer.Append("A8_UNORM");
+		case .PVRTC1_2BPP_UNORM_BLOCK_IMG: strBuffer.Append("PVRTC1_2BPP_UNORM_BLOCK_IMG");
+		case .PVRTC1_4BPP_UNORM_BLOCK_IMG: strBuffer.Append("PVRTC1_4BPP_UNORM_BLOCK_IMG");
+		case .PVRTC2_2BPP_UNORM_BLOCK_IMG: strBuffer.Append("PVRTC2_2BPP_UNORM_BLOCK_IMG");
+		case .PVRTC2_4BPP_UNORM_BLOCK_IMG: strBuffer.Append("PVRTC2_4BPP_UNORM_BLOCK_IMG");
+		case .PVRTC1_2BPP_SRGB_BLOCK_IMG: strBuffer.Append("PVRTC1_2BPP_SRGB_BLOCK_IMG");
+		case .PVRTC1_4BPP_SRGB_BLOCK_IMG: strBuffer.Append("PVRTC1_4BPP_SRGB_BLOCK_IMG");
+		case .PVRTC2_2BPP_SRGB_BLOCK_IMG: strBuffer.Append("PVRTC2_2BPP_SRGB_BLOCK_IMG");
+		case .PVRTC2_4BPP_SRGB_BLOCK_IMG: strBuffer.Append("PVRTC2_4BPP_SRGB_BLOCK_IMG");
+		case .R8_BOOL_ARM: strBuffer.Append("R8_BOOL_ARM");
+		case .R16G16_SFIXED5_NV: strBuffer.Append("R16G16_SFIXED5_NV");
+		case .R10X6_UINT_PACK16_ARM: strBuffer.Append("R10X6_UINT_PACK16_ARM");
+		case .R10X6G10X6_UINT_2PACK16_ARM: strBuffer.Append("R10X6G10X6_UINT_2PACK16_ARM");
+		case .R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM: strBuffer.Append("R10X6G10X6B10X6A10X6_UINT_4PACK16_ARM");
+		case .R12X4_UINT_PACK16_ARM: strBuffer.Append("R12X4_UINT_PACK16_ARM");
+		case .R12X4G12X4_UINT_2PACK16_ARM: strBuffer.Append("R12X4G12X4_UINT_2PACK16_ARM");
+		case .R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM: strBuffer.Append("R12X4G12X4B12X4A12X4_UINT_4PACK16_ARM");
+		case .R14X2_UINT_PACK16_ARM: strBuffer.Append("R14X2_UINT_PACK16_ARM");
+		case .R14X2G14X2_UINT_2PACK16_ARM: strBuffer.Append("R14X2G14X2_UINT_2PACK16_ARM");
+		case .R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM: strBuffer.Append("R14X2G14X2B14X2A14X2_UINT_4PACK16_ARM");
+		case .R14X2_UNORM_PACK16_ARM: strBuffer.Append("R14X2_UNORM_PACK16_ARM");
+		case .R14X2G14X2_UNORM_2PACK16_ARM: strBuffer.Append("R14X2G14X2_UNORM_2PACK16_ARM");
+		case .R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM: strBuffer.Append("R14X2G14X2B14X2A14X2_UNORM_4PACK16_ARM");
+		case .G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM: strBuffer.Append("G14X2_B14X2R14X2_2PLANE_420_UNORM_3PACK16_ARM");
+		case .G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM: strBuffer.Append("G14X2_B14X2R14X2_2PLANE_422_UNORM_3PACK16_ARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFormatFeatureFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -921,10 +1768,51 @@ extension VkFormatFeatureFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SampledImage: strBuffer.Append("SampledImage");
+		case .StorageImage: strBuffer.Append("StorageImage");
+		case .StorageImageAtomic: strBuffer.Append("StorageImageAtomic");
+		case .UniformTexelBuffer: strBuffer.Append("UniformTexelBuffer");
+		case .StorageTexelBuffer: strBuffer.Append("StorageTexelBuffer");
+		case .StorageTexelBufferAtomic: strBuffer.Append("StorageTexelBufferAtomic");
+		case .VertexBuffer: strBuffer.Append("VertexBuffer");
+		case .ColorAttachment: strBuffer.Append("ColorAttachment");
+		case .ColorAttachmentBlend: strBuffer.Append("ColorAttachmentBlend");
+		case .DepthStencilAttachment: strBuffer.Append("DepthStencilAttachment");
+		case .BlitSrc: strBuffer.Append("BlitSrc");
+		case .BlitDst: strBuffer.Append("BlitDst");
+		case .SampledImageFilterLinear: strBuffer.Append("SampledImageFilterLinear");
+		case .TransferSrc: strBuffer.Append("TransferSrc");
+		case .TransferDst: strBuffer.Append("TransferDst");
+		case .MidpointChromaSamples: strBuffer.Append("MidpointChromaSamples");
+		case .SampledImageYcbcrConversionLinearFilter: strBuffer.Append("SampledImageYcbcrConversionLinearFilter");
+		case .SampledImageYcbcrConversionSeparateReconstructionFilter: strBuffer.Append("SampledImageYcbcrConversionSeparateReconstructionFilter");
+		case .SampledImageYcbcrConversionChromaReconstructionExplicit: strBuffer.Append("SampledImageYcbcrConversionChromaReconstructionExplicit");
+		case .SampledImageYcbcrConversionChromaReconstructionExplicitForceable: strBuffer.Append("SampledImageYcbcrConversionChromaReconstructionExplicitForceable");
+		case .Disjoint: strBuffer.Append("Disjoint");
+		case .CositedChromaSamples: strBuffer.Append("CositedChromaSamples");
+		case .SampledImageFilterMinmax: strBuffer.Append("SampledImageFilterMinmax");
+		case .VideoDecodeOutputKHR: strBuffer.Append("VideoDecodeOutputKHR");
+		case .VideoDecodeDpbKHR: strBuffer.Append("VideoDecodeDpbKHR");
+		case .AccelerationStructureVertexBufferKHR: strBuffer.Append("AccelerationStructureVertexBufferKHR");
+		case .SampledImageFilterCubicEXT: strBuffer.Append("SampledImageFilterCubicEXT");
+		case .FragmentDensityMapEXT: strBuffer.Append("FragmentDensityMapEXT");
+		case .FragmentShadingRateAttachmentKHR: strBuffer.Append("FragmentShadingRateAttachmentKHR");
+		case .VideoEncodeInputKHR: strBuffer.Append("VideoEncodeInputKHR");
+		case .VideoEncodeDpbKHR: strBuffer.Append("VideoEncodeDpbKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFrontFace
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -934,10 +1822,22 @@ extension VkFrontFace
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CounterClockwise: strBuffer.Append("CounterClockwise");
+		case .Clockwise: strBuffer.Append("Clockwise");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkMemoryMapFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -946,10 +1846,21 @@ extension VkMemoryMapFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .PlacedEXT: strBuffer.Append("PlacedEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageAspectFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -969,10 +1880,32 @@ extension VkImageAspectFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Color: strBuffer.Append("Color");
+		case .Depth: strBuffer.Append("Depth");
+		case .Stencil: strBuffer.Append("Stencil");
+		case .Metadata: strBuffer.Append("Metadata");
+		case .Plane0: strBuffer.Append("Plane0");
+		case .Plane1: strBuffer.Append("Plane1");
+		case .Plane2: strBuffer.Append("Plane2");
+		case .None: strBuffer.Append("None");
+		case .MemoryPlane0EXT: strBuffer.Append("MemoryPlane0EXT");
+		case .MemoryPlane1EXT: strBuffer.Append("MemoryPlane1EXT");
+		case .MemoryPlane2EXT: strBuffer.Append("MemoryPlane2EXT");
+		case .MemoryPlane3EXT: strBuffer.Append("MemoryPlane3EXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1000,10 +1933,40 @@ extension VkImageCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SparseBinding: strBuffer.Append("SparseBinding");
+		case .SparseResidency: strBuffer.Append("SparseResidency");
+		case .SparseAliased: strBuffer.Append("SparseAliased");
+		case .MutableFormat: strBuffer.Append("MutableFormat");
+		case .CubeCompatible: strBuffer.Append("CubeCompatible");
+		case .Alias: strBuffer.Append("Alias");
+		case .SplitInstanceBindRegions: strBuffer.Append("SplitInstanceBindRegions");
+		case .VK_2dArrayCompatible: strBuffer.Append("VK_2dArrayCompatible");
+		case .BlockTexelViewCompatible: strBuffer.Append("BlockTexelViewCompatible");
+		case .ExtendedUsage: strBuffer.Append("ExtendedUsage");
+		case .Protected: strBuffer.Append("Protected");
+		case .Disjoint: strBuffer.Append("Disjoint");
+		case .CornerSampledNV: strBuffer.Append("CornerSampledNV");
+		case .SampleLocationsCompatibleDepthEXT: strBuffer.Append("SampleLocationsCompatibleDepthEXT");
+		case .SubsampledEXT: strBuffer.Append("SubsampledEXT");
+		case .DescriptorBufferCaptureReplayEXT: strBuffer.Append("DescriptorBufferCaptureReplayEXT");
+		case .MultisampledRenderToSingleSampledEXT: strBuffer.Append("MultisampledRenderToSingleSampledEXT");
+		case .VK_2dViewCompatibleEXT: strBuffer.Append("VK_2dViewCompatibleEXT");
+		case .VideoProfileIndependentKHR: strBuffer.Append("VideoProfileIndependentKHR");
+		case .FragmentDensityMapOffsetEXT: strBuffer.Append("FragmentDensityMapOffsetEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageLayout
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1043,10 +2006,52 @@ extension VkImageLayout
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Undefined: strBuffer.Append("Undefined");
+		case .General: strBuffer.Append("General");
+		case .ColorAttachmentOptimal: strBuffer.Append("ColorAttachmentOptimal");
+		case .DepthStencilAttachmentOptimal: strBuffer.Append("DepthStencilAttachmentOptimal");
+		case .DepthStencilReadOnlyOptimal: strBuffer.Append("DepthStencilReadOnlyOptimal");
+		case .ShaderReadOnlyOptimal: strBuffer.Append("ShaderReadOnlyOptimal");
+		case .TransferSrcOptimal: strBuffer.Append("TransferSrcOptimal");
+		case .TransferDstOptimal: strBuffer.Append("TransferDstOptimal");
+		case .Preinitialized: strBuffer.Append("Preinitialized");
+		case .DepthReadOnlyStencilAttachmentOptimal: strBuffer.Append("DepthReadOnlyStencilAttachmentOptimal");
+		case .DepthAttachmentStencilReadOnlyOptimal: strBuffer.Append("DepthAttachmentStencilReadOnlyOptimal");
+		case .DepthAttachmentOptimal: strBuffer.Append("DepthAttachmentOptimal");
+		case .DepthReadOnlyOptimal: strBuffer.Append("DepthReadOnlyOptimal");
+		case .StencilAttachmentOptimal: strBuffer.Append("StencilAttachmentOptimal");
+		case .StencilReadOnlyOptimal: strBuffer.Append("StencilReadOnlyOptimal");
+		case .ReadOnlyOptimal: strBuffer.Append("ReadOnlyOptimal");
+		case .AttachmentOptimal: strBuffer.Append("AttachmentOptimal");
+		case .RenderingLocalRead: strBuffer.Append("RenderingLocalRead");
+		case .PresentSrcKHR: strBuffer.Append("PresentSrcKHR");
+		case .VideoDecodeDstKHR: strBuffer.Append("VideoDecodeDstKHR");
+		case .VideoDecodeSrcKHR: strBuffer.Append("VideoDecodeSrcKHR");
+		case .VideoDecodeDpbKHR: strBuffer.Append("VideoDecodeDpbKHR");
+		case .SharedPresentKHR: strBuffer.Append("SharedPresentKHR");
+		case .FragmentDensityMapOptimalEXT: strBuffer.Append("FragmentDensityMapOptimalEXT");
+		case .FragmentShadingRateAttachmentOptimalKHR: strBuffer.Append("FragmentShadingRateAttachmentOptimalKHR");
+		case .VideoEncodeDstKHR: strBuffer.Append("VideoEncodeDstKHR");
+		case .VideoEncodeSrcKHR: strBuffer.Append("VideoEncodeSrcKHR");
+		case .VideoEncodeDpbKHR: strBuffer.Append("VideoEncodeDpbKHR");
+		case .AttachmentFeedbackLoopOptimalEXT: strBuffer.Append("AttachmentFeedbackLoopOptimalEXT");
+		case .TensorAliasingARM: strBuffer.Append("TensorAliasingARM");
+		case .VideoEncodeQuantizationMapKHR: strBuffer.Append("VideoEncodeQuantizationMapKHR");
+		case .ZeroInitializedEXT: strBuffer.Append("ZeroInitializedEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageTiling
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1057,10 +2062,23 @@ extension VkImageTiling
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Optimal: strBuffer.Append("Optimal");
+		case .Linear: strBuffer.Append("Linear");
+		case .DrmFormatModifierEXT: strBuffer.Append("DrmFormatModifierEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1071,10 +2089,23 @@ extension VkImageType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_1d: strBuffer.Append("VK_1d");
+		case .VK_2d: strBuffer.Append("VK_2d");
+		case .VK_3d: strBuffer.Append("VK_3d");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageUsageFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1107,10 +2138,45 @@ extension VkImageUsageFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TransferSrc: strBuffer.Append("TransferSrc");
+		case .TransferDst: strBuffer.Append("TransferDst");
+		case .Sampled: strBuffer.Append("Sampled");
+		case .Storage: strBuffer.Append("Storage");
+		case .ColorAttachment: strBuffer.Append("ColorAttachment");
+		case .DepthStencilAttachment: strBuffer.Append("DepthStencilAttachment");
+		case .TransientAttachment: strBuffer.Append("TransientAttachment");
+		case .InputAttachment: strBuffer.Append("InputAttachment");
+		case .HostTransfer: strBuffer.Append("HostTransfer");
+		case .VideoDecodeDstKHR: strBuffer.Append("VideoDecodeDstKHR");
+		case .VideoDecodeSrcKHR: strBuffer.Append("VideoDecodeSrcKHR");
+		case .VideoDecodeDpbKHR: strBuffer.Append("VideoDecodeDpbKHR");
+		case .FragmentDensityMapEXT: strBuffer.Append("FragmentDensityMapEXT");
+		case .FragmentShadingRateAttachmentKHR: strBuffer.Append("FragmentShadingRateAttachmentKHR");
+		case .VideoEncodeDstKHR: strBuffer.Append("VideoEncodeDstKHR");
+		case .VideoEncodeSrcKHR: strBuffer.Append("VideoEncodeSrcKHR");
+		case .VideoEncodeDpbKHR: strBuffer.Append("VideoEncodeDpbKHR");
+		case .AttachmentFeedbackLoopEXT: strBuffer.Append("AttachmentFeedbackLoopEXT");
+		case .InvocationMaskHUAWEI: strBuffer.Append("InvocationMaskHUAWEI");
+		case .SampleWeightQCOM: strBuffer.Append("SampleWeightQCOM");
+		case .SampleBlockMatchQCOM: strBuffer.Append("SampleBlockMatchQCOM");
+		case .TensorAliasingARM: strBuffer.Append("TensorAliasingARM");
+		case .TileMemoryQCOM: strBuffer.Append("TileMemoryQCOM");
+		case .VideoEncodeQuantizationDeltaMapKHR: strBuffer.Append("VideoEncodeQuantizationDeltaMapKHR");
+		case .VideoEncodeEmphasisMapKHR: strBuffer.Append("VideoEncodeEmphasisMapKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageViewCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1121,10 +2187,23 @@ extension VkImageViewCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FragmentDensityMapDynamicEXT: strBuffer.Append("FragmentDensityMapDynamicEXT");
+		case .DescriptorBufferCaptureReplayEXT: strBuffer.Append("DescriptorBufferCaptureReplayEXT");
+		case .FragmentDensityMapDeferredEXT: strBuffer.Append("FragmentDensityMapDeferredEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageViewType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1139,10 +2218,27 @@ extension VkImageViewType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_1d: strBuffer.Append("VK_1d");
+		case .VK_2d: strBuffer.Append("VK_2d");
+		case .VK_3d: strBuffer.Append("VK_3d");
+		case .Cube: strBuffer.Append("Cube");
+		case .VK_1dArray: strBuffer.Append("VK_1dArray");
+		case .VK_2dArray: strBuffer.Append("VK_2dArray");
+		case .CubeArray: strBuffer.Append("CubeArray");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkIndirectCommandsTokenTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1165,10 +2261,35 @@ extension VkIndirectCommandsTokenTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ExecutionSetEXT: strBuffer.Append("ExecutionSetEXT");
+		case .PushConstantEXT: strBuffer.Append("PushConstantEXT");
+		case .SequenceIndexEXT: strBuffer.Append("SequenceIndexEXT");
+		case .IndexBufferEXT: strBuffer.Append("IndexBufferEXT");
+		case .VertexBufferEXT: strBuffer.Append("VertexBufferEXT");
+		case .DrawIndexedEXT: strBuffer.Append("DrawIndexedEXT");
+		case .DrawEXT: strBuffer.Append("DrawEXT");
+		case .DrawIndexedCountEXT: strBuffer.Append("DrawIndexedCountEXT");
+		case .DrawCountEXT: strBuffer.Append("DrawCountEXT");
+		case .DispatchEXT: strBuffer.Append("DispatchEXT");
+		case .DrawMeshTasksNvEXT: strBuffer.Append("DrawMeshTasksNvEXT");
+		case .DrawMeshTasksCountNvEXT: strBuffer.Append("DrawMeshTasksCountNvEXT");
+		case .DrawMeshTasksEXT: strBuffer.Append("DrawMeshTasksEXT");
+		case .DrawMeshTasksCountEXT: strBuffer.Append("DrawMeshTasksCountEXT");
+		case .TraceRays2EXT: strBuffer.Append("TraceRays2EXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSharingMode
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1178,10 +2299,22 @@ extension VkSharingMode
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Exclusive: strBuffer.Append("Exclusive");
+		case .Concurrent: strBuffer.Append("Concurrent");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkIndexType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1193,10 +2326,24 @@ extension VkIndexType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Uint16: strBuffer.Append("Uint16");
+		case .Uint32: strBuffer.Append("Uint32");
+		case .Uint8: strBuffer.Append("Uint8");
+		case .NoneKHR: strBuffer.Append("NoneKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkLogicOp
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1220,10 +2367,36 @@ extension VkLogicOp
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Clear: strBuffer.Append("Clear");
+		case .And: strBuffer.Append("And");
+		case .AndReverse: strBuffer.Append("AndReverse");
+		case .Copy: strBuffer.Append("Copy");
+		case .AndInverted: strBuffer.Append("AndInverted");
+		case .NoOp: strBuffer.Append("NoOp");
+		case .Xor: strBuffer.Append("Xor");
+		case .Or: strBuffer.Append("Or");
+		case .Nor: strBuffer.Append("Nor");
+		case .Equivalent: strBuffer.Append("Equivalent");
+		case .Invert: strBuffer.Append("Invert");
+		case .OrReverse: strBuffer.Append("OrReverse");
+		case .CopyInverted: strBuffer.Append("CopyInverted");
+		case .OrInverted: strBuffer.Append("OrInverted");
+		case .Nand: strBuffer.Append("Nand");
+		case .Set: strBuffer.Append("Set");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkMemoryHeapFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1234,10 +2407,23 @@ extension VkMemoryHeapFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceLocal: strBuffer.Append("DeviceLocal");
+		case .MultiInstance: strBuffer.Append("MultiInstance");
+		case .TileMemoryQCOM: strBuffer.Append("TileMemoryQCOM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAccessFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1274,10 +2460,49 @@ extension VkAccessFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .IndirectCommandRead: strBuffer.Append("IndirectCommandRead");
+		case .IndexRead: strBuffer.Append("IndexRead");
+		case .VertexAttributeRead: strBuffer.Append("VertexAttributeRead");
+		case .UniformRead: strBuffer.Append("UniformRead");
+		case .InputAttachmentRead: strBuffer.Append("InputAttachmentRead");
+		case .ShaderRead: strBuffer.Append("ShaderRead");
+		case .ShaderWrite: strBuffer.Append("ShaderWrite");
+		case .ColorAttachmentRead: strBuffer.Append("ColorAttachmentRead");
+		case .ColorAttachmentWrite: strBuffer.Append("ColorAttachmentWrite");
+		case .DepthStencilAttachmentRead: strBuffer.Append("DepthStencilAttachmentRead");
+		case .DepthStencilAttachmentWrite: strBuffer.Append("DepthStencilAttachmentWrite");
+		case .TransferRead: strBuffer.Append("TransferRead");
+		case .TransferWrite: strBuffer.Append("TransferWrite");
+		case .HostRead: strBuffer.Append("HostRead");
+		case .HostWrite: strBuffer.Append("HostWrite");
+		case .MemoryRead: strBuffer.Append("MemoryRead");
+		case .MemoryWrite: strBuffer.Append("MemoryWrite");
+		case .None: strBuffer.Append("None");
+		case .TransformFeedbackWriteEXT: strBuffer.Append("TransformFeedbackWriteEXT");
+		case .TransformFeedbackCounterReadEXT: strBuffer.Append("TransformFeedbackCounterReadEXT");
+		case .TransformFeedbackCounterWriteEXT: strBuffer.Append("TransformFeedbackCounterWriteEXT");
+		case .ConditionalRenderingReadEXT: strBuffer.Append("ConditionalRenderingReadEXT");
+		case .ColorAttachmentReadNoncoherentEXT: strBuffer.Append("ColorAttachmentReadNoncoherentEXT");
+		case .AccelerationStructureReadKHR: strBuffer.Append("AccelerationStructureReadKHR");
+		case .AccelerationStructureWriteKHR: strBuffer.Append("AccelerationStructureWriteKHR");
+		case .FragmentDensityMapReadEXT: strBuffer.Append("FragmentDensityMapReadEXT");
+		case .FragmentShadingRateAttachmentReadKHR: strBuffer.Append("FragmentShadingRateAttachmentReadKHR");
+		case .CommandPreprocessReadEXT: strBuffer.Append("CommandPreprocessReadEXT");
+		case .CommandPreprocessWriteEXT: strBuffer.Append("CommandPreprocessWriteEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkMemoryPropertyFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1294,10 +2519,29 @@ extension VkMemoryPropertyFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceLocal: strBuffer.Append("DeviceLocal");
+		case .HostVisible: strBuffer.Append("HostVisible");
+		case .HostCoherent: strBuffer.Append("HostCoherent");
+		case .HostCached: strBuffer.Append("HostCached");
+		case .LazilyAllocated: strBuffer.Append("LazilyAllocated");
+		case .Protected: strBuffer.Append("Protected");
+		case .DeviceCoherentAMD: strBuffer.Append("DeviceCoherentAMD");
+		case .DeviceUncachedAMD: strBuffer.Append("DeviceUncachedAMD");
+		case .RdmaCapableNV: strBuffer.Append("RdmaCapableNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPhysicalDeviceType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1310,10 +2554,25 @@ extension VkPhysicalDeviceType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Other: strBuffer.Append("Other");
+		case .IntegratedGpu: strBuffer.Append("IntegratedGpu");
+		case .DiscreteGpu: strBuffer.Append("DiscreteGpu");
+		case .VirtualGpu: strBuffer.Append("VirtualGpu");
+		case .Cpu: strBuffer.Append("Cpu");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineBindPoint
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1327,10 +2586,26 @@ extension VkPipelineBindPoint
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Graphics: strBuffer.Append("Graphics");
+		case .Compute: strBuffer.Append("Compute");
+		case .ExecutionGraphAMDX: strBuffer.Append("ExecutionGraphAMDX");
+		case .RayTracingKHR: strBuffer.Append("RayTracingKHR");
+		case .SubpassShadingHUAWEI: strBuffer.Append("SubpassShadingHUAWEI");
+		case .DataGraphARM: strBuffer.Append("DataGraphARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1369,10 +2644,51 @@ extension VkPipelineCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DisableOptimization: strBuffer.Append("DisableOptimization");
+		case .AllowDerivatives: strBuffer.Append("AllowDerivatives");
+		case .Derivative: strBuffer.Append("Derivative");
+		case .ViewIndexFromDeviceIndex: strBuffer.Append("ViewIndexFromDeviceIndex");
+		case .DispatchBase: strBuffer.Append("DispatchBase");
+		case .FailOnPipelineCompileRequired: strBuffer.Append("FailOnPipelineCompileRequired");
+		case .EarlyReturnOnFailure: strBuffer.Append("EarlyReturnOnFailure");
+		case .NoProtectedAccess: strBuffer.Append("NoProtectedAccess");
+		case .ProtectedAccessOnly: strBuffer.Append("ProtectedAccessOnly");
+		case .RayTracingNoNullAnyHitShadersKHR: strBuffer.Append("RayTracingNoNullAnyHitShadersKHR");
+		case .RayTracingNoNullClosestHitShadersKHR: strBuffer.Append("RayTracingNoNullClosestHitShadersKHR");
+		case .RayTracingNoNullMissShadersKHR: strBuffer.Append("RayTracingNoNullMissShadersKHR");
+		case .RayTracingNoNullIntersectionShadersKHR: strBuffer.Append("RayTracingNoNullIntersectionShadersKHR");
+		case .RayTracingSkipTrianglesKHR: strBuffer.Append("RayTracingSkipTrianglesKHR");
+		case .RayTracingSkipAabbsKHR: strBuffer.Append("RayTracingSkipAabbsKHR");
+		case .RayTracingShaderGroupHandleCaptureReplayKHR: strBuffer.Append("RayTracingShaderGroupHandleCaptureReplayKHR");
+		case .DeferCompileNV: strBuffer.Append("DeferCompileNV");
+		case .RenderingFragmentDensityMapAttachmentEXT: strBuffer.Append("RenderingFragmentDensityMapAttachmentEXT");
+		case .RenderingFragmentShadingRateAttachmentKHR: strBuffer.Append("RenderingFragmentShadingRateAttachmentKHR");
+		case .CaptureStatisticsKHR: strBuffer.Append("CaptureStatisticsKHR");
+		case .CaptureInternalRepresentationsKHR: strBuffer.Append("CaptureInternalRepresentationsKHR");
+		case .IndirectBindableNV: strBuffer.Append("IndirectBindableNV");
+		case .LibraryKHR: strBuffer.Append("LibraryKHR");
+		case .DescriptorBufferEXT: strBuffer.Append("DescriptorBufferEXT");
+		case .RetainLinkTimeOptimizationInfoEXT: strBuffer.Append("RetainLinkTimeOptimizationInfoEXT");
+		case .LinkTimeOptimizationEXT: strBuffer.Append("LinkTimeOptimizationEXT");
+		case .RayTracingAllowMotionNV: strBuffer.Append("RayTracingAllowMotionNV");
+		case .ColorAttachmentFeedbackLoopEXT: strBuffer.Append("ColorAttachmentFeedbackLoopEXT");
+		case .DepthStencilAttachmentFeedbackLoopEXT: strBuffer.Append("DepthStencilAttachmentFeedbackLoopEXT");
+		case .RayTracingOpacityMicromapEXT: strBuffer.Append("RayTracingOpacityMicromapEXT");
+		case .RayTracingDisplacementMicromapNV: strBuffer.Append("RayTracingDisplacementMicromapNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPrimitiveTopology
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1391,10 +2707,31 @@ extension VkPrimitiveTopology
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .PointList: strBuffer.Append("PointList");
+		case .LineList: strBuffer.Append("LineList");
+		case .LineStrip: strBuffer.Append("LineStrip");
+		case .TriangleList: strBuffer.Append("TriangleList");
+		case .TriangleStrip: strBuffer.Append("TriangleStrip");
+		case .TriangleFan: strBuffer.Append("TriangleFan");
+		case .LineListWithAdjacency: strBuffer.Append("LineListWithAdjacency");
+		case .LineStripWithAdjacency: strBuffer.Append("LineStripWithAdjacency");
+		case .TriangleListWithAdjacency: strBuffer.Append("TriangleListWithAdjacency");
+		case .TriangleStripWithAdjacency: strBuffer.Append("TriangleStripWithAdjacency");
+		case .PatchList: strBuffer.Append("PatchList");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkQueryControlFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1403,10 +2740,21 @@ extension VkQueryControlFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Precise: strBuffer.Append("Precise");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkQueryPipelineStatisticFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1428,10 +2776,34 @@ extension VkQueryPipelineStatisticFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .InputAssemblyVertices: strBuffer.Append("InputAssemblyVertices");
+		case .InputAssemblyPrimitives: strBuffer.Append("InputAssemblyPrimitives");
+		case .VertexShaderInvocations: strBuffer.Append("VertexShaderInvocations");
+		case .GeometryShaderInvocations: strBuffer.Append("GeometryShaderInvocations");
+		case .GeometryShaderPrimitives: strBuffer.Append("GeometryShaderPrimitives");
+		case .ClippingInvocations: strBuffer.Append("ClippingInvocations");
+		case .ClippingPrimitives: strBuffer.Append("ClippingPrimitives");
+		case .FragmentShaderInvocations: strBuffer.Append("FragmentShaderInvocations");
+		case .TessellationControlShaderPatches: strBuffer.Append("TessellationControlShaderPatches");
+		case .TessellationEvaluationShaderInvocations: strBuffer.Append("TessellationEvaluationShaderInvocations");
+		case .ComputeShaderInvocations: strBuffer.Append("ComputeShaderInvocations");
+		case .TaskShaderInvocationsEXT: strBuffer.Append("TaskShaderInvocationsEXT");
+		case .MeshShaderInvocationsEXT: strBuffer.Append("MeshShaderInvocationsEXT");
+		case .ClusterCullingShaderInvocationsHUAWEI: strBuffer.Append("ClusterCullingShaderInvocationsHUAWEI");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkQueryResultFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1444,10 +2816,25 @@ extension VkQueryResultFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_64: strBuffer.Append("VK_64");
+		case .Wait: strBuffer.Append("Wait");
+		case .WithAvailability: strBuffer.Append("WithAvailability");
+		case .Partial: strBuffer.Append("Partial");
+		case .WithStatusKHR: strBuffer.Append("WithStatusKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkQueryType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1472,10 +2859,37 @@ extension VkQueryType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Occlusion: strBuffer.Append("Occlusion");
+		case .PipelineStatistics: strBuffer.Append("PipelineStatistics");
+		case .Timestamp: strBuffer.Append("Timestamp");
+		case .ResultStatusOnlyKHR: strBuffer.Append("ResultStatusOnlyKHR");
+		case .TransformFeedbackStreamEXT: strBuffer.Append("TransformFeedbackStreamEXT");
+		case .PerformanceQueryKHR: strBuffer.Append("PerformanceQueryKHR");
+		case .AccelerationStructureCompactedSizeKHR: strBuffer.Append("AccelerationStructureCompactedSizeKHR");
+		case .AccelerationStructureSerializationSizeKHR: strBuffer.Append("AccelerationStructureSerializationSizeKHR");
+		case .AccelerationStructureCompactedSizeNV: strBuffer.Append("AccelerationStructureCompactedSizeNV");
+		case .PerformanceQueryINTEL: strBuffer.Append("PerformanceQueryINTEL");
+		case .VideoEncodeFeedbackKHR: strBuffer.Append("VideoEncodeFeedbackKHR");
+		case .MeshPrimitivesGeneratedEXT: strBuffer.Append("MeshPrimitivesGeneratedEXT");
+		case .PrimitivesGeneratedEXT: strBuffer.Append("PrimitivesGeneratedEXT");
+		case .AccelerationStructureSerializationBottomLevelPointersKHR: strBuffer.Append("AccelerationStructureSerializationBottomLevelPointersKHR");
+		case .AccelerationStructureSizeKHR: strBuffer.Append("AccelerationStructureSizeKHR");
+		case .MicromapSerializationSizeEXT: strBuffer.Append("MicromapSerializationSizeEXT");
+		case .MicromapCompactedSizeEXT: strBuffer.Append("MicromapCompactedSizeEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkQueueFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1492,10 +2906,29 @@ extension VkQueueFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Graphics: strBuffer.Append("Graphics");
+		case .Compute: strBuffer.Append("Compute");
+		case .Transfer: strBuffer.Append("Transfer");
+		case .SparseBinding: strBuffer.Append("SparseBinding");
+		case .Protected: strBuffer.Append("Protected");
+		case .VideoDecodeKHR: strBuffer.Append("VideoDecodeKHR");
+		case .VideoEncodeKHR: strBuffer.Append("VideoEncodeKHR");
+		case .OpticalFlowNV: strBuffer.Append("OpticalFlowNV");
+		case .DataGraphARM: strBuffer.Append("DataGraphARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSubpassContents
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1506,10 +2939,23 @@ extension VkSubpassContents
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Inline: strBuffer.Append("Inline");
+		case .SecondaryCommandBuffers: strBuffer.Append("SecondaryCommandBuffers");
+		case .InlineAndSecondaryCommandBuffersKHR: strBuffer.Append("InlineAndSecondaryCommandBuffersKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkResult
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1566,10 +3012,69 @@ extension VkResult
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VkSuccess: strBuffer.Append("VkSuccess");
+		case .VkNotReady: strBuffer.Append("VkNotReady");
+		case .VkTimeout: strBuffer.Append("VkTimeout");
+		case .VkEventSet: strBuffer.Append("VkEventSet");
+		case .VkEventReset: strBuffer.Append("VkEventReset");
+		case .VkIncomplete: strBuffer.Append("VkIncomplete");
+		case .VkErrorOutOfHostMemory: strBuffer.Append("VkErrorOutOfHostMemory");
+		case .VkErrorOutOfDeviceMemory: strBuffer.Append("VkErrorOutOfDeviceMemory");
+		case .VkErrorInitializationFailed: strBuffer.Append("VkErrorInitializationFailed");
+		case .VkErrorDeviceLost: strBuffer.Append("VkErrorDeviceLost");
+		case .VkErrorMemoryMapFailed: strBuffer.Append("VkErrorMemoryMapFailed");
+		case .VkErrorLayerNotPresent: strBuffer.Append("VkErrorLayerNotPresent");
+		case .VkErrorExtensionNotPresent: strBuffer.Append("VkErrorExtensionNotPresent");
+		case .VkErrorFeatureNotPresent: strBuffer.Append("VkErrorFeatureNotPresent");
+		case .VkErrorIncompatibleDriver: strBuffer.Append("VkErrorIncompatibleDriver");
+		case .VkErrorTooManyObjects: strBuffer.Append("VkErrorTooManyObjects");
+		case .VkErrorFormatNotSupported: strBuffer.Append("VkErrorFormatNotSupported");
+		case .VkErrorFragmentedPool: strBuffer.Append("VkErrorFragmentedPool");
+		case .VkErrorUnknown: strBuffer.Append("VkErrorUnknown");
+		case .VkErrorOutOfPoolMemory: strBuffer.Append("VkErrorOutOfPoolMemory");
+		case .VkErrorInvalidExternalHandle: strBuffer.Append("VkErrorInvalidExternalHandle");
+		case .VkErrorFragmentation: strBuffer.Append("VkErrorFragmentation");
+		case .VkErrorInvalidOpaqueCaptureAddress: strBuffer.Append("VkErrorInvalidOpaqueCaptureAddress");
+		case .VkPipelineCompileRequired: strBuffer.Append("VkPipelineCompileRequired");
+		case .VkErrorNotPermitted: strBuffer.Append("VkErrorNotPermitted");
+		case .VkErrorSurfaceLostKHR: strBuffer.Append("VkErrorSurfaceLostKHR");
+		case .VkErrorNativeWindowInUseKHR: strBuffer.Append("VkErrorNativeWindowInUseKHR");
+		case .VkSuboptimalKHR: strBuffer.Append("VkSuboptimalKHR");
+		case .VkErrorOutOfDateKHR: strBuffer.Append("VkErrorOutOfDateKHR");
+		case .VkErrorIncompatibleDisplayKHR: strBuffer.Append("VkErrorIncompatibleDisplayKHR");
+		case .VkErrorValidationFailedEXT: strBuffer.Append("VkErrorValidationFailedEXT");
+		case .VkErrorInvalidShaderNV: strBuffer.Append("VkErrorInvalidShaderNV");
+		case .VkErrorImageUsageNotSupportedKHR: strBuffer.Append("VkErrorImageUsageNotSupportedKHR");
+		case .VkErrorVideoPictureLayoutNotSupportedKHR: strBuffer.Append("VkErrorVideoPictureLayoutNotSupportedKHR");
+		case .VkErrorVideoProfileOperationNotSupportedKHR: strBuffer.Append("VkErrorVideoProfileOperationNotSupportedKHR");
+		case .VkErrorVideoProfileFormatNotSupportedKHR: strBuffer.Append("VkErrorVideoProfileFormatNotSupportedKHR");
+		case .VkErrorVideoProfileCodecNotSupportedKHR: strBuffer.Append("VkErrorVideoProfileCodecNotSupportedKHR");
+		case .VkErrorVideoStdVersionNotSupportedKHR: strBuffer.Append("VkErrorVideoStdVersionNotSupportedKHR");
+		case .VkErrorInvalidDrmFormatModifierPlaneLayoutEXT: strBuffer.Append("VkErrorInvalidDrmFormatModifierPlaneLayoutEXT");
+		case .VkErrorFullScreenExclusiveModeLostEXT: strBuffer.Append("VkErrorFullScreenExclusiveModeLostEXT");
+		case .VkThreadIdleKHR: strBuffer.Append("VkThreadIdleKHR");
+		case .VkThreadDoneKHR: strBuffer.Append("VkThreadDoneKHR");
+		case .VkOperationDeferredKHR: strBuffer.Append("VkOperationDeferredKHR");
+		case .VkOperationNotDeferredKHR: strBuffer.Append("VkOperationNotDeferredKHR");
+		case .VkErrorInvalidVideoStdParametersKHR: strBuffer.Append("VkErrorInvalidVideoStdParametersKHR");
+		case .VkErrorCompressionExhaustedEXT: strBuffer.Append("VkErrorCompressionExhaustedEXT");
+		case .VkIncompatibleShaderBinaryEXT: strBuffer.Append("VkIncompatibleShaderBinaryEXT");
+		case .VkPipelineBinaryMissingKHR: strBuffer.Append("VkPipelineBinaryMissingKHR");
+		case .VkErrorNotEnoughSpaceKHR: strBuffer.Append("VkErrorNotEnoughSpaceKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkShaderStageFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1595,10 +3100,38 @@ extension VkShaderStageFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Vertex: strBuffer.Append("Vertex");
+		case .TessellationControl: strBuffer.Append("TessellationControl");
+		case .TessellationEvaluation: strBuffer.Append("TessellationEvaluation");
+		case .Geometry: strBuffer.Append("Geometry");
+		case .Fragment: strBuffer.Append("Fragment");
+		case .Compute: strBuffer.Append("Compute");
+		case .AllGraphics: strBuffer.Append("AllGraphics");
+		case .All: strBuffer.Append("All");
+		case .RaygenKHR: strBuffer.Append("RaygenKHR");
+		case .AnyHitKHR: strBuffer.Append("AnyHitKHR");
+		case .ClosestHitKHR: strBuffer.Append("ClosestHitKHR");
+		case .MissKHR: strBuffer.Append("MissKHR");
+		case .IntersectionKHR: strBuffer.Append("IntersectionKHR");
+		case .CallableKHR: strBuffer.Append("CallableKHR");
+		case .TaskEXT: strBuffer.Append("TaskEXT");
+		case .MeshEXT: strBuffer.Append("MeshEXT");
+		case .SubpassShadingHUAWEI: strBuffer.Append("SubpassShadingHUAWEI");
+		case .ClusterCullingHUAWEI: strBuffer.Append("ClusterCullingHUAWEI");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSparseMemoryBindFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1607,10 +3140,21 @@ extension VkSparseMemoryBindFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Metadata: strBuffer.Append("Metadata");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkStencilFaceFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1621,10 +3165,23 @@ extension VkStencilFaceFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Front: strBuffer.Append("Front");
+		case .Back: strBuffer.Append("Back");
+		case .FrontAndBack: strBuffer.Append("FrontAndBack");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkStencilOp
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -1640,10 +3197,28 @@ extension VkStencilOp
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Keep: strBuffer.Append("Keep");
+		case .Zero: strBuffer.Append("Zero");
+		case .Replace: strBuffer.Append("Replace");
+		case .IncrementAndClamp: strBuffer.Append("IncrementAndClamp");
+		case .DecrementAndClamp: strBuffer.Append("DecrementAndClamp");
+		case .Invert: strBuffer.Append("Invert");
+		case .IncrementAndWrap: strBuffer.Append("IncrementAndWrap");
+		case .DecrementAndWrap: strBuffer.Append("DecrementAndWrap");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkStructureType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2743,10 +4318,1112 @@ extension VkStructureType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VkApplicationInfo: strBuffer.Append("VkApplicationInfo");
+		case .VkInstanceCreateInfo: strBuffer.Append("VkInstanceCreateInfo");
+		case .VkDeviceQueueCreateInfo: strBuffer.Append("VkDeviceQueueCreateInfo");
+		case .VkDeviceCreateInfo: strBuffer.Append("VkDeviceCreateInfo");
+		case .VkSubmitInfo: strBuffer.Append("VkSubmitInfo");
+		case .VkMemoryAllocateInfo: strBuffer.Append("VkMemoryAllocateInfo");
+		case .VkMappedMemoryRange: strBuffer.Append("VkMappedMemoryRange");
+		case .VkBindSparseInfo: strBuffer.Append("VkBindSparseInfo");
+		case .VkFenceCreateInfo: strBuffer.Append("VkFenceCreateInfo");
+		case .VkSemaphoreCreateInfo: strBuffer.Append("VkSemaphoreCreateInfo");
+		case .VkEventCreateInfo: strBuffer.Append("VkEventCreateInfo");
+		case .VkQueryPoolCreateInfo: strBuffer.Append("VkQueryPoolCreateInfo");
+		case .VkBufferCreateInfo: strBuffer.Append("VkBufferCreateInfo");
+		case .VkBufferViewCreateInfo: strBuffer.Append("VkBufferViewCreateInfo");
+		case .VkImageCreateInfo: strBuffer.Append("VkImageCreateInfo");
+		case .VkImageViewCreateInfo: strBuffer.Append("VkImageViewCreateInfo");
+		case .VkShaderModuleCreateInfo: strBuffer.Append("VkShaderModuleCreateInfo");
+		case .VkPipelineCacheCreateInfo: strBuffer.Append("VkPipelineCacheCreateInfo");
+		case .VkPipelineShaderStageCreateInfo: strBuffer.Append("VkPipelineShaderStageCreateInfo");
+		case .VkPipelineVertexInputStateCreateInfo: strBuffer.Append("VkPipelineVertexInputStateCreateInfo");
+		case .VkPipelineInputAssemblyStateCreateInfo: strBuffer.Append("VkPipelineInputAssemblyStateCreateInfo");
+		case .VkPipelineTessellationStateCreateInfo: strBuffer.Append("VkPipelineTessellationStateCreateInfo");
+		case .VkPipelineViewportStateCreateInfo: strBuffer.Append("VkPipelineViewportStateCreateInfo");
+		case .VkPipelineRasterizationStateCreateInfo: strBuffer.Append("VkPipelineRasterizationStateCreateInfo");
+		case .VkPipelineMultisampleStateCreateInfo: strBuffer.Append("VkPipelineMultisampleStateCreateInfo");
+		case .VkPipelineDepthStencilStateCreateInfo: strBuffer.Append("VkPipelineDepthStencilStateCreateInfo");
+		case .VkPipelineColorBlendStateCreateInfo: strBuffer.Append("VkPipelineColorBlendStateCreateInfo");
+		case .VkPipelineDynamicStateCreateInfo: strBuffer.Append("VkPipelineDynamicStateCreateInfo");
+		case .VkGraphicsPipelineCreateInfo: strBuffer.Append("VkGraphicsPipelineCreateInfo");
+		case .VkComputePipelineCreateInfo: strBuffer.Append("VkComputePipelineCreateInfo");
+		case .VkPipelineLayoutCreateInfo: strBuffer.Append("VkPipelineLayoutCreateInfo");
+		case .VkSamplerCreateInfo: strBuffer.Append("VkSamplerCreateInfo");
+		case .VkDescriptorSetLayoutCreateInfo: strBuffer.Append("VkDescriptorSetLayoutCreateInfo");
+		case .VkDescriptorPoolCreateInfo: strBuffer.Append("VkDescriptorPoolCreateInfo");
+		case .VkDescriptorSetAllocateInfo: strBuffer.Append("VkDescriptorSetAllocateInfo");
+		case .VkWriteDescriptorSet: strBuffer.Append("VkWriteDescriptorSet");
+		case .VkCopyDescriptorSet: strBuffer.Append("VkCopyDescriptorSet");
+		case .VkFramebufferCreateInfo: strBuffer.Append("VkFramebufferCreateInfo");
+		case .VkRenderPassCreateInfo: strBuffer.Append("VkRenderPassCreateInfo");
+		case .VkCommandPoolCreateInfo: strBuffer.Append("VkCommandPoolCreateInfo");
+		case .VkCommandBufferAllocateInfo: strBuffer.Append("VkCommandBufferAllocateInfo");
+		case .VkCommandBufferInheritanceInfo: strBuffer.Append("VkCommandBufferInheritanceInfo");
+		case .VkCommandBufferBeginInfo: strBuffer.Append("VkCommandBufferBeginInfo");
+		case .VkRenderPassBeginInfo: strBuffer.Append("VkRenderPassBeginInfo");
+		case .VkBufferMemoryBarrier: strBuffer.Append("VkBufferMemoryBarrier");
+		case .VkImageMemoryBarrier: strBuffer.Append("VkImageMemoryBarrier");
+		case .VkMemoryBarrier: strBuffer.Append("VkMemoryBarrier");
+		case .VkLoaderInstanceCreateInfo: strBuffer.Append("VkLoaderInstanceCreateInfo");
+		case .VkLoaderDeviceCreateInfo: strBuffer.Append("VkLoaderDeviceCreateInfo");
+		case .VkPhysicalDeviceSubgroupProperties: strBuffer.Append("VkPhysicalDeviceSubgroupProperties");
+		case .VkBindBufferMemoryInfo: strBuffer.Append("VkBindBufferMemoryInfo");
+		case .VkBindImageMemoryInfo: strBuffer.Append("VkBindImageMemoryInfo");
+		case .VkPhysicalDevice16bitStorageFeatures: strBuffer.Append("VkPhysicalDevice16bitStorageFeatures");
+		case .VkMemoryDedicatedRequirements: strBuffer.Append("VkMemoryDedicatedRequirements");
+		case .VkMemoryDedicatedAllocateInfo: strBuffer.Append("VkMemoryDedicatedAllocateInfo");
+		case .VkMemoryAllocateFlagsInfo: strBuffer.Append("VkMemoryAllocateFlagsInfo");
+		case .VkDeviceGroupRenderPassBeginInfo: strBuffer.Append("VkDeviceGroupRenderPassBeginInfo");
+		case .VkDeviceGroupCommandBufferBeginInfo: strBuffer.Append("VkDeviceGroupCommandBufferBeginInfo");
+		case .VkDeviceGroupSubmitInfo: strBuffer.Append("VkDeviceGroupSubmitInfo");
+		case .VkDeviceGroupBindSparseInfo: strBuffer.Append("VkDeviceGroupBindSparseInfo");
+		case .VkBindBufferMemoryDeviceGroupInfo: strBuffer.Append("VkBindBufferMemoryDeviceGroupInfo");
+		case .VkBindImageMemoryDeviceGroupInfo: strBuffer.Append("VkBindImageMemoryDeviceGroupInfo");
+		case .VkPhysicalDeviceGroupProperties: strBuffer.Append("VkPhysicalDeviceGroupProperties");
+		case .VkDeviceGroupDeviceCreateInfo: strBuffer.Append("VkDeviceGroupDeviceCreateInfo");
+		case .VkBufferMemoryRequirementsInfo2: strBuffer.Append("VkBufferMemoryRequirementsInfo2");
+		case .VkImageMemoryRequirementsInfo2: strBuffer.Append("VkImageMemoryRequirementsInfo2");
+		case .VkImageSparseMemoryRequirementsInfo2: strBuffer.Append("VkImageSparseMemoryRequirementsInfo2");
+		case .VkMemoryRequirements2: strBuffer.Append("VkMemoryRequirements2");
+		case .VkSparseImageMemoryRequirements2: strBuffer.Append("VkSparseImageMemoryRequirements2");
+		case .VkPhysicalDeviceFeatures2: strBuffer.Append("VkPhysicalDeviceFeatures2");
+		case .VkPhysicalDeviceProperties2: strBuffer.Append("VkPhysicalDeviceProperties2");
+		case .VkFormatProperties2: strBuffer.Append("VkFormatProperties2");
+		case .VkImageFormatProperties2: strBuffer.Append("VkImageFormatProperties2");
+		case .VkPhysicalDeviceImageFormatInfo2: strBuffer.Append("VkPhysicalDeviceImageFormatInfo2");
+		case .VkQueueFamilyProperties2: strBuffer.Append("VkQueueFamilyProperties2");
+		case .VkPhysicalDeviceMemoryProperties2: strBuffer.Append("VkPhysicalDeviceMemoryProperties2");
+		case .VkSparseImageFormatProperties2: strBuffer.Append("VkSparseImageFormatProperties2");
+		case .VkPhysicalDeviceSparseImageFormatInfo2: strBuffer.Append("VkPhysicalDeviceSparseImageFormatInfo2");
+		case .VkPhysicalDevicePointClippingProperties: strBuffer.Append("VkPhysicalDevicePointClippingProperties");
+		case .VkRenderPassInputAttachmentAspectCreateInfo: strBuffer.Append("VkRenderPassInputAttachmentAspectCreateInfo");
+		case .VkImageViewUsageCreateInfo: strBuffer.Append("VkImageViewUsageCreateInfo");
+		case .VkPipelineTessellationDomainOriginStateCreateInfo: strBuffer.Append("VkPipelineTessellationDomainOriginStateCreateInfo");
+		case .VkRenderPassMultiviewCreateInfo: strBuffer.Append("VkRenderPassMultiviewCreateInfo");
+		case .VkPhysicalDeviceMultiviewFeatures: strBuffer.Append("VkPhysicalDeviceMultiviewFeatures");
+		case .VkPhysicalDeviceMultiviewProperties: strBuffer.Append("VkPhysicalDeviceMultiviewProperties");
+		case .VkPhysicalDeviceVariablePointersFeatures: strBuffer.Append("VkPhysicalDeviceVariablePointersFeatures");
+		case .VkProtectedSubmitInfo: strBuffer.Append("VkProtectedSubmitInfo");
+		case .VkPhysicalDeviceProtectedMemoryFeatures: strBuffer.Append("VkPhysicalDeviceProtectedMemoryFeatures");
+		case .VkPhysicalDeviceProtectedMemoryProperties: strBuffer.Append("VkPhysicalDeviceProtectedMemoryProperties");
+		case .VkDeviceQueueInfo2: strBuffer.Append("VkDeviceQueueInfo2");
+		case .VkSamplerYcbcrConversionCreateInfo: strBuffer.Append("VkSamplerYcbcrConversionCreateInfo");
+		case .VkSamplerYcbcrConversionInfo: strBuffer.Append("VkSamplerYcbcrConversionInfo");
+		case .VkBindImagePlaneMemoryInfo: strBuffer.Append("VkBindImagePlaneMemoryInfo");
+		case .VkImagePlaneMemoryRequirementsInfo: strBuffer.Append("VkImagePlaneMemoryRequirementsInfo");
+		case .VkPhysicalDeviceSamplerYcbcrConversionFeatures: strBuffer.Append("VkPhysicalDeviceSamplerYcbcrConversionFeatures");
+		case .VkSamplerYcbcrConversionImageFormatProperties: strBuffer.Append("VkSamplerYcbcrConversionImageFormatProperties");
+		case .VkDescriptorUpdateTemplateCreateInfo: strBuffer.Append("VkDescriptorUpdateTemplateCreateInfo");
+		case .VkPhysicalDeviceExternalImageFormatInfo: strBuffer.Append("VkPhysicalDeviceExternalImageFormatInfo");
+		case .VkExternalImageFormatProperties: strBuffer.Append("VkExternalImageFormatProperties");
+		case .VkPhysicalDeviceExternalBufferInfo: strBuffer.Append("VkPhysicalDeviceExternalBufferInfo");
+		case .VkExternalBufferProperties: strBuffer.Append("VkExternalBufferProperties");
+		case .VkPhysicalDeviceIdProperties: strBuffer.Append("VkPhysicalDeviceIdProperties");
+		case .VkExternalMemoryBufferCreateInfo: strBuffer.Append("VkExternalMemoryBufferCreateInfo");
+		case .VkExternalMemoryImageCreateInfo: strBuffer.Append("VkExternalMemoryImageCreateInfo");
+		case .VkExportMemoryAllocateInfo: strBuffer.Append("VkExportMemoryAllocateInfo");
+		case .VkPhysicalDeviceExternalFenceInfo: strBuffer.Append("VkPhysicalDeviceExternalFenceInfo");
+		case .VkExternalFenceProperties: strBuffer.Append("VkExternalFenceProperties");
+		case .VkExportFenceCreateInfo: strBuffer.Append("VkExportFenceCreateInfo");
+		case .VkExportSemaphoreCreateInfo: strBuffer.Append("VkExportSemaphoreCreateInfo");
+		case .VkPhysicalDeviceExternalSemaphoreInfo: strBuffer.Append("VkPhysicalDeviceExternalSemaphoreInfo");
+		case .VkExternalSemaphoreProperties: strBuffer.Append("VkExternalSemaphoreProperties");
+		case .VkPhysicalDeviceMaintenance3Properties: strBuffer.Append("VkPhysicalDeviceMaintenance3Properties");
+		case .VkDescriptorSetLayoutSupport: strBuffer.Append("VkDescriptorSetLayoutSupport");
+		case .VkPhysicalDeviceShaderDrawParametersFeatures: strBuffer.Append("VkPhysicalDeviceShaderDrawParametersFeatures");
+		case .VkPhysicalDeviceVulkan11Features: strBuffer.Append("VkPhysicalDeviceVulkan11Features");
+		case .VkPhysicalDeviceVulkan11Properties: strBuffer.Append("VkPhysicalDeviceVulkan11Properties");
+		case .VkPhysicalDeviceVulkan12Features: strBuffer.Append("VkPhysicalDeviceVulkan12Features");
+		case .VkPhysicalDeviceVulkan12Properties: strBuffer.Append("VkPhysicalDeviceVulkan12Properties");
+		case .VkImageFormatListCreateInfo: strBuffer.Append("VkImageFormatListCreateInfo");
+		case .VkAttachmentDescription2: strBuffer.Append("VkAttachmentDescription2");
+		case .VkAttachmentReference2: strBuffer.Append("VkAttachmentReference2");
+		case .VkSubpassDescription2: strBuffer.Append("VkSubpassDescription2");
+		case .VkSubpassDependency2: strBuffer.Append("VkSubpassDependency2");
+		case .VkRenderPassCreateInfo2: strBuffer.Append("VkRenderPassCreateInfo2");
+		case .VkSubpassBeginInfo: strBuffer.Append("VkSubpassBeginInfo");
+		case .VkSubpassEndInfo: strBuffer.Append("VkSubpassEndInfo");
+		case .VkPhysicalDevice8bitStorageFeatures: strBuffer.Append("VkPhysicalDevice8bitStorageFeatures");
+		case .VkPhysicalDeviceDriverProperties: strBuffer.Append("VkPhysicalDeviceDriverProperties");
+		case .VkPhysicalDeviceShaderAtomicInt64Features: strBuffer.Append("VkPhysicalDeviceShaderAtomicInt64Features");
+		case .VkPhysicalDeviceShaderFloat16Int8Features: strBuffer.Append("VkPhysicalDeviceShaderFloat16Int8Features");
+		case .VkPhysicalDeviceFloatControlsProperties: strBuffer.Append("VkPhysicalDeviceFloatControlsProperties");
+		case .VkDescriptorSetLayoutBindingFlagsCreateInfo: strBuffer.Append("VkDescriptorSetLayoutBindingFlagsCreateInfo");
+		case .VkPhysicalDeviceDescriptorIndexingFeatures: strBuffer.Append("VkPhysicalDeviceDescriptorIndexingFeatures");
+		case .VkPhysicalDeviceDescriptorIndexingProperties: strBuffer.Append("VkPhysicalDeviceDescriptorIndexingProperties");
+		case .VkDescriptorSetVariableDescriptorCountAllocateInfo: strBuffer.Append("VkDescriptorSetVariableDescriptorCountAllocateInfo");
+		case .VkDescriptorSetVariableDescriptorCountLayoutSupport: strBuffer.Append("VkDescriptorSetVariableDescriptorCountLayoutSupport");
+		case .VkPhysicalDeviceDepthStencilResolveProperties: strBuffer.Append("VkPhysicalDeviceDepthStencilResolveProperties");
+		case .VkSubpassDescriptionDepthStencilResolve: strBuffer.Append("VkSubpassDescriptionDepthStencilResolve");
+		case .VkPhysicalDeviceScalarBlockLayoutFeatures: strBuffer.Append("VkPhysicalDeviceScalarBlockLayoutFeatures");
+		case .VkImageStencilUsageCreateInfo: strBuffer.Append("VkImageStencilUsageCreateInfo");
+		case .VkPhysicalDeviceSamplerFilterMinmaxProperties: strBuffer.Append("VkPhysicalDeviceSamplerFilterMinmaxProperties");
+		case .VkSamplerReductionModeCreateInfo: strBuffer.Append("VkSamplerReductionModeCreateInfo");
+		case .VkPhysicalDeviceVulkanMemoryModelFeatures: strBuffer.Append("VkPhysicalDeviceVulkanMemoryModelFeatures");
+		case .VkPhysicalDeviceImagelessFramebufferFeatures: strBuffer.Append("VkPhysicalDeviceImagelessFramebufferFeatures");
+		case .VkFramebufferAttachmentsCreateInfo: strBuffer.Append("VkFramebufferAttachmentsCreateInfo");
+		case .VkFramebufferAttachmentImageInfo: strBuffer.Append("VkFramebufferAttachmentImageInfo");
+		case .VkRenderPassAttachmentBeginInfo: strBuffer.Append("VkRenderPassAttachmentBeginInfo");
+		case .VkPhysicalDeviceUniformBufferStandardLayoutFeatures: strBuffer.Append("VkPhysicalDeviceUniformBufferStandardLayoutFeatures");
+		case .VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures: strBuffer.Append("VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures");
+		case .VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures: strBuffer.Append("VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures");
+		case .VkAttachmentReferenceStencilLayout: strBuffer.Append("VkAttachmentReferenceStencilLayout");
+		case .VkAttachmentDescriptionStencilLayout: strBuffer.Append("VkAttachmentDescriptionStencilLayout");
+		case .VkPhysicalDeviceHostQueryResetFeatures: strBuffer.Append("VkPhysicalDeviceHostQueryResetFeatures");
+		case .VkPhysicalDeviceTimelineSemaphoreFeatures: strBuffer.Append("VkPhysicalDeviceTimelineSemaphoreFeatures");
+		case .VkPhysicalDeviceTimelineSemaphoreProperties: strBuffer.Append("VkPhysicalDeviceTimelineSemaphoreProperties");
+		case .VkSemaphoreTypeCreateInfo: strBuffer.Append("VkSemaphoreTypeCreateInfo");
+		case .VkTimelineSemaphoreSubmitInfo: strBuffer.Append("VkTimelineSemaphoreSubmitInfo");
+		case .VkSemaphoreWaitInfo: strBuffer.Append("VkSemaphoreWaitInfo");
+		case .VkSemaphoreSignalInfo: strBuffer.Append("VkSemaphoreSignalInfo");
+		case .VkPhysicalDeviceBufferDeviceAddressFeatures: strBuffer.Append("VkPhysicalDeviceBufferDeviceAddressFeatures");
+		case .VkBufferDeviceAddressInfo: strBuffer.Append("VkBufferDeviceAddressInfo");
+		case .VkBufferOpaqueCaptureAddressCreateInfo: strBuffer.Append("VkBufferOpaqueCaptureAddressCreateInfo");
+		case .VkMemoryOpaqueCaptureAddressAllocateInfo: strBuffer.Append("VkMemoryOpaqueCaptureAddressAllocateInfo");
+		case .VkDeviceMemoryOpaqueCaptureAddressInfo: strBuffer.Append("VkDeviceMemoryOpaqueCaptureAddressInfo");
+		case .VkPhysicalDeviceVulkan13Features: strBuffer.Append("VkPhysicalDeviceVulkan13Features");
+		case .VkPhysicalDeviceVulkan13Properties: strBuffer.Append("VkPhysicalDeviceVulkan13Properties");
+		case .VkPipelineCreationFeedbackCreateInfo: strBuffer.Append("VkPipelineCreationFeedbackCreateInfo");
+		case .VkPhysicalDeviceShaderTerminateInvocationFeatures: strBuffer.Append("VkPhysicalDeviceShaderTerminateInvocationFeatures");
+		case .VkPhysicalDeviceToolProperties: strBuffer.Append("VkPhysicalDeviceToolProperties");
+		case .VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures: strBuffer.Append("VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures");
+		case .VkPhysicalDevicePrivateDataFeatures: strBuffer.Append("VkPhysicalDevicePrivateDataFeatures");
+		case .VkDevicePrivateDataCreateInfo: strBuffer.Append("VkDevicePrivateDataCreateInfo");
+		case .VkPrivateDataSlotCreateInfo: strBuffer.Append("VkPrivateDataSlotCreateInfo");
+		case .VkPhysicalDevicePipelineCreationCacheControlFeatures: strBuffer.Append("VkPhysicalDevicePipelineCreationCacheControlFeatures");
+		case .VkMemoryBarrier2: strBuffer.Append("VkMemoryBarrier2");
+		case .VkBufferMemoryBarrier2: strBuffer.Append("VkBufferMemoryBarrier2");
+		case .VkImageMemoryBarrier2: strBuffer.Append("VkImageMemoryBarrier2");
+		case .VkDependencyInfo: strBuffer.Append("VkDependencyInfo");
+		case .VkSubmitInfo2: strBuffer.Append("VkSubmitInfo2");
+		case .VkSemaphoreSubmitInfo: strBuffer.Append("VkSemaphoreSubmitInfo");
+		case .VkCommandBufferSubmitInfo: strBuffer.Append("VkCommandBufferSubmitInfo");
+		case .VkPhysicalDeviceSynchronization2Features: strBuffer.Append("VkPhysicalDeviceSynchronization2Features");
+		case .VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures: strBuffer.Append("VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures");
+		case .VkPhysicalDeviceImageRobustnessFeatures: strBuffer.Append("VkPhysicalDeviceImageRobustnessFeatures");
+		case .VkCopyBufferInfo2: strBuffer.Append("VkCopyBufferInfo2");
+		case .VkCopyImageInfo2: strBuffer.Append("VkCopyImageInfo2");
+		case .VkCopyBufferToImageInfo2: strBuffer.Append("VkCopyBufferToImageInfo2");
+		case .VkCopyImageToBufferInfo2: strBuffer.Append("VkCopyImageToBufferInfo2");
+		case .VkBlitImageInfo2: strBuffer.Append("VkBlitImageInfo2");
+		case .VkResolveImageInfo2: strBuffer.Append("VkResolveImageInfo2");
+		case .VkBufferCopy2: strBuffer.Append("VkBufferCopy2");
+		case .VkImageCopy2: strBuffer.Append("VkImageCopy2");
+		case .VkImageBlit2: strBuffer.Append("VkImageBlit2");
+		case .VkBufferImageCopy2: strBuffer.Append("VkBufferImageCopy2");
+		case .VkImageResolve2: strBuffer.Append("VkImageResolve2");
+		case .VkPhysicalDeviceSubgroupSizeControlProperties: strBuffer.Append("VkPhysicalDeviceSubgroupSizeControlProperties");
+		case .VkPipelineShaderStageRequiredSubgroupSizeCreateInfo: strBuffer.Append("VkPipelineShaderStageRequiredSubgroupSizeCreateInfo");
+		case .VkPhysicalDeviceSubgroupSizeControlFeatures: strBuffer.Append("VkPhysicalDeviceSubgroupSizeControlFeatures");
+		case .VkPhysicalDeviceInlineUniformBlockFeatures: strBuffer.Append("VkPhysicalDeviceInlineUniformBlockFeatures");
+		case .VkPhysicalDeviceInlineUniformBlockProperties: strBuffer.Append("VkPhysicalDeviceInlineUniformBlockProperties");
+		case .VkWriteDescriptorSetInlineUniformBlock: strBuffer.Append("VkWriteDescriptorSetInlineUniformBlock");
+		case .VkDescriptorPoolInlineUniformBlockCreateInfo: strBuffer.Append("VkDescriptorPoolInlineUniformBlockCreateInfo");
+		case .VkPhysicalDeviceTextureCompressionAstcHdrFeatures: strBuffer.Append("VkPhysicalDeviceTextureCompressionAstcHdrFeatures");
+		case .VkRenderingInfo: strBuffer.Append("VkRenderingInfo");
+		case .VkRenderingAttachmentInfo: strBuffer.Append("VkRenderingAttachmentInfo");
+		case .VkPipelineRenderingCreateInfo: strBuffer.Append("VkPipelineRenderingCreateInfo");
+		case .VkPhysicalDeviceDynamicRenderingFeatures: strBuffer.Append("VkPhysicalDeviceDynamicRenderingFeatures");
+		case .VkCommandBufferInheritanceRenderingInfo: strBuffer.Append("VkCommandBufferInheritanceRenderingInfo");
+		case .VkPhysicalDeviceShaderIntegerDotProductFeatures: strBuffer.Append("VkPhysicalDeviceShaderIntegerDotProductFeatures");
+		case .VkPhysicalDeviceShaderIntegerDotProductProperties: strBuffer.Append("VkPhysicalDeviceShaderIntegerDotProductProperties");
+		case .VkPhysicalDeviceTexelBufferAlignmentProperties: strBuffer.Append("VkPhysicalDeviceTexelBufferAlignmentProperties");
+		case .VkFormatProperties3: strBuffer.Append("VkFormatProperties3");
+		case .VkPhysicalDeviceMaintenance4Features: strBuffer.Append("VkPhysicalDeviceMaintenance4Features");
+		case .VkPhysicalDeviceMaintenance4Properties: strBuffer.Append("VkPhysicalDeviceMaintenance4Properties");
+		case .VkDeviceBufferMemoryRequirements: strBuffer.Append("VkDeviceBufferMemoryRequirements");
+		case .VkDeviceImageMemoryRequirements: strBuffer.Append("VkDeviceImageMemoryRequirements");
+		case .VkPhysicalDeviceVulkan14Features: strBuffer.Append("VkPhysicalDeviceVulkan14Features");
+		case .VkPhysicalDeviceVulkan14Properties: strBuffer.Append("VkPhysicalDeviceVulkan14Properties");
+		case .VkDeviceQueueGlobalPriorityCreateInfo: strBuffer.Append("VkDeviceQueueGlobalPriorityCreateInfo");
+		case .VkPhysicalDeviceGlobalPriorityQueryFeatures: strBuffer.Append("VkPhysicalDeviceGlobalPriorityQueryFeatures");
+		case .VkQueueFamilyGlobalPriorityProperties: strBuffer.Append("VkQueueFamilyGlobalPriorityProperties");
+		case .VkPhysicalDeviceShaderSubgroupRotateFeatures: strBuffer.Append("VkPhysicalDeviceShaderSubgroupRotateFeatures");
+		case .VkPhysicalDeviceShaderFloatControls2Features: strBuffer.Append("VkPhysicalDeviceShaderFloatControls2Features");
+		case .VkPhysicalDeviceShaderExpectAssumeFeatures: strBuffer.Append("VkPhysicalDeviceShaderExpectAssumeFeatures");
+		case .VkPhysicalDeviceLineRasterizationFeatures: strBuffer.Append("VkPhysicalDeviceLineRasterizationFeatures");
+		case .VkPipelineRasterizationLineStateCreateInfo: strBuffer.Append("VkPipelineRasterizationLineStateCreateInfo");
+		case .VkPhysicalDeviceLineRasterizationProperties: strBuffer.Append("VkPhysicalDeviceLineRasterizationProperties");
+		case .VkPhysicalDeviceVertexAttributeDivisorProperties: strBuffer.Append("VkPhysicalDeviceVertexAttributeDivisorProperties");
+		case .VkPipelineVertexInputDivisorStateCreateInfo: strBuffer.Append("VkPipelineVertexInputDivisorStateCreateInfo");
+		case .VkPhysicalDeviceVertexAttributeDivisorFeatures: strBuffer.Append("VkPhysicalDeviceVertexAttributeDivisorFeatures");
+		case .VkPhysicalDeviceIndexTypeUint8Features: strBuffer.Append("VkPhysicalDeviceIndexTypeUint8Features");
+		case .VkMemoryMapInfo: strBuffer.Append("VkMemoryMapInfo");
+		case .VkMemoryUnmapInfo: strBuffer.Append("VkMemoryUnmapInfo");
+		case .VkPhysicalDeviceMaintenance5Features: strBuffer.Append("VkPhysicalDeviceMaintenance5Features");
+		case .VkPhysicalDeviceMaintenance5Properties: strBuffer.Append("VkPhysicalDeviceMaintenance5Properties");
+		case .VkRenderingAreaInfo: strBuffer.Append("VkRenderingAreaInfo");
+		case .VkDeviceImageSubresourceInfo: strBuffer.Append("VkDeviceImageSubresourceInfo");
+		case .VkSubresourceLayout2: strBuffer.Append("VkSubresourceLayout2");
+		case .VkImageSubresource2: strBuffer.Append("VkImageSubresource2");
+		case .VkPipelineCreateFlags2CreateInfo: strBuffer.Append("VkPipelineCreateFlags2CreateInfo");
+		case .VkBufferUsageFlags2CreateInfo: strBuffer.Append("VkBufferUsageFlags2CreateInfo");
+		case .VkPhysicalDevicePushDescriptorProperties: strBuffer.Append("VkPhysicalDevicePushDescriptorProperties");
+		case .VkPhysicalDeviceDynamicRenderingLocalReadFeatures: strBuffer.Append("VkPhysicalDeviceDynamicRenderingLocalReadFeatures");
+		case .VkRenderingAttachmentLocationInfo: strBuffer.Append("VkRenderingAttachmentLocationInfo");
+		case .VkRenderingInputAttachmentIndexInfo: strBuffer.Append("VkRenderingInputAttachmentIndexInfo");
+		case .VkPhysicalDeviceMaintenance6Features: strBuffer.Append("VkPhysicalDeviceMaintenance6Features");
+		case .VkPhysicalDeviceMaintenance6Properties: strBuffer.Append("VkPhysicalDeviceMaintenance6Properties");
+		case .VkBindMemoryStatus: strBuffer.Append("VkBindMemoryStatus");
+		case .VkBindDescriptorSetsInfo: strBuffer.Append("VkBindDescriptorSetsInfo");
+		case .VkPushConstantsInfo: strBuffer.Append("VkPushConstantsInfo");
+		case .VkPushDescriptorSetInfo: strBuffer.Append("VkPushDescriptorSetInfo");
+		case .VkPushDescriptorSetWithTemplateInfo: strBuffer.Append("VkPushDescriptorSetWithTemplateInfo");
+		case .VkPhysicalDevicePipelineProtectedAccessFeatures: strBuffer.Append("VkPhysicalDevicePipelineProtectedAccessFeatures");
+		case .VkPipelineRobustnessCreateInfo: strBuffer.Append("VkPipelineRobustnessCreateInfo");
+		case .VkPhysicalDevicePipelineRobustnessFeatures: strBuffer.Append("VkPhysicalDevicePipelineRobustnessFeatures");
+		case .VkPhysicalDevicePipelineRobustnessProperties: strBuffer.Append("VkPhysicalDevicePipelineRobustnessProperties");
+		case .VkPhysicalDeviceHostImageCopyFeatures: strBuffer.Append("VkPhysicalDeviceHostImageCopyFeatures");
+		case .VkPhysicalDeviceHostImageCopyProperties: strBuffer.Append("VkPhysicalDeviceHostImageCopyProperties");
+		case .VkMemoryToImageCopy: strBuffer.Append("VkMemoryToImageCopy");
+		case .VkImageToMemoryCopy: strBuffer.Append("VkImageToMemoryCopy");
+		case .VkCopyImageToMemoryInfo: strBuffer.Append("VkCopyImageToMemoryInfo");
+		case .VkCopyMemoryToImageInfo: strBuffer.Append("VkCopyMemoryToImageInfo");
+		case .VkHostImageLayoutTransitionInfo: strBuffer.Append("VkHostImageLayoutTransitionInfo");
+		case .VkCopyImageToImageInfo: strBuffer.Append("VkCopyImageToImageInfo");
+		case .VkSubresourceHostMemcpySize: strBuffer.Append("VkSubresourceHostMemcpySize");
+		case .VkHostImageCopyDevicePerformanceQuery: strBuffer.Append("VkHostImageCopyDevicePerformanceQuery");
+		case .VkSwapchainCreateInfoKHR: strBuffer.Append("VkSwapchainCreateInfoKHR");
+		case .VkPresentInfoKHR: strBuffer.Append("VkPresentInfoKHR");
+		case .VkDeviceGroupPresentCapabilitiesKHR: strBuffer.Append("VkDeviceGroupPresentCapabilitiesKHR");
+		case .VkImageSwapchainCreateInfoKHR: strBuffer.Append("VkImageSwapchainCreateInfoKHR");
+		case .VkBindImageMemorySwapchainInfoKHR: strBuffer.Append("VkBindImageMemorySwapchainInfoKHR");
+		case .VkAcquireNextImageInfoKHR: strBuffer.Append("VkAcquireNextImageInfoKHR");
+		case .VkDeviceGroupPresentInfoKHR: strBuffer.Append("VkDeviceGroupPresentInfoKHR");
+		case .VkDeviceGroupSwapchainCreateInfoKHR: strBuffer.Append("VkDeviceGroupSwapchainCreateInfoKHR");
+		case .VkDisplayModeCreateInfoKHR: strBuffer.Append("VkDisplayModeCreateInfoKHR");
+		case .VkDisplaySurfaceCreateInfoKHR: strBuffer.Append("VkDisplaySurfaceCreateInfoKHR");
+		case .VkDisplayPresentInfoKHR: strBuffer.Append("VkDisplayPresentInfoKHR");
+		case .VkXlibSurfaceCreateInfoKHR: strBuffer.Append("VkXlibSurfaceCreateInfoKHR");
+		case .VkXcbSurfaceCreateInfoKHR: strBuffer.Append("VkXcbSurfaceCreateInfoKHR");
+		case .VkWaylandSurfaceCreateInfoKHR: strBuffer.Append("VkWaylandSurfaceCreateInfoKHR");
+		case .VkAndroidSurfaceCreateInfoKHR: strBuffer.Append("VkAndroidSurfaceCreateInfoKHR");
+		case .VkWin32SurfaceCreateInfoKHR: strBuffer.Append("VkWin32SurfaceCreateInfoKHR");
+		case .VkDebugReportCallbackCreateInfoEXT: strBuffer.Append("VkDebugReportCallbackCreateInfoEXT");
+		case .VkPipelineRasterizationStateRasterizationOrderAMD: strBuffer.Append("VkPipelineRasterizationStateRasterizationOrderAMD");
+		case .VkDebugMarkerObjectNameInfoEXT: strBuffer.Append("VkDebugMarkerObjectNameInfoEXT");
+		case .VkDebugMarkerObjectTagInfoEXT: strBuffer.Append("VkDebugMarkerObjectTagInfoEXT");
+		case .VkDebugMarkerMarkerInfoEXT: strBuffer.Append("VkDebugMarkerMarkerInfoEXT");
+		case .VkVideoProfileInfoKHR: strBuffer.Append("VkVideoProfileInfoKHR");
+		case .VkVideoCapabilitiesKHR: strBuffer.Append("VkVideoCapabilitiesKHR");
+		case .VkVideoPictureResourceInfoKHR: strBuffer.Append("VkVideoPictureResourceInfoKHR");
+		case .VkVideoSessionMemoryRequirementsKHR: strBuffer.Append("VkVideoSessionMemoryRequirementsKHR");
+		case .VkBindVideoSessionMemoryInfoKHR: strBuffer.Append("VkBindVideoSessionMemoryInfoKHR");
+		case .VkVideoSessionCreateInfoKHR: strBuffer.Append("VkVideoSessionCreateInfoKHR");
+		case .VkVideoSessionParametersCreateInfoKHR: strBuffer.Append("VkVideoSessionParametersCreateInfoKHR");
+		case .VkVideoSessionParametersUpdateInfoKHR: strBuffer.Append("VkVideoSessionParametersUpdateInfoKHR");
+		case .VkVideoBeginCodingInfoKHR: strBuffer.Append("VkVideoBeginCodingInfoKHR");
+		case .VkVideoEndCodingInfoKHR: strBuffer.Append("VkVideoEndCodingInfoKHR");
+		case .VkVideoCodingControlInfoKHR: strBuffer.Append("VkVideoCodingControlInfoKHR");
+		case .VkVideoReferenceSlotInfoKHR: strBuffer.Append("VkVideoReferenceSlotInfoKHR");
+		case .VkQueueFamilyVideoPropertiesKHR: strBuffer.Append("VkQueueFamilyVideoPropertiesKHR");
+		case .VkVideoProfileListInfoKHR: strBuffer.Append("VkVideoProfileListInfoKHR");
+		case .VkPhysicalDeviceVideoFormatInfoKHR: strBuffer.Append("VkPhysicalDeviceVideoFormatInfoKHR");
+		case .VkVideoFormatPropertiesKHR: strBuffer.Append("VkVideoFormatPropertiesKHR");
+		case .VkQueueFamilyQueryResultStatusPropertiesKHR: strBuffer.Append("VkQueueFamilyQueryResultStatusPropertiesKHR");
+		case .VkVideoDecodeInfoKHR: strBuffer.Append("VkVideoDecodeInfoKHR");
+		case .VkVideoDecodeCapabilitiesKHR: strBuffer.Append("VkVideoDecodeCapabilitiesKHR");
+		case .VkVideoDecodeUsageInfoKHR: strBuffer.Append("VkVideoDecodeUsageInfoKHR");
+		case .VkDedicatedAllocationImageCreateInfoNV: strBuffer.Append("VkDedicatedAllocationImageCreateInfoNV");
+		case .VkDedicatedAllocationBufferCreateInfoNV: strBuffer.Append("VkDedicatedAllocationBufferCreateInfoNV");
+		case .VkDedicatedAllocationMemoryAllocateInfoNV: strBuffer.Append("VkDedicatedAllocationMemoryAllocateInfoNV");
+		case .VkPhysicalDeviceTransformFeedbackFeaturesEXT: strBuffer.Append("VkPhysicalDeviceTransformFeedbackFeaturesEXT");
+		case .VkPhysicalDeviceTransformFeedbackPropertiesEXT: strBuffer.Append("VkPhysicalDeviceTransformFeedbackPropertiesEXT");
+		case .VkPipelineRasterizationStateStreamCreateInfoEXT: strBuffer.Append("VkPipelineRasterizationStateStreamCreateInfoEXT");
+		case .VkCuModuleCreateInfoNVX: strBuffer.Append("VkCuModuleCreateInfoNVX");
+		case .VkCuFunctionCreateInfoNVX: strBuffer.Append("VkCuFunctionCreateInfoNVX");
+		case .VkCuLaunchInfoNVX: strBuffer.Append("VkCuLaunchInfoNVX");
+		case .VkCuModuleTexturingModeCreateInfoNVX: strBuffer.Append("VkCuModuleTexturingModeCreateInfoNVX");
+		case .VkImageViewHandleInfoNVX: strBuffer.Append("VkImageViewHandleInfoNVX");
+		case .VkImageViewAddressPropertiesNVX: strBuffer.Append("VkImageViewAddressPropertiesNVX");
+		case .VkVideoEncodeH264CapabilitiesKHR: strBuffer.Append("VkVideoEncodeH264CapabilitiesKHR");
+		case .VkVideoEncodeH264SessionParametersCreateInfoKHR: strBuffer.Append("VkVideoEncodeH264SessionParametersCreateInfoKHR");
+		case .VkVideoEncodeH264SessionParametersAddInfoKHR: strBuffer.Append("VkVideoEncodeH264SessionParametersAddInfoKHR");
+		case .VkVideoEncodeH264PictureInfoKHR: strBuffer.Append("VkVideoEncodeH264PictureInfoKHR");
+		case .VkVideoEncodeH264DpbSlotInfoKHR: strBuffer.Append("VkVideoEncodeH264DpbSlotInfoKHR");
+		case .VkVideoEncodeH264NaluSliceInfoKHR: strBuffer.Append("VkVideoEncodeH264NaluSliceInfoKHR");
+		case .VkVideoEncodeH264GopRemainingFrameInfoKHR: strBuffer.Append("VkVideoEncodeH264GopRemainingFrameInfoKHR");
+		case .VkVideoEncodeH264ProfileInfoKHR: strBuffer.Append("VkVideoEncodeH264ProfileInfoKHR");
+		case .VkVideoEncodeH264RateControlInfoKHR: strBuffer.Append("VkVideoEncodeH264RateControlInfoKHR");
+		case .VkVideoEncodeH264RateControlLayerInfoKHR: strBuffer.Append("VkVideoEncodeH264RateControlLayerInfoKHR");
+		case .VkVideoEncodeH264SessionCreateInfoKHR: strBuffer.Append("VkVideoEncodeH264SessionCreateInfoKHR");
+		case .VkVideoEncodeH264QualityLevelPropertiesKHR: strBuffer.Append("VkVideoEncodeH264QualityLevelPropertiesKHR");
+		case .VkVideoEncodeH264SessionParametersGetInfoKHR: strBuffer.Append("VkVideoEncodeH264SessionParametersGetInfoKHR");
+		case .VkVideoEncodeH264SessionParametersFeedbackInfoKHR: strBuffer.Append("VkVideoEncodeH264SessionParametersFeedbackInfoKHR");
+		case .VkVideoEncodeH265CapabilitiesKHR: strBuffer.Append("VkVideoEncodeH265CapabilitiesKHR");
+		case .VkVideoEncodeH265SessionParametersCreateInfoKHR: strBuffer.Append("VkVideoEncodeH265SessionParametersCreateInfoKHR");
+		case .VkVideoEncodeH265SessionParametersAddInfoKHR: strBuffer.Append("VkVideoEncodeH265SessionParametersAddInfoKHR");
+		case .VkVideoEncodeH265PictureInfoKHR: strBuffer.Append("VkVideoEncodeH265PictureInfoKHR");
+		case .VkVideoEncodeH265DpbSlotInfoKHR: strBuffer.Append("VkVideoEncodeH265DpbSlotInfoKHR");
+		case .VkVideoEncodeH265NaluSliceSegmentInfoKHR: strBuffer.Append("VkVideoEncodeH265NaluSliceSegmentInfoKHR");
+		case .VkVideoEncodeH265GopRemainingFrameInfoKHR: strBuffer.Append("VkVideoEncodeH265GopRemainingFrameInfoKHR");
+		case .VkVideoEncodeH265ProfileInfoKHR: strBuffer.Append("VkVideoEncodeH265ProfileInfoKHR");
+		case .VkVideoEncodeH265RateControlInfoKHR: strBuffer.Append("VkVideoEncodeH265RateControlInfoKHR");
+		case .VkVideoEncodeH265RateControlLayerInfoKHR: strBuffer.Append("VkVideoEncodeH265RateControlLayerInfoKHR");
+		case .VkVideoEncodeH265SessionCreateInfoKHR: strBuffer.Append("VkVideoEncodeH265SessionCreateInfoKHR");
+		case .VkVideoEncodeH265QualityLevelPropertiesKHR: strBuffer.Append("VkVideoEncodeH265QualityLevelPropertiesKHR");
+		case .VkVideoEncodeH265SessionParametersGetInfoKHR: strBuffer.Append("VkVideoEncodeH265SessionParametersGetInfoKHR");
+		case .VkVideoEncodeH265SessionParametersFeedbackInfoKHR: strBuffer.Append("VkVideoEncodeH265SessionParametersFeedbackInfoKHR");
+		case .VkVideoDecodeH264CapabilitiesKHR: strBuffer.Append("VkVideoDecodeH264CapabilitiesKHR");
+		case .VkVideoDecodeH264PictureInfoKHR: strBuffer.Append("VkVideoDecodeH264PictureInfoKHR");
+		case .VkVideoDecodeH264ProfileInfoKHR: strBuffer.Append("VkVideoDecodeH264ProfileInfoKHR");
+		case .VkVideoDecodeH264SessionParametersCreateInfoKHR: strBuffer.Append("VkVideoDecodeH264SessionParametersCreateInfoKHR");
+		case .VkVideoDecodeH264SessionParametersAddInfoKHR: strBuffer.Append("VkVideoDecodeH264SessionParametersAddInfoKHR");
+		case .VkVideoDecodeH264DpbSlotInfoKHR: strBuffer.Append("VkVideoDecodeH264DpbSlotInfoKHR");
+		case .VkTextureLodGatherFormatPropertiesAMD: strBuffer.Append("VkTextureLodGatherFormatPropertiesAMD");
+		case .VkStreamDescriptorSurfaceCreateInfoGGP: strBuffer.Append("VkStreamDescriptorSurfaceCreateInfoGGP");
+		case .VkPhysicalDeviceCornerSampledImageFeaturesNV: strBuffer.Append("VkPhysicalDeviceCornerSampledImageFeaturesNV");
+		case .VkExternalMemoryImageCreateInfoNV: strBuffer.Append("VkExternalMemoryImageCreateInfoNV");
+		case .VkExportMemoryAllocateInfoNV: strBuffer.Append("VkExportMemoryAllocateInfoNV");
+		case .VkImportMemoryWin32HandleInfoNV: strBuffer.Append("VkImportMemoryWin32HandleInfoNV");
+		case .VkExportMemoryWin32HandleInfoNV: strBuffer.Append("VkExportMemoryWin32HandleInfoNV");
+		case .VkWin32KeyedMutexAcquireReleaseInfoNV: strBuffer.Append("VkWin32KeyedMutexAcquireReleaseInfoNV");
+		case .VkValidationFlagsEXT: strBuffer.Append("VkValidationFlagsEXT");
+		case .VkViSurfaceCreateInfoNN: strBuffer.Append("VkViSurfaceCreateInfoNN");
+		case .VkImageViewAstcDecodeModeEXT: strBuffer.Append("VkImageViewAstcDecodeModeEXT");
+		case .VkPhysicalDeviceAstcDecodeFeaturesEXT: strBuffer.Append("VkPhysicalDeviceAstcDecodeFeaturesEXT");
+		case .VkImportMemoryWin32HandleInfoKHR: strBuffer.Append("VkImportMemoryWin32HandleInfoKHR");
+		case .VkExportMemoryWin32HandleInfoKHR: strBuffer.Append("VkExportMemoryWin32HandleInfoKHR");
+		case .VkMemoryWin32HandlePropertiesKHR: strBuffer.Append("VkMemoryWin32HandlePropertiesKHR");
+		case .VkMemoryGetWin32HandleInfoKHR: strBuffer.Append("VkMemoryGetWin32HandleInfoKHR");
+		case .VkImportMemoryFdInfoKHR: strBuffer.Append("VkImportMemoryFdInfoKHR");
+		case .VkMemoryFdPropertiesKHR: strBuffer.Append("VkMemoryFdPropertiesKHR");
+		case .VkMemoryGetFdInfoKHR: strBuffer.Append("VkMemoryGetFdInfoKHR");
+		case .VkWin32KeyedMutexAcquireReleaseInfoKHR: strBuffer.Append("VkWin32KeyedMutexAcquireReleaseInfoKHR");
+		case .VkImportSemaphoreWin32HandleInfoKHR: strBuffer.Append("VkImportSemaphoreWin32HandleInfoKHR");
+		case .VkExportSemaphoreWin32HandleInfoKHR: strBuffer.Append("VkExportSemaphoreWin32HandleInfoKHR");
+		case .VkD3d12FenceSubmitInfoKHR: strBuffer.Append("VkD3d12FenceSubmitInfoKHR");
+		case .VkSemaphoreGetWin32HandleInfoKHR: strBuffer.Append("VkSemaphoreGetWin32HandleInfoKHR");
+		case .VkImportSemaphoreFdInfoKHR: strBuffer.Append("VkImportSemaphoreFdInfoKHR");
+		case .VkSemaphoreGetFdInfoKHR: strBuffer.Append("VkSemaphoreGetFdInfoKHR");
+		case .VkCommandBufferInheritanceConditionalRenderingInfoEXT: strBuffer.Append("VkCommandBufferInheritanceConditionalRenderingInfoEXT");
+		case .VkPhysicalDeviceConditionalRenderingFeaturesEXT: strBuffer.Append("VkPhysicalDeviceConditionalRenderingFeaturesEXT");
+		case .VkConditionalRenderingBeginInfoEXT: strBuffer.Append("VkConditionalRenderingBeginInfoEXT");
+		case .VkPresentRegionsKHR: strBuffer.Append("VkPresentRegionsKHR");
+		case .VkPipelineViewportWScalingStateCreateInfoNV: strBuffer.Append("VkPipelineViewportWScalingStateCreateInfoNV");
+		case .VkSurfaceCapabilities2EXT: strBuffer.Append("VkSurfaceCapabilities2EXT");
+		case .VkDisplayPowerInfoEXT: strBuffer.Append("VkDisplayPowerInfoEXT");
+		case .VkDeviceEventInfoEXT: strBuffer.Append("VkDeviceEventInfoEXT");
+		case .VkDisplayEventInfoEXT: strBuffer.Append("VkDisplayEventInfoEXT");
+		case .VkSwapchainCounterCreateInfoEXT: strBuffer.Append("VkSwapchainCounterCreateInfoEXT");
+		case .VkPresentTimesInfoGOOGLE: strBuffer.Append("VkPresentTimesInfoGOOGLE");
+		case .VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX: strBuffer.Append("VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX");
+		case .VkMultiviewPerViewAttributesInfoNVX: strBuffer.Append("VkMultiviewPerViewAttributesInfoNVX");
+		case .VkPipelineViewportSwizzleStateCreateInfoNV: strBuffer.Append("VkPipelineViewportSwizzleStateCreateInfoNV");
+		case .VkPhysicalDeviceDiscardRectanglePropertiesEXT: strBuffer.Append("VkPhysicalDeviceDiscardRectanglePropertiesEXT");
+		case .VkPipelineDiscardRectangleStateCreateInfoEXT: strBuffer.Append("VkPipelineDiscardRectangleStateCreateInfoEXT");
+		case .VkPhysicalDeviceConservativeRasterizationPropertiesEXT: strBuffer.Append("VkPhysicalDeviceConservativeRasterizationPropertiesEXT");
+		case .VkPipelineRasterizationConservativeStateCreateInfoEXT: strBuffer.Append("VkPipelineRasterizationConservativeStateCreateInfoEXT");
+		case .VkPhysicalDeviceDepthClipEnableFeaturesEXT: strBuffer.Append("VkPhysicalDeviceDepthClipEnableFeaturesEXT");
+		case .VkPipelineRasterizationDepthClipStateCreateInfoEXT: strBuffer.Append("VkPipelineRasterizationDepthClipStateCreateInfoEXT");
+		case .VkHdrMetadataEXT: strBuffer.Append("VkHdrMetadataEXT");
+		case .VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG: strBuffer.Append("VkPhysicalDeviceRelaxedLineRasterizationFeaturesIMG");
+		case .VkSharedPresentSurfaceCapabilitiesKHR: strBuffer.Append("VkSharedPresentSurfaceCapabilitiesKHR");
+		case .VkImportFenceWin32HandleInfoKHR: strBuffer.Append("VkImportFenceWin32HandleInfoKHR");
+		case .VkExportFenceWin32HandleInfoKHR: strBuffer.Append("VkExportFenceWin32HandleInfoKHR");
+		case .VkFenceGetWin32HandleInfoKHR: strBuffer.Append("VkFenceGetWin32HandleInfoKHR");
+		case .VkImportFenceFdInfoKHR: strBuffer.Append("VkImportFenceFdInfoKHR");
+		case .VkFenceGetFdInfoKHR: strBuffer.Append("VkFenceGetFdInfoKHR");
+		case .VkPhysicalDevicePerformanceQueryFeaturesKHR: strBuffer.Append("VkPhysicalDevicePerformanceQueryFeaturesKHR");
+		case .VkPhysicalDevicePerformanceQueryPropertiesKHR: strBuffer.Append("VkPhysicalDevicePerformanceQueryPropertiesKHR");
+		case .VkQueryPoolPerformanceCreateInfoKHR: strBuffer.Append("VkQueryPoolPerformanceCreateInfoKHR");
+		case .VkPerformanceQuerySubmitInfoKHR: strBuffer.Append("VkPerformanceQuerySubmitInfoKHR");
+		case .VkAcquireProfilingLockInfoKHR: strBuffer.Append("VkAcquireProfilingLockInfoKHR");
+		case .VkPerformanceCounterKHR: strBuffer.Append("VkPerformanceCounterKHR");
+		case .VkPerformanceCounterDescriptionKHR: strBuffer.Append("VkPerformanceCounterDescriptionKHR");
+		case .VkPhysicalDeviceSurfaceInfo2KHR: strBuffer.Append("VkPhysicalDeviceSurfaceInfo2KHR");
+		case .VkSurfaceCapabilities2KHR: strBuffer.Append("VkSurfaceCapabilities2KHR");
+		case .VkSurfaceFormat2KHR: strBuffer.Append("VkSurfaceFormat2KHR");
+		case .VkDisplayProperties2KHR: strBuffer.Append("VkDisplayProperties2KHR");
+		case .VkDisplayPlaneProperties2KHR: strBuffer.Append("VkDisplayPlaneProperties2KHR");
+		case .VkDisplayModeProperties2KHR: strBuffer.Append("VkDisplayModeProperties2KHR");
+		case .VkDisplayPlaneInfo2KHR: strBuffer.Append("VkDisplayPlaneInfo2KHR");
+		case .VkDisplayPlaneCapabilities2KHR: strBuffer.Append("VkDisplayPlaneCapabilities2KHR");
+		case .VkIosSurfaceCreateInfoMVK: strBuffer.Append("VkIosSurfaceCreateInfoMVK");
+		case .VkMacosSurfaceCreateInfoMVK: strBuffer.Append("VkMacosSurfaceCreateInfoMVK");
+		case .VkDebugUtilsObjectNameInfoEXT: strBuffer.Append("VkDebugUtilsObjectNameInfoEXT");
+		case .VkDebugUtilsObjectTagInfoEXT: strBuffer.Append("VkDebugUtilsObjectTagInfoEXT");
+		case .VkDebugUtilsLabelEXT: strBuffer.Append("VkDebugUtilsLabelEXT");
+		case .VkDebugUtilsMessengerCallbackDataEXT: strBuffer.Append("VkDebugUtilsMessengerCallbackDataEXT");
+		case .VkDebugUtilsMessengerCreateInfoEXT: strBuffer.Append("VkDebugUtilsMessengerCreateInfoEXT");
+		case .VkAndroidHardwareBufferUsageANDROID: strBuffer.Append("VkAndroidHardwareBufferUsageANDROID");
+		case .VkAndroidHardwareBufferPropertiesANDROID: strBuffer.Append("VkAndroidHardwareBufferPropertiesANDROID");
+		case .VkAndroidHardwareBufferFormatPropertiesANDROID: strBuffer.Append("VkAndroidHardwareBufferFormatPropertiesANDROID");
+		case .VkImportAndroidHardwareBufferInfoANDROID: strBuffer.Append("VkImportAndroidHardwareBufferInfoANDROID");
+		case .VkMemoryGetAndroidHardwareBufferInfoANDROID: strBuffer.Append("VkMemoryGetAndroidHardwareBufferInfoANDROID");
+		case .VkExternalFormatANDROID: strBuffer.Append("VkExternalFormatANDROID");
+		case .VkAndroidHardwareBufferFormatProperties2ANDROID: strBuffer.Append("VkAndroidHardwareBufferFormatProperties2ANDROID");
+		case .VkPhysicalDeviceShaderEnqueueFeaturesAMDX: strBuffer.Append("VkPhysicalDeviceShaderEnqueueFeaturesAMDX");
+		case .VkPhysicalDeviceShaderEnqueuePropertiesAMDX: strBuffer.Append("VkPhysicalDeviceShaderEnqueuePropertiesAMDX");
+		case .VkExecutionGraphPipelineScratchSizeAMDX: strBuffer.Append("VkExecutionGraphPipelineScratchSizeAMDX");
+		case .VkExecutionGraphPipelineCreateInfoAMDX: strBuffer.Append("VkExecutionGraphPipelineCreateInfoAMDX");
+		case .VkPipelineShaderStageNodeCreateInfoAMDX: strBuffer.Append("VkPipelineShaderStageNodeCreateInfoAMDX");
+		case .VkAttachmentSampleCountInfoAMD: strBuffer.Append("VkAttachmentSampleCountInfoAMD");
+		case .VkPhysicalDeviceShaderBfloat16FeaturesKHR: strBuffer.Append("VkPhysicalDeviceShaderBfloat16FeaturesKHR");
+		case .VkSampleLocationsInfoEXT: strBuffer.Append("VkSampleLocationsInfoEXT");
+		case .VkRenderPassSampleLocationsBeginInfoEXT: strBuffer.Append("VkRenderPassSampleLocationsBeginInfoEXT");
+		case .VkPipelineSampleLocationsStateCreateInfoEXT: strBuffer.Append("VkPipelineSampleLocationsStateCreateInfoEXT");
+		case .VkPhysicalDeviceSampleLocationsPropertiesEXT: strBuffer.Append("VkPhysicalDeviceSampleLocationsPropertiesEXT");
+		case .VkMultisamplePropertiesEXT: strBuffer.Append("VkMultisamplePropertiesEXT");
+		case .VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT: strBuffer.Append("VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT");
+		case .VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT: strBuffer.Append("VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT");
+		case .VkPipelineColorBlendAdvancedStateCreateInfoEXT: strBuffer.Append("VkPipelineColorBlendAdvancedStateCreateInfoEXT");
+		case .VkPipelineCoverageToColorStateCreateInfoNV: strBuffer.Append("VkPipelineCoverageToColorStateCreateInfoNV");
+		case .VkWriteDescriptorSetAccelerationStructureKHR: strBuffer.Append("VkWriteDescriptorSetAccelerationStructureKHR");
+		case .VkAccelerationStructureBuildGeometryInfoKHR: strBuffer.Append("VkAccelerationStructureBuildGeometryInfoKHR");
+		case .VkAccelerationStructureDeviceAddressInfoKHR: strBuffer.Append("VkAccelerationStructureDeviceAddressInfoKHR");
+		case .VkAccelerationStructureGeometryAabbsDataKHR: strBuffer.Append("VkAccelerationStructureGeometryAabbsDataKHR");
+		case .VkAccelerationStructureGeometryInstancesDataKHR: strBuffer.Append("VkAccelerationStructureGeometryInstancesDataKHR");
+		case .VkAccelerationStructureGeometryTrianglesDataKHR: strBuffer.Append("VkAccelerationStructureGeometryTrianglesDataKHR");
+		case .VkAccelerationStructureGeometryKHR: strBuffer.Append("VkAccelerationStructureGeometryKHR");
+		case .VkAccelerationStructureVersionInfoKHR: strBuffer.Append("VkAccelerationStructureVersionInfoKHR");
+		case .VkCopyAccelerationStructureInfoKHR: strBuffer.Append("VkCopyAccelerationStructureInfoKHR");
+		case .VkCopyAccelerationStructureToMemoryInfoKHR: strBuffer.Append("VkCopyAccelerationStructureToMemoryInfoKHR");
+		case .VkCopyMemoryToAccelerationStructureInfoKHR: strBuffer.Append("VkCopyMemoryToAccelerationStructureInfoKHR");
+		case .VkPhysicalDeviceAccelerationStructureFeaturesKHR: strBuffer.Append("VkPhysicalDeviceAccelerationStructureFeaturesKHR");
+		case .VkPhysicalDeviceAccelerationStructurePropertiesKHR: strBuffer.Append("VkPhysicalDeviceAccelerationStructurePropertiesKHR");
+		case .VkAccelerationStructureCreateInfoKHR: strBuffer.Append("VkAccelerationStructureCreateInfoKHR");
+		case .VkAccelerationStructureBuildSizesInfoKHR: strBuffer.Append("VkAccelerationStructureBuildSizesInfoKHR");
+		case .VkPhysicalDeviceRayTracingPipelineFeaturesKHR: strBuffer.Append("VkPhysicalDeviceRayTracingPipelineFeaturesKHR");
+		case .VkPhysicalDeviceRayTracingPipelinePropertiesKHR: strBuffer.Append("VkPhysicalDeviceRayTracingPipelinePropertiesKHR");
+		case .VkRayTracingPipelineCreateInfoKHR: strBuffer.Append("VkRayTracingPipelineCreateInfoKHR");
+		case .VkRayTracingShaderGroupCreateInfoKHR: strBuffer.Append("VkRayTracingShaderGroupCreateInfoKHR");
+		case .VkRayTracingPipelineInterfaceCreateInfoKHR: strBuffer.Append("VkRayTracingPipelineInterfaceCreateInfoKHR");
+		case .VkPhysicalDeviceRayQueryFeaturesKHR: strBuffer.Append("VkPhysicalDeviceRayQueryFeaturesKHR");
+		case .VkPipelineCoverageModulationStateCreateInfoNV: strBuffer.Append("VkPipelineCoverageModulationStateCreateInfoNV");
+		case .VkPhysicalDeviceShaderSmBuiltinsFeaturesNV: strBuffer.Append("VkPhysicalDeviceShaderSmBuiltinsFeaturesNV");
+		case .VkPhysicalDeviceShaderSmBuiltinsPropertiesNV: strBuffer.Append("VkPhysicalDeviceShaderSmBuiltinsPropertiesNV");
+		case .VkDrmFormatModifierPropertiesListEXT: strBuffer.Append("VkDrmFormatModifierPropertiesListEXT");
+		case .VkPhysicalDeviceImageDrmFormatModifierInfoEXT: strBuffer.Append("VkPhysicalDeviceImageDrmFormatModifierInfoEXT");
+		case .VkImageDrmFormatModifierListCreateInfoEXT: strBuffer.Append("VkImageDrmFormatModifierListCreateInfoEXT");
+		case .VkImageDrmFormatModifierExplicitCreateInfoEXT: strBuffer.Append("VkImageDrmFormatModifierExplicitCreateInfoEXT");
+		case .VkImageDrmFormatModifierPropertiesEXT: strBuffer.Append("VkImageDrmFormatModifierPropertiesEXT");
+		case .VkDrmFormatModifierPropertiesList2EXT: strBuffer.Append("VkDrmFormatModifierPropertiesList2EXT");
+		case .VkValidationCacheCreateInfoEXT: strBuffer.Append("VkValidationCacheCreateInfoEXT");
+		case .VkShaderModuleValidationCacheCreateInfoEXT: strBuffer.Append("VkShaderModuleValidationCacheCreateInfoEXT");
+		case .VkPhysicalDevicePortabilitySubsetFeaturesKHR: strBuffer.Append("VkPhysicalDevicePortabilitySubsetFeaturesKHR");
+		case .VkPhysicalDevicePortabilitySubsetPropertiesKHR: strBuffer.Append("VkPhysicalDevicePortabilitySubsetPropertiesKHR");
+		case .VkPipelineViewportShadingRateImageStateCreateInfoNV: strBuffer.Append("VkPipelineViewportShadingRateImageStateCreateInfoNV");
+		case .VkPhysicalDeviceShadingRateImageFeaturesNV: strBuffer.Append("VkPhysicalDeviceShadingRateImageFeaturesNV");
+		case .VkPhysicalDeviceShadingRateImagePropertiesNV: strBuffer.Append("VkPhysicalDeviceShadingRateImagePropertiesNV");
+		case .VkPipelineViewportCoarseSampleOrderStateCreateInfoNV: strBuffer.Append("VkPipelineViewportCoarseSampleOrderStateCreateInfoNV");
+		case .VkRayTracingPipelineCreateInfoNV: strBuffer.Append("VkRayTracingPipelineCreateInfoNV");
+		case .VkAccelerationStructureCreateInfoNV: strBuffer.Append("VkAccelerationStructureCreateInfoNV");
+		case .VkGeometryNV: strBuffer.Append("VkGeometryNV");
+		case .VkGeometryTrianglesNV: strBuffer.Append("VkGeometryTrianglesNV");
+		case .VkGeometryAabbNV: strBuffer.Append("VkGeometryAabbNV");
+		case .VkBindAccelerationStructureMemoryInfoNV: strBuffer.Append("VkBindAccelerationStructureMemoryInfoNV");
+		case .VkWriteDescriptorSetAccelerationStructureNV: strBuffer.Append("VkWriteDescriptorSetAccelerationStructureNV");
+		case .VkAccelerationStructureMemoryRequirementsInfoNV: strBuffer.Append("VkAccelerationStructureMemoryRequirementsInfoNV");
+		case .VkPhysicalDeviceRayTracingPropertiesNV: strBuffer.Append("VkPhysicalDeviceRayTracingPropertiesNV");
+		case .VkRayTracingShaderGroupCreateInfoNV: strBuffer.Append("VkRayTracingShaderGroupCreateInfoNV");
+		case .VkAccelerationStructureInfoNV: strBuffer.Append("VkAccelerationStructureInfoNV");
+		case .VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV: strBuffer.Append("VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV");
+		case .VkPipelineRepresentativeFragmentTestStateCreateInfoNV: strBuffer.Append("VkPipelineRepresentativeFragmentTestStateCreateInfoNV");
+		case .VkPhysicalDeviceImageViewImageFormatInfoEXT: strBuffer.Append("VkPhysicalDeviceImageViewImageFormatInfoEXT");
+		case .VkFilterCubicImageViewImageFormatPropertiesEXT: strBuffer.Append("VkFilterCubicImageViewImageFormatPropertiesEXT");
+		case .VkImportMemoryHostPointerInfoEXT: strBuffer.Append("VkImportMemoryHostPointerInfoEXT");
+		case .VkMemoryHostPointerPropertiesEXT: strBuffer.Append("VkMemoryHostPointerPropertiesEXT");
+		case .VkPhysicalDeviceExternalMemoryHostPropertiesEXT: strBuffer.Append("VkPhysicalDeviceExternalMemoryHostPropertiesEXT");
+		case .VkPhysicalDeviceShaderClockFeaturesKHR: strBuffer.Append("VkPhysicalDeviceShaderClockFeaturesKHR");
+		case .VkPipelineCompilerControlCreateInfoAMD: strBuffer.Append("VkPipelineCompilerControlCreateInfoAMD");
+		case .VkPhysicalDeviceShaderCorePropertiesAMD: strBuffer.Append("VkPhysicalDeviceShaderCorePropertiesAMD");
+		case .VkVideoDecodeH265CapabilitiesKHR: strBuffer.Append("VkVideoDecodeH265CapabilitiesKHR");
+		case .VkVideoDecodeH265SessionParametersCreateInfoKHR: strBuffer.Append("VkVideoDecodeH265SessionParametersCreateInfoKHR");
+		case .VkVideoDecodeH265SessionParametersAddInfoKHR: strBuffer.Append("VkVideoDecodeH265SessionParametersAddInfoKHR");
+		case .VkVideoDecodeH265ProfileInfoKHR: strBuffer.Append("VkVideoDecodeH265ProfileInfoKHR");
+		case .VkVideoDecodeH265PictureInfoKHR: strBuffer.Append("VkVideoDecodeH265PictureInfoKHR");
+		case .VkVideoDecodeH265DpbSlotInfoKHR: strBuffer.Append("VkVideoDecodeH265DpbSlotInfoKHR");
+		case .VkDeviceMemoryOverallocationCreateInfoAMD: strBuffer.Append("VkDeviceMemoryOverallocationCreateInfoAMD");
+		case .VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT: strBuffer.Append("VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT");
+		case .VkPresentFrameTokenGGP: strBuffer.Append("VkPresentFrameTokenGGP");
+		case .VkPhysicalDeviceMeshShaderFeaturesNV: strBuffer.Append("VkPhysicalDeviceMeshShaderFeaturesNV");
+		case .VkPhysicalDeviceMeshShaderPropertiesNV: strBuffer.Append("VkPhysicalDeviceMeshShaderPropertiesNV");
+		case .VkPhysicalDeviceShaderImageFootprintFeaturesNV: strBuffer.Append("VkPhysicalDeviceShaderImageFootprintFeaturesNV");
+		case .VkPipelineViewportExclusiveScissorStateCreateInfoNV: strBuffer.Append("VkPipelineViewportExclusiveScissorStateCreateInfoNV");
+		case .VkPhysicalDeviceExclusiveScissorFeaturesNV: strBuffer.Append("VkPhysicalDeviceExclusiveScissorFeaturesNV");
+		case .VkCheckpointDataNV: strBuffer.Append("VkCheckpointDataNV");
+		case .VkQueueFamilyCheckpointPropertiesNV: strBuffer.Append("VkQueueFamilyCheckpointPropertiesNV");
+		case .VkQueueFamilyCheckpointProperties2NV: strBuffer.Append("VkQueueFamilyCheckpointProperties2NV");
+		case .VkCheckpointData2NV: strBuffer.Append("VkCheckpointData2NV");
+		case .VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL: strBuffer.Append("VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL");
+		case .VkQueryPoolPerformanceQueryCreateInfoINTEL: strBuffer.Append("VkQueryPoolPerformanceQueryCreateInfoINTEL");
+		case .VkInitializePerformanceApiInfoINTEL: strBuffer.Append("VkInitializePerformanceApiInfoINTEL");
+		case .VkPerformanceMarkerInfoINTEL: strBuffer.Append("VkPerformanceMarkerInfoINTEL");
+		case .VkPerformanceStreamMarkerInfoINTEL: strBuffer.Append("VkPerformanceStreamMarkerInfoINTEL");
+		case .VkPerformanceOverrideInfoINTEL: strBuffer.Append("VkPerformanceOverrideInfoINTEL");
+		case .VkPerformanceConfigurationAcquireInfoINTEL: strBuffer.Append("VkPerformanceConfigurationAcquireInfoINTEL");
+		case .VkPhysicalDevicePciBusInfoPropertiesEXT: strBuffer.Append("VkPhysicalDevicePciBusInfoPropertiesEXT");
+		case .VkDisplayNativeHdrSurfaceCapabilitiesAMD: strBuffer.Append("VkDisplayNativeHdrSurfaceCapabilitiesAMD");
+		case .VkSwapchainDisplayNativeHdrCreateInfoAMD: strBuffer.Append("VkSwapchainDisplayNativeHdrCreateInfoAMD");
+		case .VkImagepipeSurfaceCreateInfoFUCHSIA: strBuffer.Append("VkImagepipeSurfaceCreateInfoFUCHSIA");
+		case .VkMetalSurfaceCreateInfoEXT: strBuffer.Append("VkMetalSurfaceCreateInfoEXT");
+		case .VkPhysicalDeviceFragmentDensityMapFeaturesEXT: strBuffer.Append("VkPhysicalDeviceFragmentDensityMapFeaturesEXT");
+		case .VkPhysicalDeviceFragmentDensityMapPropertiesEXT: strBuffer.Append("VkPhysicalDeviceFragmentDensityMapPropertiesEXT");
+		case .VkRenderPassFragmentDensityMapCreateInfoEXT: strBuffer.Append("VkRenderPassFragmentDensityMapCreateInfoEXT");
+		case .VkRenderingFragmentDensityMapAttachmentInfoEXT: strBuffer.Append("VkRenderingFragmentDensityMapAttachmentInfoEXT");
+		case .VkFragmentShadingRateAttachmentInfoKHR: strBuffer.Append("VkFragmentShadingRateAttachmentInfoKHR");
+		case .VkPipelineFragmentShadingRateStateCreateInfoKHR: strBuffer.Append("VkPipelineFragmentShadingRateStateCreateInfoKHR");
+		case .VkPhysicalDeviceFragmentShadingRatePropertiesKHR: strBuffer.Append("VkPhysicalDeviceFragmentShadingRatePropertiesKHR");
+		case .VkPhysicalDeviceFragmentShadingRateFeaturesKHR: strBuffer.Append("VkPhysicalDeviceFragmentShadingRateFeaturesKHR");
+		case .VkPhysicalDeviceFragmentShadingRateKHR: strBuffer.Append("VkPhysicalDeviceFragmentShadingRateKHR");
+		case .VkRenderingFragmentShadingRateAttachmentInfoKHR: strBuffer.Append("VkRenderingFragmentShadingRateAttachmentInfoKHR");
+		case .VkPhysicalDeviceShaderCoreProperties2AMD: strBuffer.Append("VkPhysicalDeviceShaderCoreProperties2AMD");
+		case .VkPhysicalDeviceCoherentMemoryFeaturesAMD: strBuffer.Append("VkPhysicalDeviceCoherentMemoryFeaturesAMD");
+		case .VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT: strBuffer.Append("VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT");
+		case .VkPhysicalDeviceShaderQuadControlFeaturesKHR: strBuffer.Append("VkPhysicalDeviceShaderQuadControlFeaturesKHR");
+		case .VkPhysicalDeviceMemoryBudgetPropertiesEXT: strBuffer.Append("VkPhysicalDeviceMemoryBudgetPropertiesEXT");
+		case .VkPhysicalDeviceMemoryPriorityFeaturesEXT: strBuffer.Append("VkPhysicalDeviceMemoryPriorityFeaturesEXT");
+		case .VkMemoryPriorityAllocateInfoEXT: strBuffer.Append("VkMemoryPriorityAllocateInfoEXT");
+		case .VkSurfaceProtectedCapabilitiesKHR: strBuffer.Append("VkSurfaceProtectedCapabilitiesKHR");
+		case .VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV: strBuffer.Append("VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV");
+		case .VkPhysicalDeviceBufferDeviceAddressFeaturesEXT: strBuffer.Append("VkPhysicalDeviceBufferDeviceAddressFeaturesEXT");
+		case .VkBufferDeviceAddressCreateInfoEXT: strBuffer.Append("VkBufferDeviceAddressCreateInfoEXT");
+		case .VkValidationFeaturesEXT: strBuffer.Append("VkValidationFeaturesEXT");
+		case .VkPhysicalDevicePresentWaitFeaturesKHR: strBuffer.Append("VkPhysicalDevicePresentWaitFeaturesKHR");
+		case .VkPhysicalDeviceCooperativeMatrixFeaturesNV: strBuffer.Append("VkPhysicalDeviceCooperativeMatrixFeaturesNV");
+		case .VkCooperativeMatrixPropertiesNV: strBuffer.Append("VkCooperativeMatrixPropertiesNV");
+		case .VkPhysicalDeviceCooperativeMatrixPropertiesNV: strBuffer.Append("VkPhysicalDeviceCooperativeMatrixPropertiesNV");
+		case .VkPhysicalDeviceCoverageReductionModeFeaturesNV: strBuffer.Append("VkPhysicalDeviceCoverageReductionModeFeaturesNV");
+		case .VkPipelineCoverageReductionStateCreateInfoNV: strBuffer.Append("VkPipelineCoverageReductionStateCreateInfoNV");
+		case .VkFramebufferMixedSamplesCombinationNV: strBuffer.Append("VkFramebufferMixedSamplesCombinationNV");
+		case .VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT: strBuffer.Append("VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT");
+		case .VkPhysicalDeviceYcbcrImageArraysFeaturesEXT: strBuffer.Append("VkPhysicalDeviceYcbcrImageArraysFeaturesEXT");
+		case .VkPhysicalDeviceProvokingVertexFeaturesEXT: strBuffer.Append("VkPhysicalDeviceProvokingVertexFeaturesEXT");
+		case .VkPipelineRasterizationProvokingVertexStateCreateInfoEXT: strBuffer.Append("VkPipelineRasterizationProvokingVertexStateCreateInfoEXT");
+		case .VkPhysicalDeviceProvokingVertexPropertiesEXT: strBuffer.Append("VkPhysicalDeviceProvokingVertexPropertiesEXT");
+		case .VkSurfaceFullScreenExclusiveInfoEXT: strBuffer.Append("VkSurfaceFullScreenExclusiveInfoEXT");
+		case .VkSurfaceCapabilitiesFullScreenExclusiveEXT: strBuffer.Append("VkSurfaceCapabilitiesFullScreenExclusiveEXT");
+		case .VkSurfaceFullScreenExclusiveWin32InfoEXT: strBuffer.Append("VkSurfaceFullScreenExclusiveWin32InfoEXT");
+		case .VkHeadlessSurfaceCreateInfoEXT: strBuffer.Append("VkHeadlessSurfaceCreateInfoEXT");
+		case .VkPhysicalDeviceShaderAtomicFloatFeaturesEXT: strBuffer.Append("VkPhysicalDeviceShaderAtomicFloatFeaturesEXT");
+		case .VkPhysicalDeviceExtendedDynamicStateFeaturesEXT: strBuffer.Append("VkPhysicalDeviceExtendedDynamicStateFeaturesEXT");
+		case .VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR: strBuffer.Append("VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR");
+		case .VkPipelineInfoKHR: strBuffer.Append("VkPipelineInfoKHR");
+		case .VkPipelineExecutablePropertiesKHR: strBuffer.Append("VkPipelineExecutablePropertiesKHR");
+		case .VkPipelineExecutableInfoKHR: strBuffer.Append("VkPipelineExecutableInfoKHR");
+		case .VkPipelineExecutableStatisticKHR: strBuffer.Append("VkPipelineExecutableStatisticKHR");
+		case .VkPipelineExecutableInternalRepresentationKHR: strBuffer.Append("VkPipelineExecutableInternalRepresentationKHR");
+		case .VkPhysicalDeviceMapMemoryPlacedFeaturesEXT: strBuffer.Append("VkPhysicalDeviceMapMemoryPlacedFeaturesEXT");
+		case .VkPhysicalDeviceMapMemoryPlacedPropertiesEXT: strBuffer.Append("VkPhysicalDeviceMapMemoryPlacedPropertiesEXT");
+		case .VkMemoryMapPlacedInfoEXT: strBuffer.Append("VkMemoryMapPlacedInfoEXT");
+		case .VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT: strBuffer.Append("VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT");
+		case .VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV: strBuffer.Append("VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV");
+		case .VkGraphicsShaderGroupCreateInfoNV: strBuffer.Append("VkGraphicsShaderGroupCreateInfoNV");
+		case .VkGraphicsPipelineShaderGroupsCreateInfoNV: strBuffer.Append("VkGraphicsPipelineShaderGroupsCreateInfoNV");
+		case .VkIndirectCommandsLayoutTokenNV: strBuffer.Append("VkIndirectCommandsLayoutTokenNV");
+		case .VkIndirectCommandsLayoutCreateInfoNV: strBuffer.Append("VkIndirectCommandsLayoutCreateInfoNV");
+		case .VkGeneratedCommandsInfoNV: strBuffer.Append("VkGeneratedCommandsInfoNV");
+		case .VkGeneratedCommandsMemoryRequirementsInfoNV: strBuffer.Append("VkGeneratedCommandsMemoryRequirementsInfoNV");
+		case .VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV: strBuffer.Append("VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV");
+		case .VkPhysicalDeviceInheritedViewportScissorFeaturesNV: strBuffer.Append("VkPhysicalDeviceInheritedViewportScissorFeaturesNV");
+		case .VkCommandBufferInheritanceViewportScissorInfoNV: strBuffer.Append("VkCommandBufferInheritanceViewportScissorInfoNV");
+		case .VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT: strBuffer.Append("VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT");
+		case .VkCommandBufferInheritanceRenderPassTransformInfoQCOM: strBuffer.Append("VkCommandBufferInheritanceRenderPassTransformInfoQCOM");
+		case .VkRenderPassTransformBeginInfoQCOM: strBuffer.Append("VkRenderPassTransformBeginInfoQCOM");
+		case .VkPhysicalDeviceDepthBiasControlFeaturesEXT: strBuffer.Append("VkPhysicalDeviceDepthBiasControlFeaturesEXT");
+		case .VkDepthBiasInfoEXT: strBuffer.Append("VkDepthBiasInfoEXT");
+		case .VkDepthBiasRepresentationInfoEXT: strBuffer.Append("VkDepthBiasRepresentationInfoEXT");
+		case .VkPhysicalDeviceDeviceMemoryReportFeaturesEXT: strBuffer.Append("VkPhysicalDeviceDeviceMemoryReportFeaturesEXT");
+		case .VkDeviceDeviceMemoryReportCreateInfoEXT: strBuffer.Append("VkDeviceDeviceMemoryReportCreateInfoEXT");
+		case .VkDeviceMemoryReportCallbackDataEXT: strBuffer.Append("VkDeviceMemoryReportCallbackDataEXT");
+		case .VkSamplerCustomBorderColorCreateInfoEXT: strBuffer.Append("VkSamplerCustomBorderColorCreateInfoEXT");
+		case .VkPhysicalDeviceCustomBorderColorPropertiesEXT: strBuffer.Append("VkPhysicalDeviceCustomBorderColorPropertiesEXT");
+		case .VkPhysicalDeviceCustomBorderColorFeaturesEXT: strBuffer.Append("VkPhysicalDeviceCustomBorderColorFeaturesEXT");
+		case .VkPipelineLibraryCreateInfoKHR: strBuffer.Append("VkPipelineLibraryCreateInfoKHR");
+		case .VkPhysicalDevicePresentBarrierFeaturesNV: strBuffer.Append("VkPhysicalDevicePresentBarrierFeaturesNV");
+		case .VkSurfaceCapabilitiesPresentBarrierNV: strBuffer.Append("VkSurfaceCapabilitiesPresentBarrierNV");
+		case .VkSwapchainPresentBarrierCreateInfoNV: strBuffer.Append("VkSwapchainPresentBarrierCreateInfoNV");
+		case .VkPresentIdKHR: strBuffer.Append("VkPresentIdKHR");
+		case .VkPhysicalDevicePresentIdFeaturesKHR: strBuffer.Append("VkPhysicalDevicePresentIdFeaturesKHR");
+		case .VkVideoEncodeInfoKHR: strBuffer.Append("VkVideoEncodeInfoKHR");
+		case .VkVideoEncodeRateControlInfoKHR: strBuffer.Append("VkVideoEncodeRateControlInfoKHR");
+		case .VkVideoEncodeRateControlLayerInfoKHR: strBuffer.Append("VkVideoEncodeRateControlLayerInfoKHR");
+		case .VkVideoEncodeCapabilitiesKHR: strBuffer.Append("VkVideoEncodeCapabilitiesKHR");
+		case .VkVideoEncodeUsageInfoKHR: strBuffer.Append("VkVideoEncodeUsageInfoKHR");
+		case .VkQueryPoolVideoEncodeFeedbackCreateInfoKHR: strBuffer.Append("VkQueryPoolVideoEncodeFeedbackCreateInfoKHR");
+		case .VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR: strBuffer.Append("VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR");
+		case .VkVideoEncodeQualityLevelPropertiesKHR: strBuffer.Append("VkVideoEncodeQualityLevelPropertiesKHR");
+		case .VkVideoEncodeQualityLevelInfoKHR: strBuffer.Append("VkVideoEncodeQualityLevelInfoKHR");
+		case .VkVideoEncodeSessionParametersGetInfoKHR: strBuffer.Append("VkVideoEncodeSessionParametersGetInfoKHR");
+		case .VkVideoEncodeSessionParametersFeedbackInfoKHR: strBuffer.Append("VkVideoEncodeSessionParametersFeedbackInfoKHR");
+		case .VkPhysicalDeviceDiagnosticsConfigFeaturesNV: strBuffer.Append("VkPhysicalDeviceDiagnosticsConfigFeaturesNV");
+		case .VkDeviceDiagnosticsConfigCreateInfoNV: strBuffer.Append("VkDeviceDiagnosticsConfigCreateInfoNV");
+		case .VkCudaModuleCreateInfoNV: strBuffer.Append("VkCudaModuleCreateInfoNV");
+		case .VkCudaFunctionCreateInfoNV: strBuffer.Append("VkCudaFunctionCreateInfoNV");
+		case .VkCudaLaunchInfoNV: strBuffer.Append("VkCudaLaunchInfoNV");
+		case .VkPhysicalDeviceCudaKernelLaunchFeaturesNV: strBuffer.Append("VkPhysicalDeviceCudaKernelLaunchFeaturesNV");
+		case .VkPhysicalDeviceCudaKernelLaunchPropertiesNV: strBuffer.Append("VkPhysicalDeviceCudaKernelLaunchPropertiesNV");
+		case .VkPhysicalDeviceTileShadingFeaturesQCOM: strBuffer.Append("VkPhysicalDeviceTileShadingFeaturesQCOM");
+		case .VkPhysicalDeviceTileShadingPropertiesQCOM: strBuffer.Append("VkPhysicalDeviceTileShadingPropertiesQCOM");
+		case .VkRenderPassTileShadingCreateInfoQCOM: strBuffer.Append("VkRenderPassTileShadingCreateInfoQCOM");
+		case .VkPerTileBeginInfoQCOM: strBuffer.Append("VkPerTileBeginInfoQCOM");
+		case .VkPerTileEndInfoQCOM: strBuffer.Append("VkPerTileEndInfoQCOM");
+		case .VkDispatchTileInfoQCOM: strBuffer.Append("VkDispatchTileInfoQCOM");
+		case .VkQueryLowLatencySupportNV: strBuffer.Append("VkQueryLowLatencySupportNV");
+		case .VkExportMetalObjectCreateInfoEXT: strBuffer.Append("VkExportMetalObjectCreateInfoEXT");
+		case .VkExportMetalObjectsInfoEXT: strBuffer.Append("VkExportMetalObjectsInfoEXT");
+		case .VkExportMetalDeviceInfoEXT: strBuffer.Append("VkExportMetalDeviceInfoEXT");
+		case .VkExportMetalCommandQueueInfoEXT: strBuffer.Append("VkExportMetalCommandQueueInfoEXT");
+		case .VkExportMetalBufferInfoEXT: strBuffer.Append("VkExportMetalBufferInfoEXT");
+		case .VkImportMetalBufferInfoEXT: strBuffer.Append("VkImportMetalBufferInfoEXT");
+		case .VkExportMetalTextureInfoEXT: strBuffer.Append("VkExportMetalTextureInfoEXT");
+		case .VkImportMetalTextureInfoEXT: strBuffer.Append("VkImportMetalTextureInfoEXT");
+		case .VkExportMetalIoSurfaceInfoEXT: strBuffer.Append("VkExportMetalIoSurfaceInfoEXT");
+		case .VkImportMetalIoSurfaceInfoEXT: strBuffer.Append("VkImportMetalIoSurfaceInfoEXT");
+		case .VkExportMetalSharedEventInfoEXT: strBuffer.Append("VkExportMetalSharedEventInfoEXT");
+		case .VkImportMetalSharedEventInfoEXT: strBuffer.Append("VkImportMetalSharedEventInfoEXT");
+		case .VkPhysicalDeviceDescriptorBufferPropertiesEXT: strBuffer.Append("VkPhysicalDeviceDescriptorBufferPropertiesEXT");
+		case .VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT: strBuffer.Append("VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT");
+		case .VkPhysicalDeviceDescriptorBufferFeaturesEXT: strBuffer.Append("VkPhysicalDeviceDescriptorBufferFeaturesEXT");
+		case .VkDescriptorAddressInfoEXT: strBuffer.Append("VkDescriptorAddressInfoEXT");
+		case .VkDescriptorGetInfoEXT: strBuffer.Append("VkDescriptorGetInfoEXT");
+		case .VkBufferCaptureDescriptorDataInfoEXT: strBuffer.Append("VkBufferCaptureDescriptorDataInfoEXT");
+		case .VkImageCaptureDescriptorDataInfoEXT: strBuffer.Append("VkImageCaptureDescriptorDataInfoEXT");
+		case .VkImageViewCaptureDescriptorDataInfoEXT: strBuffer.Append("VkImageViewCaptureDescriptorDataInfoEXT");
+		case .VkSamplerCaptureDescriptorDataInfoEXT: strBuffer.Append("VkSamplerCaptureDescriptorDataInfoEXT");
+		case .VkOpaqueCaptureDescriptorDataCreateInfoEXT: strBuffer.Append("VkOpaqueCaptureDescriptorDataCreateInfoEXT");
+		case .VkDescriptorBufferBindingInfoEXT: strBuffer.Append("VkDescriptorBufferBindingInfoEXT");
+		case .VkDescriptorBufferBindingPushDescriptorBufferHandleEXT: strBuffer.Append("VkDescriptorBufferBindingPushDescriptorBufferHandleEXT");
+		case .VkAccelerationStructureCaptureDescriptorDataInfoEXT: strBuffer.Append("VkAccelerationStructureCaptureDescriptorDataInfoEXT");
+		case .VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT: strBuffer.Append("VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT");
+		case .VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT: strBuffer.Append("VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT");
+		case .VkGraphicsPipelineLibraryCreateInfoEXT: strBuffer.Append("VkGraphicsPipelineLibraryCreateInfoEXT");
+		case .VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD: strBuffer.Append("VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD");
+		case .VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR: strBuffer.Append("VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR");
+		case .VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR: strBuffer.Append("VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR");
+		case .VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR: strBuffer.Append("VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR");
+		case .VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV: strBuffer.Append("VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV");
+		case .VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV: strBuffer.Append("VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV");
+		case .VkPipelineFragmentShadingRateEnumStateCreateInfoNV: strBuffer.Append("VkPipelineFragmentShadingRateEnumStateCreateInfoNV");
+		case .VkAccelerationStructureGeometryMotionTrianglesDataNV: strBuffer.Append("VkAccelerationStructureGeometryMotionTrianglesDataNV");
+		case .VkPhysicalDeviceRayTracingMotionBlurFeaturesNV: strBuffer.Append("VkPhysicalDeviceRayTracingMotionBlurFeaturesNV");
+		case .VkAccelerationStructureMotionInfoNV: strBuffer.Append("VkAccelerationStructureMotionInfoNV");
+		case .VkPhysicalDeviceMeshShaderFeaturesEXT: strBuffer.Append("VkPhysicalDeviceMeshShaderFeaturesEXT");
+		case .VkPhysicalDeviceMeshShaderPropertiesEXT: strBuffer.Append("VkPhysicalDeviceMeshShaderPropertiesEXT");
+		case .VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT: strBuffer.Append("VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT");
+		case .VkPhysicalDeviceFragmentDensityMap2FeaturesEXT: strBuffer.Append("VkPhysicalDeviceFragmentDensityMap2FeaturesEXT");
+		case .VkPhysicalDeviceFragmentDensityMap2PropertiesEXT: strBuffer.Append("VkPhysicalDeviceFragmentDensityMap2PropertiesEXT");
+		case .VkCopyCommandTransformInfoQCOM: strBuffer.Append("VkCopyCommandTransformInfoQCOM");
+		case .VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR: strBuffer.Append("VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR");
+		case .VkPhysicalDeviceImageCompressionControlFeaturesEXT: strBuffer.Append("VkPhysicalDeviceImageCompressionControlFeaturesEXT");
+		case .VkImageCompressionControlEXT: strBuffer.Append("VkImageCompressionControlEXT");
+		case .VkImageCompressionPropertiesEXT: strBuffer.Append("VkImageCompressionPropertiesEXT");
+		case .VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT: strBuffer.Append("VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT");
+		case .VkPhysicalDevice4444FormatsFeaturesEXT: strBuffer.Append("VkPhysicalDevice4444FormatsFeaturesEXT");
+		case .VkPhysicalDeviceFaultFeaturesEXT: strBuffer.Append("VkPhysicalDeviceFaultFeaturesEXT");
+		case .VkDeviceFaultCountsEXT: strBuffer.Append("VkDeviceFaultCountsEXT");
+		case .VkDeviceFaultInfoEXT: strBuffer.Append("VkDeviceFaultInfoEXT");
+		case .VkPhysicalDeviceRgba10x6FormatsFeaturesEXT: strBuffer.Append("VkPhysicalDeviceRgba10x6FormatsFeaturesEXT");
+		case .VkDirectfbSurfaceCreateInfoEXT: strBuffer.Append("VkDirectfbSurfaceCreateInfoEXT");
+		case .VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT: strBuffer.Append("VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT");
+		case .VkVertexInputBindingDescription2EXT: strBuffer.Append("VkVertexInputBindingDescription2EXT");
+		case .VkVertexInputAttributeDescription2EXT: strBuffer.Append("VkVertexInputAttributeDescription2EXT");
+		case .VkPhysicalDeviceDrmPropertiesEXT: strBuffer.Append("VkPhysicalDeviceDrmPropertiesEXT");
+		case .VkPhysicalDeviceAddressBindingReportFeaturesEXT: strBuffer.Append("VkPhysicalDeviceAddressBindingReportFeaturesEXT");
+		case .VkDeviceAddressBindingCallbackDataEXT: strBuffer.Append("VkDeviceAddressBindingCallbackDataEXT");
+		case .VkPhysicalDeviceDepthClipControlFeaturesEXT: strBuffer.Append("VkPhysicalDeviceDepthClipControlFeaturesEXT");
+		case .VkPipelineViewportDepthClipControlCreateInfoEXT: strBuffer.Append("VkPipelineViewportDepthClipControlCreateInfoEXT");
+		case .VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT: strBuffer.Append("VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT");
+		case .VkImportMemoryZirconHandleInfoFUCHSIA: strBuffer.Append("VkImportMemoryZirconHandleInfoFUCHSIA");
+		case .VkMemoryZirconHandlePropertiesFUCHSIA: strBuffer.Append("VkMemoryZirconHandlePropertiesFUCHSIA");
+		case .VkMemoryGetZirconHandleInfoFUCHSIA: strBuffer.Append("VkMemoryGetZirconHandleInfoFUCHSIA");
+		case .VkImportSemaphoreZirconHandleInfoFUCHSIA: strBuffer.Append("VkImportSemaphoreZirconHandleInfoFUCHSIA");
+		case .VkSemaphoreGetZirconHandleInfoFUCHSIA: strBuffer.Append("VkSemaphoreGetZirconHandleInfoFUCHSIA");
+		case .VkBufferCollectionCreateInfoFUCHSIA: strBuffer.Append("VkBufferCollectionCreateInfoFUCHSIA");
+		case .VkImportMemoryBufferCollectionFUCHSIA: strBuffer.Append("VkImportMemoryBufferCollectionFUCHSIA");
+		case .VkBufferCollectionImageCreateInfoFUCHSIA: strBuffer.Append("VkBufferCollectionImageCreateInfoFUCHSIA");
+		case .VkBufferCollectionPropertiesFUCHSIA: strBuffer.Append("VkBufferCollectionPropertiesFUCHSIA");
+		case .VkBufferConstraintsInfoFUCHSIA: strBuffer.Append("VkBufferConstraintsInfoFUCHSIA");
+		case .VkBufferCollectionBufferCreateInfoFUCHSIA: strBuffer.Append("VkBufferCollectionBufferCreateInfoFUCHSIA");
+		case .VkImageConstraintsInfoFUCHSIA: strBuffer.Append("VkImageConstraintsInfoFUCHSIA");
+		case .VkImageFormatConstraintsInfoFUCHSIA: strBuffer.Append("VkImageFormatConstraintsInfoFUCHSIA");
+		case .VkSysmemColorSpaceFUCHSIA: strBuffer.Append("VkSysmemColorSpaceFUCHSIA");
+		case .VkBufferCollectionConstraintsInfoFUCHSIA: strBuffer.Append("VkBufferCollectionConstraintsInfoFUCHSIA");
+		case .VkSubpassShadingPipelineCreateInfoHUAWEI: strBuffer.Append("VkSubpassShadingPipelineCreateInfoHUAWEI");
+		case .VkPhysicalDeviceSubpassShadingFeaturesHUAWEI: strBuffer.Append("VkPhysicalDeviceSubpassShadingFeaturesHUAWEI");
+		case .VkPhysicalDeviceSubpassShadingPropertiesHUAWEI: strBuffer.Append("VkPhysicalDeviceSubpassShadingPropertiesHUAWEI");
+		case .VkPhysicalDeviceInvocationMaskFeaturesHUAWEI: strBuffer.Append("VkPhysicalDeviceInvocationMaskFeaturesHUAWEI");
+		case .VkMemoryGetRemoteAddressInfoNV: strBuffer.Append("VkMemoryGetRemoteAddressInfoNV");
+		case .VkPhysicalDeviceExternalMemoryRdmaFeaturesNV: strBuffer.Append("VkPhysicalDeviceExternalMemoryRdmaFeaturesNV");
+		case .VkPipelinePropertiesIdentifierEXT: strBuffer.Append("VkPipelinePropertiesIdentifierEXT");
+		case .VkPhysicalDevicePipelinePropertiesFeaturesEXT: strBuffer.Append("VkPhysicalDevicePipelinePropertiesFeaturesEXT");
+		case .VkPhysicalDeviceFrameBoundaryFeaturesEXT: strBuffer.Append("VkPhysicalDeviceFrameBoundaryFeaturesEXT");
+		case .VkFrameBoundaryEXT: strBuffer.Append("VkFrameBoundaryEXT");
+		case .VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT: strBuffer.Append("VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT");
+		case .VkSubpassResolvePerformanceQueryEXT: strBuffer.Append("VkSubpassResolvePerformanceQueryEXT");
+		case .VkMultisampledRenderToSingleSampledInfoEXT: strBuffer.Append("VkMultisampledRenderToSingleSampledInfoEXT");
+		case .VkPhysicalDeviceExtendedDynamicState2FeaturesEXT: strBuffer.Append("VkPhysicalDeviceExtendedDynamicState2FeaturesEXT");
+		case .VkScreenSurfaceCreateInfoQNX: strBuffer.Append("VkScreenSurfaceCreateInfoQNX");
+		case .VkPhysicalDeviceColorWriteEnableFeaturesEXT: strBuffer.Append("VkPhysicalDeviceColorWriteEnableFeaturesEXT");
+		case .VkPipelineColorWriteCreateInfoEXT: strBuffer.Append("VkPipelineColorWriteCreateInfoEXT");
+		case .VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT: strBuffer.Append("VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT");
+		case .VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR: strBuffer.Append("VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR");
+		case .VkPhysicalDeviceImageViewMinLodFeaturesEXT: strBuffer.Append("VkPhysicalDeviceImageViewMinLodFeaturesEXT");
+		case .VkImageViewMinLodCreateInfoEXT: strBuffer.Append("VkImageViewMinLodCreateInfoEXT");
+		case .VkPhysicalDeviceMultiDrawFeaturesEXT: strBuffer.Append("VkPhysicalDeviceMultiDrawFeaturesEXT");
+		case .VkPhysicalDeviceMultiDrawPropertiesEXT: strBuffer.Append("VkPhysicalDeviceMultiDrawPropertiesEXT");
+		case .VkPhysicalDeviceImage2dViewOf3dFeaturesEXT: strBuffer.Append("VkPhysicalDeviceImage2dViewOf3dFeaturesEXT");
+		case .VkPhysicalDeviceShaderTileImageFeaturesEXT: strBuffer.Append("VkPhysicalDeviceShaderTileImageFeaturesEXT");
+		case .VkPhysicalDeviceShaderTileImagePropertiesEXT: strBuffer.Append("VkPhysicalDeviceShaderTileImagePropertiesEXT");
+		case .VkMicromapBuildInfoEXT: strBuffer.Append("VkMicromapBuildInfoEXT");
+		case .VkMicromapVersionInfoEXT: strBuffer.Append("VkMicromapVersionInfoEXT");
+		case .VkCopyMicromapInfoEXT: strBuffer.Append("VkCopyMicromapInfoEXT");
+		case .VkCopyMicromapToMemoryInfoEXT: strBuffer.Append("VkCopyMicromapToMemoryInfoEXT");
+		case .VkCopyMemoryToMicromapInfoEXT: strBuffer.Append("VkCopyMemoryToMicromapInfoEXT");
+		case .VkPhysicalDeviceOpacityMicromapFeaturesEXT: strBuffer.Append("VkPhysicalDeviceOpacityMicromapFeaturesEXT");
+		case .VkPhysicalDeviceOpacityMicromapPropertiesEXT: strBuffer.Append("VkPhysicalDeviceOpacityMicromapPropertiesEXT");
+		case .VkMicromapCreateInfoEXT: strBuffer.Append("VkMicromapCreateInfoEXT");
+		case .VkMicromapBuildSizesInfoEXT: strBuffer.Append("VkMicromapBuildSizesInfoEXT");
+		case .VkAccelerationStructureTrianglesOpacityMicromapEXT: strBuffer.Append("VkAccelerationStructureTrianglesOpacityMicromapEXT");
+		case .VkPhysicalDeviceDisplacementMicromapFeaturesNV: strBuffer.Append("VkPhysicalDeviceDisplacementMicromapFeaturesNV");
+		case .VkPhysicalDeviceDisplacementMicromapPropertiesNV: strBuffer.Append("VkPhysicalDeviceDisplacementMicromapPropertiesNV");
+		case .VkAccelerationStructureTrianglesDisplacementMicromapNV: strBuffer.Append("VkAccelerationStructureTrianglesDisplacementMicromapNV");
+		case .VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI: strBuffer.Append("VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI");
+		case .VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI: strBuffer.Append("VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI");
+		case .VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI: strBuffer.Append("VkPhysicalDeviceClusterCullingShaderVrsFeaturesHUAWEI");
+		case .VkPhysicalDeviceBorderColorSwizzleFeaturesEXT: strBuffer.Append("VkPhysicalDeviceBorderColorSwizzleFeaturesEXT");
+		case .VkSamplerBorderColorComponentMappingCreateInfoEXT: strBuffer.Append("VkSamplerBorderColorComponentMappingCreateInfoEXT");
+		case .VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT: strBuffer.Append("VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT");
+		case .VkPhysicalDeviceShaderCorePropertiesARM: strBuffer.Append("VkPhysicalDeviceShaderCorePropertiesARM");
+		case .VkDeviceQueueShaderCoreControlCreateInfoARM: strBuffer.Append("VkDeviceQueueShaderCoreControlCreateInfoARM");
+		case .VkPhysicalDeviceSchedulingControlsFeaturesARM: strBuffer.Append("VkPhysicalDeviceSchedulingControlsFeaturesARM");
+		case .VkPhysicalDeviceSchedulingControlsPropertiesARM: strBuffer.Append("VkPhysicalDeviceSchedulingControlsPropertiesARM");
+		case .VkPhysicalDeviceImageSlicedViewOf3dFeaturesEXT: strBuffer.Append("VkPhysicalDeviceImageSlicedViewOf3dFeaturesEXT");
+		case .VkImageViewSlicedCreateInfoEXT: strBuffer.Append("VkImageViewSlicedCreateInfoEXT");
+		case .VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE: strBuffer.Append("VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE");
+		case .VkDescriptorSetBindingReferenceVALVE: strBuffer.Append("VkDescriptorSetBindingReferenceVALVE");
+		case .VkDescriptorSetLayoutHostMappingInfoVALVE: strBuffer.Append("VkDescriptorSetLayoutHostMappingInfoVALVE");
+		case .VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT: strBuffer.Append("VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT");
+		case .VkPhysicalDeviceRenderPassStripedFeaturesARM: strBuffer.Append("VkPhysicalDeviceRenderPassStripedFeaturesARM");
+		case .VkPhysicalDeviceRenderPassStripedPropertiesARM: strBuffer.Append("VkPhysicalDeviceRenderPassStripedPropertiesARM");
+		case .VkRenderPassStripeBeginInfoARM: strBuffer.Append("VkRenderPassStripeBeginInfoARM");
+		case .VkRenderPassStripeInfoARM: strBuffer.Append("VkRenderPassStripeInfoARM");
+		case .VkRenderPassStripeSubmitInfoARM: strBuffer.Append("VkRenderPassStripeSubmitInfoARM");
+		case .VkPhysicalDeviceCopyMemoryIndirectFeaturesNV: strBuffer.Append("VkPhysicalDeviceCopyMemoryIndirectFeaturesNV");
+		case .VkPhysicalDeviceCopyMemoryIndirectPropertiesNV: strBuffer.Append("VkPhysicalDeviceCopyMemoryIndirectPropertiesNV");
+		case .VkPhysicalDeviceMemoryDecompressionFeaturesNV: strBuffer.Append("VkPhysicalDeviceMemoryDecompressionFeaturesNV");
+		case .VkPhysicalDeviceMemoryDecompressionPropertiesNV: strBuffer.Append("VkPhysicalDeviceMemoryDecompressionPropertiesNV");
+		case .VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV: strBuffer.Append("VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV");
+		case .VkComputePipelineIndirectBufferInfoNV: strBuffer.Append("VkComputePipelineIndirectBufferInfoNV");
+		case .VkPipelineIndirectDeviceAddressInfoNV: strBuffer.Append("VkPipelineIndirectDeviceAddressInfoNV");
+		case .VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV: strBuffer.Append("VkPhysicalDeviceRayTracingLinearSweptSpheresFeaturesNV");
+		case .VkAccelerationStructureGeometryLinearSweptSpheresDataNV: strBuffer.Append("VkAccelerationStructureGeometryLinearSweptSpheresDataNV");
+		case .VkAccelerationStructureGeometrySpheresDataNV: strBuffer.Append("VkAccelerationStructureGeometrySpheresDataNV");
+		case .VkPhysicalDeviceLinearColorAttachmentFeaturesNV: strBuffer.Append("VkPhysicalDeviceLinearColorAttachmentFeaturesNV");
+		case .VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR: strBuffer.Append("VkPhysicalDeviceShaderMaximalReconvergenceFeaturesKHR");
+		case .VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT: strBuffer.Append("VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT");
+		case .VkPhysicalDeviceImageProcessingFeaturesQCOM: strBuffer.Append("VkPhysicalDeviceImageProcessingFeaturesQCOM");
+		case .VkPhysicalDeviceImageProcessingPropertiesQCOM: strBuffer.Append("VkPhysicalDeviceImageProcessingPropertiesQCOM");
+		case .VkImageViewSampleWeightCreateInfoQCOM: strBuffer.Append("VkImageViewSampleWeightCreateInfoQCOM");
+		case .VkPhysicalDeviceNestedCommandBufferFeaturesEXT: strBuffer.Append("VkPhysicalDeviceNestedCommandBufferFeaturesEXT");
+		case .VkPhysicalDeviceNestedCommandBufferPropertiesEXT: strBuffer.Append("VkPhysicalDeviceNestedCommandBufferPropertiesEXT");
+		case .VkExternalMemoryAcquireUnmodifiedEXT: strBuffer.Append("VkExternalMemoryAcquireUnmodifiedEXT");
+		case .VkPhysicalDeviceExtendedDynamicState3FeaturesEXT: strBuffer.Append("VkPhysicalDeviceExtendedDynamicState3FeaturesEXT");
+		case .VkPhysicalDeviceExtendedDynamicState3PropertiesEXT: strBuffer.Append("VkPhysicalDeviceExtendedDynamicState3PropertiesEXT");
+		case .VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT: strBuffer.Append("VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT");
+		case .VkRenderPassCreationControlEXT: strBuffer.Append("VkRenderPassCreationControlEXT");
+		case .VkRenderPassCreationFeedbackCreateInfoEXT: strBuffer.Append("VkRenderPassCreationFeedbackCreateInfoEXT");
+		case .VkRenderPassSubpassFeedbackCreateInfoEXT: strBuffer.Append("VkRenderPassSubpassFeedbackCreateInfoEXT");
+		case .VkDirectDriverLoadingInfoLUNARG: strBuffer.Append("VkDirectDriverLoadingInfoLUNARG");
+		case .VkDirectDriverLoadingListLUNARG: strBuffer.Append("VkDirectDriverLoadingListLUNARG");
+		case .VkTensorCreateInfoARM: strBuffer.Append("VkTensorCreateInfoARM");
+		case .VkTensorViewCreateInfoARM: strBuffer.Append("VkTensorViewCreateInfoARM");
+		case .VkBindTensorMemoryInfoARM: strBuffer.Append("VkBindTensorMemoryInfoARM");
+		case .VkWriteDescriptorSetTensorARM: strBuffer.Append("VkWriteDescriptorSetTensorARM");
+		case .VkPhysicalDeviceTensorPropertiesARM: strBuffer.Append("VkPhysicalDeviceTensorPropertiesARM");
+		case .VkTensorFormatPropertiesARM: strBuffer.Append("VkTensorFormatPropertiesARM");
+		case .VkTensorDescriptionARM: strBuffer.Append("VkTensorDescriptionARM");
+		case .VkTensorMemoryRequirementsInfoARM: strBuffer.Append("VkTensorMemoryRequirementsInfoARM");
+		case .VkTensorMemoryBarrierARM: strBuffer.Append("VkTensorMemoryBarrierARM");
+		case .VkPhysicalDeviceTensorFeaturesARM: strBuffer.Append("VkPhysicalDeviceTensorFeaturesARM");
+		case .VkDeviceTensorMemoryRequirementsARM: strBuffer.Append("VkDeviceTensorMemoryRequirementsARM");
+		case .VkCopyTensorInfoARM: strBuffer.Append("VkCopyTensorInfoARM");
+		case .VkTensorCopyARM: strBuffer.Append("VkTensorCopyARM");
+		case .VkTensorDependencyInfoARM: strBuffer.Append("VkTensorDependencyInfoARM");
+		case .VkMemoryDedicatedAllocateInfoTensorARM: strBuffer.Append("VkMemoryDedicatedAllocateInfoTensorARM");
+		case .VkPhysicalDeviceExternalTensorInfoARM: strBuffer.Append("VkPhysicalDeviceExternalTensorInfoARM");
+		case .VkExternalTensorPropertiesARM: strBuffer.Append("VkExternalTensorPropertiesARM");
+		case .VkExternalMemoryTensorCreateInfoARM: strBuffer.Append("VkExternalMemoryTensorCreateInfoARM");
+		case .VkPhysicalDeviceDescriptorBufferTensorFeaturesARM: strBuffer.Append("VkPhysicalDeviceDescriptorBufferTensorFeaturesARM");
+		case .VkPhysicalDeviceDescriptorBufferTensorPropertiesARM: strBuffer.Append("VkPhysicalDeviceDescriptorBufferTensorPropertiesARM");
+		case .VkDescriptorGetTensorInfoARM: strBuffer.Append("VkDescriptorGetTensorInfoARM");
+		case .VkTensorCaptureDescriptorDataInfoARM: strBuffer.Append("VkTensorCaptureDescriptorDataInfoARM");
+		case .VkTensorViewCaptureDescriptorDataInfoARM: strBuffer.Append("VkTensorViewCaptureDescriptorDataInfoARM");
+		case .VkFrameBoundaryTensorsARM: strBuffer.Append("VkFrameBoundaryTensorsARM");
+		case .VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT: strBuffer.Append("VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT");
+		case .VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT: strBuffer.Append("VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT");
+		case .VkPipelineShaderStageModuleIdentifierCreateInfoEXT: strBuffer.Append("VkPipelineShaderStageModuleIdentifierCreateInfoEXT");
+		case .VkShaderModuleIdentifierEXT: strBuffer.Append("VkShaderModuleIdentifierEXT");
+		case .VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT: strBuffer.Append("VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT");
+		case .VkPhysicalDeviceOpticalFlowFeaturesNV: strBuffer.Append("VkPhysicalDeviceOpticalFlowFeaturesNV");
+		case .VkPhysicalDeviceOpticalFlowPropertiesNV: strBuffer.Append("VkPhysicalDeviceOpticalFlowPropertiesNV");
+		case .VkOpticalFlowImageFormatInfoNV: strBuffer.Append("VkOpticalFlowImageFormatInfoNV");
+		case .VkOpticalFlowImageFormatPropertiesNV: strBuffer.Append("VkOpticalFlowImageFormatPropertiesNV");
+		case .VkOpticalFlowSessionCreateInfoNV: strBuffer.Append("VkOpticalFlowSessionCreateInfoNV");
+		case .VkOpticalFlowExecuteInfoNV: strBuffer.Append("VkOpticalFlowExecuteInfoNV");
+		case .VkOpticalFlowSessionCreatePrivateDataInfoNV: strBuffer.Append("VkOpticalFlowSessionCreatePrivateDataInfoNV");
+		case .VkPhysicalDeviceLegacyDitheringFeaturesEXT: strBuffer.Append("VkPhysicalDeviceLegacyDitheringFeaturesEXT");
+		case .VkPhysicalDeviceExternalFormatResolveFeaturesANDROID: strBuffer.Append("VkPhysicalDeviceExternalFormatResolveFeaturesANDROID");
+		case .VkPhysicalDeviceExternalFormatResolvePropertiesANDROID: strBuffer.Append("VkPhysicalDeviceExternalFormatResolvePropertiesANDROID");
+		case .VkAndroidHardwareBufferFormatResolvePropertiesANDROID: strBuffer.Append("VkAndroidHardwareBufferFormatResolvePropertiesANDROID");
+		case .VkPhysicalDeviceAntiLagFeaturesAMD: strBuffer.Append("VkPhysicalDeviceAntiLagFeaturesAMD");
+		case .VkAntiLagDataAMD: strBuffer.Append("VkAntiLagDataAMD");
+		case .VkAntiLagPresentationInfoAMD: strBuffer.Append("VkAntiLagPresentationInfoAMD");
+		case .VkSurfaceCapabilitiesPresentId2KHR: strBuffer.Append("VkSurfaceCapabilitiesPresentId2KHR");
+		case .VkPresentId2KHR: strBuffer.Append("VkPresentId2KHR");
+		case .VkPhysicalDevicePresentId2FeaturesKHR: strBuffer.Append("VkPhysicalDevicePresentId2FeaturesKHR");
+		case .VkSurfaceCapabilitiesPresentWait2KHR: strBuffer.Append("VkSurfaceCapabilitiesPresentWait2KHR");
+		case .VkPhysicalDevicePresentWait2FeaturesKHR: strBuffer.Append("VkPhysicalDevicePresentWait2FeaturesKHR");
+		case .VkPresentWait2InfoKHR: strBuffer.Append("VkPresentWait2InfoKHR");
+		case .VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR: strBuffer.Append("VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR");
+		case .VkPhysicalDeviceShaderObjectFeaturesEXT: strBuffer.Append("VkPhysicalDeviceShaderObjectFeaturesEXT");
+		case .VkPhysicalDeviceShaderObjectPropertiesEXT: strBuffer.Append("VkPhysicalDeviceShaderObjectPropertiesEXT");
+		case .VkShaderCreateInfoEXT: strBuffer.Append("VkShaderCreateInfoEXT");
+		case .VkPhysicalDevicePipelineBinaryFeaturesKHR: strBuffer.Append("VkPhysicalDevicePipelineBinaryFeaturesKHR");
+		case .VkPipelineBinaryCreateInfoKHR: strBuffer.Append("VkPipelineBinaryCreateInfoKHR");
+		case .VkPipelineBinaryInfoKHR: strBuffer.Append("VkPipelineBinaryInfoKHR");
+		case .VkPipelineBinaryKeyKHR: strBuffer.Append("VkPipelineBinaryKeyKHR");
+		case .VkPhysicalDevicePipelineBinaryPropertiesKHR: strBuffer.Append("VkPhysicalDevicePipelineBinaryPropertiesKHR");
+		case .VkReleaseCapturedPipelineDataInfoKHR: strBuffer.Append("VkReleaseCapturedPipelineDataInfoKHR");
+		case .VkPipelineBinaryDataInfoKHR: strBuffer.Append("VkPipelineBinaryDataInfoKHR");
+		case .VkPipelineCreateInfoKHR: strBuffer.Append("VkPipelineCreateInfoKHR");
+		case .VkDevicePipelineBinaryInternalCacheControlKHR: strBuffer.Append("VkDevicePipelineBinaryInternalCacheControlKHR");
+		case .VkPipelineBinaryHandlesInfoKHR: strBuffer.Append("VkPipelineBinaryHandlesInfoKHR");
+		case .VkPhysicalDeviceTilePropertiesFeaturesQCOM: strBuffer.Append("VkPhysicalDeviceTilePropertiesFeaturesQCOM");
+		case .VkTilePropertiesQCOM: strBuffer.Append("VkTilePropertiesQCOM");
+		case .VkPhysicalDeviceAmigoProfilingFeaturesSEC: strBuffer.Append("VkPhysicalDeviceAmigoProfilingFeaturesSEC");
+		case .VkAmigoProfilingSubmitInfoSEC: strBuffer.Append("VkAmigoProfilingSubmitInfoSEC");
+		case .VkSurfacePresentModeKHR: strBuffer.Append("VkSurfacePresentModeKHR");
+		case .VkSurfacePresentScalingCapabilitiesKHR: strBuffer.Append("VkSurfacePresentScalingCapabilitiesKHR");
+		case .VkSurfacePresentModeCompatibilityKHR: strBuffer.Append("VkSurfacePresentModeCompatibilityKHR");
+		case .VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR: strBuffer.Append("VkPhysicalDeviceSwapchainMaintenance1FeaturesKHR");
+		case .VkSwapchainPresentFenceInfoKHR: strBuffer.Append("VkSwapchainPresentFenceInfoKHR");
+		case .VkSwapchainPresentModesCreateInfoKHR: strBuffer.Append("VkSwapchainPresentModesCreateInfoKHR");
+		case .VkSwapchainPresentModeInfoKHR: strBuffer.Append("VkSwapchainPresentModeInfoKHR");
+		case .VkSwapchainPresentScalingCreateInfoKHR: strBuffer.Append("VkSwapchainPresentScalingCreateInfoKHR");
+		case .VkReleaseSwapchainImagesInfoKHR: strBuffer.Append("VkReleaseSwapchainImagesInfoKHR");
+		case .VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM: strBuffer.Append("VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM");
+		case .VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV: strBuffer.Append("VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV");
+		case .VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV: strBuffer.Append("VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV");
+		case .VkPhysicalDeviceCooperativeVectorFeaturesNV: strBuffer.Append("VkPhysicalDeviceCooperativeVectorFeaturesNV");
+		case .VkPhysicalDeviceCooperativeVectorPropertiesNV: strBuffer.Append("VkPhysicalDeviceCooperativeVectorPropertiesNV");
+		case .VkCooperativeVectorPropertiesNV: strBuffer.Append("VkCooperativeVectorPropertiesNV");
+		case .VkConvertCooperativeVectorMatrixInfoNV: strBuffer.Append("VkConvertCooperativeVectorMatrixInfoNV");
+		case .VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV: strBuffer.Append("VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV");
+		case .VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV: strBuffer.Append("VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV");
+		case .VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT: strBuffer.Append("VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT");
+		case .VkMutableDescriptorTypeCreateInfoEXT: strBuffer.Append("VkMutableDescriptorTypeCreateInfoEXT");
+		case .VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT: strBuffer.Append("VkPhysicalDeviceLegacyVertexAttributesFeaturesEXT");
+		case .VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT: strBuffer.Append("VkPhysicalDeviceLegacyVertexAttributesPropertiesEXT");
+		case .VkLayerSettingsCreateInfoEXT: strBuffer.Append("VkLayerSettingsCreateInfoEXT");
+		case .VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM: strBuffer.Append("VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM");
+		case .VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM: strBuffer.Append("VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM");
+		case .VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT: strBuffer.Append("VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT");
+		case .VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT: strBuffer.Append("VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT");
+		case .VkLatencySleepModeInfoNV: strBuffer.Append("VkLatencySleepModeInfoNV");
+		case .VkLatencySleepInfoNV: strBuffer.Append("VkLatencySleepInfoNV");
+		case .VkSetLatencyMarkerInfoNV: strBuffer.Append("VkSetLatencyMarkerInfoNV");
+		case .VkGetLatencyMarkerInfoNV: strBuffer.Append("VkGetLatencyMarkerInfoNV");
+		case .VkLatencyTimingsFrameReportNV: strBuffer.Append("VkLatencyTimingsFrameReportNV");
+		case .VkLatencySubmissionPresentIdNV: strBuffer.Append("VkLatencySubmissionPresentIdNV");
+		case .VkOutOfBandQueueTypeInfoNV: strBuffer.Append("VkOutOfBandQueueTypeInfoNV");
+		case .VkSwapchainLatencyCreateInfoNV: strBuffer.Append("VkSwapchainLatencyCreateInfoNV");
+		case .VkLatencySurfaceCapabilitiesNV: strBuffer.Append("VkLatencySurfaceCapabilitiesNV");
+		case .VkPhysicalDeviceCooperativeMatrixFeaturesKHR: strBuffer.Append("VkPhysicalDeviceCooperativeMatrixFeaturesKHR");
+		case .VkCooperativeMatrixPropertiesKHR: strBuffer.Append("VkCooperativeMatrixPropertiesKHR");
+		case .VkPhysicalDeviceCooperativeMatrixPropertiesKHR: strBuffer.Append("VkPhysicalDeviceCooperativeMatrixPropertiesKHR");
+		case .VkDataGraphPipelineCreateInfoARM: strBuffer.Append("VkDataGraphPipelineCreateInfoARM");
+		case .VkDataGraphPipelineSessionCreateInfoARM: strBuffer.Append("VkDataGraphPipelineSessionCreateInfoARM");
+		case .VkDataGraphPipelineResourceInfoARM: strBuffer.Append("VkDataGraphPipelineResourceInfoARM");
+		case .VkDataGraphPipelineConstantARM: strBuffer.Append("VkDataGraphPipelineConstantARM");
+		case .VkDataGraphPipelineSessionMemoryRequirementsInfoARM: strBuffer.Append("VkDataGraphPipelineSessionMemoryRequirementsInfoARM");
+		case .VkBindDataGraphPipelineSessionMemoryInfoARM: strBuffer.Append("VkBindDataGraphPipelineSessionMemoryInfoARM");
+		case .VkPhysicalDeviceDataGraphFeaturesARM: strBuffer.Append("VkPhysicalDeviceDataGraphFeaturesARM");
+		case .VkDataGraphPipelineShaderModuleCreateInfoARM: strBuffer.Append("VkDataGraphPipelineShaderModuleCreateInfoARM");
+		case .VkDataGraphPipelinePropertyQueryResultARM: strBuffer.Append("VkDataGraphPipelinePropertyQueryResultARM");
+		case .VkDataGraphPipelineInfoARM: strBuffer.Append("VkDataGraphPipelineInfoARM");
+		case .VkDataGraphPipelineCompilerControlCreateInfoARM: strBuffer.Append("VkDataGraphPipelineCompilerControlCreateInfoARM");
+		case .VkDataGraphPipelineSessionBindPointRequirementsInfoARM: strBuffer.Append("VkDataGraphPipelineSessionBindPointRequirementsInfoARM");
+		case .VkDataGraphPipelineSessionBindPointRequirementARM: strBuffer.Append("VkDataGraphPipelineSessionBindPointRequirementARM");
+		case .VkDataGraphPipelineIdentifierCreateInfoARM: strBuffer.Append("VkDataGraphPipelineIdentifierCreateInfoARM");
+		case .VkDataGraphPipelineDispatchInfoARM: strBuffer.Append("VkDataGraphPipelineDispatchInfoARM");
+		case .VkDataGraphProcessingEngineCreateInfoARM: strBuffer.Append("VkDataGraphProcessingEngineCreateInfoARM");
+		case .VkQueueFamilyDataGraphProcessingEnginePropertiesARM: strBuffer.Append("VkQueueFamilyDataGraphProcessingEnginePropertiesARM");
+		case .VkQueueFamilyDataGraphPropertiesARM: strBuffer.Append("VkQueueFamilyDataGraphPropertiesARM");
+		case .VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM: strBuffer.Append("VkPhysicalDeviceQueueFamilyDataGraphProcessingEngineInfoARM");
+		case .VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM: strBuffer.Append("VkDataGraphPipelineConstantTensorSemiStructuredSparsityInfoARM");
+		case .VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM: strBuffer.Append("VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM");
+		case .VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM: strBuffer.Append("VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM");
+		case .VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR: strBuffer.Append("VkPhysicalDeviceComputeShaderDerivativesFeaturesKHR");
+		case .VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR: strBuffer.Append("VkPhysicalDeviceComputeShaderDerivativesPropertiesKHR");
+		case .VkVideoDecodeAv1CapabilitiesKHR: strBuffer.Append("VkVideoDecodeAv1CapabilitiesKHR");
+		case .VkVideoDecodeAv1PictureInfoKHR: strBuffer.Append("VkVideoDecodeAv1PictureInfoKHR");
+		case .VkVideoDecodeAv1ProfileInfoKHR: strBuffer.Append("VkVideoDecodeAv1ProfileInfoKHR");
+		case .VkVideoDecodeAv1SessionParametersCreateInfoKHR: strBuffer.Append("VkVideoDecodeAv1SessionParametersCreateInfoKHR");
+		case .VkVideoDecodeAv1DpbSlotInfoKHR: strBuffer.Append("VkVideoDecodeAv1DpbSlotInfoKHR");
+		case .VkVideoEncodeAv1CapabilitiesKHR: strBuffer.Append("VkVideoEncodeAv1CapabilitiesKHR");
+		case .VkVideoEncodeAv1SessionParametersCreateInfoKHR: strBuffer.Append("VkVideoEncodeAv1SessionParametersCreateInfoKHR");
+		case .VkVideoEncodeAv1PictureInfoKHR: strBuffer.Append("VkVideoEncodeAv1PictureInfoKHR");
+		case .VkVideoEncodeAv1DpbSlotInfoKHR: strBuffer.Append("VkVideoEncodeAv1DpbSlotInfoKHR");
+		case .VkPhysicalDeviceVideoEncodeAv1FeaturesKHR: strBuffer.Append("VkPhysicalDeviceVideoEncodeAv1FeaturesKHR");
+		case .VkVideoEncodeAv1ProfileInfoKHR: strBuffer.Append("VkVideoEncodeAv1ProfileInfoKHR");
+		case .VkVideoEncodeAv1RateControlInfoKHR: strBuffer.Append("VkVideoEncodeAv1RateControlInfoKHR");
+		case .VkVideoEncodeAv1RateControlLayerInfoKHR: strBuffer.Append("VkVideoEncodeAv1RateControlLayerInfoKHR");
+		case .VkVideoEncodeAv1QualityLevelPropertiesKHR: strBuffer.Append("VkVideoEncodeAv1QualityLevelPropertiesKHR");
+		case .VkVideoEncodeAv1SessionCreateInfoKHR: strBuffer.Append("VkVideoEncodeAv1SessionCreateInfoKHR");
+		case .VkVideoEncodeAv1GopRemainingFrameInfoKHR: strBuffer.Append("VkVideoEncodeAv1GopRemainingFrameInfoKHR");
+		case .VkPhysicalDeviceVideoDecodeVp9FeaturesKHR: strBuffer.Append("VkPhysicalDeviceVideoDecodeVp9FeaturesKHR");
+		case .VkVideoDecodeVp9CapabilitiesKHR: strBuffer.Append("VkVideoDecodeVp9CapabilitiesKHR");
+		case .VkVideoDecodeVp9PictureInfoKHR: strBuffer.Append("VkVideoDecodeVp9PictureInfoKHR");
+		case .VkVideoDecodeVp9ProfileInfoKHR: strBuffer.Append("VkVideoDecodeVp9ProfileInfoKHR");
+		case .VkPhysicalDeviceVideoMaintenance1FeaturesKHR: strBuffer.Append("VkPhysicalDeviceVideoMaintenance1FeaturesKHR");
+		case .VkVideoInlineQueryInfoKHR: strBuffer.Append("VkVideoInlineQueryInfoKHR");
+		case .VkPhysicalDevicePerStageDescriptorSetFeaturesNV: strBuffer.Append("VkPhysicalDevicePerStageDescriptorSetFeaturesNV");
+		case .VkPhysicalDeviceImageProcessing2FeaturesQCOM: strBuffer.Append("VkPhysicalDeviceImageProcessing2FeaturesQCOM");
+		case .VkPhysicalDeviceImageProcessing2PropertiesQCOM: strBuffer.Append("VkPhysicalDeviceImageProcessing2PropertiesQCOM");
+		case .VkSamplerBlockMatchWindowCreateInfoQCOM: strBuffer.Append("VkSamplerBlockMatchWindowCreateInfoQCOM");
+		case .VkSamplerCubicWeightsCreateInfoQCOM: strBuffer.Append("VkSamplerCubicWeightsCreateInfoQCOM");
+		case .VkPhysicalDeviceCubicWeightsFeaturesQCOM: strBuffer.Append("VkPhysicalDeviceCubicWeightsFeaturesQCOM");
+		case .VkBlitImageCubicWeightsInfoQCOM: strBuffer.Append("VkBlitImageCubicWeightsInfoQCOM");
+		case .VkPhysicalDeviceYcbcrDegammaFeaturesQCOM: strBuffer.Append("VkPhysicalDeviceYcbcrDegammaFeaturesQCOM");
+		case .VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM: strBuffer.Append("VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM");
+		case .VkPhysicalDeviceCubicClampFeaturesQCOM: strBuffer.Append("VkPhysicalDeviceCubicClampFeaturesQCOM");
+		case .VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT: strBuffer.Append("VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT");
+		case .VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR: strBuffer.Append("VkPhysicalDeviceUnifiedImageLayoutsFeaturesKHR");
+		case .VkAttachmentFeedbackLoopInfoEXT: strBuffer.Append("VkAttachmentFeedbackLoopInfoEXT");
+		case .VkScreenBufferPropertiesQNX: strBuffer.Append("VkScreenBufferPropertiesQNX");
+		case .VkScreenBufferFormatPropertiesQNX: strBuffer.Append("VkScreenBufferFormatPropertiesQNX");
+		case .VkImportScreenBufferInfoQNX: strBuffer.Append("VkImportScreenBufferInfoQNX");
+		case .VkExternalFormatQNX: strBuffer.Append("VkExternalFormatQNX");
+		case .VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX: strBuffer.Append("VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX");
+		case .VkPhysicalDeviceLayeredDriverPropertiesMSFT: strBuffer.Append("VkPhysicalDeviceLayeredDriverPropertiesMSFT");
+		case .VkCalibratedTimestampInfoKHR: strBuffer.Append("VkCalibratedTimestampInfoKHR");
+		case .VkSetDescriptorBufferOffsetsInfoEXT: strBuffer.Append("VkSetDescriptorBufferOffsetsInfoEXT");
+		case .VkBindDescriptorBufferEmbeddedSamplersInfoEXT: strBuffer.Append("VkBindDescriptorBufferEmbeddedSamplersInfoEXT");
+		case .VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV: strBuffer.Append("VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV");
+		case .VkPhysicalDeviceTileMemoryHeapFeaturesQCOM: strBuffer.Append("VkPhysicalDeviceTileMemoryHeapFeaturesQCOM");
+		case .VkPhysicalDeviceTileMemoryHeapPropertiesQCOM: strBuffer.Append("VkPhysicalDeviceTileMemoryHeapPropertiesQCOM");
+		case .VkTileMemoryRequirementsQCOM: strBuffer.Append("VkTileMemoryRequirementsQCOM");
+		case .VkTileMemoryBindInfoQCOM: strBuffer.Append("VkTileMemoryBindInfoQCOM");
+		case .VkTileMemorySizeInfoQCOM: strBuffer.Append("VkTileMemorySizeInfoQCOM");
+		case .VkDisplaySurfaceStereoCreateInfoNV: strBuffer.Append("VkDisplaySurfaceStereoCreateInfoNV");
+		case .VkDisplayModeStereoPropertiesNV: strBuffer.Append("VkDisplayModeStereoPropertiesNV");
+		case .VkVideoEncodeIntraRefreshCapabilitiesKHR: strBuffer.Append("VkVideoEncodeIntraRefreshCapabilitiesKHR");
+		case .VkVideoEncodeSessionIntraRefreshCreateInfoKHR: strBuffer.Append("VkVideoEncodeSessionIntraRefreshCreateInfoKHR");
+		case .VkVideoEncodeIntraRefreshInfoKHR: strBuffer.Append("VkVideoEncodeIntraRefreshInfoKHR");
+		case .VkVideoReferenceIntraRefreshInfoKHR: strBuffer.Append("VkVideoReferenceIntraRefreshInfoKHR");
+		case .VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR: strBuffer.Append("VkPhysicalDeviceVideoEncodeIntraRefreshFeaturesKHR");
+		case .VkVideoEncodeQuantizationMapCapabilitiesKHR: strBuffer.Append("VkVideoEncodeQuantizationMapCapabilitiesKHR");
+		case .VkVideoFormatQuantizationMapPropertiesKHR: strBuffer.Append("VkVideoFormatQuantizationMapPropertiesKHR");
+		case .VkVideoEncodeQuantizationMapInfoKHR: strBuffer.Append("VkVideoEncodeQuantizationMapInfoKHR");
+		case .VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR: strBuffer.Append("VkVideoEncodeQuantizationMapSessionParametersCreateInfoKHR");
+		case .VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR: strBuffer.Append("VkPhysicalDeviceVideoEncodeQuantizationMapFeaturesKHR");
+		case .VkVideoEncodeH264QuantizationMapCapabilitiesKHR: strBuffer.Append("VkVideoEncodeH264QuantizationMapCapabilitiesKHR");
+		case .VkVideoEncodeH265QuantizationMapCapabilitiesKHR: strBuffer.Append("VkVideoEncodeH265QuantizationMapCapabilitiesKHR");
+		case .VkVideoFormatH265QuantizationMapPropertiesKHR: strBuffer.Append("VkVideoFormatH265QuantizationMapPropertiesKHR");
+		case .VkVideoEncodeAv1QuantizationMapCapabilitiesKHR: strBuffer.Append("VkVideoEncodeAv1QuantizationMapCapabilitiesKHR");
+		case .VkVideoFormatAv1QuantizationMapPropertiesKHR: strBuffer.Append("VkVideoFormatAv1QuantizationMapPropertiesKHR");
+		case .VkPhysicalDeviceRawAccessChainsFeaturesNV: strBuffer.Append("VkPhysicalDeviceRawAccessChainsFeaturesNV");
+		case .VkExternalComputeQueueDeviceCreateInfoNV: strBuffer.Append("VkExternalComputeQueueDeviceCreateInfoNV");
+		case .VkExternalComputeQueueCreateInfoNV: strBuffer.Append("VkExternalComputeQueueCreateInfoNV");
+		case .VkExternalComputeQueueDataParamsNV: strBuffer.Append("VkExternalComputeQueueDataParamsNV");
+		case .VkPhysicalDeviceExternalComputeQueuePropertiesNV: strBuffer.Append("VkPhysicalDeviceExternalComputeQueuePropertiesNV");
+		case .VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR: strBuffer.Append("VkPhysicalDeviceShaderRelaxedExtendedInstructionFeaturesKHR");
+		case .VkPhysicalDeviceCommandBufferInheritanceFeaturesNV: strBuffer.Append("VkPhysicalDeviceCommandBufferInheritanceFeaturesNV");
+		case .VkPhysicalDeviceMaintenance7FeaturesKHR: strBuffer.Append("VkPhysicalDeviceMaintenance7FeaturesKHR");
+		case .VkPhysicalDeviceMaintenance7PropertiesKHR: strBuffer.Append("VkPhysicalDeviceMaintenance7PropertiesKHR");
+		case .VkPhysicalDeviceLayeredApiPropertiesListKHR: strBuffer.Append("VkPhysicalDeviceLayeredApiPropertiesListKHR");
+		case .VkPhysicalDeviceLayeredApiPropertiesKHR: strBuffer.Append("VkPhysicalDeviceLayeredApiPropertiesKHR");
+		case .VkPhysicalDeviceLayeredApiVulkanPropertiesKHR: strBuffer.Append("VkPhysicalDeviceLayeredApiVulkanPropertiesKHR");
+		case .VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV: strBuffer.Append("VkPhysicalDeviceShaderAtomicFloat16VectorFeaturesNV");
+		case .VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT: strBuffer.Append("VkPhysicalDeviceShaderReplicatedCompositesFeaturesEXT");
+		case .VkPhysicalDeviceShaderFloat8FeaturesEXT: strBuffer.Append("VkPhysicalDeviceShaderFloat8FeaturesEXT");
+		case .VkPhysicalDeviceRayTracingValidationFeaturesNV: strBuffer.Append("VkPhysicalDeviceRayTracingValidationFeaturesNV");
+		case .VkPhysicalDeviceClusterAccelerationStructureFeaturesNV: strBuffer.Append("VkPhysicalDeviceClusterAccelerationStructureFeaturesNV");
+		case .VkPhysicalDeviceClusterAccelerationStructurePropertiesNV: strBuffer.Append("VkPhysicalDeviceClusterAccelerationStructurePropertiesNV");
+		case .VkClusterAccelerationStructureClustersBottomLevelInputNV: strBuffer.Append("VkClusterAccelerationStructureClustersBottomLevelInputNV");
+		case .VkClusterAccelerationStructureTriangleClusterInputNV: strBuffer.Append("VkClusterAccelerationStructureTriangleClusterInputNV");
+		case .VkClusterAccelerationStructureMoveObjectsInputNV: strBuffer.Append("VkClusterAccelerationStructureMoveObjectsInputNV");
+		case .VkClusterAccelerationStructureInputInfoNV: strBuffer.Append("VkClusterAccelerationStructureInputInfoNV");
+		case .VkClusterAccelerationStructureCommandsInfoNV: strBuffer.Append("VkClusterAccelerationStructureCommandsInfoNV");
+		case .VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV: strBuffer.Append("VkRayTracingPipelineClusterAccelerationStructureCreateInfoNV");
+		case .VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV: strBuffer.Append("VkPhysicalDevicePartitionedAccelerationStructureFeaturesNV");
+		case .VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV: strBuffer.Append("VkPhysicalDevicePartitionedAccelerationStructurePropertiesNV");
+		case .VkWriteDescriptorSetPartitionedAccelerationStructureNV: strBuffer.Append("VkWriteDescriptorSetPartitionedAccelerationStructureNV");
+		case .VkPartitionedAccelerationStructureInstancesInputNV: strBuffer.Append("VkPartitionedAccelerationStructureInstancesInputNV");
+		case .VkBuildPartitionedAccelerationStructureInfoNV: strBuffer.Append("VkBuildPartitionedAccelerationStructureInfoNV");
+		case .VkPartitionedAccelerationStructureFlagsNV: strBuffer.Append("VkPartitionedAccelerationStructureFlagsNV");
+		case .VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT: strBuffer.Append("VkPhysicalDeviceDeviceGeneratedCommandsFeaturesEXT");
+		case .VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT: strBuffer.Append("VkPhysicalDeviceDeviceGeneratedCommandsPropertiesEXT");
+		case .VkGeneratedCommandsMemoryRequirementsInfoEXT: strBuffer.Append("VkGeneratedCommandsMemoryRequirementsInfoEXT");
+		case .VkIndirectExecutionSetCreateInfoEXT: strBuffer.Append("VkIndirectExecutionSetCreateInfoEXT");
+		case .VkGeneratedCommandsInfoEXT: strBuffer.Append("VkGeneratedCommandsInfoEXT");
+		case .VkIndirectCommandsLayoutCreateInfoEXT: strBuffer.Append("VkIndirectCommandsLayoutCreateInfoEXT");
+		case .VkIndirectCommandsLayoutTokenEXT: strBuffer.Append("VkIndirectCommandsLayoutTokenEXT");
+		case .VkWriteIndirectExecutionSetPipelineEXT: strBuffer.Append("VkWriteIndirectExecutionSetPipelineEXT");
+		case .VkWriteIndirectExecutionSetShaderEXT: strBuffer.Append("VkWriteIndirectExecutionSetShaderEXT");
+		case .VkIndirectExecutionSetPipelineInfoEXT: strBuffer.Append("VkIndirectExecutionSetPipelineInfoEXT");
+		case .VkIndirectExecutionSetShaderInfoEXT: strBuffer.Append("VkIndirectExecutionSetShaderInfoEXT");
+		case .VkIndirectExecutionSetShaderLayoutInfoEXT: strBuffer.Append("VkIndirectExecutionSetShaderLayoutInfoEXT");
+		case .VkGeneratedCommandsPipelineInfoEXT: strBuffer.Append("VkGeneratedCommandsPipelineInfoEXT");
+		case .VkGeneratedCommandsShaderInfoEXT: strBuffer.Append("VkGeneratedCommandsShaderInfoEXT");
+		case .VkPhysicalDeviceMaintenance8FeaturesKHR: strBuffer.Append("VkPhysicalDeviceMaintenance8FeaturesKHR");
+		case .VkMemoryBarrierAccessFlags3KHR: strBuffer.Append("VkMemoryBarrierAccessFlags3KHR");
+		case .VkPhysicalDeviceImageAlignmentControlFeaturesMESA: strBuffer.Append("VkPhysicalDeviceImageAlignmentControlFeaturesMESA");
+		case .VkPhysicalDeviceImageAlignmentControlPropertiesMESA: strBuffer.Append("VkPhysicalDeviceImageAlignmentControlPropertiesMESA");
+		case .VkImageAlignmentControlCreateInfoMESA: strBuffer.Append("VkImageAlignmentControlCreateInfoMESA");
+		case .VkPhysicalDeviceDepthClampControlFeaturesEXT: strBuffer.Append("VkPhysicalDeviceDepthClampControlFeaturesEXT");
+		case .VkPipelineViewportDepthClampControlCreateInfoEXT: strBuffer.Append("VkPipelineViewportDepthClampControlCreateInfoEXT");
+		case .VkPhysicalDeviceMaintenance9FeaturesKHR: strBuffer.Append("VkPhysicalDeviceMaintenance9FeaturesKHR");
+		case .VkPhysicalDeviceMaintenance9PropertiesKHR: strBuffer.Append("VkPhysicalDeviceMaintenance9PropertiesKHR");
+		case .VkQueueFamilyOwnershipTransferPropertiesKHR: strBuffer.Append("VkQueueFamilyOwnershipTransferPropertiesKHR");
+		case .VkPhysicalDeviceVideoMaintenance2FeaturesKHR: strBuffer.Append("VkPhysicalDeviceVideoMaintenance2FeaturesKHR");
+		case .VkVideoDecodeH264InlineSessionParametersInfoKHR: strBuffer.Append("VkVideoDecodeH264InlineSessionParametersInfoKHR");
+		case .VkVideoDecodeH265InlineSessionParametersInfoKHR: strBuffer.Append("VkVideoDecodeH265InlineSessionParametersInfoKHR");
+		case .VkVideoDecodeAv1InlineSessionParametersInfoKHR: strBuffer.Append("VkVideoDecodeAv1InlineSessionParametersInfoKHR");
+		case .VkOhSurfaceCreateInfoOHOS: strBuffer.Append("VkOhSurfaceCreateInfoOHOS");
+		case .VkPhysicalDeviceHdrVividFeaturesHUAWEI: strBuffer.Append("VkPhysicalDeviceHdrVividFeaturesHUAWEI");
+		case .VkHdrVividDynamicMetadataHUAWEI: strBuffer.Append("VkHdrVividDynamicMetadataHUAWEI");
+		case .VkPhysicalDeviceCooperativeMatrix2FeaturesNV: strBuffer.Append("VkPhysicalDeviceCooperativeMatrix2FeaturesNV");
+		case .VkCooperativeMatrixFlexibleDimensionsPropertiesNV: strBuffer.Append("VkCooperativeMatrixFlexibleDimensionsPropertiesNV");
+		case .VkPhysicalDeviceCooperativeMatrix2PropertiesNV: strBuffer.Append("VkPhysicalDeviceCooperativeMatrix2PropertiesNV");
+		case .VkPhysicalDevicePipelineOpacityMicromapFeaturesARM: strBuffer.Append("VkPhysicalDevicePipelineOpacityMicromapFeaturesARM");
+		case .VkImportMemoryMetalHandleInfoEXT: strBuffer.Append("VkImportMemoryMetalHandleInfoEXT");
+		case .VkMemoryMetalHandlePropertiesEXT: strBuffer.Append("VkMemoryMetalHandlePropertiesEXT");
+		case .VkMemoryGetMetalHandleInfoEXT: strBuffer.Append("VkMemoryGetMetalHandleInfoEXT");
+		case .VkPhysicalDeviceDepthClampZeroOneFeaturesKHR: strBuffer.Append("VkPhysicalDeviceDepthClampZeroOneFeaturesKHR");
+		case .VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT: strBuffer.Append("VkPhysicalDeviceVertexAttributeRobustnessFeaturesEXT");
+		case .VkPhysicalDeviceFormatPackFeaturesARM: strBuffer.Append("VkPhysicalDeviceFormatPackFeaturesARM");
+		case .VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE: strBuffer.Append("VkPhysicalDeviceFragmentDensityMapLayeredFeaturesVALVE");
+		case .VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE: strBuffer.Append("VkPhysicalDeviceFragmentDensityMapLayeredPropertiesVALVE");
+		case .VkPipelineFragmentDensityMapLayeredCreateInfoVALVE: strBuffer.Append("VkPipelineFragmentDensityMapLayeredCreateInfoVALVE");
+		case .VkPhysicalDeviceRobustness2FeaturesKHR: strBuffer.Append("VkPhysicalDeviceRobustness2FeaturesKHR");
+		case .VkPhysicalDeviceRobustness2PropertiesKHR: strBuffer.Append("VkPhysicalDeviceRobustness2PropertiesKHR");
+		case .VkSetPresentConfigNV: strBuffer.Append("VkSetPresentConfigNV");
+		case .VkPhysicalDevicePresentMeteringFeaturesNV: strBuffer.Append("VkPhysicalDevicePresentMeteringFeaturesNV");
+		case .VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT: strBuffer.Append("VkPhysicalDeviceFragmentDensityMapOffsetFeaturesEXT");
+		case .VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT: strBuffer.Append("VkPhysicalDeviceFragmentDensityMapOffsetPropertiesEXT");
+		case .VkRenderPassFragmentDensityMapOffsetEndInfoEXT: strBuffer.Append("VkRenderPassFragmentDensityMapOffsetEndInfoEXT");
+		case .VkRenderingEndInfoEXT: strBuffer.Append("VkRenderingEndInfoEXT");
+		case .VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT: strBuffer.Append("VkPhysicalDeviceZeroInitializeDeviceMemoryFeaturesEXT");
+		case .VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR: strBuffer.Append("VkPhysicalDevicePresentModeFifoLatestReadyFeaturesKHR");
+		case .VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC: strBuffer.Append("VkPhysicalDevicePipelineCacheIncrementalModeFeaturesSEC");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSystemAllocationScope
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2759,10 +5436,25 @@ extension VkSystemAllocationScope
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Command: strBuffer.Append("Command");
+		case .Object: strBuffer.Append("Object");
+		case .Cache: strBuffer.Append("Cache");
+		case .Device: strBuffer.Append("Device");
+		case .Instance: strBuffer.Append("Instance");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkInternalAllocationType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2771,10 +5463,21 @@ extension VkInternalAllocationType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Executable: strBuffer.Append("Executable");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSamplerAddressMode
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2787,10 +5490,25 @@ extension VkSamplerAddressMode
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Repeat: strBuffer.Append("Repeat");
+		case .MirroredRepeat: strBuffer.Append("MirroredRepeat");
+		case .ClampToEdge: strBuffer.Append("ClampToEdge");
+		case .ClampToBorder: strBuffer.Append("ClampToBorder");
+		case .MirrorClampToEdge: strBuffer.Append("MirrorClampToEdge");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFilter
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2801,10 +5519,23 @@ extension VkFilter
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Nearest: strBuffer.Append("Nearest");
+		case .Linear: strBuffer.Append("Linear");
+		case .CubicEXT: strBuffer.Append("CubicEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSamplerMipmapMode
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2814,10 +5545,22 @@ extension VkSamplerMipmapMode
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Nearest: strBuffer.Append("Nearest");
+		case .Linear: strBuffer.Append("Linear");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVertexInputRate
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2827,10 +5570,22 @@ extension VkVertexInputRate
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Vertex: strBuffer.Append("Vertex");
+		case .Instance: strBuffer.Append("Instance");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineStageFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2865,10 +5620,47 @@ extension VkPipelineStageFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TopOfPipe: strBuffer.Append("TopOfPipe");
+		case .DrawIndirect: strBuffer.Append("DrawIndirect");
+		case .VertexInput: strBuffer.Append("VertexInput");
+		case .VertexShader: strBuffer.Append("VertexShader");
+		case .TessellationControlShader: strBuffer.Append("TessellationControlShader");
+		case .TessellationEvaluationShader: strBuffer.Append("TessellationEvaluationShader");
+		case .GeometryShader: strBuffer.Append("GeometryShader");
+		case .FragmentShader: strBuffer.Append("FragmentShader");
+		case .EarlyFragmentTests: strBuffer.Append("EarlyFragmentTests");
+		case .LateFragmentTests: strBuffer.Append("LateFragmentTests");
+		case .ColorAttachmentOutput: strBuffer.Append("ColorAttachmentOutput");
+		case .ComputeShader: strBuffer.Append("ComputeShader");
+		case .Transfer: strBuffer.Append("Transfer");
+		case .BottomOfPipe: strBuffer.Append("BottomOfPipe");
+		case .Host: strBuffer.Append("Host");
+		case .AllGraphics: strBuffer.Append("AllGraphics");
+		case .AllCommands: strBuffer.Append("AllCommands");
+		case .None: strBuffer.Append("None");
+		case .TransformFeedbackEXT: strBuffer.Append("TransformFeedbackEXT");
+		case .ConditionalRenderingEXT: strBuffer.Append("ConditionalRenderingEXT");
+		case .AccelerationStructureBuildKHR: strBuffer.Append("AccelerationStructureBuildKHR");
+		case .RayTracingShaderKHR: strBuffer.Append("RayTracingShaderKHR");
+		case .FragmentDensityProcessEXT: strBuffer.Append("FragmentDensityProcessEXT");
+		case .FragmentShadingRateAttachmentKHR: strBuffer.Append("FragmentShadingRateAttachmentKHR");
+		case .TaskShaderEXT: strBuffer.Append("TaskShaderEXT");
+		case .MeshShaderEXT: strBuffer.Append("MeshShaderEXT");
+		case .CommandPreprocessEXT: strBuffer.Append("CommandPreprocessEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSparseImageFormatFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2879,10 +5671,23 @@ extension VkSparseImageFormatFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SingleMiptail: strBuffer.Append("SingleMiptail");
+		case .AlignedMipSize: strBuffer.Append("AlignedMipSize");
+		case .NonstandardBlockSize: strBuffer.Append("NonstandardBlockSize");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkClusterAccelerationStructureIndexFormatFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2893,10 +5698,23 @@ extension VkClusterAccelerationStructureIndexFormatFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_8bitNV: strBuffer.Append("VK_8bitNV");
+		case .VK_16bitNV: strBuffer.Append("VK_16bitNV");
+		case .VK_32bitNV: strBuffer.Append("VK_32bitNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkClusterAccelerationStructureTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2907,10 +5725,23 @@ extension VkClusterAccelerationStructureTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ClustersBottomLevelNV: strBuffer.Append("ClustersBottomLevelNV");
+		case .TriangleClusterNV: strBuffer.Append("TriangleClusterNV");
+		case .TriangleClusterTemplateNV: strBuffer.Append("TriangleClusterTemplateNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkClusterAccelerationStructureOpTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2924,10 +5755,26 @@ extension VkClusterAccelerationStructureOpTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MoveObjectsNV: strBuffer.Append("MoveObjectsNV");
+		case .BuildClustersBottomLevelNV: strBuffer.Append("BuildClustersBottomLevelNV");
+		case .BuildTriangleClusterNV: strBuffer.Append("BuildTriangleClusterNV");
+		case .BuildTriangleClusterTemplateNV: strBuffer.Append("BuildTriangleClusterTemplateNV");
+		case .InstantiateTriangleClusterNV: strBuffer.Append("InstantiateTriangleClusterNV");
+		case .GetClusterTemplateIndicesNV: strBuffer.Append("GetClusterTemplateIndicesNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkClusterAccelerationStructureOpModeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2938,10 +5785,23 @@ extension VkClusterAccelerationStructureOpModeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ImplicitDestinationsNV: strBuffer.Append("ImplicitDestinationsNV");
+		case .ExplicitDestinationsNV: strBuffer.Append("ExplicitDestinationsNV");
+		case .ComputeSizesNV: strBuffer.Append("ComputeSizesNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSampleCountFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2956,10 +5816,27 @@ extension VkSampleCountFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_1: strBuffer.Append("VK_1");
+		case .VK_2: strBuffer.Append("VK_2");
+		case .VK_4: strBuffer.Append("VK_4");
+		case .VK_8: strBuffer.Append("VK_8");
+		case .VK_16: strBuffer.Append("VK_16");
+		case .VK_32: strBuffer.Append("VK_32");
+		case .VK_64: strBuffer.Append("VK_64");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAttachmentDescriptionFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2968,10 +5845,21 @@ extension VkAttachmentDescriptionFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MayAlias: strBuffer.Append("MayAlias");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDescriptorPoolCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -2984,10 +5872,25 @@ extension VkDescriptorPoolCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FreeDescriptorSet: strBuffer.Append("FreeDescriptorSet");
+		case .UpdateAfterBind: strBuffer.Append("UpdateAfterBind");
+		case .HostOnlyEXT: strBuffer.Append("HostOnlyEXT");
+		case .AllowOverallocationSetsNV: strBuffer.Append("AllowOverallocationSetsNV");
+		case .AllowOverallocationPoolsNV: strBuffer.Append("AllowOverallocationPoolsNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDependencyFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3001,10 +5904,26 @@ extension VkDependencyFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ByRegion: strBuffer.Append("ByRegion");
+		case .DeviceGroup: strBuffer.Append("DeviceGroup");
+		case .ViewLocal: strBuffer.Append("ViewLocal");
+		case .FeedbackLoopEXT: strBuffer.Append("FeedbackLoopEXT");
+		case .QueueFamilyOwnershipTransferUseAllStagesKHR: strBuffer.Append("QueueFamilyOwnershipTransferUseAllStagesKHR");
+		case .AsymmetricEventKHR: strBuffer.Append("AsymmetricEventKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkObjectType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3070,10 +5989,78 @@ extension VkObjectType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Unknown: strBuffer.Append("Unknown");
+		case .Instance: strBuffer.Append("Instance");
+		case .PhysicalDevice: strBuffer.Append("PhysicalDevice");
+		case .Device: strBuffer.Append("Device");
+		case .Queue: strBuffer.Append("Queue");
+		case .Semaphore: strBuffer.Append("Semaphore");
+		case .CommandBuffer: strBuffer.Append("CommandBuffer");
+		case .Fence: strBuffer.Append("Fence");
+		case .DeviceMemory: strBuffer.Append("DeviceMemory");
+		case .Buffer: strBuffer.Append("Buffer");
+		case .Image: strBuffer.Append("Image");
+		case .Event: strBuffer.Append("Event");
+		case .QueryPool: strBuffer.Append("QueryPool");
+		case .BufferView: strBuffer.Append("BufferView");
+		case .ImageView: strBuffer.Append("ImageView");
+		case .ShaderModule: strBuffer.Append("ShaderModule");
+		case .PipelineCache: strBuffer.Append("PipelineCache");
+		case .PipelineLayout: strBuffer.Append("PipelineLayout");
+		case .RenderPass: strBuffer.Append("RenderPass");
+		case .Pipeline: strBuffer.Append("Pipeline");
+		case .DescriptorSetLayout: strBuffer.Append("DescriptorSetLayout");
+		case .Sampler: strBuffer.Append("Sampler");
+		case .DescriptorPool: strBuffer.Append("DescriptorPool");
+		case .DescriptorSet: strBuffer.Append("DescriptorSet");
+		case .Framebuffer: strBuffer.Append("Framebuffer");
+		case .CommandPool: strBuffer.Append("CommandPool");
+		case .SamplerYcbcrConversion: strBuffer.Append("SamplerYcbcrConversion");
+		case .DescriptorUpdateTemplate: strBuffer.Append("DescriptorUpdateTemplate");
+		case .PrivateDataSlot: strBuffer.Append("PrivateDataSlot");
+		case .SurfaceKHR: strBuffer.Append("SurfaceKHR");
+		case .SwapchainKHR: strBuffer.Append("SwapchainKHR");
+		case .DisplayKHR: strBuffer.Append("DisplayKHR");
+		case .DisplayModeKHR: strBuffer.Append("DisplayModeKHR");
+		case .DebugReportCallbackEXT: strBuffer.Append("DebugReportCallbackEXT");
+		case .VideoSessionKHR: strBuffer.Append("VideoSessionKHR");
+		case .VideoSessionParametersKHR: strBuffer.Append("VideoSessionParametersKHR");
+		case .CuModuleNVX: strBuffer.Append("CuModuleNVX");
+		case .CuFunctionNVX: strBuffer.Append("CuFunctionNVX");
+		case .DebugUtilsMessengerEXT: strBuffer.Append("DebugUtilsMessengerEXT");
+		case .AccelerationStructureKHR: strBuffer.Append("AccelerationStructureKHR");
+		case .ValidationCacheEXT: strBuffer.Append("ValidationCacheEXT");
+		case .AccelerationStructureNV: strBuffer.Append("AccelerationStructureNV");
+		case .PerformanceConfigurationINTEL: strBuffer.Append("PerformanceConfigurationINTEL");
+		case .DeferredOperationKHR: strBuffer.Append("DeferredOperationKHR");
+		case .IndirectCommandsLayoutNV: strBuffer.Append("IndirectCommandsLayoutNV");
+		case .CudaModuleNV: strBuffer.Append("CudaModuleNV");
+		case .CudaFunctionNV: strBuffer.Append("CudaFunctionNV");
+		case .BufferCollectionFUCHSIA: strBuffer.Append("BufferCollectionFUCHSIA");
+		case .MicromapEXT: strBuffer.Append("MicromapEXT");
+		case .TensorARM: strBuffer.Append("TensorARM");
+		case .TensorViewARM: strBuffer.Append("TensorViewARM");
+		case .OpticalFlowSessionNV: strBuffer.Append("OpticalFlowSessionNV");
+		case .ShaderEXT: strBuffer.Append("ShaderEXT");
+		case .PipelineBinaryKHR: strBuffer.Append("PipelineBinaryKHR");
+		case .DataGraphPipelineSessionARM: strBuffer.Append("DataGraphPipelineSessionARM");
+		case .ExternalComputeQueueNV: strBuffer.Append("ExternalComputeQueueNV");
+		case .IndirectCommandsLayoutEXT: strBuffer.Append("IndirectCommandsLayoutEXT");
+		case .IndirectExecutionSetEXT: strBuffer.Append("IndirectExecutionSetEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkEventCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3082,10 +6069,21 @@ extension VkEventCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceOnly: strBuffer.Append("DeviceOnly");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineLayoutCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3094,10 +6092,21 @@ extension VkPipelineLayoutCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .IndependentSetsEXT: strBuffer.Append("IndependentSetsEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkRayTracingInvocationReorderModeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3107,10 +6116,22 @@ extension VkRayTracingInvocationReorderModeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneNV: strBuffer.Append("NoneNV");
+		case .ReorderNV: strBuffer.Append("ReorderNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkIndirectCommandsLayoutUsageFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3121,10 +6142,23 @@ extension VkIndirectCommandsLayoutUsageFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ExplicitPreprocessNV: strBuffer.Append("ExplicitPreprocessNV");
+		case .IndexedSequencesNV: strBuffer.Append("IndexedSequencesNV");
+		case .UnorderedSequencesNV: strBuffer.Append("UnorderedSequencesNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkIndirectCommandsTokenTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3143,10 +6177,31 @@ extension VkIndirectCommandsTokenTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ShaderGroupNV: strBuffer.Append("ShaderGroupNV");
+		case .StateFlagsNV: strBuffer.Append("StateFlagsNV");
+		case .IndexBufferNV: strBuffer.Append("IndexBufferNV");
+		case .VertexBufferNV: strBuffer.Append("VertexBufferNV");
+		case .PushConstantNV: strBuffer.Append("PushConstantNV");
+		case .DrawIndexedNV: strBuffer.Append("DrawIndexedNV");
+		case .DrawNV: strBuffer.Append("DrawNV");
+		case .DrawTasksNV: strBuffer.Append("DrawTasksNV");
+		case .DrawMeshTasksNV: strBuffer.Append("DrawMeshTasksNV");
+		case .PipelineNV: strBuffer.Append("PipelineNV");
+		case .DispatchNV: strBuffer.Append("DispatchNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkIndirectStateFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3155,10 +6210,21 @@ extension VkIndirectStateFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FlagFrontfaceNV: strBuffer.Append("FlagFrontfaceNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDescriptorUpdateTemplateType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3168,10 +6234,22 @@ extension VkDescriptorUpdateTemplateType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DescriptorSet: strBuffer.Append("DescriptorSet");
+		case .PushDescriptors: strBuffer.Append("PushDescriptors");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkViewportCoordinateSwizzleNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3187,10 +6265,28 @@ extension VkViewportCoordinateSwizzleNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .PositiveXNV: strBuffer.Append("PositiveXNV");
+		case .NegativeXNV: strBuffer.Append("NegativeXNV");
+		case .PositiveYNV: strBuffer.Append("PositiveYNV");
+		case .NegativeYNV: strBuffer.Append("NegativeYNV");
+		case .PositiveZNV: strBuffer.Append("PositiveZNV");
+		case .NegativeZNV: strBuffer.Append("NegativeZNV");
+		case .PositiveWNV: strBuffer.Append("PositiveWNV");
+		case .NegativeWNV: strBuffer.Append("NegativeWNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDiscardRectangleModeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3200,10 +6296,22 @@ extension VkDiscardRectangleModeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .InclusiveEXT: strBuffer.Append("InclusiveEXT");
+		case .ExclusiveEXT: strBuffer.Append("ExclusiveEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSubpassDescriptionFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3220,10 +6328,29 @@ extension VkSubpassDescriptionFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .PerViewAttributesNVX: strBuffer.Append("PerViewAttributesNVX");
+		case .PerViewPositionXOnlyNVX: strBuffer.Append("PerViewPositionXOnlyNVX");
+		case .FragmentRegionQCOM: strBuffer.Append("FragmentRegionQCOM");
+		case .ShaderResolveQCOM: strBuffer.Append("ShaderResolveQCOM");
+		case .TileShadingApronQCOM: strBuffer.Append("TileShadingApronQCOM");
+		case .RasterizationOrderAttachmentColorAccessEXT: strBuffer.Append("RasterizationOrderAttachmentColorAccessEXT");
+		case .RasterizationOrderAttachmentDepthAccessEXT: strBuffer.Append("RasterizationOrderAttachmentDepthAccessEXT");
+		case .RasterizationOrderAttachmentStencilAccessEXT: strBuffer.Append("RasterizationOrderAttachmentStencilAccessEXT");
+		case .EnableLegacyDitheringEXT: strBuffer.Append("EnableLegacyDitheringEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPointClippingBehavior
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3233,10 +6360,22 @@ extension VkPointClippingBehavior
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AllClipPlanes: strBuffer.Append("AllClipPlanes");
+		case .UserClipPlanesOnly: strBuffer.Append("UserClipPlanesOnly");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCoverageModulationModeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3248,10 +6387,24 @@ extension VkCoverageModulationModeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneNV: strBuffer.Append("NoneNV");
+		case .RgbNV: strBuffer.Append("RgbNV");
+		case .AlphaNV: strBuffer.Append("AlphaNV");
+		case .RgbaNV: strBuffer.Append("RgbaNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCoverageReductionModeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3261,10 +6414,22 @@ extension VkCoverageReductionModeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MergeNV: strBuffer.Append("MergeNV");
+		case .TruncateNV: strBuffer.Append("TruncateNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkValidationCacheHeaderVersionEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3273,10 +6438,21 @@ extension VkValidationCacheHeaderVersionEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OneEXT: strBuffer.Append("OneEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkShaderInfoTypeAMD
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3287,10 +6463,23 @@ extension VkShaderInfoTypeAMD
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StatisticsAMD: strBuffer.Append("StatisticsAMD");
+		case .BinaryAMD: strBuffer.Append("BinaryAMD");
+		case .DisassemblyAMD: strBuffer.Append("DisassemblyAMD");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkQueueGlobalPriority
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3302,10 +6491,24 @@ extension VkQueueGlobalPriority
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Low: strBuffer.Append("Low");
+		case .Medium: strBuffer.Append("Medium");
+		case .High: strBuffer.Append("High");
+		case .Realtime: strBuffer.Append("Realtime");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkTimeDomainKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3317,10 +6520,24 @@ extension VkTimeDomainKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceKHR: strBuffer.Append("DeviceKHR");
+		case .ClockMonotonicKHR: strBuffer.Append("ClockMonotonicKHR");
+		case .ClockMonotonicRawKHR: strBuffer.Append("ClockMonotonicRawKHR");
+		case .QueryPerformanceCounterKHR: strBuffer.Append("QueryPerformanceCounterKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkConservativeRasterizationModeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3331,10 +6548,23 @@ extension VkConservativeRasterizationModeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DisabledEXT: strBuffer.Append("DisabledEXT");
+		case .OverestimateEXT: strBuffer.Append("OverestimateEXT");
+		case .UnderestimateEXT: strBuffer.Append("UnderestimateEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkResolveModeFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3348,10 +6578,26 @@ extension VkResolveModeFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .None: strBuffer.Append("None");
+		case .SampleZero: strBuffer.Append("SampleZero");
+		case .Average: strBuffer.Append("Average");
+		case .Min: strBuffer.Append("Min");
+		case .Max: strBuffer.Append("Max");
+		case .ExternalFormatDownsampleANDROID: strBuffer.Append("ExternalFormatDownsampleANDROID");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDescriptorBindingFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3363,10 +6609,24 @@ extension VkDescriptorBindingFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UpdateAfterBind: strBuffer.Append("UpdateAfterBind");
+		case .UpdateUnusedWhilePending: strBuffer.Append("UpdateUnusedWhilePending");
+		case .PartiallyBound: strBuffer.Append("PartiallyBound");
+		case .VariableDescriptorCount: strBuffer.Append("VariableDescriptorCount");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkConditionalRenderingFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3375,10 +6635,21 @@ extension VkConditionalRenderingFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .InvertedEXT: strBuffer.Append("InvertedEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSemaphoreType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3388,10 +6659,22 @@ extension VkSemaphoreType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Binary: strBuffer.Append("Binary");
+		case .Timeline: strBuffer.Append("Timeline");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkGeometryFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3401,10 +6684,22 @@ extension VkGeometryFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OpaqueKHR: strBuffer.Append("OpaqueKHR");
+		case .NoDuplicateAnyHitInvocationKHR: strBuffer.Append("NoDuplicateAnyHitInvocationKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkGeometryInstanceFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3418,10 +6713,26 @@ extension VkGeometryInstanceFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TriangleFacingCullDisableKHR: strBuffer.Append("TriangleFacingCullDisableKHR");
+		case .TriangleFlipFacingKHR: strBuffer.Append("TriangleFlipFacingKHR");
+		case .ForceOpaqueKHR: strBuffer.Append("ForceOpaqueKHR");
+		case .ForceNoOpaqueKHR: strBuffer.Append("ForceNoOpaqueKHR");
+		case .VkGeometryInstanceForceOpacityMicromap2StateEXT: strBuffer.Append("VkGeometryInstanceForceOpacityMicromap2StateEXT");
+		case .VkGeometryInstanceDisableOpacityMicromapsEXT: strBuffer.Append("VkGeometryInstanceDisableOpacityMicromapsEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkClusterAccelerationStructureAddressResolutionFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3436,10 +6747,27 @@ extension VkClusterAccelerationStructureAddressResolutionFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneNV: strBuffer.Append("NoneNV");
+		case .IndirectedDstImplicitDataNV: strBuffer.Append("IndirectedDstImplicitDataNV");
+		case .IndirectedScratchDataNV: strBuffer.Append("IndirectedScratchDataNV");
+		case .IndirectedDstAddressArrayNV: strBuffer.Append("IndirectedDstAddressArrayNV");
+		case .IndirectedDstSizesArrayNV: strBuffer.Append("IndirectedDstSizesArrayNV");
+		case .IndirectedSrcInfosArrayNV: strBuffer.Append("IndirectedSrcInfosArrayNV");
+		case .IndirectedSrcInfosCountNV: strBuffer.Append("IndirectedSrcInfosCountNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkClusterAccelerationStructureGeometryFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3450,10 +6778,23 @@ extension VkClusterAccelerationStructureGeometryFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CullDisableNV: strBuffer.Append("CullDisableNV");
+		case .NoDuplicateAnyhitInvocationNV: strBuffer.Append("NoDuplicateAnyhitInvocationNV");
+		case .OpaqueNV: strBuffer.Append("OpaqueNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkClusterAccelerationStructureClusterFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3462,10 +6803,21 @@ extension VkClusterAccelerationStructureClusterFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AllowDisableOpacityMicromapsNV: strBuffer.Append("AllowDisableOpacityMicromapsNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBuildAccelerationStructureFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3484,10 +6836,31 @@ extension VkBuildAccelerationStructureFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AllowUpdateKHR: strBuffer.Append("AllowUpdateKHR");
+		case .AllowCompactionKHR: strBuffer.Append("AllowCompactionKHR");
+		case .PreferFastTraceKHR: strBuffer.Append("PreferFastTraceKHR");
+		case .PreferFastBuildKHR: strBuffer.Append("PreferFastBuildKHR");
+		case .LowMemoryKHR: strBuffer.Append("LowMemoryKHR");
+		case .VkBuildAccelerationStructureMotionNV: strBuffer.Append("VkBuildAccelerationStructureMotionNV");
+		case .VkBuildAccelerationStructureAllowOpacityMicromapUpdateEXT: strBuffer.Append("VkBuildAccelerationStructureAllowOpacityMicromapUpdateEXT");
+		case .VkBuildAccelerationStructureAllowDisableOpacityMicromapsEXT: strBuffer.Append("VkBuildAccelerationStructureAllowDisableOpacityMicromapsEXT");
+		case .VkBuildAccelerationStructureAllowOpacityMicromapDataUpdateEXT: strBuffer.Append("VkBuildAccelerationStructureAllowOpacityMicromapDataUpdateEXT");
+		case .VkBuildAccelerationStructureAllowDisplacementMicromapUpdateNV: strBuffer.Append("VkBuildAccelerationStructureAllowDisplacementMicromapUpdateNV");
+		case .AllowDataAccessKHR: strBuffer.Append("AllowDataAccessKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAccelerationStructureCreateFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3498,10 +6871,23 @@ extension VkAccelerationStructureCreateFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceAddressCaptureReplayKHR: strBuffer.Append("DeviceAddressCaptureReplayKHR");
+		case .VkAccelerationStructureCreateDescriptorBufferCaptureReplayEXT: strBuffer.Append("VkAccelerationStructureCreateDescriptorBufferCaptureReplayEXT");
+		case .VkAccelerationStructureCreateMotionNV: strBuffer.Append("VkAccelerationStructureCreateMotionNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBuildAccelerationStructureModeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3511,10 +6897,22 @@ extension VkBuildAccelerationStructureModeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .BuildKHR: strBuffer.Append("BuildKHR");
+		case .UpdateKHR: strBuffer.Append("UpdateKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCopyAccelerationStructureModeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3526,10 +6924,24 @@ extension VkCopyAccelerationStructureModeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CloneKHR: strBuffer.Append("CloneKHR");
+		case .CompactKHR: strBuffer.Append("CompactKHR");
+		case .SerializeKHR: strBuffer.Append("SerializeKHR");
+		case .DeserializeKHR: strBuffer.Append("DeserializeKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAccelerationStructureTypeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3540,10 +6952,23 @@ extension VkAccelerationStructureTypeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TopLevelKHR: strBuffer.Append("TopLevelKHR");
+		case .BottomLevelKHR: strBuffer.Append("BottomLevelKHR");
+		case .GenericKHR: strBuffer.Append("GenericKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkGeometryTypeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3556,10 +6981,25 @@ extension VkGeometryTypeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TrianglesKHR: strBuffer.Append("TrianglesKHR");
+		case .AabbsKHR: strBuffer.Append("AabbsKHR");
+		case .InstancesKHR: strBuffer.Append("InstancesKHR");
+		case .VkGeometryTypeSpheresNV: strBuffer.Append("VkGeometryTypeSpheresNV");
+		case .VkGeometryTypeLinearSweptSpheresNV: strBuffer.Append("VkGeometryTypeLinearSweptSpheresNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkRayTracingShaderGroupTypeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3570,10 +7010,23 @@ extension VkRayTracingShaderGroupTypeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .GeneralKHR: strBuffer.Append("GeneralKHR");
+		case .TrianglesHitGroupKHR: strBuffer.Append("TrianglesHitGroupKHR");
+		case .ProceduralHitGroupKHR: strBuffer.Append("ProceduralHitGroupKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAccelerationStructureMemoryRequirementsTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3584,10 +7037,23 @@ extension VkAccelerationStructureMemoryRequirementsTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ObjectNV: strBuffer.Append("ObjectNV");
+		case .BuildScratchNV: strBuffer.Append("BuildScratchNV");
+		case .UpdateScratchNV: strBuffer.Append("UpdateScratchNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAccelerationStructureBuildTypeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3598,10 +7064,23 @@ extension VkAccelerationStructureBuildTypeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .HostKHR: strBuffer.Append("HostKHR");
+		case .DeviceKHR: strBuffer.Append("DeviceKHR");
+		case .HostOrDeviceKHR: strBuffer.Append("HostOrDeviceKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAccelerationStructureCompatibilityKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3611,10 +7090,22 @@ extension VkAccelerationStructureCompatibilityKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CompatibleKHR: strBuffer.Append("CompatibleKHR");
+		case .IncompatibleKHR: strBuffer.Append("IncompatibleKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkRayTracingLssIndexingModeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3624,10 +7115,22 @@ extension VkRayTracingLssIndexingModeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ListNV: strBuffer.Append("ListNV");
+		case .SuccessiveNV: strBuffer.Append("SuccessiveNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkRayTracingLssPrimitiveEndCapsModeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3637,10 +7140,22 @@ extension VkRayTracingLssPrimitiveEndCapsModeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneNV: strBuffer.Append("NoneNV");
+		case .ChainedNV: strBuffer.Append("ChainedNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkShaderGroupShaderKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3652,10 +7167,24 @@ extension VkShaderGroupShaderKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .GeneralKHR: strBuffer.Append("GeneralKHR");
+		case .ClosestHitKHR: strBuffer.Append("ClosestHitKHR");
+		case .AnyHitKHR: strBuffer.Append("AnyHitKHR");
+		case .IntersectionKHR: strBuffer.Append("IntersectionKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkMemoryOverallocationBehaviorAMD
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3666,10 +7195,23 @@ extension VkMemoryOverallocationBehaviorAMD
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultAMD: strBuffer.Append("DefaultAMD");
+		case .AllowedAMD: strBuffer.Append("AllowedAMD");
+		case .DisallowedAMD: strBuffer.Append("DisallowedAMD");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDeviceDiagnosticsConfigFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3681,10 +7223,24 @@ extension VkDeviceDiagnosticsConfigFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .EnableShaderDebugInfoNV: strBuffer.Append("EnableShaderDebugInfoNV");
+		case .EnableResourceTrackingNV: strBuffer.Append("EnableResourceTrackingNV");
+		case .EnableAutomaticCheckpointsNV: strBuffer.Append("EnableAutomaticCheckpointsNV");
+		case .EnableShaderErrorReportingNV: strBuffer.Append("EnableShaderErrorReportingNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineCreationFeedbackFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3695,10 +7251,23 @@ extension VkPipelineCreationFeedbackFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Valid: strBuffer.Append("Valid");
+		case .ApplicationPipelineCacheHit: strBuffer.Append("ApplicationPipelineCacheHit");
+		case .BasePipelineAcceleration: strBuffer.Append("BasePipelineAcceleration");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPerformanceCounterScopeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3709,10 +7278,23 @@ extension VkPerformanceCounterScopeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CommandBufferKHR: strBuffer.Append("CommandBufferKHR");
+		case .RenderPassKHR: strBuffer.Append("RenderPassKHR");
+		case .CommandKHR: strBuffer.Append("CommandKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPerformanceCounterUnitKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3731,10 +7313,31 @@ extension VkPerformanceCounterUnitKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .GenericKHR: strBuffer.Append("GenericKHR");
+		case .PercentageKHR: strBuffer.Append("PercentageKHR");
+		case .NanosecondsKHR: strBuffer.Append("NanosecondsKHR");
+		case .BytesKHR: strBuffer.Append("BytesKHR");
+		case .BytesPerSecondKHR: strBuffer.Append("BytesPerSecondKHR");
+		case .KelvinKHR: strBuffer.Append("KelvinKHR");
+		case .WattsKHR: strBuffer.Append("WattsKHR");
+		case .VoltsKHR: strBuffer.Append("VoltsKHR");
+		case .AmpsKHR: strBuffer.Append("AmpsKHR");
+		case .HertzKHR: strBuffer.Append("HertzKHR");
+		case .CyclesKHR: strBuffer.Append("CyclesKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPerformanceCounterStorageKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3748,10 +7351,26 @@ extension VkPerformanceCounterStorageKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Int32KHR: strBuffer.Append("Int32KHR");
+		case .Int64KHR: strBuffer.Append("Int64KHR");
+		case .Uint32KHR: strBuffer.Append("Uint32KHR");
+		case .Uint64KHR: strBuffer.Append("Uint64KHR");
+		case .Float32KHR: strBuffer.Append("Float32KHR");
+		case .Float64KHR: strBuffer.Append("Float64KHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPerformanceCounterDescriptionFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3761,11 +7380,32 @@ extension VkPerformanceCounterDescriptionFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .PerformanceImpactingKHR: strBuffer.Append("PerformanceImpactingKHR");
+		case .ConcurrentlyImpactedKHR: strBuffer.Append("ConcurrentlyImpactedKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAcquireProfilingLockFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		default: Underlying.ToString(strBuffer);
+		}
+	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
 	{
 		switch (this)
 		{
@@ -3776,6 +7416,7 @@ extension VkAcquireProfilingLockFlagBitsKHR
 
 extension VkSemaphoreWaitFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3784,10 +7425,21 @@ extension VkSemaphoreWaitFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Any: strBuffer.Append("Any");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPerformanceConfigurationTypeINTEL
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3796,10 +7448,21 @@ extension VkPerformanceConfigurationTypeINTEL
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CommandQueueMetricsDiscoveryActivatedINTEL: strBuffer.Append("CommandQueueMetricsDiscoveryActivatedINTEL");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkQueryPoolSamplingModeINTEL
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3808,10 +7471,21 @@ extension VkQueryPoolSamplingModeINTEL
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ManualINTEL: strBuffer.Append("ManualINTEL");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPerformanceOverrideTypeINTEL
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3821,10 +7495,22 @@ extension VkPerformanceOverrideTypeINTEL
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NullHardwareINTEL: strBuffer.Append("NullHardwareINTEL");
+		case .FlushGpuCachesINTEL: strBuffer.Append("FlushGpuCachesINTEL");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPerformanceParameterTypeINTEL
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3834,10 +7520,22 @@ extension VkPerformanceParameterTypeINTEL
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .HwCountersSupportedINTEL: strBuffer.Append("HwCountersSupportedINTEL");
+		case .StreamMarkerValidBitsINTEL: strBuffer.Append("StreamMarkerValidBitsINTEL");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPerformanceValueTypeINTEL
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3850,10 +7548,25 @@ extension VkPerformanceValueTypeINTEL
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Uint32INTEL: strBuffer.Append("Uint32INTEL");
+		case .Uint64INTEL: strBuffer.Append("Uint64INTEL");
+		case .FloatINTEL: strBuffer.Append("FloatINTEL");
+		case .BoolINTEL: strBuffer.Append("BoolINTEL");
+		case .StringINTEL: strBuffer.Append("StringINTEL");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkLineRasterizationMode
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3865,11 +7578,34 @@ extension VkLineRasterizationMode
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Default: strBuffer.Append("Default");
+		case .Rectangular: strBuffer.Append("Rectangular");
+		case .Bresenham: strBuffer.Append("Bresenham");
+		case .RectangularSmooth: strBuffer.Append("RectangularSmooth");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineCompilerControlFlagBitsAMD
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		default: Underlying.ToString(strBuffer);
+		}
+	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
 	{
 		switch (this)
 		{
@@ -3880,7 +7616,17 @@ extension VkPipelineCompilerControlFlagBitsAMD
 
 extension VkShaderCorePropertiesFlagBitsAMD
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		default: Underlying.ToString(strBuffer);
+		}
+	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
 	{
 		switch (this)
 		{
@@ -3891,6 +7637,7 @@ extension VkShaderCorePropertiesFlagBitsAMD
 
 extension VkToolPurposeFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3905,10 +7652,27 @@ extension VkToolPurposeFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Validation: strBuffer.Append("Validation");
+		case .Profiling: strBuffer.Append("Profiling");
+		case .Tracing: strBuffer.Append("Tracing");
+		case .AdditionalFeatures: strBuffer.Append("AdditionalFeatures");
+		case .ModifyingFeatures: strBuffer.Append("ModifyingFeatures");
+		case .DebugReportingEXT: strBuffer.Append("DebugReportingEXT");
+		case .DebugMarkersEXT: strBuffer.Append("DebugMarkersEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFragmentShadingRateNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3928,10 +7692,32 @@ extension VkFragmentShadingRateNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_1InvocationPerPixelNV: strBuffer.Append("VK_1InvocationPerPixelNV");
+		case .VK_1InvocationPer1x2PixelsNV: strBuffer.Append("VK_1InvocationPer1x2PixelsNV");
+		case .VK_1InvocationPer2x1PixelsNV: strBuffer.Append("VK_1InvocationPer2x1PixelsNV");
+		case .VK_1InvocationPer2x2PixelsNV: strBuffer.Append("VK_1InvocationPer2x2PixelsNV");
+		case .VK_1InvocationPer2x4PixelsNV: strBuffer.Append("VK_1InvocationPer2x4PixelsNV");
+		case .VK_1InvocationPer4x2PixelsNV: strBuffer.Append("VK_1InvocationPer4x2PixelsNV");
+		case .VK_1InvocationPer4x4PixelsNV: strBuffer.Append("VK_1InvocationPer4x4PixelsNV");
+		case .VK_2InvocationsPerPixelNV: strBuffer.Append("VK_2InvocationsPerPixelNV");
+		case .VK_4InvocationsPerPixelNV: strBuffer.Append("VK_4InvocationsPerPixelNV");
+		case .VK_8InvocationsPerPixelNV: strBuffer.Append("VK_8InvocationsPerPixelNV");
+		case .VK_16InvocationsPerPixelNV: strBuffer.Append("VK_16InvocationsPerPixelNV");
+		case .NoInvocationsNV: strBuffer.Append("NoInvocationsNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFragmentShadingRateTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3941,10 +7727,22 @@ extension VkFragmentShadingRateTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FragmentSizeNV: strBuffer.Append("FragmentSizeNV");
+		case .EnumsNV: strBuffer.Append("EnumsNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSubpassMergeStatusEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -3966,10 +7764,34 @@ extension VkSubpassMergeStatusEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MergedEXT: strBuffer.Append("MergedEXT");
+		case .DisallowedEXT: strBuffer.Append("DisallowedEXT");
+		case .NotMergedSideEffectsEXT: strBuffer.Append("NotMergedSideEffectsEXT");
+		case .NotMergedSamplesMismatchEXT: strBuffer.Append("NotMergedSamplesMismatchEXT");
+		case .NotMergedViewsMismatchEXT: strBuffer.Append("NotMergedViewsMismatchEXT");
+		case .NotMergedAliasingEXT: strBuffer.Append("NotMergedAliasingEXT");
+		case .NotMergedDependenciesEXT: strBuffer.Append("NotMergedDependenciesEXT");
+		case .NotMergedIncompatibleInputAttachmentEXT: strBuffer.Append("NotMergedIncompatibleInputAttachmentEXT");
+		case .NotMergedTooManyAttachmentsEXT: strBuffer.Append("NotMergedTooManyAttachmentsEXT");
+		case .NotMergedInsufficientStorageEXT: strBuffer.Append("NotMergedInsufficientStorageEXT");
+		case .NotMergedDepthStencilCountEXT: strBuffer.Append("NotMergedDepthStencilCountEXT");
+		case .NotMergedResolveAttachmentReuseEXT: strBuffer.Append("NotMergedResolveAttachmentReuseEXT");
+		case .NotMergedSingleSubpassEXT: strBuffer.Append("NotMergedSingleSubpassEXT");
+		case .NotMergedUnspecifiedEXT: strBuffer.Append("NotMergedUnspecifiedEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAccessFlagBits2
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4024,10 +7846,67 @@ extension VkAccessFlagBits2
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .None: strBuffer.Append("None");
+		case .IndirectCommandRead: strBuffer.Append("IndirectCommandRead");
+		case .IndexRead: strBuffer.Append("IndexRead");
+		case .VertexAttributeRead: strBuffer.Append("VertexAttributeRead");
+		case .UniformRead: strBuffer.Append("UniformRead");
+		case .InputAttachmentRead: strBuffer.Append("InputAttachmentRead");
+		case .ShaderRead: strBuffer.Append("ShaderRead");
+		case .ShaderWrite: strBuffer.Append("ShaderWrite");
+		case .ColorAttachmentRead: strBuffer.Append("ColorAttachmentRead");
+		case .ColorAttachmentWrite: strBuffer.Append("ColorAttachmentWrite");
+		case .DepthStencilAttachmentRead: strBuffer.Append("DepthStencilAttachmentRead");
+		case .DepthStencilAttachmentWrite: strBuffer.Append("DepthStencilAttachmentWrite");
+		case .TransferRead: strBuffer.Append("TransferRead");
+		case .TransferWrite: strBuffer.Append("TransferWrite");
+		case .HostRead: strBuffer.Append("HostRead");
+		case .HostWrite: strBuffer.Append("HostWrite");
+		case .MemoryRead: strBuffer.Append("MemoryRead");
+		case .MemoryWrite: strBuffer.Append("MemoryWrite");
+		case .ShaderSampledRead: strBuffer.Append("ShaderSampledRead");
+		case .ShaderStorageRead: strBuffer.Append("ShaderStorageRead");
+		case .ShaderStorageWrite: strBuffer.Append("ShaderStorageWrite");
+		case .VideoDecodeReadKHR: strBuffer.Append("VideoDecodeReadKHR");
+		case .VideoDecodeWriteKHR: strBuffer.Append("VideoDecodeWriteKHR");
+		case .VideoEncodeReadKHR: strBuffer.Append("VideoEncodeReadKHR");
+		case .VideoEncodeWriteKHR: strBuffer.Append("VideoEncodeWriteKHR");
+		case .ShaderTileAttachmentReadQCOM: strBuffer.Append("ShaderTileAttachmentReadQCOM");
+		case .ShaderTileAttachmentWriteQCOM: strBuffer.Append("ShaderTileAttachmentWriteQCOM");
+		case .TransformFeedbackWriteEXT: strBuffer.Append("TransformFeedbackWriteEXT");
+		case .TransformFeedbackCounterReadEXT: strBuffer.Append("TransformFeedbackCounterReadEXT");
+		case .TransformFeedbackCounterWriteEXT: strBuffer.Append("TransformFeedbackCounterWriteEXT");
+		case .ConditionalRenderingReadEXT: strBuffer.Append("ConditionalRenderingReadEXT");
+		case .CommandPreprocessReadEXT: strBuffer.Append("CommandPreprocessReadEXT");
+		case .CommandPreprocessWriteEXT: strBuffer.Append("CommandPreprocessWriteEXT");
+		case .FragmentShadingRateAttachmentReadKHR: strBuffer.Append("FragmentShadingRateAttachmentReadKHR");
+		case .AccelerationStructureReadKHR: strBuffer.Append("AccelerationStructureReadKHR");
+		case .AccelerationStructureWriteKHR: strBuffer.Append("AccelerationStructureWriteKHR");
+		case .FragmentDensityMapReadEXT: strBuffer.Append("FragmentDensityMapReadEXT");
+		case .ColorAttachmentReadNoncoherentEXT: strBuffer.Append("ColorAttachmentReadNoncoherentEXT");
+		case .DescriptorBufferReadEXT: strBuffer.Append("DescriptorBufferReadEXT");
+		case .InvocationMaskReadHUAWEI: strBuffer.Append("InvocationMaskReadHUAWEI");
+		case .ShaderBindingTableReadKHR: strBuffer.Append("ShaderBindingTableReadKHR");
+		case .MicromapReadEXT: strBuffer.Append("MicromapReadEXT");
+		case .MicromapWriteEXT: strBuffer.Append("MicromapWriteEXT");
+		case .OpticalFlowReadNV: strBuffer.Append("OpticalFlowReadNV");
+		case .OpticalFlowWriteNV: strBuffer.Append("OpticalFlowWriteNV");
+		case .DataGraphReadARM: strBuffer.Append("DataGraphReadARM");
+		case .DataGraphWriteARM: strBuffer.Append("DataGraphWriteARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineStageFlagBits2
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4079,10 +7958,64 @@ extension VkPipelineStageFlagBits2
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .None: strBuffer.Append("None");
+		case .TopOfPipe: strBuffer.Append("TopOfPipe");
+		case .DrawIndirect: strBuffer.Append("DrawIndirect");
+		case .VertexInput: strBuffer.Append("VertexInput");
+		case .VertexShader: strBuffer.Append("VertexShader");
+		case .TessellationControlShader: strBuffer.Append("TessellationControlShader");
+		case .TessellationEvaluationShader: strBuffer.Append("TessellationEvaluationShader");
+		case .GeometryShader: strBuffer.Append("GeometryShader");
+		case .FragmentShader: strBuffer.Append("FragmentShader");
+		case .EarlyFragmentTests: strBuffer.Append("EarlyFragmentTests");
+		case .LateFragmentTests: strBuffer.Append("LateFragmentTests");
+		case .ColorAttachmentOutput: strBuffer.Append("ColorAttachmentOutput");
+		case .ComputeShader: strBuffer.Append("ComputeShader");
+		case .AllTransfer: strBuffer.Append("AllTransfer");
+		case .BottomOfPipe: strBuffer.Append("BottomOfPipe");
+		case .Host: strBuffer.Append("Host");
+		case .AllGraphics: strBuffer.Append("AllGraphics");
+		case .AllCommands: strBuffer.Append("AllCommands");
+		case .Copy: strBuffer.Append("Copy");
+		case .Resolve: strBuffer.Append("Resolve");
+		case .Blit: strBuffer.Append("Blit");
+		case .Clear: strBuffer.Append("Clear");
+		case .IndexInput: strBuffer.Append("IndexInput");
+		case .VertexAttributeInput: strBuffer.Append("VertexAttributeInput");
+		case .PreRasterizationShaders: strBuffer.Append("PreRasterizationShaders");
+		case .VideoDecodeKHR: strBuffer.Append("VideoDecodeKHR");
+		case .VideoEncodeKHR: strBuffer.Append("VideoEncodeKHR");
+		case .TransformFeedbackEXT: strBuffer.Append("TransformFeedbackEXT");
+		case .ConditionalRenderingEXT: strBuffer.Append("ConditionalRenderingEXT");
+		case .CommandPreprocessEXT: strBuffer.Append("CommandPreprocessEXT");
+		case .FragmentShadingRateAttachmentKHR: strBuffer.Append("FragmentShadingRateAttachmentKHR");
+		case .AccelerationStructureBuildKHR: strBuffer.Append("AccelerationStructureBuildKHR");
+		case .RayTracingShaderKHR: strBuffer.Append("RayTracingShaderKHR");
+		case .FragmentDensityProcessEXT: strBuffer.Append("FragmentDensityProcessEXT");
+		case .TaskShaderEXT: strBuffer.Append("TaskShaderEXT");
+		case .MeshShaderEXT: strBuffer.Append("MeshShaderEXT");
+		case .SubpassShaderHUAWEI: strBuffer.Append("SubpassShaderHUAWEI");
+		case .InvocationMaskHUAWEI: strBuffer.Append("InvocationMaskHUAWEI");
+		case .AccelerationStructureCopyKHR: strBuffer.Append("AccelerationStructureCopyKHR");
+		case .MicromapBuildEXT: strBuffer.Append("MicromapBuildEXT");
+		case .ClusterCullingShaderHUAWEI: strBuffer.Append("ClusterCullingShaderHUAWEI");
+		case .OpticalFlowNV: strBuffer.Append("OpticalFlowNV");
+		case .ConvertCooperativeVectorMatrixNV: strBuffer.Append("ConvertCooperativeVectorMatrixNV");
+		case .DataGraphARM: strBuffer.Append("DataGraphARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkProvokingVertexModeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4092,10 +8025,22 @@ extension VkProvokingVertexModeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FirstVertexEXT: strBuffer.Append("FirstVertexEXT");
+		case .LastVertexEXT: strBuffer.Append("LastVertexEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkHostImageCopyFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4104,10 +8049,21 @@ extension VkHostImageCopyFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Memcpy: strBuffer.Append("Memcpy");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageConstraintsInfoFlagBitsFUCHSIA
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4120,10 +8076,25 @@ extension VkImageConstraintsInfoFlagBitsFUCHSIA
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CpuReadRarelyFUCHSIA: strBuffer.Append("CpuReadRarelyFUCHSIA");
+		case .CpuReadOftenFUCHSIA: strBuffer.Append("CpuReadOftenFUCHSIA");
+		case .CpuWriteRarelyFUCHSIA: strBuffer.Append("CpuWriteRarelyFUCHSIA");
+		case .CpuWriteOftenFUCHSIA: strBuffer.Append("CpuWriteOftenFUCHSIA");
+		case .ProtectedOptionalFUCHSIA: strBuffer.Append("ProtectedOptionalFUCHSIA");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFormatFeatureFlagBits2
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4180,10 +8151,69 @@ extension VkFormatFeatureFlagBits2
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SampledImage: strBuffer.Append("SampledImage");
+		case .StorageImage: strBuffer.Append("StorageImage");
+		case .StorageImageAtomic: strBuffer.Append("StorageImageAtomic");
+		case .UniformTexelBuffer: strBuffer.Append("UniformTexelBuffer");
+		case .StorageTexelBuffer: strBuffer.Append("StorageTexelBuffer");
+		case .StorageTexelBufferAtomic: strBuffer.Append("StorageTexelBufferAtomic");
+		case .VertexBuffer: strBuffer.Append("VertexBuffer");
+		case .ColorAttachment: strBuffer.Append("ColorAttachment");
+		case .ColorAttachmentBlend: strBuffer.Append("ColorAttachmentBlend");
+		case .DepthStencilAttachment: strBuffer.Append("DepthStencilAttachment");
+		case .BlitSrc: strBuffer.Append("BlitSrc");
+		case .BlitDst: strBuffer.Append("BlitDst");
+		case .SampledImageFilterLinear: strBuffer.Append("SampledImageFilterLinear");
+		case .TransferSrc: strBuffer.Append("TransferSrc");
+		case .TransferDst: strBuffer.Append("TransferDst");
+		case .SampledImageFilterMinmax: strBuffer.Append("SampledImageFilterMinmax");
+		case .MidpointChromaSamples: strBuffer.Append("MidpointChromaSamples");
+		case .SampledImageYcbcrConversionLinearFilter: strBuffer.Append("SampledImageYcbcrConversionLinearFilter");
+		case .SampledImageYcbcrConversionSeparateReconstructionFilter: strBuffer.Append("SampledImageYcbcrConversionSeparateReconstructionFilter");
+		case .SampledImageYcbcrConversionChromaReconstructionExplicit: strBuffer.Append("SampledImageYcbcrConversionChromaReconstructionExplicit");
+		case .SampledImageYcbcrConversionChromaReconstructionExplicitForceable: strBuffer.Append("SampledImageYcbcrConversionChromaReconstructionExplicitForceable");
+		case .Disjoint: strBuffer.Append("Disjoint");
+		case .CositedChromaSamples: strBuffer.Append("CositedChromaSamples");
+		case .StorageReadWithoutFormat: strBuffer.Append("StorageReadWithoutFormat");
+		case .StorageWriteWithoutFormat: strBuffer.Append("StorageWriteWithoutFormat");
+		case .SampledImageDepthComparison: strBuffer.Append("SampledImageDepthComparison");
+		case .SampledImageFilterCubic: strBuffer.Append("SampledImageFilterCubic");
+		case .HostImageTransfer: strBuffer.Append("HostImageTransfer");
+		case .VideoDecodeOutputKHR: strBuffer.Append("VideoDecodeOutputKHR");
+		case .VideoDecodeDpbKHR: strBuffer.Append("VideoDecodeDpbKHR");
+		case .AccelerationStructureVertexBufferKHR: strBuffer.Append("AccelerationStructureVertexBufferKHR");
+		case .FragmentDensityMapEXT: strBuffer.Append("FragmentDensityMapEXT");
+		case .FragmentShadingRateAttachmentKHR: strBuffer.Append("FragmentShadingRateAttachmentKHR");
+		case .VideoEncodeInputKHR: strBuffer.Append("VideoEncodeInputKHR");
+		case .VideoEncodeDpbKHR: strBuffer.Append("VideoEncodeDpbKHR");
+		case .AccelerationStructureRadiusBufferNV: strBuffer.Append("AccelerationStructureRadiusBufferNV");
+		case .LinearColorAttachmentNV: strBuffer.Append("LinearColorAttachmentNV");
+		case .WeightImageQCOM: strBuffer.Append("WeightImageQCOM");
+		case .WeightSampledImageQCOM: strBuffer.Append("WeightSampledImageQCOM");
+		case .BlockMatchingQCOM: strBuffer.Append("BlockMatchingQCOM");
+		case .BoxFilterSampledQCOM: strBuffer.Append("BoxFilterSampledQCOM");
+		case .TensorShaderARM: strBuffer.Append("TensorShaderARM");
+		case .TensorImageAliasingARM: strBuffer.Append("TensorImageAliasingARM");
+		case .OpticalFlowImageNV: strBuffer.Append("OpticalFlowImageNV");
+		case .OpticalFlowVectorNV: strBuffer.Append("OpticalFlowVectorNV");
+		case .OpticalFlowCostNV: strBuffer.Append("OpticalFlowCostNV");
+		case .TensorDataGraphARM: strBuffer.Append("TensorDataGraphARM");
+		case .VideoEncodeQuantizationDeltaMapKHR: strBuffer.Append("VideoEncodeQuantizationDeltaMapKHR");
+		case .VideoEncodeEmphasisMapKHR: strBuffer.Append("VideoEncodeEmphasisMapKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkRenderingFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4197,10 +8227,26 @@ extension VkRenderingFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ContentsSecondaryCommandBuffers: strBuffer.Append("ContentsSecondaryCommandBuffers");
+		case .Suspending: strBuffer.Append("Suspending");
+		case .Resuming: strBuffer.Append("Resuming");
+		case .EnableLegacyDitheringEXT: strBuffer.Append("EnableLegacyDitheringEXT");
+		case .ContentsInlineKHR: strBuffer.Append("ContentsInlineKHR");
+		case .PerLayerFragmentDensityVALVE: strBuffer.Append("PerLayerFragmentDensityVALVE");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineDepthStencilStateCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4210,10 +8256,22 @@ extension VkPipelineDepthStencilStateCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .RasterizationOrderAttachmentDepthAccessEXT: strBuffer.Append("RasterizationOrderAttachmentDepthAccessEXT");
+		case .RasterizationOrderAttachmentStencilAccessEXT: strBuffer.Append("RasterizationOrderAttachmentStencilAccessEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineColorBlendStateCreateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4222,10 +8280,21 @@ extension VkPipelineColorBlendStateCreateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .RasterizationOrderAttachmentAccessEXT: strBuffer.Append("RasterizationOrderAttachmentAccessEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageCompressionFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4237,10 +8306,24 @@ extension VkImageCompressionFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultEXT: strBuffer.Append("DefaultEXT");
+		case .FixedRateDefaultEXT: strBuffer.Append("FixedRateDefaultEXT");
+		case .FixedRateExplicitEXT: strBuffer.Append("FixedRateExplicitEXT");
+		case .DisabledEXT: strBuffer.Append("DisabledEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkImageCompressionFixedRateFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4273,10 +8356,45 @@ extension VkImageCompressionFixedRateFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneEXT: strBuffer.Append("NoneEXT");
+		case .VK_1bpcEXT: strBuffer.Append("VK_1bpcEXT");
+		case .VK_2bpcEXT: strBuffer.Append("VK_2bpcEXT");
+		case .VK_3bpcEXT: strBuffer.Append("VK_3bpcEXT");
+		case .VK_4bpcEXT: strBuffer.Append("VK_4bpcEXT");
+		case .VK_5bpcEXT: strBuffer.Append("VK_5bpcEXT");
+		case .VK_6bpcEXT: strBuffer.Append("VK_6bpcEXT");
+		case .VK_7bpcEXT: strBuffer.Append("VK_7bpcEXT");
+		case .VK_8bpcEXT: strBuffer.Append("VK_8bpcEXT");
+		case .VK_9bpcEXT: strBuffer.Append("VK_9bpcEXT");
+		case .VK_10bpcEXT: strBuffer.Append("VK_10bpcEXT");
+		case .VK_11bpcEXT: strBuffer.Append("VK_11bpcEXT");
+		case .VK_12bpcEXT: strBuffer.Append("VK_12bpcEXT");
+		case .VK_13bpcEXT: strBuffer.Append("VK_13bpcEXT");
+		case .VK_14bpcEXT: strBuffer.Append("VK_14bpcEXT");
+		case .VK_15bpcEXT: strBuffer.Append("VK_15bpcEXT");
+		case .VK_16bpcEXT: strBuffer.Append("VK_16bpcEXT");
+		case .VK_17bpcEXT: strBuffer.Append("VK_17bpcEXT");
+		case .VK_18bpcEXT: strBuffer.Append("VK_18bpcEXT");
+		case .VK_19bpcEXT: strBuffer.Append("VK_19bpcEXT");
+		case .VK_20bpcEXT: strBuffer.Append("VK_20bpcEXT");
+		case .VK_21bpcEXT: strBuffer.Append("VK_21bpcEXT");
+		case .VK_22bpcEXT: strBuffer.Append("VK_22bpcEXT");
+		case .VK_23bpcEXT: strBuffer.Append("VK_23bpcEXT");
+		case .VK_24bpcEXT: strBuffer.Append("VK_24bpcEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkExportMetalObjectTypeFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4290,10 +8408,26 @@ extension VkExportMetalObjectTypeFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MetalDeviceEXT: strBuffer.Append("MetalDeviceEXT");
+		case .MetalCommandQueueEXT: strBuffer.Append("MetalCommandQueueEXT");
+		case .MetalBufferEXT: strBuffer.Append("MetalBufferEXT");
+		case .MetalTextureEXT: strBuffer.Append("MetalTextureEXT");
+		case .MetalIosurfaceEXT: strBuffer.Append("MetalIosurfaceEXT");
+		case .MetalSharedEventEXT: strBuffer.Append("MetalSharedEventEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineRobustnessBufferBehavior
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4305,10 +8439,24 @@ extension VkPipelineRobustnessBufferBehavior
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceDefault: strBuffer.Append("DeviceDefault");
+		case .Disabled: strBuffer.Append("Disabled");
+		case .RobustBufferAccess: strBuffer.Append("RobustBufferAccess");
+		case .RobustBufferAccess2: strBuffer.Append("RobustBufferAccess2");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineRobustnessImageBehavior
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4320,10 +8468,24 @@ extension VkPipelineRobustnessImageBehavior
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceDefault: strBuffer.Append("DeviceDefault");
+		case .Disabled: strBuffer.Append("Disabled");
+		case .RobustImageAccess: strBuffer.Append("RobustImageAccess");
+		case .RobustImageAccess2: strBuffer.Append("RobustImageAccess2");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDeviceAddressBindingFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4332,10 +8494,21 @@ extension VkDeviceAddressBindingFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .InternalObjectEXT: strBuffer.Append("InternalObjectEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDeviceAddressBindingTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4345,10 +8518,22 @@ extension VkDeviceAddressBindingTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .BindEXT: strBuffer.Append("BindEXT");
+		case .UnbindEXT: strBuffer.Append("UnbindEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkMicromapTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4358,10 +8543,22 @@ extension VkMicromapTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OpacityMicromapEXT: strBuffer.Append("OpacityMicromapEXT");
+		case .VkMicromapTypeDisplacementMicromapNV: strBuffer.Append("VkMicromapTypeDisplacementMicromapNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBuildMicromapModeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4370,10 +8567,21 @@ extension VkBuildMicromapModeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .BuildEXT: strBuffer.Append("BuildEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCopyMicromapModeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4385,10 +8593,24 @@ extension VkCopyMicromapModeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CloneEXT: strBuffer.Append("CloneEXT");
+		case .SerializeEXT: strBuffer.Append("SerializeEXT");
+		case .DeserializeEXT: strBuffer.Append("DeserializeEXT");
+		case .CompactEXT: strBuffer.Append("CompactEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBuildMicromapFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4399,10 +8621,23 @@ extension VkBuildMicromapFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .PreferFastTraceEXT: strBuffer.Append("PreferFastTraceEXT");
+		case .PreferFastBuildEXT: strBuffer.Append("PreferFastBuildEXT");
+		case .AllowCompactionEXT: strBuffer.Append("AllowCompactionEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkMicromapCreateFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4411,10 +8646,21 @@ extension VkMicromapCreateFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceAddressCaptureReplayEXT: strBuffer.Append("DeviceAddressCaptureReplayEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkOpacityMicromapFormatEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4424,10 +8670,22 @@ extension VkOpacityMicromapFormatEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_2StateEXT: strBuffer.Append("VK_2StateEXT");
+		case .VK_4StateEXT: strBuffer.Append("VK_4StateEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkOpacityMicromapSpecialIndexEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4440,10 +8698,25 @@ extension VkOpacityMicromapSpecialIndexEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FullyTransparentEXT: strBuffer.Append("FullyTransparentEXT");
+		case .FullyOpaqueEXT: strBuffer.Append("FullyOpaqueEXT");
+		case .FullyUnknownTransparentEXT: strBuffer.Append("FullyUnknownTransparentEXT");
+		case .FullyUnknownOpaqueEXT: strBuffer.Append("FullyUnknownOpaqueEXT");
+		case .VkOpacityMicromapSpecialIndexClusterGeometryDisableOpacityMicromapNV: strBuffer.Append("VkOpacityMicromapSpecialIndexClusterGeometryDisableOpacityMicromapNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDeviceFaultVendorBinaryHeaderVersionEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4452,10 +8725,21 @@ extension VkDeviceFaultVendorBinaryHeaderVersionEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OneEXT: strBuffer.Append("OneEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkIndirectCommandsLayoutUsageFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4465,10 +8749,22 @@ extension VkIndirectCommandsLayoutUsageFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ExplicitPreprocessEXT: strBuffer.Append("ExplicitPreprocessEXT");
+		case .UnorderedSequencesEXT: strBuffer.Append("UnorderedSequencesEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkIndirectExecutionSetInfoTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4478,10 +8774,22 @@ extension VkIndirectExecutionSetInfoTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .PipelinesEXT: strBuffer.Append("PipelinesEXT");
+		case .ShaderObjectsEXT: strBuffer.Append("ShaderObjectsEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkIndirectCommandsInputModeFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4491,10 +8799,22 @@ extension VkIndirectCommandsInputModeFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VulkanIndexBufferEXT: strBuffer.Append("VulkanIndexBufferEXT");
+		case .DxgiIndexBufferEXT: strBuffer.Append("DxgiIndexBufferEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFrameBoundaryFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4503,10 +8823,21 @@ extension VkFrameBoundaryFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FrameEndEXT: strBuffer.Append("FrameEndEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkMemoryDecompressionMethodFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4515,10 +8846,21 @@ extension VkMemoryDecompressionMethodFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Gdeflate10NV: strBuffer.Append("Gdeflate10NV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDepthBiasRepresentationEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4529,10 +8871,23 @@ extension VkDepthBiasRepresentationEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .LeastRepresentableValueFormatEXT: strBuffer.Append("LeastRepresentableValueFormatEXT");
+		case .LeastRepresentableValueForceUnormEXT: strBuffer.Append("LeastRepresentableValueForceUnormEXT");
+		case .FloatEXT: strBuffer.Append("FloatEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDirectDriverLoadingModeLUNARG
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4542,10 +8897,22 @@ extension VkDirectDriverLoadingModeLUNARG
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ExclusiveLUNARG: strBuffer.Append("ExclusiveLUNARG");
+		case .InclusiveLUNARG: strBuffer.Append("InclusiveLUNARG");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineCreateFlagBits2
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4591,10 +8958,58 @@ extension VkPipelineCreateFlagBits2
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DisableOptimization: strBuffer.Append("DisableOptimization");
+		case .AllowDerivatives: strBuffer.Append("AllowDerivatives");
+		case .Derivative: strBuffer.Append("Derivative");
+		case .ViewIndexFromDeviceIndex: strBuffer.Append("ViewIndexFromDeviceIndex");
+		case .DispatchBase: strBuffer.Append("DispatchBase");
+		case .FailOnPipelineCompileRequired: strBuffer.Append("FailOnPipelineCompileRequired");
+		case .EarlyReturnOnFailure: strBuffer.Append("EarlyReturnOnFailure");
+		case .NoProtectedAccess: strBuffer.Append("NoProtectedAccess");
+		case .ProtectedAccessOnly: strBuffer.Append("ProtectedAccessOnly");
+		case .ExecutionGraphAMDX: strBuffer.Append("ExecutionGraphAMDX");
+		case .RayTracingAllowSpheresAndLinearSweptSpheresNV: strBuffer.Append("RayTracingAllowSpheresAndLinearSweptSpheresNV");
+		case .EnableLegacyDitheringEXT: strBuffer.Append("EnableLegacyDitheringEXT");
+		case .DeferCompileNV: strBuffer.Append("DeferCompileNV");
+		case .CaptureStatisticsKHR: strBuffer.Append("CaptureStatisticsKHR");
+		case .CaptureInternalRepresentationsKHR: strBuffer.Append("CaptureInternalRepresentationsKHR");
+		case .LinkTimeOptimizationEXT: strBuffer.Append("LinkTimeOptimizationEXT");
+		case .RetainLinkTimeOptimizationInfoEXT: strBuffer.Append("RetainLinkTimeOptimizationInfoEXT");
+		case .LibraryKHR: strBuffer.Append("LibraryKHR");
+		case .RayTracingSkipTrianglesKHR: strBuffer.Append("RayTracingSkipTrianglesKHR");
+		case .RayTracingSkipAabbsKHR: strBuffer.Append("RayTracingSkipAabbsKHR");
+		case .RayTracingNoNullAnyHitShadersKHR: strBuffer.Append("RayTracingNoNullAnyHitShadersKHR");
+		case .RayTracingNoNullClosestHitShadersKHR: strBuffer.Append("RayTracingNoNullClosestHitShadersKHR");
+		case .RayTracingNoNullMissShadersKHR: strBuffer.Append("RayTracingNoNullMissShadersKHR");
+		case .RayTracingNoNullIntersectionShadersKHR: strBuffer.Append("RayTracingNoNullIntersectionShadersKHR");
+		case .RayTracingShaderGroupHandleCaptureReplayKHR: strBuffer.Append("RayTracingShaderGroupHandleCaptureReplayKHR");
+		case .IndirectBindableNV: strBuffer.Append("IndirectBindableNV");
+		case .RayTracingAllowMotionNV: strBuffer.Append("RayTracingAllowMotionNV");
+		case .RenderingFragmentShadingRateAttachmentKHR: strBuffer.Append("RenderingFragmentShadingRateAttachmentKHR");
+		case .RenderingFragmentDensityMapAttachmentEXT: strBuffer.Append("RenderingFragmentDensityMapAttachmentEXT");
+		case .RayTracingOpacityMicromapEXT: strBuffer.Append("RayTracingOpacityMicromapEXT");
+		case .ColorAttachmentFeedbackLoopEXT: strBuffer.Append("ColorAttachmentFeedbackLoopEXT");
+		case .DepthStencilAttachmentFeedbackLoopEXT: strBuffer.Append("DepthStencilAttachmentFeedbackLoopEXT");
+		case .RayTracingDisplacementMicromapNV: strBuffer.Append("RayTracingDisplacementMicromapNV");
+		case .DescriptorBufferEXT: strBuffer.Append("DescriptorBufferEXT");
+		case .DisallowOpacityMicromapARM: strBuffer.Append("DisallowOpacityMicromapARM");
+		case .CaptureDataKHR: strBuffer.Append("CaptureDataKHR");
+		case .IndirectBindableEXT: strBuffer.Append("IndirectBindableEXT");
+		case .PerLayerFragmentDensityVALVE: strBuffer.Append("PerLayerFragmentDensityVALVE");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBufferUsageFlagBits2
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4631,10 +9046,49 @@ extension VkBufferUsageFlagBits2
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TransferSrc: strBuffer.Append("TransferSrc");
+		case .TransferDst: strBuffer.Append("TransferDst");
+		case .UniformTexelBuffer: strBuffer.Append("UniformTexelBuffer");
+		case .StorageTexelBuffer: strBuffer.Append("StorageTexelBuffer");
+		case .UniformBuffer: strBuffer.Append("UniformBuffer");
+		case .StorageBuffer: strBuffer.Append("StorageBuffer");
+		case .IndexBuffer: strBuffer.Append("IndexBuffer");
+		case .VertexBuffer: strBuffer.Append("VertexBuffer");
+		case .IndirectBuffer: strBuffer.Append("IndirectBuffer");
+		case .ShaderDeviceAddress: strBuffer.Append("ShaderDeviceAddress");
+		case .ExecutionGraphScratchAMDX: strBuffer.Append("ExecutionGraphScratchAMDX");
+		case .ConditionalRenderingEXT: strBuffer.Append("ConditionalRenderingEXT");
+		case .ShaderBindingTableKHR: strBuffer.Append("ShaderBindingTableKHR");
+		case .TransformFeedbackBufferEXT: strBuffer.Append("TransformFeedbackBufferEXT");
+		case .TransformFeedbackCounterBufferEXT: strBuffer.Append("TransformFeedbackCounterBufferEXT");
+		case .VideoDecodeSrcKHR: strBuffer.Append("VideoDecodeSrcKHR");
+		case .VideoDecodeDstKHR: strBuffer.Append("VideoDecodeDstKHR");
+		case .VideoEncodeDstKHR: strBuffer.Append("VideoEncodeDstKHR");
+		case .VideoEncodeSrcKHR: strBuffer.Append("VideoEncodeSrcKHR");
+		case .AccelerationStructureBuildInputReadOnlyKHR: strBuffer.Append("AccelerationStructureBuildInputReadOnlyKHR");
+		case .AccelerationStructureStorageKHR: strBuffer.Append("AccelerationStructureStorageKHR");
+		case .SamplerDescriptorBufferEXT: strBuffer.Append("SamplerDescriptorBufferEXT");
+		case .ResourceDescriptorBufferEXT: strBuffer.Append("ResourceDescriptorBufferEXT");
+		case .PushDescriptorsDescriptorBufferEXT: strBuffer.Append("PushDescriptorsDescriptorBufferEXT");
+		case .MicromapBuildInputReadOnlyEXT: strBuffer.Append("MicromapBuildInputReadOnlyEXT");
+		case .MicromapStorageEXT: strBuffer.Append("MicromapStorageEXT");
+		case .DataGraphForeignDescriptorARM: strBuffer.Append("DataGraphForeignDescriptorARM");
+		case .TileMemoryQCOM: strBuffer.Append("TileMemoryQCOM");
+		case .PreprocessBufferEXT: strBuffer.Append("PreprocessBufferEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPartitionedAccelerationStructureOpTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4645,10 +9099,23 @@ extension VkPartitionedAccelerationStructureOpTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .WriteInstanceNV: strBuffer.Append("WriteInstanceNV");
+		case .UpdateInstanceNV: strBuffer.Append("UpdateInstanceNV");
+		case .WritePartitionTranslationNV: strBuffer.Append("WritePartitionTranslationNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPartitionedAccelerationStructureInstanceFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4661,10 +9128,25 @@ extension VkPartitionedAccelerationStructureInstanceFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FlagTriangleFacingCullDisableNV: strBuffer.Append("FlagTriangleFacingCullDisableNV");
+		case .FlagTriangleFlipFacingNV: strBuffer.Append("FlagTriangleFlipFacingNV");
+		case .FlagForceOpaqueNV: strBuffer.Append("FlagForceOpaqueNV");
+		case .FlagForceNoOpaqueNV: strBuffer.Append("FlagForceNoOpaqueNV");
+		case .FlagEnableExplicitBoundingBoxNV: strBuffer.Append("FlagEnableExplicitBoundingBoxNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAntiLagModeAMD
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4675,10 +9157,23 @@ extension VkAntiLagModeAMD
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DriverControlAMD: strBuffer.Append("DriverControlAMD");
+		case .OnAMD: strBuffer.Append("OnAMD");
+		case .OffAMD: strBuffer.Append("OffAMD");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAntiLagStageAMD
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4688,10 +9183,22 @@ extension VkAntiLagStageAMD
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .InputAMD: strBuffer.Append("InputAMD");
+		case .PresentAMD: strBuffer.Append("PresentAMD");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDisplacementMicromapFormatNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4702,10 +9209,23 @@ extension VkDisplacementMicromapFormatNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_64Triangles64BytesNV: strBuffer.Append("VK_64Triangles64BytesNV");
+		case .VK_256Triangles128BytesNV: strBuffer.Append("VK_256Triangles128BytesNV");
+		case .VK_1024Triangles128BytesNV: strBuffer.Append("VK_1024Triangles128BytesNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkShaderCreateFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4721,10 +9241,28 @@ extension VkShaderCreateFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .LinkStageEXT: strBuffer.Append("LinkStageEXT");
+		case .AllowVaryingSubgroupSizeEXT: strBuffer.Append("AllowVaryingSubgroupSizeEXT");
+		case .RequireFullSubgroupsEXT: strBuffer.Append("RequireFullSubgroupsEXT");
+		case .NoTaskShaderEXT: strBuffer.Append("NoTaskShaderEXT");
+		case .DispatchBaseEXT: strBuffer.Append("DispatchBaseEXT");
+		case .FragmentShadingRateAttachmentEXT: strBuffer.Append("FragmentShadingRateAttachmentEXT");
+		case .FragmentDensityMapAttachmentEXT: strBuffer.Append("FragmentDensityMapAttachmentEXT");
+		case .IndirectBindableEXT: strBuffer.Append("IndirectBindableEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkShaderCodeTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4734,10 +9272,22 @@ extension VkShaderCodeTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .BinaryEXT: strBuffer.Append("BinaryEXT");
+		case .SpirvEXT: strBuffer.Append("SpirvEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkScopeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4749,10 +9299,24 @@ extension VkScopeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceKHR: strBuffer.Append("DeviceKHR");
+		case .WorkgroupKHR: strBuffer.Append("WorkgroupKHR");
+		case .SubgroupKHR: strBuffer.Append("SubgroupKHR");
+		case .QueueFamilyKHR: strBuffer.Append("QueueFamilyKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkComponentTypeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4776,10 +9340,36 @@ extension VkComponentTypeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Float16KHR: strBuffer.Append("Float16KHR");
+		case .Float32KHR: strBuffer.Append("Float32KHR");
+		case .Float64KHR: strBuffer.Append("Float64KHR");
+		case .Sint8KHR: strBuffer.Append("Sint8KHR");
+		case .Sint16KHR: strBuffer.Append("Sint16KHR");
+		case .Sint32KHR: strBuffer.Append("Sint32KHR");
+		case .Sint64KHR: strBuffer.Append("Sint64KHR");
+		case .Uint8KHR: strBuffer.Append("Uint8KHR");
+		case .Uint16KHR: strBuffer.Append("Uint16KHR");
+		case .Uint32KHR: strBuffer.Append("Uint32KHR");
+		case .Uint64KHR: strBuffer.Append("Uint64KHR");
+		case .Bfloat16KHR: strBuffer.Append("Bfloat16KHR");
+		case .VkComponentTypeSint8PackedNV: strBuffer.Append("VkComponentTypeSint8PackedNV");
+		case .VkComponentTypeUint8PackedNV: strBuffer.Append("VkComponentTypeUint8PackedNV");
+		case .VkComponentTypeFloat8E4m3EXT: strBuffer.Append("VkComponentTypeFloat8E4m3EXT");
+		case .VkComponentTypeFloat8E5m2EXT: strBuffer.Append("VkComponentTypeFloat8E5m2EXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCubicFilterWeightsQCOM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4791,10 +9381,24 @@ extension VkCubicFilterWeightsQCOM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CatmullRomQCOM: strBuffer.Append("CatmullRomQCOM");
+		case .ZeroTangentCardinalQCOM: strBuffer.Append("ZeroTangentCardinalQCOM");
+		case .BSplineQCOM: strBuffer.Append("BSplineQCOM");
+		case .MitchellNetravaliQCOM: strBuffer.Append("MitchellNetravaliQCOM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBlockMatchWindowCompareModeQCOM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4804,10 +9408,22 @@ extension VkBlockMatchWindowCompareModeQCOM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MinQCOM: strBuffer.Append("MinQCOM");
+		case .MaxQCOM: strBuffer.Append("MaxQCOM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkLayeredDriverUnderlyingApiMSFT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4817,10 +9433,22 @@ extension VkLayeredDriverUnderlyingApiMSFT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneMSFT: strBuffer.Append("NoneMSFT");
+		case .D3d12MSFT: strBuffer.Append("D3d12MSFT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPhysicalDeviceLayeredApiKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4833,10 +9461,25 @@ extension VkPhysicalDeviceLayeredApiKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VulkanKHR: strBuffer.Append("VulkanKHR");
+		case .D3d12KHR: strBuffer.Append("D3d12KHR");
+		case .MetalKHR: strBuffer.Append("MetalKHR");
+		case .OpenglKHR: strBuffer.Append("OpenglKHR");
+		case .OpenglesKHR: strBuffer.Append("OpenglesKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDepthClampModeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4846,10 +9489,22 @@ extension VkDepthClampModeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ViewportRangeEXT: strBuffer.Append("ViewportRangeEXT");
+		case .UserDefinedRangeEXT: strBuffer.Append("UserDefinedRangeEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkTileShadingRenderPassFlagBitsQCOM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4859,10 +9514,22 @@ extension VkTileShadingRenderPassFlagBitsQCOM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .EnableQCOM: strBuffer.Append("EnableQCOM");
+		case .PerTileExecutionQCOM: strBuffer.Append("PerTileExecutionQCOM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCooperativeVectorMatrixLayoutNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4874,10 +9541,24 @@ extension VkCooperativeVectorMatrixLayoutNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .RowMajorNV: strBuffer.Append("RowMajorNV");
+		case .ColumnMajorNV: strBuffer.Append("ColumnMajorNV");
+		case .InferencingOptimalNV: strBuffer.Append("InferencingOptimalNV");
+		case .TrainingOptimalNV: strBuffer.Append("TrainingOptimalNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkTensorCreateFlagBitsARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4888,10 +9569,23 @@ extension VkTensorCreateFlagBitsARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MutableFormatARM: strBuffer.Append("MutableFormatARM");
+		case .ProtectedARM: strBuffer.Append("ProtectedARM");
+		case .DescriptorBufferCaptureReplayARM: strBuffer.Append("DescriptorBufferCaptureReplayARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkTensorUsageFlagBitsARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4904,10 +9598,25 @@ extension VkTensorUsageFlagBitsARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ShaderARM: strBuffer.Append("ShaderARM");
+		case .TransferSrcARM: strBuffer.Append("TransferSrcARM");
+		case .TransferDstARM: strBuffer.Append("TransferDstARM");
+		case .ImageAliasingARM: strBuffer.Append("ImageAliasingARM");
+		case .DataGraphARM: strBuffer.Append("DataGraphARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkTensorTilingARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4917,10 +9626,22 @@ extension VkTensorTilingARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OptimalARM: strBuffer.Append("OptimalARM");
+		case .LinearARM: strBuffer.Append("LinearARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkTensorViewCreateFlagBitsARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4929,10 +9650,21 @@ extension VkTensorViewCreateFlagBitsARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DescriptorBufferCaptureReplayARM: strBuffer.Append("DescriptorBufferCaptureReplayARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDataGraphPipelineSessionCreateFlagBitsARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4941,10 +9673,21 @@ extension VkDataGraphPipelineSessionCreateFlagBitsARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ProtectedARM: strBuffer.Append("ProtectedARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDataGraphPipelinePropertyARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4954,10 +9697,22 @@ extension VkDataGraphPipelinePropertyARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CreationLogARM: strBuffer.Append("CreationLogARM");
+		case .IdentifierARM: strBuffer.Append("IdentifierARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDataGraphPipelineSessionBindPointARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4966,10 +9721,21 @@ extension VkDataGraphPipelineSessionBindPointARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .TransientARM: strBuffer.Append("TransientARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDataGraphPipelineSessionBindPointTypeARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -4978,11 +9744,31 @@ extension VkDataGraphPipelineSessionBindPointTypeARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MemoryARM: strBuffer.Append("MemoryARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDataGraphPipelineDispatchFlagBitsARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
+	{
+		switch (this)
+		{
+		default: Underlying.ToString(strBuffer);
+		}
+	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
 	{
 		switch (this)
 		{
@@ -4993,6 +9779,7 @@ extension VkDataGraphPipelineDispatchFlagBitsARM
 
 extension VkPhysicalDeviceDataGraphProcessingEngineTypeARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5001,10 +9788,21 @@ extension VkPhysicalDeviceDataGraphProcessingEngineTypeARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultARM: strBuffer.Append("DefaultARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPhysicalDeviceDataGraphOperationTypeARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5013,10 +9811,21 @@ extension VkPhysicalDeviceDataGraphOperationTypeARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SpirvExtendedInstructionSetARM: strBuffer.Append("SpirvExtendedInstructionSetARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkColorSpaceKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5040,10 +9849,36 @@ extension VkColorSpaceKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SrgbNonlinearKHR: strBuffer.Append("SrgbNonlinearKHR");
+		case .VkColorSpaceDisplayP3NonlinearEXT: strBuffer.Append("VkColorSpaceDisplayP3NonlinearEXT");
+		case .VkColorSpaceExtendedSrgbLinearEXT: strBuffer.Append("VkColorSpaceExtendedSrgbLinearEXT");
+		case .VkColorSpaceDisplayP3LinearEXT: strBuffer.Append("VkColorSpaceDisplayP3LinearEXT");
+		case .VkColorSpaceDciP3NonlinearEXT: strBuffer.Append("VkColorSpaceDciP3NonlinearEXT");
+		case .VkColorSpaceBt709LinearEXT: strBuffer.Append("VkColorSpaceBt709LinearEXT");
+		case .VkColorSpaceBt709NonlinearEXT: strBuffer.Append("VkColorSpaceBt709NonlinearEXT");
+		case .VkColorSpaceBt2020LinearEXT: strBuffer.Append("VkColorSpaceBt2020LinearEXT");
+		case .VkColorSpaceHdr10St2084EXT: strBuffer.Append("VkColorSpaceHdr10St2084EXT");
+		case .VkColorSpaceDolbyvisionEXT: strBuffer.Append("VkColorSpaceDolbyvisionEXT");
+		case .VkColorSpaceHdr10HlgEXT: strBuffer.Append("VkColorSpaceHdr10HlgEXT");
+		case .VkColorSpaceAdobergbLinearEXT: strBuffer.Append("VkColorSpaceAdobergbLinearEXT");
+		case .VkColorSpaceAdobergbNonlinearEXT: strBuffer.Append("VkColorSpaceAdobergbNonlinearEXT");
+		case .VkColorSpacePassThroughEXT: strBuffer.Append("VkColorSpacePassThroughEXT");
+		case .VkColorSpaceExtendedSrgbNonlinearEXT: strBuffer.Append("VkColorSpaceExtendedSrgbNonlinearEXT");
+		case .VkColorSpaceDisplayNativeAMD: strBuffer.Append("VkColorSpaceDisplayNativeAMD");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCompositeAlphaFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5055,10 +9890,24 @@ extension VkCompositeAlphaFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OpaqueKHR: strBuffer.Append("OpaqueKHR");
+		case .PreMultipliedKHR: strBuffer.Append("PreMultipliedKHR");
+		case .PostMultipliedKHR: strBuffer.Append("PostMultipliedKHR");
+		case .InheritKHR: strBuffer.Append("InheritKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDisplayPlaneAlphaFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5070,10 +9919,24 @@ extension VkDisplayPlaneAlphaFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OpaqueKHR: strBuffer.Append("OpaqueKHR");
+		case .GlobalKHR: strBuffer.Append("GlobalKHR");
+		case .PerPixelKHR: strBuffer.Append("PerPixelKHR");
+		case .PerPixelPremultipliedKHR: strBuffer.Append("PerPixelPremultipliedKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPresentModeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5088,10 +9951,27 @@ extension VkPresentModeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ImmediateKHR: strBuffer.Append("ImmediateKHR");
+		case .MailboxKHR: strBuffer.Append("MailboxKHR");
+		case .FifoKHR: strBuffer.Append("FifoKHR");
+		case .FifoRelaxedKHR: strBuffer.Append("FifoRelaxedKHR");
+		case .SharedDemandRefreshKHR: strBuffer.Append("SharedDemandRefreshKHR");
+		case .SharedContinuousRefreshKHR: strBuffer.Append("SharedContinuousRefreshKHR");
+		case .FifoLatestReadyKHR: strBuffer.Append("FifoLatestReadyKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSurfaceTransformFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5108,10 +9988,29 @@ extension VkSurfaceTransformFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .IdentityKHR: strBuffer.Append("IdentityKHR");
+		case .Rotate90KHR: strBuffer.Append("Rotate90KHR");
+		case .Rotate180KHR: strBuffer.Append("Rotate180KHR");
+		case .Rotate270KHR: strBuffer.Append("Rotate270KHR");
+		case .HorizontalMirrorKHR: strBuffer.Append("HorizontalMirrorKHR");
+		case .HorizontalMirrorRotate90KHR: strBuffer.Append("HorizontalMirrorRotate90KHR");
+		case .HorizontalMirrorRotate180KHR: strBuffer.Append("HorizontalMirrorRotate180KHR");
+		case .HorizontalMirrorRotate270KHR: strBuffer.Append("HorizontalMirrorRotate270KHR");
+		case .InheritKHR: strBuffer.Append("InheritKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDisplaySurfaceStereoTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5123,10 +10022,24 @@ extension VkDisplaySurfaceStereoTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneNV: strBuffer.Append("NoneNV");
+		case .OnboardDinNV: strBuffer.Append("OnboardDinNV");
+		case .Hdmi3dNV: strBuffer.Append("Hdmi3dNV");
+		case .InbandDisplayportNV: strBuffer.Append("InbandDisplayportNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDebugReportFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5139,10 +10052,25 @@ extension VkDebugReportFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .InformationEXT: strBuffer.Append("InformationEXT");
+		case .WarningEXT: strBuffer.Append("WarningEXT");
+		case .PerformanceWarningEXT: strBuffer.Append("PerformanceWarningEXT");
+		case .ErrorEXT: strBuffer.Append("ErrorEXT");
+		case .DebugEXT: strBuffer.Append("DebugEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDebugReportObjectTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5191,10 +10119,61 @@ extension VkDebugReportObjectTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UnknownEXT: strBuffer.Append("UnknownEXT");
+		case .InstanceEXT: strBuffer.Append("InstanceEXT");
+		case .PhysicalDeviceEXT: strBuffer.Append("PhysicalDeviceEXT");
+		case .DeviceEXT: strBuffer.Append("DeviceEXT");
+		case .QueueEXT: strBuffer.Append("QueueEXT");
+		case .SemaphoreEXT: strBuffer.Append("SemaphoreEXT");
+		case .CommandBufferEXT: strBuffer.Append("CommandBufferEXT");
+		case .FenceEXT: strBuffer.Append("FenceEXT");
+		case .DeviceMemoryEXT: strBuffer.Append("DeviceMemoryEXT");
+		case .BufferEXT: strBuffer.Append("BufferEXT");
+		case .ImageEXT: strBuffer.Append("ImageEXT");
+		case .EventEXT: strBuffer.Append("EventEXT");
+		case .QueryPoolEXT: strBuffer.Append("QueryPoolEXT");
+		case .BufferViewEXT: strBuffer.Append("BufferViewEXT");
+		case .ImageViewEXT: strBuffer.Append("ImageViewEXT");
+		case .ShaderModuleEXT: strBuffer.Append("ShaderModuleEXT");
+		case .PipelineCacheEXT: strBuffer.Append("PipelineCacheEXT");
+		case .PipelineLayoutEXT: strBuffer.Append("PipelineLayoutEXT");
+		case .RenderPassEXT: strBuffer.Append("RenderPassEXT");
+		case .PipelineEXT: strBuffer.Append("PipelineEXT");
+		case .DescriptorSetLayoutEXT: strBuffer.Append("DescriptorSetLayoutEXT");
+		case .SamplerEXT: strBuffer.Append("SamplerEXT");
+		case .DescriptorPoolEXT: strBuffer.Append("DescriptorPoolEXT");
+		case .DescriptorSetEXT: strBuffer.Append("DescriptorSetEXT");
+		case .FramebufferEXT: strBuffer.Append("FramebufferEXT");
+		case .CommandPoolEXT: strBuffer.Append("CommandPoolEXT");
+		case .SurfaceKhrEXT: strBuffer.Append("SurfaceKhrEXT");
+		case .SwapchainKhrEXT: strBuffer.Append("SwapchainKhrEXT");
+		case .DebugReportCallbackExtEXT: strBuffer.Append("DebugReportCallbackExtEXT");
+		case .DisplayKhrEXT: strBuffer.Append("DisplayKhrEXT");
+		case .DisplayModeKhrEXT: strBuffer.Append("DisplayModeKhrEXT");
+		case .ValidationCacheExtEXT: strBuffer.Append("ValidationCacheExtEXT");
+		case .SamplerYcbcrConversionEXT: strBuffer.Append("SamplerYcbcrConversionEXT");
+		case .DescriptorUpdateTemplateEXT: strBuffer.Append("DescriptorUpdateTemplateEXT");
+		case .CuModuleNvxEXT: strBuffer.Append("CuModuleNvxEXT");
+		case .CuFunctionNvxEXT: strBuffer.Append("CuFunctionNvxEXT");
+		case .AccelerationStructureKhrEXT: strBuffer.Append("AccelerationStructureKhrEXT");
+		case .AccelerationStructureNvEXT: strBuffer.Append("AccelerationStructureNvEXT");
+		case .CudaModuleNvEXT: strBuffer.Append("CudaModuleNvEXT");
+		case .CudaFunctionNvEXT: strBuffer.Append("CudaFunctionNvEXT");
+		case .BufferCollectionFuchsiaEXT: strBuffer.Append("BufferCollectionFuchsiaEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDeviceMemoryReportEventTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5207,10 +10186,25 @@ extension VkDeviceMemoryReportEventTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AllocateEXT: strBuffer.Append("AllocateEXT");
+		case .FreeEXT: strBuffer.Append("FreeEXT");
+		case .ImportEXT: strBuffer.Append("ImportEXT");
+		case .UnimportEXT: strBuffer.Append("UnimportEXT");
+		case .AllocationFailedEXT: strBuffer.Append("AllocationFailedEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkRasterizationOrderAMD
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5220,10 +10214,22 @@ extension VkRasterizationOrderAMD
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StrictAMD: strBuffer.Append("StrictAMD");
+		case .RelaxedAMD: strBuffer.Append("RelaxedAMD");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkExternalMemoryHandleTypeFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5235,10 +10241,24 @@ extension VkExternalMemoryHandleTypeFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OpaqueWin32NV: strBuffer.Append("OpaqueWin32NV");
+		case .OpaqueWin32KmtNV: strBuffer.Append("OpaqueWin32KmtNV");
+		case .D3d11ImageNV: strBuffer.Append("D3d11ImageNV");
+		case .D3d11ImageKmtNV: strBuffer.Append("D3d11ImageKmtNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkExternalMemoryFeatureFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5249,10 +10269,23 @@ extension VkExternalMemoryFeatureFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DedicatedOnlyNV: strBuffer.Append("DedicatedOnlyNV");
+		case .ExportableNV: strBuffer.Append("ExportableNV");
+		case .ImportableNV: strBuffer.Append("ImportableNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkValidationCheckEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5262,10 +10295,22 @@ extension VkValidationCheckEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AllEXT: strBuffer.Append("AllEXT");
+		case .ShadersEXT: strBuffer.Append("ShadersEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkValidationFeatureEnableEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5278,10 +10323,25 @@ extension VkValidationFeatureEnableEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .GpuAssistedEXT: strBuffer.Append("GpuAssistedEXT");
+		case .GpuAssistedReserveBindingSlotEXT: strBuffer.Append("GpuAssistedReserveBindingSlotEXT");
+		case .BestPracticesEXT: strBuffer.Append("BestPracticesEXT");
+		case .DebugPrintfEXT: strBuffer.Append("DebugPrintfEXT");
+		case .SynchronizationValidationEXT: strBuffer.Append("SynchronizationValidationEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkValidationFeatureDisableEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5297,10 +10357,28 @@ extension VkValidationFeatureDisableEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AllEXT: strBuffer.Append("AllEXT");
+		case .ShadersEXT: strBuffer.Append("ShadersEXT");
+		case .ThreadSafetyEXT: strBuffer.Append("ThreadSafetyEXT");
+		case .ApiParametersEXT: strBuffer.Append("ApiParametersEXT");
+		case .ObjectLifetimesEXT: strBuffer.Append("ObjectLifetimesEXT");
+		case .CoreChecksEXT: strBuffer.Append("CoreChecksEXT");
+		case .UniqueHandlesEXT: strBuffer.Append("UniqueHandlesEXT");
+		case .ShaderValidationCacheEXT: strBuffer.Append("ShaderValidationCacheEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkExternalMemoryHandleTypeFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5325,10 +10403,37 @@ extension VkExternalMemoryHandleTypeFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OpaqueFd: strBuffer.Append("OpaqueFd");
+		case .OpaqueWin32: strBuffer.Append("OpaqueWin32");
+		case .OpaqueWin32Kmt: strBuffer.Append("OpaqueWin32Kmt");
+		case .D3d11Texture: strBuffer.Append("D3d11Texture");
+		case .D3d11TextureKmt: strBuffer.Append("D3d11TextureKmt");
+		case .D3d12Heap: strBuffer.Append("D3d12Heap");
+		case .D3d12Resource: strBuffer.Append("D3d12Resource");
+		case .DmaBufEXT: strBuffer.Append("DmaBufEXT");
+		case .AndroidHardwareBufferANDROID: strBuffer.Append("AndroidHardwareBufferANDROID");
+		case .HostAllocationEXT: strBuffer.Append("HostAllocationEXT");
+		case .HostMappedForeignMemoryEXT: strBuffer.Append("HostMappedForeignMemoryEXT");
+		case .ZirconVmoFUCHSIA: strBuffer.Append("ZirconVmoFUCHSIA");
+		case .RdmaAddressNV: strBuffer.Append("RdmaAddressNV");
+		case .ScreenBufferQNX: strBuffer.Append("ScreenBufferQNX");
+		case .MtlbufferEXT: strBuffer.Append("MtlbufferEXT");
+		case .MtltextureEXT: strBuffer.Append("MtltextureEXT");
+		case .MtlheapEXT: strBuffer.Append("MtlheapEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkExternalMemoryFeatureFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5339,10 +10444,23 @@ extension VkExternalMemoryFeatureFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DedicatedOnly: strBuffer.Append("DedicatedOnly");
+		case .Exportable: strBuffer.Append("Exportable");
+		case .Importable: strBuffer.Append("Importable");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkExternalSemaphoreHandleTypeFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5356,10 +10474,26 @@ extension VkExternalSemaphoreHandleTypeFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OpaqueFd: strBuffer.Append("OpaqueFd");
+		case .OpaqueWin32: strBuffer.Append("OpaqueWin32");
+		case .OpaqueWin32Kmt: strBuffer.Append("OpaqueWin32Kmt");
+		case .D3d12Fence: strBuffer.Append("D3d12Fence");
+		case .SyncFd: strBuffer.Append("SyncFd");
+		case .ZirconEventFUCHSIA: strBuffer.Append("ZirconEventFUCHSIA");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkExternalSemaphoreFeatureFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5369,10 +10503,22 @@ extension VkExternalSemaphoreFeatureFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Exportable: strBuffer.Append("Exportable");
+		case .Importable: strBuffer.Append("Importable");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSemaphoreImportFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5381,10 +10527,21 @@ extension VkSemaphoreImportFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Temporary: strBuffer.Append("Temporary");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkExternalFenceHandleTypeFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5396,10 +10553,24 @@ extension VkExternalFenceHandleTypeFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OpaqueFd: strBuffer.Append("OpaqueFd");
+		case .OpaqueWin32: strBuffer.Append("OpaqueWin32");
+		case .OpaqueWin32Kmt: strBuffer.Append("OpaqueWin32Kmt");
+		case .SyncFd: strBuffer.Append("SyncFd");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkExternalFenceFeatureFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5409,10 +10580,22 @@ extension VkExternalFenceFeatureFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Exportable: strBuffer.Append("Exportable");
+		case .Importable: strBuffer.Append("Importable");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFenceImportFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5421,10 +10604,21 @@ extension VkFenceImportFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Temporary: strBuffer.Append("Temporary");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSurfaceCounterFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5433,10 +10627,21 @@ extension VkSurfaceCounterFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VblankEXT: strBuffer.Append("VblankEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDisplayPowerStateEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5447,10 +10652,23 @@ extension VkDisplayPowerStateEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OffEXT: strBuffer.Append("OffEXT");
+		case .SuspendEXT: strBuffer.Append("SuspendEXT");
+		case .OnEXT: strBuffer.Append("OnEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDeviceEventTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5459,10 +10677,21 @@ extension VkDeviceEventTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DisplayHotplugEXT: strBuffer.Append("DisplayHotplugEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDisplayEventTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5471,10 +10700,21 @@ extension VkDisplayEventTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .FirstPixelOutEXT: strBuffer.Append("FirstPixelOutEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPeerMemoryFeatureFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5486,10 +10726,24 @@ extension VkPeerMemoryFeatureFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CopySrc: strBuffer.Append("CopySrc");
+		case .CopyDst: strBuffer.Append("CopyDst");
+		case .GenericSrc: strBuffer.Append("GenericSrc");
+		case .GenericDst: strBuffer.Append("GenericDst");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkMemoryAllocateFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5501,10 +10755,24 @@ extension VkMemoryAllocateFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DeviceMask: strBuffer.Append("DeviceMask");
+		case .DeviceAddress: strBuffer.Append("DeviceAddress");
+		case .DeviceAddressCaptureReplay: strBuffer.Append("DeviceAddressCaptureReplay");
+		case .ZeroInitializeEXT: strBuffer.Append("ZeroInitializeEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDeviceGroupPresentModeFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5516,10 +10784,24 @@ extension VkDeviceGroupPresentModeFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .LocalKHR: strBuffer.Append("LocalKHR");
+		case .RemoteKHR: strBuffer.Append("RemoteKHR");
+		case .SumKHR: strBuffer.Append("SumKHR");
+		case .LocalMultiDeviceKHR: strBuffer.Append("LocalMultiDeviceKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSwapchainCreateFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5533,10 +10815,26 @@ extension VkSwapchainCreateFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SplitInstanceBindRegionsKHR: strBuffer.Append("SplitInstanceBindRegionsKHR");
+		case .ProtectedKHR: strBuffer.Append("ProtectedKHR");
+		case .MutableFormatKHR: strBuffer.Append("MutableFormatKHR");
+		case .PresentId2KHR: strBuffer.Append("PresentId2KHR");
+		case .PresentWait2KHR: strBuffer.Append("PresentWait2KHR");
+		case .DeferredMemoryAllocationKHR: strBuffer.Append("DeferredMemoryAllocationKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSubgroupFeatureFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5555,10 +10853,31 @@ extension VkSubgroupFeatureFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Basic: strBuffer.Append("Basic");
+		case .Vote: strBuffer.Append("Vote");
+		case .Arithmetic: strBuffer.Append("Arithmetic");
+		case .Ballot: strBuffer.Append("Ballot");
+		case .Shuffle: strBuffer.Append("Shuffle");
+		case .ShuffleRelative: strBuffer.Append("ShuffleRelative");
+		case .Clustered: strBuffer.Append("Clustered");
+		case .Quad: strBuffer.Append("Quad");
+		case .Rotate: strBuffer.Append("Rotate");
+		case .RotateClustered: strBuffer.Append("RotateClustered");
+		case .PartitionedNV: strBuffer.Append("PartitionedNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkTessellationDomainOrigin
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5568,10 +10887,22 @@ extension VkTessellationDomainOrigin
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UpperLeft: strBuffer.Append("UpperLeft");
+		case .LowerLeft: strBuffer.Append("LowerLeft");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSamplerYcbcrModelConversion
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5584,10 +10915,25 @@ extension VkSamplerYcbcrModelConversion
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .RgbIdentity: strBuffer.Append("RgbIdentity");
+		case .YcbcrIdentity: strBuffer.Append("YcbcrIdentity");
+		case .Ycbcr709: strBuffer.Append("Ycbcr709");
+		case .Ycbcr601: strBuffer.Append("Ycbcr601");
+		case .Ycbcr2020: strBuffer.Append("Ycbcr2020");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSamplerYcbcrRange
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5597,10 +10943,22 @@ extension VkSamplerYcbcrRange
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ItuFull: strBuffer.Append("ItuFull");
+		case .ItuNarrow: strBuffer.Append("ItuNarrow");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkChromaLocation
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5610,10 +10968,22 @@ extension VkChromaLocation
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .CositedEven: strBuffer.Append("CositedEven");
+		case .Midpoint: strBuffer.Append("Midpoint");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSamplerReductionMode
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5625,10 +10995,24 @@ extension VkSamplerReductionMode
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .WeightedAverage: strBuffer.Append("WeightedAverage");
+		case .Min: strBuffer.Append("Min");
+		case .Max: strBuffer.Append("Max");
+		case .WeightedAverageRangeclampQCOM: strBuffer.Append("WeightedAverageRangeclampQCOM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkBlendOverlapEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5639,10 +11023,23 @@ extension VkBlendOverlapEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UncorrelatedEXT: strBuffer.Append("UncorrelatedEXT");
+		case .DisjointEXT: strBuffer.Append("DisjointEXT");
+		case .ConjointEXT: strBuffer.Append("ConjointEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDebugUtilsMessageSeverityFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5654,10 +11051,24 @@ extension VkDebugUtilsMessageSeverityFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VerboseEXT: strBuffer.Append("VerboseEXT");
+		case .InfoEXT: strBuffer.Append("InfoEXT");
+		case .WarningEXT: strBuffer.Append("WarningEXT");
+		case .ErrorEXT: strBuffer.Append("ErrorEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDebugUtilsMessageTypeFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5669,10 +11080,24 @@ extension VkDebugUtilsMessageTypeFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .GeneralEXT: strBuffer.Append("GeneralEXT");
+		case .ValidationEXT: strBuffer.Append("ValidationEXT");
+		case .PerformanceEXT: strBuffer.Append("PerformanceEXT");
+		case .DeviceAddressBindingEXT: strBuffer.Append("DeviceAddressBindingEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFullScreenExclusiveEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5684,10 +11109,24 @@ extension VkFullScreenExclusiveEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultEXT: strBuffer.Append("DefaultEXT");
+		case .AllowedEXT: strBuffer.Append("AllowedEXT");
+		case .DisallowedEXT: strBuffer.Append("DisallowedEXT");
+		case .ApplicationControlledEXT: strBuffer.Append("ApplicationControlledEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkShaderFloatControlsIndependence
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5698,10 +11137,23 @@ extension VkShaderFloatControlsIndependence
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_32BitOnly: strBuffer.Append("VK_32BitOnly");
+		case .All: strBuffer.Append("All");
+		case .None: strBuffer.Append("None");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkFragmentShadingRateCombinerOpKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5714,10 +11166,25 @@ extension VkFragmentShadingRateCombinerOpKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .KeepKHR: strBuffer.Append("KeepKHR");
+		case .ReplaceKHR: strBuffer.Append("ReplaceKHR");
+		case .MinKHR: strBuffer.Append("MinKHR");
+		case .MaxKHR: strBuffer.Append("MaxKHR");
+		case .MulKHR: strBuffer.Append("MulKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkSubmitFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5726,10 +11193,21 @@ extension VkSubmitFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Protected: strBuffer.Append("Protected");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkGraphicsPipelineLibraryFlagBitsEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5741,10 +11219,24 @@ extension VkGraphicsPipelineLibraryFlagBitsEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VertexInputInterfaceEXT: strBuffer.Append("VertexInputInterfaceEXT");
+		case .PreRasterizationShadersEXT: strBuffer.Append("PreRasterizationShadersEXT");
+		case .FragmentShaderEXT: strBuffer.Append("FragmentShaderEXT");
+		case .FragmentOutputInterfaceEXT: strBuffer.Append("FragmentOutputInterfaceEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkOpticalFlowGridSizeFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5757,10 +11249,25 @@ extension VkOpticalFlowGridSizeFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UnknownNV: strBuffer.Append("UnknownNV");
+		case .VK_1x1NV: strBuffer.Append("VK_1x1NV");
+		case .VK_2x2NV: strBuffer.Append("VK_2x2NV");
+		case .VK_4x4NV: strBuffer.Append("VK_4x4NV");
+		case .VK_8x8NV: strBuffer.Append("VK_8x8NV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkOpticalFlowUsageFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5774,10 +11281,26 @@ extension VkOpticalFlowUsageFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UnknownNV: strBuffer.Append("UnknownNV");
+		case .InputNV: strBuffer.Append("InputNV");
+		case .OutputNV: strBuffer.Append("OutputNV");
+		case .HintNV: strBuffer.Append("HintNV");
+		case .CostNV: strBuffer.Append("CostNV");
+		case .GlobalFlowNV: strBuffer.Append("GlobalFlowNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkOpticalFlowPerformanceLevelNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5789,10 +11312,24 @@ extension VkOpticalFlowPerformanceLevelNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UnknownNV: strBuffer.Append("UnknownNV");
+		case .SlowNV: strBuffer.Append("SlowNV");
+		case .MediumNV: strBuffer.Append("MediumNV");
+		case .FastNV: strBuffer.Append("FastNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkOpticalFlowSessionBindingPointNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5809,10 +11346,29 @@ extension VkOpticalFlowSessionBindingPointNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .UnknownNV: strBuffer.Append("UnknownNV");
+		case .InputNV: strBuffer.Append("InputNV");
+		case .ReferenceNV: strBuffer.Append("ReferenceNV");
+		case .HintNV: strBuffer.Append("HintNV");
+		case .FlowVectorNV: strBuffer.Append("FlowVectorNV");
+		case .BackwardFlowVectorNV: strBuffer.Append("BackwardFlowVectorNV");
+		case .CostNV: strBuffer.Append("CostNV");
+		case .BackwardCostNV: strBuffer.Append("BackwardCostNV");
+		case .GlobalFlowNV: strBuffer.Append("GlobalFlowNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkOpticalFlowSessionCreateFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5825,10 +11381,25 @@ extension VkOpticalFlowSessionCreateFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .EnableHintNV: strBuffer.Append("EnableHintNV");
+		case .EnableCostNV: strBuffer.Append("EnableCostNV");
+		case .EnableGlobalFlowNV: strBuffer.Append("EnableGlobalFlowNV");
+		case .AllowRegionsNV: strBuffer.Append("AllowRegionsNV");
+		case .BothDirectionsNV: strBuffer.Append("BothDirectionsNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkOpticalFlowExecuteFlagBitsNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5837,10 +11408,21 @@ extension VkOpticalFlowExecuteFlagBitsNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DisableTemporalHintsNV: strBuffer.Append("DisableTemporalHintsNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDeviceFaultAddressTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5855,10 +11437,27 @@ extension VkDeviceFaultAddressTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneEXT: strBuffer.Append("NoneEXT");
+		case .ReadInvalidEXT: strBuffer.Append("ReadInvalidEXT");
+		case .WriteInvalidEXT: strBuffer.Append("WriteInvalidEXT");
+		case .ExecuteInvalidEXT: strBuffer.Append("ExecuteInvalidEXT");
+		case .InstructionPointerUnknownEXT: strBuffer.Append("InstructionPointerUnknownEXT");
+		case .InstructionPointerInvalidEXT: strBuffer.Append("InstructionPointerInvalidEXT");
+		case .InstructionPointerFaultEXT: strBuffer.Append("InstructionPointerFaultEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPresentScalingFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5869,10 +11468,23 @@ extension VkPresentScalingFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .OneToOneKHR: strBuffer.Append("OneToOneKHR");
+		case .AspectRatioStretchKHR: strBuffer.Append("AspectRatioStretchKHR");
+		case .StretchKHR: strBuffer.Append("StretchKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPresentGravityFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5883,10 +11495,23 @@ extension VkPresentGravityFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .MinKHR: strBuffer.Append("MinKHR");
+		case .MaxKHR: strBuffer.Append("MaxKHR");
+		case .CenteredKHR: strBuffer.Append("CenteredKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkLayerSettingTypeEXT
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5902,10 +11527,28 @@ extension VkLayerSettingTypeEXT
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Bool32EXT: strBuffer.Append("Bool32EXT");
+		case .Int32EXT: strBuffer.Append("Int32EXT");
+		case .Int64EXT: strBuffer.Append("Int64EXT");
+		case .Uint32EXT: strBuffer.Append("Uint32EXT");
+		case .Uint64EXT: strBuffer.Append("Uint64EXT");
+		case .Float32EXT: strBuffer.Append("Float32EXT");
+		case .Float64EXT: strBuffer.Append("Float64EXT");
+		case .StringEXT: strBuffer.Append("StringEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkLatencyMarkerNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5925,10 +11568,32 @@ extension VkLatencyMarkerNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SimulationStartNV: strBuffer.Append("SimulationStartNV");
+		case .SimulationEndNV: strBuffer.Append("SimulationEndNV");
+		case .RendersubmitStartNV: strBuffer.Append("RendersubmitStartNV");
+		case .RendersubmitEndNV: strBuffer.Append("RendersubmitEndNV");
+		case .PresentStartNV: strBuffer.Append("PresentStartNV");
+		case .PresentEndNV: strBuffer.Append("PresentEndNV");
+		case .InputSampleNV: strBuffer.Append("InputSampleNV");
+		case .TriggerFlashNV: strBuffer.Append("TriggerFlashNV");
+		case .OutOfBandRendersubmitStartNV: strBuffer.Append("OutOfBandRendersubmitStartNV");
+		case .OutOfBandRendersubmitEndNV: strBuffer.Append("OutOfBandRendersubmitEndNV");
+		case .OutOfBandPresentStartNV: strBuffer.Append("OutOfBandPresentStartNV");
+		case .OutOfBandPresentEndNV: strBuffer.Append("OutOfBandPresentEndNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkOutOfBandQueueTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5938,10 +11603,22 @@ extension VkOutOfBandQueueTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .RenderNV: strBuffer.Append("RenderNV");
+		case .PresentNV: strBuffer.Append("PresentNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPhysicalDeviceSchedulingControlsFlagBitsARM
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5950,10 +11627,21 @@ extension VkPhysicalDeviceSchedulingControlsFlagBitsARM
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ShaderCoreCountARM: strBuffer.Append("ShaderCoreCountARM");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkMemoryUnmapFlagBits
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5962,10 +11650,21 @@ extension VkMemoryUnmapFlagBits
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ReserveEXT: strBuffer.Append("ReserveEXT");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVendorId
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -5981,10 +11680,28 @@ extension VkVendorId
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Khronos: strBuffer.Append("Khronos");
+		case .VIV: strBuffer.Append("VIV");
+		case .VSI: strBuffer.Append("VSI");
+		case .Kazan: strBuffer.Append("Kazan");
+		case .Codeplay: strBuffer.Append("Codeplay");
+		case .MESA: strBuffer.Append("MESA");
+		case .Pocl: strBuffer.Append("Pocl");
+		case .Mobileye: strBuffer.Append("Mobileye");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDriverId
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6019,10 +11736,47 @@ extension VkDriverId
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AmdProprietary: strBuffer.Append("AmdProprietary");
+		case .AmdOpenSource: strBuffer.Append("AmdOpenSource");
+		case .MesaRadv: strBuffer.Append("MesaRadv");
+		case .NvidiaProprietary: strBuffer.Append("NvidiaProprietary");
+		case .IntelProprietaryWindows: strBuffer.Append("IntelProprietaryWindows");
+		case .IntelOpenSourceMESA: strBuffer.Append("IntelOpenSourceMESA");
+		case .ImaginationProprietary: strBuffer.Append("ImaginationProprietary");
+		case .QualcommProprietary: strBuffer.Append("QualcommProprietary");
+		case .ArmProprietary: strBuffer.Append("ArmProprietary");
+		case .GoogleSwiftshader: strBuffer.Append("GoogleSwiftshader");
+		case .GgpProprietary: strBuffer.Append("GgpProprietary");
+		case .BroadcomProprietary: strBuffer.Append("BroadcomProprietary");
+		case .MesaLlvmpipe: strBuffer.Append("MesaLlvmpipe");
+		case .Moltenvk: strBuffer.Append("Moltenvk");
+		case .CoreaviProprietary: strBuffer.Append("CoreaviProprietary");
+		case .JuiceProprietary: strBuffer.Append("JuiceProprietary");
+		case .VerisiliconProprietary: strBuffer.Append("VerisiliconProprietary");
+		case .MesaTurnip: strBuffer.Append("MesaTurnip");
+		case .MesaV3dv: strBuffer.Append("MesaV3dv");
+		case .MesaPanvk: strBuffer.Append("MesaPanvk");
+		case .SamsungProprietary: strBuffer.Append("SamsungProprietary");
+		case .MesaVenus: strBuffer.Append("MesaVenus");
+		case .MesaDozen: strBuffer.Append("MesaDozen");
+		case .MesaNvk: strBuffer.Append("MesaNvk");
+		case .ImaginationOpenSourceMESA: strBuffer.Append("ImaginationOpenSourceMESA");
+		case .MesaHoneykrisp: strBuffer.Append("MesaHoneykrisp");
+		case .VulkanScEmulationOnVulkan: strBuffer.Append("VulkanScEmulationOnVulkan");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkShadingRatePaletteEntryNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6042,10 +11796,32 @@ extension VkShadingRatePaletteEntryNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoInvocationsNV: strBuffer.Append("NoInvocationsNV");
+		case .VK_16InvocationsPerPixelNV: strBuffer.Append("VK_16InvocationsPerPixelNV");
+		case .VK_8InvocationsPerPixelNV: strBuffer.Append("VK_8InvocationsPerPixelNV");
+		case .VK_4InvocationsPerPixelNV: strBuffer.Append("VK_4InvocationsPerPixelNV");
+		case .VK_2InvocationsPerPixelNV: strBuffer.Append("VK_2InvocationsPerPixelNV");
+		case .VK_1InvocationPerPixelNV: strBuffer.Append("VK_1InvocationPerPixelNV");
+		case .VK_1InvocationPer2x1PixelsNV: strBuffer.Append("VK_1InvocationPer2x1PixelsNV");
+		case .VK_1InvocationPer1x2PixelsNV: strBuffer.Append("VK_1InvocationPer1x2PixelsNV");
+		case .VK_1InvocationPer2x2PixelsNV: strBuffer.Append("VK_1InvocationPer2x2PixelsNV");
+		case .VK_1InvocationPer4x2PixelsNV: strBuffer.Append("VK_1InvocationPer4x2PixelsNV");
+		case .VK_1InvocationPer2x4PixelsNV: strBuffer.Append("VK_1InvocationPer2x4PixelsNV");
+		case .VK_1InvocationPer4x4PixelsNV: strBuffer.Append("VK_1InvocationPer4x4PixelsNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkCoarseSampleOrderTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6057,10 +11833,24 @@ extension VkCoarseSampleOrderTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultNV: strBuffer.Append("DefaultNV");
+		case .CustomNV: strBuffer.Append("CustomNV");
+		case .PixelMajorNV: strBuffer.Append("PixelMajorNV");
+		case .SampleMajorNV: strBuffer.Append("SampleMajorNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkPipelineExecutableStatisticFormatKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6072,10 +11862,24 @@ extension VkPipelineExecutableStatisticFormatKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Bool32KHR: strBuffer.Append("Bool32KHR");
+		case .Int64KHR: strBuffer.Append("Int64KHR");
+		case .Uint64KHR: strBuffer.Append("Uint64KHR");
+		case .Float64KHR: strBuffer.Append("Float64KHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoCodecOperationFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6091,10 +11895,28 @@ extension VkVideoCodecOperationFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneKHR: strBuffer.Append("NoneKHR");
+		case .EncodeH264KHR: strBuffer.Append("EncodeH264KHR");
+		case .EncodeH265KHR: strBuffer.Append("EncodeH265KHR");
+		case .DecodeH264KHR: strBuffer.Append("DecodeH264KHR");
+		case .DecodeH265KHR: strBuffer.Append("DecodeH265KHR");
+		case .DecodeAv1KHR: strBuffer.Append("DecodeAv1KHR");
+		case .EncodeAv1KHR: strBuffer.Append("EncodeAv1KHR");
+		case .DecodeVp9KHR: strBuffer.Append("DecodeVp9KHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoChromaSubsamplingFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6107,10 +11929,25 @@ extension VkVideoChromaSubsamplingFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .InvalidKHR: strBuffer.Append("InvalidKHR");
+		case .MonochromeKHR: strBuffer.Append("MonochromeKHR");
+		case .VK_420KHR: strBuffer.Append("VK_420KHR");
+		case .VK_422KHR: strBuffer.Append("VK_422KHR");
+		case .VK_444KHR: strBuffer.Append("VK_444KHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoComponentBitDepthFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6122,10 +11959,24 @@ extension VkVideoComponentBitDepthFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .InvalidKHR: strBuffer.Append("InvalidKHR");
+		case .VK_8KHR: strBuffer.Append("VK_8KHR");
+		case .VK_10KHR: strBuffer.Append("VK_10KHR");
+		case .VK_12KHR: strBuffer.Append("VK_12KHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoCapabilityFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6135,10 +11986,22 @@ extension VkVideoCapabilityFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ProtectedContentKHR: strBuffer.Append("ProtectedContentKHR");
+		case .SeparateReferenceImagesKHR: strBuffer.Append("SeparateReferenceImagesKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoSessionCreateFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6152,10 +12015,26 @@ extension VkVideoSessionCreateFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ProtectedContentKHR: strBuffer.Append("ProtectedContentKHR");
+		case .AllowEncodeParameterOptimizationsKHR: strBuffer.Append("AllowEncodeParameterOptimizationsKHR");
+		case .InlineQueriesKHR: strBuffer.Append("InlineQueriesKHR");
+		case .AllowEncodeQuantizationDeltaMapKHR: strBuffer.Append("AllowEncodeQuantizationDeltaMapKHR");
+		case .AllowEncodeEmphasisMapKHR: strBuffer.Append("AllowEncodeEmphasisMapKHR");
+		case .InlineSessionParametersKHR: strBuffer.Append("InlineSessionParametersKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoSessionParametersCreateFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6164,10 +12043,21 @@ extension VkVideoSessionParametersCreateFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .QuantizationMapCompatibleKHR: strBuffer.Append("QuantizationMapCompatibleKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoCodingControlFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6178,10 +12068,23 @@ extension VkVideoCodingControlFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ResetKHR: strBuffer.Append("ResetKHR");
+		case .EncodeRateControlKHR: strBuffer.Append("EncodeRateControlKHR");
+		case .EncodeQualityLevelKHR: strBuffer.Append("EncodeQualityLevelKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkQueryResultStatusKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6193,10 +12096,24 @@ extension VkQueryResultStatusKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ErrorKHR: strBuffer.Append("ErrorKHR");
+		case .NotReadyKHR: strBuffer.Append("NotReadyKHR");
+		case .CompleteKHR: strBuffer.Append("CompleteKHR");
+		case .InsufficientBitstreamBufferRangeKHR: strBuffer.Append("InsufficientBitstreamBufferRangeKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoDecodeUsageFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6208,10 +12125,24 @@ extension VkVideoDecodeUsageFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultKHR: strBuffer.Append("DefaultKHR");
+		case .TranscodingKHR: strBuffer.Append("TranscodingKHR");
+		case .OfflineKHR: strBuffer.Append("OfflineKHR");
+		case .StreamingKHR: strBuffer.Append("StreamingKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoDecodeCapabilityFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6221,10 +12152,22 @@ extension VkVideoDecodeCapabilityFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DpbAndOutputCoincideKHR: strBuffer.Append("DpbAndOutputCoincideKHR");
+		case .DpbAndOutputDistinctKHR: strBuffer.Append("DpbAndOutputDistinctKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoDecodeH264PictureLayoutFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6235,10 +12178,23 @@ extension VkVideoDecodeH264PictureLayoutFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ProgressiveKHR: strBuffer.Append("ProgressiveKHR");
+		case .InterlacedInterleavedLinesKHR: strBuffer.Append("InterlacedInterleavedLinesKHR");
+		case .InterlacedSeparatePlanesKHR: strBuffer.Append("InterlacedSeparatePlanesKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6249,10 +12205,23 @@ extension VkVideoEncodeFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .IntraRefreshKHR: strBuffer.Append("IntraRefreshKHR");
+		case .WithQuantizationDeltaMapKHR: strBuffer.Append("WithQuantizationDeltaMapKHR");
+		case .WithEmphasisMapKHR: strBuffer.Append("WithEmphasisMapKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeUsageFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6265,10 +12234,25 @@ extension VkVideoEncodeUsageFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultKHR: strBuffer.Append("DefaultKHR");
+		case .TranscodingKHR: strBuffer.Append("TranscodingKHR");
+		case .StreamingKHR: strBuffer.Append("StreamingKHR");
+		case .RecordingKHR: strBuffer.Append("RecordingKHR");
+		case .ConferencingKHR: strBuffer.Append("ConferencingKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeContentFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6280,10 +12264,24 @@ extension VkVideoEncodeContentFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultKHR: strBuffer.Append("DefaultKHR");
+		case .CameraKHR: strBuffer.Append("CameraKHR");
+		case .DesktopKHR: strBuffer.Append("DesktopKHR");
+		case .RenderedKHR: strBuffer.Append("RenderedKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeTuningModeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6296,10 +12294,25 @@ extension VkVideoEncodeTuningModeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultKHR: strBuffer.Append("DefaultKHR");
+		case .HighQualityKHR: strBuffer.Append("HighQualityKHR");
+		case .LowLatencyKHR: strBuffer.Append("LowLatencyKHR");
+		case .UltraLowLatencyKHR: strBuffer.Append("UltraLowLatencyKHR");
+		case .LosslessKHR: strBuffer.Append("LosslessKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeCapabilityFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6311,10 +12324,24 @@ extension VkVideoEncodeCapabilityFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .PrecedingExternallyEncodedBytesKHR: strBuffer.Append("PrecedingExternallyEncodedBytesKHR");
+		case .InsufficientBitstreamBufferRangeDetectionKHR: strBuffer.Append("InsufficientBitstreamBufferRangeDetectionKHR");
+		case .QuantizationDeltaMapKHR: strBuffer.Append("QuantizationDeltaMapKHR");
+		case .EmphasisMapKHR: strBuffer.Append("EmphasisMapKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeFeedbackFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6325,10 +12352,23 @@ extension VkVideoEncodeFeedbackFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .BitstreamBufferOffsetKHR: strBuffer.Append("BitstreamBufferOffsetKHR");
+		case .BitstreamBytesWrittenKHR: strBuffer.Append("BitstreamBytesWrittenKHR");
+		case .BitstreamHasOverridesKHR: strBuffer.Append("BitstreamHasOverridesKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeRateControlModeFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6340,10 +12380,24 @@ extension VkVideoEncodeRateControlModeFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .DefaultKHR: strBuffer.Append("DefaultKHR");
+		case .DisabledKHR: strBuffer.Append("DisabledKHR");
+		case .CbrKHR: strBuffer.Append("CbrKHR");
+		case .VbrKHR: strBuffer.Append("VbrKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeIntraRefreshModeFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6356,10 +12410,25 @@ extension VkVideoEncodeIntraRefreshModeFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneKHR: strBuffer.Append("NoneKHR");
+		case .PerPicturePartitionKHR: strBuffer.Append("PerPicturePartitionKHR");
+		case .BlockBasedKHR: strBuffer.Append("BlockBasedKHR");
+		case .BlockRowBasedKHR: strBuffer.Append("BlockRowBasedKHR");
+		case .BlockColumnBasedKHR: strBuffer.Append("BlockColumnBasedKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeH264CapabilityFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6378,10 +12447,31 @@ extension VkVideoEncodeH264CapabilityFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .HrdComplianceKHR: strBuffer.Append("HrdComplianceKHR");
+		case .PredictionWeightTableGeneratedKHR: strBuffer.Append("PredictionWeightTableGeneratedKHR");
+		case .RowUnalignedSliceKHR: strBuffer.Append("RowUnalignedSliceKHR");
+		case .DifferentSliceTypeKHR: strBuffer.Append("DifferentSliceTypeKHR");
+		case .BFrameInL0ListKHR: strBuffer.Append("BFrameInL0ListKHR");
+		case .BFrameInL1ListKHR: strBuffer.Append("BFrameInL1ListKHR");
+		case .PerPictureTypeMinMaxQpKHR: strBuffer.Append("PerPictureTypeMinMaxQpKHR");
+		case .PerSliceConstantQpKHR: strBuffer.Append("PerSliceConstantQpKHR");
+		case .GeneratePrefixNaluKHR: strBuffer.Append("GeneratePrefixNaluKHR");
+		case .BPictureIntraRefreshKHR: strBuffer.Append("BPictureIntraRefreshKHR");
+		case .MbQpDiffWraparoundKHR: strBuffer.Append("MbQpDiffWraparoundKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeH264StdFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6409,10 +12499,40 @@ extension VkVideoEncodeH264StdFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SeparateColorPlaneFlagSetKHR: strBuffer.Append("SeparateColorPlaneFlagSetKHR");
+		case .QpprimeYZeroTransformBypassFlagSetKHR: strBuffer.Append("QpprimeYZeroTransformBypassFlagSetKHR");
+		case .ScalingMatrixPresentFlagSetKHR: strBuffer.Append("ScalingMatrixPresentFlagSetKHR");
+		case .ChromaQpIndexOffsetKHR: strBuffer.Append("ChromaQpIndexOffsetKHR");
+		case .SecondChromaQpIndexOffsetKHR: strBuffer.Append("SecondChromaQpIndexOffsetKHR");
+		case .PicInitQpMinus26KHR: strBuffer.Append("PicInitQpMinus26KHR");
+		case .WeightedPredFlagSetKHR: strBuffer.Append("WeightedPredFlagSetKHR");
+		case .WeightedBipredIdcExplicitKHR: strBuffer.Append("WeightedBipredIdcExplicitKHR");
+		case .WeightedBipredIdcImplicitKHR: strBuffer.Append("WeightedBipredIdcImplicitKHR");
+		case .Transform8x8ModeFlagSetKHR: strBuffer.Append("Transform8x8ModeFlagSetKHR");
+		case .DirectSpatialMvPredFlagUnsetKHR: strBuffer.Append("DirectSpatialMvPredFlagUnsetKHR");
+		case .EntropyCodingModeFlagUnsetKHR: strBuffer.Append("EntropyCodingModeFlagUnsetKHR");
+		case .EntropyCodingModeFlagSetKHR: strBuffer.Append("EntropyCodingModeFlagSetKHR");
+		case .Direct8x8InferenceFlagUnsetKHR: strBuffer.Append("Direct8x8InferenceFlagUnsetKHR");
+		case .ConstrainedIntraPredFlagSetKHR: strBuffer.Append("ConstrainedIntraPredFlagSetKHR");
+		case .DeblockingFilterDisabledKHR: strBuffer.Append("DeblockingFilterDisabledKHR");
+		case .DeblockingFilterEnabledKHR: strBuffer.Append("DeblockingFilterEnabledKHR");
+		case .DeblockingFilterPartialKHR: strBuffer.Append("DeblockingFilterPartialKHR");
+		case .SliceQpDeltaKHR: strBuffer.Append("SliceQpDeltaKHR");
+		case .DifferentSliceQpDeltaKHR: strBuffer.Append("DifferentSliceQpDeltaKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeH264RateControlFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6425,10 +12545,25 @@ extension VkVideoEncodeH264RateControlFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AttemptHrdComplianceKHR: strBuffer.Append("AttemptHrdComplianceKHR");
+		case .RegularGopKHR: strBuffer.Append("RegularGopKHR");
+		case .ReferencePatternFlatKHR: strBuffer.Append("ReferencePatternFlatKHR");
+		case .ReferencePatternDyadicKHR: strBuffer.Append("ReferencePatternDyadicKHR");
+		case .TemporalLayerPatternDyadicKHR: strBuffer.Append("TemporalLayerPatternDyadicKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeH265CapabilityFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6448,10 +12583,32 @@ extension VkVideoEncodeH265CapabilityFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .HrdComplianceKHR: strBuffer.Append("HrdComplianceKHR");
+		case .PredictionWeightTableGeneratedKHR: strBuffer.Append("PredictionWeightTableGeneratedKHR");
+		case .RowUnalignedSliceSegmentKHR: strBuffer.Append("RowUnalignedSliceSegmentKHR");
+		case .DifferentSliceSegmentTypeKHR: strBuffer.Append("DifferentSliceSegmentTypeKHR");
+		case .BFrameInL0ListKHR: strBuffer.Append("BFrameInL0ListKHR");
+		case .BFrameInL1ListKHR: strBuffer.Append("BFrameInL1ListKHR");
+		case .PerPictureTypeMinMaxQpKHR: strBuffer.Append("PerPictureTypeMinMaxQpKHR");
+		case .PerSliceSegmentConstantQpKHR: strBuffer.Append("PerSliceSegmentConstantQpKHR");
+		case .MultipleTilesPerSliceSegmentKHR: strBuffer.Append("MultipleTilesPerSliceSegmentKHR");
+		case .MultipleSliceSegmentsPerTileKHR: strBuffer.Append("MultipleSliceSegmentsPerTileKHR");
+		case .BPictureIntraRefreshKHR: strBuffer.Append("BPictureIntraRefreshKHR");
+		case .CuQpDiffWraparoundKHR: strBuffer.Append("CuQpDiffWraparoundKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeH265StdFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6480,10 +12637,41 @@ extension VkVideoEncodeH265StdFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .SeparateColorPlaneFlagSetKHR: strBuffer.Append("SeparateColorPlaneFlagSetKHR");
+		case .SampleAdaptiveOffsetEnabledFlagSetKHR: strBuffer.Append("SampleAdaptiveOffsetEnabledFlagSetKHR");
+		case .ScalingListDataPresentFlagSetKHR: strBuffer.Append("ScalingListDataPresentFlagSetKHR");
+		case .PcmEnabledFlagSetKHR: strBuffer.Append("PcmEnabledFlagSetKHR");
+		case .SpsTemporalMvpEnabledFlagSetKHR: strBuffer.Append("SpsTemporalMvpEnabledFlagSetKHR");
+		case .InitQpMinus26KHR: strBuffer.Append("InitQpMinus26KHR");
+		case .WeightedPredFlagSetKHR: strBuffer.Append("WeightedPredFlagSetKHR");
+		case .WeightedBipredFlagSetKHR: strBuffer.Append("WeightedBipredFlagSetKHR");
+		case .Log2ParallelMergeLevelMinus2KHR: strBuffer.Append("Log2ParallelMergeLevelMinus2KHR");
+		case .SignDataHidingEnabledFlagSetKHR: strBuffer.Append("SignDataHidingEnabledFlagSetKHR");
+		case .TransformSkipEnabledFlagSetKHR: strBuffer.Append("TransformSkipEnabledFlagSetKHR");
+		case .TransformSkipEnabledFlagUnsetKHR: strBuffer.Append("TransformSkipEnabledFlagUnsetKHR");
+		case .PpsSliceChromaQpOffsetsPresentFlagSetKHR: strBuffer.Append("PpsSliceChromaQpOffsetsPresentFlagSetKHR");
+		case .TransquantBypassEnabledFlagSetKHR: strBuffer.Append("TransquantBypassEnabledFlagSetKHR");
+		case .ConstrainedIntraPredFlagSetKHR: strBuffer.Append("ConstrainedIntraPredFlagSetKHR");
+		case .EntropyCodingSyncEnabledFlagSetKHR: strBuffer.Append("EntropyCodingSyncEnabledFlagSetKHR");
+		case .DeblockingFilterOverrideEnabledFlagSetKHR: strBuffer.Append("DeblockingFilterOverrideEnabledFlagSetKHR");
+		case .DependentSliceSegmentsEnabledFlagSetKHR: strBuffer.Append("DependentSliceSegmentsEnabledFlagSetKHR");
+		case .DependentSliceSegmentFlagSetKHR: strBuffer.Append("DependentSliceSegmentFlagSetKHR");
+		case .SliceQpDeltaKHR: strBuffer.Append("SliceQpDeltaKHR");
+		case .DifferentSliceQpDeltaKHR: strBuffer.Append("DifferentSliceQpDeltaKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeH265RateControlFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6496,10 +12684,25 @@ extension VkVideoEncodeH265RateControlFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .AttemptHrdComplianceKHR: strBuffer.Append("AttemptHrdComplianceKHR");
+		case .RegularGopKHR: strBuffer.Append("RegularGopKHR");
+		case .ReferencePatternFlatKHR: strBuffer.Append("ReferencePatternFlatKHR");
+		case .ReferencePatternDyadicKHR: strBuffer.Append("ReferencePatternDyadicKHR");
+		case .TemporalSubLayerPatternDyadicKHR: strBuffer.Append("TemporalSubLayerPatternDyadicKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeH265CtbSizeFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6510,10 +12713,23 @@ extension VkVideoEncodeH265CtbSizeFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_16KHR: strBuffer.Append("VK_16KHR");
+		case .VK_32KHR: strBuffer.Append("VK_32KHR");
+		case .VK_64KHR: strBuffer.Append("VK_64KHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeH265TransformBlockSizeFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6525,10 +12741,24 @@ extension VkVideoEncodeH265TransformBlockSizeFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_4KHR: strBuffer.Append("VK_4KHR");
+		case .VK_8KHR: strBuffer.Append("VK_8KHR");
+		case .VK_16KHR: strBuffer.Append("VK_16KHR");
+		case .VK_32KHR: strBuffer.Append("VK_32KHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeAV1CapabilityFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6542,10 +12772,26 @@ extension VkVideoEncodeAV1CapabilityFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VkVideoEncodeAv1CapabilityPerRateControlGroupMinMaxQIndexKHR: strBuffer.Append("VkVideoEncodeAv1CapabilityPerRateControlGroupMinMaxQIndexKHR");
+		case .VkVideoEncodeAv1CapabilityGenerateObuExtensionHeaderKHR: strBuffer.Append("VkVideoEncodeAv1CapabilityGenerateObuExtensionHeaderKHR");
+		case .VkVideoEncodeAv1CapabilityPrimaryReferenceCdfOnlyKHR: strBuffer.Append("VkVideoEncodeAv1CapabilityPrimaryReferenceCdfOnlyKHR");
+		case .VkVideoEncodeAv1CapabilityFrameSizeOverrideKHR: strBuffer.Append("VkVideoEncodeAv1CapabilityFrameSizeOverrideKHR");
+		case .VkVideoEncodeAv1CapabilityMotionVectorScalingKHR: strBuffer.Append("VkVideoEncodeAv1CapabilityMotionVectorScalingKHR");
+		case .VkVideoEncodeAv1CapabilityCompoundPredictionIntraRefreshKHR: strBuffer.Append("VkVideoEncodeAv1CapabilityCompoundPredictionIntraRefreshKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeAV1StdFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6557,10 +12803,24 @@ extension VkVideoEncodeAV1StdFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VkVideoEncodeAv1StdUniformTileSpacingFlagSetKHR: strBuffer.Append("VkVideoEncodeAv1StdUniformTileSpacingFlagSetKHR");
+		case .VkVideoEncodeAv1StdSkipModePresentUnsetKHR: strBuffer.Append("VkVideoEncodeAv1StdSkipModePresentUnsetKHR");
+		case .VkVideoEncodeAv1StdPrimaryRefFrameKHR: strBuffer.Append("VkVideoEncodeAv1StdPrimaryRefFrameKHR");
+		case .VkVideoEncodeAv1StdDeltaQKHR: strBuffer.Append("VkVideoEncodeAv1StdDeltaQKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeAV1RateControlFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6572,10 +12832,24 @@ extension VkVideoEncodeAV1RateControlFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VkVideoEncodeAv1RateControlRegularGopKHR: strBuffer.Append("VkVideoEncodeAv1RateControlRegularGopKHR");
+		case .VkVideoEncodeAv1RateControlTemporalLayerPatternDyadicKHR: strBuffer.Append("VkVideoEncodeAv1RateControlTemporalLayerPatternDyadicKHR");
+		case .VkVideoEncodeAv1RateControlReferencePatternFlatKHR: strBuffer.Append("VkVideoEncodeAv1RateControlReferencePatternFlatKHR");
+		case .VkVideoEncodeAv1RateControlReferencePatternDyadicKHR: strBuffer.Append("VkVideoEncodeAv1RateControlReferencePatternDyadicKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeAV1SuperblockSizeFlagBitsKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6585,10 +12859,22 @@ extension VkVideoEncodeAV1SuperblockSizeFlagBitsKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VkVideoEncodeAv1SuperblockSize64KHR: strBuffer.Append("VkVideoEncodeAv1SuperblockSize64KHR");
+		case .VkVideoEncodeAv1SuperblockSize128KHR: strBuffer.Append("VkVideoEncodeAv1SuperblockSize128KHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeAV1PredictionModeKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6600,10 +12886,24 @@ extension VkVideoEncodeAV1PredictionModeKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VkVideoEncodeAv1PredictionModeIntraOnlyKHR: strBuffer.Append("VkVideoEncodeAv1PredictionModeIntraOnlyKHR");
+		case .VkVideoEncodeAv1PredictionModeSingleReferenceKHR: strBuffer.Append("VkVideoEncodeAv1PredictionModeSingleReferenceKHR");
+		case .VkVideoEncodeAv1PredictionModeUnidirectionalCompoundKHR: strBuffer.Append("VkVideoEncodeAv1PredictionModeUnidirectionalCompoundKHR");
+		case .VkVideoEncodeAv1PredictionModeBidirectionalCompoundKHR: strBuffer.Append("VkVideoEncodeAv1PredictionModeBidirectionalCompoundKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkVideoEncodeAV1RateControlGroupKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6614,10 +12914,23 @@ extension VkVideoEncodeAV1RateControlGroupKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VkVideoEncodeAv1RateControlGroupIntraKHR: strBuffer.Append("VkVideoEncodeAv1RateControlGroupIntraKHR");
+		case .VkVideoEncodeAv1RateControlGroupPredictiveKHR: strBuffer.Append("VkVideoEncodeAv1RateControlGroupPredictiveKHR");
+		case .VkVideoEncodeAv1RateControlGroupBipredictiveKHR: strBuffer.Append("VkVideoEncodeAv1RateControlGroupBipredictiveKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAccessFlagBits3KHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6626,10 +12939,21 @@ extension VkAccessFlagBits3KHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .NoneKHR: strBuffer.Append("NoneKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkDefaultVertexAttributeValueKHR
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6639,10 +12963,22 @@ extension VkDefaultVertexAttributeValueKHR
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ZeroZeroZeroZeroKHR: strBuffer.Append("ZeroZeroZeroZeroKHR");
+		case .ZeroZeroZeroOneKHR: strBuffer.Append("ZeroZeroZeroOneKHR");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension VkAccelerationStructureMotionInstanceTypeNV
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6653,12 +12989,25 @@ extension VkAccelerationStructureMotionInstanceTypeNV
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StaticNV: strBuffer.Append("StaticNV");
+		case .MatrixMotionNV: strBuffer.Append("MatrixMotionNV");
+		case .SrtMotionNV: strBuffer.Append("SrtMotionNV");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 namespace Vulkan.Video;
 
 extension StdVideoH264ChromaFormatIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6671,10 +13020,25 @@ extension StdVideoH264ChromaFormatIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Monochrome: strBuffer.Append("Monochrome");
+		case .VK_420: strBuffer.Append("VK_420");
+		case .VK_422: strBuffer.Append("VK_422");
+		case .VK_444: strBuffer.Append("VK_444");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264ProfileIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6687,10 +13051,25 @@ extension StdVideoH264ProfileIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Baseline: strBuffer.Append("Baseline");
+		case .Main: strBuffer.Append("Main");
+		case .High: strBuffer.Append("High");
+		case .High444Predictive: strBuffer.Append("High444Predictive");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264LevelIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6718,10 +13097,40 @@ extension StdVideoH264LevelIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_10: strBuffer.Append("VK_10");
+		case .VK_11: strBuffer.Append("VK_11");
+		case .VK_12: strBuffer.Append("VK_12");
+		case .VK_13: strBuffer.Append("VK_13");
+		case .VK_20: strBuffer.Append("VK_20");
+		case .VK_21: strBuffer.Append("VK_21");
+		case .VK_22: strBuffer.Append("VK_22");
+		case .VK_30: strBuffer.Append("VK_30");
+		case .VK_31: strBuffer.Append("VK_31");
+		case .VK_32: strBuffer.Append("VK_32");
+		case .VK_40: strBuffer.Append("VK_40");
+		case .VK_41: strBuffer.Append("VK_41");
+		case .VK_42: strBuffer.Append("VK_42");
+		case .VK_50: strBuffer.Append("VK_50");
+		case .VK_51: strBuffer.Append("VK_51");
+		case .VK_52: strBuffer.Append("VK_52");
+		case .VK_60: strBuffer.Append("VK_60");
+		case .VK_61: strBuffer.Append("VK_61");
+		case .VK_62: strBuffer.Append("VK_62");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264PocType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6733,10 +13142,24 @@ extension StdVideoH264PocType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_0: strBuffer.Append("VK_0");
+		case .VK_1: strBuffer.Append("VK_1");
+		case .VK_2: strBuffer.Append("VK_2");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264AspectRatioIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6763,10 +13186,39 @@ extension StdVideoH264AspectRatioIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Unspecified: strBuffer.Append("Unspecified");
+		case .Square: strBuffer.Append("Square");
+		case .VK_1211: strBuffer.Append("VK_1211");
+		case .VK_1011: strBuffer.Append("VK_1011");
+		case .VK_1611: strBuffer.Append("VK_1611");
+		case .VK_4033: strBuffer.Append("VK_4033");
+		case .VK_2411: strBuffer.Append("VK_2411");
+		case .VK_2011: strBuffer.Append("VK_2011");
+		case .VK_3211: strBuffer.Append("VK_3211");
+		case .VK_8033: strBuffer.Append("VK_8033");
+		case .VK_1811: strBuffer.Append("VK_1811");
+		case .VK_1511: strBuffer.Append("VK_1511");
+		case .VK_6433: strBuffer.Append("VK_6433");
+		case .VK_16099: strBuffer.Append("VK_16099");
+		case .VK_43: strBuffer.Append("VK_43");
+		case .VK_32: strBuffer.Append("VK_32");
+		case .VK_21: strBuffer.Append("VK_21");
+		case .ExtendedSar: strBuffer.Append("ExtendedSar");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264WeightedBipredIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6778,10 +13230,24 @@ extension StdVideoH264WeightedBipredIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Default: strBuffer.Append("Default");
+		case .Explicit: strBuffer.Append("Explicit");
+		case .Implicit: strBuffer.Append("Implicit");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264ModificationOfPicNumsIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6794,10 +13260,25 @@ extension StdVideoH264ModificationOfPicNumsIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .ShortTermSubtract: strBuffer.Append("ShortTermSubtract");
+		case .ShortTermAdd: strBuffer.Append("ShortTermAdd");
+		case .LongTerm: strBuffer.Append("LongTerm");
+		case .End: strBuffer.Append("End");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264MemMgmtControlOp
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6813,10 +13294,28 @@ extension StdVideoH264MemMgmtControlOp
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .End: strBuffer.Append("End");
+		case .UnmarkShortTerm: strBuffer.Append("UnmarkShortTerm");
+		case .UnmarkLongTerm: strBuffer.Append("UnmarkLongTerm");
+		case .MarkLongTerm: strBuffer.Append("MarkLongTerm");
+		case .SetMaxLongTermIndex: strBuffer.Append("SetMaxLongTermIndex");
+		case .UnmarkAll: strBuffer.Append("UnmarkAll");
+		case .MarkCurrentAsLongTerm: strBuffer.Append("MarkCurrentAsLongTerm");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264CabacInitIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6828,10 +13327,24 @@ extension StdVideoH264CabacInitIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_0: strBuffer.Append("VK_0");
+		case .VK_1: strBuffer.Append("VK_1");
+		case .VK_2: strBuffer.Append("VK_2");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264DisableDeblockingFilterIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6843,10 +13356,24 @@ extension StdVideoH264DisableDeblockingFilterIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Disabled: strBuffer.Append("Disabled");
+		case .Enabled: strBuffer.Append("Enabled");
+		case .Partial: strBuffer.Append("Partial");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264SliceType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6858,10 +13385,24 @@ extension StdVideoH264SliceType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .P: strBuffer.Append("P");
+		case .B: strBuffer.Append("B");
+		case .I: strBuffer.Append("I");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264PictureType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6874,10 +13415,25 @@ extension StdVideoH264PictureType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .P: strBuffer.Append("P");
+		case .B: strBuffer.Append("B");
+		case .I: strBuffer.Append("I");
+		case .Idr: strBuffer.Append("Idr");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH264NonVclNaluType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6893,10 +13449,28 @@ extension StdVideoH264NonVclNaluType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Sps: strBuffer.Append("Sps");
+		case .Pps: strBuffer.Append("Pps");
+		case .Aud: strBuffer.Append("Aud");
+		case .Prefix: strBuffer.Append("Prefix");
+		case .EndOfSequence: strBuffer.Append("EndOfSequence");
+		case .EndOfStream: strBuffer.Append("EndOfStream");
+		case .Precoded: strBuffer.Append("Precoded");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoDecodeH264FieldOrderCount
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6907,10 +13481,23 @@ extension StdVideoDecodeH264FieldOrderCount
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Top: strBuffer.Append("Top");
+		case .Bottom: strBuffer.Append("Bottom");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH265ChromaFormatIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6923,10 +13510,25 @@ extension StdVideoH265ChromaFormatIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Monochrome: strBuffer.Append("Monochrome");
+		case .VK_420: strBuffer.Append("VK_420");
+		case .VK_422: strBuffer.Append("VK_422");
+		case .VK_444: strBuffer.Append("VK_444");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH265ProfileIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6940,10 +13542,26 @@ extension StdVideoH265ProfileIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Main: strBuffer.Append("Main");
+		case .Main10: strBuffer.Append("Main10");
+		case .MainStillPicture: strBuffer.Append("MainStillPicture");
+		case .FormatRangeExtensions: strBuffer.Append("FormatRangeExtensions");
+		case .SccExtensions: strBuffer.Append("SccExtensions");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH265LevelIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6965,10 +13583,34 @@ extension StdVideoH265LevelIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .VK_10: strBuffer.Append("VK_10");
+		case .VK_20: strBuffer.Append("VK_20");
+		case .VK_21: strBuffer.Append("VK_21");
+		case .VK_30: strBuffer.Append("VK_30");
+		case .VK_31: strBuffer.Append("VK_31");
+		case .VK_40: strBuffer.Append("VK_40");
+		case .VK_41: strBuffer.Append("VK_41");
+		case .VK_50: strBuffer.Append("VK_50");
+		case .VK_51: strBuffer.Append("VK_51");
+		case .VK_52: strBuffer.Append("VK_52");
+		case .VK_60: strBuffer.Append("VK_60");
+		case .VK_61: strBuffer.Append("VK_61");
+		case .VK_62: strBuffer.Append("VK_62");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH265SliceType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6980,10 +13622,24 @@ extension StdVideoH265SliceType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .B: strBuffer.Append("B");
+		case .P: strBuffer.Append("P");
+		case .I: strBuffer.Append("I");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH265PictureType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -6996,10 +13652,25 @@ extension StdVideoH265PictureType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .P: strBuffer.Append("P");
+		case .B: strBuffer.Append("B");
+		case .I: strBuffer.Append("I");
+		case .Idr: strBuffer.Append("Idr");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoH265AspectRatioIdc
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7026,10 +13697,39 @@ extension StdVideoH265AspectRatioIdc
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .Unspecified: strBuffer.Append("Unspecified");
+		case .Square: strBuffer.Append("Square");
+		case .VK_1211: strBuffer.Append("VK_1211");
+		case .VK_1011: strBuffer.Append("VK_1011");
+		case .VK_1611: strBuffer.Append("VK_1611");
+		case .VK_4033: strBuffer.Append("VK_4033");
+		case .VK_2411: strBuffer.Append("VK_2411");
+		case .VK_2011: strBuffer.Append("VK_2011");
+		case .VK_3211: strBuffer.Append("VK_3211");
+		case .VK_8033: strBuffer.Append("VK_8033");
+		case .VK_1811: strBuffer.Append("VK_1811");
+		case .VK_1511: strBuffer.Append("VK_1511");
+		case .VK_6433: strBuffer.Append("VK_6433");
+		case .VK_16099: strBuffer.Append("VK_16099");
+		case .VK_43: strBuffer.Append("VK_43");
+		case .VK_32: strBuffer.Append("VK_32");
+		case .VK_21: strBuffer.Append("VK_21");
+		case .ExtendedSar: strBuffer.Append("ExtendedSar");
+		case .Invalid: strBuffer.Append("Invalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoVP9Profile
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7042,10 +13742,25 @@ extension StdVideoVP9Profile
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9Profile0: strBuffer.Append("StdVideoVp9Profile0");
+		case .StdVideoVp9Profile1: strBuffer.Append("StdVideoVp9Profile1");
+		case .StdVideoVp9Profile2: strBuffer.Append("StdVideoVp9Profile2");
+		case .StdVideoVp9Profile3: strBuffer.Append("StdVideoVp9Profile3");
+		case .StdVideoVp9ProfileInvalid: strBuffer.Append("StdVideoVp9ProfileInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoVP9Level
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7068,10 +13783,35 @@ extension StdVideoVP9Level
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9Level10: strBuffer.Append("StdVideoVp9Level10");
+		case .StdVideoVp9Level11: strBuffer.Append("StdVideoVp9Level11");
+		case .StdVideoVp9Level20: strBuffer.Append("StdVideoVp9Level20");
+		case .StdVideoVp9Level21: strBuffer.Append("StdVideoVp9Level21");
+		case .StdVideoVp9Level30: strBuffer.Append("StdVideoVp9Level30");
+		case .StdVideoVp9Level31: strBuffer.Append("StdVideoVp9Level31");
+		case .StdVideoVp9Level40: strBuffer.Append("StdVideoVp9Level40");
+		case .StdVideoVp9Level41: strBuffer.Append("StdVideoVp9Level41");
+		case .StdVideoVp9Level50: strBuffer.Append("StdVideoVp9Level50");
+		case .StdVideoVp9Level51: strBuffer.Append("StdVideoVp9Level51");
+		case .StdVideoVp9Level52: strBuffer.Append("StdVideoVp9Level52");
+		case .StdVideoVp9Level60: strBuffer.Append("StdVideoVp9Level60");
+		case .StdVideoVp9Level61: strBuffer.Append("StdVideoVp9Level61");
+		case .StdVideoVp9Level62: strBuffer.Append("StdVideoVp9Level62");
+		case .StdVideoVp9LevelInvalid: strBuffer.Append("StdVideoVp9LevelInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoVP9FrameType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7082,10 +13822,23 @@ extension StdVideoVP9FrameType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9FrameTypeKey: strBuffer.Append("StdVideoVp9FrameTypeKey");
+		case .StdVideoVp9FrameTypeNonKey: strBuffer.Append("StdVideoVp9FrameTypeNonKey");
+		case .StdVideoVp9FrameTypeInvalid: strBuffer.Append("StdVideoVp9FrameTypeInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoVP9ReferenceName
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7098,10 +13851,25 @@ extension StdVideoVP9ReferenceName
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9ReferenceNameIntraFrame: strBuffer.Append("StdVideoVp9ReferenceNameIntraFrame");
+		case .StdVideoVp9ReferenceNameLastFrame: strBuffer.Append("StdVideoVp9ReferenceNameLastFrame");
+		case .StdVideoVp9ReferenceNameGoldenFrame: strBuffer.Append("StdVideoVp9ReferenceNameGoldenFrame");
+		case .StdVideoVp9ReferenceNameAltrefFrame: strBuffer.Append("StdVideoVp9ReferenceNameAltrefFrame");
+		case .StdVideoVp9ReferenceNameInvalid: strBuffer.Append("StdVideoVp9ReferenceNameInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoVP9InterpolationFilter
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7115,10 +13883,26 @@ extension StdVideoVP9InterpolationFilter
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9InterpolationFilterEighttap: strBuffer.Append("StdVideoVp9InterpolationFilterEighttap");
+		case .StdVideoVp9InterpolationFilterEighttapSmooth: strBuffer.Append("StdVideoVp9InterpolationFilterEighttapSmooth");
+		case .StdVideoVp9InterpolationFilterEighttapSharp: strBuffer.Append("StdVideoVp9InterpolationFilterEighttapSharp");
+		case .StdVideoVp9InterpolationFilterBilinear: strBuffer.Append("StdVideoVp9InterpolationFilterBilinear");
+		case .StdVideoVp9InterpolationFilterSwitchable: strBuffer.Append("StdVideoVp9InterpolationFilterSwitchable");
+		case .StdVideoVp9InterpolationFilterInvalid: strBuffer.Append("StdVideoVp9InterpolationFilterInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoVP9ColorSpace
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7135,10 +13919,29 @@ extension StdVideoVP9ColorSpace
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoVp9ColorSpaceUnknown: strBuffer.Append("StdVideoVp9ColorSpaceUnknown");
+		case .StdVideoVp9ColorSpaceBt601: strBuffer.Append("StdVideoVp9ColorSpaceBt601");
+		case .StdVideoVp9ColorSpaceBt709: strBuffer.Append("StdVideoVp9ColorSpaceBt709");
+		case .StdVideoVp9ColorSpaceSmpte170: strBuffer.Append("StdVideoVp9ColorSpaceSmpte170");
+		case .StdVideoVp9ColorSpaceSmpte240: strBuffer.Append("StdVideoVp9ColorSpaceSmpte240");
+		case .StdVideoVp9ColorSpaceBt2020: strBuffer.Append("StdVideoVp9ColorSpaceBt2020");
+		case .StdVideoVp9ColorSpaceReserved: strBuffer.Append("StdVideoVp9ColorSpaceReserved");
+		case .StdVideoVp9ColorSpaceRgb: strBuffer.Append("StdVideoVp9ColorSpaceRgb");
+		case .StdVideoVp9ColorSpaceInvalid: strBuffer.Append("StdVideoVp9ColorSpaceInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1Profile
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7150,10 +13953,24 @@ extension StdVideoAV1Profile
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1ProfileMain: strBuffer.Append("StdVideoAv1ProfileMain");
+		case .StdVideoAv1ProfileHigh: strBuffer.Append("StdVideoAv1ProfileHigh");
+		case .StdVideoAv1ProfileProfessional: strBuffer.Append("StdVideoAv1ProfileProfessional");
+		case .StdVideoAv1ProfileInvalid: strBuffer.Append("StdVideoAv1ProfileInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1Level
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7186,10 +14003,45 @@ extension StdVideoAV1Level
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1Level20: strBuffer.Append("StdVideoAv1Level20");
+		case .StdVideoAv1Level21: strBuffer.Append("StdVideoAv1Level21");
+		case .StdVideoAv1Level22: strBuffer.Append("StdVideoAv1Level22");
+		case .StdVideoAv1Level23: strBuffer.Append("StdVideoAv1Level23");
+		case .StdVideoAv1Level30: strBuffer.Append("StdVideoAv1Level30");
+		case .StdVideoAv1Level31: strBuffer.Append("StdVideoAv1Level31");
+		case .StdVideoAv1Level32: strBuffer.Append("StdVideoAv1Level32");
+		case .StdVideoAv1Level33: strBuffer.Append("StdVideoAv1Level33");
+		case .StdVideoAv1Level40: strBuffer.Append("StdVideoAv1Level40");
+		case .StdVideoAv1Level41: strBuffer.Append("StdVideoAv1Level41");
+		case .StdVideoAv1Level42: strBuffer.Append("StdVideoAv1Level42");
+		case .StdVideoAv1Level43: strBuffer.Append("StdVideoAv1Level43");
+		case .StdVideoAv1Level50: strBuffer.Append("StdVideoAv1Level50");
+		case .StdVideoAv1Level51: strBuffer.Append("StdVideoAv1Level51");
+		case .StdVideoAv1Level52: strBuffer.Append("StdVideoAv1Level52");
+		case .StdVideoAv1Level53: strBuffer.Append("StdVideoAv1Level53");
+		case .StdVideoAv1Level60: strBuffer.Append("StdVideoAv1Level60");
+		case .StdVideoAv1Level61: strBuffer.Append("StdVideoAv1Level61");
+		case .StdVideoAv1Level62: strBuffer.Append("StdVideoAv1Level62");
+		case .StdVideoAv1Level63: strBuffer.Append("StdVideoAv1Level63");
+		case .StdVideoAv1Level70: strBuffer.Append("StdVideoAv1Level70");
+		case .StdVideoAv1Level71: strBuffer.Append("StdVideoAv1Level71");
+		case .StdVideoAv1Level72: strBuffer.Append("StdVideoAv1Level72");
+		case .StdVideoAv1Level73: strBuffer.Append("StdVideoAv1Level73");
+		case .StdVideoAv1LevelInvalid: strBuffer.Append("StdVideoAv1LevelInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1FrameType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7202,10 +14054,25 @@ extension StdVideoAV1FrameType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1FrameTypeKey: strBuffer.Append("StdVideoAv1FrameTypeKey");
+		case .StdVideoAv1FrameTypeInter: strBuffer.Append("StdVideoAv1FrameTypeInter");
+		case .StdVideoAv1FrameTypeIntraOnly: strBuffer.Append("StdVideoAv1FrameTypeIntraOnly");
+		case .StdVideoAv1FrameTypeSwitch: strBuffer.Append("StdVideoAv1FrameTypeSwitch");
+		case .StdVideoAv1FrameTypeInvalid: strBuffer.Append("StdVideoAv1FrameTypeInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1ReferenceName
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7222,10 +14089,29 @@ extension StdVideoAV1ReferenceName
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1ReferenceNameIntraFrame: strBuffer.Append("StdVideoAv1ReferenceNameIntraFrame");
+		case .StdVideoAv1ReferenceNameLastFrame: strBuffer.Append("StdVideoAv1ReferenceNameLastFrame");
+		case .StdVideoAv1ReferenceNameLast2Frame: strBuffer.Append("StdVideoAv1ReferenceNameLast2Frame");
+		case .StdVideoAv1ReferenceNameLast3Frame: strBuffer.Append("StdVideoAv1ReferenceNameLast3Frame");
+		case .StdVideoAv1ReferenceNameGoldenFrame: strBuffer.Append("StdVideoAv1ReferenceNameGoldenFrame");
+		case .StdVideoAv1ReferenceNameBwdrefFrame: strBuffer.Append("StdVideoAv1ReferenceNameBwdrefFrame");
+		case .StdVideoAv1ReferenceNameAltref2Frame: strBuffer.Append("StdVideoAv1ReferenceNameAltref2Frame");
+		case .StdVideoAv1ReferenceNameAltrefFrame: strBuffer.Append("StdVideoAv1ReferenceNameAltrefFrame");
+		case .StdVideoAv1ReferenceNameInvalid: strBuffer.Append("StdVideoAv1ReferenceNameInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1InterpolationFilter
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7239,10 +14125,26 @@ extension StdVideoAV1InterpolationFilter
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1InterpolationFilterEighttap: strBuffer.Append("StdVideoAv1InterpolationFilterEighttap");
+		case .StdVideoAv1InterpolationFilterEighttapSmooth: strBuffer.Append("StdVideoAv1InterpolationFilterEighttapSmooth");
+		case .StdVideoAv1InterpolationFilterEighttapSharp: strBuffer.Append("StdVideoAv1InterpolationFilterEighttapSharp");
+		case .StdVideoAv1InterpolationFilterBilinear: strBuffer.Append("StdVideoAv1InterpolationFilterBilinear");
+		case .StdVideoAv1InterpolationFilterSwitchable: strBuffer.Append("StdVideoAv1InterpolationFilterSwitchable");
+		case .StdVideoAv1InterpolationFilterInvalid: strBuffer.Append("StdVideoAv1InterpolationFilterInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1TxMode
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7254,10 +14156,24 @@ extension StdVideoAV1TxMode
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1TxModeOnly4x4: strBuffer.Append("StdVideoAv1TxModeOnly4x4");
+		case .StdVideoAv1TxModeLargest: strBuffer.Append("StdVideoAv1TxModeLargest");
+		case .StdVideoAv1TxModeSelect: strBuffer.Append("StdVideoAv1TxModeSelect");
+		case .StdVideoAv1TxModeInvalid: strBuffer.Append("StdVideoAv1TxModeInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1FrameRestorationType
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7270,10 +14186,25 @@ extension StdVideoAV1FrameRestorationType
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1FrameRestorationTypeNone: strBuffer.Append("StdVideoAv1FrameRestorationTypeNone");
+		case .StdVideoAv1FrameRestorationTypeWiener: strBuffer.Append("StdVideoAv1FrameRestorationTypeWiener");
+		case .StdVideoAv1FrameRestorationTypeSgrproj: strBuffer.Append("StdVideoAv1FrameRestorationTypeSgrproj");
+		case .StdVideoAv1FrameRestorationTypeSwitchable: strBuffer.Append("StdVideoAv1FrameRestorationTypeSwitchable");
+		case .StdVideoAv1FrameRestorationTypeInvalid: strBuffer.Append("StdVideoAv1FrameRestorationTypeInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1ColorPrimaries
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7294,10 +14225,33 @@ extension StdVideoAV1ColorPrimaries
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1ColorPrimariesBt709: strBuffer.Append("StdVideoAv1ColorPrimariesBt709");
+		case .StdVideoAv1ColorPrimariesUnspecified: strBuffer.Append("StdVideoAv1ColorPrimariesUnspecified");
+		case .StdVideoAv1ColorPrimariesBt470M: strBuffer.Append("StdVideoAv1ColorPrimariesBt470M");
+		case .StdVideoAv1ColorPrimariesBt470BG: strBuffer.Append("StdVideoAv1ColorPrimariesBt470BG");
+		case .StdVideoAv1ColorPrimariesBt601: strBuffer.Append("StdVideoAv1ColorPrimariesBt601");
+		case .StdVideoAv1ColorPrimariesSmpte240: strBuffer.Append("StdVideoAv1ColorPrimariesSmpte240");
+		case .StdVideoAv1ColorPrimariesGenericFilm: strBuffer.Append("StdVideoAv1ColorPrimariesGenericFilm");
+		case .StdVideoAv1ColorPrimariesBt2020: strBuffer.Append("StdVideoAv1ColorPrimariesBt2020");
+		case .StdVideoAv1ColorPrimariesXyz: strBuffer.Append("StdVideoAv1ColorPrimariesXyz");
+		case .StdVideoAv1ColorPrimariesSmpte431: strBuffer.Append("StdVideoAv1ColorPrimariesSmpte431");
+		case .StdVideoAv1ColorPrimariesSmpte432: strBuffer.Append("StdVideoAv1ColorPrimariesSmpte432");
+		case .StdVideoAv1ColorPrimariesEbu3213: strBuffer.Append("StdVideoAv1ColorPrimariesEbu3213");
+		case .StdVideoAv1ColorPrimariesInvalid: strBuffer.Append("StdVideoAv1ColorPrimariesInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1TransferCharacteristics
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7325,10 +14279,40 @@ extension StdVideoAV1TransferCharacteristics
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1TransferCharacteristicsReserved0: strBuffer.Append("StdVideoAv1TransferCharacteristicsReserved0");
+		case .StdVideoAv1TransferCharacteristicsBt709: strBuffer.Append("StdVideoAv1TransferCharacteristicsBt709");
+		case .StdVideoAv1TransferCharacteristicsUnspecified: strBuffer.Append("StdVideoAv1TransferCharacteristicsUnspecified");
+		case .StdVideoAv1TransferCharacteristicsReserved3: strBuffer.Append("StdVideoAv1TransferCharacteristicsReserved3");
+		case .StdVideoAv1TransferCharacteristicsBt470M: strBuffer.Append("StdVideoAv1TransferCharacteristicsBt470M");
+		case .StdVideoAv1TransferCharacteristicsBt470BG: strBuffer.Append("StdVideoAv1TransferCharacteristicsBt470BG");
+		case .StdVideoAv1TransferCharacteristicsBt601: strBuffer.Append("StdVideoAv1TransferCharacteristicsBt601");
+		case .StdVideoAv1TransferCharacteristicsSmpte240: strBuffer.Append("StdVideoAv1TransferCharacteristicsSmpte240");
+		case .StdVideoAv1TransferCharacteristicsLinear: strBuffer.Append("StdVideoAv1TransferCharacteristicsLinear");
+		case .StdVideoAv1TransferCharacteristicsLog100: strBuffer.Append("StdVideoAv1TransferCharacteristicsLog100");
+		case .StdVideoAv1TransferCharacteristicsLog100Sqrt10: strBuffer.Append("StdVideoAv1TransferCharacteristicsLog100Sqrt10");
+		case .StdVideoAv1TransferCharacteristicsIec61966: strBuffer.Append("StdVideoAv1TransferCharacteristicsIec61966");
+		case .StdVideoAv1TransferCharacteristicsBt1361: strBuffer.Append("StdVideoAv1TransferCharacteristicsBt1361");
+		case .StdVideoAv1TransferCharacteristicsSrgb: strBuffer.Append("StdVideoAv1TransferCharacteristicsSrgb");
+		case .StdVideoAv1TransferCharacteristicsBt202010: strBuffer.Append("StdVideoAv1TransferCharacteristicsBt202010");
+		case .StdVideoAv1TransferCharacteristicsBt202012: strBuffer.Append("StdVideoAv1TransferCharacteristicsBt202012");
+		case .StdVideoAv1TransferCharacteristicsSmpte2084: strBuffer.Append("StdVideoAv1TransferCharacteristicsSmpte2084");
+		case .StdVideoAv1TransferCharacteristicsSmpte428: strBuffer.Append("StdVideoAv1TransferCharacteristicsSmpte428");
+		case .StdVideoAv1TransferCharacteristicsHlg: strBuffer.Append("StdVideoAv1TransferCharacteristicsHlg");
+		case .StdVideoAv1TransferCharacteristicsInvalid: strBuffer.Append("StdVideoAv1TransferCharacteristicsInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1MatrixCoefficients
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7352,10 +14336,36 @@ extension StdVideoAV1MatrixCoefficients
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1MatrixCoefficientsIdentity: strBuffer.Append("StdVideoAv1MatrixCoefficientsIdentity");
+		case .StdVideoAv1MatrixCoefficientsBt709: strBuffer.Append("StdVideoAv1MatrixCoefficientsBt709");
+		case .StdVideoAv1MatrixCoefficientsUnspecified: strBuffer.Append("StdVideoAv1MatrixCoefficientsUnspecified");
+		case .StdVideoAv1MatrixCoefficientsReserved3: strBuffer.Append("StdVideoAv1MatrixCoefficientsReserved3");
+		case .StdVideoAv1MatrixCoefficientsFcc: strBuffer.Append("StdVideoAv1MatrixCoefficientsFcc");
+		case .StdVideoAv1MatrixCoefficientsBt470BG: strBuffer.Append("StdVideoAv1MatrixCoefficientsBt470BG");
+		case .StdVideoAv1MatrixCoefficientsBt601: strBuffer.Append("StdVideoAv1MatrixCoefficientsBt601");
+		case .StdVideoAv1MatrixCoefficientsSmpte240: strBuffer.Append("StdVideoAv1MatrixCoefficientsSmpte240");
+		case .StdVideoAv1MatrixCoefficientsSmpteYcgco: strBuffer.Append("StdVideoAv1MatrixCoefficientsSmpteYcgco");
+		case .StdVideoAv1MatrixCoefficientsBt2020Ncl: strBuffer.Append("StdVideoAv1MatrixCoefficientsBt2020Ncl");
+		case .StdVideoAv1MatrixCoefficientsBt2020Cl: strBuffer.Append("StdVideoAv1MatrixCoefficientsBt2020Cl");
+		case .StdVideoAv1MatrixCoefficientsSmpte2085: strBuffer.Append("StdVideoAv1MatrixCoefficientsSmpte2085");
+		case .StdVideoAv1MatrixCoefficientsChromatNcl: strBuffer.Append("StdVideoAv1MatrixCoefficientsChromatNcl");
+		case .StdVideoAv1MatrixCoefficientsChromatCl: strBuffer.Append("StdVideoAv1MatrixCoefficientsChromatCl");
+		case .StdVideoAv1MatrixCoefficientsIctcp: strBuffer.Append("StdVideoAv1MatrixCoefficientsIctcp");
+		case .StdVideoAv1MatrixCoefficientsInvalid: strBuffer.Append("StdVideoAv1MatrixCoefficientsInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
 extension StdVideoAV1ChromaSamplePosition
 {
+#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 	public override void ToString(String strBuffer)
 	{
 		switch (this)
@@ -7368,6 +14378,19 @@ extension StdVideoAV1ChromaSamplePosition
 		default: Underlying.ToString(strBuffer);
 		}
 	}
+#endif
+
+	public void GetIdentifier(String strBuffer)
+	{
+		switch (this)
+		{
+		case .StdVideoAv1ChromaSamplePositionUnknown: strBuffer.Append("StdVideoAv1ChromaSamplePositionUnknown");
+		case .StdVideoAv1ChromaSamplePositionVertical: strBuffer.Append("StdVideoAv1ChromaSamplePositionVertical");
+		case .StdVideoAv1ChromaSamplePositionColocated: strBuffer.Append("StdVideoAv1ChromaSamplePositionColocated");
+		case .StdVideoAv1ChromaSamplePositionReserved: strBuffer.Append("StdVideoAv1ChromaSamplePositionReserved");
+		case .StdVideoAv1ChromaSamplePositionInvalid: strBuffer.Append("StdVideoAv1ChromaSamplePositionInvalid");
+		default: Underlying.ToString(strBuffer);
+		}
+	}
 }
 
-#endif

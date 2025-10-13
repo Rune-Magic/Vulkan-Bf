@@ -1542,7 +1542,6 @@ class Program
 		{
 			StreamWriter writer = scope .()..Create("../src/EnumNames.bf");
 			writer.Write("""
-				#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 				using System;
 
 				namespace Vulkan;
@@ -1563,6 +1562,7 @@ class Program
 				str.Append("extension ", enumEntry.name, """
 
 					{
+					#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
 						public override void ToString(String strBuffer)
 						{
 							switch (this)
@@ -1578,13 +1578,29 @@ class Program
 							default: Underlying.ToString(strBuffer);
 							}
 						}
+					#endif
+
+						public void GetIdentifier(String strBuffer)
+						{
+							switch (this)
+							{
+
+					""");
+				for (let enumcase in enumEntry.cases)
+				{
+					if (enumcase.value[0].IsLetter) continue;
+					str.Append("\t\tcase .", enumcase.name, ": strBuffer.Append(\"", enumcase.name, "\");\n");
+				}
+				str.Append("""
+							default: Underlying.ToString(strBuffer);
+							}
+						}
 					}
 
 
 					""");
 				writer.Write(str); str.Clear();
 			}
-			writer.Write("#endif");
 		}
 
 		return 0;
@@ -2335,7 +2351,7 @@ class Program
 	{
 		enum { None, InStruct = 1, Union = 2, ReturnedOnly = 4 } flags = .None;
 		StringView name = null, comment = null, alias = null;
-		enum MemberFlags { None, Optional = 1, Bitfield = 2, Span = 4, CommentOnly = 8, ExcludeFromCtor = 16, Property = 32 }
+		enum MemberFlags { None, Optional = 1, Bitfield = 2, Span = 4, CommentOnly = 8, ExcludeFromCtor = 16, Property = 32, UsingField = 64 }
 		append List<(StringView name, String type, MemberFlags flags, int bitfield, StringView comment, StringView values, int spanMulti, StringView spanLengthMember, StringView[4] spanPtrMembers)> members = .(8);
 
 		public override XmlVisitor.Options Flags => .None;
@@ -2358,6 +2374,8 @@ class Program
 					alias = null;
 					members.Clear();
 				case .ClosingTag("type"), .OpeningEnd(true) when TagDepth.Count == 3 && flags.HasFlag(.InStruct):
+					if (members.Count == 3 && name.StartsWith(members.Back.type))
+						members.Back.flags |= .UsingField;
 					String output = new:Alloc .();
 					EntryType entryType = .Struct;
 					defer
@@ -2442,7 +2460,10 @@ class Program
 							output.Append(";\n");
 						}
 
-						output.Append("\tpublic ");
+						if (member.flags.HasFlag(.UsingField))
+							output.Append("#unwarn\n\tpublic using public ");
+						else
+							output.Append("\tpublic ");
 						output..Append(member.type)..Append(' ');
 						Compiler.Identifier.GetSourceName(member.name, output);
 						if (member.flags.HasFlag(.Property))

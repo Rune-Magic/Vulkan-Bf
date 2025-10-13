@@ -155,7 +155,6 @@ static class Program
 	public struct PhysicalDeviceInfo
 	{
 		public const VulkanExtension[?] requiredExtensions = .(.VK_KHR_swapchain, .VK_EXT_swapchain_maintenance1);
-		public const VulkanFeature[?] requiredFeatures = .(.fillModeNonSolid, .swapchainMaintenance1);
 
 		public VkPhysicalDevice device;
 		public VkPhysicalDeviceProperties properties;
@@ -170,16 +169,94 @@ static class Program
 
 		public struct Features
 		{
-			public VkPhysicalDeviceFeatures2 features = .();
-			public VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT swapcahinMaintenace1 = .();
+			public const VulkanFeature[?] requiredFeatures = .(.fillModeNonSolid, .swapchainMaintenance1);
 
-			public void SetPointers() mut
+			[Comptime, OnCompile(.TypeInit)]
+			static void TypeInit()
 			{
-				features.pNext = &swapcahinMaintenace1;
-				swapcahinMaintenace1.pNext = null;
+				HashSet<VkStructureType> structs = scope .(16);
+				for (let feature in requiredFeatures)
+					structs.Add(feature.Struct);
+				String emit = scope .(256);
+				for (let structure in structs)
+				{
+					emit.Append("public ");
+					structure.VkType.GetName(emit);
+					emit.Append(" m");
+					structure.VkType.GetName(emit);
+					emit.Append(" = .() {");
+					for (let feature in requiredFeatures)
+					{
+						if (feature.Struct != structure) continue;
+						emit.Append(' ');
+						feature.ToString(emit);
+						emit.Append("=true,");
+					}
+					emit.TrimEnd(',');
+					emit.Append(" };\n");
+				}
+				emit.Append("""
+
+					public void* SetPointers() mut
+					{
+
+					""");
+				VkStructureType last = 0;
+				for (let structure in structs)
+				{
+					emit.Append("\tm");
+					structure.VkType.GetName(emit);
+					emit.Append(".pNext = ");
+					if (last == 0)
+						emit.Append("null");
+					else
+					{
+						emit.Append("&m");
+						last.VkType.GetName(emit);
+					}
+					emit.Append(";\n");
+					last = structure;
+				}
+				emit.Append("\treturn &m");
+				last.VkType.GetName(emit);
+				emit.Append("""
+					;
+					}
+
+					public static bool IsSupported(VkBaseInStructure* next)
+					{
+						if (next == null) return true;
+						switch (next.sType)
+						{
+
+					""");
+				for (let structure in structs)
+				{
+					emit.Append("\tcase .");
+					structure.GetIdentifier(emit);
+					emit.Append(":\n\t\t");
+					structure.VkType.GetName(emit);
+					emit.Append("* features = (.)next;\n\t\tif (");
+					bool addSep = false;
+					for (let feature in requiredFeatures)
+					{
+						if (feature.Struct != structure) continue;
+						if (addSep) emit.Append(" || ");
+						emit.Append("!features.");
+						feature.ToString(emit);
+						addSep = true;
+					}
+					emit.Append(") return false;\n");
+				}
+				emit.Append("""
+						default:
+						}
+						return IsSupported(next.pNext);
+					}
+					""");
+				Compiler.EmitTypeBody(typeof(Self), emit);
 			}
 		}
-		public Features features;
 
 		public static Result<Self> GetFor(VkPhysicalDevice device)
 		{
@@ -203,9 +280,14 @@ static class Program
 			{
 				if (format.colorSpace != .SrgbNonlinearKHR) continue;
 				if (surfaceFormat.format == .UNDEFINED)
+				{
 					surfaceFormat = format;
-				else
-					surfaceFormat.format = Math.Min(surfaceFormat.format, format.format);
+					continue;
+				}
+
+				if (format.format.ComponentCount != 4) continue;
+				if (surfaceFormat.format.GetComponent(0).bits > format.format.GetComponent(0).bits)
+					surfaceFormat.format = format.format; // find smallest format
 			}
 			if (surfaceFormat.format == .UNDEFINED)
 				surfaceFormat = surfaceFormats[0];
@@ -230,21 +312,10 @@ static class Program
 				Runtime.FatalError(scope $"Missing device extension {ext}");
 			}
 
-			device.GetFeatures2(var features);
-			VkBaseOutStructure* nextFeatures = (.)&features;
-			Features features = .();
-			while (nextFeatures != null)
-			{
-				switch (nextFeatures.sType)
-				{
-				case features.features.sType:
-					for (let feature in requiredFeatures)
-					{
-						if (feature.Struct != _) continue;
-
-					}
-				}
-			}
+			VkPhysicalDeviceFeatures2 features = .();
+			device.GetFeatures2(out features);
+			if (!Features.IsSupported((.)&features))
+				return .Err;
 
 			if (queueFamilyIndex < 0) return .Err;
 			return Self()
@@ -486,10 +557,9 @@ static class Program
 		}
 
 		{
-			physicalDevice.features.SetPointers();
 			result = physicalDevice.device.CreateDevice(scope .()
 			{
-				pNext = &physicalDevice.features.features,
+				pNext = PhysicalDeviceInfo.Features().SetPointers(),
 				queueCreateInfos = .(.()
 				{
 					queueFamilyIndex = physicalDevice.queueFamilyIndex,

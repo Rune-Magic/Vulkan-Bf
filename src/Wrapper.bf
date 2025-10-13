@@ -190,22 +190,8 @@ namespace Vulkan
 		public struct ComponentMetadata : this(char8 name, ComponentBits bits, NumericFormat numeric, int planeIndex = -1);
 		public struct PlaneMetadata : this(int index, int widthDivisor, int heightDivisor, VkFormat compatible);
 
-		public ComponentEnumerator Components => .(this);
-		public PlaneEnumerator Planes => .(this);
-
-		[MetadataEnumerator<VkFormat, ComponentMetadata>]
-		public struct ComponentEnumerator
-		{
-			int Count() => self.ComponentCount;
-			ComponentMetadata GetElement(int idx) => self.GetComponent(idx);
-		}
-
-		[MetadataEnumerator<VkFormat, PlaneMetadata>]
-		public struct PlaneEnumerator
-		{
-			int Count() => self.PlaneCount;
-			PlaneMetadata GetElement(int idx) => self.GetPlane(idx);
-		}
+		public MetadataEnumerator<VkFormat, ComponentMetadata> Components => .(this, ComponentCount, 0, => GetComponent);
+		public MetadataEnumerator<VkFormat, PlaneMetadata> Planes => .(this, PlaneCount, 0, => GetPlane);
 	}
 }
 
@@ -262,35 +248,19 @@ namespace Vulkan.Metadata
 		case Extension(VulkanExtension ext);
 	}
 
-	struct MetadataEnumeratorAttribute<TSelf, TElement> : Attribute, IComptimeTypeApply
+	struct MetadataEnumerator<TSelf, TElement> : IEnumerator<TElement>, IResettable, this(
+		TSelf self, int count, int index,
+		function TElement(TSelf this, int idx) GetAt)
 	{
-		[Comptime]
-		public void ApplyToType(Type type)
+		public Result<TElement> GetNext() mut
 		{
-			Compiler.EmitAddInterface(type, typeof(IEnumerator<TElement>));
-			Compiler.EmitAddInterface(type, typeof(IResettable));
-			Compiler.EmitTypeBody(type, scope $$"""
-				public {{typeof(TSelf)}} self;
-				public int count, index;
-	
-				public this({{typeof(TSelf)}} self)
-				{
-					this.self = self;
-					this.count = Count();
-					this.index = 0;
-				}
-	
-				public Result<{{typeof(TElement)}}> GetNext() mut
-				{
-					if (index >= count) return .Err;
-					return GetElement(index++);
-				}
-	
-				public void Reset() mut
-				{
-					index = 0;
-				}
-				""");
+			if (index >= count) return .Err;
+			return GetAt(self, index++);
+		}
+
+		public void Reset() mut
+		{
+			index = 0;
 		}
 	}
 
@@ -298,14 +268,7 @@ namespace Vulkan.Metadata
 	{
 		public enum Kind { Instance, Device }
 
-		public DependencyEnumerator Dependencies => .(this);
-
-		[MetadataEnumerator<VulkanExtension, VulkanApi>]
-		public struct DependencyEnumerator
-		{
-			int Count() => self.DependencyCount;
-			VulkanApi GetElement(int idx) => self.GetDependency(idx);
-		}
+		public MetadataEnumerator<VulkanExtension, VulkanApi> Dependencies => .(this, DependencyCount, 0, => GetDependency);
 	}
 
 	extension VulkanCommand
@@ -314,22 +277,8 @@ namespace Vulkan.Metadata
 		public enum CmdBufferLevel { Primary = 1, Secondary = 2 }
 		public enum Task { Action = 1, State = 2, Synchronization = 4, /** executes other command buffers */ Indirection = 8 }
 
-		public SuccessCodeEnumerator SuccessCodes => .(this);
-		//public ErrorCodeEnumerator ErrorCodes => .(this);
-
-		[MetadataEnumerator<VulkanCommand, VkResult>]
-		public struct SuccessCodeEnumerator
-		{
-			int Count() => self.SuccessCodeCount;
-			VkResult GetElement(int idx) => self.GetSuccessCode(idx);
-		}
-
-		[MetadataEnumerator<VulkanCommand, VkResult>]
-		public struct ErrorCodeEnumerator
-		{
-			int Count() => self.ErrorCodeCount;
-			VkResult GetElement(int idx) => self.GetErrorCode(idx);
-		}
+		public MetadataEnumerator<VulkanCommand, VkResult> SuccessCodes => .(this, SuccessCodeCount, 0, => GetSuccessCode);
+		public MetadataEnumerator<VulkanCommand, VkResult> ErrorCodes => .(this, ErrorCodeCount, 0, => GetErrorCode);
 	}
 }
 
