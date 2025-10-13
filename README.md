@@ -5,8 +5,8 @@ Vulkan Wrapper for Beef similar to Vulkan-Hpp
 ### `Vulkan`/`Vulkan.Video`
 These namespaces contain all types and should be compatible with any C library bindings
 ```beef
-VkInstanceCreateInfo instanceCI = scope .(
-    pNext: scope .(null, 0,
+VkInstanceCreateInfo* instanceCI = scope .(
+    pNext: scope VkDebugUtilsMessengerCreateInfoEXT(null, 0,
         messageSeverity: .ErrorEXT | .WarningEXT,
         messageType: .ValidationEXT | .PerformanceEXT,
         (messageSeverity, messageTypes, pCallbackData, pUserData) =>
