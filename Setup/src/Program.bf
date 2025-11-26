@@ -1558,70 +1558,6 @@ class Program
 				""");
 		}
 
-		{
-			StreamWriter writer = scope .()..Create("../src/EnumNames.bf");
-			writer.Write("""
-				using System;
-
-				namespace Vulkan;
-
-
-				""");
-			String str = scope .(1024);
-			bool inVideo = false;
-			for (let type in types)
-			{
-				let enumEntry = type.value as EnumEntry;
-				if (enumEntry == null || !enumEntry.added) continue;
-				if (enumEntry.name.StartsWith("Std") && !inVideo)
-				{
-					str.Append("namespace Vulkan.Video;\n\n");
-					inVideo = true;
-				}
-				str.Append("extension ", enumEntry.name, """
-
-					{
-					#if !VULKAN_NO_ORIGNAL_ENUM_NAMES_IN_STRINGS
-						public override void ToString(String strBuffer)
-						{
-							switch (this)
-							{
-
-					""");
-				for (let enumcase in enumEntry.cases)
-				{
-					if (enumcase.value[0].IsLetter) continue;
-					str.Append("\t\tcase .", enumcase.name, ": strBuffer.Append(\"", enumcase.orignalName, "\");\n");
-				}
-				str.Append("""
-							default: Underlying.ToString(strBuffer);
-							}
-						}
-					#endif
-
-						public void GetIdentifier(String strBuffer)
-						{
-							switch (this)
-							{
-
-					""");
-				for (let enumcase in enumEntry.cases)
-				{
-					if (enumcase.value[0].IsLetter) continue;
-					str.Append("\t\tcase .", enumcase.name, ": strBuffer.Append(\"", enumcase.name, "\");\n");
-				}
-				str.Append("""
-							default: Underlying.ToString(strBuffer);
-							}
-						}
-					}
-
-
-					""");
-				writer.Write(str); str.Clear();
-			}
-		}
-
 		return 0;
 	}
 
@@ -1778,10 +1714,10 @@ class Program
 			for (let enumcase in cases)
 			{
 				if (enumcase.name == enumcase.value) continue;
-				str.Append('\t');
+				str.Append("\t[NoShow] ");
 				if (!enumcase.name.IsNull) name:
 				{
-					str.Append(enumcase.name, " = ");
+					str.Append(enumcase.orignalName, " = ");
 					if (enumcase.value.StartsWith('#'))
 					{
 						StringView value = .(enumcase.value)..RemoveFromStart(1);
@@ -1800,6 +1736,12 @@ class Program
 				if (!enumcase.comment.IsNull)
 					str.Append("// ", enumcase.comment);
 				str.Append('\n');
+				writer.Write(str); str.Clear();
+			}
+			for (let enumcase in cases)
+			{
+				if (enumcase.name == enumcase.value) continue;
+				str.Append("\t", enumcase.name, " = ", enumcase.orignalName, ",\n");
 				writer.Write(str); str.Clear();
 			}
 			writer.Write("}");

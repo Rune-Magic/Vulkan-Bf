@@ -233,7 +233,7 @@ static class Program
 				for (let structure in structs)
 				{
 					emit.Append("\tcase .");
-					structure.GetIdentifier(emit);
+					structure.ToString(emit);
 					emit.Append(":\n\t\t");
 					structure.VkType.GetName(emit);
 					emit.Append("* features = (.)next;\n\t\tif (");
