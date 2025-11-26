@@ -113,8 +113,27 @@ class Program
 
 	public static int Main(String[] args)
 	{
-		StringView vulkanSdk = .(getenv("VULKAN_SDK"));
-		if (vulkanSdk.IsNull) Internal.FatalError("Failed to find Vulkan SDK");
+		StringView vkXml = null, videoXml = null;
+		while (true)
+		{
+			StringView vulkanSdk = .(getenv("VULKAN_SDK"));
+			if (!vulkanSdk.IsNull)
+			{
+				vkXml = scope:: $"{vulkanSdk}/share/vulkan/registry/vk.xml";
+				videoXml = scope:: $"{vulkanSdk}/share/vulkan/registry/video.xml";
+				break;
+			}
+#if BF_PLATFORM_LINUX
+			if (File.Exists("/usr/share/vulkan/vk.xml"))
+			{
+				vkXml = "/usr/share/vulkan/vk.xml";
+				videoXml = "/usr/share/vulkan/video.xml";
+				break;
+			}
+#endif
+			Console.WriteLine("Failed to find vulkan registry...");
+			Console.Read();
+		}
 
 		XmlReader reader;
 		List<StringView> apiVersions = scope .(8);
@@ -362,7 +381,7 @@ class Program
 				}
 			}
 		);
-		switch (Xml.Open!::(scope $"{vulkanSdk}/share/vulkan/registry/vk.xml"))
+		switch (Xml.Open!::(vkXml))
 		{
 		case .Ok(out reader):
 		case .Err(let err):
@@ -391,7 +410,7 @@ class Program
 				vk.Write($"typealias {handle} = void*;\n");
 		}
 
-		switch (Xml.Open!::(scope $"{vulkanSdk}/share/vulkan/registry/video.xml"))
+		switch (Xml.Open!::(videoXml))
 		{
 		case .Ok(out reader):
 		case .Err(let err):

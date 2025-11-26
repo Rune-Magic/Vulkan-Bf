@@ -139,15 +139,15 @@ static class Program
 		result = gDevice.AllocateCommandBuffers(scope .(null, commandPool, .Primary, 1), let cmd);
 		TryResult!(result);
 		defer commandPool.FreeCommandBuffers(gDevice, .(cmd));
-
+		
 		result = cmd.Begin(scope .(null, .OneTimeSubmit));
 		TryResult!(result);
 			cmd.CmdCopyBuffer(srcBuffer, dstBuffer, .(.(0, 0, (.)data.Length) {}));
 		result = cmd.End();
 		TryResult!(result);
-
+		
 		result = queue.Submit(.(.(null, commandBuffers: .(cmd)) {}), fence: null);
-		CheckResult(result);
+		TryResult!(result);
 		result = queue.WaitIdle();
 		return result;
 	}
